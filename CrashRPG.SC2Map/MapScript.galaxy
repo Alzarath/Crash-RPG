@@ -1,0 +1,115 @@
+//==================================================================================================
+// 
+// Generated Map Script
+// 
+// Name:   Crash RPG
+// 
+//==================================================================================================
+include "TriggerLibs/NativeLib"
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+void InitLibs () {
+    libNtve_InitLib();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Constants
+//--------------------------------------------------------------------------------------------------
+const fixed gv_damageFraction = 0.025;
+
+//--------------------------------------------------------------------------------------------------
+// Global Variables
+//--------------------------------------------------------------------------------------------------
+fixed gv_untitledVariable001;
+
+void InitGlobals () {
+}
+
+//--------------------------------------------------------------------------------------------------
+// Global Function Declarations
+//--------------------------------------------------------------------------------------------------
+void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip);
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Variables
+//--------------------------------------------------------------------------------------------------
+trigger gt_MapInitialization;
+trigger gt_Updatetooltips;
+
+//--------------------------------------------------------------------------------------------------
+// Global Functions
+//--------------------------------------------------------------------------------------------------
+void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip) {
+    // Variable Declarations
+    int lv_damageModifier;
+    int lv_damagePoints;
+
+    // Variable Initialization
+
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Map Initialization
+//--------------------------------------------------------------------------------------------------
+bool gt_MapInitialization_Func (bool testConds, bool runActions) {
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MapInitialization_Init () {
+    gt_MapInitialization = TriggerCreate("gt_MapInitialization_Func");
+    TriggerAddEventMapInit(gt_MapInitialization);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Update tooltips
+//--------------------------------------------------------------------------------------------------
+bool gt_Updatetooltips_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    fixed lv_damageModifier;
+    int lv_damagePoints;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        lv_damagePoints = ((UnitBehaviorCount(UnitGroupLoopCurrent(), "LevelCounter") * CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "LevelCounter", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", UnitGetOwner(UnitGroupLoopCurrent()))) + CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "CRPGBaseAttributes", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", UnitGetOwner(UnitGroupLoopCurrent())));
+        lv_damageModifier = ((lv_damagePoints * gv_damageFraction) + 1.0);
+        CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicRounds", "Tooltip", EventPlayer(), (("The Sniper's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", UnitGetOwner(UnitGroupLoopCurrent())) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", UnitGetOwner(UnitGroupLoopCurrent())))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.")));
+        TextExpressionSetToken("Param/Expression/59100652", "A", StringExternal("Param/Value/540CD085"));
+        TextExpressionSetToken("Param/Expression/59100652", "B", FixedToText(gv_damageFraction, 4));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/59100652"));
+    }
+    UnitGroupLoopEnd();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Updatetooltips_Init () {
+    gt_Updatetooltips = TriggerCreate("gt_Updatetooltips_Func");
+    TriggerAddEventUnitAbility(gt_Updatetooltips, null, AbilityCommand("CRPGUpgradeDamage", 0), c_unitAbilStageAll, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger Initialization
+//--------------------------------------------------------------------------------------------------
+void InitTriggers () {
+    gt_MapInitialization_Init();
+    gt_Updatetooltips_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Map Initialization
+//--------------------------------------------------------------------------------------------------
+void InitMap () {
+    InitLibs();
+    InitGlobals();
+    InitTriggers();
+}

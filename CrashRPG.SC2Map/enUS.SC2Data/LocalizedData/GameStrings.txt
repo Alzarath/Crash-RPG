@@ -1,0 +1,119 @@
+﻿Abil/Name/CRPGArmoryResearch=Armory Research
+Abil/Name/CRPGUpgradeArmor=Upgrade Armor
+Abil/Name/CRPGUpgradeDamage=Upgrade Damage
+Abil/Name/LevelUp=Level Up
+Abil/Name/SniperCloak=Personal Cloaking
+Abil/Name/SniperHoldFire=Hold Fire
+Abil/Name/SniperNuclearStrike=Nuclear Strike
+Abil/Name/SniperSnipe=Snipe
+Abil/Name/SniperWeaponsFree=Weapons Free
+Abil/Name/ThorAPMode2=Thor APMode Copy
+Behavior/Name/ArmorAttribute=Armor
+Behavior/Name/DamageAttribute=Damage
+Behavior/Name/HeroVeterancy=Hero Veterancy
+Behavior/Name/SniperDeadlyToxinDamage=Deadly Toxin
+Behavior/Name/SniperHoldFire=Hold Fire
+Behavior/Tooltip/ArmorAttribute=Increases the hero's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,ArmorAttribute,Modification.LifeArmorBonus" precision="1"/></c> per point.
+Behavior/Tooltip/DamageAttribute=Increase the hero's attack and spell damage by <c val="#ColorAttackInfo"><d ref="Behavior,DamageAttribute,Modification.DamageDealtFraction[Melee] * 100" precision="1"/>%</c> per point.
+Behavior/Tooltip/SniperDeadlyToxinDamage=Target was recently inflicted with a horrible toxin and has built an immunity toward it.
+Button/Name/ArmorpiercingMode2=High Impact Payload Copy
+Button/Name/LevelUp=Level Up
+Button/Name/MultiLockTargetingSystem2=Multi-Lock Weapons System Copy
+Button/Name/SniperEnhancedOptics=Enhanced Optics
+Button/Name/SniperNuclearStrike=Nuclear Strike
+Button/Name/SniperSnipe=Sniper Round
+Button/Name/SniperToxicRounds=Toxic Rounds
+Button/Name/UpgradeArmor=Upgrade Armor
+Button/Name/UpgradeDamage=Upgrade Damage
+Button/Tooltip/ArmorpiercingMode2=Activates the Thor's 250mm Punisher Cannons. Punisher cannons strike a single air target for heavy damage.
+Button/Tooltip/CRPGArmory=Contains damage and armor upgrades.
+Button/Tooltip/CRPGCrashedBattlecruiser=Contains upgrades for Terran infantry and structures. <n/><n/><c val="ffff8a">Enables:</c><n/>- Missile Turrets from SCVs<n/>- Sensor Towers from SCVs<n/>- Planetary Fortresses from Command Centers
+Button/Tooltip/CRPGMech=Basic worker unit. Can gather resources, build Terran structures, and repair.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/Goliath2=Heavy-fire support unit.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/LevelUp=Levels up the hero to the next available level, granting it addition abilties.
+Button/Tooltip/MultiLockTargetingSystem2=The Goliath can target ground and air units simultaneously.
+Button/Tooltip/SniperEnhancedOptics=Snipe casts considerably faster.
+Button/Tooltip/SniperLevel5=Can use Snipe, Personal Cloaking, and Nuclear Strike.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/SniperNuclearStrike=Calls down a Nuclear Strike at a target location. Nuke takes <d ref="Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay"/> seconds to land and deals up to <d ref="Effect,SniperNuclearStrikeDamage,Amount"/> (+<d ref="Effect,SniperNuclearStrikeDamage,AttributeBonus[Structure]"/> vs. structures) damage to enemies in a large radius.
+Button/Tooltip/SniperSnipe=A careful shot, dealing <d ref="Effect,SniperSnipeDamage,Amount"/> (<d ref="Effect,SniperSnipeDamage,Amount + Effect,SniperSnipeDamage,AttributeBonus[5]"/> vs. Psionic) damage. Ignores armor.<n/><n/><c val="#ColorAttackInfo">Can only target biological units.</c>
+Button/Tooltip/SniperToxicRounds=The Sniper's projectiles are coated in a deadly toxin that deals <c val="#ColorAttackInfo"><d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Effect,SniperDeadlyToxinDamage,Amount"/></c> damage over <d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period"/> seconds to any enemy damaged by it for the first time.
+Button/Tooltip/Thor2=Heavy assault mech.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/WarHound2=Anti-vehicle mech. Haywire missiles do bonus damage to mechanical units. <n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+DocInfo/DescLong=Remake of the StarCraft: Brood War map of the same name.
+DocInfo/DescShort=Any
+DocInfo/Name=Crash RPG
+Effect/Name/CRPGUpgradeArmor=Upgrade Armor
+Effect/Name/CRPGUpgradeDamage=Upgrade Damage
+Effect/Name/FusionCutter2=Fusion Cutter (Damage) Copy
+Effect/Name/GoliathA2=Hellfire Missile Pack Copy
+Effect/Name/GoliathALM2=Goliath ALM Copy
+Effect/Name/GoliathAU2=Hellfire Missile Pack Copy
+Effect/Name/GoliathG2=Twin Autocannons Copy
+Effect/Name/IncreaseLevelCounter=Increase Level Counter
+Effect/Name/JavelinMissileLaunchersDamage2=Anti Air (Damage) Copy
+Effect/Name/JavelinMissileLaunchersLM2=Anti Air (Launch Missile) Copy
+Effect/Name/JavelinMissileLaunchersPersistent2=Anti Air (Persistent) Copy
+Effect/Name/SniperC10CanisterRifleDamage=C-10 Canister Rifle
+Effect/Name/SniperC20ACanisterRifleDamage=C-20A Canister Rifle
+Effect/Name/SniperDeadlyToxinApplyBehavior=Deadly Toxin
+Effect/Name/SniperDeadlyToxinDamage=Deadly Toxin
+Effect/Name/SniperHoldFire=Hold Fire
+Effect/Name/SniperHoldFireB=Hold Fire B
+Effect/Name/SniperLevelUp2=Level Up
+Effect/Name/SniperLevelUp3=Level Up
+Effect/Name/SniperLevelUp4=Level Up
+Effect/Name/SniperLevelUp5=Level Up
+Effect/Name/SniperNuclearStrikeCalldown=Nuclear Strike
+Effect/Name/SniperNuclearStrikeDamage=Nuclear Strike
+Effect/Name/SniperNuclearStrikeDetonate=Nuclear Strike
+Effect/Name/SniperNuclearStrikePersistent=Nuclear Strike
+Effect/Name/SniperSnipeDamage=Snipe
+Effect/Name/SniperWeaponsFree=Weapons Free
+Effect/Name/ThorsHammer2=Arm Cannons (Persistent) Copy
+Effect/Name/ThorsHammerDamage2=Thor Hand Gun Splash Damage Target Copy
+Effect/Name/TwinGatlingCannons2=Twin Gatling Cannon (Damage) Copy
+Effect/Name/WarHound=War Hound Copy
+Effect/Name/WarHound2=War Hound Copy
+Effect/Name/WarHoundLM2=War Hound LM Copy
+MapInfo/Player00/Name=Neutral
+MapInfo/Player01/Name=Player 1
+MapInfo/Player02/Name=Hostile
+Param/Expression/59100652=~A~~B~
+Param/Value/540CD085=Fraction: 
+RequirementNode/Tooltip/GT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnit=Correct Level
+RequirementNode/Tooltip/GTE142027770CountBehaviorLevelCounterCompleteOnlyAtUnit5=Level 5
+RequirementNode/Tooltip/GTE1845366357CountBehaviorLevelCounterCompleteOnlyAtUnit4=Level 4
+RequirementNode/Tooltip/GTE2494718353CountBehaviorLevelCounterCompleteOnlyAtUnit3=Level 3
+RequirementNode/Tooltip/GTE2832794247CountBehaviorLevelCounterCompleteOnlyAtUnit1=Level 1
+RequirementNode/Tooltip/GTE774336177CountBehaviorLevelCounterCompleteOnlyAtUnit2=Level 2
+RequirementNode/Tooltip/LT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5=Not maximum level
+Unit/Name/CRPGArmory=Armory
+Unit/Name/CRPGCrashedBattlecruiser=Crashed Battlecruiser
+Unit/Name/CRPGMech=Mech
+Unit/Name/CRPGSniper=Sniper
+Unit/Name/GoliathAWeapon2=Goliath Air Weapon Copy
+Unit/Name/KerriganGhostLab2=Sniper
+Unit/Name/MechLevel2=Viking
+Unit/Name/MechLevel3=Warhound Copy
+Unit/Name/MechLevel4=Goliath Copy
+Unit/Name/MechLevel5=Thor Copy
+Unit/Name/SniperLevel4=Sniper
+Unit/Name/Thor=Thor Copy
+Unit/Name/ThorAAWeapon2=Thor AA Copy
+Unit/Name/WarHoundWeapon2=Warhound Copy
+Upgrade/Name/CRPGArmor=Armor
+Upgrade/Name/CRPGDamage=Damage
+Weapon/Name/GoliathA2=Hellfire Missiles Copy
+Weapon/Name/GoliathAUpgraded2=Hellfire Missiles Copy
+Weapon/Name/GoliathG2=Autocannon Copy
+Weapon/Name/GoliathGUpgraded2=Autocannon Copy
+Weapon/Name/JavelinMissileLaunchers2=Javelin Missile Launchers Copy
+Weapon/Name/MechFusionCutter=Fusion Cutter
+Weapon/Name/SniperC10CanisterRifle=C-10 Canister Rifle
+Weapon/Name/SniperC10CanisterRifleLevel2=C-10 Canister Rifle
+Weapon/Name/SniperC10CanisterRifleLevel3=C-10 Canister Rifle
+Weapon/Name/SniperC20ACanisterRifle=C-20A Canister Rifle
+Weapon/Name/ThorsHammer2=Thor's Hammer Copy
+Weapon/Name/TwinGatlingCannon2=Gatling Cannon Copy
+Weapon/Name/WarHound2=Railgun Copy
+Weapon/Name/WarHoundMelee2=War Hound Melee Copy

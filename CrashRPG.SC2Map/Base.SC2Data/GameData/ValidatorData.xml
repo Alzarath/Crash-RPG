@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CValidatorUnitCompareBehaviorCount id="GELevel1">
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="GELevel2">
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="GELevel3">
+        <Compare value="GE"/>
+        <Value value="3"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="GELevel4">
+        <Compare value="GE"/>
+        <Value value="4"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="GELevel5">
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsLevel2">
+        <Value value="2"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsLevel3">
+        <Value value="3"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsLevel4">
+        <Value value="4"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsLevel5">
+        <Value value="5"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNotLevel1">
+        <Compare value="NE"/>
+        <Value value="1"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsLevel1">
+        <Value value="1"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNotLevel2">
+        <Compare value="NE"/>
+        <Value value="2"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNotLevel3">
+        <Compare value="NE"/>
+        <Value value="3"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNotLevel4">
+        <Compare value="NE"/>
+        <Value value="4"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="IsNotLevel5">
+        <Compare value="NE"/>
+        <Value value="5"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="SniperDeadlyToxinCooldown">
+        <Compare value="LE"/>
+        <Behavior value="SniperDeadlyToxinDamage"/>
+    </CValidatorUnitCompareBehaviorCount>
+</Catalog>

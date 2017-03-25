@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CAbilResearch id="CRPGArmoryResearch">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Research1" Upgrade="CRPGDamage">
+            <Resource index="Minerals" value="100"/>
+            <Button DefaultButtonFace="UpgradeDamage"/>
+        </InfoArray>
+        <InfoArray index="Research2" Upgrade="CRPGArmor">
+            <Resource index="Minerals" value="100"/>
+            <Button DefaultButtonFace="UpgradeArmor"/>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilEffectInstant id="CRPGUpgradeArmor">
+        <Cost>
+            <Resource index="Minerals" value="100"/>
+            <Charge CountMax="255" CountUse="-1"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeArmor"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="CRPGUpgradeDamage">
+        <Cost>
+            <Resource index="Minerals" value="100"/>
+            <Charge CountMax="255" CountUse="-1"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeDamage"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="LevelUp">
+        <Effect index="0" value="IncreaseLevelCounter"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost>
+            <Cooldown TimeStart="2" TimeUse="2"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="LevelUp" Requirements="IsAppropriateLevel"/>
+        <AutoCastValidatorArray value="CasterIsDead"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="SniperNuclearStrike" parent="HeroNuclearStrike">
+        <Name value="Abil/Name/SniperNuclearStrike"/>
+        <Effect index="0" value="SniperNuclearStrikePersistent"/>
+        <CursorEffect index="0" value="SniperNuclearStrikeDamage"/>
+        <CalldownEffect value="SniperNuclearStrikeCalldown"/>
+        <CmdButtonArray index="Execute" Requirements="GELevel5"/>
+        <Cost>
+            <Charge Link="Abil/SniperNuclearStrike" TimeUse="150"/>
+            <Cooldown Link="Abil/SniperNuclearStrike"/>
+        </Cost>
+    </CAbilEffectTarget>
+    <CAbilBehavior id="SniperCloak" parent="GhostCloak">
+        <Name value="Abil/Name/SniperCloak"/>
+        <CmdButtonArray index="On" Requirements="GELevel3"/>
+    </CAbilBehavior>
+    <CAbilEffectInstant id="SniperHoldFire" parent="GhostHoldFire">
+        <Name value="Abil/Name/SniperHoldFire"/>
+        <Effect index="0" value="SniperHoldFire"/>
+        <CmdButtonArray index="Execute" Requirements="SniperNotHoldingFireGELevel3"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="SniperWeaponsFree" parent="GhostWeaponsFree">
+        <Name value="Abil/Name/SniperWeaponsFree"/>
+        <Effect index="0" value="SniperWeaponsFree"/>
+        <CmdButtonArray index="Execute" Requirements="SniperHoldingFireGELevel3"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="SniperSnipe" parent="Snipe">
+        <Name value="Abil/Name/SniperSnipe"/>
+        <Effect index="0" value="SniperSnipeDamage"/>
+        <CastIntroTime index="0" value="1.5"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="SniperSnipeEnhanced" parent="SniperSnipe">
+        <CastIntroTime index="0" value="0.5"/>
+        <CmdButtonArray index="Execute" Requirements="GELevel2"/>
+    </CAbilEffectTarget>
+    <CAbilMorph id="ThorAPMode2">
+        <OrderArray index="0" Color="255,0,255,0" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3" LineTexture="Assets\Textures\WayPointLine.dds"/>
+        <AbilSetId value="ThorAPMode"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ArmorpiercingMode">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <InfoArray Unit="ThorAP2" RandomDelayMax="0.5">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="3.9"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="4"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="4"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+</Catalog>

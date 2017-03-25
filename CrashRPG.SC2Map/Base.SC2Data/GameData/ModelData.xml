@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CModel id="SniperPortraitLevel5" parent="Portrait" Race="Terran">
+        <Model value="Assets\Portraits\Terran\NovaPortrait\NovaPortrait.m3"/>
+        <RequiredAnims value="Assets\Portraits\Terran\NovaPortrait_RequiredAnims\NovaPortrait_RequiredAnims.m3a"/>
+    </CModel>
+</Catalog>

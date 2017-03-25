@@ -1,0 +1,4 @@
+﻿Button/Hotkey/ArmorpiercingMode2=E
+Button/Hotkey/LevelUp=L
+Button/Hotkey/SniperNuclearStrike=E
+Button/Hotkey/SniperSnipe=Q

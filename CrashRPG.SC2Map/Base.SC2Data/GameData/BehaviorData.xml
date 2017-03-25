@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CBehaviorBuff id="AddArmor">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <AttributeChangeArray Attribute="ArmorAttribute" Points="1"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AddDamage">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Modification>
+            <AttributeChangeArray Attribute="DamageAttribute" Points="1"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGBaseAttributes">
+        <InfoFlags index="Hidden" value="1"/>
+        <Modification>
+            <AttributeChangeArray Attribute="ArmorAttribute" Points="-5"/>
+            <AttributeChangeArray Attribute="DamageAttribute" Points="-5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorAttribute id="DamageAttribute">
+        <Modification>
+            <DamageDealtFraction index="Spell" value="0.025"/>
+            <DamageDealtFraction index="Melee" value="0.025"/>
+            <DamageDealtFraction index="Ranged" value="0.025"/>
+            <DamageDealtFraction index="Splash" value="0.025"/>
+        </Modification>
+        <MinPoints value="-5"/>
+    </CBehaviorAttribute>
+    <CBehaviorAttribute id="ArmorAttribute">
+        <Modification LifeArmorBonus="0.2"/>
+        <MinPoints value="-5"/>
+    </CBehaviorAttribute>
+    <CBehaviorBuff id="LevelCounter">
+        <MaxStackCount value="5"/>
+        <Modification>
+            <VitalMaxAdditiveMultiplierArray index="Life" value="0.25"/>
+            <VitalMaxAdditiveMultiplierArray index="Shields" value="0.25"/>
+            <AttributeChangeArray Attribute="ArmorAttribute" Points="5"/>
+            <AttributeChangeArray Attribute="DamageAttribute" Points="5"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MultilockTargetingSystems2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Requirements value="UseMultilockTargetingSystems"/>
+        <Modification>
+            <WeaponEnableArray value="GoliathAUpgraded"/>
+            <WeaponEnableArray value="GoliathGUpgraded"/>
+            <WeaponEnableArray value="SpartanCompanyAUpgraded"/>
+            <WeaponEnableArray value="SpartanCompanyGUpgraded"/>
+            <WeaponEnableArray value="MengskGoliathAUpgraded"/>
+            <WeaponEnableArray value="MengskGoliathGUpgraded"/>
+            <WeaponDisableArray value="GoliathA"/>
+            <WeaponDisableArray value="GoliathG"/>
+            <WeaponDisableArray value="SpartanCompanyA"/>
+            <WeaponDisableArray value="SpartanCompanyG"/>
+            <WeaponDisableArray value="MengskGoliathA"/>
+            <WeaponDisableArray value="MengskGoliathG"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SniperDeadlyToxinDamage">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-poisonnova.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="60"/>
+        <Period value="0.05"/>
+        <PeriodCount value="40"/>
+        <PeriodicEffect value="SniperDeadlyToxinDamage"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SniperDeadlyToxinApply">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DamageResponse Chance="1" Handled="SniperDeadlyToxinApplyBehavior" Location="Attacker"/>
+        <DisableValidatorArray value="GELevel4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SniperEnhancedOptics">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <DisableValidatorArray value="GELevel2"/>
+        <Modification SightBonus="2">
+            <AbilLinkEnableArray value="SniperSnipeEnhanced"/>
+            <AbilLinkDisableArray value="SniperSnipe"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorVeterancy id="HeroVeterancy">
+        <XPFraction index="Kills" value="10"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="12500"/>
+        <VeterancyLevelArray MinVeterancyXP="15000"/>
+        <VeterancyLevelArray MinVeterancyXP="15000"/>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="SniperHoldFire">
+        <InfoIcon value="Assets\Textures\btn-ability-terran-holdfire.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="0.07"/>
+        <ExpireEffect value="SniperHoldFireB"/>
+        <Modification>
+            <StateFlags index="Passive" value="1"/>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+</Catalog>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CEffectModifyPlayer id="CRPGUpgradeArmor">
+        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[0].Points" Value="1"/>
+        <EffectArray Reference="Abil,CRPGUpgradeArmor,Cost[0].Resource[Minerals]" Value="100"/>
+    </CEffectModifyPlayer>
+    <CEffectDamage id="FusionCutter2" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="GoliathA2">
+        <ValidatorArray value="CasterIsNotHidden"/>
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetUnit"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="GoliathALM2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.21"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="GoliathALM2">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="GoliathAU2"/>
+        <AmmoUnit value="GoliathAWeapon2"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="GoliathAU2" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Terran"/>
+        <AttributeBonus index="Armored" value="8"/>
+        <Amount value="8"/>
+    </CEffectDamage>
+    <CEffectDamage id="GoliathG2" parent="DU_WEAP">
+        <ValidatorArray value="CasterIsNotHidden"/>
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="18"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="IncreaseLevelCounter">
+        <Behavior value="LevelCounter"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="JavelinMissileLaunchersDamage2" parent="DU_WEAP_SPLASH">
+        <EditorCategories value="Race:Terran"/>
+        <AttributeBonus index="Light" value="6"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="6"/>
+        <Death value="Blast"/>
+        <AreaArray Radius="0.5" Fraction="1"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Air;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="JavelinMissileLaunchersLM2">
+        <ValidatorArray index="0" value="RangeCheckLE15"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="JavelinMissileLaunchersDamage2"/>
+        <AmmoUnit value="ThorAAWeapon2"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="JavelinMissileLaunchersPersistent2">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="4"/>
+        <PeriodicEffectArray value="JavelinMissileLaunchersLM2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <PeriodicPeriodArray value="0.25"/>
+        <PeriodicPeriodArray value="0.125"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="SniperDeadlyToxinApplyBehavior">
+        <ValidatorArray index="0" value="SniperDeadlyToxinCooldown"/>
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="SniperDeadlyToxinDamage"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="SniperDeadlyToxinDamage">
+        <EditorCategories value="Race:Terran"/>
+        <Amount value="1"/>
+    </CEffectDamage>
+    <CEffectIssueOrder id="SniperLevelUp2">
+        <Abil value="LevelUp"/>
+    </CEffectIssueOrder>
+    <CEffectIssueOrder id="SniperLevelUp3">
+        <Abil value="SniperLevelUp3"/>
+    </CEffectIssueOrder>
+    <CEffectIssueOrder id="SniperLevelUp4">
+        <Abil value="SniperLevelUp4"/>
+    </CEffectIssueOrder>
+    <CEffectIssueOrder id="SniperLevelUp5">
+        <Abil value="SniperLevelUp4"/>
+    </CEffectIssueOrder>
+    <CEffectUseCalldown id="SniperNuclearStrikeCalldown">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CalldownCount value="1"/>
+        <CalldownEffect value="SniperNuclearStrikePersistent"/>
+    </CEffectUseCalldown>
+    <CEffectDamage id="SniperNuclearStrikeDamage">
+        <EditorCategories value="Race:Terran"/>
+        <AINotifyFlags index="HurtFriend" value="1"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeBonus index="Structure" value="200"/>
+        <Amount value="750"/>
+        <AreaArray Radius="4" Fraction="1"/>
+        <AreaArray Radius="6" Fraction="0.5"/>
+        <AreaArray Radius="8" Fraction="0.25"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="SniperNuclearStrikeDetonate">
+        <EditorCategories value="Race:Terran"/>
+        <InitialDelay value="1.25"/>
+        <InitialEffect value="SniperNuclearStrikeDamage"/>
+        <ExpireDelay value="8.25"/>
+        <RevealRadius value="8"/>
+        <RevealFlags index="Unfog" value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="SniperNuclearStrikePersistent">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <InitialDelay value="1.75"/>
+        <ExpireDelay value="3"/>
+        <ExpireEffect value="SniperNuclearStrikeDetonate"/>
+        <FinalEffect value="nukeSuicide"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="SniperC20ACanisterRifleDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="SniperHoldFire">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="SniperHoldFireB" parent="GhostHoldFireB">
+        <Name value="Effect/Name/SniperHoldFireB"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="SniperWeaponsFree">
+        <EditorCategories value="Race:Terran"/>
+        <BehaviorLink value="GhostHoldFireB"/>
+    </CEffectRemoveBehavior>
+    <CEffectDamage id="SniperC10CanisterRifleDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <AttributeBonus index="Light" value="10"/>
+        <Kind value="Ranged"/>
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectDamage id="SniperSnipeDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <AttributeBonus index="Psionic" value="25"/>
+        <ArmorReduction value="0"/>
+        <Kind value="Spell"/>
+        <Amount value="25"/>
+        <Death value="Silentkill"/>
+    </CEffectDamage>
+    <CEffectModifyPlayer id="CRPGUpgradeDamage">
+        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[1].Points" Value="1"/>
+        <EffectArray Reference="Abil,CRPGUpgradeDamage,Cost[0].Resource[Minerals]" Value="100"/>
+    </CEffectModifyPlayer>
+    <CEffectCreatePersistent id="ThorsHammer2">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="ThorsHammerDamage2"/>
+        <PeriodicEffectArray value="ThorsHammerDamage2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.375"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="ThorsHammerDamage2" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="30"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectDamage id="TwinGatlingCannons2" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="12"/>
+    </CEffectDamage>
+    <CEffectDamage id="WarHound2">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1"/>
+        <Kind value="Ranged"/>
+        <Amount value="23"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="WarHoundLM2">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="WarHound2"/>
+        <AmmoUnit value="WarHoundWeapon2"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="WarHoundMelee2" parent="WarHound">
+        <Kind value="Melee"/>
+    </CEffectDamage>
+</Catalog>

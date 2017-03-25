@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CButton id="ArmorpiercingMode2">
+        <Icon value="Assets\Textures\btn-unit-terran-thorsiegemode.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-thorsiegemode.dds"/>
+        <HotkeySet value="ThorModes"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="LevelUp">
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+    </CButton>
+    <CButton id="MultiLockTargetingSystem2">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="SniperNuclearStrike">
+        <Icon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="NukeCalldown"/>
+        <HidesForSimpleText value="0"/>
+    </CButton>
+    <CButton id="SniperEnhancedOptics">
+        <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
+    </CButton>
+    <CButton id="SniperToxicRounds">
+        <Icon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
+    </CButton>
+    <CButton id="SniperSnipe">
+        <Icon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HidesForSimpleText value="0"/>
+    </CButton>
+    <CButton id="UpgradeDamage">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <Tooltip value="Behavior/Tooltip/DamageAttribute"/>
+        <AlertTooltip value="Behavior/Tooltip/DamageAttribute"/>
+    </CButton>
+    <CButton id="UpgradeArmor">
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="UpgradeDamage"/>
+        <Tooltip value="Behavior/Tooltip/DamageAttribute"/>
+        <AlertTooltip value="Behavior/Tooltip/ArmorAttribute"/>
+    </CButton>
+</Catalog>
