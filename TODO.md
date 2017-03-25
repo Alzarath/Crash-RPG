@@ -128,14 +128,14 @@ Ground flexible.
 
 #### Abilities
 
-[ ] Level 1: Snipe
+[X] Level 1: Snipe
 [ ] Level 3: Personal Cloak
 [ ] Level 5: Nuclear Strike
 
 #### Passives
 
 [ ] Level 2: Enhanced Optics
-[ ] Level 4: Toxic Munitions
+[X] Level 4: Toxic Munitions
 
 ### Sorcerer
 
