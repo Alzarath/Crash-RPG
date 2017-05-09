@@ -128,7 +128,7 @@ Ground flexible.
 
 #### Abilities
 
-Level 1: Snipe  
+Level 1: Sniper Round  
 Level 3: Personal Cloak  
 Level 5: Nuclear Strike
 
@@ -164,8 +164,8 @@ Level 5: Siege Mode
 
 #### Passives
 
-Level 2: Servomotor  
-Level 4: Charged Turret
+Level 2: Automatic Servos  
+Level 4: Graduating Range
 
 ### Wizard
 
