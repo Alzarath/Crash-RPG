@@ -4,7 +4,7 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
         <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[1].Points" Value="1"/>
         <EditorCategories value="Race:Neutral,UpgradeType:AttackBonus"/>
-        <AffectedUnitArray value="CRPGSniper"/>
+        <AffectedUnitArray value="CRPGSniperLevel1"/>
         <MaxLevel value="255"/>
         <ScoreCount value="WeaponTechnologyCount"/>
         <ScoreValue value="WeaponTechnologyValue"/>
@@ -18,7 +18,7 @@
         <ScoreResult value="BuildOrder"/>
         <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[0].Points" Value="1"/>
         <EditorCategories value="Race:Terran,UpgradeType:ArmorBonus"/>
-        <AffectedUnitArray value="CRPGSniper"/>
+        <AffectedUnitArray value="CRPGSniperLevel1"/>
         <MaxLevel value="255"/>
     </CUpgrade>
 </Catalog>

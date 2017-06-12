@@ -1,93 +1,750 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectLaunchMissile id="AeroATALaserBatteryATALaunchMissile">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="ATALaserBatteryATADamage"/>
+        <AmmoUnit value="ATALaserBatteryLMWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ATALaserBatteryATADamage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Terran"/>
+        <Visibility value="Visible"/>
+        <Amount value="6"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="AeroLaserArmamentsSearchArea">
+        <EditorCategories value="Race:Terran"/>
+        <SearchFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray MaxCount="1" Radius="3" Effect="AeroLaserArmamentsCreatePersistent"/>
+    </CEffectEnumArea>
+    <CEffectCreatePersistent id="AeroLaserArmamentsCreatePersistent">
+        <EditorCategories value="Race:Terran"/>
+        <InitialEffect value="AeroLaserArmamentsLaunchMissile"/>
+        <PeriodCount value="12"/>
+        <PeriodicValidator value="NotDead"/>
+        <PeriodicEffectArray value="AeroLaserArmamentsLaunchMissile"/>
+        <PeriodicOffsetArray value="1,0,0"/>
+        <PeriodicOffsetArray value="0,1,0"/>
+        <PeriodicOffsetArray value="0.5,0,0"/>
+        <PeriodicOffsetArray value="-1,0,0"/>
+        <PeriodicOffsetArray value="0,0.5,0"/>
+        <PeriodicOffsetArray value="0,-1,0"/>
+        <PeriodicOffsetArray value="0,-0.5,0"/>
+        <PeriodicOffsetArray value="0.5,0.5,0"/>
+        <PeriodicOffsetArray value="0.5,-0.5,0"/>
+        <PeriodicOffsetArray value="-0.5,0,0"/>
+        <PeriodicOffsetArray value="-0.5,-0.5,0"/>
+        <PeriodicOffsetArray value="-0.5,0.5,0"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.07"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.0825"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="AeroLaserArmamentsLaunchMissile">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="AeroLaserArmamentsDamage"/>
+        <AmmoUnit value="HyperionLMWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="AeroLaserArmamentsLaunchMissileSearchArea">
+        <EditorCategories value="Race:Terran"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Missile,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" Effect="AeroLaserArmamentsLaunchMissileDirect"/>
+        <MaxCount value="1"/>
+    </CEffectEnumArea>
+    <CEffectSwitch id="AeroLaserArmamentsLaunchMissileSwitch">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="HyperionLMUnitSearch" Effect="AeroLaserArmamentsLaunchMissileSearchArea"/>
+        <CaseDefault value="AeroLaserArmamentsLaunchMissile"/>
+    </CEffectSwitch>
+    <CEffectDamage id="AeroLaserArmamentsDamage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ArmorReduction value="0"/>
+        <Visibility value="Visible"/>
+        <Amount value="4"/>
+        <Death value="Fire"/>
+        <AreaArray Radius="1" Fraction="1"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Missile,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectCreateUnit id="BlightbringerCreateEggs2">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <SpawnEffect value="BlightbringerCreateEggsSet2"/>
+        <SpawnUnit value="BlightbringerEgg"/>
+        <SpawnRange value="3"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="BlightbringerCreateEggsImpact2">
+        <EditorCategories value=""/>
+        <EffectArray value="RemovePrecursor"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="BlightbringerCreateEggsLaunchMissile2">
+        <EditorCategories value="Race:Zerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Value="TargetUnitOrPoint"/>
+        <FinishEffect value="BlightbringerCreateEggsImpact2"/>
+        <AmmoOwner Value="Origin"/>
+        <AmmoUnit value="BlightbringerEggWeapon"/>
+        <Movers Link="InfestedTerransWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="BlightbringerCreateEggsSet2">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="KillsToCaster"/>
+        <EffectArray value="BlightbringerCreateEggsLaunchMissile2"/>
+        <EffectArray value="MakePrecursor"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="CRPGControlArmoryApplyBehavior">
+        <EditorCategories value=""/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="CRPGControlArmory"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="InfestedMendingSalivaHealing">
+        <EditorCategories value="Race:Zerg"/>
+        <VitalArray index="Life" Change="5"/>
+    </CEffectModifyUnit>
+    <CEffectSwitch id="InfestedMendingSalivaSwitch">
+        <EditorCategories value="Race:Zerg"/>
+        <CaseArray Validator="IsBiological" Effect="InfestedMendingSalivaHealingBiological" FallThrough="1"/>
+        <CaseDefault value="InfestedMendingSalivaHealing"/>
+    </CEffectSwitch>
+    <CEffectModifyUnit id="InfestedMendingSalivaHealingBiological">
+        <EditorCategories value="Race:Zerg"/>
+        <VitalArray index="Life" Change="5"/>
+    </CEffectModifyUnit>
+    <CEffectLaunchMissile id="LaserBatteryATSLaunchMissile">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="AeroLaserBatteryATSDamage"/>
+        <AmmoUnit value="ATSLaserBatteryLMWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="AeroLaserBatteryATSDamage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Terran"/>
+        <Visibility value="Visible"/>
+        <Amount value="8"/>
+        <Death value="Fire"/>
+    </CEffectDamage>
+    <CEffectDamage id="AeroYamatoGunDamage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="80"/>
+        <Death value="Blast"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="AeroYamatoGunLaunchMissile">
+        <ValidatorArray index="0" value="YamatoTargetFilters"/>
+        <ValidatorArray value="IsNotWarpBubble"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="AeroYamatoGunDamage"/>
+        <AmmoUnit value="YamatoWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="AeroYamatoGunApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="AeroYamatoCannonWeaponCooldown"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="AeroYamatoGunSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="AeroYamatoGunLaunchMissile"/>
+        <EffectArray value="AeroYamatoGunApplyBehavior"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="AeroArmageddonCannonCreatePersistent">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="AeroArmageddonCannonLeftDamage"/>
+        <PeriodicEffectArray value="AeroArmageddonCannonRightDamage"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.375"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="AeroArmageddonCannonLeftDamage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Ranged"/>
+        <Amount value="8"/>
+        <Death value="Blast"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="AeroArmageddonCannonRightDamage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Ranged"/>
+        <Amount value="8"/>
+        <Death value="Blast"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="1"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="CRPGAddExperience1">
+        <XP value="1"/>
+        <VeterancyBehavior value="HeroVeterancy"/>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="AeroDefensiveMatrixApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="AeroDefensiveMatrix"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="AeroDefensiveMatrixApplyDummyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="AeroDefensiveMatrixDummy"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="AeroDefensiveMatrixModifyUnit">
+        <EditorCategories value="Race:Terran"/>
+        <VitalArray index="Shields" ChangeFraction="1"/>
+    </CEffectModifyUnit>
+    <CEffectRemoveBehavior id="AeroDefensiveMatrixRemoveDummyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <BehaviorLink value="AeroDefensiveMatrixDummy"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="AeroDefensiveMatrixSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="AeroDefensiveMatrixApplyDummyBehavior"/>
+        <EffectArray value="AeroDefensiveMatrixModifyUnit"/>
+        <EffectArray value="AeroDefensiveMatrixApplyBehavior"/>
+        <EffectArray value="AeroDefensiveMatrixRemoveDummyBehavior"/>
+    </CEffectSet>
+    <CEffectCreateUnit id="AeroTacticalJumpCreatePrecursor">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="Precursor" value="1"/>
+        <CreateFlags index="ProvideFood" value="0"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="AeroTacticalJumpTeleportOutApplyBehaviorSet"/>
+        <SpawnUnit value="CRPGAeroLevel1"/>
+        <SpawnRange value="0.1"/>
+    </CEffectCreateUnit>
+    <CEffectTeleport id="AeroTacticalJumpTeleport">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <PlacementAround Effect="AeroTacticalJumpCreatePrecursor"/>
+        <PlacementRange value="15"/>
+        <TargetLocation Effect="AeroTacticalJumpCreatePrecursor" Value="TargetPoint"/>
+        <TeleportFlags index="TestFog" value="0"/>
+    </CEffectTeleport>
+    <CEffectApplyBehavior id="AeroTacticalJumpTeleportApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="AeroTacticalJumpTeleport"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="AeroTacticalJumpTeleportInApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="AeroTacticalJumpTeleportIn"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="AeroTacticalJumpTeleportOutApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="AeroTacticalJumpTeleportOut"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="AeroTacticalJumpTeleportOutApplyBehaviorSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="AeroTacticalJumpTeleportOutApplyBehavior"/>
+        <EffectArray value="AeroTacticalJumpTeleportOutTargetApplyBehavior"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="AeroTacticalJumpTeleportOutTargetApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="AeroTacticalJumpTeleportOutTargetSuppressCollision"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="AeroTacticalJumpTeleportSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="AeroTacticalJumpTeleport"/>
+        <EffectArray value="AeroTacticalJumpTeleportApplyBehavior"/>
+    </CEffectSet>
+    <CEffectSwitch id="MechCalldownMechAddLevelsSwitch">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="CasterGELevel2CalldownMech" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel2CalldownMech" Effect="CRPGAddExperience7500" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel3CalldownMech" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel3CalldownMech" Effect="CRPGAddExperience12500" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel4CalldownMech" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel4CalldownMech" Effect="CRPGAddExperience15000" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel5CalldownMech" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel5CalldownMech" Effect="CRPGAddExperience15000"/>
+    </CEffectSwitch>
+    <CEffectSwitch id="MechCalldownMechCreateUnitSwitch">
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Effect/MechCalldownMechAddLevelsSwitch"/>
+        <CaseArray Validator="CasterGELevel5CalldownMech" Effect="MechCalldownMechCreateUnitLevel5"/>
+        <CaseArray Validator="CasterGELevel4CalldownMech" Effect="MechCalldownMechCreateUnitLevel4"/>
+        <CaseArray Validator="CasterGELevel3CalldownMech" Effect="MechCalldownMechCreateUnitLevel3"/>
+        <CaseArray Validator="CasterGELevel2CalldownMech" Effect="MechCalldownMechCreateUnitLevel2"/>
+        <CaseDefault value="MechCalldownMechCreateUnitLevel1"/>
+    </CEffectSwitch>
+    <CEffectApplyBehavior id="MechCalldownMechApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="MechCalldown"/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="MechCalldownMechCreateUnitLevel1">
+        <Name value="Effect/Name/CalldownMech"/>
+        <EditorCategories value="Race:Terran"/>
+        <SpawnEffect value="MechCalldownMechAddLevelsSwitch"/>
+        <SpawnUnit value="CRPGMechLevel1"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="MechCalldownMechCreateUnitLevel2">
+        <Name value="Effect/Name/CalldownMech"/>
+        <EditorCategories value="Race:Terran"/>
+        <SpawnEffect value="MechCalldownMechAddLevelsSwitch"/>
+        <SpawnUnit value="CRPGMechLevel2"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="MechCalldownMechCreateUnitLevel3">
+        <Name value="Effect/Name/CalldownMech"/>
+        <EditorCategories value="Race:Terran"/>
+        <SpawnEffect value="MechCalldownMechAddLevelsSwitch"/>
+        <SpawnUnit value="CRPGMechLevel3"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="MechCalldownMechCreateUnitLevel4">
+        <Name value="Effect/Name/CalldownMech"/>
+        <EditorCategories value="Race:Terran"/>
+        <SpawnEffect value="MechCalldownMechAddLevelsSwitch"/>
+        <SpawnUnit value="CRPGMechLevel4"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="MechCalldownMechCreateUnitLevel5">
+        <Name value="Effect/Name/CalldownMech"/>
+        <EditorCategories value="Race:Terran"/>
+        <SpawnEffect value="MechCalldownMechAddLevelsSwitch"/>
+        <SpawnUnit value="CRPGMechLevel5"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="MechCalldownMechSuicideSet">
+        <Name value="Effect/Name/CalldownMech"/>
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="SuicideRemove"/>
+        <EffectArray value="MechCalldownMechCreateUnitSwitch"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="MechShockBlastCreatePersistent">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <PeriodCount value="14"/>
+        <PeriodicEffectArray value="MechShockBlastSearchArea"/>
+        <PeriodicPeriodArray value="0.125"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="MechShockBlastApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="MechElectricField"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="MechShockBlastDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Amount value="2"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="MechShockBlastSearchArea">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Heroic,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" RadiusBonus="0.3" Effect="MechShockBlastSet"/>
+    </CEffectEnumArea>
+    <CEffectSet id="MechShockBlastSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="MechShockBlastDamage"/>
+        <EffectArray value="MechShockBlastApplyBehavior"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="CRPGAddExperience12500">
+        <XP value="12500"/>
+        <VeterancyBehavior value="HeroVeterancy"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="CRPGAddExperience15000">
+        <XP value="15000"/>
+        <VeterancyBehavior value="HeroVeterancy"/>
+    </CEffectModifyUnit>
+    <CEffectSwitch id="MechEmergencyEvacAddLevelsSwitch">
+        <CaseArray Validator="CasterGELevel2EmergencyEvac" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel2EmergencyEvac" Effect="CRPGAddExperience7500" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel3EmergencyEvac" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel3EmergencyEvac" Effect="CRPGAddExperience12500" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel4EmergencyEvac" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel4EmergencyEvac" Effect="CRPGAddExperience15000" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel5EmergencyEvac" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
+        <CaseArray Validator="CasterGELevel5EmergencyEvac" Effect="CRPGAddExperience15000"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectSwitch>
+    <CEffectApplyBehavior id="MechEmergencyEvacApplyBehavior">
+        <Behavior value="MechEjecting"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="MechEmergencyEvacCreateUnitCivilian">
+        <SpawnEffect value="MechEmergencyEvacAddLevelsSwitch"/>
+        <SpawnUnit value="MechCivilian"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectCreateUnit>
+    <CEffectLaunchMissile id="MechEmergencyEvacLaunchMissile">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactOffset value="0,0,10"/>
+        <AmmoUnit value="MechCivilianEjectionWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="MechEmergencyEvacSuicideSet">
+        <EffectArray value="KillCaster"/>
+        <EffectArray value="MechEmergencyEvacCreateUnitCivilian"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="CRPGAddExperience7500">
+        <XP value="7500"/>
+        <VeterancyBehavior value="HeroVeterancy"/>
+    </CEffectModifyUnit>
+    <CEffectCreateUnit id="HunterScarabMineCreateUnit">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="ProvideFood" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="KillsToCaster"/>
+        <SpawnUnit value="SpiderMine"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="HunterScarabMineSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterScarabMineCreateUnit"/>
+        <EffectArray value="ReplenishNanoConstructor"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="NeuralParasite2">
+        <ValidatorArray index="0" value="IsNotWarpingIn"/>
+        <ValidatorArray value="IsNotPhaseShifted"/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Effect="NeuralParasiteLaunchMissile"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="NeuralParasiteApplyTimedLife2">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="NeuralTimedLife2"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="NeuralParasiteDroneCheck2">
+        <ValidatorArray index="0" value="IsDrone"/>
+        <EditorCategories value="Race:Zerg"/>
+        <WhichUnit Effect="NeuralParasiteLaunchMissile"/>
+        <Behavior value="NeuralParasiteDrone2"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="NeuralParasiteDroneRemoveCheck2">
+        <ValidatorArray index="0" value="NeuralParasiteDroneChecks"/>
+        <EditorCategories value="Race:Terran"/>
+        <BehaviorLink value="NeuralParasiteDrone"/>
+    </CEffectRemoveBehavior>
+    <CEffectLaunchMissile id="NeuralParasiteLaunchMissile2">
+        <ValidatorArray index="0" value="noMarkers"/>
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="NotFrenzied"/>
+        <ValidatorArray value="HasNoCargo"/>
+        <ValidatorArray value="NotPointDefenseDrone"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Abil/NeuralParasiteMissile">
+            <MatchFlags index="Link" value="1"/>
+        </Marker>
+        <ImpactEffect value="NeuralParasitePersistentSet2"/>
+        <Flags index="Channeled" value="1"/>
+        <Flags index="PointFallback" value="0"/>
+        <AmmoUnit value="NeuralParasiteWeapon"/>
+        <Movers Link="InfestorNeuralParasite" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectRemoveBehavior id="NeuralParasiteLockOnRemove2">
+        <EditorCategories value=""/>
+        <WhichUnit Effect="NeuralParasiteLaunchMissile"/>
+        <BehaviorLink value="LockOnDisableAttack"/>
+    </CEffectRemoveBehavior>
+    <CEffectCreatePersistent id="NeuralParasitePersistent2">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="CasterUnit"/>
+        <Flags index="Channeled" value="1"/>
+        <InitialEffect value="NeuralParasite2"/>
+        <PeriodCount value="30"/>
+        <PeriodicValidator value="NeuralParasitePeriodicValidator"/>
+        <PeriodicEffectArray value="NeuralParasitePersistentDestroy2"/>
+        <PeriodicPeriodArray value="0.5"/>
+    </CEffectCreatePersistent>
+    <CEffectDestroyPersistent id="NeuralParasitePersistentDestroy2">
+        <EditorCategories value="Race:Terran"/>
+        <Effect value="NeuralParasitePersistent"/>
+        <Count value="1"/>
+        <Radius value="0.1"/>
+    </CEffectDestroyPersistent>
+    <CEffectSet id="NeuralParasitePersistentSet2">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="NeuralParasiteDroneCheck2"/>
+        <EffectArray value="NeuralParasitePersistent2"/>
+        <EffectArray value="NeuralParasiteLockOnRemove2"/>
+    </CEffectSet>
+    <CEffectDamage id="VehicleArcliteCannonDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
     <CEffectModifyPlayer id="CRPGUpgradeArmor">
         <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[0].Points" Value="1"/>
         <EffectArray Reference="Abil,CRPGUpgradeArmor,Cost[0].Resource[Minerals]" Value="100"/>
     </CEffectModifyPlayer>
-    <CEffectDamage id="FusionCutter2" parent="DU_WEAP">
-        <EditorCategories value="Race:Terran"/>
-        <Amount value="5"/>
+    <CEffectDamage id="VehicleCrucioShockCannonBlast" parent="CrucioShockCannonBlast">
+        <Name value="Effect/Name/VehicleCrucioShockCannonBlast"/>
+        <AttributeBonus index="Armored" value="0"/>
+        <Amount value="40"/>
     </CEffectDamage>
-    <CEffectCreatePersistent id="GoliathA2">
+    <CEffectDamage id="VehicleCrucioShockCannonDirected" parent="CrucioShockCannonDirected">
+        <Name value="Effect/Name/VehicleCrucioShockCannonDirected"/>
+        <AttributeBonus index="Armored" value="0"/>
+        <Amount value="40"/>
+    </CEffectDamage>
+    <CEffectDamage id="VehicleCrucioShockCannonDummy" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Splash"/>
+        <KindSplash value="Splash"/>
+        <Amount value="40"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="MechPointDefenseLaserApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="MechPointDefenseCooldown"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="MechPointDefenseLaserDamage">
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Weapon/PointDefenseLaser">
+            <MatchFlags index="Link" value="1"/>
+        </Marker>
+        <ModifyFlags index="Hide" value="1"/>
+        <ModifyFlags index="NullifyMissile" value="1"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="MechPointDefenseLaserSet">
+        <ValidatorArray value="PointDefenseDroneUnitFilter"/>
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="MechPointDefenseLaserDamage"/>
+        <EffectArray value="MechPointDefenseLaserApplyBehavior"/>
+    </CEffectSet>
+    <CEffectEnumArea id="MechPointDefenseLaserSearch">
+        <EditorCategories value="Race:Terran"/>
+        <SearchFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray MaxCount="1" Radius="8" Effect="MechPointDefenseLaserSet"/>
+    </CEffectEnumArea>
+    <CEffectSet id="VehicleCrucioShockCannonSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="VehicleCrucioShockCannonDirected"/>
+        <EffectArray value="VehicleCrucioShockCannonBlast"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="VehicleGraduatingRangeApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="VehicleLockOnApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="VehicleLockOnTarget"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="VehicleLockOnCreatePersistent">
+        <EditorCategories value="Race:Terran"/>
+        <WhichLocation Value="TargetUnit"/>
+        <FinalEffect value="VehicleLockOnClearSet"/>
+        <PeriodicValidator value="VehicleLockOnPeriodicValidators2"/>
+        <PeriodicEffectArray value="VehicleLockOnSwitch"/>
+        <PeriodicPeriodArray value="0.75"/>
+        <RevealRadius value="2"/>
+        <Flags index="PersistUntilDestroyed" value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="VehicleLockOnClearSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="VehicleLockOnRemoveBehavior"/>
+        <EffectArray value="VehicleLockOnDisableAttackRemoveBehavior"/>
+        <EffectArray value="VehicleLockOnTurretClear"/>
+        <EffectArray value="VehicleLockOnResetCooldown"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="VehicleLockOnDisableAttackApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="VehicleLockOnDisableAttack"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="VehicleLockOnRemoveBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <BehaviorLink value="VehicleLockOnTarget"/>
+        <Count value="1"/>
+    </CEffectRemoveBehavior>
+    <CEffectModifyUnit id="VehicleLockOnResetCooldown">
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="VehicleLockOn,Execute" CooldownOperation="Set" CooldownTimeUse="6"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="VehicleLockOnFireSet">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="VehicleLockOnApplyBehavior"/>
+        <EffectArray value="VehicleLockOnDisableAttackApplyBehavior"/>
+        <EffectArray value="VehicleLockOnCreatePersistent"/>
+        <EffectArray value="VehicleLockOnResetCooldownInitial"/>
+    </CEffectSet>
+    <CEffectSwitch id="VehicleLockOnSwitch">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="VehicleCasterIsCyclone" Effect="VehicleTyphoonMissilePodLaunchMissileSwitch"/>
+        <CaseArray Validator="VehicleCasterIsDiamondback" Effect="VehicleEvisceratorRailGunDamage"/>
+        <CaseArray Validator="VehicleIsCasterSiegeTankTankMode" Effect="VehicleArcliteCannonDamage"/>
+        <CaseArray Validator="VehicleCasterIsSiegeTankSiegeMode" Effect="VehicleCrucioShockCannonSet"/>
+    </CEffectSwitch>
+    <CEffectApplyBehavior id="VehicleOverdriveApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="VehicleOverdrive"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="VehicleEvisceratorRailGunDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectDamage id="VehicleTyphoonMissilePodDamage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Terran"/>
+        <Amount value="20"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="VehicleTyphoonMissilePodLaunchMissileLeft">
+        <EditorCategories value="Race:Terran"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="VehicleTyphoonMissilePodDamage"/>
+        <AmmoUnit value="VehicleTyphoonMissilePodWeapon"/>
+        <Movers Link="CycloneMissileLeft"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="VehicleTyphoonMissilePodLaunchMissileLeftSet">
+        <EffectArray value="VehicleTyphoonMissilePodLaunchMissileLeft"/>
+        <EffectArray value="VehicleTyphoonMissilePodAlternateApplyBehavior"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="VehicleTyphoonMissilePodLaunchMissileRight">
+        <EditorCategories value="Race:Terran"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactEffect value="VehicleTyphoonMissilePodDamage"/>
+        <AmmoUnit value="VehicleTyphoonMissilePodWeapon"/>
+        <Movers Link="CycloneMissileRight"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="VehicleTyphoonMissilePodLaunchMissileRightSet">
+        <EffectArray value="VehicleTyphoonMissilePodLaunchMissileRight"/>
+        <EffectArray value="VehicleTyphoonMissilePodAlternateRemoveBehavior"/>
+        <EditorCategories value="Race:Terran"/>
+    </CEffectSet>
+    <CEffectSwitch id="VehicleTyphoonMissilePodLaunchMissileSwitch">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="VehicleWeaponLaunchMissileAlternate" Effect="VehicleTyphoonMissilePodLaunchMissileRightSet"/>
+        <CaseDefault value="VehicleTyphoonMissilePodLaunchMissileLeftSet"/>
+    </CEffectSwitch>
+    <CEffectApplyBehavior id="VehicleTyphoonMissilePodAlternateApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="VehicleTyphoonMissilePodLaunchMissileAlternate"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="VehicleTyphoonMissilePodAlternateRemoveBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="VehicleTyphoonMissilePodLaunchMissileAlternate"/>
+    </CEffectRemoveBehavior>
+    <CEffectDamage id="MechFusionCutterDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Amount value="12"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="MechHellfireMissilePackCreatePersistent">
         <ValidatorArray value="CasterIsNotHidden"/>
         <EditorCategories value="Race:Terran"/>
         <WhichLocation Value="TargetUnit"/>
         <Flags index="Channeled" value="1"/>
         <PeriodCount value="2"/>
-        <PeriodicEffectArray value="GoliathALM2"/>
+        <PeriodicEffectArray value="MechHellfireMissilePackLaunchMissile"/>
         <PeriodicPeriodArray value="0"/>
         <PeriodicPeriodArray value="0.21"/>
     </CEffectCreatePersistent>
-    <CEffectLaunchMissile id="GoliathALM2">
+    <CEffectLaunchMissile id="MechHellfireMissilePackLaunchMissile">
         <EditorCategories value="Race:Terran"/>
-        <ImpactEffect value="GoliathAU2"/>
-        <AmmoUnit value="GoliathAWeapon2"/>
+        <ImpactEffect value="MechHellfireMissilePackDamage"/>
+        <AmmoUnit value="MechHellfireMissileWeapon"/>
     </CEffectLaunchMissile>
-    <CEffectDamage id="GoliathAU2" parent="DU_WEAP_MISSILE">
+    <CEffectDamage id="MechHellfireMissilePackDamage" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Terran"/>
-        <AttributeBonus index="Armored" value="8"/>
-        <Amount value="8"/>
+        <Amount value="10"/>
     </CEffectDamage>
-    <CEffectDamage id="GoliathG2" parent="DU_WEAP">
+    <CEffectDamage id="MechTwinAutocannonsDamage" parent="DU_WEAP">
         <ValidatorArray value="CasterIsNotHidden"/>
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="18"/>
+        <Amount value="10"/>
     </CEffectDamage>
-    <CEffectApplyBehavior id="IncreaseLevelCounter">
+    <CEffectApplyBehavior id="CRPGIncreaseLevelCounter">
         <Behavior value="LevelCounter"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="JavelinMissileLaunchersDamage2" parent="DU_WEAP_SPLASH">
+    <CEffectDamage id="MechJavelinMissileLaunchersDamage" parent="DU_WEAP_SPLASH">
         <EditorCategories value="Race:Terran"/>
-        <AttributeBonus index="Light" value="6"/>
         <Kind value="Ranged"/>
         <KindSplash value="Splash"/>
-        <Amount value="6"/>
+        <Amount value="10"/>
         <Death value="Blast"/>
         <AreaArray Radius="0.5" Fraction="1"/>
         <ExcludeArray Value="Target"/>
         <SearchFilters value="Air;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <SearchFlags index="OffsetByUnitRadius" value="0"/>
     </CEffectDamage>
-    <CEffectLaunchMissile id="JavelinMissileLaunchersLM2">
+    <CEffectLaunchMissile id="MechJavelinMissileLaunchersLaunchMissile">
         <ValidatorArray index="0" value="RangeCheckLE15"/>
         <EditorCategories value="Race:Terran"/>
-        <ImpactEffect value="JavelinMissileLaunchersDamage2"/>
-        <AmmoUnit value="ThorAAWeapon2"/>
+        <ImpactEffect value="MechJavelinMissileLaunchersDamage"/>
+        <AmmoUnit value="MechJavelinMissileWeapon"/>
     </CEffectLaunchMissile>
-    <CEffectCreatePersistent id="JavelinMissileLaunchersPersistent2">
+    <CEffectCreatePersistent id="JavelinMissileLaunchersCreatePer">
         <EditorCategories value="Race:Terran"/>
         <WhichLocation Value="TargetUnit"/>
         <TimeScaleSource Value="Caster"/>
         <Flags index="Channeled" value="1"/>
         <PeriodCount value="4"/>
-        <PeriodicEffectArray value="JavelinMissileLaunchersLM2"/>
+        <PeriodicEffectArray value="MechJavelinMissileLaunchersLaunchMissile"/>
         <PeriodicPeriodArray value="0"/>
         <PeriodicPeriodArray value="0.125"/>
         <PeriodicPeriodArray value="0.25"/>
         <PeriodicPeriodArray value="0.125"/>
     </CEffectCreatePersistent>
+    <CEffectRemoveBehavior id="VehicleLockOnDisableAttackRemoveBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="VehicleLockOnDisableAttack"/>
+    </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="VehicleLockOnInitialApplyBehavior">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="VehicleLockOnTarget"/>
+        <Flags index="UseDuration" value="1"/>
+        <Duration value="1"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="VehicleLockOnInitialSet">
+        <ValidatorArray value="GroundUnitFilter"/>
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="VehicleLockOnTurretStart"/>
+        <EffectArray value="VehicleLockOnResetCooldownInitial"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="VehicleLockOnResetCooldownInitial">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="VehicleLockOn,Execute" CooldownOperation="Set"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="VehicleLockOnTurretClear">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <ModifyTurret Action="ClearTarget" Turret="Cyclone"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="VehicleLockOnTurretStart">
+        <ValidatorArray value="CasterIsNotHidden"/>
+        <ValidatorArray value="VehicleNotLockingOn"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <ModifyTurret Turret="Cyclone" AimCompleteEffect="VehicleLockOnFireSet">
+            <Target Value="TargetUnit"/>
+            <Flags index="Tracking" value="1"/>
+        </ModifyTurret>
+    </CEffectModifyUnit>
     <CEffectApplyBehavior id="SniperDeadlyToxinApplyBehavior">
         <ValidatorArray index="0" value="SniperDeadlyToxinCooldown"/>
         <EditorCategories value="Race:Terran"/>
         <Behavior value="SniperDeadlyToxinDamage"/>
+        <DamageModifierSource Value="Caster"/>
     </CEffectApplyBehavior>
     <CEffectDamage id="SniperDeadlyToxinDamage">
         <EditorCategories value="Race:Terran"/>
         <Amount value="1"/>
     </CEffectDamage>
-    <CEffectIssueOrder id="SniperLevelUp2">
-        <Abil value="LevelUp"/>
-    </CEffectIssueOrder>
-    <CEffectIssueOrder id="SniperLevelUp3">
-        <Abil value="SniperLevelUp3"/>
-    </CEffectIssueOrder>
-    <CEffectIssueOrder id="SniperLevelUp4">
-        <Abil value="SniperLevelUp4"/>
-    </CEffectIssueOrder>
-    <CEffectIssueOrder id="SniperLevelUp5">
-        <Abil value="SniperLevelUp4"/>
-    </CEffectIssueOrder>
     <CEffectUseCalldown id="SniperNuclearStrikeCalldown">
         <EditorCategories value="Race:Terran"/>
         <WhichLocation Value="TargetPoint"/>
@@ -123,7 +780,6 @@
         <InitialDelay value="1.75"/>
         <ExpireDelay value="3"/>
         <ExpireEffect value="SniperNuclearStrikeDetonate"/>
-        <FinalEffect value="nukeSuicide"/>
     </CEffectCreatePersistent>
     <CEffectDamage id="SniperC20ACanisterRifleDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
@@ -136,10 +792,11 @@
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="SniperHoldFireB" parent="GhostHoldFireB">
         <Name value="Effect/Name/SniperHoldFireB"/>
+        <Behavior value="SniperHoldFire"/>
     </CEffectApplyBehavior>
     <CEffectRemoveBehavior id="SniperWeaponsFree">
         <EditorCategories value="Race:Terran"/>
-        <BehaviorLink value="GhostHoldFireB"/>
+        <BehaviorLink value="SniperHoldFire"/>
     </CEffectRemoveBehavior>
     <CEffectDamage id="SniperC10CanisterRifleDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
@@ -160,42 +817,104 @@
         <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[1].Points" Value="1"/>
         <EffectArray Reference="Abil,CRPGUpgradeDamage,Cost[0].Resource[Minerals]" Value="100"/>
     </CEffectModifyPlayer>
-    <CEffectCreatePersistent id="ThorsHammer2">
+    <CEffectCreatePersistent id="MechThorsHammerCreatePersistent">
         <EditorCategories value="Race:Terran"/>
         <WhichLocation Value="TargetUnitOrPoint"/>
         <TimeScaleSource Value="Caster"/>
         <Flags index="Channeled" value="1"/>
         <PeriodCount value="2"/>
-        <PeriodicEffectArray value="ThorsHammerDamage2"/>
-        <PeriodicEffectArray value="ThorsHammerDamage2"/>
+        <PeriodicEffectArray value="MechThorsHammerDamage"/>
+        <PeriodicEffectArray value="MechThorsHammerDamage"/>
         <PeriodicPeriodArray value="0"/>
         <PeriodicPeriodArray value="0.375"/>
     </CEffectCreatePersistent>
-    <CEffectDamage id="ThorsHammerDamage2" parent="DU_WEAP">
+    <CEffectDamage id="MechThorsHammerDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="30"/>
+        <Amount value="10"/>
         <Death value="Blast"/>
     </CEffectDamage>
-    <CEffectDamage id="TwinGatlingCannons2" parent="DU_WEAP">
+    <CEffectDamage id="MechGatlingCannonDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="12"/>
+        <Amount value="10"/>
     </CEffectDamage>
-    <CEffectDamage id="WarHound2">
+    <CEffectLaunchMissile id="VehicleFragmentationGrenadeMissile">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="VehicleFragmentationGrenadeDamage"/>
+        <AmmoUnit value="VehicleFragmentationGrenadeWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="VehicleFragmentationGrenadeDamage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Terran"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectDamage id="MechRailgunDamage">
         <EditorCategories value="Race:Terran"/>
         <ResponseFlags index="Acquire" value="1"/>
         <ResponseFlags index="Flee" value="1"/>
         <ArmorReduction value="1"/>
         <Kind value="Ranged"/>
-        <Amount value="23"/>
+        <Amount value="10"/>
     </CEffectDamage>
-    <CEffectLaunchMissile id="WarHoundLM2">
+    <CEffectDamage id="VehicleGaussCannonDamage">
         <EditorCategories value="Race:Terran"/>
-        <ImpactEffect value="WarHound2"/>
-        <AmmoUnit value="WarHoundWeapon2"/>
-    </CEffectLaunchMissile>
-    <CEffectDamage id="WarHoundMelee2" parent="WarHound">
-        <Kind value="Melee"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
     </CEffectDamage>
+    <CEffectLaunchMissile id="MechRailgunMissile">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="MechRailgunDamage"/>
+        <AmmoUnit value="MechRailgunWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="VehicleGaussCannonMissile">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="VehicleGaussCannonDamage"/>
+        <AmmoUnit value="VehicleGaussCannonWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="MechMeleeDamage" parent="WarHound">
+        <Name value="Effect/Name/MechMeleeDamage"/>
+        <Kind value="Melee"/>
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="AeroYamatoCannonLaunchMissile">
+        <ValidatorArray index="0" value="YamatoTargetFilters"/>
+        <ValidatorArray value="IsNotWarpBubble"/>
+        <ValidatorArray value="YamatoTargetFilters"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="AeroYamatoCannonDamage"/>
+        <AmmoUnit value="YamatoWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="AeroYamatoCannonDamage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="200"/>
+        <Death value="Blast"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectDamage>
+    <CEffectIssueOrder id="HunterScarabMineBurrowOrder">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/VultureSpiderMineBurrowOrder"/>
+        <WhichUnit Value="Caster"/>
+        <Abil value="ScarabMineBurrow"/>
+        <CmdFlags index="Preempt" value="1"/>
+    </CEffectIssueOrder>
+    <CEffectDamage id="InfestedMendingSalivaDamageDummy" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/ViperAirDamage"/>
+        <AttributeBonus index="Biological" value="5"/>
+        <Visibility value="Visible"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="InfestedMendingSalivaLaunchMissile">
+        <ValidatorArray index="0" value="NotFullLife"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/ViperAirLaunchMissile"/>
+        <ImpactEffect value="InfestedMendingSalivaSwitch"/>
+        <AmmoUnit value="ViperAirWeapon"/>
+    </CEffectLaunchMissile>
 </Catalog>

@@ -1,67 +1,275 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CBehaviorBuff id="AddArmor">
+    <CBehaviorBuff id="AeroYamatoCannonWeaponCooldown">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <DisplayDuration index="Self" value="1"/>
+        <Duration value="3"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGControlArmory">
         <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGExperienceTrickle">
+        <RemoveValidatorArray value="GELevel2Veterancy"/>
+        <PeriodicEffect value="CRPGAddExperience1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroDefensiveMatrix">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <RemoveValidatorArray value="hasShields"/>
+        <Duration value="20"/>
         <Modification>
-            <AttributeChangeArray Attribute="ArmorAttribute" Points="1"/>
+            <VitalMaxArray index="Shields" value="200"/>
+        </Modification>
+        <DamageResponse ModifyMinimumDamage="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroDefensiveMatrixDummy">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalMaxArray index="Shields" value="200"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroTacticalJumpTeleport">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="0.8"/>
+        <ExpireEffect value="AeroTacticalJumpTeleportInApplyBehavior"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stasis" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroTacticalJumpTeleportIn">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="0.6"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stasis" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroTacticalJumpTeleportOut">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="0.6"/>
+        <ExpireEffect value="AeroTacticalJumpTeleportSet"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stasis" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroTacticalJumpTeleportOutTargetSuppressCollision">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="0.0625"/>
+        <ExpireEffect value="SuicideRemove"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stasis" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroFireSuppressionSystem">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="NotDeadOrConstruction"/>
+        <DisableValidatorArray value="LifeLTHalf"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="4"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroLaserArmaments">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Period value="0.8"/>
+        <PeriodicEffect value="AeroLaserArmamentsSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MechCalldown">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="4"/>
+        <FinalEffect value="MechCalldownMechSuicideSet"/>
+        <Modification>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+            <AbilClassDisableArray index="CAbilBuild" value="1"/>
+            <AbilClassDisableArray index="CAbilEffectInstant" value="1"/>
+            <AbilClassDisableArray index="CAbilEffectTarget" value="1"/>
+            <AbilClassDisableArray index="CAbilHarvest" value="1"/>
+            <AbilClassDisableArray index="CAbilMorph" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="AddDamage">
-        <EditorCategories value="AbilityorEffectType:Units"/>
+    <CBehaviorBuff id="MechElectricField">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-ultrasonicpulse.dds"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="4"/>
         <Modification>
-            <AttributeChangeArray Attribute="DamageAttribute" Points="1"/>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Stun" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+            <StateFlags index="SuppressDetection" value="1"/>
+            <StateFlags index="SuppressRadar" value="1"/>
         </Modification>
-        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGBaseAttributes">
         <InfoFlags index="Hidden" value="1"/>
         <Modification>
-            <AttributeChangeArray Attribute="ArmorAttribute" Points="-5"/>
-            <AttributeChangeArray Attribute="DamageAttribute" Points="-5"/>
+            <AttributeChangeArray Attribute="ArmorAttribute" Points="-2"/>
+            <AttributeChangeArray Attribute="DamageAttribute" Points="-2"/>
         </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MechEjecting">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="2"/>
+        <InitialEffect value="MechEmergencyEvacLaunchMissile"/>
+        <FinalEffect value="MechEmergencyEvacSuicideSet"/>
+        <Modification>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+            <AbilClassDisableArray index="CAbilBuild" value="1"/>
+            <AbilClassDisableArray index="CAbilEffectInstant" value="1"/>
+            <AbilClassDisableArray index="CAbilEffectTarget" value="1"/>
+            <AbilClassDisableArray index="CAbilHarvest" value="1"/>
+            <AbilClassDisableArray index="CAbilMorph" value="1"/>
+            <AbilClassDisableArray index="CAbilMove" value="1"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MechPointDefenseLaser">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <DisableValidatorArray value="MechPointDefenseNotOnCooldown"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="MechPointDefenseLaserSearch"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MechPointDefenseCooldown">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NeuralParasite2" parent="NeuralParasite">
+        <Name value="Behavior/Name/NeuralParasite2"/>
+        <Tooltip value="Behavior/Tooltip/NeuralParasite2"/>
+        <FinalEffect value="NeuralParasiteApplyTimedLife2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NeuralParasiteDrone2">
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="NeuralParasiteDroneRemoveCheck2"/>
+        <Player Value="Caster"/>
+        <AcquirePlayer Effect="NeuralParasiteLaunchMissile" Value="Target"/>
+        <Modification>
+            <StateFlags index="SuppressPassenger" value="1"/>
+            <AbilClassDisableArray index="CAbilTransport" value="1"/>
+            <AbilLinkDisableArray value="ArchonWarp"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="NeuralTimedLife2">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-tosh-mindblast.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="5"/>
+        <FinalEffect value="TimedLifeFate"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="VehicleGraduatingRange">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <DisableValidatorArray value="NotMoving"/>
+        <DisableValidatorArray value="VehicleRangeNE12"/>
+        <Period value="2"/>
+        <PeriodicEffect value="VehicleGraduatingRangeApplyBehavior"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="VehicleLockOnTarget">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-snipe.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="VehicleLockOnTurretClear"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="VehicleLockOnDisableAttack">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-snipe.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="VehicleLockOnTargetNotDead"/>
+        <FinalEffect value="VehicleLockOnClearSet"/>
+        <Modification>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="IsKiting" value="1"/>
+            <WeaponArray Link="VehicleLockOnDummy"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="VehicleOverdrive">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-jotunboosters.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <Duration value="8"/>
+        <Modification MoveSpeedBonus="1" AccelerationBonus="500" DecelerationBonus="500"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="VehicleRangeIncrease">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <RemoveValidatorArray value="NotMoving"/>
+        <MaxStackCount value="6"/>
+        <Modification WeaponRange="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="VehicleTyphoonMissilePodLaunchMissileAlternate">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
     </CBehaviorBuff>
     <CBehaviorAttribute id="DamageAttribute">
         <Modification>
-            <DamageDealtFraction index="Spell" value="0.025"/>
-            <DamageDealtFraction index="Melee" value="0.025"/>
-            <DamageDealtFraction index="Ranged" value="0.025"/>
-            <DamageDealtFraction index="Splash" value="0.025"/>
+            <DamageDealtFraction index="Spell" value="0.0625"/>
+            <DamageDealtFraction index="Melee" value="0.0625"/>
+            <DamageDealtFraction index="Ranged" value="0.0625"/>
+            <DamageDealtFraction index="Splash" value="0.0625"/>
         </Modification>
-        <MinPoints value="-5"/>
+        <MinPoints value="-2"/>
     </CBehaviorAttribute>
     <CBehaviorAttribute id="ArmorAttribute">
         <Modification LifeArmorBonus="0.2"/>
-        <MinPoints value="-5"/>
+        <MinPoints value="-2"/>
     </CBehaviorAttribute>
     <CBehaviorBuff id="LevelCounter">
         <MaxStackCount value="5"/>
         <Modification>
-            <VitalMaxAdditiveMultiplierArray index="Life" value="0.25"/>
-            <VitalMaxAdditiveMultiplierArray index="Shields" value="0.25"/>
-            <AttributeChangeArray Attribute="ArmorAttribute" Points="5"/>
-            <AttributeChangeArray Attribute="DamageAttribute" Points="5"/>
+            <AttributeChangeArray Attribute="ArmorAttribute" Points="2"/>
+            <AttributeChangeArray Attribute="DamageAttribute" Points="2"/>
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="MultilockTargetingSystems2">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
-        <Requirements value="UseMultilockTargetingSystems"/>
-        <Modification>
-            <WeaponEnableArray value="GoliathAUpgraded"/>
-            <WeaponEnableArray value="GoliathGUpgraded"/>
-            <WeaponEnableArray value="SpartanCompanyAUpgraded"/>
-            <WeaponEnableArray value="SpartanCompanyGUpgraded"/>
-            <WeaponEnableArray value="MengskGoliathAUpgraded"/>
-            <WeaponEnableArray value="MengskGoliathGUpgraded"/>
-            <WeaponDisableArray value="GoliathA"/>
-            <WeaponDisableArray value="GoliathG"/>
-            <WeaponDisableArray value="SpartanCompanyA"/>
-            <WeaponDisableArray value="SpartanCompanyG"/>
-            <WeaponDisableArray value="MengskGoliathA"/>
-            <WeaponDisableArray value="MengskGoliathG"/>
-        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="SniperDeadlyToxinDamage">
         <Alignment value="Negative"/>
@@ -77,16 +285,11 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DamageResponse Chance="1" Handled="SniperDeadlyToxinApplyBehavior" Location="Attacker"/>
-        <DisableValidatorArray value="GELevel4"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SniperEnhancedOptics">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <InfoFlags index="Hidden" value="1"/>
-        <DisableValidatorArray value="GELevel2"/>
-        <Modification SightBonus="2">
-            <AbilLinkEnableArray value="SniperSnipeEnhanced"/>
-            <AbilLinkDisableArray value="SniperSnipe"/>
-        </Modification>
+        <Modification SightBonus="2"/>
     </CBehaviorBuff>
     <CBehaviorVeterancy id="HeroVeterancy">
         <XPFraction index="Kills" value="10"/>
@@ -105,5 +308,11 @@
             <StateFlags index="Passive" value="1"/>
             <AbilClassDisableArray index="CAbilAttack" value="1"/>
         </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ScarabMineInitialBurrow">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <InitialEffect value="HunterScarabMineBurrowOrder"/>
     </CBehaviorBuff>
 </Catalog>

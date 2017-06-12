@@ -5,4 +5,7 @@
 <Unit id="SupplyDepot"/>
 <Unit id="MissileTurret"/>
 <Unit id="Bunker"/>
+<Unit id="CRPGArmory"/>
+<Unit id="CRPGCrashedBattlecruiser"/>
+<Unit id="CRPGCivilian"/>
 </Preload>

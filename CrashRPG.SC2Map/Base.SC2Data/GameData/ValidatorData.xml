@@ -1,5 +1,162 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel1CalldownMech">
+        <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel2EmergencyEvac">
+        <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel2CalldownMech">
+        <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel3EmergencyEvac">
+        <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="3"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel3CalldownMech">
+        <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="3"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel4EmergencyEvac">
+        <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="4"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel4CalldownMech">
+        <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="4"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel5EmergencyEvac">
+        <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel1EmergencyEvac">
+        <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel5CalldownMech">
+        <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVeterancyLevel id="GELevel2Veterancy">
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="HeroVeterancy"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorLocationCompareRange id="VehicleLockOnCasterNearTarget">
+        <WhichLocation Value="TargetUnit"/>
+        <Compare value="LT"/>
+        <Range value="8"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorUnitType id="VehicleCasterIsCyclone">
+        <WhichUnit Value="Caster"/>
+        <Value value="CRPGVehicleLevel3"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="VehicleCasterIsDiamondback">
+        <WhichUnit Value="Caster"/>
+        <Value value="CRPGVehicleLevel4"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="VehicleCasterIsSiegeTankSiegeMode">
+        <WhichUnit Value="Caster"/>
+        <Value value="CRPGVehicleLevel5SiegeMode"/>
+    </CValidatorUnitType>
+    <CValidatorUnitType id="VehicleIsCasterSiegeTankTankMode">
+        <WhichUnit Value="Caster"/>
+        <Value value="CRPGVehicleLevel5TankMode"/>
+    </CValidatorUnitType>
+    <CValidatorUnitFilters id="VehicleLockOnTargetNotDead">
+        <WhichUnit Effect="VehicleLockOnFireSet"/>
+        <Filters value="-;Dead"/>
+    </CValidatorUnitFilters>
+    <CValidatorUnitCompareBehaviorCount id="MechPointDefenseNotOnCooldown">
+        <Behavior value="MechPointDefenseCooldown"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeEQ07">
+        <Value value="1"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeNE07">
+        <Compare value="NE"/>
+        <Value value="1"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeEQ08">
+        <Value value="2"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeEQ09">
+        <Value value="3"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeEQ10">
+        <Value value="4"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeEQ11">
+        <Value value="5"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeEQ12">
+        <Value value="6"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeNE08">
+        <Compare value="NE"/>
+        <Value value="2"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeNE09">
+        <Compare value="NE"/>
+        <Value value="3"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeNE10">
+        <Compare value="NE"/>
+        <Value value="4"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeNE11">
+        <Compare value="NE"/>
+        <Value value="5"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleRangeNE12">
+        <Compare value="NE"/>
+        <Value value="6"/>
+        <Behavior value="VehicleRangeIncrease"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleWeaponLaunchMissileAlternate">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="VehicleTyphoonMissilePodLaunchMissileAlternate"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="VehicleCasterLockingOn">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="VehicleLockOnDisableAttack"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="GELevel1">
         <Compare value="GE"/>
         <Value value="1"/>
@@ -69,6 +226,18 @@
         <Compare value="NE"/>
         <Value value="5"/>
         <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="VehicleLockOnPeriodicValidators2">
+        <Type value="And"/>
+        <CombineArray value="VehicleLockOnCasterNearTarget"/>
+        <CombineArray value="LockOnTargetFilters"/>
+        <CombineArray value="LockOnCasterFilters"/>
+        <CombineArray value="VehicleCasterLockingOn"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="VehicleNotLockingOn">
+        <ResultFailed value="Error,NotLockingOn"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="VehicleLockOnDisableAttack"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="SniperDeadlyToxinCooldown">
         <Compare value="LE"/>

@@ -17,14 +17,15 @@ void InitLibs () {
 //--------------------------------------------------------------------------------------------------
 // Constants
 //--------------------------------------------------------------------------------------------------
-const fixed gv_damageFraction = 0.025;
+const fixed gv_damageFraction = 0.0625;
 
 //--------------------------------------------------------------------------------------------------
 // Global Variables
 //--------------------------------------------------------------------------------------------------
-fixed gv_untitledVariable001;
+playergroup gv_survivors;
 
 void InitGlobals () {
+    gv_survivors = PlayerGroupEmpty();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -54,6 +55,43 @@ void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip
 // Trigger: Map Initialization
 //--------------------------------------------------------------------------------------------------
 bool gt_MapInitialization_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerGroupAdd(gv_survivors, 1);
+    PlayerGroupAdd(gv_survivors, 2);
+    PlayerGroupAdd(gv_survivors, 3);
+    PlayerGroupAdd(gv_survivors, 4);
+    PlayerGroupAdd(gv_survivors, 5);
+    PlayerGroupAdd(gv_survivors, 6);
+    libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
+    PlayerGroupLoopBegin(gv_survivors);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        libNtve_gf_SetAlliance(PlayerGroupLoopCurrent(), 7, libNtve_ge_AllianceSetting_Enemy);
+    }
+    PlayerGroupLoopEnd();
+    if ((PlayerType(1) == c_playerTypeUser)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 1, PointFromId(669968176));
+    }
+
+    if ((PlayerType(2) == c_playerTypeUser)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 2, PointFromId(1992567188));
+    }
+
+    if ((PlayerType(3) == c_playerTypeUser)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 3, PointFromId(11616904));
+    }
+
+    if ((PlayerType(4) == c_playerTypeUser)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 4, PointFromId(1752496603));
+    }
+
+    if ((PlayerType(5) == c_playerTypeUser)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 5, PointFromId(741491427));
+    }
+
     return true;
 }
 
@@ -69,7 +107,8 @@ void gt_MapInitialization_Init () {
 bool gt_Updatetooltips_Func (bool testConds, bool runActions) {
     // Variable Declarations
     fixed lv_damageModifier;
-    int lv_damagePoints;
+    int lv_levelPoints;
+    int lv_upgradePoints;
 
     // Variable Initialization
 
@@ -78,23 +117,22 @@ bool gt_Updatetooltips_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitGroupLoopBegin(UnitGroup(null, c_playerAny, RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        lv_damagePoints = ((UnitBehaviorCount(UnitGroupLoopCurrent(), "LevelCounter") * CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "LevelCounter", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", UnitGetOwner(UnitGroupLoopCurrent()))) + CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "CRPGBaseAttributes", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", UnitGetOwner(UnitGroupLoopCurrent())));
-        lv_damageModifier = ((lv_damagePoints * gv_damageFraction) + 1.0);
-        CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicRounds", "Tooltip", EventPlayer(), (("The Sniper's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", UnitGetOwner(UnitGroupLoopCurrent())) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", UnitGetOwner(UnitGroupLoopCurrent())))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.")));
-        TextExpressionSetToken("Param/Expression/59100652", "A", StringExternal("Param/Value/540CD085"));
-        TextExpressionSetToken("Param/Expression/59100652", "B", FixedToText(gv_damageFraction, 4));
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/59100652"));
-    }
-    UnitGroupLoopEnd();
+    lv_levelPoints = (UnitBehaviorCount(UnitGroupUnit(UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1), "LevelCounter") * CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "LevelCounter", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", EventPlayer()));
+    lv_upgradePoints = CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "CRPGBaseAttributes", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", EventPlayer());
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, FixedToText((lv_levelPoints + lv_upgradePoints), c_fixedPrecisionAny));
+    lv_damageModifier = (((lv_levelPoints + lv_upgradePoints) * gv_damageFraction) + 1.0);
+    CatalogFieldValueSet(c_gameCatalogButton, "AeroYamatoCannon", "Tooltip", EventPlayer(), (("Blasts a target with a devastating plasma cannon, causing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroYamatoCannonDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "AeroLaserArmaments", "Tooltip", EventPlayer(), (("Automatically fire Laser Batteries that deal <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroLaserArmamentsDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage to enemies below the hero.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicMunitions", "Tooltip", EventPlayer(), (("The Sniper's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage. Ignores armor.<n/><n/><c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_Updatetooltips_Init () {
     gt_Updatetooltips = TriggerCreate("gt_Updatetooltips_Func");
-    TriggerAddEventUnitAbility(gt_Updatetooltips, null, AbilityCommand("CRPGUpgradeDamage", 0), c_unitAbilStageAll, false);
+    TriggerAddEventUnitAbility(gt_Updatetooltips, null, AbilityCommand("CRPGUpgradeDamage", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitBehaviorChange(gt_Updatetooltips, null, "LevelCounter", c_unitBehaviorChangeIncrease);
 }
 
 //--------------------------------------------------------------------------------------------------

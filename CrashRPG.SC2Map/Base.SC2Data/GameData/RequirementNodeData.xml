@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
     <CRequirementAnd id="AndGT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnitLT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="GT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnit"/>
         <OperandArray value="LT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5"/>
     </CRequirementAnd>
+    <CRequirementCountBehavior id="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit1337265981">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGControlArmory" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHeroVeterancyCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HeroVeterancy" State="CompleteOnlyAtUnit"/>
@@ -13,10 +16,14 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="LevelCounter" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementAnd id="CountBehaviorLevelCounterCompleteOnlyAtUnitLevel33NotCountBehaviorGhostHoldFireBCompleteOnlyAtUnit">
-        <OperandArray value="GTE2494718353CountBehaviorLevelCounterCompleteOnlyAtUnit3"/>
-        <OperandArray value="NotCountBehaviorGhostHoldFireBCompleteOnlyAtUnit"/>
-    </CRequirementAnd>
+    <CRequirementCountBehavior id="CountBehaviorSniperHoldFireCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="SniperHoldFire" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="VehicleLockOnDisableAttack" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
     <CRequirementGT id="GT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorHeroVeterancyCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="CountBehaviorLevelCounterCompleteOnlyAtUnit"/>
@@ -41,12 +48,14 @@
         <OperandArray index="0" value="CountBehaviorLevelCounterCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
-    <CRequirementAnd id="CountBehaviorLevelCounterCompleteOnlyAtUnitLevel33CountBehaviorGhostHoldFireBCompleteOnlyAtUnit">
-        <OperandArray value="GTE2494718353CountBehaviorLevelCounterCompleteOnlyAtUnit3"/>
-        <OperandArray value="CountBehaviorGhostHoldFireBCompleteOnlyAtUnit"/>
-    </CRequirementAnd>
     <CRequirementLT id="LT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5">
         <OperandArray index="0" value="CountBehaviorLevelCounterCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="5"/>
     </CRequirementLT>
+    <CRequirementNot id="Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit">
+        <OperandArray index="0" value="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountBehaviorSniperHoldFireCompleteOnlyAtUnit">
+        <OperandArray index="0" value="CountBehaviorSniperHoldFireCompleteOnlyAtUnit"/>
+    </CRequirementNot>
 </Catalog>

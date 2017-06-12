@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CTurret id="CRPGVehicle" parent="FreeRotate">
+        <Idle value="ResetIfMoving"/>
+        <YawRate value="539.2968"/>
+    </CTurret>
+</Catalog>

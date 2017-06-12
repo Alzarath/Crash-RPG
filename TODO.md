@@ -9,13 +9,13 @@ Flying flexible.
 #### Abilities
 
 Level 1: Yamato Cannon  
-Level 3: Tactical Jump  
-Level 5: TODO
+Level 3: Defensive Matrix  
+Level 5: Tactical Jump
 
 #### Passives
 
-Level 2: Laser Battery  
-Level 4: TODO
+Level 2: Fire Suppression System  
+Level 4: Laser Batteries
 
 ### Alien
 
@@ -76,6 +76,21 @@ Level 5: TODO
 
 Level 2: TODO  
 Level 4: TODO
+
+### Infested
+
+Ground summoner.
+
+#### Abilities
+
+Level 1: Infested Eggs
+Level 3: Abberate
+Level 5: Infest
+
+#### Passives
+
+Level 2: Caustic Weapons
+Level 4: Hardened Flesh
 
 ### Mech
 

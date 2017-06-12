@@ -1,61 +1,317 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CActorUnit id="CRPGArmory" parent="TerranBuilding" unitName="CRPGArmory">
+    <CActorAction id="AeroArmageddonCannonLeftAttack" parent="GenericAttack" effectAttack="AeroArmageddonCannonLeftDamage">
+        <LaunchAttachQuery Methods="Weapon 10"/>
+        <LaunchAssets Model="ArmageddonCannonLaunch" Sound="Loki_CannonLaunch"/>
+        <ImpactMap index="None" Model="ArmageddonCannonImpact" Sound="Loki_CannonImpact"/>
+        <DamageMap index="None" Model="ThorHandGunLeft1AttackDamage" Sound="ThorHandGunLeft1AttackDamage"/>
+    </CActorAction>
+    <CActorAction id="AeroArmageddonCannonRightAttack" parent="GenericAttack" effectAttack="AeroArmageddonCannonRightDamage">
+        <LaunchAttachQuery Methods="Weapon 11"/>
+        <LaunchAssets Model="ArmageddonCannonLaunch" Sound="Loki_CannonLaunch"/>
+        <ImpactMap index="None" Model="ArmageddonCannonImpact" Sound="Loki_CannonImpact"/>
+        <DamageMap index="None" Model="ThorHandGunRight1AttackDamage" Sound="ThorHandGunRight1AttackDamage"/>
+    </CActorAction>
+    <CActorAction id="AeroLaserBatteryAttack" parent="BattlecruiserAirAttack" effectImpact="ATALaserBatteryATADamage" effectLaunch="AeroATALaserBatteryATALaunchMissile">
+        <On index="1" Terms="Effect.ATALaserBatteryATADamage.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.ATALaserBatteryATADamage.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.AeroATALaserBatteryATALaunchMissile.Start; At Caster"/>
+        <Beam value="AeroLaserBatteryAttackBeam"/>
+    </CActorAction>
+    <CActorAction id="AeroLaserBatteryGroundAttack" parent="BattlecruiserGroundAttack" effectImpact="AeroLaserBatteryATSDamage" effectLaunch="LaserBatteryATSLaunchMissile">
+        <On index="1" Terms="Effect.AeroLaserBatteryATSDamage.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.AeroLaserBatteryATSDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.LaserBatteryATSLaunchMissile.Start; At Caster"/>
+        <Beam value="AeroLaserBatteryGroundAttackBeam"/>
+    </CActorAction>
+    <CActorAction id="AeroYamatoCannonAttack" parent="BattlecruiserYamatoAttack" effectImpact="AeroYamatoCannonDamage" effectLaunch="AeroYamatoCannonLaunchMissile">
+        <On index="1" Terms="Effect.AeroYamatoCannonDamage.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.AeroYamatoCannonDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.AeroYamatoCannonLaunchMissile.Start; At Caster"/>
+    </CActorAction>
+    <CActorSound id="AeroYamatoGunChargeSound" parent="SoundContinuous">
+        <On Terms="WeaponStart.AeroYamatoGun.AttackStart" Send="Create"/>
+        <On Terms="WeaponStop.AeroYamatoGun.AttackStop" Send="Destroy"/>
+        <Host Subject="BattlecruiserYamatoAttackChargeModel"/>
+        <Sound value="AeroYamatoGunChargeUp"/>
+    </CActorSound>
+    <CActorAction id="AeroYamatoGunAttack" parent="BattlecruiserYamatoAttack" effectImpact="AeroYamatoGunDamage" effectLaunch="AeroYamatoGunLaunchMissile">
+        <On index="1" Terms="Effect.AeroYamatoGunDamage.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.AeroYamatoGunDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.AeroYamatoGunLaunchMissile.Start; At Caster"/>
+        <LaunchAssets Sound="AeroYamatoGunAttackLaunch"/>
+        <ImpactMap index="None" Sound="AeroYamatoGunattackImpact"/>
+    </CActorAction>
+    <CActorModel id="AeroYamatoCannonChargeModel" parent="ModelAddition">
+        <On Terms="Abil.AeroYamatoCannon.SourcePrepStart" Send="Create"/>
+        <On Terms="Abil.AeroYamatoCannon.SourcePrepStop" Send="Destroy"/>
+        <On Terms="WeaponStart.AeroYamatoGun.AttackStart" Send="Create"/>
+        <On Terms="WeaponStop.AeroYamatoGun.AttackStop" Send="Destroy"/>
+        <HostSiteOps Ops="SOpAttachCustomA"/>
+        <Model value="BattlecruiserYamatoAttackChargeModel"/>
+    </CActorModel>
+    <CActorSound id="AeroYamatoCannonChargeSound" parent="SoundContinuous">
+        <On Terms="Abil.AeroYamatoCannon.SourcePrepStart" Send="Create"/>
+        <On Terms="Abil.AeroYamatoCannon.SourcePrepStop" Send="Destroy"/>
+        <Host Subject="BattlecruiserYamatoAttackChargeModel"/>
+        <Sound value="Battlecruiser_YamatoAttackChargeUp"/>
+    </CActorSound>
+    <CActorSound id="AeroTacticalJumpInSound" parent="SoundOneShot">
+        <On Terms="Behavior.AeroTacticalJumpTeleportIn.On" Send="Create"/>
+        <Sound value="Battlecruiser_HyperJumpIn"/>
+    </CActorSound>
+    <CActorSound id="AeroTacticalJumpOutSound" parent="SoundOneShot">
+        <On Terms="Behavior.AeroTacticalJumpTeleportOut.On" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary"/>
+        <Sound value="Battlecruiser_HyperJumpOut"/>
+    </CActorSound>
+    <CActorSound id="AeroTacticalJumpWireframeSound" parent="SoundOneShot">
+        <On Terms="Behavior.AeroTacticalJumpTeleport.On" Send="Create"/>
+        <Sound value="Battlecruiser_TacticalJumpWireframe"/>
+    </CActorSound>
+    <CActorSound id="AeroDefensiveMatrixBirth" parent="SoundOneShot">
+        <On Terms="Behavior.AeroDefensiveMatrix.On" Send="Create"/>
+        <On Terms="Behavior.AeroDefensiveMatrix.Off" Send="Destroy"/>
+        <On Terms="Behavior.SJHyperionShield.On" Send="Create"/>
+        <On Terms="Behavior.SJHyperionShield.Off" Send="Destroy"/>
+        <Sound value="Battlecruiser_DefensiveMatrixBirth"/>
+    </CActorSound>
+    <CActorSound id="AeroDefensiveMatrixDeath" parent="SoundOneShot">
+        <On Terms="Behavior.AeroDefensiveMatrix.Off" Send="Create"/>
+        <On Terms="Behavior.SJHyperionShield.Off" Send="Create"/>
+        <Sound value="Battlecruiser_DefensiveMatrixDeath"/>
+    </CActorSound>
+    <CActorModel id="AeroDefensiveMatrixModel" parent="ModelAddition">
+        <Inherits index="TintColor" value="0"/>
+        <On Terms="Behavior.AeroDefensiveMatrix.On" Send="Create"/>
+        <On Terms="Behavior.AeroDefensiveMatrix.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation; ValidateUnit IsColossus" Send="SetScale 1.000000,1.000000,3.000000"/>
+        <On Terms="ActorCreation; ValidateUnit IsVoidRay" Send="SetScale 1.200000,1.600000,1.200000"/>
+        <On Terms="ActorCreation; ValidateUnit IsBattlecruiser" Send="SetScale 1.200000,1.500000,1.000000"/>
+        <On Terms="ActorCreation; ValidateUnit IsThor" Send="SetScale 1.400000,1.200000,1.200000"/>
+        <On Terms="ActorCreation; ValidateUnit IsHerculesCombine" Send="SetScale 1.100000,1.700000,1.100000"/>
+        <On Terms="ActorCreation; ValidateUnit IsGoliath" Send="SetScale 1.300000"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="DefensiveMatrixModel"/>
+        <AutoScaleFactor value="1.500000"/>
+    </CActorModel>
+    <CActorModel id="AeroFireSuppressionBots" parent="FireSuppressionBots">
+        <On index="3" Terms="Behavior.AeroFireSuppressionSystem.On" Send="Create"/>
+        <On index="4" Terms="Behavior.AeroFireSuppressionSystem.On" Send="Create FireSuppressionBots_Loop"/>
+        <On index="5" Terms="Behavior.AeroFireSuppressionSystem.Off" Send="AnimBracketStop BSD"/>
+    </CActorModel>
+    <CActorAction id="AeroLaserArmamentsAttack" parent="HyperionAttack" effectImpact="AeroLaserArmamentsDamage" effectLaunch="AeroLaserArmamentsLaunchMissile">
+        <On index="1" Terms="Effect.AeroLaserArmamentsDamage.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.AeroLaserArmamentsDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.AeroLaserArmamentsLaunchMissile.Start; At Caster" Send="Create"/>
+        <LaunchAttachQuery Methods="FilterOrigin"/>
+        <ActionFlags index="LaunchForceSite" value="1"/>
+    </CActorAction>
+    <CActorSound id="AeroLaserArmamentsAttackEndSound" parent="SoundOneShot">
+        <On Terms="Effect.AeroLaserArmamentsCreatePersistent.Stop" Send="Create"/>
+        <On Terms="Effect.HyperionCreateAirPersistent.Stop" Send="Create"/>
+        <Sound value="HyperionAttackEndSound"/>
+    </CActorSound>
+    <CActorSound id="AeroLaserArmamentsAttackStartSound" parent="SoundOneShot">
+        <On Terms="Effect.AeroLaserArmamentsCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.HyperionCreateAirPersistent.Start" Send="Create"/>
+        <Sound value="HyperionAttackStartSound"/>
+    </CActorSound>
+    <CActorUnit id="CRPGInfestedLevel4" parent="GenericUnitStandard" unitName="CRPGInfestedLevel4">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="ZergBurrowMobileAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="ZergBurrowMobileAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <On Terms="UnitBirth.BlightbringerBurrowed" Send="Create"/>
+        <On Terms="UnitBirth.BlightbringerBurrowed" Send="AnimGroupApply Burrow Burrow Unburrow ClosingFull,Instant"/>
+        <On Terms="Abil.BlightbringerCreateEggs.SourceCastStart; ValidateUnit NotBlightbringerBurrowed" Send="$Spell 0 -1.000000 -1.000000 2.000000 AsDuration"/>
+        <On Terms="Abil.BlightbringerCreateLargeEggs.SourceCastStart; ValidateUnit NotBlightbringerBurrowed" Send="$Spell 0 -1.000000 -1.000000 2.000000 AsDuration"/>
+        <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownLarge"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="Create BlightbringerVileStreamLaunchSound"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="Create BlightbringerVileStreamLaunchSound"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="Create BlightbringerVileStreamLoopSound"/>
+        <On Terms="WeaponStop.*.AttackStop" Target="BlightbringerVileStreamLoopSound" Send="Destroy"/>
+        <Model value="Blightbringer"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Blightbringer"/>
+        <DeathArray index="Normal" ModelLink="BlightbringerDeath"/>
+        <PlacementModel value="Blightbringer"/>
+        <PortraitModel value="Blightbringer_Portrait"/>
+        <WalkAnimMoveSpeed value="2"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-zerg-blightbringer.dds"/>
+        </GroupIcon>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-zerg-blightbringer.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorAction id="BlightbringerEggAction2" parent="GenericAttack" effectImpact="RemovePrecursor" effectLaunch="BlightbringerCreateEggsLaunchMissile2">
+        <LaunchAttachQuery Methods="AMFilterWeapon"/>
+        <LaunchAssets Sound="BlightBringer_Egg_Launch"/>
+        <ImpactAttachQuery Methods="Origin"/>
+    </CActorAction>
+    <CActorSound id="BlightbringerEggImpact2" parent="SoundOneShot">
+        <On Terms="UnitDeath.BlightbringerEggWeapon" Send="Create"/>
+        <On Terms="UnitDeath.BlightbringerLargeEggWeapon" Send="Create"/>
+        <Sound value="BlightBringer_Egg_Impact"/>
+        <Layers Sound="LurkerEgg_Birth"/>
+    </CActorSound>
+    <CActorMissile id="BlightbringerEggMissile2">
+        <Aliases value="_Unit"/>
+        <Aliases value="_Missile"/>
+        <On Terms="UnitBirth.BlightbringerEggWeapon" Send="Create"/>
+        <On Terms="UnitBirth" Send="$Birth NonLooping"/>
+        <On Terms="AnimDone; AnimName Birth" Send="$Stand,Work PlayForever"/>
+        <On Terms="UnitDeath" Send="Destroy"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <Model value="BlightbringerEggWeapon"/>
+        <PreHost value="_ActorAction"/>
+    </CActorMissile>
+    <CActorUnit id="CRPGCivilian" parent="PrisonerCivilian" unitName="CRPGCivilian">
+        <On index="0" Terms="UnitBirth.CRPGCivilian" Send="Create SoundEmitter MechCivilian_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGCivilian"/>
+        <On index="2" Terms="UnitRevive.CRPGCivilian"/>
+        <On index="3" Terms="UnitRevive.CRPGCivilian"/>
+        <On index="4" Terms="UnitConstruction.CRPGCivilian.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGCivilian.Finish"/>
+        <BarOffset value="40"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <HeroIcon value="Assets\Textures\wireframe-terran-civilianprisoner.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGCivilian"/>
+        <SoundArray index="Ready" value="Tychus_Ready"/>
+        <SoundArray index="Help" value="Tychus_Help"/>
+        <SoundArray index="What" value="Tychus_What"/>
+        <SoundArray index="Yes" value="Tychus_Yes"/>
+        <SoundArray index="Attack" value="Tychus_Attack"/>
+        <SoundArray index="Pissed" value="Tychus_Pissed"/>
+        <SoundArray index="Movement" value="Tychus_Movement"/>
+        <SoundArray index="Turning" value="Tychus_Turning"/>
+        <SoundArray index="Board" value="Tychus_Board"/>
+        <SoundArray index="Click" value="TychusCommando_Click"/>
+        <SoundArray index="ClickError" value="TychusCommando_ClickError"/>
+        <SoundArray index="Highlight" value="TychusCommando_Highlight"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <UnitIcon value="Assets\Textures\wireframe-terran-civilianprisoner.dds"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGInfestedLevel2" parent="GenericBurrowerStandard" unitName="CRPGInfestedLevel2">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <On Terms="Abil.DefilerMPConsume.SourcePrepStart" Send="$Spell 0 -1.000000 -1.000000 0.400000 AsDuration"/>
+        <On Terms="Abil.DefilerMPConsume.SourcePrepStop" Send="AnimClear Spell"/>
+        <On Terms="Abil.DefilerMPDarkSwarm.SourcePrepStart" Send="$Spell,00 0 -1.000000 -1.000000 1.000000 AsDuration"/>
+        <On Terms="Abil.DefilerMPPlague.SourcePrepStart" Send="$Spell,01"/>
+        <On Terms="AbilMorph.*.Start; AbilKey BurrowDown" Send="Create BurrowDownMedium"/>
+        <Model value="DefilerMP"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="DefilerMP"/>
+        <DeathArray index="Normal" ModelLink="DefilerMPDeath" SoundLink="Zerg_ExplosionSmall"/>
+        <DeathArray index="Disintegrate" ModelLink="DefilerMPAcidDeath" SoundLink="Zerg_ExplosionSmall"/>
+        <DeathArray index="Fire" ModelLink="DefilerMPFireDeath" SoundLink="Zerg_ExplosionSmall"/>
+        <PlacementModel value="DefilerMP"/>
+        <PortraitModel value="Defiler_Portrait"/>
+        <WalkAnimMoveSpeed value="2"/>
+        <BarOffset value="50"/>
+        <BarWidth value="80"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-defiler_ex3.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-defilerex3.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <SoundArray index="Ready" value="DefilerMP_Ready"/>
+        <SoundArray index="What" value="DefilerMP_What"/>
+        <SoundArray index="Yes" value="DefilerMP_Yes"/>
+        <SoundArray index="Pissed" value="DefilerMP_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-defilerex3.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-defiler_ex3.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="CRPGInfestedLevel5" parent="Infestor" unitName="CRPGInfestedLevel5">
+        <On index="0" Terms="UnitBirth.CRPGInfestedLevel5"/>
+        <On index="1" Terms="UnitBirth.CRPGInfestedLevel5"/>
+        <On index="2" Terms="UnitRevive.CRPGInfestedLevel5"/>
+        <On index="3" Terms="UnitRevive.CRPGInfestedLevel5"/>
+        <On index="4" Terms="UnitConstruction.CRPGInfestedLevel5.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGInfestedLevel5.Finish"/>
+        <On index="78" Terms="UnitBirth.CRPGInfestedLevel5"/>
+        <HighlightTooltip value="Unit/Name/CRPGInfestedLevel5"/>
+    </CActorUnit>
+    <CActorSound id="MechShockBlastFireSound" parent="SoundOneShot">
+        <On Terms="Abil.MechShockBlast.SourceCastStart" Send="Create"/>
+        <Sound value="ACPirateLightningStormFire2"/>
+        <Layers Sound="VoidShard_UnstableEnergy_BaseLaunch">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+        <Layers Sound="ACPirateLightningStormFireDelayedElectric">
+            <Chance value="100"/>
+            <Pitch value="0.000000,0.000000"/>
+            <PlayDelay value="0,0"/>
+            <Volume value="0.000000,0.000000"/>
+        </Layers>
+    </CActorSound>
+    <CActorModel id="MechShockBlastImpactModel" parent="ModelAnimationStyleContinuous">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Behavior.MechElectricField.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart GL_BSD GLbirth GLstand GLdeath"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart $BSD"/>
+        <On Terms="ActorCreation" Send="TimerSet 2.130000 EMPSoundOff"/>
+        <On Terms="TimerExpired; TimerName EMPSoundOff" Send="Create Hyperion_Recover_EMP"/>
+        <On Terms="Behavior.MechElectricField.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <AutoScaleFactor value="1.000000"/>
+    </CActorModel>
+    <CActorModel id="MechShockBlastModel" parent="ModelAnimationStyleOneShot">
+        <On Terms="Abil.MechShockBlast.SourceFinishStart" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter SJHyperionLightningStormOffset" HoldPosition="1" HoldRotation="1"/>
+        <AcceptedHostedPropTransfers index="Scale" value="0"/>
+    </CActorModel>
+    <CActorUnit id="CRPGArmory" parent="Armory" unitName="CRPGArmory">
         <Filter index="Ally" value="1"/>
         <Filter index="Neutral" value="1"/>
         <Filter index="Enemy" value="1"/>
-        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationArmory"/>
-        <On Terms="Abil.que5.Start" Send="AnimSetTimeScale ::Baseline 5.000000"/>
-        <On Terms="Abil.que5.Stop" Send="AnimSetTimeScale ::Baseline 1.000000"/>
-        <Model value="Armory"/>
-        <EventDataFootprint index="0" Model="ArmoryFootprint"/>
-        <CreepHeightClass value="Small"/>
-        <BuildModel value="Armory"/>
-        <DeathArray index="Normal" ModelLink="ArmoryDeath" SoundLink="" VoiceLink="ArmoryDeathVoice"/>
-        <DeathArray index="UnderConstruction" ModelLink="TerranLargeBuildingDeath" SoundLink="Armory_Explode"/>
-        <PlacementModel value="ArmoryPlacement"/>
-        <PlacementSound value="Terran_BuildingPlacement"/>
-        <PortraitModel value="AdjutantPortrait"/>
-        <BarOffset value="115"/>
-        <BarWidth value="135"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-Armory.dds"/>
-        </GroupIcon>
-        <GroupSoundArray index="What" value="Armory_GroupWhat"/>
-        <GroupSoundArray index="Yes" value="Armory_GroupYes"/>
-        <GroupSoundArray index="Attack" value="Armory_GroupAttack"/>
-        <GroupSoundArray index="Board" value="Armory_GroupBoard"/>
-        <HeroIcon value="Assets\Textures\btn-building-terran-armory.dds"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
-        <NameOffset value="100"/>
-        <SoundArray index="Birth" value="Armory_Birth"/>
-        <SoundArray index="Ready" value="Armory_Ready"/>
-        <SoundArray index="Help" value="Armory_Help"/>
-        <SoundArray index="What" value="Armory_What"/>
-        <SoundArray index="Yes" value="Armory_Yes"/>
-        <SoundArray index="Attack" value="Armory_Attack"/>
-        <SoundArray index="Pissed" value="Armory_Pissed"/>
-        <SoundArray index="Movement" value="Armory_Movement"/>
-        <SoundArray index="Turning" value="Armory_Turning"/>
-        <SoundArray index="Board" value="Armory_Board"/>
-        <SoundArray index="Construction" value="Terran_ConstructionWhat"/>
-        <SoundArray index="Click" value="Armory_Click"/>
-        <SoundArray index="ClickError" value="Armory_ClickError"/>
-        <SoundArray index="Highlight" value="Armory_Highlight"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-armory.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-Armory.dds"/>
-        </Wireframe>
+        <On index="0" Terms="UnitBirth.CRPGArmory" Send="Create SoundEmitter CRPGArmory_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGArmory"/>
+        <On index="2" Terms="UnitRevive.CRPGArmory"/>
+        <On index="3" Terms="UnitRevive.CRPGArmory"/>
+        <On index="4" Terms="UnitConstruction.CRPGArmory.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGArmory.Finish"/>
+        <On index="65" Terms="UnitConstruction.CRPGArmory.Start" Send="Create CRPGArmoryBuild"/>
+        <On index="66" Terms="UnitConstruction.CRPGArmory.Start" Send="Create BuildingTerrainFlatten"/>
+        <On index="67" Terms="UnitConstruction.CRPGArmory.Cancel" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="68" Terms="UnitConstruction.CRPGArmory.Finish" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="69" Terms="UnitConstruction.CRPGArmory.Start" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
+        <On index="70" Terms="UnitBirth.CRPGArmory.Normal" Send="Create BuildingTerrainFlatten"/>
+        <On index="71" Terms="UnitBirth.CRPGArmory.Suppressed" Send="Create BuildingTerrainFlattenInstant"/>
+        <On index="72" Terms="UnitBirth.CRPGArmory.EditorPlaced" Send="Create BuildingTerrainFlattenEditor"/>
+        <On index="73" Terms="UnitDeath.CRPGArmory" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On Terms="Behavior.CRPGControlArmory.Off" Send="AnimSetTimeScale ::Baseline 0.001000"/>
+        <On Terms="Behavior.CRPGControlArmory.On" Send="AnimSetTimeScale ::Baseline 1.000000"/>
+        <On Terms="ActorCreation" Send="AnimSetTimeScale ::Baseline 0.001000"/>
     </CActorUnit>
     <CActorSplat id="CRPGArmorySplat" parent="GenericUnitSplat" unitName="CRPGArmory">
+        <Filter index="Ally" value="1"/>
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
         <Model value="ArmorySplat"/>
     </CActorSplat>
-    <CActorUnit id="CRPCrashedBattlecruiser" parent="TerranBuilding" unitName="CRPGCrashedBattlecruiser">
+    <CActorUnit id="CRPGCrashedBattlecruiser" parent="TerranBuilding" unitName="CRPGCrashedBattlecruiser">
         <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationEngineeringBay"/>
-        <Model value="WreckedBattlecruiser"/>
+        <Model value="WreckedBattlecruiser2"/>
         <CreepHeightClass value="Medium"/>
-        <BuildModel value="WreckedBattlecruiser"/>
-        <PlacementModel value="WreckedBattlecruiser"/>
+        <BuildModel value="WreckedBattlecruiser2"/>
+        <PlacementModel value="WreckedBattlecruiser2"/>
         <PlacementSound value="Terran_BuildingPlacement"/>
         <PortraitModel value="BattlecruiserPortrait"/>
         <BarOffset value="110"/>
@@ -64,7 +320,6 @@
             <Image value="Assets\Textures\wireframe-terran-battlecruiser.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\btn-unit-terran-battlecruiser.dds"/>
-        <HighlightTooltip value="Unit/Name/CRPCrashedBattlecruiser"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
         <NameOffset value="110"/>
         <SoundArray index="Ready" value="UI_alarm_BattlecruiserHangar_stereo"/>
@@ -76,7 +331,7 @@
             <Image value="Assets\Textures\wireframe-terran-battlecruiser.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorSplat id="CRPCrashedBattlecruiserSplat" parent="GenericUnitSplat" unitName="CRPGCrashedBattlecruiser">
+    <CActorSplat id="CRPGCrashedBattlecruiserSplat" parent="GenericUnitSplat" unitName="CRPGCrashedBattlecruiser">
         <Filter index="Ally" value="1"/>
         <Filter index="Neutral" value="1"/>
         <Filter index="Enemy" value="1"/>
@@ -84,26 +339,804 @@
     </CActorSplat>
     <CActorModel id="CRPGLevelUpEffect" parent="ModelAnimationStyleOneShot">
         <EditorCategories value=""/>
-        <On Terms="Abil.LevelUp.SourceFinishStart" Send="Create"/>
+        <On Terms="Effect.CRPGIncreaseLevelCounter.Start" Send="Create"/>
         <On Terms="AnimDone" Send="Destroy"/>
         <Model value="KerriganRespawnImpact"/>
     </CActorModel>
-    <CActorUnit id="MechLevel4" parent="GenericUnitBase" unitName="Goliath2">
+    <CActorAction id="MechHellfireMissilePackAttack" parent="GenericAttack" effectImpact="MechHellfireMissilePackDamage" effectLaunch="MechHellfireMissilePackLaunchMissile">
+        <LaunchAttachQuery Methods="AMPatternMech"/>
+        <LaunchAssets Model="GoliathAirAttackLaunch" Sound="VikingFighter_AttackLaunch"/>
+        <Beam value="GoliathAirAttackBeam"/>
+        <Missile value="GoliathAirAttackMissile"/>
+        <ImpactMap index="None" Model="GoliathAirAttackImpact" Sound="VikingFighter_AttackImpact"/>
+        <ImpactMap index="Shield" Sound="GoliathAirAttackImpactShield"/>
+        <ImpactPhysics Name="JavelinImpact" MatchKeys="Basic" Physics="ThorAAAttackForce"/>
+    </CActorAction>
+    <CActorMissile id="MechHellfireMissilePackMissile" parent="GenericAttackMissile" unitName="MechHellfireMissileWeapon">
+        <Model value="GoliathAWeapon"/>
+    </CActorMissile>
+    <CActorAction id="MechTwinAutocannonsAttack" parent="GenericAttack" effectAttack="MechTwinAutocannonsDamage">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0"/>
+        <LaunchAssets Model="GoliathGroundAttackLaunch" Sound="GoliathGroundAttackLaunch"/>
+        <Beam value="GoliathGroundAttackBeam"/>
+        <Missile value="GoliathGroundAttackMissile"/>
+        <ImpactMap index="None" Model="GoliathGroundAttackImpact"/>
+        <ImpactPhysics Name="GatlingCannonImpact" MatchKeys="Basic" Physics="VikingAssaultAttackForce"/>
+    </CActorAction>
+    <CActorUnit id="MechCivilian" parent="CRPGCivilian" unitName="MechCivilian">
+        <On index="0" Terms="UnitBirth.MechCivilian" Send="Create SoundEmitter MechCivilian_Ambience"/>
+        <On index="1" Terms="UnitBirth.MechCivilian"/>
+        <On index="2" Terms="UnitRevive.MechCivilian"/>
+        <On index="3" Terms="UnitRevive.MechCivilian"/>
+        <On index="4" Terms="UnitConstruction.MechCivilian.Start"/>
+        <On index="5" Terms="UnitConstruction.MechCivilian.Finish"/>
+    </CActorUnit>
+    <CActorUnit id="MechCivilianEjectMissile" parent="GenericUnitStandardNoAutoSoundLinks" unitName="MechCivilianEjectionWeapon">
+        <Model value="TychusEjectMissile"/>
+        <BuildModel value="TychusEjectMissile"/>
+        <DeathArray index="Normal" ModelLink="TychusEjectMissile"/>
+        <PlacementModel value="TychusEjectMissile"/>
+        <HighlightTooltip value="Unit/Name/MechCivilianEjectMissile"/>
+    </CActorUnit>
+    <CActorSound id="MechEmergencyEvacSound" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.MechEmergencyEvacLaunchMissile.Start" Send="Create"/>
+        <Sound value="Doodad_OuthouseLaunchStage2"/>
+    </CActorSound>
+    <CActorAction id="MechFusionCutterAttack" parent="GenericAttack" effectAttack="MechFusionCutterDamage">
+        <Beam value="SCVAttackBeam"/>
+        <Missile value="SCVAttackMissile"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorSound id="MechFusionCutterSound" parent="SoundOneShot">
+        <On Terms="WeaponStart.MechFusionCutter.AttackStart" Send="Create"/>
+        <Sound value="SCV_AttackLaunch"/>
+    </CActorSound>
+    <CActorAction id="MechThorsHammerAttack" parent="GenericAttack" effectAttack="MechThorsHammerDamage">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMPatternMechThor"/>
+        <LaunchAssets Model="ThorHandGunAttackLaunch" Sound="Thor_HandGunAttackLaunch"/>
+        <Beam value="ThorAttackBeam"/>
+        <Missile value="ThorAttackMissile"/>
+        <ImpactMap index="None" Model="ThorHandGunAttackImpact"/>
+        <ImpactPhysics Name="GunImpact" MatchKeys="Basic" Physics="ThorAttackForce"/>
+    </CActorAction>
+    <CActorMissile id="NeuralParasiteMissile2" parent="GenericAttackMissile" unitName="NeuralParasiteWeapon">
+        <Supporter>
+            <Subject value="NeuralParasiteTentacle"/>
+            <Scope value="Caster"/>
+            <Actor value="Find"/>
+            <Effect value="NeuralParasiteLaunchMissile"/>
+        </Supporter>
+        <On Terms="MotionPhaseStart; MotionPhase" Target="::Supporter" Send="RefSet TentacleAttack ::Self"/>
+        <On Terms="MotionPhaseStart; MotionPhase" Target="::Supporter" Send="RefSetFromRequest ::scope.NeuralParasiteTarget _Unit Target Find"/>
+        <Model value="Invisible"/>
+    </CActorMissile>
+    <CActorModel id="NeuralParasiteModel2" parent="ModelAddition">
+        <On Terms="Behavior.NeuralParasite2.On" Send="Create"/>
+        <On Terms="Behavior.NeuralParasite2.On" Target="::Main" Send="SetSoundSuffix _NP"/>
+        <On Terms="Behavior.NeuralParasite2.On" Target="::Main" Send="PlayUnitSound Ready"/>
+        <On Terms="Behavior.NeuralParasite2.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.NeuralParasite2.Off; ValidateUnit SourceNotDead" Target="::Main" Send="SetSoundSuffix"/>
+        <HostSiteOps Ops="SOpAttachHead"/>
+        <Model value="NeuralParasiteModel"/>
+    </CActorModel>
+    <CActorRange id="NeuralParasiteRange2" parent="RangeAbil" abil="NeuralParasite2">
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconArcLength value="3.250000"/>
+    </CActorRange>
+    <CActorSound id="NeuralParasiteSound2" parent="SoundOneShot">
+        <On Terms="Abil.NeuralParasite2.SourceCastStart" Send="Create"/>
+        <Host Subject="NeuralParasiteModel"/>
+        <Sound value="Infestor_AttackLaunch_NP"/>
+    </CActorSound>
+    <CActorUnit id="ScarabMine" parent="GenericUnitStandard" unitName="SpiderMine">
+        <Aliases value="_UnitSmall"/>
+        <On index="0" Terms="UnitBirth.HunterScarabMine"/>
+        <On index="1" Terms="UnitBirth.HunterScarabMine"/>
+        <On index="2" Terms="UnitRevive.HunterScarabMine"/>
+        <On index="3" Terms="UnitRevive.HunterScarabMine"/>
+        <On index="4" Terms="UnitConstruction.HunterScarabMine.Start"/>
+        <On index="5" Terms="UnitConstruction.HunterScarabMine.Finish"/>
+        <On Terms="UnitBirth.HunterScarabMineBurrowed" Send="Create"/>
+        <On Terms="AbilMorph.VultureSpiderMineBurrow.Start" Send="Create VultureSpiderMineBurrowSound"/>
+        <On Terms="Abil.attack.ReadyStart" Send="Create VultureSpiderMineSeekSound"/>
+        <On Terms="UnitBirth.HunterScarabMineBurrowed" Send="AnimPlay Stand Birth"/>
+        <On Terms="UnitBirth.HunterScarabMineBurrowed" Send="AnimSetPaused Stand"/>
+        <On Terms="AbilMorph.ScarabMineBurrow.Start" Send="AnimPlay Stand Birth"/>
+        <On Terms="AbilMorph.ScarabMineBurrow.Start" Send="AnimSetPaused Stand"/>
+        <On Terms="AbilMorph.ScarabMineUnburrow.Start" Send="AnimClear Stand"/>
+        <Model value="ScarabWeapon"/>
+        <BuildModel value="Scarab"/>
+        <DeathArray index="Normal" ModelLink="SpiderMineExplosion" SoundLink="Terran_ExplosionSmall"/>
+        <PlacementModel value="Scarab"/>
+        <PortraitModel value="AdjutantPortrait"/>
+        <BarOffset value="10"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SpiderMine.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="Birth" value="SpiderMineBirth"/>
+        <GroupSoundArray index="Ready" value="SpiderMineReady"/>
+        <GroupSoundArray index="Help" value="SpiderMineHelp"/>
+        <GroupSoundArray index="What" value="SpiderMineWhat"/>
+        <GroupSoundArray index="Yes" value="SpiderMineYes"/>
+        <GroupSoundArray index="Attack" value="SpiderMineYes"/>
+        <GroupSoundArray index="Pissed" value="SpiderMinePissed"/>
+        <HeroIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <NameOffset value="10"/>
+        <SoundArray index="Birth" value="SpiderMineBirth"/>
+        <SoundArray index="Ready" value="SpiderMineReady"/>
+        <SoundArray index="Help" value="SpiderMineHelp"/>
+        <SoundArray index="What" value="SpiderMineWhat"/>
+        <SoundArray index="Yes" value="SpiderMineYes"/>
+        <SoundArray index="Attack" value="SpiderMineYes"/>
+        <SoundArray index="Pissed" value="SpiderMinePissed"/>
+        <SoundArray index="Movement" value="SpiderMineMovement"/>
+        <SoundArray index="Turning" value="SpiderMineTurning"/>
+        <SoundArray index="Board" value="SpiderMineBoard"/>
+        <UnitIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SpiderMine.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="CRPGInfestedLevel1" parent="GenericUnitStandard" unitName="CRPGInfestedLevel1">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="ZergBurrowStandardAnimMacro"/>
+        <Macros value="ZergMediumBurrowEffects"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart Ready Spell,Alternate,Start Spell,Alternate Spell,Alternate,End"/>
+        <On Terms="Behavior.SwarmHostEggAnimationMP.Create" Send="AnimBracketStop Ready"/>
+        <On Terms="Behavior.SwarmHostEggAnimationMP.Destroy" Send="AnimBracketStart Ready Spell,Alternate,Start Spell,Alternate Spell,Alternate,End"/>
+        <On Terms="UnitBirth.SwarmHostBurrowedMP" Send="Create"/>
+        <On Terms="UnitBirth.SwarmHostBurrowedMP" Send="AnimBracketStart Burrow Burrow IGNORE Unburrow ClosingFull,OpeningPlayForever,Instant"/>
+        <On Terms="UnitBirth.CRPGInfestedLevel1" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo SwarmHostMP; MorphFrom SwarmHostBurrowedMP" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo SwarmHostBurrowedMP; MorphFrom SwarmHostMP" Send="TerrainSquibDeactivate"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SwarmHost_Land"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom SwarmHostMP; MorphTo SwarmHostBurrowedMP" Send="AnimClear Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo SwarmHostMP; MorphFrom SwarmHostBurrowedMP" Send="AnimBracketStop Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo SwarmHostMP; MorphFrom SwarmHostBurrowedMP" Send="AnimClear Burrow"/>
+        <Model value="SwarmHostMP"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="SwarmHostMP"/>
+        <DeathArray index="Normal" ModelLink="SwarmHostMPDeath" SoundLink="BroodLord_Explode" VoiceLink="SwarmHost_Death"/>
+        <DeathArray index="Disintegrate" ModelLink="SwarmHostMPDeathAcid" SoundLink="Uni_DeathFXAcid" VoiceLink="SwarmHost_Death"/>
+        <DeathArray index="Fire" ModelLink="SwarmHostMPDeathFire" SoundLink="Uni_DeathFXFire" VoiceLink="SwarmHost_Death"/>
+        <DeathCustoms ModelLink="ZergLargeUnitDeathLow" Name="AntiGravZerg"/>
+        <DeathCustoms ActorModel="SwarmHostDeathRagdoll" ModelLink="SwarmHostDeathRagdoll" Name="RagdollBasic"/>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <PlacementModel value="SwarmHostMP"/>
+        <PlacementSound value="Zerg_BuildingPlacement"/>
+        <PortraitModel value="EggMonsterPortrait"/>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.500000,1.000000"/>
+            <IdlePeriod value="0.500000,1.000000"/>
+            <RangeUp value="0.500000"/>
+            <RangeDown value="0.500000"/>
+            <AttachQuery Methods="AMFilterTargetSetB0"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMedium"/>
+        </TerrainSquibs>
+        <TerrainSquibs>
+            <GroupName value="RippleStandard"/>
+            <MovementDistance value="0.500000,1.000000"/>
+            <IdlePeriod value="0.500000,1.000000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLargeSilent"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="0.707"/>
+        <BarOffset value="80"/>
+        <BarWidth value="80"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-zerg-swarmhost.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-zerg-swarmhost.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <MovementHerdNode value="HerdNode_ZergLarge"/>
+        <NameOffset value="80"/>
+        <SoundArray index="Ready" value="SwarmHost_Ready"/>
+        <SoundArray index="What" value="SwarmHost_What"/>
+        <SoundArray index="Yes" value="SwarmHost_Yes"/>
+        <SoundArray index="Attack" value="SwarmHost_Attack"/>
+        <SoundArray index="Pissed" value="SwarmHost_What"/>
+        <SoundArray index="Movement" value="SwarmHost_moveStart"/>
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-swarmhost.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-zerg-swarmhost.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorRange id="VehicleLockOnRange" parent="RangeAbil" abil="VehicleLockOn">
+        <Range value="6.000000"/>
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+    </CActorRange>
+    <CActorRange id="MechShockBlastRange" abil="MechShockBlast">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="Abil.MechShockBlast.TargetOn" Send="Create"/>
+        <On Terms="Abil.MechShockBlast.TargetOff" Send="Destroy"/>
+        <On Terms="Abil.MechShockBlast.ButtonHoverOn" Send="Create"/>
+        <On Terms="Abil.MechShockBlast.ButtonHoverOff" Send="Destroy"/>
+        <Range value="5.200000"/>
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+    </CActorRange>
+    <CActorBeamSimple id="VehicleLockOnTrackingBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <On Terms="Effect.VehicleLockOnTurretClear.Start; At Caster" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Send="Create VehicleLockOnTrackingRange"/>
+        <Model value="CycloneTargetingBeam"/>
+        <HostLaunch Subject="_Unit" Scope="Caster"/>
+        <HostLaunchSiteOps Ops="SOpAttachWeapon"/>
+        <HostImpact Subject="_Unit" Scope="Target"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
+    </CActorBeamSimple>
+    <CActorRange id="VehicleLockOnTrackingRange">
+        <Filter index="Neutral" value="1"/>
+        <Filter index="Enemy" value="1"/>
+        <On Terms="Effect.VehicleLockOnTurretClear.Start" Send="Destroy"/>
+        <Range value="8.000000"/>
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+    </CActorRange>
+    <CActorSound id="VehicleLockOnSound" parent="SoundOneShot">
+        <On Terms="Effect.VehicleLockOnTurretStart.Start; At Caster" Send="Create"/>
+        <Sound value="Cyclone_TargetLock_On"/>
+    </CActorSound>
+    <CActorTurret id="VehicleTurret">
+        <On Terms="TurretEnable.CRPGVehicle" Send="Create"/>
+    </CActorTurret>
+    <CActorRange id="VehicleCrucioShockCannonMinimumRange">
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Start" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.StartEditorGround" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Stop" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5SiegeMode" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetTintColor 255,0,0"/>
+        <Range value="2.000000"/>
+        <Icon value="radaricon2upsidedown.dds"/>
+    </CActorRange>
+    <CActorAction id="VehicleArcliteCannonAttack" parent="GenericAttack" effectAttack="VehicleArcliteCannonDamage">
+        <LaunchAttachQuery Methods="AMPatternRollingStripe"/>
+        <LaunchAssets Model="SiegeTankAttackLaunch" Sound="SiegeTank_AttackLaunch"/>
+        <Beam value="SiegeTankAttackBeam"/>
+        <Missile value="SiegeTankAttackMissile"/>
+        <ImpactMap index="None" Model="SiegeTankAttackImpact" Sound="SiegeTank_AttackImpact" ModelReaction="SiegeTankAttackImpactReaction"/>
+        <ImpactMap index="Shield" Sound="SiegeTankAttackImpactShield" ModelReaction="SiegeTankAttackImpactReactionShield"/>
+        <ImpactPhysics Name="90mmCannonImpact" MatchKeys="Basic" Physics="SiegeTankAttackForce"/>
+        <DamageMap index="None" Model="SiegeTankAttackDamage" Sound="SiegeTankAttackDamage" ModelReaction="SiegeTankAttackDamageReaction"/>
+        <DamageMap index="Shield" Sound="SiegeTankAttackDamageShield" ModelReaction="SiegeTankAttackDamageReactionShield"/>
+    </CActorAction>
+    <CActorAction id="VehicleEvisceratorAttack" parent="GenericAttack" effectAttack="VehicleEvisceratorRailGunDamage">
+        <LaunchAttachQuery Methods="AMFilterWeapon"/>
+        <LaunchAssets Sound="Diamondback_AttackImpact"/>
+        <Beam value="VehicleEvisceratorBeam"/>
+        <ImpactPhysics Name="RailgunImpact" MatchKeys="Basic" Physics="MengskDiamondbackAttackDeathForce"/>
+    </CActorAction>
+    <CActorBeamSimple id="VehicleEvisceratorBeam" parent="GenericAttackBeam">
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <Model value="DiamondbackAttackBeam"/>
+    </CActorBeamSimple>
+    <CActorModel id="MechPointDefenseDroneAttackImpact" parent="ModelAnimationStyleContinuous">
+        <On Terms="Effect.MechPointDefenseLaserDamage.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.125000 Die"/>
+        <On Terms="TimerExpired; TimerName Die" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <Host Subject="_Missile"/>
+        <Model value="PointDefenseBeamImpact"/>
+    </CActorModel>
+    <CActorUnit id="MechPointDefenseDrone" parent="GenericUnitBase" unitName="MechPointDefenseDrone">
+        <Aliases value="_UnitMedium"/>
+        <On Terms="Behavior.PointDefenseReady.On" Send="AnimBracketStart Work Work,Start Work Work,End"/>
+        <On Terms="Behavior.PointDefenseReady.Off" Send="AnimBracketStop Work"/>
+        <Model value="PointDefenseDrone"/>
+        <Scale value="0.500000"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="PointDefenseDrone"/>
+        <DeathArray index="Normal" ModelLink="PointDefenseDroneDeath" SoundLink="Raven_TargetingDroneExplode"/>
+        <PlacementModel value="PointDefenseDronePlacement"/>
+        <PlacementSound value="Terran_BuildingPlacement"/>
+        <PlacementActorModel value="PointDefenseDronePlacementModel"/>
+        <PlaceholderActorModel value="PointDefenseDronePlaceholderModel"/>
+        <PortraitModel value="AdjutantPortrait"/>
+        <BarOffset value="20"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-PointDefenseDrone.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-targetingdrone.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
+        <SoundArray index="What" value="Raven_PointDefenseDroneWhat"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-targetingdrone.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-PointDefenseDrone.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorBeamSimple id="MechPointDefenseDroneAttackBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <On Terms="Effect.MechPointDefenseLaserDamage.Start; At Caster" Send="Create"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.125000 Die"/>
+        <On Terms="TimerExpired; TimerName Die" Send="Destroy"/>
+        <Model value="PointDefenseDroneAttackBeam"/>
+        <HostLaunch Subject="_Selectable" Actor="Find"/>
+        <HostLaunchSiteOps Ops="SOpAttachCenter"/>
+        <HostImpact Subject="_Missile" Actor="Find"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
+    </CActorBeamSimple>
+    <CActorSound id="MechPointDefenseDroneAttackImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.MechPointDefenseLaserDamage.Start; At Caster" Send="Create"/>
+        <Host Subject="::Creator"/>
+        <Sound value="Raven_PointDefenseDroneAttackImpact"/>
+    </CActorSound>
+    <CActorSound id="MechPointDefenseDroneAttackLaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.MechPointDefenseLaserDamage.Start; At Caster" Send="Create"/>
+        <Host Subject="PointDefenseDrone"/>
+        <Sound value="Raven_PointDefenseDroneAttackLaunch"/>
+    </CActorSound>
+    <CActorUnit id="CRPGAeroLevel1" parent="Battlecruiser" unitName="CRPGAero">
+        <On index="0" Terms="UnitBirth.CRPGAeroLevel1"/>
+        <On index="1" Terms="UnitBirth.CRPGAeroLevel1"/>
+        <On index="2" Terms="UnitRevive.CRPGAeroLevel1"/>
+        <On index="3" Terms="UnitRevive.CRPGAeroLevel1"/>
+        <On index="4" Terms="UnitConstruction.CRPGAeroLevel1.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGAeroLevel1.Finish"/>
+        <On index="73" Terms="Abil.AeroYamatoCannon.SourcePrepStart"/>
+        <On index="74" Terms="Abil.AeroYamatoCannon.SourcePrepStop"/>
+        <On index="90" Terms="WeaponStart.AeroYamatoGun.AttackStart" Target="_BattlecruiserTurretATS" Send="LookAtEngage Continue"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGAeroLevel1" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGAeroLevel1" Send="Destroy"/>
+        <Baselines index="Stand" AnimProps="Stand,A"/>
+        <Baselines index="Walk" AnimProps="Walk,A"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGAero"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGAeroLevel2" parent="CRPGAeroLevel1">
+        <On index="0" Terms="UnitBirth.CRPGAeroLevel2"/>
+        <On index="1" Terms="UnitBirth.CRPGAeroLevel2"/>
+        <On index="2" Terms="UnitRevive.CRPGAeroLevel2"/>
+        <On index="3" Terms="UnitRevive.CRPGAeroLevel2"/>
+        <On index="4" Terms="UnitConstruction.CRPGAeroLevel2.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGAeroLevel2.Finish"/>
+        <On index="90" Terms="WeaponStart.AeroLaserbatteryATS.AttackStart" Target="_BattlecruiserTurretATS" Send="LookAtEngage Continue"/>
+        <On index="91" Terms="WeaponStart.AeroLaserBatteryATA.AttackStart"/>
+        <On index="99" Terms="AbilMorph.*.Finish; MorphTo CRPGAeroLevel2" Send="Create"/>
+        <On index="100" Terms="AbilMorph.*.Finish; MorphFrom CRPGAeroLevel2" Send="Destroy"/>
+        <Model value="BattleCruiser_Merc_Collection"/>
+        <Baselines index="Stand" AnimProps="Stand"/>
+        <Baselines index="Walk" AnimProps="Walk"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGAeroLevel3" parent="CRPGAeroLevel2" unitName="CRPGAeroLevel3">
+        <On index="0" Terms="UnitBirth.CRPGAeroLevel3"/>
+        <On index="1" Terms="UnitBirth.CRPGAeroLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGAeroLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGAeroLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGAeroLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGAeroLevel3.Finish"/>
+        <On index="99" Terms="AbilMorph.*.Finish; MorphTo CRPGAeroLevel3" Send="Create"/>
+        <On index="100" Terms="AbilMorph.*.Finish; MorphFrom CRPGAeroLevel3" Send="Destroy"/>
+        <Model value="BattlecruiserBlackOps"/>
+        <PortraitModel value="PortraitBattlecruiserBlackOps"/>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-blackops-battlecruiser.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-blackops-battlecruiser.dds"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGAeroLevel4" parent="Hyperion" unitName="CRPGAeroLevel4">
+        <On index="0" Terms="UnitBirth.CRPGAeroLevel4" Send="Create SoundEmitter HyperionKorhal_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGAeroLevel4"/>
+        <On index="2" Terms="UnitRevive.CRPGAeroLevel4"/>
+        <On index="3" Terms="UnitRevive.CRPGAeroLevel4"/>
+        <On index="4" Terms="UnitConstruction.CRPGAeroLevel4.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGAeroLevel4.Finish"/>
+        <On index="65" Terms="ActorCreation" Send="AnimGroupApply A {} {} Instant"/>
+        <On index="66" Terms="Abil.AeroYamatoCannon.SourceCastStart" Send="$Spell 0 0.000000 0.000000 3.500000 AsDuration"/>
+        <On index="67" Terms="AbilMorph.*.Finish; MorphTo CRPGAeroLevel4" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGAeroLevel4" Send="Destroy"/>
+        <Model value="BattlecruiserTinyHyperion"/>
+        <Scale value="0.500000"/>
+        <BuildModel value="BattlecruiserTinyHyperion"/>
+        <PlacementModel value="BattlecruiserTinyHyperion"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGAero"/>
+        <SoundArray index="Ready" value="Hyperion_Ready"/>
+        <SoundArray index="Help" value="Hyperion_Help"/>
+        <SoundArray index="What" value="Hyperion_What"/>
+        <SoundArray index="Yes" value="Hyperion_Yes"/>
+        <SoundArray index="Attack" value="Hyperion_Attack"/>
+        <SoundArray index="Pissed" value="Hyperion_Pissed"/>
+        <SoundArray index="Movement" value="Hyperion_Movement"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <UnitKillRank index="0" removed="1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGAeroLevel5" parent="Loki" unitName="CRPGAeroLevel5">
+        <On index="0" Terms="UnitBirth.CRPGAeroLevel5"/>
+        <On index="1" Terms="UnitBirth.CRPGAeroLevel5"/>
+        <On index="2" Terms="UnitRevive.CRPGAeroLevel5"/>
+        <On index="3" Terms="UnitRevive.CRPGAeroLevel5"/>
+        <On index="4" Terms="UnitConstruction.CRPGAeroLevel5.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGAeroLevel5.Finish"/>
+        <On Terms="Behavior.AeroTacticalJumpTeleportOut.On" Send="SetOpacity"/>
+        <On Terms="Behavior.AeroTacticalJumpTeleportIn.Off" Send="SetOpacity 1.000000"/>
+        <On Terms="Behavior.AeroTacticalJumpTeleport.On" Send="Create BattleCruiserTacticalJump_Placement"/>
+        <On Terms="Behavior.AeroTacticalJumpTeleportIn.Off" Target="BattleCruiserTacticalJump_Placement" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.AeroTacticalJumpTeleportOut.On" Send="Create HyperjumpLaunch"/>
+        <On Terms="Behavior.AeroTacticalJumpTeleportIn.On" Send="Create HyperjumpImpact"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGAeroLevel5" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGAeroLevel5" Send="Destroy"/>
+        <EventDataFootprint index="0" Model="BattlecruiserFootprint"/>
+        <HighlightTooltip value="Unit/Name/CRPGAero"/>
+        <UnitKillRank index="0" removed="1"/>
+        <Model value="BattlecruiserTinyLoki"/>
+        <BuildModel value="BattlecruiserTinyLoki"/>
+        <PlacementModel value="BattlecruiserTinyLoki"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <PortraitModel value="HerculesPortrait"/>
+        <SoundArray index="Ready" value="Hercules_Ready"/>
+        <SoundArray index="Help" value="Hercules_Help"/>
+        <SoundArray index="What" value="Hercules_What"/>
+        <SoundArray index="Yes" value="Hercules_Yes"/>
+        <SoundArray index="Attack" value="Hercules_Yes"/>
+        <SoundArray index="Pissed" value="Hercules_Pissed"/>
+        <SoundArray index="Movement" value="Hercules_Movement"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGAlienLevel1" parent="GenericUnitStandard" unitName="CRPGAlienLevel1">
+        <On Terms="AbilMorph.*.Finish; MorphTo EvoEggZergling" Send="Create"/>
+        <On Terms="AbilMorph.*.Cancel" Send="Destroy"/>
+        <On Terms="AbilTrain.MorphZerglingToRaptor.Finish" Send="Create EvoEggsplosionZergling"/>
+        <On Terms="AbilTrain.MorphZerglingToSwarmling.Finish" Send="Create EvoEggsplosionZergling"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom EvoEggZergling" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom Zergling" Send="SetScale 0.900000 0.000000 Scaling"/>
+        <On Terms="ActorCreation" Send="AnimBaselineStop"/>
+        <On Terms="ActorCreation" Send="$Birth 0 0.000000 -1.000000 0.000000"/>
+        <On Terms="AnimDone; AnimName Birth" Send="AnimBaselineStart"/>
+        <On Terms="ActorDestruction" Send="Create Egg_Explode"/>
+        <Model value="EvoEggZergling"/>
+        <BuildModel value="EvoEggZergling"/>
+        <DeathArray index="Normal" ModelLink="ZergSmallUnitDeath" SoundLink="Egg_Explode"/>
+        <PlacementModel value="EvoEggZergling"/>
+        <PortraitModel value="EggPortrait"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Zerg-EvolutionEgg.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\Wireframe-Zerg-EvolutionEgg.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+        <UnitIcon value="Assets\Textures\Wireframe-Zerg-EvolutionEgg.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Zerg-EvolutionEgg.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="CRPGVehicleLevel1" parent="Vulture" unitName="CRPGVehicleLevel1">
+        <On index="0" Terms="UnitBirth.CRPGVehicleLevel1" Send="Create SoundEmitter CRPGVehicleLevel1_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGVehicleLevel1"/>
+        <On index="2" Terms="UnitRevive.CRPGVehicleLevel1"/>
+        <On index="3" Terms="UnitRevive.CRPGVehicleLevel1"/>
+        <On index="4" Terms="UnitConstruction.CRPGVehicleLevel1.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGVehicleLevel1.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel1" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel1" Send="Create"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <BarOffset value="60"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGVehicleLevel2" parent="Hellion" unitName="CRPGVehicleLevel2">
+        <On index="0" Terms="UnitBirth.CRPGVehicleLevel2"/>
+        <On index="1" Terms="UnitBirth.CRPGVehicleLevel2"/>
+        <On index="2" Terms="UnitRevive.CRPGVehicleLevel2"/>
+        <On index="3" Terms="UnitRevive.CRPGVehicleLevel2"/>
+        <On index="4" Terms="UnitConstruction.CRPGVehicleLevel2.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGVehicleLevel2.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel2" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel2" Send="Create"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <BarOffset value="60"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGVehicleLevel3" parent="Cyclone" unitName="CRPGVehicleLevel3">
+        <On index="0" Terms="UnitBirth.CRPGVehicleLevel3" Send="Create SoundEmitter CRPGVehicleLevel3_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGVehicleLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGVehicleLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGVehicleLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGVehicleLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGVehicleLevel3.Finish"/>
+        <On index="62" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileLeft.Start; At Caster" Send="AnimPlay Attack Attack"/>
+        <On index="63" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileRight.Start; At Caster" Send="AnimPlay Attack Attack"/>
+        <On index="77" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileLeft.Start; At Caster; IsStatus CoverOn 0" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
+        <On index="78" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileLeft.Start; At Caster; IsStatus CoverOn 0" Send="StatusSet CoverOn 1"/>
+        <On index="79" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileRight.Start; At Caster; IsStatus CoverOn 0" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
+        <On index="80" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileRight.Start; At Caster; IsStatus CoverOn 0" Send="StatusSet CoverOn 1"/>
+        <On index="81" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileLeft.Start; At Caster" Send="TimerKill CoverDelay"/>
+        <On index="82" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileLeft.Start; At Caster" Send="TimerSet 3.000000 CoverDelay"/>
+        <On index="83" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileRight.Start; At Caster" Send="TimerKill CoverDelay"/>
+        <On index="84" Terms="Effect.VehicleTyphoonMissilePodLaunchMissileRight.Start; At Caster" Send="TimerSet 3.000000 CoverDelay"/>
+        <On index="85" Terms="Effect.VehicleLockOnCreatePersistent.Start; At Caster" Send="Create VehicleLockOnTrackingBeam"/>
+        <On index="89" Terms="Behavior.VehicleLockOnDisableAttack.On" Target="::PortraitGameSelf" Send="AnimGroupApply Morph Morph,Start Morph,End"/>
+        <On index="90" Terms="Behavior.VehicleLockOnDisableAttack.Off" Target="::PortraitGameSelf" Send="AnimGroupRemove Morph"/>
+        <On index="91" Terms="UnitPortrait.*.Configure; ValidateUnit VehicleCasterLockingOn" Target="::PortraitGameSelf" Send="AnimBracketStart Morph Morph,Start Morph,Stand Morph,End Instant"/>
+        <On index="92" Terms="UnitPortrait.*.Configure; ValidateUnit VehicleNotLockingOn" Target="::PortraitGameSelf" Send="AnimBracketStop Morph Instant"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel3" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel3" Send="Create"/>
+        <EventDataFootprint index="0" Actor="UnitFootprint" Model="CRPGVehicleLevel3Footprint"/>
+        <AbilSoundArray index="0" AbilCmd="VehicleLockOn,Execute" Sound="Cyclone_LockOnVO"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGVehicleLevel4" parent="Diamondback" unitName="CRPGVehicleLevel4">
+        <On index="0" Terms="UnitBirth.CRPGVehicleLevel4" Send="Create SoundEmitter CRPGVehicleLevel4_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGVehicleLevel4"/>
+        <On index="2" Terms="UnitRevive.CRPGVehicleLevel4"/>
+        <On index="3" Terms="UnitRevive.CRPGVehicleLevel4"/>
+        <On index="4" Terms="UnitConstruction.CRPGVehicleLevel4.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGVehicleLevel4.Finish"/>
+        <On Terms="Effect.VehicleLockOnCreatePersistent.Start; At Caster" Send="Create VehicleLockOnTrackingBeam"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel4" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel4" Send="Create"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-diamondback.dds"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <BarOffset value="75"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGVehicleLevel5SiegeMode" parent="SiegeTankSieged" unitName="CRPGVehicleLevel5SiegeMode">
+        <On index="0" Terms="UnitBirth.CRPGVehicleLevel5SiegeMode"/>
+        <On index="1" Terms="UnitBirth.CRPGVehicleLevel5SiegeMode"/>
+        <On index="2" Terms="UnitRevive.CRPGVehicleLevel5SiegeMode"/>
+        <On index="3" Terms="UnitRevive.CRPGVehicleLevel5SiegeMode"/>
+        <On index="4" Terms="UnitConstruction.CRPGVehicleLevel5SiegeMode.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGVehicleLevel5SiegeMode.Finish"/>
+        <On index="65" Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel5SiegeMode"/>
+        <On index="66" Terms="AbilMorph.*.Start; MorphFrom CRPGVehicleLevel5SiegeMode"/>
+        <On Terms="Effect.VehicleLockOnCreatePersistent.Start; At Caster" Send="Create VehicleLockOnTrackingBeam"/>
+        <On Terms="Effect.VehicleLockOnSwitch.Start" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="Effect.VehicleLockOnSwitch.Start; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="Effect.VehicleLockOnSwitch.Stop" Send="AnimBracketStop Attack"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="StandAnimBirthVariation" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <BarOffset value="75"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGVehicleLevel5TankMode" parent="SiegeTank" unitName="CRPGVehicleLevel5TankMode">
+        <On index="0" Terms="UnitBirth.CRPGVehicleLevel5TankMode"/>
+        <On index="1" Terms="UnitBirth.CRPGVehicleLevel5TankMode"/>
+        <On index="2" Terms="UnitRevive.CRPGVehicleLevel5TankMode"/>
+        <On index="3" Terms="UnitRevive.CRPGVehicleLevel5TankMode"/>
+        <On index="4" Terms="UnitConstruction.CRPGVehicleLevel5TankMode.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGVehicleLevel5TankMode.Finish"/>
+        <On index="65" Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel5TankMode"/>
+        <On index="66" Terms="AbilMorph.*.Start; MorphFrom CRPGVehicleLevel5TankMode"/>
+        <On Terms="Effect.VehicleLockOnCreatePersistent.Start; At Caster" Send="Create VehicleLockOnTrackingBeam"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="StandAnimBirthVariation" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <BarOffset value="75"/>
+    </CActorUnit>
+    <CActorSound id="VehicleSiegeModeSound" parent="SoundOneShot">
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode" Send="Create"/>
+        <On Terms="UnitDeath.CRPGVehicleLevel5SiegeMode" Send="Destroy"/>
+        <Sound value="SiegeTank_MorphToSiege"/>
+    </CActorSound>
+    <CActorSound id="VehicleTankModeSound" parent="SoundOneShot">
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5TankMode; MorphFrom CRPGVehicleLevel5SiegeMode" Send="Create"/>
+        <On Terms="UnitDeath.CRPGVehicleLevel5TankMode" Send="Destroy"/>
+        <Sound value="SiegeTank_MorphToTank"/>
+    </CActorSound>
+    <CActorUnit id="VehicleSiegeModeMorphModel" parent="SiegeModeMorphModel">
+        <On index="62" Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode"/>
+        <On index="63" Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode"/>
+        <On index="64" Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5SiegeMode"/>
+        <On index="65" Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5TankMode"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="VehicleTankModeMorphModel" parent="TankModeMorphModel">
+        <On index="62" Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5TankMode; MorphFrom CRPGVehicleLevel5SiegeMode"/>
+        <On index="63" Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5TankMode; MorphFrom CRPGVehicleLevel5SiegeMode"/>
+        <On index="64" Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5TankMode"/>
+        <On index="65" Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5SiegeMode"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorAction id="VehicleCrucioShockCannonAttack" parent="GenericAttack" effectAttack="VehicleCrucioShockCannonBlast">
+        <LaunchAssets Model="SiegeTankSiegedAttackLaunch" Sound="SiegeTank_SiegedAttackLaunch"/>
+        <ImpactSiteOps Ops="SOpActionCenter SOpTargetUnitZ" HoldPosition="1"/>
+        <ImpactMap index="None" Model="SiegeTankSiegedAttackImpact" Sound="SiegeTank_SiegedAttackImpact"/>
+        <ImpactPhysics Name="Explosion" MatchKeys="Basic" Physics="SiegeTankSiegedForce"/>
+        <DamageSiteOps Ops="SOpAttachHarness"/>
+        <DamageMap index="None" Model="SiegeTankSiegedAttackDamage"/>
+        <DamageModel value="SiegeTankAttackDamageModel"/>
+        <ShieldFlashType value="Full"/>
+    </CActorAction>
+    <CActorAction id="VehicleCrucioShockCannonAttackDirected" parent="GenericAttack" effectAttack="VehicleCrucioShockCannonDirected">
+        <LaunchAssets Model="SiegeTankSiegedAttackDirectedLaunch" Sound="SiegeTank_SiegedAttackLaunch"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeStandard SOpForwardLaunchGuide"/>
+        <ImpactMap index="None" Model="SiegeTankSiegedAttackDirectedImpact" Sound="SiegeTank_SiegedAttackImpact"/>
+        <ImpactPhysics Name="Explosion" MatchKeys="Basic" Physics="SiegeTankSiegedForce"/>
+        <DamageMap index="None" Model="SiegeTankSiegedAttackDirectedDamage"/>
+        <DamageModel value="SiegeTankAttackDamageModel"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorRange id="VehicleGraduatingRangeRange07">
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Start; ValidateUnit VehicleRangeEQ07; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Start; ValidateUnit VehicleRangeEQ07; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Start; ValidateUnit VehicleRangeEQ07; Selected" Send="Create"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeEQ07; Selected" Send="Create"/>
+        <On Terms="Behavior.VehicleRangeIncrease.Off" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Stop" Send="Destroy"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeNE07" Send="Destroy"/>
+        <Range value="7.000000"/>
+        <Icon value="Assets\Textures\radaricon2.dds"/>
+    </CActorRange>
+    <CActorRange id="VehicleGraduatingRangeRange08">
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Start; ValidateUnit VehicleRangeEQ08; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Start; ValidateUnit VehicleRangeEQ08; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Start; ValidateUnit VehicleRangeEQ08; Selected" Send="Create"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeEQ08; Selected" Send="Create"/>
+        <On Terms="Behavior.VehicleRangeIncrease.Off" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Stop" Send="Destroy"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeNE08" Send="Destroy"/>
+        <Range value="8.000000"/>
+        <Icon value="Assets\Textures\radaricon2.dds"/>
+    </CActorRange>
+    <CActorRange id="VehicleGraduatingRangeRange09">
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Start; ValidateUnit VehicleRangeEQ09; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Start; ValidateUnit VehicleRangeEQ09; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Start; ValidateUnit VehicleRangeEQ09; Selected" Send="Create"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeEQ09; Selected" Send="Create"/>
+        <On Terms="Behavior.VehicleRangeIncrease.Off" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Stop" Send="Destroy"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeNE09" Send="Destroy"/>
+        <Range value="9.000000"/>
+        <Icon value="Assets\Textures\radaricon2.dds"/>
+    </CActorRange>
+    <CActorRange id="VehicleGraduatingRangeRange10">
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Start; ValidateUnit VehicleRangeEQ10; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Start; ValidateUnit VehicleRangeEQ10; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Start; ValidateUnit VehicleRangeEQ10; Selected" Send="Create"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeEQ10; Selected" Send="Create"/>
+        <On Terms="Behavior.VehicleRangeIncrease.Off" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Stop" Send="Destroy"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeNE10" Send="Destroy"/>
+        <Range value="10.000000"/>
+        <Icon value="Assets\Textures\radaricon2.dds"/>
+    </CActorRange>
+    <CActorRange id="VehicleGraduatingRangeRange11">
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Start; ValidateUnit VehicleRangeEQ11; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Start; ValidateUnit VehicleRangeEQ11; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Start; ValidateUnit VehicleRangeEQ11; Selected" Send="Create"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeEQ11; Selected" Send="Create"/>
+        <On Terms="Behavior.VehicleRangeIncrease.Off" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Stop" Send="Destroy"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeNE11" Send="Destroy"/>
+        <Range value="11.000000"/>
+        <Icon value="Assets\Textures\radaricon2.dds"/>
+    </CActorRange>
+    <CActorRange id="VehicleGraduatingRangeRange12">
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Start; ValidateUnit VehicleRangeEQ12; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Start; ValidateUnit VehicleRangeEQ12; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Start; ValidateUnit VehicleRangeEQ12; Selected" Send="Create"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeEQ12; Selected" Send="Create"/>
+        <On Terms="Behavior.VehicleRangeIncrease.Off" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5SiegeMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel5TankMode.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGVehicleLevel4.Stop" Send="Destroy"/>
+        <On Terms="BehaviorStackItem.VehicleRangeIncrease.Add; ValidateUnit VehicleRangeNE12" Send="Destroy"/>
+        <Range value="12.000000"/>
+        <Icon value="Assets\Textures\radaricon2.dds"/>
+    </CActorRange>
+    <CActorSound id="VehicleOverdriveSoundStart" parent="SoundOneShot">
+        <On Terms="Behavior.VehicleOverdrive.On" Send="Create"/>
+        <Sound value="Medivac_IgniteAfterburners2"/>
+    </CActorSound>
+    <CActorSound id="VehicleOverdriveSoundEnd" parent="SoundOneShot">
+        <On Terms="Behavior.VehicleOverdrive.On" Send="Create"/>
+        <Sound value="Medivac_IgniteAfterburners"/>
+    </CActorSound>
+    <CActorMissile id="VehicleTyphoonMissilePodMissile" parent="GenericAttackMissile" unitName="VehicleTyphoonMissilePodWeapon">
+        <Model value="CycloneMissile"/>
+    </CActorMissile>
+    <CActorAction id="VehicleTyphoonMissilePodAttackLeft" parent="GenericAttack" effectImpact="VehicleTyphoonMissilePodDamage" effectLaunch="VehicleTyphoonMissilePodLaunchMissileLeft">
+        <LaunchAttachQuery Methods="Weapon 1"/>
+        <LaunchAssets Model="CycloneMissileLaunch" Sound="Cyclone_Missile_Launch"/>
+        <Missile value="VehicleTyphoonMissilePodMissile"/>
+        <ImpactMap index="None" Model="CycloneMissileImpact" Sound="Cyclone_Missile_Impact"/>
+        <ImpactPhysics Name="90mmCannonImpact" MatchKeys="Basic" Physics="SiegeTankAttackForce"/>
+    </CActorAction>
+    <CActorAction id="VehicleTyphoonMissilePodAttackRight" parent="GenericAttack" effectImpact="VehicleTyphoonMissilePodDamage" effectLaunch="VehicleTyphoonMissilePodLaunchMissileRight">
+        <LaunchAttachQuery Methods="Weapon 2"/>
+        <LaunchAssets Model="CycloneMissileLaunch" Sound="Cyclone_Missile_Launch"/>
+        <Missile value="VehicleTyphoonMissilePodMissile"/>
+        <ImpactMap index="None" Model="CycloneMissileImpact" Sound="Cyclone_Missile_Impact"/>
+        <ImpactPhysics Name="90mmCannonImpact" MatchKeys="Basic" Physics="SiegeTankAttackForce"/>
+    </CActorAction>
+    <CActorAction id="VehicleGaussCannonAttack" parent="GenericAttack" effectImpact="VehicleGaussCannonDamage" effectLaunch="VehicleGaussCannonMissile">
+        <LaunchAssets Sound="SJValkyrie_AttackLaunch"/>
+        <BeamScope value="Caster"/>
+        <Missile value="VehicleGaussCannonMissile"/>
+        <ImpactMap index="None" Model="WarHoundAttackImpact" Sound="SJValkyrie_AttackImpact"/>
+        <ImpactPhysics Name="RailgunImpact" MatchKeys="Basic" Physics="RailgunAttackDeathForce"/>
+        <ActionFlags index="LaunchForceSite" value="1"/>
+    </CActorAction>
+    <CActorMissile id="VehicleGaussCannonMissile" parent="GenericAttackMissile" unitName="VehicleGaussCannonWeapon">
+        <Model value="Invisible"/>
+    </CActorMissile>
+    <CActorBeamSimple id="VehicleGaussCannonBeam" parent="GenericAttackBeam">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Effect.VehicleGaussCannonMissile.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.VehicleGaussCannonDamage.Start" Send="Create WarHoundImpactHoldingSite"/>
+        <On Terms="Effect.VehicleGaussCannonDamage.Start" Send="RefSet ::HostImpact WarHoundImpactHoldingSite"/>
+        <Host Subject="_Selectable"/>
+        <Model value="WarHoundBeam"/>
+        <HostLaunch Subject="_Selectable" Actor="Find"/>
+        <HostLaunchSiteOps Ops="SOpAttachWeapon" HoldPosition="1" HoldRotation="1"/>
+        <HostImpact Subject="_Missile" Actor="Find"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
+    </CActorBeamSimple>
+    <CActorUnit id="MechLevel4" parent="GenericUnitBase" unitName="CRPGMechLevel4">
         <Aliases value="_UnitLarge"/>
         <Macros value="UnloadDropAnim"/>
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
-        <On Terms="WeaponStart.GoliathG.AttackStart" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="WeaponStop.GoliathG.AttackStop" Send="AnimBracketStop Attack"/>
-        <On Terms="WeaponStart.GoliathA.AttackStart" Send="AnimBracketStart Spell Spell"/>
-        <On Terms="WeaponStop.GoliathA.AttackStop" Send="AnimBracketStop Spell"/>
+        <On Terms="WeaponStart.MechTwinAutocannons.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.MechTwinAutocannons.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.MechHellfireMissilePack.AttackStart" Send="AnimBracketStart Spell Spell"/>
+        <On Terms="WeaponStop.MechHellfireMissilePack.AttackStop" Send="AnimBracketStop Spell"/>
         <On Terms="WeaponStart.GoliathAUpgraded.AttackStart" Send="AnimBracketStart Spell Spell"/>
-        <On Terms="WeaponStop.GoliathAUpgraded.AttackStop" Send="AnimBracketStop Spell"/>
+        <On Terms="WeaponStop.GoliathAUpgraded2.AttackStop" Send="AnimBracketStop Spell"/>
         <On Terms="ActorCreation" Send="TextureSelectBySlot main {RequireAll diffuse}"/>
         <On Terms="ActorCreation" Send="TextureSelectByMatch main.specular main"/>
         <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
         <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
-        <On Terms="UnitBirth.Goliath2" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="UnitBirth.CRPGMechLevel4" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGMechLevel4" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGMechLevel4" Send="Create"/>
         <Model value="Goliath"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="Goliath"/>
@@ -140,7 +1173,7 @@
         <GroupSoundArray index="Attack" value="Goliath_Attack"/>
         <GroupSoundArray index="Pissed" value="Goliath_Pissed"/>
         <HeroIcon value="Assets\Textures\btn-unit-terran-goliath.dds"/>
-        <HighlightTooltip value="Unit/Name/MechLevel4"/>
+        <HighlightTooltip value="Unit/Name/CRPGMech"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
         <SoundArray index="Ready" value="Goliath_Ready"/>
         <SoundArray index="Help" value="Goliath_Help"/>
@@ -153,25 +1186,24 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Terran-goliath.dds"/>
         </Wireframe>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
     </CActorUnit>
-    <CActorAction id="MechAirAttackLevel4" parent="GenericAttack" effectImpact="GoliathAU" effectLaunch="GoliathALM2">
-        <LaunchAttachQuery Methods="AMPatternGoliath"/>
-        <LaunchAssets Model="GoliathAirAttackLaunch" Sound="VikingFighter_AttackLaunch"/>
-        <Missile value="MechAirAttackMissileLevel4"/>
-        <ImpactMap index="None" Model="GoliathAirAttackImpact" Sound="VikingFighter_AttackImpact"/>
-        <ImpactPhysics Name="JavelinImpact" MatchKeys="Basic" Physics="ThorAAAttackForce"/>
-    </CActorAction>
-    <CActorMissile id="MechAirAttackMissileLevel4" parent="GenericAttackMissile" unitName="GoliathAWeapon2">
-        <Model value="GoliathAWeapon"/>
-    </CActorMissile>
-    <CActorUnit id="MechLevel1" parent="SCV" unitName="CRPGMech">
-        <On index="0" Terms="UnitBirth.CRPGMech"/>
-        <On index="1" Terms="UnitBirth.CRPGMech"/>
-        <On index="2" Terms="UnitRevive.CRPGMech"/>
-        <On index="3" Terms="UnitRevive.CRPGMech"/>
-        <On index="4" Terms="UnitConstruction.CRPGMech.Start"/>
-        <On index="5" Terms="UnitConstruction.CRPGMech.Finish"/>
-        <HighlightTooltip value="Unit/Name/MechLevel1"/>
+    <CActorUnit id="MechLevel1" parent="SCV" unitName="CRPGMechLevel1">
+        <On index="0" Terms="UnitBirth.CRPGMechLevel1"/>
+        <On index="1" Terms="UnitBirth.CRPGMechLevel1"/>
+        <On index="2" Terms="UnitRevive.CRPGMechLevel1"/>
+        <On index="3" Terms="UnitRevive.CRPGMechLevel1"/>
+        <On index="4" Terms="UnitConstruction.CRPGMechLevel1.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGMechLevel1.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGMechLevel1" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGMechLevel1" Send="Create"/>
+        <HighlightTooltip value="Unit/Name/CRPGMech"/>
+        <BarOffset value="50"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
     </CActorUnit>
     <CActorSplat id="SniperNukeCursorSplat" parent="TerranCursorSplat" abil="SniperNuclearStrike">
         <Model value="nukeCursorSplat"/>
@@ -211,11 +1243,6 @@
         <On index="5" Terms="ActorCreation" Send="AnimSetTimeScaleGlobal 1.200000 Stand"/>
         <On Terms="ActorCreation" Send="$Stand 0 -1.000000 -1.000000 8.650000 AsDuration"/>
     </CActorModel>
-    <CActorSquib id="HeroNukeLaunch2">
-        <On Terms="Effect.SniperNuclearStrikePersistent.Start" Send="Create"/>
-        <HostSiteOps Ops="SOpSourcePointSationary"/>
-        <Map index="None" Model="GhostNukeLaunch" Sound="GhostNukeLaunch"/>
-    </CActorSquib>
     <CActorSound id="SniperNukeSeek" parent="SoundContinuous">
         <On Terms="Effect.SniperNuclearStrikePersistent.Initial" Send="Create"/>
         <On Terms="Effect.SniperNuclearStrikePersistent.Stop; At Effect" Send="Destroy"/>
@@ -259,13 +1286,13 @@
         <On Terms="Behavior.CloakBeam.On" Send="Create"/>
         <Sound value="Wraith_CloakOn"/>
     </CActorSound>
-    <CActorUnit id="SniperLevel1" parent="Ghost" unitName="CRPGSniper">
-        <On index="0" Terms="UnitBirth.CRPGSniper"/>
-        <On index="1" Terms="UnitBirth.CRPGSniper"/>
-        <On index="2" Terms="UnitRevive.CRPGSniper"/>
-        <On index="3" Terms="UnitRevive.CRPGSniper"/>
-        <On index="4" Terms="UnitConstruction.CRPGSniper"/>
-        <On index="5" Terms="UnitConstruction.CRPGSniper"/>
+    <CActorUnit id="CRPGSniperLevel1" parent="Ghost" unitName="CRPGSniperLevel1">
+        <On index="0" Terms="UnitBirth.CRPGSniperLevel1"/>
+        <On index="1" Terms="UnitBirth.CRPGSniperLevel1"/>
+        <On index="2" Terms="UnitRevive.CRPGSniperLevel1"/>
+        <On index="3" Terms="UnitRevive.CRPGSniperLevel1"/>
+        <On index="4" Terms="UnitConstruction.CRPGSniperLevel1"/>
+        <On index="5" Terms="UnitConstruction.CRPGSniperLevel1"/>
         <On index="60" Terms="Abil.SniperSnipe.SourceCastStart" Send="AnimBaselineStop"/>
         <On index="61" Terms="Abil.SniperSnipe.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
         <On index="62" Terms="Abil.SniperSnipe.SourceCastStop" Send="AnimClear SpellA"/>
@@ -281,8 +1308,8 @@
         <On index="72" Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On index="73" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
         <On index="74" Terms="UnitHeightUpdate.*.Land" Send="Create Ghost_Land"/>
-        <On index="75" Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsNotLevel1" Send="Destroy"/>
-        <On index="76" Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsLevel1" Send="Create"/>
+        <On index="75" Terms="AbilMorph.*.Finish; MorphFrom CRPGSniperLevel1" Send="Destroy"/>
+        <On index="76" Terms="AbilMorph.*.Finish; MorphTo CRPGSniperLevel1" Send="Create"/>
         <On index="77" removed="1"/>
         <On index="78" removed="1"/>
         <On index="79" removed="1"/>
@@ -311,68 +1338,34 @@
         <On index="102" removed="1"/>
         <On index="103" removed="1"/>
         <On index="104" removed="1"/>
-        <HighlightTooltip value="Unit/Name/CRPGSniper"/>
         <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
-        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
-    </CActorUnit>
-    <CActorUnit id="SniperLevel2" parent="Ghost" unitName="Bogus">
-        <On index="0" Terms="UnitBirth.Bogus" Send="Create SoundEmitter Bogus_Ambience"/>
-        <On index="1" Terms="UnitBirth.Bogus"/>
-        <On index="2" Terms="UnitRevive.Bogus"/>
-        <On index="3" Terms="UnitRevive.Bogus"/>
-        <On index="4" Terms="UnitConstruction.Bogus.Start"/>
-        <On index="5" Terms="UnitConstruction.Bogus.Finish"/>
-        <On index="60" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimBaselineStop"/>
-        <On index="61" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
-        <On index="62" Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimClear SpellA"/>
-        <On index="63" Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimBaselineStart"/>
-        <On index="64" Terms="Abil.SniperSnipeEnhanced.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
-        <On index="65" Terms="Abil.SniperSnipeEnhanced.SourceChannelStop" Send="AnimClear SpellB"/>
-        <On index="66" Terms="Abil.SniperSnipeEnhanced.SourceFinishStart" Send="AnimPlay SpellC Spell,C"/>
-        <On index="67" Terms="UnitMovementUpdate.*.Walk; AnimPlaying SpellC" Send="AnimClear SpellC"/>
-        <On index="68" Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
-        <On index="77" Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
-        <On index="78" Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
-        <On index="79" Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
-        <On index="80" Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
-        <On index="81" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
-        <On index="82" Terms="UnitHeightUpdate.*.Land" Send="Create Ghost_Land"/>
-        <On index="83" Terms="UnitDeath.SniperLevel2; PassChance 100.000000" Send="Create Sniper_Death"/>
-        <On index="84" Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsNotLevel2" Send="Destroy"/>
-        <On index="85" Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsLevel2" Send="Create"/>
-        <On index="86" removed="1"/>
-        <On index="87" removed="1"/>
-        <On index="88" removed="1"/>
-        <On index="89" removed="1"/>
-        <On index="90" removed="1"/>
-        <On index="91" removed="1"/>
-        <On index="92" removed="1"/>
-        <On index="93" removed="1"/>
-        <On index="94" removed="1"/>
-        <On index="95" removed="1"/>
-        <On index="96" removed="1"/>
-        <On index="97" removed="1"/>
-        <On index="98" removed="1"/>
-        <On index="99" removed="1"/>
-        <On index="100" removed="1"/>
-        <On index="101" removed="1"/>
-        <On index="102" removed="1"/>
-        <On index="103" removed="1"/>
-        <On index="104" removed="1"/>
-        <Model value="GhostLaserLines"/>
-        <BuildModel value="GhostLaserLines"/>
-        <PlacementModel value="GhostLaserLines"/>
         <HighlightTooltip value="Unit/Name/CRPGSniper"/>
-        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <StatusBarOn index="Custom" value="1"/>
     </CActorUnit>
-    <CActorUnit id="SniperLevel3" parent="GhostAlternate" unitName="Bogus">
-        <On index="0" Terms="UnitBirth.Bogus" Send="Create SoundEmitter Bogus_Ambience"/>
-        <On index="1" Terms="UnitBirth.Bogus"/>
-        <On index="2" Terms="UnitRevive.Bogus"/>
-        <On index="3" Terms="UnitRevive.Bogus"/>
-        <On index="4" Terms="UnitConstruction.Bogus.Start"/>
-        <On index="5" Terms="UnitConstruction.Bogus.Finish"/>
+    <CActorUnit id="CRPGSniperLevel2" parent="CRPGSniperLevel1" unitName="CRPGSniperLevel2">
+        <On index="0" Terms="UnitBirth.CRPGSniperLevel2"/>
+        <On index="1" Terms="UnitBirth.CRPGSniperLevel2"/>
+        <On index="2" Terms="UnitRevive.CRPGSniperLevel2"/>
+        <On index="3" Terms="UnitRevive.CRPGSniperLevel2"/>
+        <On index="4" Terms="UnitConstruction.CRPGSniperLevel2"/>
+        <On index="5" Terms="UnitConstruction.CRPGSniperLevel2"/>
+        <On index="75" Terms="AbilMorph.*.Finish; MorphFrom CRPGSniperLevel2" Send="Destroy"/>
+        <On index="76" Terms="AbilMorph.*.Finish; MorphTo CRPGSniperLevel2" Send="Create"/>
+        <Model value="GhostDominion"/>
+        <BuildModel value="GhostDominion"/>
+        <PlacementModel value="GhostDominion"/>
+        <PortraitModel value="GhostDominionPortrait"/>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-blackops-ghost.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-blackops-ghost.dds"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGSniperLevel3" parent="GhostAlternate" unitName="CRPGSniperLevel3">
+        <On index="0" Terms="UnitBirth.CRPGSniperLevel3" Send="Create SoundEmitter Bogus_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGSniperLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGSniperLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGSniperLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGSniperLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGSniperLevel3.Finish"/>
         <On index="60" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimBaselineStop"/>
         <On index="61" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
         <On index="62" Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimClear SpellA"/>
@@ -397,8 +1390,8 @@
         <On index="81" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
         <On index="82" Terms="UnitHeightUpdate.*.Land" Send="Create Ghost_Land"/>
         <On index="83" Terms="UnitDeath.SniperLevel3; PassChance 100.000000" Send="Create GhostAlternate_Death"/>
-        <On index="84" Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsNotLevel3" Send="Destroy"/>
-        <On index="85" Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsLevel3" Send="Create"/>
+        <On index="84" Terms="AbilMorph.*.Finish; MorphTo CRPGSniperLevel3" Send="Create"/>
+        <On index="85" Terms="AbilMorph.*.Finish; MorphFrom CRPGSniperLevel3" Send="Destroy"/>
         <On index="86" removed="1"/>
         <On index="87" removed="1"/>
         <On index="88" removed="1"/>
@@ -415,17 +1408,18 @@
         <On index="99" removed="1"/>
         <On index="100" removed="1"/>
         <On index="101" removed="1"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGSniper"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <StatusBarOn index="Custom" value="1"/>
     </CActorUnit>
-    <CActorUnit id="SniperLevel4" parent="KerriganGhostLab">
-        <On index="0" Terms="UnitBirth.SniperLevel4" Send="Create SoundEmitter SniperLevel4_Ambience"/>
-        <On index="1" Terms="UnitBirth.SniperLevel4"/>
-        <On index="2" Terms="UnitRevive.SniperLevel4"/>
-        <On index="3" Terms="UnitRevive.SniperLevel4"/>
-        <On index="4" Terms="UnitConstruction.SniperLevel4.Start"/>
-        <On index="5" Terms="UnitConstruction.SniperLevel4.Finish"/>
+    <CActorUnit id="CRPGSniperLevel4" parent="KerriganGhostLab" unitName="CRPGSniperLevel4">
+        <On index="0" Terms="UnitBirth.CRPGSniperLevel4" Send="Create SoundEmitter SniperLevel4_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGSniperLevel4"/>
+        <On index="2" Terms="UnitRevive.CRPGSniperLevel4"/>
+        <On index="3" Terms="UnitRevive.CRPGSniperLevel4"/>
+        <On index="4" Terms="UnitConstruction.CRPGSniperLevel4.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGSniperLevel4.Finish"/>
         <On index="65" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimBaselineStop"/>
         <On index="66" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
         <On index="67" Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimClear SpellA"/>
@@ -436,15 +1430,16 @@
         <On index="72" Terms="UnitRevive.SniperLevel4" Target="KerriganHeroGlow" Send="Create ZergHeroRevive"/>
         <On index="73" Terms="UnitRevive.SniperLevel4" Send="$Birth 0 0.000000 -1.000000 0.000000"/>
         <On index="74" Terms="UnitMovementUpdate.KerriganGhost.Walk" Send="AnimClear Spell"/>
-        <On Terms="UnitDeath.KerriganGhost" Send="UIStatusFlagSet Incapacitated 1"/>
-        <On Terms="UnitBirth.SniperLevel4" Send="TerrainSquibActivateGroup RippleStandard"/>
-        <On Terms="UnitRevive.SniperLevel4" Send="Create KerriganX1_Ready"/>
-        <On Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsNotLevel4" Send="Destroy"/>
-        <On Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsLevel4" Send="Create"/>
-        <HighlightTooltip value="Unit/Name/SniperLevel4"/>
+        <On Terms="UnitBirth.CRPGSniperLevel4" Send="TerrainSquibActivateGroup RippleStandard"/>
+        <On Terms="UnitRevive.CRPGSniperLevel4" Send="Create KerriganX1_Ready"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGSniperLevel4" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGSniperLevel4" Send="Destroy"/>
+        <HighlightTooltip value="Unit/Name/CRPGSniper"/>
         <UnitKillRank index="0" removed="1"/>
+        <BarOffset value="50"/>
+        <StatusBarOn index="Custom" value="1"/>
     </CActorUnit>
-    <CActorMissile id="SniperLevel5" parent="GenericUnitBase">
+    <CActorMissile id="CRPGSniperLevel5" parent="GenericUnitBase" unitName="CRPGSniperLevel5">
         <Aliases value="_UnitSmall"/>
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="UnloadDropAnim"/>
@@ -457,7 +1452,7 @@
         <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
         <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
-        <On Terms="UnitRevive.CRPGSniper" Send="AnimGroupApply A"/>
+        <On Terms="UnitRevive.CRPGSniperLevel1" Send="AnimGroupApply A"/>
         <On Terms="Abil.SniperSnipeEnhanced.SourcePrepStart" Send="Create Nova_Snipe_Kneel_ActorSound"/>
         <On Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimBracketStart Spell Spell,E Spell,F Spell,G"/>
         <On Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimBracketStop Spell"/>
@@ -471,9 +1466,9 @@
         <On Terms="Abil.SniperNuclearStrike.SourceChannelStop" Send="AnimClear SpellF"/>
         <On Terms="Abil.SniperNuclearStrike.SourceFinishStart" Send="AnimPlay SpellG Spell,G 0 -1.000000 -1.000000 1.000000 AsTimeScale"/>
         <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying SpellG" Send="AnimClear SpellG"/>
-        <On Terms="UnitRevive.CRPGSniper; AnimPlaying Death" Send="Destroy"/>
-        <On Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsNotLevel5" Send="Destroy"/>
-        <On Terms="Abil.LevelUp.SourceFinishStart; ValidateUnit IsLevel5" Send="Create"/>
+        <On Terms="UnitRevive.CRPGSniperLevel4; AnimPlaying Death" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGSniperLevel5" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGSniperLevel5" Send="Destroy"/>
         <Model value="NovaHeroBase"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="NovaHeroBase"/>
@@ -505,8 +1500,8 @@
             <Image value="Assets\Textures\WireFrame-NovaEx3.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\ui-heroicon-nova.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGSniper"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
-        <MinimapIcon value="Assets\Textures\btn-ac-terran-novamapicon.dds"/>
         <MinimapIconScale value="0.700000"/>
         <MinimapRenderPriority value="Hero"/>
         <MinimapUseSelfColor value="0"/>
@@ -527,7 +1522,6 @@
         <Wireframe>
             <Image value="Assets\Textures\wireframe-terran-nova.dds"/>
         </Wireframe>
-        <HighlightTooltip value="Unit/Name/SniperLevel5"/>
     </CActorMissile>
     <CActorAction id="SniperSnipeAttack" parent="GenericAttack" effectAttack="SniperSnipeDamage">
         <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>
@@ -538,62 +1532,100 @@
     <CActorBeamSimple id="SniperSnipeAttackBeam" parent="GenericAttackBeam">
         <Model value="GhostSnipeAttackBeam"/>
     </CActorBeamSimple>
-    <CActorSound id="Sniper_Death" parent="SoundOneShot">
+    <CActorSound id="SniperDeathSound" parent="SoundOneShot">
         <On Terms="UnitDeath.SniperLevel1; PassChance 100.000000" Send="Create"/>
         <Sound value="Ghost_Death"/>
     </CActorSound>
-    <CActorUnit id="MechLevel5" parent="Thor" unitName="Thor2">
-        <On index="0" Terms="UnitBirth.Thor2"/>
-        <On index="1" Terms="UnitBirth.Thor2"/>
-        <On index="2" Terms="UnitRevive.Thor2"/>
-        <On index="3" Terms="UnitRevive.Thor2"/>
-        <On index="4" Terms="UnitConstruction.Thor2.Start"/>
-        <On index="5" Terms="UnitConstruction.Thor2.Finish"/>
-        <HighlightTooltip value="Unit/Name/MechLevel5"/>
+    <CActorUnit id="MechLevel5" parent="Thor" unitName="CRPGMechLevel5">
+        <On index="0" Terms="UnitBirth.CRPGMechLevel5"/>
+        <On index="1" Terms="UnitBirth.CRPGMechLevel5"/>
+        <On index="2" Terms="UnitRevive.CRPGMechLevel5"/>
+        <On index="3" Terms="UnitRevive.CRPGMechLevel5"/>
+        <On index="4" Terms="UnitConstruction.CRPGMechLevel5.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGMechLevel5.Finish"/>
+        <On index="60" Terms="AbilMorph.*.Finish; MorphTo CRPGMechLevel5"/>
+        <On index="61" Terms="AbilMorph.*.Start; MorphFrom CRPGMechLevel5"/>
+        <On index="64" Terms="WeaponStart.MechJavelinMissileLaunchers.AttackStart"/>
+        <On index="65" Terms="WeaponStart.MechJavelinMissileLaunchers.AttackStart"/>
+        <On index="66" Terms="WeaponStart.MechJavelinMissileLaunchers.AttackStart"/>
+        <On index="67" Terms="WeaponStop.MechJavelinMissileLaunchers.AttackStop"/>
+        <On index="70" Terms="WeaponStart.MechThorsHammer.AttackStart; WeaponTargetElevation GE 20.000000"/>
+        <On index="71" Terms="WeaponStart.MechThorsHammer.AttackStart; WeaponTargetElevation LE -20.000000"/>
+        <On index="72" Terms="WeaponStart.MechThorsHammer.AttackStart; WeaponTargetDistance LE 1.000000"/>
+        <On index="73" Terms="WeaponStart.MechThorsHammer.AttackStart"/>
+        <HighlightTooltip value="Unit/Name/CRPGMech"/>
+        <BarOffset value="90"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
     </CActorUnit>
-    <CActorAction id="MechAirAttackLevel5" parent="GenericAttack" effectImpact="JavelinMissileLaunchersDamage" effectLaunch="JavelinMissileLaunchersLM2">
+    <CActorAction id="MechAirAttackLevel5" parent="GenericAttack" effectImpact="JavelinMissileLaunchersDamage" effectLaunch="MechJavelinMissileLaunchersLaunchMissile">
         <LaunchAttachQuery Methods="AMFilterWeaponSetA1 AMPatternThorAA"/>
         <LaunchAssets Model="ThorAAAttackLaunch" Sound="Thor_AntiAirAttackLaunch"/>
         <Missile value="MechAirAttackMissileLevel5"/>
         <ImpactMap index="None" Model="ThorAAAttackImpact" Sound="Thor_AntiAirAttackImpact"/>
         <ImpactPhysics Name="JavelinImpact" MatchKeys="Basic" Physics="ThorAAAttackForce"/>
     </CActorAction>
-    <CActorMissile id="MechAirAttackMissileLevel5" parent="GenericAttackMissile" unitName="ThorAAWeapon2">
+    <CActorMissile id="MechAirAttackMissileLevel5" parent="GenericAttackMissile" unitName="MechJavelinMissileWeapon">
         <Model value="ThorAAWeapon"/>
     </CActorMissile>
-    <CActorUnit id="MechLevel2" parent="VikingAssault" unitName="VikingAssault2">
-        <On index="0" Terms="UnitBirth.VikingAssault2"/>
-        <On index="1" Terms="UnitBirth.VikingAssault2"/>
-        <On index="2" Terms="UnitRevive.VikingAssault2"/>
-        <On index="3" Terms="UnitRevive.VikingAssault2"/>
-        <On index="4" Terms="UnitConstruction.VikingAssault2.Start"/>
-        <On index="5" Terms="UnitConstruction.VikingAssault2.Finish"/>
-        <HighlightTooltip value="Unit/Name/MechLevel2"/>
+    <CActorUnit id="MechLevel2" parent="VikingAssault" unitName="CRPGMechLevel2">
+        <On index="0" Terms="UnitBirth.CRPGMechLevel2"/>
+        <On index="1" Terms="UnitBirth.CRPGMechLevel2"/>
+        <On index="2" Terms="UnitRevive.CRPGMechLevel2"/>
+        <On index="3" Terms="UnitRevive.CRPGMechLevel2"/>
+        <On index="4" Terms="UnitConstruction.CRPGMechLevel2.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGMechLevel2.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGMechLevel2" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGMechLevel2" Send="Create"/>
+        <HighlightTooltip value="Unit/Name/CRPGMech"/>
+        <BarOffset value="60"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
     </CActorUnit>
-    <CActorUnit id="MechLevel3" parent="WarHound" unitName="WarHound2">
-        <On index="0" Terms="UnitBirth.WarHound2"/>
-        <On index="1" Terms="UnitBirth.WarHound2"/>
-        <On index="2" Terms="UnitRevive.WarHound2"/>
-        <On index="3" Terms="UnitRevive.WarHound2"/>
-        <On index="4" Terms="UnitConstruction.WarHound2.Start"/>
-        <On index="5" Terms="UnitConstruction.WarHound2.Finish"/>
-        <HighlightTooltip value="Unit/Name/MechLevel3"/>
+    <CActorUnit id="MechLevel3" parent="WarHound" unitName="CRPGMechLevel3">
+        <On index="0" Terms="UnitBirth.CRPGMechLevel3"/>
+        <On index="1" Terms="UnitBirth.CRPGMechLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGMechLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGMechLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGMechLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGMechLevel3.Finish"/>
+        <On index="60" Terms="WeaponStart.MechRailgun.AttackStart"/>
+        <On index="61" Terms="WeaponStop.MechRailgun.AttackStop"/>
+        <On index="62" Terms="WeaponStart.MechRailgun.AttackStart; WeaponTargetElevation GE 20.000000"/>
+        <On index="63" Terms="WeaponStart.MechRailgun.AttackStart; WeaponTargetElevation LE -20.000000"/>
+        <On index="64" Terms="WeaponStop.MechRailgun.AttackStop"/>
+        <On index="65" Terms="WeaponStop.MechRailgun.AttackStop"/>
+        <On index="66" Terms="WeaponStart.MechMeleeWarHound.AttackStart"/>
+        <On index="67" Terms="WeaponStop.MechMeleeWarHound.AttackStop"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGMechLevel3" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGMechLevel3" Send="Create"/>
+        <HighlightTooltip value="Unit/Name/CRPGMech"/>
+        <BarOffset value="60"/>
+        <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <Model value="WarHoundMech"/>
+        <BuildModel value="WarHoundMech"/>
+        <DeathArray index="Normal" ModelLink="WarHoundDeathMech"/>
+        <PlacementModel value="WarHoundMech"/>
     </CActorUnit>
-    <CActorAction id="MechAttackLevel3" parent="GenericAttack" effectImpact="WarHound" effectLaunch="WarHoundLM2">
+    <CActorAction id="MechRailgunAttack" parent="GenericAttack" effectImpact="WarHound" effectLaunch="MechRailgunMissile">
         <LaunchAssets Sound="RailGun_Launch"/>
         <BeamScope value="Caster"/>
-        <Missile value="MechAttackMissileLevel3"/>
+        <Missile value="MechRailgunMissile"/>
         <ImpactMap index="None" Model="WarHoundAttackImpact" Sound="RailGun_Impact"/>
         <ImpactPhysics Name="RailgunImpact" MatchKeys="Basic" Physics="RailgunAttackDeathForce"/>
         <ActionFlags index="LaunchForceSite" value="1"/>
     </CActorAction>
-    <CActorMissile id="MechAttackMissileLevel3" parent="GenericAttackMissile" unitName="WarHoundWeapon2">
+    <CActorMissile id="MechRailgunMissile" parent="GenericAttackMissile" unitName="MechRailgunWeapon">
         <Model value="Invisible"/>
     </CActorMissile>
-    <CActorBeamSimple id="MechBeamLevel3" parent="GenericAttackBeam">
+    <CActorBeamSimple id="MechRailgunBeam" parent="GenericAttackBeam">
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Visibility" value="1"/>
-        <On Terms="Effect.WarHoundLM2.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.MechRailgunMissile.Start; At Caster" Send="Create"/>
         <On Terms="Effect.WarHound.Start" Send="Create WarHoundImpactHoldingSite"/>
         <On Terms="Effect.WarHound.Start" Send="RefSet ::HostImpact WarHoundImpactHoldingSite"/>
         <Host Subject="_Selectable"/>
@@ -603,8 +1635,77 @@
         <HostImpact Subject="_Missile" Actor="Find"/>
         <HostImpactSiteOps Ops="SOpAttachCenter"/>
     </CActorBeamSimple>
-    <CActorSound id="Mech_DeathLevel3" parent="SoundOneShot">
-        <On Terms="UnitDeath.WarHound2; PassChance 25.000000" Send="Create"/>
+    <CActorSound id="MechDeathLevel3Sound" parent="SoundOneShot">
+        <On Terms="UnitDeath.CRPGMechLevel3; PassChance 25.000000" Send="Create"/>
         <Sound value="WarHound_Death"/>
     </CActorSound>
+    <CActorAction id="VehicleFragmentationGrenadeAttack" parent="GenericAttack" effectImpact="VehicleFragmentationGrenadeDamage" effectLaunch="VehicleFragmentationGrenadeMissile">
+        <LaunchAssets Model="VultureAttackLaunch" Sound="VultureAttackLaunch"/>
+        <Missile value="VehicleFragmentationGrenadeMissile"/>
+        <ImpactMap index="None" Model="VultureAttackImpact" Sound="VultureAttackImpact"/>
+    </CActorAction>
+    <CActorMissile id="VehicleFragmentationGrenadeMissile" parent="GenericAttackMissile" unitName="VehicleFragmentationGrenadeWeapon">
+        <Model value="VultureWeapon"/>
+    </CActorMissile>
+    <CActorAction id="MechGatlingCannonAttack" parent="GenericAttack" effectAttack="MechGatlingCannonDamage">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0"/>
+        <LaunchAssets Model="VikingAssaultAttackLaunch" Sound="VikingAssault_AttackLaunch"/>
+        <Beam value="VikingAssaultAttackBeam"/>
+        <Missile value="VikingAssaultAttackMissile"/>
+        <ImpactMap index="None" Model="VikingAssaultAttackImpact" Sound="Viking_AssaultAttackImpact" ModelReaction="VikingAssaultAttackImpactReaction"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactMap index="Shield" Sound="VikingAssaultAttackImpactShield" ModelReaction="VikingAssaultAttackImpactReactionShield"/>
+        <ImpactPhysics Name="GatlingCannonImpact" MatchKeys="Basic" Physics="VikingAssaultAttackForce"/>
+        <DamageMap index="None" Model="VikingAssaultAttackDamage" Sound="VikingAssaultAttackDamage" ModelReaction="VikingAssaultAttackDamageReaction"/>
+        <DamageMap index="Shield" Sound="VikingAssaultAttackDamageShield" ModelReaction="VikingAssaultAttackDamageReactionShield"/>
+    </CActorAction>
+    <CActorAction id="MechMeleeAttackWarhound" parent="GenericAttack" effectAttack="MechMeleeDamage">
+        <Beam value="WarHoundMeleeAttackBeam"/>
+        <Missile value="WarHoundMeleeAttackMissile"/>
+        <ImpactMap index="None" Sound="WarHound_MeleeAttackLaunch"/>
+        <ImpactMap index="Shield" Sound="WarHoundMeleeAttackImpactShield"/>
+        <ImpactPhysics>
+            <Name value="AttackOverhead"/>
+            <MatchKeys value="Basic"/>
+            <AttackAnimProps value="00"/>
+            <Physics value="WarhoundMeleeAttackForceOverhead"/>
+        </ImpactPhysics>
+        <ImpactPhysics>
+            <Name value="AttackSwipe"/>
+            <MatchKeys value="Basic"/>
+            <AttackAnimProps value="01"/>
+            <Physics value="WarhoundMeleeAttackForceLateral"/>
+        </ImpactPhysics>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorModel id="MechCalldownModel" parent="MercDropModelBase">
+        <On Terms="ActorCreation" Send="SetScale 0.700000"/>
+        <On Terms="Behavior.MechCalldown.On" Send="Create"/>
+    </CActorModel>
+    <CActorSound id="ScarabMineScarabBirthSound" parent="SoundOneShot">
+        <On Terms="AbilMorph.ScarabMineUnburrow.Start" Send="Create"/>
+        <Sound value="Vulture_SpiderMinePlace"/>
+    </CActorSound>
+    <CActorRange id="ScarabMineUnburrowRange">
+        <On Terms="SelectionLocalUpdate.HunterScarabMineBurrowed.Start" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.HunterScarabMineBurrowed.Stop" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom SpiderMineBurrowed" Send="Destroy"/>
+        <Abil Link="SpiderMineUnburrowRangeDummy"/>
+    </CActorRange>
+    <CActorUnit id="CRPGInfestedLevel3" parent="Viper" unitName="CRPGInfestedLevel3">
+        <On index="0" Terms="UnitBirth.CRPGInfestedLevel3"/>
+        <On index="1" Terms="UnitBirth.CRPGInfestedLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGInfestedLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGInfestedLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGInfestedLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGInfestedLevel3.Finish"/>
+        <HighlightTooltip value="Unit/Name/CRPGInfestedLevel3"/>
+    </CActorUnit>
+    <CActorAction id="InfestedMendingSalivaAttack" parent="GenericAttack" effectImpact="InfestedMendingSalivaHealing" effectLaunch="InfestedMendingSalivaLaunchMissile">
+        <LaunchAssets Sound="Viper_AirAttack"/>
+        <Missile value="InfestedMendingSalivaMissile"/>
+        <ImpactMap index="None" Model="ViperAirAttackImpact" Sound="Viper_AirAttack_Impact"/>
+    </CActorAction>
+    <CActorMissile id="InfestedMendingSalivaMissile" parent="GenericAttackMissile" unitName="ViperAirWeapon"/>
+    <CActorRange id="VultureSpiderMinesRange2" parent="RangeAbil" abil="HunterScarabMine"/>
 </Catalog>

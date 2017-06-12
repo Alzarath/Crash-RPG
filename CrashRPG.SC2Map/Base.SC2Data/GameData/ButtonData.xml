@@ -1,17 +1,105 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CButton id="ArmorpiercingMode2">
-        <Icon value="Assets\Textures\btn-unit-terran-thorsiegemode.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-thorsiegemode.dds"/>
-        <HotkeySet value="ThorModes"/>
+    <CButton id="AeroDefensiveMatrix">
+        <Icon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
+        <TintRacially value="1"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="AeroTacticalJump">
+        <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="AeroFireSuppressionSystem">
+        <Icon value="Assets\Textures\btn-upgrade-swann-firesuppressionsystem.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-firesuppressionsystem.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="AeroLaserArmaments">
+        <Icon value="Assets\Textures\btn-upgrade-swann-improvedburstlaser.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-improvedburstlaser.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="MechShockBlast">
+        <Icon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="SniperCloakOn">
+        <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="CloakOnBanshee"/>
+        <HotkeySet value="Cloak"/>
+    </CButton>
+    <CButton id="MechEmergencyEvac">
+        <Icon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="MechPointDefenseDrones">
+        <Icon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="SpiderMine2">
+        <Icon value="Assets\Textures\btn-ability-terran-spidermine.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-spidermine.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="VehicleUnsiege">
+        <Icon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="Unsiege"/>
+        <HotkeySet value="TankModes"/>
         <Universal value="1"/>
     </CButton>
-    <CButton id="LevelUp">
+    <CButton id="VehicleGraduatingRange">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-trilithiumpowercell.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="TriLithiumPowerCells"/>
+    </CButton>
+    <CButton id="VehicleSiegeMode">
+        <Icon value="Assets\Textures\btn-unit-terran-siegetanksiegemode.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-siegetanksiegemode.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeySet value="TankModes"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="VehicleLockOn">
+        <Icon value="Assets\Textures\btn-ability-terran-lockon.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-lockon.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="LockOn"/>
+    </CButton>
+    <CButton id="VehicleCancel">
+        <Icon value="Assets\Textures\btn-command-cancel.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-cancel.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="Cancel"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="VehicleOverdrive">
+        <Icon value="Assets\Textures\BTN-Upgrade-Terran-MedivacEmergencyThrusters.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Upgrade-Terran-MedivacEmergencyThrusters.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="VehicleAutomaticServos">
+        <Icon value="Assets\Textures\btn-ability-terran-fireonthemove.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-fireonthemove.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="CRPGLevelUp">
         <Icon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
         <EditorCategories value="Race:Neutral"/>
     </CButton>
-    <CButton id="MultiLockTargetingSystem2">
+    <CButton id="MechMultiLockTargetingSystem">
         <Icon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
@@ -26,10 +114,12 @@
     <CButton id="SniperEnhancedOptics">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="SniperToxicRounds">
+    <CButton id="SniperToxicMunitions">
         <Icon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="SniperSnipe">
         <Icon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
@@ -40,16 +130,28 @@
     <CButton id="UpgradeDamage">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
-        <EditorCategories value="Race:Terran"/>
+        <EditorCategories value="Race:Neutral"/>
         <Tooltip value="Behavior/Tooltip/DamageAttribute"/>
         <AlertTooltip value="Behavior/Tooltip/DamageAttribute"/>
     </CButton>
     <CButton id="UpgradeArmor">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
-        <EditorCategories value="Race:Terran"/>
+        <EditorCategories value="Race:Neutral"/>
         <HotkeyAlias value="UpgradeDamage"/>
-        <Tooltip value="Behavior/Tooltip/DamageAttribute"/>
+        <Tooltip value="Behavior/Tooltip/ArmorAttribute"/>
         <AlertTooltip value="Behavior/Tooltip/ArmorAttribute"/>
+    </CButton>
+    <CButton id="SniperCloakOff">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="WraithCloakOff"/>
+    </CButton>
+    <CButton id="AeroYamatoCannon">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <Universal value="1"/>
     </CButton>
 </Catalog>

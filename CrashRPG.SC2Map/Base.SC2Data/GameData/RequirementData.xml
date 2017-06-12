@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CRequirement id="HeroInRange">
+        <NodeArray index="Use" Link="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit1337265981"/>
+    </CRequirement>
+    <CRequirement id="MechArmPointDefenseDrone">
+        <EditorCategories value="Race:Terran,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="LTCountUnitBroodlingEscortQueuedOrBetterAtUnit2"/>
+    </CRequirement>
     <CRequirement id="GELevel2">
         <NodeArray index="Show" Link="GTE774336177CountBehaviorLevelCounterCompleteOnlyAtUnit2"/>
     </CRequirement>
@@ -12,16 +20,23 @@
     <CRequirement id="GELevel5">
         <NodeArray index="Show" Link="GTE142027770CountBehaviorLevelCounterCompleteOnlyAtUnit5"/>
     </CRequirement>
-    <CRequirement id="IsAppropriateLevel">
+    <CRequirement id="CRPGIsAppropriateLevel">
         <NodeArray index="Use" Link="AndGT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnitLT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5"/>
     </CRequirement>
     <CRequirement id="GELevel1">
         <NodeArray index="Show" Link="GTE2832794247CountBehaviorLevelCounterCompleteOnlyAtUnit1"/>
     </CRequirement>
-    <CRequirement id="SniperHoldingFireGELevel3">
-        <NodeArray index="Show" Link="CountBehaviorLevelCounterCompleteOnlyAtUnitLevel33CountBehaviorGhostHoldFireBCompleteOnlyAtUnit"/>
+    <CRequirement id="VehicleNotLockedOn">
+        <NodeArray index="Use" Link="Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
     </CRequirement>
-    <CRequirement id="SniperNotHoldingFireGELevel3">
-        <NodeArray index="Show" Link="CountBehaviorLevelCounterCompleteOnlyAtUnitLevel33NotCountBehaviorGhostHoldFireBCompleteOnlyAtUnit"/>
+    <CRequirement id="VehicleLockedOn">
+        <EditorCategories value="Race:Terran,TechType:Ability"/>
+        <NodeArray index="Show" Link="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="SniperHoldingFire">
+        <NodeArray index="Show" Link="CountBehaviorSniperHoldFireCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="SniperNotHoldingFire">
+        <NodeArray index="Show" Link="NotCountBehaviorSniperHoldFireCompleteOnlyAtUnit"/>
     </CRequirement>
 </Catalog>
