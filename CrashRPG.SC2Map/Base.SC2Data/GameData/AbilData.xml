@@ -233,7 +233,7 @@
     <CAbilEffectInstant id="MechCalldownMech">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Effect index="0" value="MechCalldownMechApplyBehavior"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MechEmergencyEvac" Requirements="CRPGInRangeofCrashedBattlecruiser"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MechCalldownMech" Requirements="CRPGInRangeofCrashedBattlecruiser"/>
     </CAbilEffectInstant>
     <CAbilMorph id="HunterLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -496,7 +496,7 @@
         <Effect index="0" value="MechEmergencyEvacApplyBehavior"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="MechEmergencyEvac"/>
         <Cost>
-            <Cooldown TimeStart="300"/>
+            <Cooldown TimeStart="60"/>
         </Cost>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="VehicleOverdrive">

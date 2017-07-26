@@ -23,7 +23,7 @@ Abil/Name/InfestedMorphToInfestedMarine=Morph To Infested Marine
 Abil/Name/LevelUp=Level Up
 Abil/Name/LevelUper=
 Abil/Name/MechBarrage=Barrage
-Abil/Name/MechCalldownMech=Calldown Mech
+Abil/Name/MechCalldownMech=Calldown: Mech
 Abil/Name/MechEmergencyEvac=Emergency Evac
 Abil/Name/MechPointDefenseDrones=Point Defense Drones
 Abil/Name/MechShockBlast=Shock Blast
@@ -119,6 +119,7 @@ Button/Name/InfestedInfest=Infestation Spore
 Button/Name/InfestedInfestedEgg=Infested Egg
 Button/Name/InfestedInfestedSupplies=Infested Supplies
 Button/Name/MechBarrage=Barrage
+Button/Name/MechCalldownMech=Calldown: Mech
 Button/Name/MechEmergencyEvac=Emergency Evac
 Button/Name/MechMultiLockTargetingSystem=Multi-Lock Targeting System
 Button/Name/MechPointDefenseDrones=Point Defense Drones
@@ -194,9 +195,10 @@ Button/Tooltip/InfestedInfestedEggInfestedMarine=Spawn an Infested Terran. Infes
 Button/Tooltip/InfestedInfestedMarine=Infested Marines do moderate damage.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfestedInfestedSupplies=This supply-giving unit is infested, allowing up to two additional Infested Terran to be summoned.
 Button/Tooltip/MechBarrage=Stuns all enemies in a small area. Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageDamage,Amount"/></c> damage over <d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]"/> seconds in a larger area.
-Button/Tooltip/MechCivilian=Mech Evacuee.<n/><n/>Return to base to enter a new mech.
+Button/Tooltip/MechCalldownMech=Calls down the Pilot's Mech.
 Button/Tooltip/MechEmergencyEvac=Eject, destroying the hero and creating an invulnerable Civilian that can return to base to re-acquire another Mech.<n/><n/><c val="FF0000">WARNING: Resets your current level progress.</c>
 Button/Tooltip/MechMultiLockTargetingSystem=The hero can target ground and air units simultaneously.
+Button/Tooltip/MechPilot=Mech Evacuee.<n/><n/>Return to base to enter a new mech.
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
 Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that use automated defensive lasers to intercept enemy projectiles.
 Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShocking,PeriodCount * Effect,MechShockBlastDamage,Amount"/></c> damage to nearby enemies over <d ref="Behavior,MechShocked,Duration"/> seconds.
@@ -578,10 +580,10 @@ Unit/Name/InfestedInfestedMarine=Infested Marine
 Unit/Name/KerriganGhostLab2=Sniper
 Unit/Name/Lair=Alien
 Unit/Name/Larva=Alien
-Unit/Name/MechCivilian=Civilian
 Unit/Name/MechCivilianEjectionWeapon=Civilian Ejection
 Unit/Name/MechHellfireMissileWeapon=Hellfire Missile
 Unit/Name/MechJavelinMissileWeapon=Javelin Missile
+Unit/Name/MechPilot=Pilot
 Unit/Name/MechPointDefenseDrone=Point Defense Drone
 Unit/Name/MechRailgunWeapon=Railgun
 Unit/Name/NydusCanal=Alien

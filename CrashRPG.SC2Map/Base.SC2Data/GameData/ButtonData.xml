@@ -35,6 +35,11 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-queen.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="MechCalldownMech">
+        <Icon value="Assets\Textures\btn-ability-terran-calldownsupport.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-calldownsupport.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="FighterResurgence">
         <Icon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>

@@ -1072,7 +1072,7 @@
     </CEffectApplyBehavior>
     <CEffectCreateUnit id="MechEmergencyEvacCreateUnitCivilian">
         <SpawnEffect value="MechEmergencyEvacCreateSet"/>
-        <SpawnUnit value="MechCivilian"/>
+        <SpawnUnit value="MechPilot"/>
         <EditorCategories value="Race:Terran"/>
         <CreateFlags index="OffsetByRadius" value="0"/>
         <CreateFlags index="Placement" value="0"/>

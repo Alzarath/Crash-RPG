@@ -893,7 +893,7 @@
     </CActorSplat>
     <CActorModel id="CRPGLevelUpEffect" parent="ModelAnimationStyleOneShot">
         <EditorCategories value=""/>
-        <On Terms="Effect.CRPGIncreaseLevelCounter.Start; ValidateUnit NotHeroic" Send="Create"/>
+        <On Terms="Effect.CRPGIncreaseLevelCounter.Start; ValidateUnit IsHeroic" Send="Create"/>
         <On Terms="AnimDone" Send="Destroy"/>
         <Model value="KerriganRespawnImpact"/>
     </CActorModel>
@@ -916,13 +916,13 @@
         <ImpactMap index="None" Model="GoliathGroundAttackImpact"/>
         <ImpactPhysics Name="GatlingCannonImpact" MatchKeys="Basic" Physics="VikingAssaultAttackForce"/>
     </CActorAction>
-    <CActorUnit id="MechCivilian" parent="CRPGCivilian" unitName="MechCivilian">
-        <On index="0" Terms="UnitBirth.MechCivilian" Send="Create SoundEmitter MechCivilian_Ambience"/>
-        <On index="1" Terms="UnitBirth.MechCivilian"/>
-        <On index="2" Terms="UnitRevive.MechCivilian"/>
-        <On index="3" Terms="UnitRevive.MechCivilian"/>
-        <On index="4" Terms="UnitConstruction.MechCivilian.Start"/>
-        <On index="5" Terms="UnitConstruction.MechCivilian.Finish"/>
+    <CActorUnit id="MechPilot" parent="CRPGCivilian" unitName="MechPilot">
+        <On index="0" Terms="UnitBirth.MechPilot" Send="Create SoundEmitter MechCivilian_Ambience"/>
+        <On index="1" Terms="UnitBirth.MechPilot"/>
+        <On index="2" Terms="UnitRevive.MechPilot"/>
+        <On index="3" Terms="UnitRevive.MechPilot"/>
+        <On index="4" Terms="UnitConstruction.MechPilot.Start"/>
+        <On index="5" Terms="UnitConstruction.MechPilot.Finish"/>
     </CActorUnit>
     <CActorUnit id="MechCivilianEjectMissile" parent="GenericUnitStandardNoAutoSoundLinks" unitName="MechCivilianEjectionWeapon">
         <Model value="TychusEjectMissile"/>

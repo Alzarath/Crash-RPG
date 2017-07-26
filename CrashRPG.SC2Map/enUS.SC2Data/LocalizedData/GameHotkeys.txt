@@ -20,6 +20,7 @@ Button/Hotkey/InfestedAberrate=W
 Button/Hotkey/InfestedCausticWeapons=
 Button/Hotkey/InfestedInfest=E
 Button/Hotkey/InfestedInfestedEgg=Q
+Button/Hotkey/MechCalldownMech=E
 Button/Hotkey/MechEmergencyEvac=E
 Button/Hotkey/MechShockBlast=W
 Button/Hotkey/SniperCloakOff=W

@@ -983,22 +983,22 @@
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
     </CUnit>
-    <CUnit id="MechCivilian" parent="PrisonerCivilian">
-        <Name value="Unit/Name/MechCivilian"/>
-        <Description value="Button/Tooltip/MechCivilian"/>
+    <CUnit id="MechPilot" parent="PrisonerCivilian">
+        <Name value="Unit/Name/MechPilot"/>
+        <Description value="Button/Tooltip/MechPilot"/>
         <FlagArray index="Hero" value="1"/>
         <FlagArray index="Invulnerable" value="1"/>
         <Attributes index="Heroic" value="1"/>
+        <AbilArray Link="MechCalldownMech"/>
         <BehaviorArray Link="HeroVeterancy"/>
         <BehaviorArray Link="CRPGDamageAttribute"/>
         <BehaviorArray Link="CRPGArmorAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="LevelCounter"/>
-        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
-        <AbilArray Link="MechCalldownMech"/>
         <CardLayouts index="0">
-            <LayoutButtons Face="CalldownMULE" Type="AbilCmd" AbilCmd="MechCalldownMech,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="MechCalldownMech" Type="AbilCmd" AbilCmd="MechCalldownMech,Execute" Row="2" Column="2"/>
         </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="MechCivilianEjectionWeapon" parent="TychusEjectMissile">
         <Name value="Unit/Name/MechCivilianEjectionWeapon"/>
