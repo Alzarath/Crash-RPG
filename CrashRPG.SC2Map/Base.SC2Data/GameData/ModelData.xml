@@ -61,6 +61,12 @@
         <TechPurchaseCamera value="Star2CameraLow08"/>
         <UnitGlossaryCamera value="Star2CameraLow08"/>
     </CModel>
+    <!--                                                                                         -->
+    <!-- Devourer ............................................................................... -->
+    <!--                                                                                         -->
+    <CModel id="DevourerMP">
+        <UnitGlossaryCamera value="Star2CameraLow08"/>
+    </CModel>
     <CModel id="InfestedInfestedBunker">
         <Model value="Assets\Units\Zerg\InfestedBunker_Coop\InfestedBunker_Coop.m3"/>
         <EditorCategories value="Race:Zerg"/>
@@ -75,6 +81,7 @@
         <SelectionLayer value="2"/>
         <SelectionRadius value="1.500000"/>
         <ShadowRadius value="1.500000"/>
+        <UnitGlossaryCamera value="Star2CameraMid08"/>
     </CModel>
     <CModel id="PortraitBattlecruiserBlackOps" parent="FXAPortrait" Race="Terran">
         <Model value="Assets\Portraits\Terran\BattleCruiser_BlackOps_Ex3_Portrait\BattleCruiser_BlackOps_Ex3_Portrait.m3"/>
@@ -91,8 +98,8 @@
     <CModel id="MechShockBlastImpactModel" parent="ImpactFX">
         <Model value="Assets\Effects\Terran\HyperionEMPImpact\HyperionEMPImpact.m3"/>
         <EditorCategories value="Race:Terran"/>
-        <ScaleMax value="0.300000,0.300000,0.300000"/>
-        <ScaleMin value="0.300000,0.300000,0.300000"/>
+        <ScaleMax value="0.400000,0.400000,0.400000"/>
+        <ScaleMin value="0.400000,0.400000,0.400000"/>
     </CModel>
     <CModel id="MechShockBlastModel" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Terran\HyperionEMP\HyperionEMP.m3"/>

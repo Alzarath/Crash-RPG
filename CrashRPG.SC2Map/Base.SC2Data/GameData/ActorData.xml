@@ -1,5 +1,100 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorUnit id="CRPGHunterLevel2" parent="GenericUnitStandard" unitName="CRPGHunterLevel2">
+        <Aliases value="_UnitSmall"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Adept_Land"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Templar_LandSweetener"/>
+        <On Terms="Abil.AdeptPhaseShift.SourceCastStart" Send="$Spell"/>
+        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundSmall"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <On Terms="Effect.AdeptPhaseShiftTeleport.Stop" Send="Create AdeptSpiritIn"/>
+        <On Terms="Effect.AdeptPhaseShiftTeleport.Stop" Send="Create AdeptSpiritInSound"/>
+        <On Terms="Behavior.AdeptPhaseShiftCaster.On" Send="Create AdeptSpiritSpawn"/>
+        <On Terms="Behavior.AdeptPhaseShiftCaster.On" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
+        <On Terms="Behavior.AdeptPhaseShiftCaster.Off" Send="AnimBracketStop Cover"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Spell" Send="AnimClear Spell"/>
+        <On Terms="Signal.*.NeuralLinkStarted" Send="RefSetFromMsg ::actor.NeuralLinkSite ::Sender"/>
+        <On Terms="Effect.AdeptPhaseShiftTeleportSet.Start" Target="::actor.NeuralLinkSite" Send="Signal BreakLinkInstant"/>
+        <On Terms="UnitDeathCustomize; !ValidateUnit IsHallucination" Send="Create AdeptProtossSpiritDeathModel"/>
+        <Model value="Adept"/>
+        <AnimBlendTime value="0.200000"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="AdeptWarpIn"/>
+        <DeathArray index="Normal" ModelLink="AdeptDeath" SoundLink="Adept_DeathFX"/>
+        <DeathCustoms ActorModel="AdeptDeathRagdoll" ModelLink="AdeptDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="BloodReduced"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdollWithTeamColor" ModelLink="AdeptDeathRagdoll" Name="RagdollSpineCrawlerHurl">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathSmall" Name="Hallucination"/>
+        <PlacementModel value="AdeptPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="ShadePortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="0.600000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMedium"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="2.5"/>
+        <AbilSoundArray AbilCmd="AdeptPhaseShift,Execute" Sound="Adept_PsionicTransferVO"/>
+        <BarOffset value="60"/>
+        <BarWidth value="42"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition.dds"/>
+        </GroupIcon>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Adept_Ready"/>
+        <SoundArray index="Help" value="Adept_Help"/>
+        <SoundArray index="What" value="Adept_What"/>
+        <SoundArray index="Yes" value="Adept_Yes"/>
+        <SoundArray index="Attack" value="Adept_Attack"/>
+        <SoundArray index="Pissed" value="Adept_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-collection-adept-collectoredition.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="DevourerMP">
+        <UnitIcon value="Assets\Textures\btn-unit-zerg-devourerex3.dds"/>
+    </CActorUnit>
+    <CActorAction id="HunterPurifierGlaiveCannonAttack" parent="GenericAttack" effectImpact="AdeptDamage" effectLaunch="HunterPurifierGlaiveCannonLaunchMissile">
+        <LaunchAssets Sound="Adept_AttackLaunch"/>
+        <Missile value="AdeptAttackMissile2"/>
+        <ImpactMap index="None" Model="AdeptImpact" Sound="Adept_AttackImpact"/>
+    </CActorAction>
+    <CActorSound id="CRPGHunterDeathLevel2" parent="SoundOneShot">
+        <On Terms="UnitDeathCustomize.CRPGHunterLevel2; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
+        <Sound value="Adept_Death"/>
+    </CActorSound>
     <CActorUnit id="Beacon_Terran2" parent="GenericUnitStandardNoAutoSoundLinks" unitName="Beacon_Terranmedium">
         <Model value="Beacon_Terran"/>
         <Scale value="0.650000"/>
@@ -22,6 +117,117 @@
             <Image value="Assets\Textures\wireframe-general-circleofpower-terran.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorUnit id="CRPGHunterLevel4" parent="GenericUnitBase" unitName="CRPGHunterLevel4">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.Dragoon.AttackStart" Send="TimerKill CoverDelay"/>
+        <On Terms="WeaponStart.Dragoon.AttackStart" Send="AnimClear CoverStand"/>
+        <On Terms="WeaponStart.Dragoon.AttackStart" Send="AnimPlay Cover Cover PlayForever"/>
+        <On Terms="WeaponStop.Dragoon.AttackStop" Send="TimerSet 4.000000 CoverDelay"/>
+        <On Terms="TimerExpired; TimerName CoverDelay" Send="AnimClear Cover"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Dragoon_Land"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <Model value="Dragoon"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="DragoonWarpIn"/>
+        <DeathArray index="Normal" ModelLink="DragoonDeath" SoundLink="Dragoon_DeathExplosion"/>
+        <DeathCustoms ModelLink="ProtossLargeUnitDeathLow" Name="AntiGravProtoss"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <PlacementModel value="DragoonPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="DragoonPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="1.25"/>
+        <BarOffset value="80"/>
+        <BarWidth value="90"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-dragoon-void.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="DragoonVoid_Ready"/>
+        <SoundArray index="Help" value="DragoonVoid_Help"/>
+        <SoundArray index="What" value="DragoonVoid_What"/>
+        <SoundArray index="Yes" value="DragoonVoid_Yes"/>
+        <SoundArray index="Attack" value="DragoonVoid_Attack"/>
+        <SoundArray index="Pissed" value="DragoonVoid_Pissed"/>
+        <SoundArray index="Movement" value="Dragoon_MoveStart"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-dragoon-void.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon-Shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorAction id="HunterPhaseDisruptorAttack" parent="GenericAttack" effectImpact="DragoonDamage" effectLaunch="HunterPhaseDisruptorLaunchMissile">
+        <LaunchAssets Sound="DragoonVoid_AttackLaunch"/>
+        <Missile value="DragoonAttackMissile2"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeStandard SOpForwardLaunchGuide"/>
+        <ImpactMap index="None" Model="DragoonAttackImpact" Sound="DragoonVoid_AttackImpact"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="DragoonPhaseDisruptorImpact" MatchKeys="Basic" Physics="DragoonAttackDeathForce"/>
+    </CActorAction>
+    <CActorUnit id="CRPGHunterLevel1" parent="Probe" unitName="CRPGHunterLevel1">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel1"/>
+        <On index="1" Terms="UnitBirth.CRPGHunterLevel1"/>
+        <On index="2" Terms="UnitRevive.CRPGHunterLevel1"/>
+        <On index="3" Terms="UnitRevive.CRPGHunterLevel1"/>
+        <On index="4" Terms="UnitConstruction.CRPGHunterLevel1.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGHunterLevel1.Finish"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunterLevel1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGHunterLevel3" parent="Stalker" unitName="CRPGHunterLevel3">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel3"/>
+        <On index="1" Terms="UnitBirth.CRPGHunterLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGHunterLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGHunterLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGHunterLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGHunterLevel3.Finish"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunterLevel3"/>
+    </CActorUnit>
+    <CActorAction id="HunterParticleDisruptors" parent="StalkerAttack" effectLaunch="ParticleDisruptors2">
+        <On index="6" Terms="Effect.ParticleDisruptors2.Start; At Caster"/>
+        <Missile value="StalkerAttackMissile2"/>
+    </CActorAction>
+    <CActorSound id="HunterParticleBeamSound" parent="SoundOneShot">
+        <On Terms="WeaponStart.HunterParticleBeam.AttackStart" Send="Create"/>
+        <Sound value="Probe_AttackLaunch"/>
+    </CActorSound>
+    <CActorAction id="HunterParticleBeamAttack" parent="GenericAttack" effectAttack="HunterParticleBeamDamage">
+        <Beam value="ProbeAttackBeam"/>
+        <ImpactMap index="None" Model="ProbeAttackImpact" Sound="Probe_AttackImpact"/>
+        <ActionFlags index="LaunchForceSite" value="1"/>
+    </CActorAction>
+    <CActorUnit id="CRPGHunterLevel5" parent="Immortal" unitName="CRPGHunterLevel5">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel5"/>
+        <On index="1" Terms="UnitBirth.CRPGHunterLevel5"/>
+        <On index="2" Terms="UnitRevive.CRPGHunterLevel5"/>
+        <On index="3" Terms="UnitRevive.CRPGHunterLevel5"/>
+        <On index="4" Terms="UnitConstruction.CRPGHunterLevel5.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGHunterLevel5.Finish"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunterLevel5"/>
+    </CActorUnit>
+    <CActorAction id="HunterPhaseDisruptorsAttack" parent="ImmortalAttack" effectAttack="PhaseDisruptors2"/>
     <CActorLookAt id="VehicleWeaponTurretLookAt" parent="UnitTurret">
         <On Terms="TurretEnable.CRPGVehicle" Send="Create"/>
         <Types Id="DefaultLookAtTurret" Name="LookAtType/CycloneTurret">
@@ -694,8 +900,7 @@
     <CActorAction id="MechHellfireMissilePackAttack" parent="GenericAttack" effectImpact="MechHellfireMissilePackDamage" effectLaunch="MechHellfireMissilePackLaunchMissile">
         <LaunchAttachQuery Methods="AMPatternMech"/>
         <LaunchAssets Model="GoliathAirAttackLaunch" Sound="VikingFighter_AttackLaunch"/>
-        <Beam value="GoliathAirAttackBeam"/>
-        <Missile value="GoliathAirAttackMissile"/>
+        <Missile value="MechHellfireMissilePackMissile"/>
         <ImpactMap index="None" Model="GoliathAirAttackImpact" Sound="VikingFighter_AttackImpact"/>
         <ImpactMap index="Shield" Sound="GoliathAirAttackImpactShield"/>
         <ImpactPhysics Name="JavelinImpact" MatchKeys="Basic" Physics="ThorAAAttackForce"/>
@@ -741,7 +946,7 @@
         <Sound value="SCV_AttackLaunch"/>
     </CActorSound>
     <CActorAction id="MechThorsHammerAttack" parent="GenericAttack" effectAttack="MechThorsHammerDamage">
-        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMPatternMechThor"/>
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMPatternMechThorsHammer"/>
         <LaunchAssets Model="ThorHandGunAttackLaunch" Sound="Thor_HandGunAttackLaunch"/>
         <Beam value="ThorAttackBeam"/>
         <Missile value="ThorAttackMissile"/>
@@ -1580,7 +1785,6 @@
         <On index="61" Terms="WeaponStop.MechTwinAutocannons.AttackStop" Send="AnimBracketStop Attack"/>
         <On index="62" Terms="WeaponStart.MechHellfireMissilePack.AttackStart" Send="AnimBracketStart Spell Spell"/>
         <On index="63" Terms="WeaponStop.MechHellfireMissilePack.AttackStop" Send="AnimBracketStop Spell"/>
-        <On index="65" Terms="WeaponStop.GoliathAUpgraded2.AttackStop" Send="AnimBracketStop Spell"/>
         <On index="70" Terms="UnitBirth.CRPGMechLevel4" Send="TerrainSquibActivateGroup RippleStandard"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGMechLevel4" Send="Destroy"/>
         <On Terms="AbilMorph.*.Finish; MorphTo CRPGMechLevel4" Send="Create"/>
@@ -1788,13 +1992,13 @@
         <On index="3" Terms="UnitRevive.CRPGSniperLevel3"/>
         <On index="4" Terms="UnitConstruction.CRPGSniperLevel3.Start"/>
         <On index="5" Terms="UnitConstruction.CRPGSniperLevel3.Finish"/>
-        <On index="60" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimBaselineStop"/>
-        <On index="61" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
-        <On index="62" Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimClear SpellA"/>
-        <On index="63" Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimBaselineStart"/>
-        <On index="64" Terms="Abil.SniperSnipeEnhanced.SourceChannelStart"/>
-        <On index="65" Terms="Abil.SniperSnipeEnhanced.SourceChannelStop"/>
-        <On index="66" Terms="Abil.SniperSnipeEnhanced.SourceFinishStart"/>
+        <On index="60" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStart" Send="AnimBaselineStop"/>
+        <On index="61" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
+        <On index="62" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStop" Send="AnimClear SpellA"/>
+        <On index="63" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStop" Send="AnimBaselineStart"/>
+        <On index="64" Terms="Abil.SniperSniperRoundEnhanced.SourceChannelStart"/>
+        <On index="65" Terms="Abil.SniperSniperRoundEnhanced.SourceChannelStop"/>
+        <On index="66" Terms="Abil.SniperSniperRoundEnhanced.SourceFinishStart"/>
         <On index="67" Terms="UnitMovementUpdate.*.Walk; AnimPlaying SpellC"/>
         <On index="68" Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
         <On index="69" Terms="Behavior.SniperHoldFireB.On" Send="AnimGroupApply Cover"/>
@@ -1842,13 +2046,13 @@
         <On index="3" Terms="UnitRevive.CRPGSniperLevel4"/>
         <On index="4" Terms="UnitConstruction.CRPGSniperLevel4.Start"/>
         <On index="5" Terms="UnitConstruction.CRPGSniperLevel4.Finish"/>
-        <On index="65" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimBaselineStop"/>
-        <On index="66" Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
-        <On index="67" Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimClear SpellA"/>
-        <On index="68" Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimBaselineStart"/>
-        <On index="69" Terms="Abil.SniperSnipeEnhanced.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
-        <On index="70" Terms="Abil.SniperSnipeEnhanced.SourceChannelStop" Send="AnimClear SpellB"/>
-        <On index="71" Terms="Abil.SniperSnipeEnhanced.SourceFinishStart" Target="KerriganHeroGlow" Send="AnimPlay SpellC Spell,C"/>
+        <On index="65" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStart" Send="AnimBaselineStop"/>
+        <On index="66" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
+        <On index="67" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStop" Send="AnimClear SpellA"/>
+        <On index="68" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStop" Send="AnimBaselineStart"/>
+        <On index="69" Terms="Abil.SniperSniperRoundEnhanced.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
+        <On index="70" Terms="Abil.SniperSniperRoundEnhanced.SourceChannelStop" Send="AnimClear SpellB"/>
+        <On index="71" Terms="Abil.SniperSniperRoundEnhanced.SourceFinishStart" Target="KerriganHeroGlow" Send="AnimPlay SpellC Spell,C"/>
         <On index="72" Terms="UnitRevive.SniperLevel4" Target="KerriganHeroGlow" Send="Create ZergHeroRevive"/>
         <On index="73" Terms="UnitRevive.SniperLevel4" Send="$Birth 0 0.000000 -1.000000 0.000000"/>
         <On index="74" Terms="UnitMovementUpdate.KerriganGhost.Walk" Send="AnimClear Spell"/>
@@ -1876,9 +2080,9 @@
         <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
         <On Terms="UnitRevive.CRPGSniperLevel1" Send="AnimGroupApply A"/>
-        <On Terms="Abil.SniperSnipeEnhanced.SourcePrepStart" Send="Create Nova_Snipe_Kneel_ActorSound"/>
-        <On Terms="Abil.SniperSnipeEnhanced.SourceCastStart" Send="AnimBracketStart Spell Spell,E Spell,F Spell,G"/>
-        <On Terms="Abil.SniperSnipeEnhanced.SourceCastStop" Send="AnimBracketStop Spell"/>
+        <On Terms="Abil.SniperSniperRoundEnhanced.SourcePrepStart" Send="Create Nova_Snipe_Kneel_ActorSound"/>
+        <On Terms="Abil.SniperSniperRoundEnhanced.SourceCastStart" Send="AnimBracketStart Spell Spell,E Spell,F Spell,G"/>
+        <On Terms="Abil.SniperSniperRoundEnhanced.SourceCastStop" Send="AnimBracketStop Spell"/>
         <On Terms="WeaponStart.*.AttackStart" Send="AnimClear Spell"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear Spell"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Marine_Land"/>
@@ -1946,27 +2150,27 @@
             <Image value="Assets\Textures\wireframe-terran-nova.dds"/>
         </Wireframe>
     </CActorMissile>
-    <CActorAction id="SniperSnipeAttack" parent="GenericAttack" effectAttack="SniperSnipeDamage">
+    <CActorAction id="SniperSniperRoundAttack" parent="GenericAttack" effectAttack="SniperSniperRoundDamage">
         <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>
         <LaunchAssets Model="GhostSnipeAttackLaunch" Sound="Ghost_SnipeLaunch"/>
         <ImpactMap index="None" Model="GhostSnipeAttackImpact" Sound="Ghost_SnipeImpact"/>
         <ImpactPhysics Name="GhostSnipeImpact" MatchKeys="Basic" Physics="GhostSnipeAttackDeathForce"/>
     </CActorAction>
-    <CActorBeamSimple id="SniperSnipeAttackBeam" parent="GenericAttackBeam">
+    <CActorBeamSimple id="SniperSniperRoundAttackBeam" parent="GenericAttackBeam">
         <Model value="GhostSnipeAttackBeam"/>
     </CActorBeamSimple>
     <CActorSound id="CRPGSniperDeathLevel1" parent="SoundOneShot">
         <On Terms="UnitDeath.SniperLevel1; PassChance 100.000000" Send="Create"/>
         <Sound value="Ghost_Death"/>
     </CActorSound>
-    <CActorAction id="MechAirAttackLevel5" parent="GenericAttack" effectImpact="JavelinMissileLaunchersDamage" effectLaunch="MechJavelinMissileLaunchersLaunchMissile">
-        <LaunchAttachQuery Methods="AMFilterWeaponSetA1 AMPatternThorAA"/>
+    <CActorAction id="MechJavelinMissileLaunchersAttack" parent="GenericAttack" effectImpact="MechJavelinMissileLaunchersDamage" effectLaunch="MechJavelinMissileLaunchersLaunchMissile">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA1 AMPatternMechJavelinMissileLaunchers"/>
         <LaunchAssets Model="ThorAAAttackLaunch" Sound="Thor_AntiAirAttackLaunch"/>
-        <Missile value="MechAirAttackMissileLevel5"/>
+        <Missile value="MechJavelinMissileLaunchersMissile"/>
         <ImpactMap index="None" Model="ThorAAAttackImpact" Sound="Thor_AntiAirAttackImpact"/>
         <ImpactPhysics Name="JavelinImpact" MatchKeys="Basic" Physics="ThorAAAttackForce"/>
     </CActorAction>
-    <CActorMissile id="MechAirAttackMissileLevel5" parent="GenericAttackMissile" unitName="MechJavelinMissileWeapon">
+    <CActorMissile id="MechJavelinMissileLaunchersMissile" parent="GenericAttackMissile" unitName="MechJavelinMissileWeapon">
         <Model value="ThorAAWeapon"/>
     </CActorMissile>
     <CActorAction id="MechRailgunAttack" parent="GenericAttack" effectImpact="WarHound" effectLaunch="MechRailgunMissile">
@@ -1993,7 +2197,7 @@
         <HostImpact Subject="_Missile" Actor="Find"/>
         <HostImpactSiteOps Ops="SOpAttachCenter"/>
     </CActorBeamSimple>
-    <CActorSound id="MechDeathLevel3Sound" parent="SoundOneShot">
+    <CActorSound id="MechDeathLevel3" parent="SoundOneShot">
         <On Terms="UnitDeath.CRPGMechLevel3; PassChance 25.000000" Send="Create"/>
         <Sound value="WarHound_Death"/>
     </CActorSound>
@@ -2010,9 +2214,7 @@
         <LaunchAssets Model="VikingAssaultAttackLaunch" Sound="VikingAssault_AttackLaunch"/>
         <Beam value="VikingAssaultAttackBeam"/>
         <Missile value="VikingAssaultAttackMissile"/>
-        <ImpactMap index="None" Model="VikingAssaultAttackImpact" Sound="Viking_AssaultAttackImpact" ModelReaction="VikingAssaultAttackImpactReaction"/>
-        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
-        <ImpactMap index="Shield" Sound="VikingAssaultAttackImpactShield" ModelReaction="VikingAssaultAttackImpactReactionShield"/>
+        <ImpactMap index="None" Model="VikingAssaultAttackImpact" Sound="Viking_AssaultAttackImpact"/>
         <ImpactPhysics Name="GatlingCannonImpact" MatchKeys="Basic" Physics="VikingAssaultAttackForce"/>
         <DamageMap index="None" Model="VikingAssaultAttackDamage" Sound="VikingAssaultAttackDamage" ModelReaction="VikingAssaultAttackDamageReaction"/>
         <DamageMap index="Shield" Sound="VikingAssaultAttackDamageShield" ModelReaction="VikingAssaultAttackDamageReactionShield"/>
@@ -2128,4 +2330,26 @@
         <Model value="TimeWarp"/>
         <Scale value="0.250000"/>
     </CActorModel>
+    <CActorSound id="HunterBlinkCloudSound" parent="SoundOneShot">
+        <On Terms="Abil.HunterBlink.TargetCastStart" Send="Create"/>
+        <Sound value="Zeratul_BlinkCloud"/>
+    </CActorSound>
+    <CActorModel id="HunterBlinkIn" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.HunterBlink.Stop; At Source" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::scope.Impact ::Self"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin SOpForwardScopeLaunch"/>
+        <Model value="ZeratulBlinkIn"/>
+    </CActorModel>
+    <CActorModel id="HunterBlinkOut" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.HunterBlink.Start; At Source" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::scope.Launch ::Self"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary SOpForwardZeratulAiur01"/>
+        <Model value="ZeratulBlinkOut"/>
+    </CActorModel>
+    <CActorSound id="HunterBlinkSound" parent="SoundOneShot">
+        <On Terms="Abil.HunterBlink.TargetCastStart" Send="Create"/>
+        <Sound value="Zeratul_Blink"/>
+    </CActorSound>
 </Catalog>

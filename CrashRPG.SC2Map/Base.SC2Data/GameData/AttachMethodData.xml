@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CAttachMethodPattern id="AMPatternMechJavelinMissileLaunchers">
+        <Keyword value="Weapon"/>
+        <Driver value="MechJavelinMissileLaunchersLaunchMissile"/>
+    </CAttachMethodPattern>
     <CAttachMethodFilter id="FilterOrigin">
         <Keys Keyword="Origin"/>
     </CAttachMethodFilter>
@@ -13,7 +17,7 @@
         <Multiplier value="2"/>
         <Driver value="MechHellfireMissilePackLaunchMissile"/>
     </CAttachMethodPattern>
-    <CAttachMethodPattern id="AMPatternMechThor">
+    <CAttachMethodPattern id="AMPatternMechThorsHammer">
         <Keyword value="Weapon"/>
         <Driver value="MechThorsHammerDamage"/>
     </CAttachMethodPattern>

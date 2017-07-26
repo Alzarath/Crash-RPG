@@ -235,6 +235,14 @@
         <Effect index="0" value="MechCalldownMechApplyBehavior"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="MechEmergencyEvac" Requirements="CRPGInRangeofCrashedBattlecruiser"/>
     </CAbilEffectInstant>
+    <CAbilMorph id="HunterLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <ActorKey value="MechLevelUpMorphLevel1"/>
+        <InfoArray index="0" Unit="CRPGHunterLevel2"/>
+    </CAbilMorph>
+    <CAbilMorph id="HunterLevelUpMorphLevel2" parent="HunterLevelUpMorphLevel1">
+        <InfoArray index="0" Unit="CRPGHunterLevel3"/>
+    </CAbilMorph>
     <CAbilEffectInstant id="MechShockBlast">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -534,10 +542,11 @@
     </CAbilEffectInstant>
     <CAbilEffectTarget id="SniperSnipe" parent="Snipe">
         <Name value="Abil/Name/SniperSnipe"/>
-        <Effect index="0" value="SniperSnipeDamage"/>
+        <Effect index="0" value="SniperSniperRoundDamage"/>
         <CastIntroTime index="0" value="1.5"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SniperSnipe"/>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="SniperSnipeEnhanced" parent="SniperSnipe">
+    <CAbilEffectTarget id="SniperSniperRoundEnhanced" parent="SniperSnipe">
         <CastIntroTime index="0" value="0.5"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="AeroYamatoCannon">
@@ -598,14 +607,13 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="HunterScarabMineSet"/>
         <Cost>
+            <Vital index="Energy" value="50"/>
             <Charge>
                 <CountMax value="3"/>
                 <CountStart value="3"/>
                 <CountUse value="1"/>
-                <Link value="Abil/VultureSpiderMines"/>
                 <Location value="Unit"/>
             </Charge>
-            <Cooldown Link="Abil/VultureSpiderMines"/>
         </Cost>
         <Placeholder value="SpiderMine"/>
         <Range value="3"/>
@@ -646,4 +654,19 @@
         <SmartFilters value="-;Neutral,Enemy"/>
         <AbilSetId value="AttackFriendly"/>
     </CAbilAttack>
+    <CAbilEffectTarget id="HunterBlink">
+        <AbilSetId value="Blnk"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Charge Link="Abil/ZeratulBlink"/>
+            <Cooldown Link="Abil/ZeratulBlink" TimeUse="8"/>
+        </Cost>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterBlink">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
 </Catalog>

@@ -44,6 +44,10 @@
         <SubgroupPriority value="20"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
+        <ShieldRegenDelay value="10"/>
+        <ShieldRegenRate value="2"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
+        <HotkeyCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
     <CUnit id="Beacon_Terranmedium" parent="DESTRUCTIBLE">
         <FlagArray index="Uncommandable" value="0"/>
@@ -65,7 +69,6 @@
     </CUnit>
     <CUnit id="CRPGAeroLevel1" parent="CRPGHero">
         <Race value="Terr"/>
-        <Mob value="Multiplayer"/>
         <FlagArray index="Hero" value="0"/>
         <FlagArray index="PreventDestroy" value="1"/>
         <PlaneArray index="Air" value="1"/>
@@ -104,7 +107,6 @@
         <Mass value="0.6"/>
         <GlossaryStrongArray value="Mutalisk"/>
         <GlossaryWeakArray value="Corruptor"/>
-        <HotkeyCategory value="Unit/Category/TerranUnits"/>
         <Description value="Button/Tooltip/CRPGAero"/>
         <GlossaryCategory value=""/>
     </CUnit>
@@ -214,7 +216,7 @@
     </CUnit>
     <CUnit id="CRPGMechLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGMech"/>
-        <Description value="Button/Tooltip/CRPGMechG"/>
+        <Description value="Button/Tooltip/CRPGMech"/>
         <Race value="Terr"/>
         <FlagArray index="PreventDestroy" value="1"/>
         <PlaneArray index="Ground" value="1"/>
@@ -235,7 +237,6 @@
         <InnerRadius value="0.375"/>
         <CargoSize value="1"/>
         <MinimapRadius value="0.375"/>
-        <HotkeyCategory value="Unit/Category/TerranUnits"/>
         <Fidget>
             <ChanceArray index="Anim" value="33"/>
             <ChanceArray index="Idle" value="33"/>
@@ -324,7 +325,6 @@
         <TauntDuration index="Dance" value="5"/>
     </CUnit>
     <CUnit id="CRPGMechLevel4" parent="CRPGMechLevel3">
-        <Description value="Button/Tooltip/CRPGMech"/>
         <FlagArray index="PreventDestroy" value="0"/>
         <FlagArray index="TurnBeforeMove" value="0"/>
         <LateralAcceleration value="115.1875"/>
@@ -398,7 +398,6 @@
     <CUnit id="CRPGSniperLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGSniper"/>
         <Description value="Button/Tooltip/CRPGSniper"/>
-        <DeathRevealRadius value="3"/>
         <Race value="Terr"/>
         <FlagArray index="PreventDestroy" value="1"/>
         <PlaneArray index="Ground" value="1"/>
@@ -425,7 +424,6 @@
         <MinimapRadius value="0.375"/>
         <GlossaryStrongArray value="Ultralisk"/>
         <GlossaryWeakArray value="Zergling"/>
-        <HotkeyCategory value="Unit/Category/TerranUnits"/>
         <Fidget>
             <ChanceArray index="Anim" value="33"/>
             <ChanceArray index="Idle" value="33"/>
@@ -435,7 +433,7 @@
     </CUnit>
     <CUnit id="CRPGSniperLevel2" parent="CRPGSniperLevel1">
         <AbilArray index="3" Link="SniperLevelUpMorphLevel2"/>
-        <AbilArray index="4" Link="SniperSnipeEnhanced"/>
+        <AbilArray index="4" Link="SniperSniperRoundEnhanced"/>
         <BehaviorArray Link="SniperEnhancedOptics"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
@@ -446,11 +444,10 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="6" Face="SniperSnipe" Type="AbilCmd" AbilCmd="SniperSnipeEnhanced,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="6" Face="SniperSnipe" Type="AbilCmd" AbilCmd="SniperSniperRoundEnhanced,Execute" Row="2" Column="0"/>
             <LayoutButtons Face="SniperEnhancedOptics" Type="Passive" Requirements="GELevel2" Row="1" Column="0"/>
         </CardLayouts>
         <ReviveType value="CRPGSniperLevel2"/>
-        <TacticalAI value="CRPGSniperLevel2"/>
         <LeaderAlias value="CRPGSniperLevel2"/>
         <SelectAlias value="CRPGSniperLevel2"/>
         <SubgroupAlias value="CRPGSniperLevel2"/>
@@ -475,7 +472,7 @@
             </LayoutButtons>
             <LayoutButtons index="7" Face="SniperEnhancedOptics" Type="Passive" Requirements="" Row="1" Column="0"/>
             <LayoutButtons>
-                <Face value="HoldFire"/>
+                <Face value="SniperHoldFire"/>
                 <Type value="AbilCmd"/>
                 <AbilCmd value="SniperHoldFire,Execute"/>
                 <ShowInGlossary value="0"/>
@@ -483,7 +480,7 @@
                 <Column value="2"/>
             </LayoutButtons>
             <LayoutButtons>
-                <Face value="WeaponsFree"/>
+                <Face value="SniperWeaponsFree"/>
                 <Type value="AbilCmd"/>
                 <AbilCmd value="SniperWeaponsFree,Execute"/>
                 <ShowInGlossary value="0"/>
@@ -494,7 +491,6 @@
             <LayoutButtons Face="SniperCloakOff" Type="AbilCmd" AbilCmd="SniperCloak,Off" Row="2" Column="1"/>
         </CardLayouts>
         <ReviveType value="CRPGSniperLevel3"/>
-        <TacticalAI value="CRPGSniperLevel3"/>
         <LeaderAlias value="CRPGSniperLevel3"/>
         <SelectAlias value="CRPGSniperLevel3"/>
         <SubgroupAlias value="CRPGSniperLevel3"/>
@@ -514,7 +510,6 @@
             <LayoutButtons Face="SniperToxicMunitions" Type="Passive" Row="1" Column="1"/>
         </CardLayouts>
         <ReviveType value="CRPGSniperLevel4"/>
-        <TacticalAI value="CRPGSniperLevel4"/>
         <LeaderAlias value="CRPGSniperLevel4"/>
         <SelectAlias value="CRPGSniperLevel4"/>
         <SubgroupAlias value="CRPGSniperLevel4"/>
@@ -536,7 +531,6 @@
             <LayoutButtons Face="SniperNuclearStrike" Type="AbilCmd" AbilCmd="SniperNuclearStrike,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <ReviveType value="CRPGSniperLevel5"/>
-        <TacticalAI value="CRPGSniperLevel5"/>
         <LeaderAlias value="CRPGSniperLevel5"/>
         <SelectAlias value="CRPGSniperLevel5"/>
         <SubgroupAlias value="CRPGSniperLevel5"/>
@@ -576,11 +570,9 @@
         <MinimapRadius value="0.625"/>
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Hydralisk"/>
-        <HotkeyCategory value="Unit/Category/TerranUnits"/>
         <GlossaryCategory value=""/>
     </CUnit>
     <CUnit id="CRPGVehicleLevel2" parent="CRPGVehicleLevel1">
-        <DeathRevealRadius value="3"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
         <AbilArray index="3" Link="VehicleLevelUpMorphLevel2"/>
@@ -742,8 +734,12 @@
     <!--                                                                                         -->
     <CUnit id="DevourerMP">
         <KillXP value="80"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <GlossaryPriority value="200"/>
     </CUnit>
-    <CUnit id="Drone"/>
+    <CUnit id="Drone">
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    </CUnit>
     <CUnit id="Extractor">
         <KillXP value="25"/>
     </CUnit>
@@ -755,6 +751,7 @@
     <!--                                                                                         -->
     <CUnit id="GuardianMP">
         <KillXP value="50"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
     <CUnit id="Hatchery">
         <KillXP value="50"/>
@@ -762,7 +759,9 @@
     <CUnit id="Hive">
         <KillXP value="100"/>
     </CUnit>
-    <CUnit id="Hydralisk"/>
+    <CUnit id="Hydralisk">
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    </CUnit>
     <CUnit id="HydraliskBurrowed">
         <!--LayoutButtons Face="HydraliskFrenzy" Type="AbilCmd" AbilCmd="HydraliskFrenzy,Execute" Row="2" Column="0"/-->
     </CUnit>
@@ -952,6 +951,7 @@
     </CUnit>
     <CUnit id="Larva">
         <KillXP value="1"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
     <CUnit id="MechPointDefenseDrone">
         <Race value="Terr"/>
@@ -1002,8 +1002,9 @@
     </CUnit>
     <CUnit id="MechCivilianEjectionWeapon" parent="TychusEjectMissile">
         <Name value="Unit/Name/MechCivilianEjectionWeapon"/>
-        <Mover value="BioPlasmidDischarge"/>
+        <Mover value="SlowMissile"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+        <FlagArray index="Unselectable" value="1"/>
     </CUnit>
     <CUnit id="HunterScarabMine">
         <DeathRevealRadius value="3"/>
@@ -1092,7 +1093,6 @@
         <CargoSize value="4"/>
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Baneling"/>
-        <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <AbilArray index="1" Link="AttackFriendly"/>
         <AbilArray index="3" Link="InfestedLevelUpMorphLevel1"/>
         <AbilArray Link="InfestedInfestedEggInfestedCivilian"/>
@@ -1108,8 +1108,8 @@
             </LayoutButtons>
             <LayoutButtons Face="InfestedInfestedEgg" Type="AbilCmd" AbilCmd="InfestedInfestedEggInfestedCivilian,Execute" Row="2" Column="0"/>
         </CardLayouts>
-        <Food value="6"/>
         <GlossaryCategory value=""/>
+        <ShieldRegenDelay value="0"/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel2" parent="CRPGInfestedLevel1">
         <TurningRate value="999.8437"/>
@@ -1189,6 +1189,7 @@
     </CUnit>
     <CUnit id="NydusCanal">
         <KillXP value="15"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
     <CUnit id="NydusNetwork">
         <KillXP value="50"/>
@@ -1201,14 +1202,57 @@
             <LayoutButtons Face="InfestedInfestedSupplies" Type="Passive" Requirements="InfestedNotUninfested" Row="1" Column="0"/>
             <RowText index="0" removed="1"/>
         </CardLayouts>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    </CUnit>
+    <CUnit id="CRPGHunterLevel1" parent="CRPGHero">
+        <Name value="Unit/Name/CRPGHunter"/>
+        <Race value="Prot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="40"/>
+        <LifeMax value="40"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
+        <ShieldsStart value="40"/>
+        <ShieldsMax value="40"/>
+        <Acceleration value="2.5"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <AbilArray Link="HunterScarabMine"/>
+        <WeaponArray Link="HunterParticleBeam"/>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <CargoSize value="1"/>
+        <MinimapRadius value="0.375"/>
+        <GlossaryCategory value=""/>
+        <GlossaryStrongArray value="Roach"/>
+        <GlossaryWeakArray value="Zergling"/>
+    </CUnit>
+    <CUnit id="CRPGHunterLevel2" parent="CRPGHunterLevel1">
+        <Description value="Button/Tooltip/WarpInCRPGHunterLevel2"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Mechanical" value="0"/>
+        <Acceleration value="1000"/>
+        <WeaponArray index="0" Link="HunterPurifierGlaiveCannon"/>
+        <Radius value="0.5"/>
+        <SeparationRadius value="0.5"/>
+        <CargoSize value="2"/>
+        <TauntDuration index="Dance" value="5"/>
     </CUnit>
     <!-- re adding spawn larva, to a hidden command card so the AI can use it -->
     <CUnit id="Queen"/>
+    <CUnit id="Roach">
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    </CUnit>
+    <CUnit id="RoachBurrowed"/>
     <CUnit id="SpawningPool">
         <KillXP value="25"/>
     </CUnit>
     <CUnit id="SpineCrawler">
         <KillXP value="40"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
     <CUnit id="SpineCrawlerUprooted">
         <KillXP value="40"/>
@@ -1218,11 +1262,54 @@
     </CUnit>
     <CUnit id="SporeCrawler">
         <KillXP value="40"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
     <CUnit id="SporeCrawlerUprooted">
         <KillXP value="40"/>
     </CUnit>
-    <CUnit id="Ultralisk"/>
+    <CUnit id="CRPGHunterLevel3" parent="CRPGHunterLevel2">
+        <Description value="Button/Tooltip/CRPGHunterLevel3"/>
+        <DeathRevealRadius value="3"/>
+        <Attributes index="Light" value="0"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="0"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="60"/>
+        <LifeMax value="60"/>
+        <ShieldsStart value="60"/>
+        <ShieldsMax value="60"/>
+        <Speed value="2.9492"/>
+        <WeaponArray index="0" Link="HunterParticleDisruptors"/>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0.625"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0.625"/>
+        <TauntDuration index="Dance" value="0"/>
+    </CUnit>
+    <CUnit id="CRPGHunterLevel4" parent="CRPGHunterLevel3">
+        <Description value="Button/Tooltip/CRPGHunterLevel4"/>
+        <LifeArmor value="1"/>
+        <Speed value="2.25"/>
+        <LateralAcceleration value="0"/>
+        <StationaryTurningRate value="720"/>
+        <TurningRate value="720"/>
+        <WeaponArray index="0" Link="HunterPhaseDisruptor" Turret="Dragoon"/>
+        <CargoSize value="4"/>
+    </CUnit>
+    <CUnit id="CRPGHunterLevel5" parent="CRPGHunterLevel4">
+        <Description value="Button/Tooltip/CRPGHunterLevel5"/>
+        <LifeStart value="80"/>
+        <LifeMax value="80"/>
+        <ShieldsStart value="80"/>
+        <ShieldsMax value="80"/>
+        <WeaponArray index="0" Link="HunterPhaseDisruptors" Turret="Immortal"/>
+        <Radius value="0.75"/>
+        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
+    <CUnit id="Ultralisk">
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    </CUnit>
     <CUnit id="UltraliskBurrowed"/>
     <CUnit id="UltraliskCavern">
         <KillXP value="50"/>
@@ -1277,9 +1364,6 @@
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
         <ShieldsStart value="60"/>
         <ShieldsMax value="60"/>
-        <ShieldRegenDelay value="10"/>
-        <ShieldRegenRate value="2"/>
-        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
@@ -1310,7 +1394,6 @@
         <GlossaryWeakArray value="Hellion"/>
         <GlossaryWeakArray value="Roach"/>
         <GlossaryWeakArray value="Colossus"/>
-        <HotkeyCategory value="Unit/Category/ProtossUnits"/>
         <Fidget>
             <ChanceArray index="Anim" value="20"/>
             <ChanceArray index="Idle" value="70"/>
@@ -1318,7 +1401,6 @@
         </Fidget>
     </CUnit>
     <CUnit id="CRPGFighterLevel2" parent="CRPGFighterLevel1">
-        <Description value="Button/Tooltip/CRPGFighterLevel2"/>
         <AbilArray index="3" Link="FighterLevelUpMorphLevel2"/>
         <WeaponArray index="0" Link="FighterPsiBlades"/>
         <CardLayouts index="0">
@@ -1334,7 +1416,6 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="CRPGFighterLevel3" parent="CRPGFighterLevel2">
-        <Description value="Button/Tooltip/CRPGFighterLevel3"/>
         <LifeStart value="125"/>
         <LifeMax value="125"/>
         <ShieldsStart value="80"/>
@@ -1354,7 +1435,6 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="CRPGFighterLevel4" parent="CRPGFighterLevel3">
-        <Description value="Button/Tooltip/CRPGFighterLevel4"/>
         <AbilArray index="3" Link="FighterLevelUpMorphLevel4"/>
         <BehaviorArray Link="FighterResurgence"/>
         <CardLayouts index="0">
@@ -1378,7 +1458,6 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="CRPGFighterLevel5" parent="CRPGFighterLevel4">
-        <Description value="Button/Tooltip/CRPGFighterLevel5"/>
         <LifeStart value="150"/>
         <LifeMax value="150"/>
         <ShieldsStart value="100"/>
@@ -1398,6 +1477,8 @@
         </CardLayouts>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
-    <CUnit id="Zergling"/>
+    <CUnit id="Zergling">
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    </CUnit>
     <CUnit id="ZerglingBurrowed"/>
 </Catalog>

@@ -2,7 +2,7 @@
 // 
 // Generated Map Script
 // 
-// Name:   Crash RPG 2
+// Name:   Crash RPG
 // 
 //==================================================================================================
 include "TriggerLibs/NativeLib"
@@ -68,6 +68,17 @@ void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip
 // Trigger: Map Initialization
 //--------------------------------------------------------------------------------------------------
 bool gt_MapInitialization_Func (bool testConds, bool runActions) {
+    int auto194EA66D_catalog;
+    int auto194EA66D_i;
+    playergroup auto99902C1A_g;
+    int auto99902C1A_p;
+
+    // Variable Declarations
+    string lv_unitType;
+    int lv_player;
+
+    // Variable Initialization
+
     // Actions
     if (!runActions) {
         return true;
@@ -115,6 +126,21 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
         libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 6, PointFromId(1490897639));
     }
 
+    HelpPanelEnableTechTreeButton(PlayerGroupAll(), false);
+    auto194EA66D_catalog = c_gameCatalogUnit;
+    auto194EA66D_i = 1;
+    for ( ; auto194EA66D_i <= CatalogEntryCount(c_gameCatalogUnit) ; auto194EA66D_i += 1 ) {
+        lv_unitType = CatalogEntryGet(auto194EA66D_catalog, auto194EA66D_i);
+        if (((CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/HybridUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranCharacter") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergCharacter"))) {
+            auto99902C1A_g = gv_survivors; 
+            auto99902C1A_p = 1;
+            for ( ; auto99902C1A_p <= PlayerGroupCount(auto99902C1A_g) ; auto99902C1A_p += BoolToInt(lv_player == PlayerGroupPlayer(auto99902C1A_g, auto99902C1A_p)) ) {
+                lv_player = PlayerGroupPlayer(auto99902C1A_g, auto99902C1A_p);
+                TechTreeUnitHelp(lv_player, lv_unitType, false);
+            }
+        }
+
+    }
     AICampaignStart(8);
     return true;
 }
@@ -249,7 +275,7 @@ bool gt_Updatetooltips_Func (bool testConds, bool runActions) {
     CatalogFieldValueSet(c_gameCatalogButton, "MechBarrage", "Tooltip", EventPlayer(), (("Stuns all enemies in a small area. Deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]\"/> seconds in a larger area.")));
     CatalogFieldValueSet(c_gameCatalogButton, "MechShockBlast", "Tooltip", EventPlayer(), (("Unleash a violent burst of energy, stunning and dealing up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "MechShocking", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechShockBlastDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage to nearby enemies over <d ref=\"Behavior,MechShocked,Duration\"/> seconds.")));
     CatalogFieldValueSet(c_gameCatalogButton, "SniperNuclearStrike", "Tooltip", EventPlayer(), (("Calls down a Nuclear Strike at a target location. Nuke takes <d ref=\"Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay\"/> seconds to land and deals up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "AttributeBonus[" + IntToString(7) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Structure) damage to enemies in a large radius.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage. Ignores armor.<n/><n/><c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));
+    CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage. Ignores armor.<n/><n/><c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));
     CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicMunitions", "Tooltip", EventPlayer(), (("The Sniper's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.")));
     return true;
 }

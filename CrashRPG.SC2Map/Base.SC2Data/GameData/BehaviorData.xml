@@ -234,6 +234,10 @@
         <DisableValidatorArray value="InfestedNotInRange"/>
         <Modification MoveSpeedMultiplier="0.5" AttackSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="KillsToTarget">
+        <InfoFlags index="Hidden" value="1"/>
+        <KillCredit Value="Target"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="UninfestedOverlord">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite.dds"/>

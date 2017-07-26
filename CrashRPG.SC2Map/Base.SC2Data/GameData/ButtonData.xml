@@ -50,6 +50,14 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
+    <CButton id="SniperHoldFire">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeySet value="HoldFire"/>
+        <HidesForSimpleText value="0"/>
+    </CButton>
     <CButton id="InfestedAberrate">
         <Icon value="Assets\Textures\btn-unit-zerg-corruptedmass.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-corruptedmass.dds"/>
@@ -129,7 +137,6 @@
         <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="CloakOnBanshee"/>
         <HotkeySet value="Cloak"/>
     </CButton>
     <CButton id="MechEmergencyEvac">
@@ -151,7 +158,6 @@
         <Icon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="Unsiege"/>
         <HotkeySet value="TankModes"/>
         <Universal value="1"/>
     </CButton>
@@ -207,7 +213,6 @@
         <Icon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="NukeCalldown"/>
         <HidesForSimpleText value="0"/>
     </CButton>
     <CButton id="SniperEnhancedOptics">
@@ -245,7 +250,8 @@
         <Icon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="WraithCloakOff"/>
+        <HotkeyAlias value="SniperCloakOn"/>
+        <HotkeySet value="Cloak"/>
     </CButton>
     <CButton id="AeroYamatoCannon">
         <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
@@ -261,5 +267,19 @@
     <CButton id="FighterShadowFury">
         <Icon value="Assets\Textures\BTN-Ability-Protoss-ShadowFury.dds"/>
         <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="HunterBlink">
+        <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="SniperWeaponsFree">
+        <Icon value="Assets\Textures\btn-ability-terran-weaponsfree.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-weaponsfree.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeySet value="HoldFire"/>
+        <HidesForSimpleText value="0"/>
     </CButton>
 </Catalog>
