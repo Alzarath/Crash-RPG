@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="EquipmentIcon" name="GameUI/UIContainer/ConsoleUIContainer/InfoPanel/InfoPaneHero/WeaponIcon" file="GameUI">
+        <LayerCount val="3"/>
+        <LayerVisible val="false" Layer="2"/>
+    </Frame>
+
+    <Frame type="UnitStatusFrame" name="CustomHeroUnitStatusFrameTemplate" template="LotV_UnitStatus/HeroUnitEnergyStatusFrameTemplate">
+        <Frame type="Image" name="HeroUnitBackgroundImage">
+            <Texture val="@@UI/HotS_UnitStatus_KerriganHealthFrame"/>
+        </Frame>
+    </Frame>
+</Desc>

@@ -22,8 +22,8 @@
         <AbilArray Link="move"/>
         <AbilArray Link="LevelUpDummy"/>
         <BehaviorArray Link="HeroVeterancy"/>
-        <BehaviorArray Link="DamageAttribute"/>
-        <BehaviorArray Link="ArmorAttribute"/>
+        <BehaviorArray Link="CRPGDamageAttribute"/>
+        <BehaviorArray Link="CRPGArmorAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="LevelCounter"/>
         <CardLayouts>
@@ -32,11 +32,36 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="SniperLevelUpMorphLevel1,Execute" Row="1" Column="4"/>
+            <LayoutButtons>
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="SniperLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
         </CardLayouts>
         <SubgroupPriority value="20"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
+    </CUnit>
+    <CUnit id="Beacon_Terranmedium" parent="DESTRUCTIBLE">
+        <FlagArray index="Uncommandable" value="0"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <AbilArray Link="BeaconGiveHero"/>
+        <CardLayouts>
+            <LayoutButtons Face="BeaconMove" Type="AbilCmd" AbilCmd="BeaconGiveHero,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Other,ObjectFamily:Campaign"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
     </CUnit>
     <CUnit id="CRPGAeroLevel1" parent="CRPGHero">
         <Race value="Terr"/>
@@ -63,18 +88,25 @@
         <AbilArray Link="AeroYamatoCannon"/>
         <WeaponArray Link="AeroYamatoGun"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="AeroLevelUpMorphLevel1,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="AeroLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
             <LayoutButtons Face="AeroYamatoCannon" Type="AbilCmd" AbilCmd="AeroYamatoCannon,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <Radius value="1.25"/>
         <SeparationRadius value="1.25"/>
         <MinimapRadius value="1.25"/>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <Mass value="0.6"/>
         <GlossaryStrongArray value="Mutalisk"/>
         <GlossaryWeakArray value="Corruptor"/>
         <HotkeyCategory value="Unit/Category/TerranUnits"/>
         <Description value="Button/Tooltip/CRPGAero"/>
+        <GlossaryCategory value=""/>
     </CUnit>
     <CUnit id="CRPGAeroLevel2" parent="CRPGAeroLevel1">
         <Name value="Unit/Name/CRPGAeroLevel2"/>
@@ -83,7 +115,14 @@
         <WeaponArray index="0" Link="AeroLaserbatteryATS"/>
         <WeaponArray Link="AeroLaserBatteryATA"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="AeroLevelUpMorphLevel2,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="AeroLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
             <LayoutButtons Face="AeroFireSuppressionSystem" Type="Passive" Row="1" Column="0"/>
         </CardLayouts>
     </CUnit>
@@ -94,7 +133,14 @@
         <AbilArray index="3" Link="AeroLevelUpMorphLevel3"/>
         <AbilArray Link="AeroDefensiveMatrix"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="AeroLevelUpMorphLevel3,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="AeroLevelUpMorphLevel3,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
             <LayoutButtons Face="AeroDefensiveMatrix" Type="AbilCmd" AbilCmd="AeroDefensiveMatrix,Execute" Row="2" Column="1"/>
         </CardLayouts>
     </CUnit>
@@ -103,7 +149,14 @@
         <AbilArray index="3" Link="AeroLevelUpMorphLevel4"/>
         <BehaviorArray Link="AeroLaserArmaments"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="AeroLevelUpMorphLevel4,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="AeroLevelUpMorphLevel4,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
             <LayoutButtons Face="AeroLaserArmaments" Type="Passive" Row="1" Column="1"/>
         </CardLayouts>
     </CUnit>
@@ -116,9 +169,17 @@
         <WeaponArray index="0" Link="AeroArmageddonCannons"/>
         <WeaponArray index="1" removed="1"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="LevelUpDummy,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="LevelUpDummy,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
             <LayoutButtons Face="AeroTacticalJump" Type="AbilCmd" AbilCmd="AeroTacticalJump,Execute" Row="2" Column="2"/>
         </CardLayouts>
+        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
     <CUnit id="CRPGArmory" parent="Armory">
         <Name value="Unit/Name/CRPGArmory"/>
@@ -148,6 +209,8 @@
         <Footprint value="Footprint4x4Contour"/>
         <PlacementFootprint value="Footprint4x4"/>
         <FlagArray index="Invulnerable" value="1"/>
+        <AbilArray index="2" Link="CRPGControlCrashedBattlecruiser"/>
+        <BehaviorArray index="1" Link="CrashedBattlecruiserMedicalFacilitiesAura"/>
     </CUnit>
     <CUnit id="CRPGMechLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGMech"/>
@@ -181,9 +244,156 @@
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Ultralisk"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="MechLevelUpMorphLevel1,Execute" Row="1" Column="4"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="MechLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
             <LayoutButtons Face="MechEmergencyEvac" Type="AbilCmd" AbilCmd="MechEmergencyEvac,Execute" Row="2" Column="2"/>
         </CardLayouts>
+        <GlossaryCategory value=""/>
+    </CUnit>
+    <CUnit id="CRPGMechLevel2" parent="CRPGMechLevel1">
+        <DeathRevealRadius value="3"/>
+        <FlagArray index="Hero" value="0"/>
+        <FlagArray index="AIThreatGround" value="1"/>
+        <FlagArray index="AIThreatAir" value="1"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="0"/>
+        <TurningRate value="720"/>
+        <AbilArray index="3" Link="MechLevelUpMorphLevel2"/>
+        <AbilArray Link="MechPointDefenseDrones"/>
+        <WeaponArray index="0" Link="MechGatlingCannon"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="MechLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="MechPointDefenseDrones" Type="Passive" Row="1" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <SeparationRadius value="0.75"/>
+        <CargoSize value="2"/>
+        <MinimapRadius value="0.75"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="15"/>
+            <ChanceArray index="Idle" value="55"/>
+            <ChanceArray index="Turn" value="30"/>
+        </Fidget>
+    </CUnit>
+    <CUnit id="CRPGMechLevel3" parent="CRPGMechLevel2">
+        <FlagArray index="TurnBeforeMove" value="1"/>
+        <FlagArray index="AIThreatGround" value="0"/>
+        <FlagArray index="AIThreatAir" value="0"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="720"/>
+        <TurningRate value="360"/>
+        <AbilArray index="3" Link="MechLevelUpMorphLevel3"/>
+        <AbilArray Link="MechShockBlast"/>
+        <WeaponArray index="0" Link="MechMeleeWarHound"/>
+        <WeaponArray Link="MechRailgun"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="MechLevelUpMorphLevel3,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="MechShockBlast" Type="AbilCmd" AbilCmd="MechShockBlast,Execute" Row="2" Column="1"/>
+        </CardLayouts>
+        <Radius value="0.8125"/>
+        <SeparationRadius value="0.625"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="1"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="0"/>
+            <ChanceArray index="Idle" value="100"/>
+            <ChanceArray index="Turn" value="0"/>
+        </Fidget>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
+    <CUnit id="CRPGMechLevel4" parent="CRPGMechLevel3">
+        <Description value="Button/Tooltip/CRPGMech"/>
+        <FlagArray index="PreventDestroy" value="0"/>
+        <FlagArray index="TurnBeforeMove" value="0"/>
+        <LateralAcceleration value="115.1875"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <AbilArray index="3" Link="MechLevelUpMorphLevel4"/>
+        <WeaponArray index="0" Link="MechHellfireMissilePack" Turret="Goliath"/>
+        <WeaponArray index="1" Link="MechTwinAutocannons" Turret="Goliath"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="MechLevelUpMorphLevel4,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="MechMultiLockTargetingSystem" Type="Passive" Row="1" Column="1"/>
+        </CardLayouts>
+        <Radius value="0.6875"/>
+        <SeparationRadius value="0.65"/>
+        <InnerRadius value="0"/>
+        <MinimapRadius value="0.65"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="33"/>
+            <ChanceArray index="Turn" value="33"/>
+        </Fidget>
+        <TauntDuration index="Dance" value="0"/>
+    </CUnit>
+    <CUnit id="CRPGMechLevel5" parent="CRPGMechLevel4">
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="TurnBeforeMove" value="1"/>
+        <Collide index="Colossus" value="1"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Locust" value="0"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="720"/>
+        <TurningRate value="360"/>
+        <WeaponArray index="0" Link="MechJavelinMissileLaunchers" Turret=""/>
+        <WeaponArray index="1" Link="MechThorsHammer" Turret=""/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="LevelUpDummy,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="MechBarrage" Type="AbilCmd" AbilCmd="MechBarrage,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <InnerRadius value="1"/>
+        <CargoSize value="4"/>
+        <MinimapRadius value="1"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="10"/>
+            <ChanceArray index="Idle" value="90"/>
+            <ChanceArray index="Turn" value="0"/>
+        </Fidget>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+        <AbilArray index="3" Link="LevelUpDummy"/>
+        <AbilArray Link="MechBarrage"/>
+        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
     <CUnit id="CRPGSniperLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGSniper"/>
@@ -221,6 +431,116 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
+        <GlossaryCategory value=""/>
+    </CUnit>
+    <CUnit id="CRPGSniperLevel2" parent="CRPGSniperLevel1">
+        <AbilArray index="3" Link="SniperLevelUpMorphLevel2"/>
+        <AbilArray index="4" Link="SniperSnipeEnhanced"/>
+        <BehaviorArray Link="SniperEnhancedOptics"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="SniperLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons index="6" Face="SniperSnipe" Type="AbilCmd" AbilCmd="SniperSnipeEnhanced,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="SniperEnhancedOptics" Type="Passive" Requirements="GELevel2" Row="1" Column="0"/>
+        </CardLayouts>
+        <ReviveType value="CRPGSniperLevel2"/>
+        <TacticalAI value="CRPGSniperLevel2"/>
+        <LeaderAlias value="CRPGSniperLevel2"/>
+        <SelectAlias value="CRPGSniperLevel2"/>
+        <SubgroupAlias value="CRPGSniperLevel2"/>
+        <Sight value="12"/>
+    </CUnit>
+    <CUnit id="CRPGSniperLevel3" parent="CRPGSniperLevel2">
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
+        <AbilArray index="3" Link="SniperLevelUpMorphLevel3"/>
+        <AbilArray Link="SniperCloak"/>
+        <AbilArray Link="SniperHoldFire"/>
+        <AbilArray Link="SniperWeaponsFree"/>
+        <WeaponArray index="0" Link="SniperC20ACanisterRifle"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="SniperLevelUpMorphLevel3,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons index="7" Face="SniperEnhancedOptics" Type="Passive" Requirements="" Row="1" Column="0"/>
+            <LayoutButtons>
+                <Face value="HoldFire"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="SniperHoldFire,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="2"/>
+            </LayoutButtons>
+            <LayoutButtons>
+                <Face value="WeaponsFree"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="SniperWeaponsFree,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="3"/>
+            </LayoutButtons>
+            <LayoutButtons Face="SniperCloakOn" Type="AbilCmd" AbilCmd="SniperCloak,On" Row="2" Column="1"/>
+            <LayoutButtons Face="SniperCloakOff" Type="AbilCmd" AbilCmd="SniperCloak,Off" Row="2" Column="1"/>
+        </CardLayouts>
+        <ReviveType value="CRPGSniperLevel3"/>
+        <TacticalAI value="CRPGSniperLevel3"/>
+        <LeaderAlias value="CRPGSniperLevel3"/>
+        <SelectAlias value="CRPGSniperLevel3"/>
+        <SubgroupAlias value="CRPGSniperLevel3"/>
+    </CUnit>
+    <CUnit id="CRPGSniperLevel4" parent="CRPGSniperLevel3">
+        <AbilArray index="3" Link="SniperLevelUpMorphLevel4"/>
+        <BehaviorArray Link="SniperDeadlyToxinApply"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="SniperLevelUpMorphLevel4,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="SniperToxicMunitions" Type="Passive" Row="1" Column="1"/>
+        </CardLayouts>
+        <ReviveType value="CRPGSniperLevel4"/>
+        <TacticalAI value="CRPGSniperLevel4"/>
+        <LeaderAlias value="CRPGSniperLevel4"/>
+        <SelectAlias value="CRPGSniperLevel4"/>
+        <SubgroupAlias value="CRPGSniperLevel4"/>
+    </CUnit>
+    <CUnit id="CRPGSniperLevel5" parent="CRPGSniperLevel4">
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
+        <AbilArray index="3" Link="LevelUpDummy"/>
+        <AbilArray Link="SniperNuclearStrike"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="LevelUpDummy,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="SniperNuclearStrike" Type="AbilCmd" AbilCmd="SniperNuclearStrike,Execute" Row="2" Column="2"/>
+        </CardLayouts>
+        <ReviveType value="CRPGSniperLevel5"/>
+        <TacticalAI value="CRPGSniperLevel5"/>
+        <LeaderAlias value="CRPGSniperLevel5"/>
+        <SelectAlias value="CRPGSniperLevel5"/>
+        <SubgroupAlias value="CRPGSniperLevel5"/>
+        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
     <CUnit id="CRPGVehicleLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGVehicle"/>
@@ -240,17 +560,156 @@
         <AbilArray Link="VehicleOverdrive"/>
         <WeaponArray Link="VehicleFragmentationGrenade"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="VehicleLevelUpMorphLevel1,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="VehicleOverdrive" Type="AbilCmd" AbilCmd="VehicleOverdrive,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="VehicleLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="VehicleOverdrive" Type="AbilCmd" AbilCmd="VehicleOverdrive,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <Radius value="0.625"/>
         <SeparationRadius value="0.625"/>
         <CargoSize value="2"/>
         <MinimapRadius value="0.625"/>
         <GlossaryStrongArray value="Zergling"/>
-        <GlossaryWeakArray value="Roach"/>
         <GlossaryWeakArray value="Hydralisk"/>
         <HotkeyCategory value="Unit/Category/TerranUnits"/>
+        <GlossaryCategory value=""/>
+    </CUnit>
+    <CUnit id="CRPGVehicleLevel2" parent="CRPGVehicleLevel1">
+        <DeathRevealRadius value="3"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <AbilArray index="3" Link="VehicleLevelUpMorphLevel2"/>
+        <WeaponArray index="0" Link="VehicleGaussCannon" Turret="CRPGVehicle"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="VehicleLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="VehicleAutomaticServos" Type="Passive" Row="1" Column="0"/>
+        </CardLayouts>
+        <InnerRadius value="0.5"/>
+    </CUnit>
+    <CUnit id="CRPGVehicleLevel3" parent="CRPGVehicleLevel2">
+        <LifeStart value="125"/>
+        <LifeMax value="125"/>
+        <AbilArray index="3" Link="VehicleLevelUpMorphLevel3"/>
+        <AbilArray Link="VehicleLockOn"/>
+        <AbilArray Link="VehicleLockOnCancel"/>
+        <WeaponArray index="0" Link="VehicleTyphoonMissilePod" Turret="CRPGVehicle"/>
+        <WeaponArray Turret="Cyclone"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="VehicleLevelUpMorphLevel3,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="VehicleCancel" Type="AbilCmd" AbilCmd="VehicleLockOnCancel,Execute" Row="2" Column="4"/>
+            <LayoutButtons Face="VehicleLockOn" Type="AbilCmd" AbilCmd="VehicleLockOn,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="CRPGVehicleLevel4" parent="CRPGVehicleLevel3">
+        <AbilArray index="3" Link="VehicleLevelUpMorphLevel4"/>
+        <BehaviorArray Link="VehicleGraduatingRange"/>
+        <WeaponArray index="0" Link="VehicleEvisceratorRailGun" Turret="CRPGVehicle"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="VehicleLevelUpMorphLevel4,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="VehicleGraduatingRange" Type="Passive" Row="1" Column="1"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+    </CUnit>
+    <CUnit id="CRPGVehicleLevel5TankMode" parent="CRPGVehicleLevel4">
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="TurnBeforeMove" value="1"/>
+        <FlagArray index="AIPressForwardDisabled" value="1"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <TurningRate value="360"/>
+        <AbilArray index="3" Link="LevelUpDummy"/>
+        <AbilArray Link="VehicleSiegeMode"/>
+        <WeaponArray index="0" Link="VehicleArcliteCannon" Turret="CRPGVehicle"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="LevelUpDummy,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="VehicleSiegeMode" Type="AbilCmd" AbilCmd="VehicleSiegeMode,Execute" Row="2" Column="2"/>
+        </CardLayouts>
+        <Radius value="0.875"/>
+        <SeparationRadius value="1"/>
+        <InnerRadius value="0.875"/>
+        <CargoSize value="4"/>
+        <MinimapRadius value="1"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="33"/>
+            <ChanceArray index="Turn" value="33"/>
+        </Fidget>
+        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
+    </CUnit>
+    <CUnit id="CRPGVehicleLevel5SiegeMode" parent="CRPGVehicleLevel5TankMode">
+        <Facing value="45"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="TurnBeforeMove" value="0"/>
+        <FlagArray index="AISplash" value="1"/>
+        <FlagArray index="AIPressForwardDisabled" value="0"/>
+        <Speed value="0"/>
+        <Acceleration value="0"/>
+        <LateralAcceleration value="0"/>
+        <TurningRate value="720"/>
+        <AbilArray index="7" Link="VehicleUnsiege"/>
+        <WeaponArray index="0" Link="VehicleCrucioShockCannon" Turret="CRPGVehicle"/>
+        <CargoSize value="0"/>
+        <Footprint value="FootprintSieged"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="0"/>
+            <ChanceArray index="Idle" value="100"/>
+            <ChanceArray index="Turn" value="0"/>
+        </Fidget>
+        <GlossaryCategory value=""/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="Stop" AbilCmd="stop,Stop" Column="1"/>
+            <LayoutButtons index="1" Face="Attack" AbilCmd="attack,Execute" Column="4"/>
+            <LayoutButtons index="2" Face="CRPGLevelUp" AbilCmd="LevelUpDummy,Execute" ShowInGlossary="0" Row="1" Column="4"/>
+            <LayoutButtons index="3" Face="VehicleCancel" AbilCmd="VehicleLockOnCancel,Execute" Row="2" Column="4"/>
+            <LayoutButtons index="4" Face="VehicleLockOn" AbilCmd="VehicleLockOn,Execute" Row="2" Column="0"/>
+            <LayoutButtons index="5">
+                <Face value="VehicleGraduatingRange"/>
+                <Type value="Passive"/>
+                <AbilCmd value=""/>
+                <ShowInGlossary value="1"/>
+                <Row value="1"/>
+                <Column value="1"/>
+            </LayoutButtons>
+            <LayoutButtons index="6" Face="VehicleUnsiege" AbilCmd="VehicleUnsiege,Execute" Column="2"/>
+            <LayoutButtons index="7" removed="1"/>
+            <LayoutButtons index="8" removed="1"/>
+            <LayoutButtons index="9" removed="1"/>
+            <LayoutButtons index="10" removed="1"/>
+            <LayoutButtons index="11" removed="1"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="CRPGAlienLevel1" parent="Egg">
         <Name value="Unit/Name/CRPGAlien"/>
@@ -263,10 +722,236 @@
     <CUnit id="CRPGCivilian" parent="PrisonerCivilian">
         <Name value="Unit/Name/CRPGCivilian"/>
         <Description value="Button/Tooltip/CRPGCivilian"/>
+        <FlagArray index="Worker" value="1"/>
         <FlagArray index="Hero" value="1"/>
         <FlagArray index="Invulnerable" value="1"/>
         <Attributes index="Heroic" value="1"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="CreepTumor">
+        <KillXP value="5"/>
+    </CUnit>
+    <CUnit id="CreepTumorBurrowed">
+        <KillXP value="5"/>
+    </CUnit>
+    <CUnit id="CreepTumorUsed">
+        <KillXP value="5"/>
+    </CUnit>
+    <!--                                                                                         -->
+    <!-- Devourer ........................................................................... -->
+    <!--                                                                                         -->
+    <CUnit id="DevourerMP">
+        <KillXP value="80"/>
+    </CUnit>
+    <CUnit id="Drone"/>
+    <CUnit id="Extractor">
+        <KillXP value="25"/>
+    </CUnit>
+    <CUnit id="GreaterSpire">
+        <KillXP value="60"/>
+    </CUnit>
+    <!--                                                                                         -->
+    <!-- Guardian .............................................................................. -->
+    <!--                                                                                         -->
+    <CUnit id="GuardianMP">
+        <KillXP value="50"/>
+    </CUnit>
+    <CUnit id="Hatchery">
+        <KillXP value="50"/>
+    </CUnit>
+    <CUnit id="Hive">
+        <KillXP value="100"/>
+    </CUnit>
+    <CUnit id="Hydralisk"/>
+    <CUnit id="HydraliskBurrowed">
+        <!--LayoutButtons Face="HydraliskFrenzy" Type="AbilCmd" AbilCmd="HydraliskFrenzy,Execute" Row="2" Column="0"/-->
+    </CUnit>
+    <CUnit id="HydraliskDen">
+        <KillXP value="40"/>
+    </CUnit>
+    <CUnit id="InfestationPit">
+        <KillXP value="50"/>
+    </CUnit>
+    <CUnit id="InfestationSpore" parent="MISSILE">
+        <Race value="Zerg"/>
+    </CUnit>
+    <CUnit id="InfestedInfestedBunker">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <Attributes index="Summoned" value="1"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
+        <Speed value="1"/>
+        <Acceleration value="1000"/>
+        <Sight value="9"/>
+        <Food value="-2"/>
+        <CostCategory value="Army"/>
+        <AttackTargetPriority value="20"/>
+        <KillXP value="20"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="InfestedBunkerTransport"/>
+        <BehaviorArray Link="CRPGDamageAttribute"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <BehaviorArray Link="LevelCounter"/>
+        <BehaviorArray Link="InfestedUnstable"/>
+        <BehaviorArray Link="InfestedBunkerEnableGaussRifle1"/>
+        <BehaviorArray Link="InfestedBunkerEnableGaussRifle2"/>
+        <BehaviorArray Link="InfestedBunkerEnableGaussRifle3"/>
+        <BehaviorArray Link="InfestedBunkerEnableGaussRifle4"/>
+        <BehaviorArray Link="InfestedBunkerEnableGaussRifle5"/>
+        <BehaviorArray Link="InfestedBunkerEnableGaussRifle6"/>
+        <WeaponArray Link="InfestedBunkerNeosteelClaw"/>
+        <WeaponArray Link="InfestedBunkerInfestedGaussRifle1"/>
+        <WeaponArray Link="InfestedBunkerInfestedGaussRifle2"/>
+        <WeaponArray Link="InfestedBunkerInfestedGaussRifle3"/>
+        <WeaponArray Link="InfestedBunkerInfestedGaussRifle4"/>
+        <WeaponArray Link="InfestedBunkerInfestedGaussRifle5"/>
+        <WeaponArray Link="InfestedBunkerInfestedGaussRifle6"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="BunkerLoad" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,Load" Row="2" Column="1"/>
+            <LayoutButtons Face="BunkerUnloadAll" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,UnloadAll" Row="2" Column="2"/>
+            <LayoutButtons Face="InfestedEmpathicRepercussionDouble" Type="Passive" Requirements="InfestedEmpathicRepercussion" Row="1" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <InnerRadius value="1"/>
+        <SubgroupPriority value="57"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <GlossaryCategory value="Unit/Category/CrashRPGUnits"/>
+        <GlossaryPriority value="219"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+    </CUnit>
+    <CUnit id="InfestedInfestedEggMissile" parent="MISSILE_INVULNERABLE">
+        <Race value="Zerg"/>
+        <Mover value="InfestedTerransLayEggWeapon"/>
+        <Radius value="0.25"/>
+        <SeparationRadius value="0.25"/>
+        <InnerRadius value="0.25"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="InfestedInfestedEggInfestedCivilian">
+        <Race value="Zerg"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <LifeStart value="70"/>
+        <LifeMax value="70"/>
+        <LifeArmor value="2"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <Food value="-1"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="InfestedMorphToInfestedCivilian"/>
+        <BehaviorArray Link="InfestedInfestedEggTimedLife"/>
+        <BehaviorArray Link="LevelCounter"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="InfestedEmpathicRepercussion" Type="Passive" Requirements="InfestedEmpathicRepercussion" Row="1" Column="0"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+    </CUnit>
+    <CUnit id="InfestedInfestedEggInfestedMarine">
+        <Race value="Zerg"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <LifeStart value="70"/>
+        <LifeMax value="70"/>
+        <LifeArmor value="2"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <Food value="-1"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="InfestedMorphToInfestedMarine"/>
+        <BehaviorArray Link="InfestedInfestedEggTimedLife"/>
+        <BehaviorArray Link="LevelCounter"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="InfestedEmpathicRepercussion" Type="Passive" Requirements="InfestedEmpathicRepercussion" Row="1" Column="0"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <TacticalAI value="InfestedInfestedEgg"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+        <SelectAlias value="InfestedInfestedEggInfestedCivilian"/>
+        <SubgroupAlias value="InfestedInfestedEggInfestedCivilian"/>
+        <AIEvaluateAlias value="InfestedInfestedEggInfestedCivilian"/>
+        <ReviveInfoBase>
+            <Charge Link="InfestedInfestedEgg/Revive"/>
+            <Cooldown Link="InfestedInfestedEgg/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
+    <CUnit id="InfestedInfestedMarine" parent="InfestorTerran">
+        <Name value="Unit/Name/InfestedInfestedMarine"/>
+        <Description value="Button/Tooltip/InfestedInfestedMarine"/>
+        <Speed value="1.25"/>
+        <Food value="-1"/>
+        <AbilArray index="3" removed="1"/>
+        <BehaviorArray Link="CRPGDamageAttribute"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <BehaviorArray Link="LevelCounter"/>
+        <BehaviorArray Link="InfestedUnstable"/>
+        <WeaponArray index="0" Link="InfestedMarineInfestedGaussRifle"/>
+        <WeaponArray Link="InfestedBunkerInfestedGaussRifle1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="InfestedEmpathicRepercussion" Type="Passive" Requirements="InfestedEmpathicRepercussion" Row="1" Column="0"/>
+        </CardLayouts>
+        <CargoSize value="1"/>
+        <GlossaryCategory value="Unit/Category/CrashRPGUnits"/>
+        <Attributes index="Summoned" value="1"/>
+    </CUnit>
+    <CUnit id="InfestedInfestedCivilian" parent="InfestedInfestedMarine">
+        <Name value="Unit/Name/InfestedInfestedCivilian"/>
+        <Description value="Button/Tooltip/InfestedInfestedCivilian"/>
+        <WeaponArray index="0" Link="InfestedCivilianInfestedClaws"/>
+    </CUnit>
+    <CUnit id="Lair">
+        <KillXP value="75"/>
+    </CUnit>
+    <CUnit id="Larva">
+        <KillXP value="1"/>
     </CUnit>
     <CUnit id="MechPointDefenseDrone">
         <Race value="Terr"/>
@@ -305,8 +990,8 @@
         <FlagArray index="Invulnerable" value="1"/>
         <Attributes index="Heroic" value="1"/>
         <BehaviorArray Link="HeroVeterancy"/>
-        <BehaviorArray Link="DamageAttribute"/>
-        <BehaviorArray Link="ArmorAttribute"/>
+        <BehaviorArray Link="CRPGDamageAttribute"/>
+        <BehaviorArray Link="CRPGArmorAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="LevelCounter"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
@@ -339,13 +1024,16 @@
         <Acceleration value="1000"/>
         <StationaryTurningRate value="2292.8906"/>
         <Sight value="4"/>
-        <CostResource index="Minerals" value="25"/>
         <RepairTime value="33.3332"/>
         <AbilArray Link="ScarabMineBurrow"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
         <BehaviorArray Link="ScarabMineInitialBurrow"/>
+        <BehaviorArray Link="CRPGDamageAttribute"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <BehaviorArray Link="LevelCounter"/>
         <WeaponArray Link="VultureSpiderMines"/>
         <Radius value="0.125"/>
         <SeparationRadius value="0"/>
@@ -359,46 +1047,33 @@
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
     </CUnit>
-    <CUnit id="HunterScarabMineBurrowed">
+    <CUnit id="HunterScarabMineBurrowed" parent="HunterScarabMine">
         <Name value="Unit/Name/SpiderMine"/>
         <Description value="Button/Tooltip/SpiderMineVulture"/>
-        <DeathRevealRadius value="3"/>
-        <Race value="Prot"/>
-        <FlagArray index="Uncommandable" value="1"/>
-        <FlagArray index="UseLineOfSight" value="1"/>
         <FlagArray index="Cloaked" value="1"/>
         <FlagArray index="Buried" value="1"/>
-        <FlagArray index="NoScore" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
         <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
-        <PlaneArray index="Ground" value="1"/>
         <Collide index="Burrow" value="1"/>
-        <Attributes index="Light" value="1"/>
-        <Attributes index="Mechanical" value="1"/>
-        <Attributes index="Structure" value="1"/>
-        <LifeStart value="25"/>
-        <LifeMax value="25"/>
-        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
-        <Acceleration value="1000"/>
-        <StationaryTurningRate value="2292.8906"/>
-        <Sight value="4"/>
-        <CostResource index="Minerals" value="25"/>
-        <RepairTime value="33.3332"/>
-        <AbilArray Link="ScarabMineUnburrow"/>
-        <BehaviorArray Link="ScarabMineInitialBurrow"/>
-        <Radius value="0.125"/>
-        <SeparationRadius value="0"/>
-        <SubgroupPriority value="15"/>
-        <MinimapRadius value="0.25"/>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
-        <TacticalAI value="SpiderMineVultureBurrowed"/>
-        <LeaderAlias value="SpiderMine"/>
-        <SelectAlias value="SpiderMine"/>
+        <Collide index="Ground" value="0"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Locust" value="0"/>
+        <Speed value="0"/>
+        <AbilArray index="0" Link="ScarabMineUnburrow"/>
+        <AbilArray index="1" removed="1"/>
+        <AbilArray index="2" removed="1"/>
+        <AbilArray index="3" removed="1"/>
+        <WeaponArray index="0" removed="1"/>
+        <HotkeyAlias value="HunterScarabMineBurrowed"/>
         <EquipmentArray Weapon="VultureSpiderMines"/>
+        <GlossaryCategory value=""/>
+        <KillDisplay value="Default"/>
+        <RankDisplay value="Default"/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGInfested"/>
         <Description value="Button/Tooltip/CRPGInfested"/>
+        <BehaviorArray Link="InfestedInRangeAura"/>
         <Race value="Zerg"/>
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Armored" value="1"/>
@@ -419,16 +1094,144 @@
         <GlossaryWeakArray value="Baneling"/>
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <AbilArray index="1" Link="AttackFriendly"/>
+        <AbilArray index="3" Link="InfestedLevelUpMorphLevel1"/>
+        <AbilArray Link="InfestedInfestedEggInfestedCivilian"/>
         <CardLayouts index="0">
             <LayoutButtons index="4" Face="Attack" Type="AbilCmd" AbilCmd="AttackFriendly,Execute" Row="0" Column="4"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="InfestedLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="InfestedInfestedEgg" Type="AbilCmd" AbilCmd="InfestedInfestedEggInfestedCivilian,Execute" Row="2" Column="0"/>
         </CardLayouts>
+        <Food value="6"/>
+        <GlossaryCategory value=""/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel2" parent="CRPGInfestedLevel1">
         <TurningRate value="999.8437"/>
-        <RepairTime value="0"/>
         <Radius value="0.75"/>
         <SeparationRadius value="0.5"/>
-        <HotkeyCategory value=""/>
+        <AbilArray index="3" Link="InfestedLevelUpMorphLevel2"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="InfestedLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="InfestedCausticWeapons" Type="Passive" Row="1" Column="0"/>
+        </CardLayouts>
+        <BehaviorArray Link="InfestedCausticWeapons"/>
+    </CUnit>
+    <CUnit id="CRPGInfestedLevel3" parent="CRPGInfestedLevel2">
+        <LifeStart value="110"/>
+        <LifeMax value="110"/>
+        <Radius value="1"/>
+        <SeparationRadius value="0.75"/>
+        <Height value="0.5"/>
+        <AbilArray index="3" Link="InfestedLevelUpMorphLevel3"/>
+        <AbilArray Link="InfestedAberrate"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="InfestedLevelUpMorphLevel3,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="InfestedAberrate" Type="AbilCmd" AbilCmd="InfestedAberrate,Execute" Row="2" Column="1"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="CRPGInfestedLevel4" parent="CRPGInfestedLevel3">
+        <TurningRate value="720"/>
+        <SeparationRadius value="0.5"/>
+        <Height value="0"/>
+        <AbilArray index="3" Link="InfestedLevelUpMorphLevel4"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="InfestedLevelUpMorphLevel4,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="InfestedHardenedEquipment" Type="Passive" Row="1" Column="1"/>
+        </CardLayouts>
+        <BehaviorArray Link="InfestedHardenedEquipmentCaster"/>
+    </CUnit>
+    <CUnit id="CRPGInfestedLevel5" parent="CRPGInfestedLevel4">
+        <LifeStart value="125"/>
+        <LifeMax value="125"/>
+        <TurningRate value="999.8437"/>
+        <Radius value="0.75"/>
+        <AbilArray index="3" Link="LevelUpDummy"/>
+        <AbilArray Link="InfestedInfestationSpore"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="LevelUpDummy,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="InfestedInfest" Type="AbilCmd" AbilCmd="InfestedInfestationSpore,Execute" Row="2" Column="2"/>
+        </CardLayouts>
+        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
+    </CUnit>
+    <CUnit id="NydusCanal">
+        <KillXP value="15"/>
+    </CUnit>
+    <CUnit id="NydusNetwork">
+        <KillXP value="50"/>
+    </CUnit>
+    <!-- Adding multi setup back to void campaign overlords. -->
+    <CUnit id="Overlord">
+        <Food value="2"/>
+        <BehaviorArray Link="UninfestedOverlord"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="InfestedInfestedSupplies" Type="Passive" Requirements="InfestedNotUninfested" Row="1" Column="0"/>
+            <RowText index="0" removed="1"/>
+        </CardLayouts>
+    </CUnit>
+    <!-- re adding spawn larva, to a hidden command card so the AI can use it -->
+    <CUnit id="Queen"/>
+    <CUnit id="SpawningPool">
+        <KillXP value="25"/>
+    </CUnit>
+    <CUnit id="SpineCrawler">
+        <KillXP value="40"/>
+    </CUnit>
+    <CUnit id="SpineCrawlerUprooted">
+        <KillXP value="40"/>
+    </CUnit>
+    <CUnit id="Spire">
+        <KillXP value="40"/>
+    </CUnit>
+    <CUnit id="SporeCrawler">
+        <KillXP value="40"/>
+    </CUnit>
+    <CUnit id="SporeCrawlerUprooted">
+        <KillXP value="40"/>
+    </CUnit>
+    <CUnit id="Ultralisk"/>
+    <CUnit id="UltraliskBurrowed"/>
+    <CUnit id="UltraliskCavern">
+        <KillXP value="50"/>
+    </CUnit>
+    <CUnit id="WeaponEmpathicRepercussion" parent="MISSILE">
+        <Race value="Zerg"/>
+        <Mover value="AlarakSoulAbsorptionDummyAttackMissile"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
+        <AIEvaluateAlias value="SoulAbsorptionMissle"/>
     </CUnit>
     <CUnit id="VehicleTyphoonMissilePodWeapon" parent="MISSILE">
         <Race value="Terr"/>
@@ -445,95 +1248,6 @@
         <Mover value="ThorAA"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
-    <CUnit id="CRPGVehicleLevel2" parent="CRPGVehicleLevel1">
-        <DeathRevealRadius value="3"/>
-        <DamageDealtXP value="1"/>
-        <DamageTakenXP value="1"/>
-        <AbilArray index="3" Link="VehicleLevelUpMorphLevel2"/>
-        <WeaponArray index="0" Link="VehicleGaussCannon" Turret="CRPGVehicle"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="VehicleLevelUpMorphLevel2,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="VehicleAutomaticServos" Type="Passive" Row="1" Column="0"/>
-        </CardLayouts>
-        <InnerRadius value="0.5"/>
-    </CUnit>
-    <CUnit id="CRPGVehicleLevel3" parent="CRPGVehicleLevel2">
-        <LifeStart value="125"/>
-        <LifeMax value="125"/>
-        <AbilArray index="3" Link="VehicleLevelUpMorphLevel3"/>
-        <AbilArray Link="VehicleLockOn"/>
-        <AbilArray Link="VehicleLockOnCancel"/>
-        <WeaponArray index="0" Link="VehicleTyphoonMissilePod" Turret="CRPGVehicle"/>
-        <WeaponArray Turret="Cyclone"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="VehicleLevelUpMorphLevel3,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="VehicleLockOn" Type="AbilCmd" AbilCmd="VehicleLockOn,Execute" Row="2" Column="1"/>
-            <LayoutButtons Face="VehicleCancel" Type="AbilCmd" AbilCmd="VehicleLockOnCancel,Execute" Row="2" Column="4"/>
-        </CardLayouts>
-    </CUnit>
-    <CUnit id="CRPGVehicleLevel4" parent="CRPGVehicleLevel3">
-        <AbilArray index="3" Link="VehicleLevelUpMorphLevel4"/>
-        <BehaviorArray Link="VehicleGraduatingRange"/>
-        <WeaponArray index="0" Link="VehicleEvisceratorRailGun" Turret="CRPGVehicle"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="VehicleLevelUpMorphLevel4,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="VehicleGraduatingRange" Type="Passive" Row="1" Column="1"/>
-        </CardLayouts>
-        <Radius value="0.75"/>
-    </CUnit>
-    <CUnit id="CRPGVehicleLevel5TankMode" parent="CRPGVehicleLevel4">
-        <FlagArray index="PreventDestroy" value="1"/>
-        <FlagArray index="TurnBeforeMove" value="1"/>
-        <FlagArray index="AIPressForwardDisabled" value="1"/>
-        <LifeStart value="150"/>
-        <LifeMax value="150"/>
-        <TurningRate value="360"/>
-        <AbilArray index="3" Link="LevelUpDummy"/>
-        <AbilArray Link="VehicleSiegeMode"/>
-        <WeaponArray index="0" Link="VehicleArcliteCannon" Turret="CRPGVehicle"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="LevelUpDummy,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="VehicleSiegeMode" Type="AbilCmd" AbilCmd="VehicleSiegeMode,Execute" Row="2" Column="2"/>
-        </CardLayouts>
-        <Radius value="0.875"/>
-        <SeparationRadius value="1"/>
-        <InnerRadius value="0.875"/>
-        <CargoSize value="4"/>
-        <MinimapRadius value="1"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="33"/>
-            <ChanceArray index="Idle" value="33"/>
-            <ChanceArray index="Turn" value="33"/>
-        </Fidget>
-    </CUnit>
-    <CUnit id="CRPGVehicleLevel5SiegeMode" parent="CRPGVehicleLevel5TankMode">
-        <Facing value="45"/>
-        <FlagArray index="Turnable" value="0"/>
-        <FlagArray index="TurnBeforeMove" value="0"/>
-        <FlagArray index="AISplash" value="1"/>
-        <FlagArray index="AIPressForwardDisabled" value="0"/>
-        <Speed value="0"/>
-        <Acceleration value="0"/>
-        <LateralAcceleration value="0"/>
-        <TurningRate value="720"/>
-        <AbilArray index="7" Link="VehicleUnsiege"/>
-        <WeaponArray index="0" Link="VehicleCrucioShockCannon" Turret="SiegeTankSieged"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="6" Face="VehicleLockOn" AbilCmd="VehicleLockOn,Execute" Column="1"/>
-            <LayoutButtons index="7" Face="VehicleCancel" Type="AbilCmd" AbilCmd="VehicleLockOnCancel,Execute" Row="2" Column="4"/>
-            <LayoutButtons index="8" Face="VehicleGraduatingRange" Type="Passive" AbilCmd="" Row="1"/>
-            <LayoutButtons index="9" Face="VehicleUnsiege" AbilCmd="VehicleUnsiege,Execute" Column="2"/>
-            <LayoutButtons index="10" removed="1"/>
-            <LayoutButtons index="11" removed="1"/>
-        </CardLayouts>
-        <CargoSize value="0"/>
-        <Footprint value="FootprintSieged"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="0"/>
-            <ChanceArray index="Idle" value="100"/>
-            <ChanceArray index="Turn" value="0"/>
-        </Fidget>
-    </CUnit>
     <CUnit id="VehicleFragmentationGrenadeWeapon" parent="MISSILE">
         <Race value="Terr"/>
         <Mover value="MissileDefault"/>
@@ -549,200 +1263,141 @@
         <Mover value="WarHoundWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
-    <CUnit id="CRPGMechLevel2" parent="CRPGMechLevel1">
-        <DeathRevealRadius value="3"/>
+    <CUnit id="CRPGFighterLevel1" parent="CRPGHero">
+        <Name value="Unit/Name/CRPGFighter"/>
+        <Description value="Button/Tooltip/CRPGFighter"/>
+        <Race value="Prot"/>
         <FlagArray index="Hero" value="0"/>
-        <FlagArray index="AIThreatGround" value="1"/>
-        <FlagArray index="AIThreatAir" value="1"/>
-        <Acceleration value="1000"/>
-        <LateralAcceleration value="0"/>
-        <TurningRate value="720"/>
-        <AbilArray index="3" Link="MechLevelUpMorphLevel2"/>
-        <AbilArray Link="MechPointDefenseDrones"/>
-        <WeaponArray index="0" Link="MechGatlingCannon"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="MechLevelUpMorphLevel2,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="MechPointDefenseDrones" Type="Passive" Row="1" Column="0"/>
-        </CardLayouts>
-        <Radius value="0.75"/>
-        <SeparationRadius value="0.75"/>
-        <CargoSize value="2"/>
-        <MinimapRadius value="0.75"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="15"/>
-            <ChanceArray index="Idle" value="55"/>
-            <ChanceArray index="Turn" value="30"/>
-        </Fidget>
-    </CUnit>
-    <CUnit id="CRPGMechLevel3" parent="CRPGMechLevel2">
-        <FlagArray index="TurnBeforeMove" value="1"/>
-        <FlagArray index="AIThreatGround" value="0"/>
-        <FlagArray index="AIThreatAir" value="0"/>
-        <LifeStart value="200"/>
-        <LifeMax value="200"/>
-        <LateralAcceleration value="46.0625"/>
-        <StationaryTurningRate value="720"/>
-        <TurningRate value="360"/>
-        <AbilArray index="3" Link="MechLevelUpMorphLevel3"/>
-        <AbilArray Link="MechShockBlast"/>
-        <WeaponArray index="0" Link="MechMeleeWarHound"/>
-        <WeaponArray Link="MechRailgun"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="MechLevelUpMorphLevel3,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="MechShockBlast" Type="AbilCmd" AbilCmd="MechShockBlast,Execute" Row="2" Column="1"/>
-        </CardLayouts>
-        <Radius value="0.8125"/>
-        <SeparationRadius value="0.625"/>
-        <InnerRadius value="0.5"/>
-        <MinimapRadius value="1"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="0"/>
-            <ChanceArray index="Idle" value="100"/>
-            <ChanceArray index="Turn" value="0"/>
-        </Fidget>
-        <TauntDuration index="Dance" value="5"/>
-    </CUnit>
-    <CUnit id="CRPGMechLevel4" parent="CRPGMechLevel3">
-        <Description value="Button/Tooltip/CRPGMech"/>
-        <FlagArray index="PreventDestroy" value="0"/>
-        <FlagArray index="TurnBeforeMove" value="0"/>
-        <LateralAcceleration value="115.1875"/>
-        <StationaryTurningRate value="999.8437"/>
-        <TurningRate value="999.8437"/>
-        <AbilArray index="3" Link="MechLevelUpMorphLevel4"/>
-        <WeaponArray index="0" Link="MechHellfireMissilePack" Turret="Goliath"/>
-        <WeaponArray index="1" Link="MechTwinAutocannons" Turret="Goliath"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="MechLevelUpMorphLevel4,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="MechMultiLockTargetingSystem" Type="Passive" Row="1" Column="1"/>
-        </CardLayouts>
-        <Radius value="0.6875"/>
-        <SeparationRadius value="0.65"/>
-        <InnerRadius value="0"/>
-        <MinimapRadius value="0.65"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="33"/>
-            <ChanceArray index="Idle" value="33"/>
-            <ChanceArray index="Turn" value="33"/>
-        </Fidget>
-        <TauntDuration index="Dance" value="0"/>
-    </CUnit>
-    <CUnit id="CRPGMechLevel5" parent="CRPGMechLevel4">
         <FlagArray index="PreventDestroy" value="1"/>
-        <FlagArray index="TurnBeforeMove" value="1"/>
-        <Collide index="Colossus" value="1"/>
-        <Collide index="ForceField" value="0"/>
-        <Collide index="Locust" value="0"/>
-        <LifeStart value="250"/>
-        <LifeMax value="250"/>
-        <LateralAcceleration value="46.0625"/>
-        <StationaryTurningRate value="720"/>
-        <TurningRate value="360"/>
-        <WeaponArray index="0" Link="MechJavelinMissileLaunchers" Turret=""/>
-        <WeaponArray index="1" Link="MechThorsHammer" Turret=""/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="LevelUpDummy,Execute" Row="1" Column="4"/>
-        </CardLayouts>
-        <Radius value="1"/>
-        <SeparationRadius value="1"/>
-        <InnerRadius value="1"/>
-        <CargoSize value="4"/>
-        <MinimapRadius value="1"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="10"/>
-            <ChanceArray index="Idle" value="90"/>
-            <ChanceArray index="Turn" value="0"/>
-        </Fidget>
-        <TauntDuration index="Cheer" value="5"/>
-        <TauntDuration index="Dance" value="5"/>
-        <AbilArray index="3" Link="LevelUpDummy"/>
-        <LifeArmor value="1"/>
-    </CUnit>
-    <CUnit id="CRPGSniperLevel2" parent="CRPGSniperLevel1">
-        <AbilArray index="3" Link="SniperLevelUpMorphLevel2"/>
-        <AbilArray index="4" Link="SniperSnipeEnhanced"/>
-        <BehaviorArray Link="SniperEnhancedOptics"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="SniperLevelUpMorphLevel2,Execute" Row="1" Column="4"/>
-            <LayoutButtons index="6" Face="SniperSnipe" Type="AbilCmd" AbilCmd="SniperSnipeEnhanced,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="SniperEnhancedOptics" Type="Passive" Requirements="GELevel2" Row="1" Column="0"/>
-        </CardLayouts>
-        <ReviveType value="CRPGSniperLevel2"/>
-        <TacticalAI value="CRPGSniperLevel2"/>
-        <LeaderAlias value="CRPGSniperLevel2"/>
-        <SelectAlias value="CRPGSniperLevel2"/>
-        <SubgroupAlias value="CRPGSniperLevel2"/>
-    </CUnit>
-    <CUnit id="CRPGSniperLevel3" parent="CRPGSniperLevel2">
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="100"/>
         <LifeMax value="100"/>
-        <AbilArray index="3" Link="SniperLevelUpMorphLevel3"/>
-        <AbilArray Link="SniperCloak"/>
-        <AbilArray Link="SniperHoldFire"/>
-        <AbilArray Link="SniperWeaponsFree"/>
-        <WeaponArray index="0" Link="SniperC20ACanisterRifle"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
+        <ShieldsStart value="60"/>
+        <ShieldsMax value="60"/>
+        <ShieldRegenDelay value="10"/>
+        <ShieldRegenRate value="2"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <KillXP value="20"/>
+        <AbilArray index="3" Link="FighterLevelUpMorphLevel1"/>
+        <AbilArray Link="FighterRapidStrikes"/>
+        <WeaponArray Link="FighterSolariteReaper"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="SniperLevelUpMorphLevel3,Execute" Row="1" Column="4"/>
-            <LayoutButtons index="7" Face="SniperEnhancedOptics" Type="Passive" Requirements="" Row="1" Column="0"/>
-            <LayoutButtons Face="HoldFire" Type="AbilCmd" AbilCmd="SniperHoldFire,Execute" Row="1" Column="2"/>
-            <LayoutButtons Face="WeaponsFree" Type="AbilCmd" AbilCmd="SniperWeaponsFree,Execute" Row="1" Column="3"/>
-            <LayoutButtons Face="SniperCloakOn" Type="AbilCmd" AbilCmd="SniperCloak,On" Row="2" Column="1"/>
-            <LayoutButtons Face="SniperCloakOff" Type="AbilCmd" AbilCmd="SniperCloak,Off" Row="2" Column="1"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="FighterLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="FighterRapidStrikes" Type="AbilCmd" AbilCmd="FighterRapidStrikes,Execute" Row="2" Column="1"/>
         </CardLayouts>
-        <ReviveType value="CRPGSniperLevel3"/>
-        <TacticalAI value="CRPGSniperLevel3"/>
-        <LeaderAlias value="CRPGSniperLevel3"/>
-        <SelectAlias value="CRPGSniperLevel3"/>
-        <SubgroupAlias value="CRPGSniperLevel3"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <MinimapRadius value="0.375"/>
+        <GlossaryCategory value=""/>
+        <GlossaryPriority value="20"/>
+        <GlossaryStrongArray value="Marauder"/>
+        <GlossaryStrongArray value="Zergling"/>
+        <GlossaryStrongArray value="Immortal"/>
+        <GlossaryWeakArray value="Hellion"/>
+        <GlossaryWeakArray value="Roach"/>
+        <GlossaryWeakArray value="Colossus"/>
+        <HotkeyCategory value="Unit/Category/ProtossUnits"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="20"/>
+            <ChanceArray index="Idle" value="70"/>
+            <ChanceArray index="Turn" value="10"/>
+        </Fidget>
     </CUnit>
-    <CUnit id="CRPGSniperLevel4" parent="CRPGSniperLevel3">
-        <AbilArray index="3" Link="SniperLevelUpMorphLevel4"/>
-        <BehaviorArray Link="SniperDeadlyToxinApply"/>
+    <CUnit id="CRPGFighterLevel2" parent="CRPGFighterLevel1">
+        <Description value="Button/Tooltip/CRPGFighterLevel2"/>
+        <AbilArray index="3" Link="FighterLevelUpMorphLevel2"/>
+        <WeaponArray index="0" Link="FighterPsiBlades"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="SniperLevelUpMorphLevel4,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="SniperToxicMunitions" Type="Passive" Row="1" Column="1"/>
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="FighterLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="FighterPsiBlades" Type="Passive" Row="1" Column="0"/>
         </CardLayouts>
-        <ReviveType value="CRPGSniperLevel4"/>
-        <TacticalAI value="CRPGSniperLevel4"/>
-        <LeaderAlias value="CRPGSniperLevel4"/>
-        <SelectAlias value="CRPGSniperLevel4"/>
-        <SubgroupAlias value="CRPGSniperLevel4"/>
     </CUnit>
-    <CUnit id="CRPGSniperLevel5" parent="CRPGSniperLevel4">
-        <LifeStart value="120"/>
-        <LifeMax value="120"/>
-        <AbilArray index="3" Link="LevelUpDummy"/>
-        <AbilArray Link="SniperNuclearStrike"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5" Face="CRPGLevelUp" Type="AbilCmd" AbilCmd="LevelUpDummy,Execute" Row="1" Column="4"/>
-            <LayoutButtons Face="SniperNuclearStrike" Type="AbilCmd" AbilCmd="SniperNuclearStrike,Execute" Row="2" Column="2"/>
-        </CardLayouts>
-        <ReviveType value="CRPGSniperLevel5"/>
-        <TacticalAI value="CRPGSniperLevel5"/>
-        <LeaderAlias value="CRPGSniperLevel5"/>
-        <SelectAlias value="CRPGSniperLevel5"/>
-        <SubgroupAlias value="CRPGSniperLevel5"/>
-    </CUnit>
-    <CUnit id="CRPGInfestedLevel3" parent="CRPGInfestedLevel2">
-        <LifeStart value="110"/>
-        <LifeMax value="110"/>
-        <Radius value="1"/>
-        <SeparationRadius value="0.75"/>
-        <InnerRadius value="0"/>
-        <HotkeyCategory value="Unit/Category/ZergUnits"/>
-    </CUnit>
-    <CUnit id="CRPGInfestedLevel4" parent="CRPGInfestedLevel3">
-        <TurningRate value="720"/>
-        <Radius value="1.5"/>
-        <SeparationRadius value="0.5"/>
-        <HotkeyCategory value=""/>
-    </CUnit>
-    <CUnit id="CRPGInfestedLevel5" parent="CRPGInfestedLevel4">
+    <CUnit id="CRPGFighterLevel3" parent="CRPGFighterLevel2">
+        <Description value="Button/Tooltip/CRPGFighterLevel3"/>
         <LifeStart value="125"/>
         <LifeMax value="125"/>
-        <TurningRate value="999.8437"/>
-        <Radius value="0.75"/>
-        <InnerRadius value="0.5"/>
-        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <ShieldsStart value="80"/>
+        <ShieldsMax value="80"/>
+        <AbilArray index="3" Link="FighterLevelUpMorphLevel3"/>
+        <AbilArray Link="FighterShadowCharge"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="FighterLevelUpMorphLevel3,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="FighterShadowCharge" Type="AbilCmd" AbilCmd="FighterShadowCharge,Execute" Row="2" Column="0"/>
+        </CardLayouts>
     </CUnit>
+    <CUnit id="CRPGFighterLevel4" parent="CRPGFighterLevel3">
+        <Description value="Button/Tooltip/CRPGFighterLevel4"/>
+        <AbilArray index="3" Link="FighterLevelUpMorphLevel4"/>
+        <BehaviorArray Link="FighterResurgence"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="FighterLevelUpMorphLevel4,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="FighterResurgence" Type="Passive" Requirements="FighterResurgenceOffCooldown" Row="1" Column="1"/>
+            <LayoutButtons>
+                <Face value="FighterResurgence"/>
+                <Type value="Passive"/>
+                <Behavior value="FighterResurgenceReviveSupressed"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="1"/>
+            </LayoutButtons>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="CRPGFighterLevel5" parent="CRPGFighterLevel4">
+        <Description value="Button/Tooltip/CRPGFighterLevel5"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
+        <AbilArray index="3" Link="LevelUpDummy"/>
+        <AbilArray Link="FighterShadowFury"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="LevelUpDummy,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="FighterShadowFury" Type="AbilCmd" AbilCmd="FighterShadowFury,Execute" Row="2" Column="2"/>
+        </CardLayouts>
+        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
+    </CUnit>
+    <CUnit id="Zergling"/>
+    <CUnit id="ZerglingBurrowed"/>
 </Catalog>

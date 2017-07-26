@@ -1,7 +1,42 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CRequirement id="HeroInRange">
+    <CRequirement id="FighterResurgenceOffCooldown">
+        <EditorCategories value="Race:Protoss,TechType:Ability"/>
+        <NodeArray index="Show" Link="NotCountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="CRPGInRangeofArmory">
         <NodeArray index="Use" Link="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit1337265981"/>
+    </CRequirement>
+    <CRequirement id="CRPGInRangeofCrashedBattlecruiser">
+        <NodeArray index="Use" Link="CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428"/>
+    </CRequirement>
+    <CRequirement id="InfestedEmpathicRepercussion">
+        <EditorCategories value="Race:Zerg"/>
+        <NodeArray index="Use" Link="CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055"/>
+    </CRequirement>
+    <CRequirement id="InfestedHas2InfestedCivilian">
+        <EditorCategories value="Race:Zerg"/>
+        <NodeArray index="Use" Link="NotAndCountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
+    </CRequirement>
+    <CRequirement id="InfestedHasOverlord">
+        <EditorCategories value="Race:Zerg"/>
+        <NodeArray index="Use" Link="CountUnitOverlordQueuedOrBetter"/>
+    </CRequirement>
+    <CRequirement id="InfestedMaxInfestedMarines">
+        <EditorCategories value="Race:Zerg"/>
+        <NodeArray index="Use" Link="NotAndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="InfestedTargetedGE2InfestedCivilian">
+        <EditorCategories value="Race:Zerg"/>
+        <NodeArray index="Use" Link="GTECountBehaviorInfestedInfestedCivilianCountCompleteOnly2"/>
+    </CRequirement>
+    <CRequirement id="InfestedNotUninfested">
+        <EditorCategories value="Race:Zerg"/>
+        <NodeArray index="Show" Link="Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="InfestedHasNoInfestationSporeVictim">
+        <EditorCategories value="Race:Zerg"/>
+        <NodeArray index="Use" Link="Not3697774798CountBehaviorInfestedInfestedCompleteOnly"/>
     </CRequirement>
     <CRequirement id="MechArmPointDefenseDrone">
         <EditorCategories value="Race:Terran,TechType:Unit"/>

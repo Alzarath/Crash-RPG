@@ -7,7 +7,7 @@
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquirePrioritization value="ByAngle"/>
         <Range value="6"/>
-        <Period value="0.225"/>
+        <Period value="0.2"/>
         <Effect value="AeroATALaserBatteryATALaunchMissile"/>
         <AllowedMovement value="Slowing"/>
         <RandomDelayMax value="0.1875"/>
@@ -20,7 +20,7 @@
         <AcquirePrioritization value="ByAngle"/>
         <Range value="6"/>
         <Arc value="360"/>
-        <Period value="0.225"/>
+        <Period value="0.2"/>
         <Effect value="LaserBatteryATSLaunchMissile"/>
         <AllowedMovement value="Slowing"/>
         <RandomDelayMax value="0.1875"/>
@@ -46,7 +46,6 @@
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquirePrioritization value="ByAngle"/>
         <Range value="8"/>
-        <MinimumRange value="2"/>
         <Period value="0.4"/>
         <Effect value="AeroArmageddonCannonCreatePersistent"/>
         <AllowedMovement value="Slowing"/>
@@ -77,6 +76,113 @@
         <AllowedMovement value="Moving"/>
         <RandomDelayMin value="-0.13"/>
         <RandomDelayMax value="0.1875"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedCivilianInfestedClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="InfestedCivilianInfestedClawsDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.2"/>
+        <DamagePoint value="0.2666"/>
+        <Effect value="InfestedCivilianInfestedClawsDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedBunkerNeosteelClaw">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Options index="LinkedCooldown" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="InfestedBunkerDebrisClaw"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.5"/>
+        <Period value="2.4"/>
+        <DamagePoint value="0.12"/>
+        <Backswing value="0"/>
+        <Effect value="InfestedBunkerDebrisClaw"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedMarineInfestedGaussRifle">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="InfestedMarineInfestedGaussRifleDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="0.8608"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0.75"/>
+        <Effect value="InfestedMarineInfestedGaussRifleDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle1">
+        <Name value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Disabled" value="1"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="CanInitiateAttackOrder" value="0"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Options index="ContinuousScan" value="1"/>
+        <Options index="LinkedCooldown" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="InfestedMarineInfestedGaussRifleDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <RangeSlop value="5"/>
+        <Arc value="360"/>
+        <Marker Link="Weapon/InfestedMarineInfestedGaussRifle"/>
+        <Cost>
+            <Cooldown Link="Weapon/InfestedMarineInfestedGaussRifle"/>
+        </Cost>
+        <Period value="0.8608"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0"/>
+        <Effect value="InfestedBunkerInfestedGaussRifleDamage1"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle2" parent="InfestedBunkerInfestedGaussRifle1">
+        <Tip value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
+        <Effect value="InfestedBunkerInfestedGaussRifleDamage2"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle3" parent="InfestedBunkerInfestedGaussRifle1">
+        <Tip value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
+        <Effect value="InfestedBunkerInfestedGaussRifleDamage3"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle4" parent="InfestedBunkerInfestedGaussRifle1">
+        <Tip value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
+        <Effect value="InfestedBunkerInfestedGaussRifleDamage4"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle5" parent="InfestedBunkerInfestedGaussRifle1">
+        <Tip value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle6" parent="InfestedBunkerInfestedGaussRifle1">
+        <Tip value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
+        <Effect value="InfestedBunkerInfestedGaussRifleDamage4"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="FighterSolariteReaper">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="FighterSolariteReaperDamage"/>
+        <DisplayAttackCount value="1"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Marker Link="Weapon/PsiBlades"/>
+        <Cost>
+            <Cooldown Link="Weapon/PsiBlades"/>
+        </Cost>
+        <Period value="1.2"/>
+        <DamagePoint value="0"/>
+        <Effect value="FighterSolariteReaperCleaveSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="FighterPsiBlades">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="FighterPsiBladesDamage"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.2"/>
+        <DamagePoint value="0"/>
+        <Effect value="FighterPsiBladesCreatePersistent"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="VehicleLockOnDummy">
         <EditorCategories value="Race:Terran"/>
@@ -240,6 +346,9 @@
         <Range value="6"/>
         <Period value="1.75"/>
         <Effect value="VehicleTyphoonMissilePodLaunchMissileSwitch"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <AllowedMovement value="Moving"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="VehicleFragmentationGrenade">
         <EditorCategories value="Race:Terran"/>
@@ -290,11 +399,11 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestedMendingSaliva">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-regenaura.dds"/>
         <DisplayEffect value="InfestedMendingSalivaDamageDummy"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
-        <Period value="1.5"/>
+        <Period value="2"/>
         <Effect value="InfestedMendingSalivaLaunchMissile"/>
         <AllowedMovement value="Slowing"/>
     </CWeaponLegacy>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CTargetSortBehaviorCount id="FighterShadowFuryTargeted">
+        <WhichUnit Value="Target"/>
+        <Behavior value="FighterShadowFuryTarget"/>
+    </CTargetSortBehaviorCount>
+</Catalog>

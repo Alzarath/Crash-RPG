@@ -32,6 +32,61 @@
         <DupeMuteCount value="8"/>
         <Volume value="-0.920000,-0.500000"/>
     </CSound>
+    <CSound id="FighterRapidStrikesEndSound" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Obelisk\Obelisk_ProtonChargeEnd.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="FighterRapidStrikesSound" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Obelisk\Obelisk_ProtonChargeStart.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="FighterRapidStrikesLoopSound" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Obelisk\Obelisk_ProtonChargeLoop.wav" FacialGroup=""/>
+        <LoopCount value="-1"/>
+    </CSound>
+    <CSound id="InfestedBunker_AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_01.wav"/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_02.wav"/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_03.wav"/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_04.wav"/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_05.wav"/>
+        <Pitch value="0.000000,3.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_01.wav"/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_02.wav"/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_03.wav"/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_04.wav"/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_05.wav"/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_06.wav"/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_07.wav"/>
+        <Pitch value="0.000000,3.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Footsteps" parent="Movement">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Walk_Fs_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Walk_Fs_02.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,2.000000"/>
+        <Volume value="-7.000000,-7.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Ready" parent="Ready">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\SIBunker_What01.ogg"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_What" parent="Voice">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\SIBunker_What01.ogg"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_What2" parent="Voice">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\SIBunker_What01.ogg"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
     <CSound id="MechShockBlastFire" parent="Combat">
         <AssetArray File="Assets\Sounds\VoidShard_Zone_Launch_01.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\VoidShard_Zone_Launch_01a.wav" FacialGroup=""/>

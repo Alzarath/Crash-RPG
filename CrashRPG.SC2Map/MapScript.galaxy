@@ -2,7 +2,7 @@
 // 
 // Generated Map Script
 // 
-// Name:   Crash RPG
+// Name:   Crash RPG 2
 // 
 //==================================================================================================
 include "TriggerLibs/NativeLib"
@@ -22,6 +22,7 @@ const fixed gv_damageFraction = 0.0625;
 //--------------------------------------------------------------------------------------------------
 // Global Variables
 //--------------------------------------------------------------------------------------------------
+int gv_remainingSelectors;
 playergroup gv_survivors;
 
 void InitGlobals () {
@@ -31,17 +32,29 @@ void InitGlobals () {
 //--------------------------------------------------------------------------------------------------
 // Global Function Declarations
 //--------------------------------------------------------------------------------------------------
+void gf_CreateSelectableHero (string lp_heroUnit, point lp_point);
 void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip);
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_MapInitialization;
+trigger gt_HeroGiven;
+trigger gt_MineralReward;
+trigger gt_CreateSelectableHeroes;
+trigger gt_FreeHeroes;
 trigger gt_Updatetooltips;
 
 //--------------------------------------------------------------------------------------------------
 // Global Functions
 //--------------------------------------------------------------------------------------------------
+void gf_CreateSelectableHero (string lp_heroUnit, point lp_point) {
+    // Implementation
+    libNtve_gf_UnitCreateFacingPoint(1, lp_heroUnit, 0, 0, lp_point, RegionGetCenter(RegionEntireMap()));
+    UnitBehaviorAddPlayer(UnitLastCreated(), "Invulnerable", 0, 1);
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "Beacon_Terranmedium", 0, 0, lp_point);
+}
+
 void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip) {
     // Variable Declarations
     int lv_damageModifier;
@@ -66,10 +79,16 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
     PlayerGroupAdd(gv_survivors, 4);
     PlayerGroupAdd(gv_survivors, 5);
     PlayerGroupAdd(gv_survivors, 6);
+    PlayerGroupAdd(gv_survivors, 7);
     libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
     PlayerGroupLoopBegin(gv_survivors);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        libNtve_gf_SetAlliance(PlayerGroupLoopCurrent(), 7, libNtve_ge_AllianceSetting_Enemy);
+        if ((PlayerType(PlayerGroupLoopCurrent()) == c_playerTypeUser)) {
+            gv_remainingSelectors += 1;
+        }
+
+        libNtve_gf_SetAlliance(PlayerGroupLoopCurrent(), 8, libNtve_ge_AllianceSetting_Enemy);
+        libNtve_gf_SetAlliance(PlayerGroupLoopCurrent(), 0, libNtve_ge_AllianceSetting_Neutral);
     }
     PlayerGroupLoopEnd();
     if ((PlayerType(1) == c_playerTypeUser)) {
@@ -92,6 +111,11 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
         libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 5, PointFromId(741491427));
     }
 
+    if ((PlayerType(6) == c_playerTypeUser)) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 6, PointFromId(1490897639));
+    }
+
+    AICampaignStart(8);
     return true;
 }
 
@@ -99,6 +123,106 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
 void gt_MapInitialization_Init () {
     gt_MapInitialization = TriggerCreate("gt_MapInitialization_Func");
     TriggerAddEventMapInit(gt_MapInitialization);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Hero Given
+//--------------------------------------------------------------------------------------------------
+bool gt_HeroGiven_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gv_remainingSelectors -= 1;
+    if ((gv_remainingSelectors == 0)) {
+        TriggerExecute(gt_FreeHeroes, true, false);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_HeroGiven_Init () {
+    gt_HeroGiven = TriggerCreate("gt_HeroGiven_Func");
+    TriggerAddEventUnitAbility(gt_HeroGiven, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Mineral Reward
+//--------------------------------------------------------------------------------------------------
+bool gt_MineralReward_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerModifyPropertyFixed(1, c_playerPropMinerals, c_playerPropOperAdd, (EventUnitXPDelta() / 5.0));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MineralReward_Init () {
+    gt_MineralReward = TriggerCreate("gt_MineralReward_Func");
+    TriggerAddEventUnitGainExperience(gt_MineralReward, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Create Selectable Heroes
+//--------------------------------------------------------------------------------------------------
+bool gt_CreateSelectableHeroes_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_CreateSelectableHero("CRPGAeroLevel1", PointFromId(1949826601));
+    gf_CreateSelectableHero("CRPGFighterLevel1", PointFromId(714557824));
+    gf_CreateSelectableHero("CRPGInfestedLevel1", PointFromId(1187947733));
+    gf_CreateSelectableHero("CRPGMechLevel1", PointFromId(1315754296));
+    gf_CreateSelectableHero("CRPGSniperLevel1", PointFromId(2061275486));
+    gf_CreateSelectableHero("CRPGVehicleLevel1", PointFromId(18820663));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_CreateSelectableHeroes_Init () {
+    gt_CreateSelectableHeroes = TriggerCreate("gt_CreateSelectableHeroes_Func");
+    TriggerAddEventMapInit(gt_CreateSelectableHeroes);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Free Heroes
+//--------------------------------------------------------------------------------------------------
+bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupLoopBegin(UnitGroup(null, 0, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitRemove(UnitGroupLoopCurrent());
+    }
+    UnitGroupLoopEnd();
+    UnitGroupLoopBegin(UnitGroup("Bunker", 7, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitKill(UnitGroupLoopCurrent());
+    }
+    UnitGroupLoopEnd();
+    UnitGroupLoopBegin(UnitGroup("SupplyDepot", 7, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("SupplyDepotLower", 0)), c_orderQueueReplace);
+    }
+    UnitGroupLoopEnd();
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/20A0E835"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_FreeHeroes_Init () {
+    gt_FreeHeroes = TriggerCreate("gt_FreeHeroes_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -119,12 +243,14 @@ bool gt_Updatetooltips_Func (bool testConds, bool runActions) {
 
     lv_levelPoints = (UnitBehaviorCount(UnitGroupUnit(UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1), "LevelCounter") * CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "LevelCounter", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", EventPlayer()));
     lv_upgradePoints = CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "CRPGBaseAttributes", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", EventPlayer());
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, FixedToText((lv_levelPoints + lv_upgradePoints), c_fixedPrecisionAny));
     lv_damageModifier = (((lv_levelPoints + lv_upgradePoints) * gv_damageFraction) + 1.0);
     CatalogFieldValueSet(c_gameCatalogButton, "AeroYamatoCannon", "Tooltip", EventPlayer(), (("Blasts a target with a devastating plasma cannon, causing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroYamatoCannonDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage.")));
     CatalogFieldValueSet(c_gameCatalogButton, "AeroLaserArmaments", "Tooltip", EventPlayer(), (("Automatically fire Laser Batteries that deal <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroLaserArmamentsDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage to enemies below the hero.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicMunitions", "Tooltip", EventPlayer(), (("The Sniper's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "MechBarrage", "Tooltip", EventPlayer(), (("Stuns all enemies in a small area. Deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]\"/> seconds in a larger area.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "MechShockBlast", "Tooltip", EventPlayer(), (("Unleash a violent burst of energy, stunning and dealing up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "MechShocking", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechShockBlastDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage to nearby enemies over <d ref=\"Behavior,MechShocked,Duration\"/> seconds.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "SniperNuclearStrike", "Tooltip", EventPlayer(), (("Calls down a Nuclear Strike at a target location. Nuke takes <d ref=\"Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay\"/> seconds to land and deals up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "AttributeBonus[" + IntToString(7) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Structure) damage to enemies in a large radius.")));
     CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSnipeDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage. Ignores armor.<n/><n/><c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));
+    CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicMunitions", "Tooltip", EventPlayer(), (("The Sniper's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.")));
     return true;
 }
 
@@ -140,6 +266,10 @@ void gt_Updatetooltips_Init () {
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
     gt_MapInitialization_Init();
+    gt_HeroGiven_Init();
+    gt_MineralReward_Init();
+    gt_CreateSelectableHeroes_Init();
+    gt_FreeHeroes_Init();
     gt_Updatetooltips_Init();
 }
 

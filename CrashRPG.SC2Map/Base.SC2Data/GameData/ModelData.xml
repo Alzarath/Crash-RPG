@@ -3,54 +3,7 @@
     <CModel id="BattlecruiserTinyHyperion" parent="Battlecruiser" Race="Neutral">
         <Model value="Assets\Units\Terran\BattlecruiserHyperion\BattlecruiserHyperion.m3"/>
     </CModel>
-    <CModel id="BattlecruiserTinyLoki" parent="Unit">
-        <Model value="Assets\Units\Terran\BattlecruiserLoki\BattlecruiserLoki.m3"/>
-        <AttachProps Id="Ref_Weapon 20">
-            <Keys index="SetA" value="0"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 21">
-            <Keys index="SetA" value="0"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 22">
-            <Keys index="SetA" value="0"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 23">
-            <Keys index="SetA" value="0"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 24">
-            <Keys index="SetA" value="0"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 25">
-            <Keys index="SetA" value="0"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 10">
-            <Keys index="SetA" value="1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 11">
-            <Keys index="SetA" value="1"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 20">
-            <Keys index="SetA" value="2"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 21">
-            <Keys index="SetA" value="2"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 22">
-            <Keys index="SetA" value="2"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 23">
-            <Keys index="SetA" value="2"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 24">
-            <Keys index="SetA" value="2"/>
-        </AttachProps>
-        <AttachProps Id="Ref_Weapon 25">
-            <Keys index="SetA" value="2"/>
-        </AttachProps>
-        <EditorCategories value="Race:Terran"/>
-        <Flags index="AutoUnload" value="1"/>
-        <Lighting value="Battlecruiser"/>
-        <Occlusion value="Show"/>
+    <CModel id="BattlecruiserTinyLoki" parent="Loki">
         <PlanetPanelCamera value="Star2CameraLow10"/>
         <Radius value="1.000000"/>
         <ScaleMax value="0.800000,0.800000,0.800000"/>
@@ -60,8 +13,68 @@
         <ShadowRadius value="1.562500"/>
         <SquibTypeDefault value="Metal"/>
         <TechPurchaseCamera value="TechPurchaseBattlecruiser"/>
-        <Tipability value="0.150000"/>
-        <UnitGlossaryCamera value="Star2CameraLow12"/>
+    </CModel>
+    <CModel id="BlightbringerSmall" parent="Unit" Race="Zerg">
+        <Model value="Assets\Units\Zerg\BlightBringer\BlightBringer.m3"/>
+        <Events Anim="Burrow" Type="Sound" Payload="BlightBringer_Burrow"/>
+        <Events Anim="Unburrow" Type="Sound" Payload="BlightBringer_UnBurrow"/>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="BlightBringer_VxFx_02"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="BlightBringer_VxFx_02"/>
+        </Events>
+        <Events>
+            <Anim value="Spell,00"/>
+            <Name value="BlightBringer_VxFx_01"/>
+            <Type value="Sound"/>
+            <Time value="0.007000"/>
+            <Payload value="BlightBringer_VxFx_01"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Burrow,00"/>
+            <Name value="BlightBringer_Burrow_Tunnel"/>
+            <Type value="Sound"/>
+            <Time value="0.006000"/>
+            <Payload value="BlightBringer_Burrow_Tunnel"/>
+        </Events>
+        <Lighting value="Blightbringer"/>
+        <Occlusion value="Show"/>
+        <Radius value="1.000000"/>
+        <SelectionRadius value="1.000000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="CorruptorGround" parent="Unit">
+        <Model value="Assets\Units\Zerg\Corruptor\Corruptor.m3"/>
+        <RequiredAnims value="Assets\Units\Zerg\Corruptor_SwarmAnims\Corruptor_SwarmAnims.m3a"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Lighting value="Corruptor"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraLow08"/>
+        <Radius value="0.600000"/>
+        <ScaleMax value="0.700000,0.700000,0.700000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+        <SelectionRadius value="0.857100"/>
+        <ShadowRadius value="0.857100"/>
+        <SquibTypeDefault value="Flesh"/>
+        <TechPurchaseCamera value="Star2CameraLow08"/>
+        <UnitGlossaryCamera value="Star2CameraLow08"/>
+    </CModel>
+    <CModel id="InfestedInfestedBunker">
+        <Model value="Assets\Units\Zerg\InfestedBunker_Coop\InfestedBunker_Coop.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Events>
+            <Anim value="Walk,00"/>
+            <Name value="FootstepSound"/>
+            <Type value="Sound"/>
+            <Time value="1.150000"/>
+            <Payload value="InfestedBunker_Footsteps"/>
+        </Events>
+        <Radius value="1.250000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
     </CModel>
     <CModel id="PortraitBattlecruiserBlackOps" parent="FXAPortrait" Race="Terran">
         <Model value="Assets\Portraits\Terran\BattleCruiser_BlackOps_Ex3_Portrait\BattleCruiser_BlackOps_Ex3_Portrait.m3"/>
@@ -106,7 +119,7 @@
         <ScaleMax value="0.700000,0.700000,0.700000"/>
         <ScaleMin value="0.700000,0.700000,0.700000"/>
         <SelectionRadius value="0.700000"/>
-        <ShadowRadius value="2.000000"/>
+        <ShadowRadius value="1.000000"/>
         <UnitGlossaryCamera value="Star2CameraHigh07"/>
     </CModel>
     <CModel id="WarHoundDeathMech" parent="UnitDeath" Race="Terran">
@@ -170,5 +183,9 @@
         <Model value="Assets\Doodads\WreckedBattlecruiser\WreckedBattlecruiser.m3"/>
         <Lighting value="WreckedBattlecruiser"/>
         <SelectionRadius value="2.000000"/>
+        <EditorCategories value="Race:Terran"/>
+        <Radius value="1.750000"/>
+        <SelectionLayer value="2"/>
+        <ShadowRadius value="2.000000"/>
     </CModel>
 </Catalog>

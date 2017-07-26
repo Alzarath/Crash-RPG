@@ -1,20 +1,31 @@
 ﻿Abil/Name/AeroDefensiveMatrix=Defensive Matrix
 Abil/Name/AeroTacticalJump=Tactical Jump
 Abil/Name/AeroYamatoCannon=Yamato Cannon
+Abil/Name/AlienMetamorphosis=Metamorphosis
 Abil/Name/AttackFriendly=Attack
-Abil/Name/BlightbringerCreateEggs2=Create Eggs Copy
-Abil/Name/CRPGArmoryResearch=Armory Research
+Abil/Name/BeaconGiveHero=Give Hero
 Abil/Name/CRPGControlArmory=Control Armory
+Abil/Name/CRPGControlCrashedBattlecruiser=Control Crashed Battlecruiser
 Abil/Name/CRPGUpgradeArmor=Upgrade Armor
 Abil/Name/CRPGUpgradeDamage=Upgrade Damage
 Abil/Name/DefaultAbilityLevelUpMorph=Level Up
+Abil/Name/FighterRapidStrikes=Rapid Strikes
+Abil/Name/FighterShadowCharge=Shadow Charge
+Abil/Name/FighterShadowFury=Shadow Fury
 Abil/Name/HunterScarabMine=Scarab Mine
+Abil/Name/InfestedAberrate=Aberrate
+Abil/Name/InfestedBunkerTransport=Load-Unload
+Abil/Name/InfestedInfestationSpore=Infestation Spore
+Abil/Name/InfestedInfestedEggInfestedCivilian=Infested Egg
+Abil/Name/InfestedMorphToInfestedCivilian=Morph To Infested Civilian
+Abil/Name/InfestedMorphToInfestedMarine=Morph To Infested Marine
 Abil/Name/LevelUp=Level Up
+Abil/Name/LevelUper=
+Abil/Name/MechBarrage=Barrage
 Abil/Name/MechCalldownMech=Calldown Mech
 Abil/Name/MechEmergencyEvac=Emergency Evac
 Abil/Name/MechPointDefenseDrones=Point Defense Drones
 Abil/Name/MechShockBlast=Shock Blast
-Abil/Name/NeuralParasite2=Neural Parasite Copy
 Abil/Name/ScarabMineBurrow=Burrow
 Abil/Name/ScarabMineUnburrow=Unburrow
 Abil/Name/SniperCloak=Personal Cloaking
@@ -26,36 +37,86 @@ Abil/Name/SniperSnipe=Snipe
 Abil/Name/SniperWeaponsFree=Weapons Free
 Abil/Name/VehicleLockOn=Lock On
 Abil/Name/VehicleLockOnCancel=Lock On
+Abil/Name/VehicleLockOnLongRange=Lock On
 Abil/Name/VehicleOverdrive=Overdrive
 Abil/Name/VehicleSiegeMode=Siege
 Abil/Name/VehicleUnsiege=Unsiege
 Abil/TargetMessage/AttackFriendly=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   To Attack<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Behavior/Name/AeroDefensiveMatrix=Defensive Matrix
-Behavior/Name/ArmorAttribute=Armor
-Behavior/Name/CRPGControlArmory=Control Armory
+Behavior/Name/CRPGArmorAttribute=Armor
+Behavior/Name/CRPGArmorAttributeUnit=Armor
+Behavior/Name/CRPGDamageAttribute=Damage
 Behavior/Name/CRPGExperienceTrickle=Experience Trickle
-Behavior/Name/DamageAttribute=Damage
+Behavior/Name/CrashedBattlecruiserMedicalFacilities=Medical Facilities
+Behavior/Name/CrashedBattlecruiserMedicalFacilitiesAura=Medical Facilities
+Behavior/Name/FighterInvulnerableResurgence=Invulnerable
+Behavior/Name/FighterRapidStrikes=Rapid Strikes
+Behavior/Name/FighterShadowCharging=Shadow Charging
+Behavior/Name/FighterSlowShadowCharge=Slow
+Behavior/Name/FighterStunnedShadowCharge=Stunned
 Behavior/Name/HeroVeterancy=Hero Veterancy
-Behavior/Name/MechElectricField=Electric Field
-Behavior/Name/NeuralParasite2=Neural Parasite Copy
+Behavior/Name/InfestedBunkerEnableGaussRifle13=Enable Gauss Rifle 3
+Behavior/Name/InfestedBunkerEnableGaussRifle14=Enable Gauss Rifle 4
+Behavior/Name/InfestedBunkerTransientFire=Transient Fire
+Behavior/Name/InfestedHardenedEquipmentDefensive=Hardened Equipment
+Behavior/Name/InfestedHardenedEquipmentOffensive=Hardened Equipment
+Behavior/Name/InfestedInfested=Infested
+Behavior/Name/InfestedInfestedCivilianCount=Infested Civilian Count
+Behavior/Name/InfestedUnstable=Unstable
+Behavior/Name/MechBarrage=Barrage
+Behavior/Name/MechShocked=Shocked
 Behavior/Name/NeuralTimedLife2=Metabolic Shutdown Copy
 Behavior/Name/SniperDeadlyToxinDamage=Deadly Toxin
 Behavior/Name/SniperHoldFire=Hold Fire
 Behavior/Name/VehicleLockOnTarget=Lock On
 Behavior/Name/VehicleOverdrive=Overdrive
 Behavior/Tooltip/AeroDefensiveMatrix=While active, the Defensive Matrix blocks all incoming damage.
-Behavior/Tooltip/ArmorAttribute=Increases the hero's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,ArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
-Behavior/Tooltip/DamageAttribute=Increase the hero's attack and spell damage by <c val="#ColorAttackInfo"><d ref="Behavior,DamageAttribute,Modification.DamageDealtFraction[Melee] * 100" precision="2"/>%</c> per point.
-Behavior/Tooltip/NeuralParasite2=This unit is being controlled by an Infestor.
+Behavior/Tooltip/CRPGArmorAttribute=Increases the hero's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
+Behavior/Tooltip/CRPGArmorAttributeUnit=Increases the unit's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,ArmorAttributeUnit,Modification.LifeArmorBonus" precision="2"/></c> per point.
+Behavior/Tooltip/CRPGDamageAttribute=Increase the unit's attack and spell damage by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGDamageAttribute,Modification.DamageDealtFraction[Melee] * 100" precision="2"/>%</c> per point.
+Behavior/Tooltip/CrashedBattlecruiserMedicalFacilities=Life and Energy regeneration increased while near the Crashed Battlecruiser.
+Behavior/Tooltip/CrashedBattlecruiserMedicalFacilitiesAura=Regenerates nearby allies' health and energy.
+Behavior/Tooltip/FighterInvulnerableResurgence=The unit is invulnerable.
+Behavior/Tooltip/FighterRapidStrikes=This unit has increased attack speed.
+Behavior/Tooltip/FighterShadowCharging=This unit has greatly increased movement speed.
+Behavior/Tooltip/FighterSlowShadowCharge=This unit has reduced movement speed.
+Behavior/Tooltip/FighterStunnedShadowCharge=This unit cannot move or attack.
+Behavior/Tooltip/InfestedHardenedEquipmentDefensive=This unit takes reduced damage.
+Behavior/Tooltip/InfestedHardenedEquipmentOffensive=This unit deals increased damage.
+Behavior/Tooltip/InfestedInfested=This unit is being controlled by an Infested.
+Behavior/Tooltip/InfestedUnstable=Greatly reduced attack and movement speed due to being outside the summoner's area of influence.
+Behavior/Tooltip/MechBarrage=Target is currently stunned and unable to use any abilities.
 Behavior/Tooltip/SniperDeadlyToxinDamage=Target was recently inflicted with a horrible toxin and has built an immunity toward it.
-Behavior/Tooltip/VehicleLockOnTarget=This unit has been targeted by a Cyclone's Lock On ability.
+Behavior/Tooltip/VehicleLockOnTarget=This unit has been targeted by a Lock On ability.
 Behavior/Tooltip/VehicleOverdrive=This unit's movement speed is increased by 70%.
 Button/Name/AeroDefensiveMatrix=Defensive Matrix
 Button/Name/AeroFireSuppressionSystem=Fire Suppression System
 Button/Name/AeroLaserArmaments=Laser Armaments
 Button/Name/AeroTacticalJump=Tactical Jump
 Button/Name/AeroYamatoCannon=Yamato Cannon
+Button/Name/AlienMorphDrone=Morph
+Button/Name/AlienMorphHunterling=Morph
+Button/Name/AlienMorphHydralisk=Morph
+Button/Name/AlienMorphPygalisk=Morph
+Button/Name/AlienMorphQueen=Morph
+Button/Name/AlienMorphRavager=Morph
+Button/Name/AlienMorphRoach=Morph
 Button/Name/CRPGLevelUp=Level Up
+Button/Name/FighterPsiBlades=Psi Blades
+Button/Name/FighterRapidStrikes=Rapid Strikes
+Button/Name/FighterResurgence=Resurgence
+Button/Name/FighterShadowCharge=Shadow Charge
+Button/Name/FighterShadowFury=Shadow Fury
+Button/Name/HunterScarabMine=Scarab Mine
+Button/Name/InfestedAberrate=Aberrate
+Button/Name/InfestedCausticWeapons=Caustic Weapons
+Button/Name/InfestedEmpathicRepercussion=Empathic Repercussion
+Button/Name/InfestedEmpathicRepercussionDouble=Empathic Repercussion
+Button/Name/InfestedHardenedEquipment=Hardened Equipment
+Button/Name/InfestedInfest=Infestation Spore
+Button/Name/InfestedInfestedEgg=Infested Egg
+Button/Name/InfestedInfestedSupplies=Infested Supplies
+Button/Name/MechBarrage=Barrage
 Button/Name/MechEmergencyEvac=Emergency Evac
 Button/Name/MechMultiLockTargetingSystem=Multi-Lock Targeting System
 Button/Name/MechPointDefenseDrones=Point Defense Drones
@@ -66,7 +127,6 @@ Button/Name/SniperEnhancedOptics=Enhanced Optics
 Button/Name/SniperNuclearStrike=Nuclear Strike
 Button/Name/SniperSnipe=Sniper Round
 Button/Name/SniperToxicMunitions=Toxic Munitions
-Button/Name/SpiderMine2=Deploy Spider Mine Copy
 Button/Name/UpgradeArmor=Upgrade Armor
 Button/Name/UpgradeDamage=Upgrade Damage
 Button/Name/VehicleAutomaticServos=Automatic Servos
@@ -76,47 +136,79 @@ Button/Name/VehicleLockOn=Lock On
 Button/Name/VehicleOverdrive=Overdrive
 Button/Name/VehicleSiegeMode=Siege Mode
 Button/Name/VehicleUnsiege=Tank Mode
-Button/Tooltip/AeroDefensiveMatrix=Surrounds the Battlecruiser with a shield that can absorb <d ref="Behavior,DefensiveMatrix,Modification.VitalMaxArray[1]"/> damage. Ability can only be used once every <d ref="Abil,DefensiveMatrix,Cost[0].Cooldown.TimeUse"/> seconds.
+Button/Tooltip/AeroDefensiveMatrix=Surrounds the hero with a shield that can absorb <d ref="Behavior,DefensiveMatrix,Modification.VitalMaxArray[1]"/> damage.
 Button/Tooltip/AeroFireSuppressionSystem=Unit automatically repairs itself up to 50% life.
 Button/Tooltip/AeroLaserArmaments=Automatically fire Laser Batteries that deal <c val="#ColorAttackInfo"><d ref="Effect,AeroLaserArmamentsDamage,Amount"/></c> damage to enemies below the hero.
 Button/Tooltip/AeroTacticalJump=After <d ref="Behavior,AeroTacticalJumpTeleportOut,Duration + Behavior,AeroTacticalJumpTeleport,Duration + Behavior,AeroTacticalJumpTeleportIn,Duration" precision="1"/> seconds, warps to the target location. Battlecruiser is invulnerable while warping.<n/><n/><c val="#ColorAttackInfo">Does not require vision.</c>
-Button/Tooltip/AeroYamatoCannon=Blasts a target with a devastating plasma cannon, causing <c val="#ColorAttackInfo"><d ref="Effect,AeroYamatoCannonDamage,Amount"/></c> damage.
+Button/Tooltip/AeroYamatoCannon=Blasts a target with a devastating plasma cannon, dealing <c val="#ColorAttackInfo"><d ref="Effect,AeroYamatoCannonDamage,Amount"/></c> damage.
+Button/Tooltip/AlienMorphDrone=Economic alien. Able to gather minerals for experience.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienMorphHunterling=Aggressive alien. Can leap at enemies.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienMorphHydralisk=Ranged alien. Regenerates faster while burrowed. Can cast Impale.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/AlienMorphPygalisk=Aggressive alien. Deals damage in an area. Can burrow charge.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienMorphQueen=Ranged alien. Can cast Ultimate Sacrifice.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/AlienMorphRavager=Ranged alien. Regenerates faster while burrowed. Can cast Corrosive Bile.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienMorphRoach=Ranged alien. Regenerates faster while burrowed.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGAero=Slow and Powerful Warship Hero. Uses a mix of defensive and offensive abilities.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Yamato Cannon</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Fire Suppression System<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Defensive Matrix<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Laser Armaments<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Tactical Jump</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGAeroLevel32=Powerful warship. Can use Yamato Cannon and Tactical Jump.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGArmory=Contains damage and armor upgrades.
 Button/Tooltip/CRPGCivilian=Nobody. Only used to select a hero. What a pitiful life.
 Button/Tooltip/CRPGCrashedBattlecruiser=The remains of a downed Battlecruiser. Medical facilities miraculously continue to function.
-Button/Tooltip/CRPGInfested=Supportive summoner. Uses summons to attack the enemy for it.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Infested Eggs</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Caustic Weapons<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Abberate<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Hardened Flesh<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Neural Parasite</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGFighter=Aggressive hero uses gap-closers and powerful weapons to take down its foes.<n/><n/><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Rapid Strikes</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Psi Blades</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Shadow Charge</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Resurgence</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Shadow Assault</c>
+Button/Tooltip/CRPGFighterLevel2=Powerful melee warrior. Can use Charge.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/CRPGFighterLevel3=Nerazim Faction<n/>Powerful melee warrior. Has Shadow Charge and Darkcoil abilities.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/CRPGFighterLevel4=Purifier Faction<n/>Powerful melee warrior. Has Charge and Reconstruction abilities.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/CRPGFighterLevel5=Hierarch of the Daelaam. Powerful psionic and melee warrior.
+Button/Tooltip/CRPGInfested=Supportive summoner. Uses Infested Terran to attack the enemy.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Infested Eggs</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Caustic Weapons<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Aberrate<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Hardened Equipment<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Infestation Spore</s><n/><n/><c val="#ColorAttackInfo">Can heal ground and air units.</c>
 Button/Tooltip/CRPGLevelUp=Levels up the hero to the next available level, granting it additional abilties.
 Button/Tooltip/CRPGMech=Support Hero. Uses defensive and area effect abilities to take on groups of enemies.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Emergency Evac</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Point Defense Drone<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">EMP<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Advanced targeting<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Barrage</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGMechG=Support Hero. Uses defensive and area effect abilities to take on groups of enemies.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Emergency Evac</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Point Defense Drone<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">EMP<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Advanced targeting<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Barrage</s><n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGSniper=Tactical assassin. Adept at destroying high-value targets.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Snipe</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Enhanced Optics<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Personal Cloaking<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Toxic Munitions<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Nuclear Strike</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGSniperLevel22=
-Button/Tooltip/CRPGVehicle=Uses flexibility and movement to out-maneuver enemies.<n/><n/><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Overdrive</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Automatic Servos</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Lock On</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Charged Cannon</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Siege Mode</c>
+Button/Tooltip/CRPGVehicle=Uses flexibility and movement to out-maneuver enemies.<n/><n/><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Overdrive</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Automatic Servos</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Lock On</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Graduating Range</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Siege Mode</c>
 Button/Tooltip/CRPGVehicleLevel3=Mobile assault drone. Can use Lock On to quickly fire while moving.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGVehicleLevel4=Fast, high-damage hovertank. Rail Gun can fire while the Diamondback is moving.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/FighterPsiBlades=The hero attacks twice, increasing its total base damage.
+Button/Tooltip/FighterRapidStrikes=Gain 50% increased attack speed for 8 seconds.
+Button/Tooltip/FighterResurgence=Grants invulnerability for <d ref="Behavior,FighterInvulnerableResurgence,Duration"/> seconds upon taking lethal damage, preventing death and replenishing Shields and Life. Releases a large blast of energy that knocks back and deals <c val="#ColorAttackInfo"><d ref="Effect,FighterResurgenceDamage,Amount"/></c> damage to all nearby enemies.<n/><n/>This effect cannot occur more than once every <d ref="Behavior,FighterResurgenceDisabled,Duration"/> seconds.
+Button/Tooltip/FighterShadowCharge=Briefly go invisible and intercept enemy ground units, increasing movement speed. Stuns nearby ground units on impact.
+Button/Tooltip/FighterShadowFury=Become invisible and unrevealable, jumping between <d ref="Behavior,FighterShadowFuryController,PeriodCount+1"/> targets, slashing at each <d ref="Effect,FighterShadowFuryAttackCreatePersistent,PeriodCount"/> (<d ref="Effect,FighterShadowFuryAttackRapidCreatePersistent2,PeriodCount"/> while Rapid Strikes is active) times.
+Button/Tooltip/Heal2=Heals a friendly biological target.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedivacHeal,RechargeVitalRate[0]"/> life per 1 energy.</c>
 Button/Tooltip/HunterScarabMine=Spider Mines pursue enemy units that come in range, and detonate for heavy area damage. Buried Spider Mines can only be seen by enemy Detectors.
+Button/Tooltip/InfestedAberrate=Merges two Infested Civilians into a more powerful monstrosity.
+Button/Tooltip/InfestedCausticWeapons=Infested Terran after the first two spawn with Gauss Rifles.
+Button/Tooltip/InfestedEmpathicRepercussion=When killed, the owner takes <d ref="Effect,InfestedEmpathicRepercussionModifyUnit,VitalArray[Life].Change * (-1)"/> damage and recovers <d ref="Effect,InfestedEmpathicRepercussionModifyUnit,VitalArray[Energy].Change"/> energy.
+Button/Tooltip/InfestedEmpathicRepercussionDouble=When killed, the owner takes <d ref="Effect,InfestedEmpathicRepercussionModifyUnit,VitalArray[Life].Change * (-1) * 2"/> damage and recovers <d ref="Effect,InfestedEmpathicRepercussionModifyUnit,VitalArray[Energy].Change  * 2"/> energy.
+Button/Tooltip/InfestedHardenedEquipment=Infested Marines and Bunkers deal 20% more damage. Infested Civilians and Bunkers take 20% reduced damage.
+Button/Tooltip/InfestedInfest=Permanently take control of a unit.
+Button/Tooltip/InfestedInfestedBunker=Infested Bunkers deal moderate damage and house Infested Marines.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/InfestedInfestedCivilian=Infested Civilians do moderate damage.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/InfestedInfestedEgg=Spawn an Infested Terran. Infested Terran last forever and hurt the caster when killed.
+Button/Tooltip/InfestedInfestedEggInfestedCivilian=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
+Button/Tooltip/InfestedInfestedEggInfestedMarine=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
+Button/Tooltip/InfestedInfestedMarine=Infested Marines do moderate damage.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/InfestedInfestedSupplies=This supply-giving unit is infested, allowing up to two additional Infested Terran to be summoned.
+Button/Tooltip/MechBarrage=Stuns all enemies in a small area. Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageDamage,Amount"/></c> damage over <d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]"/> seconds in a larger area.
 Button/Tooltip/MechCivilian=Mech Evacuee.<n/><n/>Return to base to enter a new mech.
-Button/Tooltip/MechEmergencyEvac=The Mech ejects, destroying the Mech unit and creating an invulnerable Civilian that can return to base and re-acquire another Mech.<n/><n/><c val="FF0000">WARNING: Resets your current level progress.</c>
+Button/Tooltip/MechEmergencyEvac=Eject, destroying the hero and creating an invulnerable Civilian that can return to base to re-acquire another Mech.<n/><n/><c val="FF0000">WARNING: Resets your current level progress.</c>
 Button/Tooltip/MechMultiLockTargetingSystem=The hero can target ground and air units simultaneously.
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
 Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that use automated defensive lasers to intercept enemy projectiles.
-Button/Tooltip/MechShockBlast=Unleash a violent burse of energy, stunning and dealing <c val="#ColorAttackInfo"><d ref="Effect,MechShockBlastDamage,Amount"/></c> damage to all nearby enemies.
+Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShocking,PeriodCount * Effect,MechShockBlastDamage,Amount"/></c> damage to nearby enemies over <d ref="Behavior,MechShocked,Duration"/> seconds.
 Button/Tooltip/SniperCloakOff=Decloaks the selected unit, making it visible to enemies.
 Button/Tooltip/SniperCloakOn=Cloaks the hero, preventing enemy units from seeing or attacking it. A cloaked unit will only be revealed by detectors or effects.<n/><n/><c val="f078ff">Drains <d ref="-1 * (Behavior,GhostCloak,Modification.VitalRegenArray[2] + Unit,CRPGSniperLevel3,EnergyRegenRate)" precision="1"/> energy per second.</c>
 Button/Tooltip/SniperEnhancedOptics=Snipe casts instantly. Increased sight range.
 Button/Tooltip/SniperLevel5=Can use Snipe, Personal Cloaking, and Nuclear Strike.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/SniperNuclearStrike=Calls down a Nuclear Strike at a target location. Nuke takes <d ref="Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay"/> seconds to land and deals up to <d ref="Effect,SniperNuclearStrikeDamage,Amount"/> (+<d ref="Effect,SniperNuclearStrikeDamage,AttributeBonus[Structure]"/> vs. structures) damage to enemies in a large radius.
+Button/Tooltip/SniperNuclearStrike=Calls down a Nuclear Strike at a target location. Nuke takes <d ref="Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay"/> seconds to land and deals up to <c val="#ColorAttackInfo"><d ref="Effect,SniperNuclearStrikeDamage,Amount"/></c> (<c val="#ColorAttackInfo"><d ref="Effect,SniperNuclearStrikeDamage,Amount + Effect,SniperNuclearStrikeDamage,AttributeBonus[Structure]"/></c> vs. Structure) damage to enemies in a large radius.
 Button/Tooltip/SniperSnipe=A careful shot, dealing <c val="#ColorAttackInfo"><d ref="Effect,SniperSnipeDamage,Amount"/></c> (<c val="#ColorAttackInfo"><d ref="Effect,SniperSnipeDamage,Amount + Effect,SniperSnipeDamage,AttributeBonus[5]"/></c> vs. Psionic) damage. Ignores armor.<n/><n/><c val="#ColorAttackInfo">Can only target biological units.</c>
 Button/Tooltip/SniperToxicMunitions=The Sniper's projectiles are coated in a deadly toxin that deals <c val="#ColorAttackInfo"><d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Effect,SniperDeadlyToxinDamage,Amount"/></c> damage over <d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period"/> seconds to any enemy damaged by it for the first time.
 Button/Tooltip/VehicleAutomaticServos=The Vehicle's turret can fire while moving.
 Button/Tooltip/VehicleCancel=Cancels the current Lock On, and allows you to select a new target.
 Button/Tooltip/VehicleGraduatingRange=Increases the hero's range by 6 over 12 seconds while it remains immobile.
 Button/Tooltip/VehicleLockOn=Locks the hero's weapons on the target unit, attacking it significantly faster. Cancels if target moves out of range.
-Button/Tooltip/VehicleOverdrive=Increases the hero's movement speed by <d ref="Behavior,VehicleOverdrive,Modification.MoveSpeedBonus"/> for <d ref="Behavior,VehicleOverdrive,Duration"/> seconds.
+Button/Tooltip/VehicleOverdrive=<c val="800000">Increases the hero's movement speed by <d ref="(Behavior,VehicleOverdrive,Modification.MoveSpeedMultiplier - 1) * 100" precision="1"/>% for <d ref="Behavior,VehicleOverdrive,Duration"/> seconds.</c>
 Button/Tooltip/VehicleSiegeMode=Deploys into Siege Mode. In this mode, the hero gains an area attack and does more damage. While in Siege Mode, the hero cannot move or attack targets at close range.
 Button/Tooltip/VehicleUnsiege=Reverts to Tank Mode. In this mode the hero can move, but does less damage.
-DocInfo/DescLong=Remake of the StarCraft: Brood War map of the same name.
+DocInfo/DescLong=A spiritual sequel to the classic StarCraft: Brood War map series, Crash RPG.
 DocInfo/DescShort=Any
 DocInfo/Name=Crash RPG
 Effect/Name/ATALaserBatteryATADamage=Laser Battery
@@ -150,29 +242,143 @@ Effect/Name/AeroYamatoGunApplyBehavior=Yamato Gun
 Effect/Name/AeroYamatoGunDamage=Yamato Gun
 Effect/Name/AeroYamatoGunLaunchMissile=Yamato Gun
 Effect/Name/AeroYamatoGunSet=Yamato Gun
-Effect/Name/BlightbringerCreateEggs2=BlightbringerCreateEggs (Unnamed) Copy
-Effect/Name/BlightbringerCreateEggsImpact2=BlightbringerCreateEggsImpact (Unnamed) Copy
-Effect/Name/BlightbringerCreateEggsLaunchMissile2=BlightbringerCreateEggsLaunchMissile (Unnamed) Copy
-Effect/Name/BlightbringerCreateEggsSet2=BlightbringerCreateEggsSet (Unnamed) Copy
+Effect/Name/BeaconGiveHeroGiveSet=Give Hero
+Effect/Name/BeaconGiveHeroModifyUnit=Give Hero
+Effect/Name/BeaconGiveHeroRemoveBehavior=Give Hero
+Effect/Name/BeaconGiveHeroSearchArea=Give Hero
+Effect/Name/BeaconGiveHeroSet=Give Hero
 Effect/Name/CRPGAddExperience1=Add Experience
 Effect/Name/CRPGAddExperience12500=Add Experience
 Effect/Name/CRPGAddExperience15000=Add Experience
 Effect/Name/CRPGAddExperience7500=Add Experience
 Effect/Name/CRPGControlArmoryApplyBehavior=Control Armory
+Effect/Name/CRPGControlCrashedBattlecruiserApplyBehavior=Control Crashed Battlecruiser
+Effect/Name/CRPGGiveAttributeArmorUnit=Give Attribute
+Effect/Name/CRPGGiveAttributeBaseAttributes=Give Attribute
+Effect/Name/CRPGGiveAttributeDamage=Give Attribute
+Effect/Name/CRPGGiveAttributeLevelCounter=Give Attribute
+Effect/Name/CRPGGiveAttributes=Give Attributes
 Effect/Name/CRPGIncreaseLevelCounter=Increase Level Counter
+Effect/Name/CRPGTransferAttributes=Transfer Attributes
 Effect/Name/CRPGUpgradeArmor=Upgrade Armor
 Effect/Name/CRPGUpgradeDamage=Upgrade Damage
 Effect/Name/CalldownMech=Calldown Mech
+Effect/Name/CrashedBattlecruiserMedicalFacilitiesApplyBehavior=Medical Facilities
+Effect/Name/CrashedBattlecruiserMedicalFacilitiesApplyShieldBehavior=Medical Facilities
+Effect/Name/CrashedBattlecruiserMedicalFacilitiesSearchArea=Medical Facilities
+Effect/Name/CrashedBattlecruiserMedicalFacilitiesSet=Medical Facilities
+Effect/Name/FighterPsiBladesCreatePersistent=Psi Blades
+Effect/Name/FighterPsiBladesDamage=Psi Blades
+Effect/Name/FighterRapidStrikes=Rapid Strikes
+Effect/Name/FighterResurgenceApplyDisableBehavior=Resurgence
+Effect/Name/FighterResurgenceApplyInvulnerableBehavior=Resurgence
+Effect/Name/FighterResurgenceApplyStunBehavior=Resurgence
+Effect/Name/FighterResurgenceApplySuppressedBehavior=Resurgence
+Effect/Name/FighterResurgenceCreatePersistent=Resurgence
+Effect/Name/FighterResurgenceDamage=Resurgence
+Effect/Name/FighterResurgenceEnemyImpactSet=Resurgence
+Effect/Name/FighterResurgenceExplodeSet=Resurgence
+Effect/Name/FighterResurgenceHeal=Resurgence
+Effect/Name/FighterResurgenceSearchArea=Resurgence
+Effect/Name/FighterResurgenceSet=Resurgence
+Effect/Name/FighterShadowChargeApplyBehavior=Shadow Charge
+Effect/Name/FighterShadowChargeApplySlowBehavior=Shadow Charge
+Effect/Name/FighterShadowChargeApplyStunBehavior=Shadow Charge
+Effect/Name/FighterShadowChargeSearchArea=Shadow Charge
+Effect/Name/FighterShadowChargeSwitch=Shadow Charge
+Effect/Name/FighterShadowFuryApplyControllerBehavior=Shadow Fury
+Effect/Name/FighterShadowFuryApplyFinalDelayBehavior=Shadow Fury
+Effect/Name/FighterShadowFuryApplyTargetBehavior=Shadow Fury
+Effect/Name/FighterShadowFuryAttackCreatePersistent=Shadow Fury
+Effect/Name/FighterShadowFuryAttackRapidCreatePersistent2=Shadow Fury
+Effect/Name/FighterShadowFuryAttackRapidCreatePersistent22=Shadow Fury
+Effect/Name/FighterShadowFuryCreatePersistent=Shadow Fury
+Effect/Name/FighterShadowFuryFacing=Shadow Fury
+Effect/Name/FighterShadowFuryImpactSet=Shadow Fury
+Effect/Name/FighterShadowFurySearchArea=Shadow Fury
+Effect/Name/FighterShadowFurySet=Shadow Fury
+Effect/Name/FighterShadowFuryTeleport=Shadow Fury
+Effect/Name/FighterShadowFuryTeleportCreatePersistent1=Shadow Fury
+Effect/Name/FighterShadowFuryTeleportCreatePersistent2=Shadow Fury
+Effect/Name/FighterShadowFuryTeleportCreatePersistent3=Shadow Fury
+Effect/Name/FighterShadowFuryTeleportCreatePersistent4=Shadow Fury
+Effect/Name/FighterShadowFuryTeleportCreatePersistent5=Shadow Fury
+Effect/Name/FighterShadowFuryTeleportFinal=Shadow Fury
+Effect/Name/FighterShadowFuryTeleportFinalCreatePersistent=Shadow Fury
+Effect/Name/FighterShadowFuryTeleportSwitch=Shadow Fury
+Effect/Name/FighterSolariteReaperCleaveSet=Solarite Reaper
+Effect/Name/FighterSolariteReaperCreatePersistent=Solarite Reaper
+Effect/Name/FighterSolariteReaperDamage=Solarite Reaper
 Effect/Name/HunterScarabMineBurrowOrder=Scarab Mine
 Effect/Name/HunterScarabMineCreateUnit=Scarab Mine
 Effect/Name/HunterScarabMineSet=Scarab Mine
+Effect/Name/InfestedAberrateApplyBehavior=Aberrate
+Effect/Name/InfestedAberrateCreateSet=Aberrate
+Effect/Name/InfestedAberrateCreateUnit=Aberrate
+Effect/Name/InfestedAberrateDelayedRefund=Aberrate
+Effect/Name/InfestedAberrateKill=Aberrate
+Effect/Name/InfestedAberrateKillSet=Aberrate
+Effect/Name/InfestedAberrateRefundEnergy=Aberrate
+Effect/Name/InfestedAberrateSearchAreaDetectCivilians=Aberrate
+Effect/Name/InfestedAberrateSearchAreaKillCivilians=Aberrate
+Effect/Name/InfestedAberrateSet=Aberrate
+Effect/Name/InfestedAberrateSwitch=Aberrate
+Effect/Name/InfestedBunkerDebrisClaw=Debris Claw
+Effect/Name/InfestedBunkerInfestedGaussRifleDamage1=Infested Gauss Rifle
+Effect/Name/InfestedBunkerInfestedGaussRifleDamage2=Infested Gauss Rifle
+Effect/Name/InfestedBunkerInfestedGaussRifleDamage3=Infested Gauss Rifle
+Effect/Name/InfestedBunkerInfestedGaussRifleDamage4=Infested Gauss Rifle
+Effect/Name/InfestedCivilianInfestedClawsDamage=Infested Claws
+Effect/Name/InfestedEmpathicRepercussionApplyBehavior=Empathic Repercussion
+Effect/Name/InfestedEmpathicRepercussionLaunchMissile=Empathic Repercussion
+Effect/Name/InfestedEmpathicRepercussionModifyUnit=Empathic Repercussion
+Effect/Name/InfestedEmpathicRepercussionRemoveBehavior=Empathic Repercussion
+Effect/Name/InfestedHardenedEquipmentApplyDefensiveBehavior=Hardened Equipment
+Effect/Name/InfestedHardenedEquipmentApplyOffensiveBehavior=Hardened Equipment
+Effect/Name/InfestedInRangeApplyBehavior=In Range
+Effect/Name/InfestedInRangeSearchArea=In Range
+Effect/Name/InfestedInfestationSporeApplyBehavior=Infestation Spore
+Effect/Name/InfestedInfestationSporeLaunchMissile=Infestation Spore
+Effect/Name/InfestedInfestationSporeModifyUnit=Infestation Spore
+Effect/Name/InfestedInfestationSporeRemoveUninfestedOverlord=Infestation Spore
+Effect/Name/InfestedInfestationSporeSet=Infestation Spore
+Effect/Name/InfestedInfestedApplyBehavior=Infested
+Effect/Name/InfestedInfestedApplyInfestedBehavior=Infested
+Effect/Name/InfestedInfestedApplySet=Infested
+Effect/Name/InfestedInfestedCivilianIssueOrder=Infested Civilian
+Effect/Name/InfestedInfestedEggApplyExcessBehavior=Infested Egg
+Effect/Name/InfestedInfestedEggCreateEgg=Infested Egg
+Effect/Name/InfestedInfestedEggCreateEggMarine=Infested Egg
+Effect/Name/InfestedInfestedEggCreatePersistent=Infested Egg
+Effect/Name/InfestedInfestedEggCreatePersistentMarine=Infested Egg
+Effect/Name/InfestedInfestedEggImpactSet=Infested Egg
+Effect/Name/InfestedInfestedEggImpactSetMarine=Infested Egg
+Effect/Name/InfestedInfestedEggInitialSet=Infested Egg
+Effect/Name/InfestedInfestedEggInitialSetMarine=Infested Egg
+Effect/Name/InfestedInfestedEggLaunchMissile=Infested Egg
+Effect/Name/InfestedInfestedEggLaunchMissileMarine=Infested Egg
+Effect/Name/InfestedInfestedEggSwitch=Infested Egg
+Effect/Name/InfestedInfestedEggTransferAttributesSwitch=Infested Egg
+Effect/Name/InfestedInfestedEggTransferAttributesSwitchMarine=Infested Egg
+Effect/Name/InfestedInfestedMarineIssueOrder=Infested Marine
+Effect/Name/InfestedInfestedPersistent=Infested
+Effect/Name/InfestedInfestedRemoveBehavior=Infested
+Effect/Name/InfestedInfestedRemoveInfestedBehavior=Infested
+Effect/Name/InfestedInfestedRemoveSet=Infested
+Effect/Name/InfestedMarineInfestedGaussRifleDamage=Infested Gauss Rifle
 Effect/Name/InfestedMendingSalivaDamageDummy=Mending Saliva
 Effect/Name/InfestedMendingSalivaHealing=Mending Saliva
 Effect/Name/InfestedMendingSalivaHealingBiological=Mending Saliva
 Effect/Name/InfestedMendingSalivaLaunchMissile=Mending Saliva
 Effect/Name/InfestedMendingSalivaSwitch=Mending Saliva
+Effect/Name/InfestedRepercussionLaunchMissile=Repercussion
 Effect/Name/JavelinMissileLaunchersCreatePer=Javelin Missile Launchers
 Effect/Name/LaserBatteryATSLaunchMissile=Laser Battery
+Effect/Name/MechBarrageApplyBehavior=Barrage
+Effect/Name/MechBarrageCreatePersistent=Barrage
+Effect/Name/MechBarrageDamage=Barrage
+Effect/Name/MechBarrageSearchArea=Barrage
+Effect/Name/MechBarrageSet=Barrage
 Effect/Name/MechCalldownMech=Calldown Mech
 Effect/Name/MechCalldownMechAddLevelsSwitch=Calldown Mech
 Effect/Name/MechCalldownMechApplyBehavior=Calldown Mech
@@ -202,7 +408,8 @@ Effect/Name/MechPointDefenseLaserSearch=Point Defense Laser
 Effect/Name/MechPointDefenseLaserSet=Point Defense Laser
 Effect/Name/MechRailgunDamage=Railgun
 Effect/Name/MechRailgunMissile=Railgun
-Effect/Name/MechShockBlastApplyBehavior=Shock Blast
+Effect/Name/MechShockBlastApplyBehaviorShocked=Shock Blast
+Effect/Name/MechShockBlastApplyBehaviorShocking=Shock Blast
 Effect/Name/MechShockBlastCreatePersistent=Shock Blast
 Effect/Name/MechShockBlastDamage=Shock Blast
 Effect/Name/MechShockBlastSearchArea=Shock Blast
@@ -210,15 +417,12 @@ Effect/Name/MechShockBlastSet=Shock Blast
 Effect/Name/MechThorsHammerCreatePersistent=Thor's Hammer
 Effect/Name/MechThorsHammerDamage=Thor's Hammer
 Effect/Name/MechTwinAutocannonsDamage=Twin Autocannons
-Effect/Name/NeuralParasite2=Neural Parasite (Apply Behavior Normal) Copy
-Effect/Name/NeuralParasiteApplyTimedLife2=Neural Parasite Copy
 Effect/Name/NeuralParasiteDroneCheck2=Neural Parasite Drone Check Copy
 Effect/Name/NeuralParasiteDroneRemoveCheck2=Neural Parasite Drone Remove Check Copy
-Effect/Name/NeuralParasiteLaunchMissile2=Neural Parasite (Launch Missile) Copy
 Effect/Name/NeuralParasiteLockOnRemove2=Neural Parasite Lock On Remove Copy
-Effect/Name/NeuralParasitePersistent2=Neural Parasite (Create Persistent) Copy
 Effect/Name/NeuralParasitePersistentDestroy2=Neural Parasite Persistent Destroy Copy
 Effect/Name/NeuralParasitePersistentSet2=Neural Parasite Persistent Set Copy
+Effect/Name/RapidStrikesApplyBehavior=Rapid Strikes
 Effect/Name/SniperC10CanisterRifleDamage=C-10 Canister Rifle
 Effect/Name/SniperC20ACanisterRifleDamage=C-20A Canister Rifle
 Effect/Name/SniperDeadlyToxinApplyBehavior=Deadly Toxin
@@ -231,6 +435,7 @@ Effect/Name/SniperNuclearStrikeDetonate=Nuclear Strike
 Effect/Name/SniperNuclearStrikePersistent=Nuclear Strike
 Effect/Name/SniperSnipeDamage=Snipe
 Effect/Name/SniperWeaponsFree=Weapons Free
+Effect/Name/SwarmQueenRegenAuraTarget2=Regeneration Aura (Target) Copy
 Effect/Name/VehicleArcliteCannonDamage=Arclite Cannon
 Effect/Name/VehicleCrucioShockCannonBlast=Crucio Shock Cannon
 Effect/Name/VehicleCrucioShockCannonDirected=Crucio Shock Cannon
@@ -266,16 +471,21 @@ Effect/Name/VehicleTyphoonMissilePodLaunchMissileRight=Typhoon Missile Pod
 Effect/Name/VehicleTyphoonMissilePodLaunchMissileRightSet=Typhoon Missile Pod
 Effect/Name/VehicleTyphoonMissilePodLaunchMissileSwitch=Typhoon Missile Pod
 LoadingScreen/Title=<s val="CampaignPanelTitle"><c val="993300">Crash RPG</c></s>
+LookAtType/CycloneTurret=
 MapInfo/Player00/Name=Neutral
 MapInfo/Player01/Name=Survivor 1
 MapInfo/Player02/Name=Survivor 2
 MapInfo/Player03/Name=Survivor 3
 MapInfo/Player04/Name=Survivor 4
 MapInfo/Player05/Name=Survivor 5
-MapInfo/Player06/Name=Survivors
-MapInfo/Player07/Name=Aliens
-MapInfo/Player08/Name=Hostile
+MapInfo/Player06/Name=Survivor 6
+MapInfo/Player07/Name=Survivors
+MapInfo/Player08/Name=Aliens
+MapInfo/Player09/Name=Hostile
+Param/Value/20A0E835=Ground defences are down.
 RequirementNode/Tooltip/CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit1337265981=Hero in range
+RequirementNode/Tooltip/CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428=Near Crashed Battlecruiser
+RequirementNode/Tooltip/CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055=Near summoner
 RequirementNode/Tooltip/GT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnit=Correct Level
 RequirementNode/Tooltip/GTE142027770CountBehaviorLevelCounterCompleteOnlyAtUnit5=Level 5
 RequirementNode/Tooltip/GTE1845366357CountBehaviorLevelCounterCompleteOnlyAtUnit4=Level 4
@@ -283,10 +493,18 @@ RequirementNode/Tooltip/GTE2494718353CountBehaviorLevelCounterCompleteOnlyAtUnit
 RequirementNode/Tooltip/GTE2832794247CountBehaviorLevelCounterCompleteOnlyAtUnit1=Level 1
 RequirementNode/Tooltip/GTE774336177CountBehaviorLevelCounterCompleteOnlyAtUnit2=Level 2
 RequirementNode/Tooltip/LT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5=Not maximum level
+RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=Not Infested
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
+RequirementNode/Tooltip/Not3697774798CountBehaviorInfestedInfestedCompleteOnly=No Infestation Spore Victim
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGHeroes=Crash RPG Heroes
+UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGUnits=Crash RPG Units
 Unit/Category/CrashRPGHeroes=Crash RPG Heroes
+Unit/Category/CrashRPGUnits=Crash RPG Units
+Unit/Category/ProtossUnits=Protoss
+Unit/LifeArmorName/ProtossArmor=Protoss Armor
 Unit/LifeArmorName/TerranVehiclePlating=Terran Vehicle Plating
+Unit/LifeArmorName/ZergBuildingArmor=Zerg Building Armor
+Unit/Name/Beacon_Terranmedium=Beacon
 Unit/Name/CRPGAero=Aero
 Unit/Name/CRPGAeroLevel1=Aero
 Unit/Name/CRPGAeroLevel2=Aero
@@ -298,31 +516,74 @@ Unit/Name/CRPGAlien=Alien
 Unit/Name/CRPGArmory=Armory
 Unit/Name/CRPGCivilian=Civilian
 Unit/Name/CRPGCrashedBattlecruiser=Crashed Battlecruiser
+Unit/Name/CRPGFighter=Fighter
 Unit/Name/CRPGInfested=Infested
 Unit/Name/CRPGMech=Mech
 Unit/Name/CRPGSniper=Sniper
 Unit/Name/CRPGSniperLevel22=Sniper Copy
 Unit/Name/CRPGVehicle=Vehicle
+Unit/Name/CreepTumor=Alien
+Unit/Name/CreepTumorBurrowed=Alien
+Unit/Name/CreepTumorUsed=Alien
+Unit/Name/DevourerMP=Alien
+Unit/Name/Drone=Alien
+Unit/Name/Extractor=Alien
+Unit/Name/GreaterSpire=Alien
+Unit/Name/GuardianMP=Alien
+Unit/Name/Hatchery=Alien
+Unit/Name/Hive=Alien
 Unit/Name/HunterScarabMine=Scarab Mine
+Unit/Name/Hydralisk=Alien
+Unit/Name/HydraliskDen=Alien
+Unit/Name/InfestationPit=Alien
+Unit/Name/InfestationSpore=Infestation Spore
+Unit/Name/InfestedInfestedBunker=Infested Bunker
+Unit/Name/InfestedInfestedCivilian=Infested Civilian
+Unit/Name/InfestedInfestedEggInfestedCivilian=Infested Egg
+Unit/Name/InfestedInfestedEggInfestedMarine=Infested Egg
+Unit/Name/InfestedInfestedEggMissile=Infested Egg
+Unit/Name/InfestedInfestedMarine=Infested Marine
 Unit/Name/KerriganGhostLab2=Sniper
+Unit/Name/Lair=Alien
+Unit/Name/Larva=Alien
 Unit/Name/MechCivilian=Civilian
 Unit/Name/MechCivilianEjectionWeapon=Civilian Ejection
 Unit/Name/MechHellfireMissileWeapon=Hellfire Missile
 Unit/Name/MechJavelinMissileWeapon=Javelin Missile
 Unit/Name/MechPointDefenseDrone=Point Defense Drone
 Unit/Name/MechRailgunWeapon=Railgun
+Unit/Name/NydusCanal=Alien
+Unit/Name/NydusNetwork=Alien
+Unit/Name/Overlord=Alien
+Unit/Name/Queen=Alien
 Unit/Name/SniperLevel4=Sniper
+Unit/Name/SpawningPool=Alien
 Unit/Name/SpiderMine=Scarab Mine
+Unit/Name/SpineCrawler=Alien
+Unit/Name/SpineCrawlerUprooted=Alien
+Unit/Name/Spire=Alien
+Unit/Name/SporeCrawler=Alien
+Unit/Name/SporeCrawlerUprooted=Alien
+Unit/Name/Ultralisk=Alien
+Unit/Name/UltraliskCavern=Alien
 Unit/Name/VehicleFragmentationGrenadeWeapon=Fragmentation Grenade
 Unit/Name/VehicleGaussCannonWeapon=Gauss Cannon
 Unit/Name/VehicleTyphoonMissilePodWeapon=Typhoon Missile Pod
-Upgrade/Name/CRPGArmor=Armor
-Upgrade/Name/CRPGDamage=Damage
+Unit/Name/WeaponEmpathicRepercussion=Empathic Repercussion
+Unit/Name/Zergling=Alien
 Weapon/Name/AeroArmageddonCannons=Armageddon Cannons
 Weapon/Name/AeroLaserBatteryATA=Laser Battery
 Weapon/Name/AeroLaserbatteryATS=Laser battery
 Weapon/Name/AeroYamatoGun=Yamato Gun
+Weapon/Name/FighterPsiBlades=Psi Blades
+Weapon/Name/FighterSolariteReaper=Solarite Reaper
 Weapon/Name/Hyperion32=ATS Laser Battery Copy
+Weapon/Name/InfestedBunkerInfestedGaussRifle2=Infested Gauss Rifle
+Weapon/Name/InfestedBunkerInfestedGaussRifle3=Infested Gauss Rifle
+Weapon/Name/InfestedBunkerInfestedGaussRifle4=Infested Gauss Rifle
+Weapon/Name/InfestedBunkerNeosteelClaw=Neosteel Claw
+Weapon/Name/InfestedCivilianInfestedClaws=Infested Claws
+Weapon/Name/InfestedMarineInfestedGaussRifle=Infested Gauss Rifle
 Weapon/Name/InfestedMendingSaliva=Mending Saliva
 Weapon/Name/MechFusionCutter=Fusion Cutter
 Weapon/Name/MechGatlingCannon=Gatling Cannon

@@ -1,10 +1,42 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Preload>
 <Actor id="SYSTEM_ActorConfig"/>
+<Behavior id="Invulnerable"/>
+<Model id="BattlecruiserPortrait"/>
+<Sound id="Dialogue_Transmission5Seconds" Variations="0"/>
 <Terrain id="ShakurasTemple"/>
 <Unit id="SupplyDepot"/>
 <Unit id="MissileTurret"/>
 <Unit id="Bunker"/>
+<Unit id="Hatchery"/>
+<Unit id="Extractor"/>
+<Unit id="SpawningPool"/>
+<Unit id="HydraliskDen"/>
+<Unit id="UltraliskCavern"/>
+<Unit id="InfestationPit"/>
+<Unit id="SpineCrawler"/>
+<Unit id="SporeCrawler"/>
+<Unit id="Hive"/>
+<Unit id="GreaterSpire"/>
+<Unit id="Drone"/>
+<Unit id="Zergling"/>
+<Unit id="Overlord"/>
+<Unit id="Hydralisk"/>
+<Unit id="Ultralisk"/>
+<Unit id="HydraliskBurrowed"/>
+<Unit id="ZerglingBurrowed"/>
+<Unit id="Queen"/>
+<Unit id="CreepTumorBurrowed"/>
+<Unit id="NydusCanal"/>
+<Unit id="MineralField" Variations="0,1,2,3,4,5,6,7,8,9"/>
+<Unit id="GuardianMP"/>
+<Unit id="CRPGInfestedLevel1"/>
+<Unit id="CRPGAeroLevel1"/>
+<Unit id="CRPGFighterLevel1"/>
+<Unit id="CRPGVehicleLevel1"/>
+<Unit id="CRPGMechLevel1"/>
+<Unit id="CRPGSniperLevel1"/>
+<Unit id="Beacon_Terranmedium"/>
 <Unit id="CRPGArmory"/>
 <Unit id="CRPGCrashedBattlecruiser"/>
 <Unit id="CRPGCivilian"/>

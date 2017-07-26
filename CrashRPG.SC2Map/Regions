@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Regions>
+    <region id="1">
+        <name value="Survivor Base"/>
+        <shape type="circle">
+            <center value="72.125,72"/>
+            <radius value="12.0004"/>
+        </shape>
+    </region>
+</Regions>

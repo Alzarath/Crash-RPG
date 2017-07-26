@@ -1,9 +1,148 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CValidatorUnitCompareCargo id="CRPGCargoGE5">
+        <Compare value="LT"/>
+        <Value value="5"/>
+    </CValidatorUnitCompareCargo>
+    <CValidatorUnitCompareCargo id="CRPGCargoGE6">
+        <Compare value="LT"/>
+        <Value value="6"/>
+    </CValidatorUnitCompareCargo>
+    <CValidatorUnitCompareCargo id="CRPGCargoLT1">
+        <Compare value="LT"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareCargo>
+    <CValidatorUnitCompareCargo id="CRPGCargoLT2">
+        <Compare value="LT"/>
+        <Value value="2"/>
+    </CValidatorUnitCompareCargo>
+    <CValidatorUnitCompareCargo id="CRPGCargoLT3">
+        <Compare value="LT"/>
+        <Value value="3"/>
+    </CValidatorUnitCompareCargo>
+    <CValidatorUnitCompareCargo id="CRPGCargoGE4">
+        <Compare value="LT"/>
+        <Value value="4"/>
+    </CValidatorUnitCompareCargo>
+    <CValidatorUnitFilters id="CRPGIsHero">
+        <Filters value="Heroic;-"/>
+    </CValidatorUnitFilters>
+    <CValidatorUnitCompareBehaviorCount id="CRPGCasterGELevel2">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel3InfestedEgg">
+        <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="3"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CRPGCasterGELevel3">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="3"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel4InfestedEgg">
+        <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="4"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CRPGCasterGELevel4">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="4"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel5InfestedEgg">
+        <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel2InfestedEggMarine">
+        <WhichUnit Effect="InfestedInfestedEggCreateEggMarine" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel3InfestedEggMarine">
+        <WhichUnit Effect="InfestedInfestedEggCreateEggMarine" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="3"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel4InfestedEggMarine">
+        <WhichUnit Effect="InfestedInfestedEggCreateEggMarine" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="4"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel5InfestedEggMarine">
+        <WhichUnit Effect="InfestedInfestedEggCreateEggMarine" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CRPGCasterGELevel5">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="FighterHasRapidStrikes">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="FighterRapidStrikes"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorLocationEnumArea id="FighterTargetsInAreaShadowFury">
+        <ResultFailed value="LoadAllNoTargetsFound,No Targets Found"/>
+        <WhichLocation Effect="FighterShadowFuryCreatePersistent"/>
+        <AreaArray Compare="GT" Count="0" Radius="5"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,RawResource,HarvestableResource,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorPlayerRequirement id="InfestedHas2InfestedCivilian">
+        <Value value="InfestedHas2InfestedCivilian"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorPlayerRequirement id="InfestedHasOverlord">
+        <Value value="InfestedHasOverlord"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="InfestedInRange">
+        <Value value="1"/>
+        <Behavior value="InfestedInRange"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="InfestedNotInRange">
+        <WhichUnit Value="Source"/>
+        <Behavior value="InfestedInRange"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="InfestedMaxInfestedMarines">
+        <Value value="InfestedMaxInfestedMarines"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="InfestedHasHardenedEquipment">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="InfestedHardenedEquipmentCaster"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="InfestedTargeted2InfestedCivilians">
+        <Find value="1"/>
+        <Value value="InfestedTargetedGE2InfestedCivilian"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitType id="InfestedIsInfestedCivilian2">
+        <Value value="InfestedInfestedCivilian"/>
+    </CValidatorUnitType>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel1CalldownMech">
         <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="1"/>
+        <Behavior value="LevelCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterGELevel2InfestedEgg">
+        <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="2"/>
         <Behavior value="LevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel2EmergencyEvac">
@@ -65,6 +204,12 @@
         <Value value="2"/>
         <Behavior value="HeroVeterancy"/>
     </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitType id="InfestedIsInfestedMarine">
+        <Value value="InfestedInfestedMarine"/>
+    </CValidatorUnitType>
+    <CValidatorUnitCompareBehaviorCount id="MechNotShocking">
+        <Behavior value="MechShocking"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorLocationCompareRange id="VehicleLockOnCasterNearTarget">
         <WhichLocation Value="TargetUnit"/>
         <Compare value="LT"/>

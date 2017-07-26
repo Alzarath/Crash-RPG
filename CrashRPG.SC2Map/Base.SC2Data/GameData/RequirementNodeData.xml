@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CRequirementAnd id="AndCountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
+        <OperandArray value="CountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnit"/>
+        <OperandArray value="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
+    </CRequirementAnd>
     <CRequirementAnd id="AndGT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnitLT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5">
         <OperandArray value="GT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnit"/>
         <OperandArray value="LT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly">
+        <OperandArray value="GTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4"/>
+        <OperandArray value="CountUnitOverlordCompleteOnly"/>
     </CRequirementAnd>
     <CRequirementCountBehavior id="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit1337265981">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGControlArmory" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGControlCrashedBattlecruiser" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="FighterResurgenceDisabled" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHeroVeterancyCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HeroVeterancy" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedCausticWeapons" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedEmpathicRepercussion" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorInfestedInfestedCivilianCountCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedInfestedCivilianCount" State="CompleteOnly"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorInfestedInfestedCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedInfested" State="CompleteOnly"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorLevelCounterCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -20,10 +52,42 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SniperHoldFire" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorUninfestedOverlordCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="UninfestedOverlord" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="VehicleLockOnDisableAttack" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
+    <CRequirementCountUnit id="CountUnitInfestedInfestedBunkerQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedInfestedBunker" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitInfestedInfestedCivilianQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedInfestedCivilian" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedInfestedEggInfestedCivilian" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedInfestedEggInfestedMarine" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitInfestedInfestedMarineQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedInfestedMarine" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitOverlordCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Overlord" State="CompleteOnly"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitOverlordQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="Overlord" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementGT id="GT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorHeroVeterancyCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="CountBehaviorLevelCounterCompleteOnlyAtUnit"/>
@@ -48,14 +112,57 @@
         <OperandArray index="0" value="CountBehaviorLevelCounterCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorInfestedInfestedCivilianCountCompleteOnly2">
+        <OperandArray index="0" value="CountBehaviorInfestedInfestedCivilianCountCompleteOnly"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
+        <OperandArray index="0" value="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter2"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4">
+        <OperandArray index="0" value="SumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter"/>
+        <OperandArray index="1" value="4"/>
+    </CRequirementGTE>
     <CRequirementLT id="LT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5">
         <OperandArray index="0" value="CountBehaviorLevelCounterCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="5"/>
     </CRequirementLT>
+    <CRequirementMul id="MulCountUnitInfestedInfestedBunkerQueuedOrBetter2">
+        <OperandArray value="CountUnitInfestedInfestedBunkerQueuedOrBetter"/>
+        <OperandArray value="2"/>
+    </CRequirementMul>
+    <CRequirementNot id="Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit">
+        <OperandArray index="0" value="OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit"/>
+    </CRequirementNot>
     <CRequirementNot id="Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
+    </CRequirementNot>
+    <CRequirementNot id="Not3697774798CountBehaviorInfestedInfestedCompleteOnly">
+        <OperandArray index="0" value="CountBehaviorInfestedInfestedCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotAndCountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
+        <OperandArray index="0" value="AndCountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotAndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly">
+        <OperandArray index="0" value="AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit">
+        <OperandArray index="0" value="CountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountBehaviorSniperHoldFireCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorSniperHoldFireCompleteOnlyAtUnit"/>
     </CRequirementNot>
+    <CRequirementOr id="OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit">
+        <OperandArray value="CountBehaviorUninfestedOverlordCompleteOnlyAtUnit"/>
+    </CRequirementOr>
+    <CRequirementSum id="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter2">
+        <OperandArray value="CountUnitInfestedInfestedCivilianQueuedOrBetter"/>
+        <OperandArray value="CountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetter"/>
+        <OperandArray value="MulCountUnitInfestedInfestedBunkerQueuedOrBetter2"/>
+    </CRequirementSum>
+    <CRequirementSum id="SumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter">
+        <OperandArray value="CountUnitInfestedInfestedMarineQueuedOrBetter"/>
+        <OperandArray value="CountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter"/>
+    </CRequirementSum>
 </Catalog>
