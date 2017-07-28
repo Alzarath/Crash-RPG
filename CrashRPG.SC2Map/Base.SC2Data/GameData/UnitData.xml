@@ -788,7 +788,6 @@
         <Collide index="Locust" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <Attributes index="Structure" value="1"/>
         <Attributes index="Summoned" value="1"/>
         <LifeStart value="200"/>
         <LifeMax value="200"/>

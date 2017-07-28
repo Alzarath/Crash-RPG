@@ -30,6 +30,7 @@ Abil/Name/MechPointDefenseDrones=Point Defense Drones
 Abil/Name/MechShockBlast=Shock Blast
 Abil/Name/ScarabMineBurrow=Burrow
 Abil/Name/ScarabMineUnburrow=Unburrow
+Abil/Name/ScarabMineUnburrowRangeDummy=Unburrow
 Abil/Name/SniperCloak=Personal Cloaking
 Abil/Name/SniperHoldFire=Hold Fire
 Abil/Name/SniperLevelUpMorphLevel2=Level Up

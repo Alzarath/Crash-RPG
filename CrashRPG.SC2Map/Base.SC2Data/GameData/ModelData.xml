@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="HitTestSphere">
+        <Model value="Assets\Units\Test\HitTestSphere\HitTestSphere.m3"/>
+    </CModel>
     <CModel id="PurifierDragoonPlacement" parent="Placement" Race="Protoss">
         <Model value="Assets\Units\Protoss\Dragoon_Purifier_Coop_PlacementModel\Dragoon_Purifier_Coop_PlacementModel.m3"/>
     </CModel>
@@ -103,9 +106,8 @@
     <CModel id="DevourerMP">
         <UnitGlossaryCamera value="Star2CameraLow08"/>
     </CModel>
-    <CModel id="InfestedInfestedBunker">
+    <CModel id="InfestedInfestedBunker" parent="Unit" Race="Zerg">
         <Model value="Assets\Units\Zerg\InfestedBunker_Coop\InfestedBunker_Coop.m3"/>
-        <EditorCategories value="Race:Zerg"/>
         <Events>
             <Anim value="Walk,00"/>
             <Name value="FootstepSound"/>
@@ -114,7 +116,6 @@
             <Payload value="InfestedBunker_Footsteps"/>
         </Events>
         <Radius value="1.250000"/>
-        <SelectionLayer value="2"/>
         <SelectionRadius value="1.500000"/>
         <ShadowRadius value="1.500000"/>
         <UnitGlossaryCamera value="Star2CameraMid08"/>

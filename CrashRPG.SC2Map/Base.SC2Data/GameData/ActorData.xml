@@ -103,6 +103,11 @@
         <On Terms="ActorCreation" Send="Create ImmortalTaldarimWeaponMissileA"/>
     </CActorMissile>
     <CActorRange id="HunterScatterCannonRange" parent="RangeAbil" abil="HunterScatterCannon"/>
+    <CActorModel id="SelectionEnabler" parent="ModelAnimationStyleContinuous">
+        <On Terms="UnitBirth.HunterScarabMine" Send="Create"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Model value="HitTestSphere"/>
+    </CActorModel>
     <CActorLookAt id="VehicleWeaponTurretLookAt" parent="UnitTurret">
         <On Terms="TurretEnable.CRPGVehicle" Send="Create"/>
         <Types Id="DefaultLookAtTurret" Name="LookAtType/CycloneTurret">
@@ -1017,14 +1022,8 @@
         <Host Subject="NeuralParasiteModel"/>
         <Sound value="Infestor_AttackLaunch_NP"/>
     </CActorSound>
-    <CActorUnit id="HunterScarabMine" parent="GenericUnitStandard" unitName="SpiderMine">
+    <CActorUnit id="HunterScarabMine" parent="GenericUnitStandard" unitName="HunterScarabMine">
         <Aliases value="_UnitSmall"/>
-        <On index="0" Terms="UnitBirth.HunterScarabMine"/>
-        <On index="1" Terms="UnitBirth.HunterScarabMine"/>
-        <On index="2" Terms="UnitRevive.HunterScarabMine"/>
-        <On index="3" Terms="UnitRevive.HunterScarabMine"/>
-        <On index="4" Terms="UnitConstruction.HunterScarabMine.Start"/>
-        <On index="5" Terms="UnitConstruction.HunterScarabMine.Finish"/>
         <On Terms="UnitBirth.HunterScarabMineBurrowed" Send="Create"/>
         <On Terms="Abil.attack.ReadyStart" Send="Create HunterScarabMineSeekSound"/>
         <On Terms="UnitBirth.HunterScarabMineBurrowed" Send="AnimPlay Stand Birth"/>
@@ -1034,7 +1033,7 @@
         <On Terms="AbilMorph.ScarabMineUnburrow.Start" Send="AnimClear Stand"/>
         <Model value="ScarabWeapon"/>
         <BuildModel value="Scarab"/>
-        <DeathArray index="Normal" ModelLink="SpiderMineExplosion" SoundLink="Terran_ExplosionSmall"/>
+        <DeathArray index="Normal" ModelLink="ScarabAttackImpact" SoundLink="Protoss_ExplosionSmall"/>
         <PlacementModel value="Scarab"/>
         <PortraitModel value="AdjutantPortrait"/>
         <BarOffset value="10"/>
@@ -1049,7 +1048,6 @@
         <Wireframe>
             <Image value="Assets\Textures\wireframe-protoss-stasisward.dds"/>
         </Wireframe>
-        <HighlightTooltip value="Unit/Name/HunterScarabMine"/>
         <WireframeShield>
             <Image value="Assets\Textures\wireframe-protoss-stasisward-shield01.dds"/>
             <Image value="Assets\Textures\wireframe-protoss-stasisward-shield02.dds"/>
@@ -2280,11 +2278,12 @@
         <On Terms="AbilMorph.ScarabMineUnburrow.Start" Send="Create"/>
         <Sound value="SentryMonitor_TargetLock_On"/>
     </CActorSound>
-    <CActorRange id="HunterScarabMineUnburrowRange">
-        <On Terms="SelectionLocalUpdate.HunterScarabMineBurrowed.Start" Send="Create"/>
-        <On Terms="SelectionLocalUpdate.HunterScarabMineBurrowed.Stop" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom SpiderMineBurrowed" Send="Destroy"/>
-        <Abil Link="ScarabMineUnburrow"/>
+    <CActorRange id="HunterScarabMineUnburrowRange" parent="RangeAbil">
+        <On index="1" Terms="SelectionLocalUpdate.HunterScarabMineBurrowed.Start" Send="Create"/>
+        <On index="2" Terms="SelectionLocalUpdate.HunterScarabMineBurrowed.Stop" Send="Destroy"/>
+        <On index="3" Terms="AbilMorph.*.Finish; MorphFrom HunterScarabMineBurrowed" Send="Destroy"/>
+        <On index="4" Terms="AbilMorph.*.Finish; MorphTo HunterScarabMineBurrowed; Selected" Send="Create"/>
+        <Abil Link="ScarabMineUnburrowRangeDummy"/>
     </CActorRange>
     <CActorAction id="InfestedMendingSalivaAttack" parent="GenericAttack" effectImpact="InfestedMendingSalivaHealing" effectLaunch="InfestedMendingSalivaLaunchMissile">
         <LaunchAssets Sound="Viper_AirAttack"/>

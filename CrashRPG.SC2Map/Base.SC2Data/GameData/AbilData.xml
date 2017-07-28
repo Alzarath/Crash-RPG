@@ -401,6 +401,10 @@
     <CAbilMorph id="FighterLevelUpMorphLevel4" parent="FighterLevelUpMorphLevel3">
         <InfoArray index="0" Unit="CRPGFighterLevel5"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="ScarabMineUnburrowRangeDummy">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Range value="2"/>
+    </CAbilEffectTarget>
     <CAbilMorph id="VehicleLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
         <InfoArray index="0" Unit="CRPGVehicleLevel2"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
