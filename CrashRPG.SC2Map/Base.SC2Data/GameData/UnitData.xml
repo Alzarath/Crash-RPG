@@ -1111,6 +1111,7 @@
         </CardLayouts>
         <GlossaryCategory value=""/>
         <ShieldRegenDelay value="0"/>
+        <Food value="6"/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel2" parent="CRPGInfestedLevel1">
         <TurningRate value="999.8437"/>
