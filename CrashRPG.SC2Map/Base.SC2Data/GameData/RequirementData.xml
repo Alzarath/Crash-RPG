@@ -10,6 +10,9 @@
     <CRequirement id="CRPGInRangeofCrashedBattlecruiser">
         <NodeArray index="Use" Link="CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428"/>
     </CRequirement>
+    <CRequirement id="HunterPsionicProjectionUnavailable">
+        <EditorCategories value="Race:Protoss"/>
+    </CRequirement>
     <CRequirement id="InfestedEmpathicRepercussion">
         <EditorCategories value="Race:Zerg"/>
         <NodeArray index="Use" Link="CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055"/>

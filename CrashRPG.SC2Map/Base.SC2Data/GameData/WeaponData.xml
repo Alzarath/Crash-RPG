@@ -208,11 +208,11 @@
     <CWeaponLegacy id="HunterParticleDisruptors">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <DisplayEffect value="ParticleDisruptorsU2"/>
+        <DisplayEffect value="HunterParticleDisruptorsDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
         <Period value="1.44"/>
-        <Effect value="ParticleDisruptors2"/>
+        <Effect value="HunterParticleDisruptorsLaunchMissile"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="HunterParticleBeam">
         <EditorCategories value="Race:Protoss"/>
@@ -451,5 +451,15 @@
         <Period value="2"/>
         <Effect value="InfestedMendingSalivaLaunchMissile"/>
         <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HunterScarabMines">
+        <EditorCategories value="Race:Terran"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-unit-terran-spidermine.dds"/>
+        <DisplayEffect value="HunterScarabMinesDamage"/>
+        <TargetFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.833"/>
+        <Effect value="HunterScarabMinesSet"/>
     </CWeaponLegacy>
 </Catalog>

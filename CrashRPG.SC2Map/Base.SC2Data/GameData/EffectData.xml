@@ -1,5 +1,63 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectRemoveBehavior id="HunterScatterCannonRemoveBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="ImmortalTaldarimMissileSpeedStack"/>
+        <Count value="16"/>
+    </CEffectRemoveBehavior>
+    <CEffectDamage id="HunterScatterCannonDamage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="40"/>
+    </CEffectDamage>
+    <CEffectSet id="HunterScatterCannonDamageSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterScatterCannonDamage"/>
+        <EffectArray value="HunterScatterCannonDamage"/>
+        <EffectArray value="HunterScatterCannonDamage"/>
+        <EffectArray value="HunterScatterCannonDamage"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="HunterScatterCannonLaunchMissile">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="HunterScatterCannonSearchArea"/>
+        <AmmoUnit value="ImmortalTaldarimWeaponMissile"/>
+        <Movers Link="ImmortalTaldarimWeaponMover" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="HunterScatterCannonLaunchMissileNoSearch">
+        <ValidatorArray value="TargetRadiusLE0Dot125"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="HunterScatterCannonDamage"/>
+        <AmmoUnit value="ImmortalTaldarimWeaponMissile"/>
+        <Movers Link="ImmortalTaldarimWeaponMover" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="HunterScatterCannonLaunchMissileSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterScatterCannonLaunchMissile"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="HunterScatterCannonCreatePersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetUnit"/>
+        <InitialEffect value="HunterScatterCannonLaunchMissileNoSearch"/>
+        <ExpireEffect value="HunterScatterCannonRemoveBehavior"/>
+        <FinalEffect value="HunterScatterCannonRemoveBehavior"/>
+        <PeriodCount value="4"/>
+        <PeriodicEffectArray value="HunterScatterCannonLaunchMissileSet"/>
+        <PeriodicOffsetArray value="-0.75,0,0"/>
+        <PeriodicOffsetArray value="0.75,0,0"/>
+        <PeriodicOffsetArray value="0,-0.75,0"/>
+        <PeriodicOffsetArray value="0,0.75,0"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.0625"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="HunterScatterCannonSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <IncludeArray Effect="ImmortalTaldarimWeaponRandomLarge" Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.6" Effect="HunterScatterCannonDamageSet"/>
+    </CEffectEnumArea>
     <CEffectSet id="MechCalldownMechCreateSet">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="MechCalldownMechAddLevelsSwitch"/>
@@ -1098,14 +1156,8 @@
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="KillsToCaster"/>
-        <SpawnUnit value="SpiderMine"/>
+        <SpawnUnit value="HunterScarabMine"/>
     </CEffectCreateUnit>
-    <CEffectSet id="HunterScarabMineSet">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="HunterScarabMineCreateUnit"/>
-        <EffectArray value="ReplenishNanoConstructor"/>
-        <TargetLocationType value="UnitOrPoint"/>
-    </CEffectSet>
     <CEffectApplyBehavior id="InfestedInfestationSporeApplyBehavior">
         <EditorCategories value="Race:Zerg"/>
         <WhichUnit Effect="InfestedInfestationSporeLaunchMissile"/>
@@ -1182,14 +1234,14 @@
         <EditorCategories value="Race:Protoss"/>
         <Amount value="5"/>
     </CEffectDamage>
-    <CEffectLaunchMissile id="ParticleDisruptors2">
+    <CEffectLaunchMissile id="HunterParticleDisruptorsLaunchMissile">
         <ValidatorArray index="0" value="StalkerTargetFilters"/>
         <ValidatorArray value=""/>
         <EditorCategories value="Race:Protoss"/>
-        <ImpactEffect value="StalkerEntropyLanceSearchSet2"/>
+        <ImpactEffect value="HunterParticleDisruptorsDamage"/>
         <AmmoUnit value="StalkerWeapon"/>
     </CEffectLaunchMissile>
-    <CEffectDamage id="ParticleDisruptorsU2" parent="DU_WEAP_MISSILE">
+    <CEffectDamage id="HunterParticleDisruptorsDamage" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Protoss"/>
         <AttributeBonus index="Armored" value="4"/>
         <Amount value="10"/>
@@ -1207,41 +1259,6 @@
     </CEffectDamage>
     <CEffectApplyBehavior id="RapidStrikesApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
-    </CEffectApplyBehavior>
-    <CEffectEnumArea id="StalkerEntropyLanceSearch2">
-        <ValidatorArray value="HaveVoidStalkerMultishot"/>
-        <EditorCategories value=""/>
-        <ExcludeArray Effect="StalkerEntropyLanceSearchSet" Value="Target"/>
-        <SearchFilters value="Visible;Self,Player,Ally,Neutral,Missile,Item,Stasis,Hidden,Invulnerable"/>
-        <AreaArray MaxCount="1" Radius="3" Effect="StalkerEntropyLanceSecondaryLM2"/>
-    </CEffectEnumArea>
-    <CEffectSet id="StalkerEntropyLanceSearchSet2">
-        <EditorCategories value=""/>
-        <EffectArray value="ParticleDisruptorsU2"/>
-        <EffectArray value="StalkerEntropyLanceSearch2"/>
-    </CEffectSet>
-    <CEffectDamage id="StalkerEntropyLanceSecondaryDamage2">
-        <EditorCategories value="Race:Protoss"/>
-        <ResponseFlags index="Acquire" value="1"/>
-        <ResponseFlags index="Flee" value="1"/>
-        <AttributeBonus index="Armored" value="3"/>
-        <ArmorReduction value="1"/>
-        <Flags index="Notification" value="1"/>
-        <Kind value="Ranged"/>
-        <Amount value="8"/>
-        <SearchFlags index="CallForHelp" value="1"/>
-        <SearchFlags index="OffsetByUnitRadius" value="1"/>
-        <SearchFlags index="OffsetAreaByAngle" value="1"/>
-    </CEffectDamage>
-    <CEffectLaunchMissile id="StalkerEntropyLanceSecondaryLM2">
-        <EditorCategories value="Race:Protoss"/>
-        <ImpactEffect value="StalkerEntropyLanceSecondaryDamage2"/>
-        <AmmoUnit value="StalkerSecondaryWeapon"/>
-    </CEffectLaunchMissile>
-    <CEffectApplyBehavior id="SwarmQueenRegenAuraTarget2">
-        <ValidatorArray value="LifeNotFull"/>
-        <EditorCategories value="Race:Zerg"/>
-        <Behavior value="CrashedBattlecruiserMedicalFacilities"/>
     </CEffectApplyBehavior>
     <CEffectTransferBehavior id="TransferKillsToSource">
         <LaunchUnit Value="Source"/>
@@ -1751,4 +1768,29 @@
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestCliff" value="1"/>
     </CEffectTeleport>
+    <CEffectDamage id="HunterScarabMinesDamage">
+        <EditorCategories value="Race:Protoss"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Splash"/>
+        <KindSplash value="Splash"/>
+        <Amount value="100"/>
+        <Death value="Blast"/>
+        <AreaArray Radius="0.4687" Fraction="1"/>
+        <AreaArray Radius="0.7812" Fraction="0.5"/>
+        <AreaArray Radius="1.25" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Self,Structure,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="1"/>
+    </CEffectDamage>
+    <CEffectSet id="HunterScarabMinesSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterScarabMinesDamage"/>
+        <EffectArray value="Suicide"/>
+    </CEffectSet>
 </Catalog>

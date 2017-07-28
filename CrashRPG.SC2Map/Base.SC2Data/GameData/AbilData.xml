@@ -71,6 +71,16 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="FighterRapidStrikes"/>
         <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
+    <CAbilEffectTarget id="HunterScatterCannon">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="HunterScatterCannonCreatePersistent"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Cooldown TimeUse="5"/>
+        </Cost>
+        <CursorEffect value="HunterScatterCannonSearchArea"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterScatterCannon"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="InfestedInfestationSpore">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="InfestedInfestationSporeLaunchMissile"/>
@@ -242,6 +252,12 @@
     </CAbilMorph>
     <CAbilMorph id="HunterLevelUpMorphLevel2" parent="HunterLevelUpMorphLevel1">
         <InfoArray index="0" Unit="CRPGHunterLevel3"/>
+    </CAbilMorph>
+    <CAbilMorph id="HunterLevelUpMorphLevel3" parent="HunterLevelUpMorphLevel2">
+        <InfoArray index="0" Unit="CRPGHunterLevel4"/>
+    </CAbilMorph>
+    <CAbilMorph id="HunterLevelUpMorphLevel4" parent="HunterLevelUpMorphLevel3">
+        <InfoArray index="0" Unit="CRPGHunterLevel5"/>
     </CAbilMorph>
     <CAbilEffectInstant id="MechShockBlast">
         <Alignment value="Negative"/>
@@ -583,19 +599,8 @@
         <Flags index="AutoCastOn" value="1"/>
         <Flags index="IgnoreFacing" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
-        <Cost>
-            <Charge Link="Abil/SpiderMineUnburrow"/>
-            <Cooldown Link="Abil/SpiderMineUnburrow"/>
-        </Cost>
         <InfoArray Unit="HunterScarabMine">
-            <SectionArray index="Actor">
-                <DurationArray index="Duration" value="0.6"/>
-            </SectionArray>
-            <SectionArray index="Mover">
-                <DurationArray index="Duration" value="0.6"/>
-            </SectionArray>
             <SectionArray index="Stats">
-                <DurationArray index="Duration" value="0.6"/>
                 <EffectArray index="Start" value="SpiderMineInvulnerable"/>
             </SectionArray>
         </InfoArray>
@@ -605,7 +610,7 @@
     </CAbilMorph>
     <CAbilEffectTarget id="HunterScarabMine">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Effect index="0" value="HunterScarabMineSet"/>
+        <Effect index="0" value="HunterScarabMineCreateUnit"/>
         <Cost>
             <Vital index="Energy" value="50"/>
             <Charge>
@@ -613,9 +618,11 @@
                 <CountStart value="3"/>
                 <CountUse value="1"/>
                 <Location value="Unit"/>
+                <TimeUse value="60"/>
+                <Flags index="RestoreAllChargesOnCooldown" value="1"/>
             </Charge>
         </Cost>
-        <Placeholder value="SpiderMine"/>
+        <Placeholder value="HunterScarabMine"/>
         <Range value="3"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="HunterScarabMine"/>
     </CAbilEffectTarget>
@@ -626,10 +633,6 @@
         <Flags index="AutoCastOn" value="1"/>
         <Flags index="IgnoreFacing" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
-        <Cost>
-            <Charge Link="Abil/SpiderMineBurrow"/>
-            <Cooldown Link="Abil/SpiderMineBurrow"/>
-        </Cost>
         <InfoArray Unit="HunterScarabMineBurrowed">
             <SectionArray index="Actor">
                 <DurationArray index="Delay" value="3.5332"/>

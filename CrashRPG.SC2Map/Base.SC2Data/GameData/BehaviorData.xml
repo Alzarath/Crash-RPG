@@ -112,6 +112,13 @@
         <Period value="1"/>
         <PeriodicEffect value="CrashedBattlecruiserMedicalFacilitiesSearchArea"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="HunterPsionicProjection">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterPsionicProjectionCooldown">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InfestedBunkerEnableGaussRifle1">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CRPGCargoLT1"/>

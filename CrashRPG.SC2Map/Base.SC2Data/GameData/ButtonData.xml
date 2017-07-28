@@ -35,6 +35,22 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-queen.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="HunterDisruptorVolley">
+        <Icon value="Assets\Textures\btn-ability-protoss-phasedisruptor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-phasedisruptor.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="HunterPsionicProjection">
+        <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="HunterScatterCannon">
+        <Icon value="Assets\Textures\BTN-Ability-Protoss-ScatterCannon.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Protoss-ScatterCannon.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="ImmortalTaldarimScatterCannon"/>
+    </CButton>
     <CButton id="MechCalldownMech">
         <Icon value="Assets\Textures\btn-ability-terran-calldownsupport.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-calldownsupport.dds"/>
@@ -155,8 +171,8 @@
         <TintRacially value="1"/>
     </CButton>
     <CButton id="HunterScarabMine">
-        <Icon value="Assets\Textures\btn-ability-terran-spidermine.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-spidermine.dds"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="VehicleUnsiege">

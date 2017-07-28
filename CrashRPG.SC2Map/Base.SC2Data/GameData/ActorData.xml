@@ -1,94 +1,14 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CActorUnit id="CRPGHunterLevel2" parent="GenericUnitStandard" unitName="CRPGHunterLevel2">
-        <Aliases value="_UnitSmall"/>
-        <Macros value="PhysicsDeathsSwarmGround"/>
-        <Macros value="PhysicsDeathsVoidGround"/>
-        <Macros value="TerrainSquibAnimations"/>
-        <On Terms="UnitHeightUpdate.*.Land" Send="Create Adept_Land"/>
-        <On Terms="UnitHeightUpdate.*.Land" Send="Create Templar_LandSweetener"/>
-        <On Terms="Abil.AdeptPhaseShift.SourceCastStart" Send="$Spell"/>
-        <On Terms="Behavior.Hallucination.On" Send="Create HallucinationBirthSoundSmall"/>
-        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
-        <On Terms="Effect.AdeptPhaseShiftTeleport.Stop" Send="Create AdeptSpiritIn"/>
-        <On Terms="Effect.AdeptPhaseShiftTeleport.Stop" Send="Create AdeptSpiritInSound"/>
-        <On Terms="Behavior.AdeptPhaseShiftCaster.On" Send="Create AdeptSpiritSpawn"/>
-        <On Terms="Behavior.AdeptPhaseShiftCaster.On" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
-        <On Terms="Behavior.AdeptPhaseShiftCaster.Off" Send="AnimBracketStop Cover"/>
-        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Spell" Send="AnimClear Spell"/>
-        <On Terms="Signal.*.NeuralLinkStarted" Send="RefSetFromMsg ::actor.NeuralLinkSite ::Sender"/>
-        <On Terms="Effect.AdeptPhaseShiftTeleportSet.Start" Target="::actor.NeuralLinkSite" Send="Signal BreakLinkInstant"/>
-        <On Terms="UnitDeathCustomize; !ValidateUnit IsHallucination" Send="Create AdeptProtossSpiritDeathModel"/>
-        <Model value="Adept"/>
-        <AnimBlendTime value="0.200000"/>
-        <ModelFlags index="OutlineEmitter" value="1"/>
-        <BuildModel value="AdeptWarpIn"/>
-        <DeathArray index="Normal" ModelLink="AdeptDeath" SoundLink="Adept_DeathFX"/>
-        <DeathCustoms ActorModel="AdeptDeathRagdoll" ModelLink="AdeptDeathRagdoll" Name="RagdollBasic">
-            <BodySquibs Name="BloodReduced"/>
-        </DeathCustoms>
-        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
-        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
-            <BodySquibs Name="Fire"/>
-        </DeathCustoms>
-        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
-            <BodySquibs Name="Fire"/>
-        </DeathCustoms>
-        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
-            <BodySquibs Name="Acid"/>
-        </DeathCustoms>
-        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
-            <BodySquibs Name="Acid"/>
-        </DeathCustoms>
-        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
-        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
-        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
-        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
-        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdollWithTeamColor" ModelLink="AdeptDeathRagdoll" Name="RagdollSpineCrawlerHurl">
-            <BodySquibs Name="None"/>
-        </DeathCustoms>
-        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathSmall" Name="Hallucination"/>
-        <PlacementModel value="AdeptPlacement"/>
-        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
-        <PortraitModel value="ShadePortrait"/>
-        <TerrainSquibs>
-            <MovementDistance value="0.150000,0.150000"/>
-            <IdlePeriod value="0.100000,0.250000"/>
-            <RangeUp value="0.600000"/>
-            <RangeDown value="0.600000"/>
-            <AttachQuery Methods="AMFilterCenter"/>
-            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleMedium"/>
-        </TerrainSquibs>
-        <WalkAnimMoveSpeed value="2.5"/>
-        <AbilSoundArray AbilCmd="AdeptPhaseShift,Execute" Sound="Adept_PsionicTransferVO"/>
-        <BarOffset value="60"/>
-        <BarWidth value="42"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition.dds"/>
-        </GroupIcon>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
-        <SoundArray index="Ready" value="Adept_Ready"/>
-        <SoundArray index="Help" value="Adept_Help"/>
-        <SoundArray index="What" value="Adept_What"/>
-        <SoundArray index="Yes" value="Adept_Yes"/>
-        <SoundArray index="Attack" value="Adept_Attack"/>
-        <SoundArray index="Pissed" value="Adept_Pissed"/>
-        <UnitIcon value="Assets\Textures\btn-unit-collection-adept-collectoredition.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition.dds"/>
-        </Wireframe>
-        <WireframeShield>
-            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition-shield01.dds"/>
-            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition-shield02.dds"/>
-            <Image value="Assets\Textures\wireframe-collection-adept-collectoredition-shield03.dds"/>
-        </WireframeShield>
-    </CActorUnit>
     <CActorUnit id="DevourerMP">
         <UnitIcon value="Assets\Textures\btn-unit-zerg-devourerex3.dds"/>
     </CActorUnit>
-    <CActorAction id="HunterPurifierGlaiveCannonAttack" parent="GenericAttack" effectImpact="AdeptDamage" effectLaunch="HunterPurifierGlaiveCannonLaunchMissile">
+    <CActorSplat id="HunterScatterCannonCursorSplat" parent="ProtossCursorSplat" abil="HunterScatterCannon">
+        <Model value="PsiStormCursorSplat"/>
+    </CActorSplat>
+    <CActorAction id="HunterPurifierGlaiveCannonAttack" parent="GenericAttack" effectImpact="HunterPurifierGlaiveCannonDamage" effectLaunch="HunterPurifierGlaiveCannonLaunchMissile">
         <LaunchAssets Sound="Adept_AttackLaunch"/>
-        <Missile value="AdeptAttackMissile2"/>
+        <Missile value="AdeptAttackMissile"/>
         <ImpactMap index="None" Model="AdeptImpact" Sound="Adept_AttackImpact"/>
     </CActorAction>
     <CActorSound id="CRPGHunterDeathLevel2" parent="SoundOneShot">
@@ -117,97 +37,15 @@
             <Image value="Assets\Textures\wireframe-general-circleofpower-terran.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGHunterLevel4" parent="GenericUnitBase" unitName="CRPGHunterLevel4">
-        <Aliases value="_UnitMedium"/>
-        <Macros value="TerrainSquibAnimations"/>
-        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
-        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
-        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
-        <On Terms="WeaponStart.Dragoon.AttackStart" Send="TimerKill CoverDelay"/>
-        <On Terms="WeaponStart.Dragoon.AttackStart" Send="AnimClear CoverStand"/>
-        <On Terms="WeaponStart.Dragoon.AttackStart" Send="AnimPlay Cover Cover PlayForever"/>
-        <On Terms="WeaponStop.Dragoon.AttackStop" Send="TimerSet 4.000000 CoverDelay"/>
-        <On Terms="TimerExpired; TimerName CoverDelay" Send="AnimClear Cover"/>
-        <On Terms="UnitHeightUpdate.*.Land" Send="Create Dragoon_Land"/>
-        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
-        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
-        <Model value="Dragoon"/>
-        <ModelFlags index="OutlineEmitter" value="1"/>
-        <BuildModel value="DragoonWarpIn"/>
-        <DeathArray index="Normal" ModelLink="DragoonDeath" SoundLink="Dragoon_DeathExplosion"/>
-        <DeathCustoms ModelLink="ProtossLargeUnitDeathLow" Name="AntiGravProtoss"/>
-        <DeathCustoms>
-            <ModelLink value="DeathVoidShadowMedium"/>
-            <SoundLink value="ShadowUnit_DeathFX"/>
-            <VoiceLink value="ShadowUnit_DeathVox"/>
-            <Name value="Shadow"/>
-        </DeathCustoms>
-        <PlacementModel value="DragoonPlacement"/>
-        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
-        <PortraitModel value="DragoonPortrait"/>
-        <TerrainSquibs>
-            <MovementDistance value="0.150000,0.150000"/>
-            <IdlePeriod value="0.100000,0.250000"/>
-            <RangeUp value="0.600000"/>
-            <RangeDown value="1.000000"/>
-            <AttachQuery Methods="AMFilterCenter"/>
-            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
-        </TerrainSquibs>
-        <WalkAnimMoveSpeed value="1.25"/>
-        <BarOffset value="80"/>
-        <BarWidth value="90"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-unit-protoss-dragoon-void.dds"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
-        <SoundArray index="Ready" value="DragoonVoid_Ready"/>
-        <SoundArray index="Help" value="DragoonVoid_Help"/>
-        <SoundArray index="What" value="DragoonVoid_What"/>
-        <SoundArray index="Yes" value="DragoonVoid_Yes"/>
-        <SoundArray index="Attack" value="DragoonVoid_Attack"/>
-        <SoundArray index="Pissed" value="DragoonVoid_Pissed"/>
-        <SoundArray index="Movement" value="Dragoon_MoveStart"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-dragoon-void.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon.dds"/>
-        </Wireframe>
-        <WireframeShield>
-            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon-Shield01.dds"/>
-            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon-Shield02.dds"/>
-            <Image value="Assets\Textures\Wireframe-Protoss-Dragoon-Shield03.dds"/>
-        </WireframeShield>
-    </CActorUnit>
-    <CActorAction id="HunterPhaseDisruptorAttack" parent="GenericAttack" effectImpact="DragoonDamage" effectLaunch="HunterPhaseDisruptorLaunchMissile">
-        <LaunchAssets Sound="DragoonVoid_AttackLaunch"/>
-        <Missile value="DragoonAttackMissile2"/>
-        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeStandard SOpForwardLaunchGuide"/>
-        <ImpactMap index="None" Model="DragoonAttackImpact" Sound="DragoonVoid_AttackImpact"/>
-        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
-        <ImpactPhysics Name="DragoonPhaseDisruptorImpact" MatchKeys="Basic" Physics="DragoonAttackDeathForce"/>
+    <CActorAction id="HunterPhaseDisruptorAttack" parent="DragoonAttack" effectImpact="HunterPhaseDisruptorDamage" effectLaunch="HunterPhaseDisruptorLaunchMissile">
+        <On index="1" Terms="Effect.HunterPhaseDisruptorDamage.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.HunterPhaseDisruptorDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.HunterPhaseDisruptorLaunchMissile.Start; At Caster" Send="Create"/>
     </CActorAction>
-    <CActorUnit id="CRPGHunterLevel1" parent="Probe" unitName="CRPGHunterLevel1">
-        <On index="0" Terms="UnitBirth.CRPGHunterLevel1"/>
-        <On index="1" Terms="UnitBirth.CRPGHunterLevel1"/>
-        <On index="2" Terms="UnitRevive.CRPGHunterLevel1"/>
-        <On index="3" Terms="UnitRevive.CRPGHunterLevel1"/>
-        <On index="4" Terms="UnitConstruction.CRPGHunterLevel1.Start"/>
-        <On index="5" Terms="UnitConstruction.CRPGHunterLevel1.Finish"/>
-        <HighlightTooltip value="Unit/Name/CRPGHunterLevel1"/>
-    </CActorUnit>
-    <CActorUnit id="CRPGHunterLevel3" parent="Stalker" unitName="CRPGHunterLevel3">
-        <On index="0" Terms="UnitBirth.CRPGHunterLevel3"/>
-        <On index="1" Terms="UnitBirth.CRPGHunterLevel3"/>
-        <On index="2" Terms="UnitRevive.CRPGHunterLevel3"/>
-        <On index="3" Terms="UnitRevive.CRPGHunterLevel3"/>
-        <On index="4" Terms="UnitConstruction.CRPGHunterLevel3.Start"/>
-        <On index="5" Terms="UnitConstruction.CRPGHunterLevel3.Finish"/>
-        <HighlightTooltip value="Unit/Name/CRPGHunterLevel3"/>
-    </CActorUnit>
-    <CActorAction id="HunterParticleDisruptors" parent="StalkerAttack" effectLaunch="ParticleDisruptors2">
-        <On index="6" Terms="Effect.ParticleDisruptors2.Start; At Caster"/>
-        <Missile value="StalkerAttackMissile2"/>
+    <CActorAction id="HunterParticleDisruptors" parent="StalkerAttack" effectImpact="HunterParticleDisruptorsDamage" effectLaunch="HunterParticleDisruptorsLaunchMissile">
+        <On index="1" Terms="Effect.HunterParticleDisruptorsDamage.Start; FromEffectTreeDescendant"/>
+        <On index="2" Terms="Effect.HunterParticleDisruptorsDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="6" Terms="Effect.HunterParticleDisruptorsLaunchMissile.Start; At Caster"/>
     </CActorAction>
     <CActorSound id="HunterParticleBeamSound" parent="SoundOneShot">
         <On Terms="WeaponStart.HunterParticleBeam.AttackStart" Send="Create"/>
@@ -218,16 +56,53 @@
         <ImpactMap index="None" Model="ProbeAttackImpact" Sound="Probe_AttackImpact"/>
         <ActionFlags index="LaunchForceSite" value="1"/>
     </CActorAction>
-    <CActorUnit id="CRPGHunterLevel5" parent="Immortal" unitName="CRPGHunterLevel5">
-        <On index="0" Terms="UnitBirth.CRPGHunterLevel5"/>
-        <On index="1" Terms="UnitBirth.CRPGHunterLevel5"/>
-        <On index="2" Terms="UnitRevive.CRPGHunterLevel5"/>
-        <On index="3" Terms="UnitRevive.CRPGHunterLevel5"/>
-        <On index="4" Terms="UnitConstruction.CRPGHunterLevel5.Start"/>
-        <On index="5" Terms="UnitConstruction.CRPGHunterLevel5.Finish"/>
-        <HighlightTooltip value="Unit/Name/CRPGHunterLevel5"/>
-    </CActorUnit>
-    <CActorAction id="HunterPhaseDisruptorsAttack" parent="ImmortalAttack" effectAttack="PhaseDisruptors2"/>
+    <CActorAction id="HunterPhaseDisruptorsAttack" parent="ImmortalAttack" effectAttack="HunterPhaseDisruptorsDamage">
+        <On index="0" Terms="Effect.HunterPhaseDisruptorsDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="5" Terms="Effect.HunterPhaseDisruptorsDamage.Start; At Caster"/>
+    </CActorAction>
+    <CActorModelMaterial id="HunterPsionicProjectionGlaze" parent="GlazeParent">
+        <On Terms="Effect.InfestedEmpathicRepercussionModifyUnit.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart Birth Birth"/>
+        <On Terms="AnimDone; AnimName Birth" Send="Destroy"/>
+        <Model value="AlarakSoulStealGlaze"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModelMaterial>
+    <CActorAction id="HunterScatterCannonAttack" parent="GenericAttack" effectImpact="HunterScatterCannonSearchArea" effectLaunch="HunterScatterCannonLaunchMissile">
+        <LaunchAttachQuery Methods="AMPatternImmortalTaldarim"/>
+        <LaunchAssets Sound="ImmortalTaldarim_ScatterCannon_AttackLaunch"/>
+        <Missile value="ImmortalTaldarimWeaponMissile"/>
+        <ImpactMap index="None" Model="ImmortalTaldarimWeaponImpact" Sound="ImmortalTaldarim_ScatterCannon_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="HunterScatterCannonAttackDirect" parent="GenericAttack" effectImpact="HunterScatterCannonDamage" effectLaunch="HunterScatterCannonLaunchMissileNoSearch">
+        <LaunchAttachQuery Methods="AMPatternImmortalTaldarim"/>
+        <LaunchAssets Sound="ImmortalTaldarim_ScatterCannon_AttackLaunch"/>
+        <Missile value="ImmortalTaldarimWeaponMissile"/>
+        <ImpactMap index="None" Model="ImmortalTaldarimWeaponImpact" Sound="ImmortalTaldarim_ScatterCannon_AttackImpact"/>
+    </CActorAction>
+    <CActorForceSphere id="HunterScatterCannonImpactForce">
+        <On Terms="Effect.HunterScatterCannonSearchArea.Start" Send="Create"/>
+        <HostSiteOps Ops="SOpTargetPoint SOpForwardLaunchGuide SOp2DRotation SOpRandomPointInCircleDot35"/>
+        <Duration value="0.150000"/>
+        <Magnitude value="25.000000,12.000000"/>
+        <Radius value="2.150000,0.200000"/>
+    </CActorForceSphere>
+    <CActorModel id="HunterScatterCannonLaunchModelLeft" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.HunterScatterCannonCreatePersistent.Start" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachWeaponLeft SOpPointUp1By1"/>
+        <Model value="ImmortalTaldarimWeaponAttackLaunchModel"/>
+    </CActorModel>
+    <CActorModel id="HunterScatterCannonLaunchModelRight" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.HunterScatterCannonCreatePersistent.Start" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachWeaponRight SOpPointUp1By1"/>
+        <Model value="ImmortalTaldarimWeaponAttackLaunchModel"/>
+    </CActorModel>
+    <CActorMissile id="HunterScatterCannonMissile" parent="GenericAttackMissileWithDeathAnim" unitName="ImmortalTaldarimWeaponMissile">
+        <On Terms="ActorCreation" Send="Create ImmortalTaldarimWeaponMissileA"/>
+    </CActorMissile>
+    <CActorRange id="HunterScatterCannonRange" parent="RangeAbil" abil="HunterScatterCannon"/>
     <CActorLookAt id="VehicleWeaponTurretLookAt" parent="UnitTurret">
         <On Terms="TurretEnable.CRPGVehicle" Send="Create"/>
         <Types Id="DefaultLookAtTurret" Name="LookAtType/CycloneTurret">
@@ -686,6 +561,177 @@
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
         <UnitIcon value="Assets\Textures\wireframe-terran-civilianprisoner.dds"/>
     </CActorUnit>
+    <CActorUnit id="CRPGHunterLevel1" parent="Probe" unitName="CRPGHunterLevel1">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel1"/>
+        <On index="1" Terms="UnitBirth.CRPGHunterLevel1"/>
+        <On index="2" Terms="UnitRevive.CRPGHunterLevel1"/>
+        <On index="3" Terms="UnitRevive.CRPGHunterLevel1"/>
+        <On index="4" Terms="UnitConstruction.CRPGHunterLevel1.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGHunterLevel1.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel1" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel1" Send="Destroy"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunter"/>
+        <Model value="Probe_Purifier_Collection"/>
+        <DeathArray index="Normal" ModelLink="Probe_Purifier_Collection_Death"/>
+        <PlacementModel value="Probe_Purifier_Collection"/>
+        <PortraitModel value="Probe_Purifier_Collection_Portrait"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-collection-purifier-probe.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-collection-purifier-probe.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-collection-purifier-probe.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-collection-purifier-probe.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\wireframe-collection-purifier-probe-shield01.dds"/>
+            <Image index="1" value="Assets\Textures\wireframe-collection-purifier-probe-shield02.dds"/>
+            <Image index="2" value="Assets\Textures\wireframe-collection-purifier-probe-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGHunterLevel2" parent="Adept" unitName="CRPGHunterLevel2">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel2" Send="Create SoundEmitter CRPGHunterLevel2_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGHunterLevel2"/>
+        <On index="2" Terms="UnitRevive.CRPGHunterLevel2"/>
+        <On index="3" Terms="UnitRevive.CRPGHunterLevel2"/>
+        <On index="4" Terms="UnitConstruction.CRPGHunterLevel2.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGHunterLevel2.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel2" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel2" Send="Destroy"/>
+        <Model value="AdeptPurifier"/>
+        <EventDataFootprint index="0" Model="CRPGHunterLevel2Footprint"/>
+        <BuildModel value="AdeptPurifierWarpIn"/>
+        <DeathArray index="Normal" ModelLink="AdeptPurifierDeath" VoiceLink="CRPGHunterLevel2DeathVoice"/>
+        <DeathCustoms index="5" ActorModel="AdeptDeathRagdoll" ModelLink="AdeptPurifierDeathRagdoll" Name="RagdollBasic"/>
+        <PlacementModel value="AdeptPurifier_Placement"/>
+        <PortraitModel value="AdeptPurifierPortrait"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-adept-purifier.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="CRPGHunterLevel2_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="CRPGHunterLevel2_GroupYes"/>
+        <GroupSoundArray index="Attack" value="CRPGHunterLevel2_GroupAttack"/>
+        <GroupSoundArray index="Board" value="CRPGHunterLevel2_GroupBoard"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunter"/>
+        <SoundArray index="Birth" value="CRPGHunterLevel2_Birth"/>
+        <SoundArray index="Movement" value="CRPGHunterLevel2_Movement"/>
+        <SoundArray index="Turning" value="CRPGHunterLevel2_Turning"/>
+        <SoundArray index="Board" value="CRPGHunterLevel2_Board"/>
+        <SoundArray index="Click" value="CRPGHunterLevel2_Click"/>
+        <SoundArray index="ClickError" value="CRPGHunterLevel2_ClickError"/>
+        <SoundArray index="Highlight" value="CRPGHunterLevel2_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-adept-purifier.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-adept-purifier.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-adept-purifier-shield01.dds"/>
+            <Image index="1" value="Assets\Textures\wireframe-protoss-adept-purifier-shield02.dds"/>
+            <Image index="2" value="Assets\Textures\wireframe-protoss-adept-purifier-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGHunterLevel3" parent="Stalker" unitName="CRPGHunterLevel3">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel3"/>
+        <On index="1" Terms="UnitBirth.CRPGHunterLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGHunterLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGHunterLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGHunterLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGHunterLevel3.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel3" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel3" Send="Destroy"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunter"/>
+        <Model value="StalkerPurifier"/>
+        <BuildModel value="StalkerPurifierWarpIn"/>
+        <DeathArray index="Normal" ModelLink="StalkerPurifierDeath"/>
+        <PlacementModel value="StalkerPurifierPlacement"/>
+        <PortraitModel value="StalkerPurifierPortrait"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-stalker-purifier.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-stalker-purifier.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-stalker-purifier.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-stalker-purifier.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-stalker-purifier-shield01.dds"/>
+            <Image index="1" value="Assets\Textures\wireframe-protoss-stalker-purifier-shield02.dds"/>
+            <Image index="2" value="Assets\Textures\wireframe-protoss-stalker-purifier-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGHunterLevel4" parent="Dragoon" unitName="CRPGHunterLevel4">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel4" Send="Create SoundEmitter CRPGHunterLevel4_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGHunterLevel4"/>
+        <On index="2" Terms="UnitRevive.CRPGHunterLevel4"/>
+        <On index="3" Terms="UnitRevive.CRPGHunterLevel4"/>
+        <On index="4" Terms="UnitConstruction.CRPGHunterLevel4.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGHunterLevel4.Finish"/>
+        <On index="64" Terms="WeaponStart.HunterPhaseDisruptor.AttackStart" Send="TimerKill CoverDelay"/>
+        <On index="65" Terms="WeaponStart.HunterPhaseDisruptor.AttackStart" Send="AnimClear CoverStand"/>
+        <On index="66" Terms="WeaponStart.HunterPhaseDisruptor.AttackStart" Send="AnimPlay Cover Cover PlayForever"/>
+        <On index="67" Terms="WeaponStop.HunterPhaseDisruptor.AttackStop" Send="TimerSet 4.000000 CoverDelay"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel4" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel4" Send="Destroy"/>
+        <Model value="PurifierDragoon"/>
+        <EventDataFootprint index="0" Actor="UnitFootprint" Model="CRPGHunterLevel4Footprint"/>
+        <BuildModel value="PurifierDragoonWarpIn"/>
+        <DeathArray index="Normal" ModelLink="PurifierDragoonDeath" VoiceLink="CRPGHunterLevel4DeathVoice"/>
+        <PlacementModel value="PurifierDragoonPlacement"/>
+        <PortraitModel value="PurifierDragoonPortrait"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-dragoon-purifier.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="CRPGHunterLevel4_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="CRPGHunterLevel4_GroupYes"/>
+        <GroupSoundArray index="Attack" value="CRPGHunterLevel4_GroupAttack"/>
+        <GroupSoundArray index="Board" value="CRPGHunterLevel4_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-dragoon-purifier.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunter"/>
+        <SoundArray index="Birth" value="CRPGHunterLevel4_Birth"/>
+        <SoundArray index="Turning" value="CRPGHunterLevel4_Turning"/>
+        <SoundArray index="Board" value="CRPGHunterLevel4_Board"/>
+        <SoundArray index="Click" value="CRPGHunterLevel4_Click"/>
+        <SoundArray index="ClickError" value="CRPGHunterLevel4_ClickError"/>
+        <SoundArray index="Highlight" value="CRPGHunterLevel4_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-dragoon-purifier.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-dragoon-purifier.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-dragoon-purifier-shield00.dds"/>
+            <Image index="1" value="Assets\Textures\wireframe-protoss-dragoon-purifier-shield01.dds"/>
+            <Image index="2" value="Assets\Textures\wireframe-protoss-dragoon-purifier-shield02.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGHunterLevel5" parent="Immortal" unitName="CRPGHunterLevel5">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel5"/>
+        <On index="1" Terms="UnitBirth.CRPGHunterLevel5"/>
+        <On index="2" Terms="UnitRevive.CRPGHunterLevel5"/>
+        <On index="3" Terms="UnitRevive.CRPGHunterLevel5"/>
+        <On index="4" Terms="UnitConstruction.CRPGHunterLevel5.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGHunterLevel5.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel5" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel5" Send="Destroy"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunter"/>
+        <Model value="Immortal_Purifier_Collection"/>
+        <BuildModel value="Immortal_Purifier_Collection_WarpIn"/>
+        <DeathArray index="Normal" ModelLink="Immortal_Purifier_Collection_Death"/>
+        <PlacementModel value="Immortal_Purifier_Collection_Placement"/>
+        <PortraitModel value="Immortal_Purifier_Collection_Portrait"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-collection-purifier-immortal.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-collection-purifier-immortal.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-collection-purifier-immortal.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-collection-purifier-immortal.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\wireframe-collection-purifier-immortal-shield01.dds"/>
+            <Image index="1" value="Assets\Textures\wireframe-collection-purifier-immortal-shield02.dds"/>
+            <Image index="2" value="Assets\Textures\wireframe-collection-purifier-immortal-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
     <CActorUnit id="CRPGInfestedLevel1" parent="SwarmHostMP" unitName="CRPGInfestedLevel1">
         <On index="0" Terms="UnitBirth.CRPGInfestedLevel1" Send="Create SoundEmitter CRPGInfestedLevel1_Ambience"/>
         <On index="1" Terms="UnitBirth.CRPGInfestedLevel1"/>
@@ -980,8 +1026,7 @@
         <On index="4" Terms="UnitConstruction.HunterScarabMine.Start"/>
         <On index="5" Terms="UnitConstruction.HunterScarabMine.Finish"/>
         <On Terms="UnitBirth.HunterScarabMineBurrowed" Send="Create"/>
-        <On Terms="AbilMorph.VultureSpiderMineBurrow.Start" Send="Create VultureSpiderMineBurrowSound"/>
-        <On Terms="Abil.attack.ReadyStart" Send="Create VultureSpiderMineSeekSound"/>
+        <On Terms="Abil.attack.ReadyStart" Send="Create HunterScarabMineSeekSound"/>
         <On Terms="UnitBirth.HunterScarabMineBurrowed" Send="AnimPlay Stand Birth"/>
         <On Terms="UnitBirth.HunterScarabMineBurrowed" Send="AnimSetPaused Stand"/>
         <On Terms="AbilMorph.ScarabMineBurrow.Start" Send="AnimPlay Stand Birth"/>
@@ -995,32 +1040,21 @@
         <BarOffset value="10"/>
         <BarWidth value="36"/>
         <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-SpiderMine.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stasisward.dds"/>
         </GroupIcon>
-        <GroupSoundArray index="Birth" value="SpiderMineBirth"/>
-        <GroupSoundArray index="Ready" value="SpiderMineReady"/>
-        <GroupSoundArray index="Help" value="SpiderMineHelp"/>
-        <GroupSoundArray index="What" value="SpiderMineWhat"/>
-        <GroupSoundArray index="Yes" value="SpiderMineYes"/>
-        <GroupSoundArray index="Attack" value="SpiderMineYes"/>
-        <GroupSoundArray index="Pissed" value="SpiderMinePissed"/>
         <HeroIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
         <NameOffset value="10"/>
-        <SoundArray index="Birth" value="SpiderMineBirth"/>
-        <SoundArray index="Ready" value="SpiderMineReady"/>
-        <SoundArray index="Help" value="SpiderMineHelp"/>
-        <SoundArray index="What" value="SpiderMineWhat"/>
-        <SoundArray index="Yes" value="SpiderMineYes"/>
-        <SoundArray index="Attack" value="SpiderMineYes"/>
-        <SoundArray index="Pissed" value="SpiderMinePissed"/>
-        <SoundArray index="Movement" value="SpiderMineMovement"/>
-        <SoundArray index="Turning" value="SpiderMineTurning"/>
-        <SoundArray index="Board" value="SpiderMineBoard"/>
         <UnitIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
         <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-SpiderMine.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stasisward.dds"/>
         </Wireframe>
+        <HighlightTooltip value="Unit/Name/HunterScarabMine"/>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-stasisward-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stasisward-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stasisward-shield03.dds"/>
+        </WireframeShield>
     </CActorUnit>
     <CActorSplat id="InfestedAberrateCursorSplat" parent="ProtossCursorSplat" abil="InfestedAberrate">
         <Model value="ZergAOECursorSplat"/>
@@ -2244,9 +2278,9 @@
     </CActorModel>
     <CActorSound id="HunterScarabMineBirthSound" parent="SoundOneShot">
         <On Terms="AbilMorph.ScarabMineUnburrow.Start" Send="Create"/>
-        <Sound value="Vulture_SpiderMinePlace"/>
+        <Sound value="SentryMonitor_TargetLock_On"/>
     </CActorSound>
-    <CActorRange id="ScarabMineUnburrowRange">
+    <CActorRange id="HunterScarabMineUnburrowRange">
         <On Terms="SelectionLocalUpdate.HunterScarabMineBurrowed.Start" Send="Create"/>
         <On Terms="SelectionLocalUpdate.HunterScarabMineBurrowed.Stop" Send="Destroy"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom SpiderMineBurrowed" Send="Destroy"/>
@@ -2258,7 +2292,7 @@
         <ImpactMap index="None" Model="ViperAirAttackImpact" Sound="Viper_AirAttack_Impact"/>
     </CActorAction>
     <CActorMissile id="InfestedMendingSalivaMissile" parent="GenericAttackMissile" unitName="ViperAirWeapon"/>
-    <CActorRange id="ScarabMineRange" parent="RangeAbil" abil="HunterScarabMine"/>
+    <CActorRange id="HunterScarabMineRange" parent="RangeAbil" abil="HunterScarabMine"/>
     <CActorModel id="FighterShadowChargeImpact" parent="ModelAnimationStyleOneShot">
         <On Terms="Effect.FighterShadowChargeSearchArea.Start; At Caster" Send="Create"/>
         <Model value="VoidZealotShadowChargeImpactModel"/>
@@ -2293,33 +2327,9 @@
         <Host Subject="_Target"/>
         <Sound value="ShadowFuryStrikLaunch"/>
     </CActorSound>
-    <CActorAction id="FighterPsiBlades" parent="GenericAttack" effectAttack="FighterPsiBladesDamage">
-        <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
-        <LaunchAssets Sound="Zealot_AttackLaunch"/>
-        <Beam value="ZealotAttackBeam"/>
-        <Missile value="ZealotAttackMissile"/>
-        <ImpactPhysics>
-            <Name value="Attack00"/>
-            <MatchKeys value="Basic"/>
-            <AttackAnimProps value="00"/>
-            <Physics value="ZealotAttackDeathForce00"/>
-        </ImpactPhysics>
-        <ImpactPhysics>
-            <Name value="Attack01"/>
-            <MatchKeys value="Basic"/>
-            <AttackAnimProps value="01"/>
-            <Physics value="ZealotAttackDeathForce01"/>
-        </ImpactPhysics>
-        <ImpactPhysics>
-            <Name value="Attack02"/>
-            <MatchKeys value="Basic"/>
-            <AttackAnimProps value="02"/>
-            <Physics value="ZealotAttackDeathForce02"/>
-        </ImpactPhysics>
-        <AcquisitionYawHalfArc value="25.000000"/>
-        <AcquisitionPitchHalfArc value="25.000000"/>
-        <ShieldFlashType value="Header"/>
-        <ImpactMap index="None" Sound="Zealot_AttackImpact"/>
+    <CActorAction id="FighterPsiBlades" parent="ZealotAttack" effectAttack="FighterPsiBladesDamage">
+        <On index="0" Terms="Effect.FighterPsiBladesDamage.Stop; FromEffectTreeDescendant"/>
+        <On index="5" Terms="Effect.FighterPsiBladesDamage.Start; At Caster"/>
     </CActorAction>
     <CActorModel id="FighterRapidStrikes" parent="ModelAnimationStyleContinuous">
         <EditorCategories value=""/>
@@ -2351,5 +2361,18 @@
     <CActorSound id="HunterBlinkSound" parent="SoundOneShot">
         <On Terms="Abil.HunterBlink.TargetCastStart" Send="Create"/>
         <Sound value="Zeratul_Blink"/>
+    </CActorSound>
+    <CActorAction id="HunterScarabMinesAttack" parent="GenericAttack" effectAttack="HunterScarabMinesDamage">
+        <ImpactMap index="None" Model="ScarabAttackImpact" Sound="Reaver_ScarabExplode"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorSound id="HunterScarabMineBurySound" parent="SoundOneShot">
+        <On Terms="AbilMorph.*.Start; MorphTo HunterScarabMineBurrowed" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary"/>
+        <Sound value="SentryMonitor_TargetLock_Off"/>
+    </CActorSound>
+    <CActorSound id="HunterScarabMineSeekSound" parent="SoundOneShot">
+        <Sound value="Reaver_AttackLaunch"/>
     </CActorSound>
 </Catalog>

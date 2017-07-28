@@ -1018,8 +1018,8 @@
         <Collide index="Locust" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="25"/>
-        <LifeMax value="25"/>
+        <LifeStart value="15"/>
+        <LifeMax value="15"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <Speed value="9"/>
         <Acceleration value="1000"/>
@@ -1035,22 +1035,24 @@
         <BehaviorArray Link="CRPGArmorAttributeUnit"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="LevelCounter"/>
-        <WeaponArray Link="VultureSpiderMines"/>
+        <WeaponArray Link="HunterScarabMines"/>
         <Radius value="0.125"/>
         <SeparationRadius value="0"/>
         <SubgroupPriority value="15"/>
         <MinimapRadius value="0.25"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
-        <TacticalAI value="SpiderMineVulture"/>
         <GlossaryCategory value="Unit/Category/TerranUnits"/>
         <GlossaryPriority value="160"/>
         <HotkeyCategory value="Unit/Category/TerranStory"/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
+        <ShieldsStart value="10"/>
+        <ShieldsMax value="10"/>
+        <ShieldRegenDelay value="10"/>
+        <ShieldRegenRate value="2"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
     </CUnit>
     <CUnit id="HunterScarabMineBurrowed" parent="HunterScarabMine">
-        <Name value="Unit/Name/SpiderMine"/>
-        <Description value="Button/Tooltip/SpiderMineVulture"/>
         <FlagArray index="Cloaked" value="1"/>
         <FlagArray index="Buried" value="1"/>
         <FlagArray index="NoPortraitTalk" value="1"/>
@@ -1066,7 +1068,7 @@
         <AbilArray index="3" removed="1"/>
         <WeaponArray index="0" removed="1"/>
         <HotkeyAlias value="HunterScarabMineBurrowed"/>
-        <EquipmentArray Weapon="VultureSpiderMines"/>
+        <EquipmentArray Weapon="HunterScarabMines"/>
         <GlossaryCategory value=""/>
         <KillDisplay value="Default"/>
         <RankDisplay value="Default"/>
@@ -1219,6 +1221,7 @@
         <LateralAcceleration value="46"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
+        <AbilArray index="3" Link="HunterLevelUpMorphLevel1"/>
         <AbilArray Link="HunterScarabMine"/>
         <WeaponArray Link="HunterParticleBeam"/>
         <Radius value="0.375"/>
@@ -1229,9 +1232,20 @@
         <GlossaryCategory value=""/>
         <GlossaryStrongArray value="Roach"/>
         <GlossaryWeakArray value="Zergling"/>
+        <Description value="Button/Tooltip/CRPGHunter"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="HunterLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="HunterScarabMine" Type="AbilCmd" AbilCmd="HunterScarabMine,Execute" Row="2" Column="0"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="CRPGHunterLevel2" parent="CRPGHunterLevel1">
-        <Description value="Button/Tooltip/WarpInCRPGHunterLevel2"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Mechanical" value="0"/>
         <Acceleration value="1000"/>
@@ -1240,6 +1254,26 @@
         <SeparationRadius value="0.5"/>
         <CargoSize value="2"/>
         <TauntDuration index="Dance" value="5"/>
+        <AbilArray index="3" Link="HunterLevelUpMorphLevel2"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="HunterLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons>
+                <Face value="HunterPsionicProjection"/>
+                <Type value="Passive"/>
+                <Requirements value="HunterPsionicProjectionUnavailable"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="0"/>
+            </LayoutButtons>
+            <LayoutButtons Face="HunterPsionicProjection" Type="Passive" Behavior="HunterPsionicProjectionCooldown" Row="1" Column="0"/>
+        </CardLayouts>
     </CUnit>
     <!-- re adding spawn larva, to a hidden command card so the AI can use it -->
     <CUnit id="Queen"/>
@@ -1268,7 +1302,6 @@
         <KillXP value="40"/>
     </CUnit>
     <CUnit id="CRPGHunterLevel3" parent="CRPGHunterLevel2">
-        <Description value="Button/Tooltip/CRPGHunterLevel3"/>
         <DeathRevealRadius value="3"/>
         <Attributes index="Light" value="0"/>
         <Attributes index="Armored" value="1"/>
@@ -1285,9 +1318,21 @@
         <InnerRadius value="0.5"/>
         <MinimapRadius value="0.625"/>
         <TauntDuration index="Dance" value="0"/>
+        <AbilArray index="3" Link="HunterLevelUpMorphLevel3"/>
+        <AbilArray Link="HunterBlink"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="HunterLevelUpMorphLevel3,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="HunterBlink" Type="AbilCmd" AbilCmd="HunterBlink,Execute" Row="2" Column="1"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="CRPGHunterLevel4" parent="CRPGHunterLevel3">
-        <Description value="Button/Tooltip/CRPGHunterLevel4"/>
         <LifeArmor value="1"/>
         <Speed value="2.25"/>
         <LateralAcceleration value="0"/>
@@ -1295,9 +1340,13 @@
         <TurningRate value="720"/>
         <WeaponArray index="0" Link="HunterPhaseDisruptor" Turret="Dragoon"/>
         <CargoSize value="4"/>
+        <FlagArray index="Turnable" value="0"/>
+        <AbilArray index="3" Link="HunterLevelUpMorphLevel4"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="HunterDisruptorVolley" Type="Passive" Row="1" Column="1"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="CRPGHunterLevel5" parent="CRPGHunterLevel4">
-        <Description value="Button/Tooltip/CRPGHunterLevel5"/>
         <LifeStart value="80"/>
         <LifeMax value="80"/>
         <ShieldsStart value="80"/>
@@ -1306,6 +1355,19 @@
         <Radius value="0.75"/>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
         <TauntDuration index="Dance" value="5"/>
+        <AbilArray index="3" Link="LevelUpDummy"/>
+        <AbilArray Link="HunterScatterCannon"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="LevelUpDummy,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="HunterScatterCannon" Type="AbilCmd" AbilCmd="HunterScatterCannon,Execute" Row="2" Column="2"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="Ultralisk">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>

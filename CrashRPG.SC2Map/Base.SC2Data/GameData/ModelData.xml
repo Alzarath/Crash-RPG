@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="PurifierDragoonPlacement" parent="Placement" Race="Protoss">
+        <Model value="Assets\Units\Protoss\Dragoon_Purifier_Coop_PlacementModel\Dragoon_Purifier_Coop_PlacementModel.m3"/>
+    </CModel>
+    <CModel id="PurifierDragoonWarpIn" parent="OneShotSpellFX">
+        <Model value="Assets\Units\Protoss\Dragoon_Purifier_Coop_WarpIn\Dragoon_Purifier_Coop_WarpIn.m3"/>
+        <LowQualityModel value="DragoonWarpInLow"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Occlusion value="Show"/>
+        <SelectionRadius value="0.555400"/>
+        <ShadowRadius value="0.555400"/>
+    </CModel>
+    <CModel id="PurifierDragoonPortrait" parent="Portrait" Race="Protoss">
+        <Model value="Assets\Portraits\Protoss\FenixEx2Portrait\FenixEx2Portrait.m3"/>
+        <Image value="Assets\Textures\fenixportrait_static.dds"/>
+    </CModel>
+    <CModel id="PurifierDragoon" parent="Unit" Race="Protoss">
+        <Model value="Assets\Units\Protoss\Dragoon_Purifier_Coop\Dragoon_Purifier_Coop.m3"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraHigh08"/>
+        <Radius value="0.650000"/>
+        <SelectionRadius value="0.650000"/>
+        <ShadowRadius value="0.866400"/>
+        <SquibTypeDefault value="Metal"/>
+        <TechPurchaseCamera value="Star2CameraHigh08"/>
+        <Tipability value="0.750000"/>
+        <TipabilityLength value="0.800000"/>
+        <TipabilityWidth value="0.800000"/>
+        <UnitGlossaryCamera value="Star2CameraHigh08"/>
+    </CModel>
+    <CModel id="PurifierDragoonDeath" parent="UnitDeath" Race="Protoss">
+        <Model value="Assets\Units\Protoss\Dragoon_Purifier_Coop_Death\Dragoon_Purifier_Coop_Death.m3"/>
+    </CModel>
+    <CModel id="PsionicProjectionGlaze">
+        <Model value="Assets\Effects\Glaze\Glaze_Fenix_AI_Champion\Glaze_Fenix_AI_Champion.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
     <CModel id="BattlecruiserTinyHyperion" parent="Battlecruiser" Race="Neutral">
         <Model value="Assets\Units\Terran\BattlecruiserHyperion\BattlecruiserHyperion.m3"/>
     </CModel>
