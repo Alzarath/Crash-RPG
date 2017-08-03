@@ -30,12 +30,6 @@
 <Unit id="NydusCanal"/>
 <Unit id="MineralField" Variations="0,1,2,3,4,5,6,7,8,9"/>
 <Unit id="GuardianMP"/>
-<Unit id="CRPGInfestedLevel1"/>
-<Unit id="CRPGAeroLevel1"/>
-<Unit id="CRPGFighterLevel1"/>
-<Unit id="CRPGVehicleLevel1"/>
-<Unit id="CRPGMechLevel1"/>
-<Unit id="CRPGSniperLevel1"/>
 <Unit id="Beacon_Terranmedium"/>
 <Unit id="CRPGArmory"/>
 <Unit id="CRPGCrashedBattlecruiser"/>

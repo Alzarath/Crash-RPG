@@ -8,7 +8,7 @@
         <rampList num="1">
             <ramp dir="6" hi="2" lo="1" leftLo="u(-1.000000e+00, 0.000000e+00) r(0.000000e+00, 1.000000e+00) c=(5.200000e+01, 1.020000e+02) w=2.000000e+00 h=2.000000e+00" leftHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(4.000000e+00, 4.000000e+00) w=0.000000e+00 h=0.000000e+00" rightLo="u(-1.000000e+00, 0.000000e+00) r(0.000000e+00, 1.000000e+00) c=(5.800000e+01, 1.080000e+02) w=2.000000e+00 h=2.000000e+00" rightHi="u(0.000000e+00, 0.000000e+00) r(0.000000e+00, 0.000000e+00) c=(8.000000e+00, 8.000000e+00) w=0.000000e+00 h=0.000000e+00" base="u(-7.071068e-01, 7.071068e-01) r(7.071068e-01, 7.071068e-01) c=(5.300000e+01, 1.070000e+02) w=4.242640e+00 h=0.000000e+00" mid="u(-7.071068e-01, 7.071068e-01) r(7.071068e-01, 7.071068e-01) c=(5.500000e+01, 1.050000e+02) w=4.242640e+00 h=2.828427e+00" cid="1" leftLoVar="0" leftHiVar="4294967295" rightLoVar="0" rightHiVar="4294967295"/>
         </rampList>
-        <vertData quantizeBias="1.000229e+00" quantizeScale="1.525902e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
+        <vertData quantizeBias="1.000305e+00" quantizeScale="1.525902e-04" standardHeight="8.000000e+00" name="t3HeightMap"/>
         <masks name="t3TextureMasks"/>
         <textureSetList num="8">
             <textureSet i="0" name="ShakurasTemple"/>

@@ -13,12 +13,13 @@ Abil/Name/FighterRapidStrikes=Rapid Strikes
 Abil/Name/FighterShadowCharge=Shadow Charge
 Abil/Name/FighterShadowFury=Shadow Fury
 Abil/Name/HunterBlink=Blink
+Abil/Name/HunterPsionicProjection=Psionic Projection
 Abil/Name/HunterScarabMine=Scarab Mine
 Abil/Name/HunterScatterCannon=Scatter Cannon
 Abil/Name/InfestedAberrate=Aberrate
 Abil/Name/InfestedBunkerTransport=Load-Unload
 Abil/Name/InfestedInfestationSpore=Infestation Spore
-Abil/Name/InfestedInfestedEggInfestedCivilian=Infested Egg
+Abil/Name/InfestedInfestedEgg=Infested Egg
 Abil/Name/InfestedMorphToInfestedCivilian=Morph To Infested Civilian
 Abil/Name/InfestedMorphToInfestedMarine=Morph To Infested Marine
 Abil/Name/LevelUp=Level Up
@@ -28,6 +29,7 @@ Abil/Name/MechCalldownMech=Calldown: Mech
 Abil/Name/MechEmergencyEvac=Emergency Evac
 Abil/Name/MechPointDefenseDrones=Point Defense Drones
 Abil/Name/MechShockBlast=Shock Blast
+Abil/Name/Queue2=Queue (2)
 Abil/Name/ScarabMineBurrow=Burrow
 Abil/Name/ScarabMineUnburrow=Unburrow
 Abil/Name/ScarabMineUnburrowRangeDummy=Unburrow
@@ -58,8 +60,7 @@ Behavior/Name/FighterShadowCharging=Shadow Charging
 Behavior/Name/FighterSlowShadowCharge=Slow
 Behavior/Name/FighterStunnedShadowCharge=Stunned
 Behavior/Name/HeroVeterancy=Hero Veterancy
-Behavior/Name/HunterPsionicProjection=Psionic Projection
-Behavior/Name/HunterPsionicProjectionCooldown=Psionic Projection
+Behavior/Name/HunterSlowScarabMine=Slow
 Behavior/Name/InfestedBunkerEnableGaussRifle13=Enable Gauss Rifle 3
 Behavior/Name/InfestedBunkerEnableGaussRifle14=Enable Gauss Rifle 4
 Behavior/Name/InfestedBunkerTransientFire=Transient Fire
@@ -76,15 +77,15 @@ Behavior/Name/SniperHoldFire=Hold Fire
 Behavior/Name/VehicleLockOnTarget=Lock On
 Behavior/Name/VehicleOverdrive=Overdrive
 Behavior/Tooltip/AeroDefensiveMatrix=While active, the Defensive Matrix blocks all incoming damage.
-Behavior/Tooltip/CRPGArmorAttribute=Increases the hero's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
-Behavior/Tooltip/CRPGArmorAttributeUnit=Increases the unit's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,ArmorAttributeUnit,Modification.LifeArmorBonus" precision="2"/></c> per point.
+Behavior/Tooltip/CRPGArmorAttribute=Increases the unit's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
+Behavior/Tooltip/CRPGArmorAttributeUnit=Increases the unit's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttributeUnit,Modification.LifeArmorBonus" precision="2"/></c> per point.
 Behavior/Tooltip/CRPGDamageAttribute=Increase the unit's attack and spell damage by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGDamageAttribute,Modification.DamageDealtFraction[Melee] * 100" precision="2"/>%</c> per point.
+Behavior/Tooltip/CRPGSlow=This unit has reduced movement speed.
 Behavior/Tooltip/CrashedBattlecruiserMedicalFacilities=Life and Energy regeneration increased while near the Crashed Battlecruiser.
 Behavior/Tooltip/CrashedBattlecruiserMedicalFacilitiesAura=Regenerates nearby allies' health and energy.
 Behavior/Tooltip/FighterInvulnerableResurgence=The unit is invulnerable.
 Behavior/Tooltip/FighterRapidStrikes=This unit has increased attack speed.
 Behavior/Tooltip/FighterShadowCharging=This unit has greatly increased movement speed.
-Behavior/Tooltip/FighterSlowShadowCharge=This unit has reduced movement speed.
 Behavior/Tooltip/FighterStunnedShadowCharge=This unit cannot move or attack.
 Behavior/Tooltip/InfestedHardenedEquipmentDefensive=This unit takes reduced damage.
 Behavior/Tooltip/InfestedHardenedEquipmentOffensive=This unit deals increased damage.
@@ -152,7 +153,7 @@ Button/Tooltip/AeroDefensiveMatrix=Surrounds the hero with a shield that can abs
 Button/Tooltip/AeroFireSuppressionSystem=Unit automatically repairs itself up to 50% life.
 Button/Tooltip/AeroLaserArmaments=Automatically fire Laser Batteries that deal <c val="#ColorAttackInfo"><d ref="Effect,AeroLaserArmamentsDamage,Amount"/></c> damage to enemies below the hero.
 Button/Tooltip/AeroTacticalJump=After <d ref="Behavior,AeroTacticalJumpTeleportOut,Duration + Behavior,AeroTacticalJumpTeleport,Duration + Behavior,AeroTacticalJumpTeleportIn,Duration" precision="1"/> seconds, warps to the target location. Battlecruiser is invulnerable while warping.<n/><n/><c val="#ColorAttackInfo">Does not require vision.</c>
-Button/Tooltip/AeroYamatoCannon=Blasts a target with a devastating plasma cannon, dealing <c val="#ColorAttackInfo"><d ref="Effect,AeroYamatoCannonDamage,Amount"/></c> damage.
+Button/Tooltip/AeroYamatoCannon=Blasts a target with a devastating plasma cannon, dealing <c val="#ColorAttackInfo"><d ref="Effect,AeroYamatoCannonDamage,Amount"/></c> damage.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/AlienMorphDrone=Economic alien. Able to gather minerals for experience.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/AlienMorphHunterling=Aggressive alien. Can leap at enemies.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/AlienMorphHydralisk=Ranged alien. Regenerates faster while burrowed. Can cast Impale.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
@@ -188,9 +189,9 @@ Button/Tooltip/GuardianMP=Long range siege unit.<n/><n/><c val="#ColorAttackInfo
 Button/Tooltip/Heal2=Heals a friendly biological target.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedivacHeal,RechargeVitalRate[0]"/> life per 1 energy.</c>
 Button/Tooltip/HunterBlink=Teleport to a nearby location, temporarily becoming invisible.
 Button/Tooltip/HunterDisruptorVolley=After every fourth attack, prepare a volley of four projectiles to fire at the next target.
-Button/Tooltip/HunterPsionicProjection=When out of combat for 5 seconds, project a psionic image of the unit which will attack with them on their next attack. Can have 2 projections.
-Button/Tooltip/HunterScarabMine=Scarab Mines pursue enemy units that come in range, and detonate for heavy area damage, slowing the enemy. Buried Scarab Mines can only be seen by enemy Detectors.
-Button/Tooltip/HunterScatterCannon=Deal damage enemy ground units.
+Button/Tooltip/HunterPsionicProjection=After not attacking for 5 seconds, project a psionic orb that will attack with the unit, dealing <c val="#ColorAttackInfo"><d ref="Effect,HunterProjectionBeamCreatePersistent,PeriodCount * Effect,HunterProjectionBeamDamage,Amount"/> damage over <d ref="Effect,HunterProjectionBeamCreatePersistent,PeriodCount * Effect,HunterProjectionBeamCreatePersistent,PeriodicPeriodArray[0]"/> second. Can store up to 2.
+Button/Tooltip/HunterScarabMine=Scarab Mines pursue enemy units that come in range, detonating for <c val="#ColorAttackInfo"><d ref="Effect,HunterScarabMinesDamage,Amount"/></c> damage and slowing nearby enemies in an area by <d ref="100 - (100 * Behavior,HunterSlowScarabMine,Modification.MoveSpeedMultiplier)"/>% for <d ref="Behavior,HunterSlowScarabMine,Duration"/> seconds.
+Button/Tooltip/HunterScatterCannon=Launch a volley of missiles, dealing <c val="#ColorAttackInfo"><d ref="Effect,HunterScatterCannonDamage,Amount * 5"/></c> damage in an area.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/InfestedAberrate=Merges two Infested Civilians into a more powerful monstrosity.
 Button/Tooltip/InfestedCausticWeapons=Infested Terran after the first two spawn with Gauss Rifles.
 Button/Tooltip/InfestedEmpathicRepercussion=When killed, the owner takes <d ref="Effect,InfestedEmpathicRepercussionModifyUnit,VitalArray[Life].Change * (-1)"/> damage and recovers <d ref="Effect,InfestedEmpathicRepercussionModifyUnit,VitalArray[Energy].Change"/> energy.
@@ -204,28 +205,28 @@ Button/Tooltip/InfestedInfestedEggInfestedCivilian=Spawn an Infested Terran. Inf
 Button/Tooltip/InfestedInfestedEggInfestedMarine=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
 Button/Tooltip/InfestedInfestedMarine=Infested Marines do moderate damage.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfestedInfestedSupplies=This supply-giving unit is infested, allowing up to two additional Infested Terran to be summoned.
-Button/Tooltip/MechBarrage=Stuns all enemies in a small area. Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageDamage,Amount"/></c> damage over <d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]"/> seconds in a larger area.
+Button/Tooltip/MechBarrage=Stuns all enemies in a small area. Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageDamage,Amount"/></c> damage over <d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]"/> seconds in a larger area.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c><n/>
 Button/Tooltip/MechCalldownMech=Calls down the Pilot's Mech.
 Button/Tooltip/MechEmergencyEvac=Eject, destroying the hero and creating an invulnerable Civilian that can return to base to re-acquire another Mech.<n/><n/><c val="FF0000">WARNING: Resets your current level progress.</c>
 Button/Tooltip/MechMultiLockTargetingSystem=The hero can target ground and air units simultaneously.
 Button/Tooltip/MechPilot=Mech Evacuee.<n/><n/>Return to base to enter a new mech.
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
 Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that use automated defensive lasers to intercept enemy projectiles.
-Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShocking,PeriodCount * Effect,MechShockBlastDamage,Amount"/></c> damage to nearby enemies over <d ref="Behavior,MechShocked,Duration"/> seconds.
+Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShocking,PeriodCount * Effect,MechShockBlastDamage,Amount"/></c> damage to nearby enemies over <d ref="Behavior,MechShocked,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/SniperCloakOff=Decloaks the selected unit, making it visible to enemies.
 Button/Tooltip/SniperCloakOn=Cloaks the hero, preventing enemy units from seeing or attacking it. A cloaked unit will only be revealed by detectors or effects.<n/><n/><c val="f078ff">Drains <d ref="-1 * (Behavior,GhostCloak,Modification.VitalRegenArray[2] + Unit,CRPGSniperLevel3,EnergyRegenRate)" precision="1"/> energy per second.</c>
 Button/Tooltip/SniperEnhancedOptics=Snipe casts instantly. Increased sight range.
 Button/Tooltip/SniperHoldFire=Orders selected units to holster their weapons and avoid engaging enemies, unless given a direct command. Units holding fire will flee if attacked.
 Button/Tooltip/SniperLevel5=Can use Snipe, Personal Cloaking, and Nuclear Strike.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/SniperNuclearStrike=Calls down a Nuclear Strike at a target location. Nuke takes <d ref="Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay"/> seconds to land and deals up to <c val="#ColorAttackInfo"><d ref="Effect,SniperNuclearStrikeDamage,Amount"/></c> (<c val="#ColorAttackInfo"><d ref="Effect,SniperNuclearStrikeDamage,Amount + Effect,SniperNuclearStrikeDamage,AttributeBonus[Structure]"/></c> vs. Structure) damage to enemies in a large radius.
-Button/Tooltip/SniperSnipe=A careful shot, dealing <c val="#ColorAttackInfo"><d ref="Effect,SniperSniperRoundDamage,Amount"/></c> (<c val="#ColorAttackInfo"><d ref="Effect,SniperSniperRoundDamage,Amount + Effect,SniperSniperRoundDamage,AttributeBonus[5]"/></c> vs. Psionic) damage. Ignores armor.<n/><n/><c val="#ColorAttackInfo">Can only target biological units.</c>
-Button/Tooltip/SniperToxicMunitions=The Sniper's projectiles are coated in a deadly toxin that deals <c val="#ColorAttackInfo"><d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Effect,SniperDeadlyToxinDamage,Amount"/></c> damage over <d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period"/> seconds to any enemy damaged by it for the first time.
+Button/Tooltip/SniperNuclearStrike=Calls down a Nuclear Strike at a target location. Nuke takes <d ref="Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay"/> seconds to land and deals up to <c val="#ColorAttackInfo"><d ref="Effect,SniperNuclearStrikeDamage,Amount"/></c> (<c val="#ColorAttackInfo"><d ref="Effect,SniperNuclearStrikeDamage,Amount + Effect,SniperNuclearStrikeDamage,AttributeBonus[Structure]"/></c> vs. Structure) damage to enemies in a large radius.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/SniperSnipe=A careful shot, dealing <c val="#ColorAttackInfo"><d ref="Effect,SniperSniperRoundDamage,Amount"/></c> (<c val="#ColorAttackInfo"><d ref="Effect,SniperSniperRoundDamage,Amount + Effect,SniperSniperRoundDamage,AttributeBonus[5]"/></c> vs. Psionic) damage.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c> <c val="#ColorAttackInfo">Can only target biological units.</c>
+Button/Tooltip/SniperToxicMunitions=This unit's projectiles are coated in a deadly toxin that deals <c val="#ColorAttackInfo"><d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Effect,SniperDeadlyToxinDamage,Amount"/></c> damage over <d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period"/> seconds to any enemy damaged by it for the first time.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/SniperWeaponsFree=Orders selected units to fire at will. They will engage enemy units within range and chase them as normal.
 Button/Tooltip/VehicleAutomaticServos=The Vehicle's turret can fire while moving.
 Button/Tooltip/VehicleCancel=Cancels the current Lock On, and allows you to select a new target.
-Button/Tooltip/VehicleGraduatingRange=Increases the hero's range by 6 over 12 seconds while it remains immobile.
-Button/Tooltip/VehicleLockOn=Locks the hero's weapons on the target unit, attacking it significantly faster. Cancels if target moves out of range.
-Button/Tooltip/VehicleOverdrive=Increases the hero's movement speed by <d ref="(Behavior,VehicleOverdrive,Modification.MoveSpeedMultiplier - 1) * 100" precision="1"/>% for <d ref="Behavior,VehicleOverdrive,Duration"/> seconds.
+Button/Tooltip/VehicleGraduatingRange=Increases the unit's range by 6 over 12 seconds while it remains immobile.
+Button/Tooltip/VehicleLockOn=Locks the unit's weapons on the target unit, attacking it significantly faster. Cancels if target moves out of range.
+Button/Tooltip/VehicleOverdrive=Increases the unit's movement speed by <d ref="(Behavior,VehicleOverdrive,Modification.MoveSpeedMultiplier - 1) * 100" precision="1"/>% for <d ref="Behavior,VehicleOverdrive,Duration"/> seconds.
 Button/Tooltip/VehicleSiegeMode=Deploys into Siege Mode. In this mode, the hero gains an area attack and does more damage. While in Siege Mode, the hero cannot move or attack targets at close range.
 Button/Tooltip/VehicleUnsiege=Reverts to Tank Mode. In this mode the hero can move, but does less damage.
 Button/Tooltip/WarpInCRPGHunterLevel2=Purifier Faction<n/>Ranged specialist. Can use Psionic Transfer.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
@@ -281,6 +282,7 @@ Effect/Name/CRPGGiveAttributeLevelCounter=Give Attribute
 Effect/Name/CRPGGiveAttributes=Give Attributes
 Effect/Name/CRPGIncreaseLevelCounter=Increase Level Counter
 Effect/Name/CRPGTransferAttributes=Transfer Attributes
+Effect/Name/CRPGTransferKillsAttributes=Transfer Kills Attributes
 Effect/Name/CRPGTransferSelectionToSource=Transfer Selection To Source
 Effect/Name/CRPGUpgradeArmor=Upgrade Armor
 Effect/Name/CRPGUpgradeDamage=Upgrade Damage
@@ -338,19 +340,26 @@ Effect/Name/HunterParticleDisruptorsLaunchMissile=Particle Disruptors
 Effect/Name/HunterPhaseDisruptorDamage=Phase Disruptor
 Effect/Name/HunterPhaseDisruptorLaunchMissile=Phase Disruptor
 Effect/Name/HunterPhaseDisruptorsDamage=Phase Disruptors
+Effect/Name/HunterProjectionBeamCreatePersistent=Projection Beam
+Effect/Name/HunterProjectionBeamDamage=Projection Beam
+Effect/Name/HunterPsionicProjectionApplyCooldownBehavior=Psionic Projection
+Effect/Name/HunterPsionicProjectionCancel=Psionic Projection
+Effect/Name/HunterPsionicProjectionStart=Psionic Projection
+Effect/Name/HunterPsionicProjectionUseMagazine=Psionic Projection
 Effect/Name/HunterPurifierGlaiveCannonDamage=Purifier Glaive Cannon
 Effect/Name/HunterPurifierGlaiveCannonLaunchMissile=Purifier Glaive Cannon
 Effect/Name/HunterScarabMineBurrowOrder=Scarab Mine
 Effect/Name/HunterScarabMineCreateUnit=Scarab Mine
+Effect/Name/HunterScarabMinesApplyBehavior=Scarab Mines
 Effect/Name/HunterScarabMinesDamage=Scarab Mines
+Effect/Name/HunterScarabMinesSearchArea=Scarab Mines
 Effect/Name/HunterScarabMinesSet=Scarab Mines
 Effect/Name/HunterScatterCannonCreatePersistent=Scatter Cannon
 Effect/Name/HunterScatterCannonDamage=Scatter Cannon
 Effect/Name/HunterScatterCannonDamageSet=Scatter Cannon
 Effect/Name/HunterScatterCannonLaunchMissile=Scatter Cannon
-Effect/Name/HunterScatterCannonLaunchMissileNoSearch=Scatter Cannon
+Effect/Name/HunterScatterCannonLaunchMissilePrimary=Scatter Cannon
 Effect/Name/HunterScatterCannonLaunchMissileSet=Scatter Cannon
-Effect/Name/HunterScatterCannonRemoveBehavior=Scatter Cannon
 Effect/Name/HunterScatterCannonSearchArea=Scatter Cannon
 Effect/Name/InfestedAberrateApplyBehavior=Aberrate
 Effect/Name/InfestedAberrateCreateSet=Aberrate
@@ -464,6 +473,7 @@ Effect/Name/NeuralParasiteDroneRemoveCheck2=Neural Parasite Drone Remove Check C
 Effect/Name/NeuralParasiteLockOnRemove2=Neural Parasite Lock On Remove Copy
 Effect/Name/NeuralParasitePersistentDestroy2=Neural Parasite Persistent Destroy Copy
 Effect/Name/NeuralParasitePersistentSet2=Neural Parasite Persistent Set Copy
+Effect/Name/PsionicProjectionDummy=Psionic Projection
 Effect/Name/RapidStrikesApplyBehavior=Rapid Strikes
 Effect/Name/SniperC10CanisterRifleDamage=C-10 Canister Rifle
 Effect/Name/SniperC20ACanisterRifleDamage=C-20A Canister Rifle
@@ -538,12 +548,14 @@ RequirementNode/Tooltip/LT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5
 RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=Not Infested
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
 RequirementNode/Tooltip/Not3697774798CountBehaviorInfestedInfestedCompleteOnly=No Infestation Spore Victim
+RequirementNode/Tooltip/Or1799048625LTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfes3620715993=Max Infested Units
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/AlienUnits=Alien Units
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGHeroes=Crash RPG Heroes
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGUnits=Crash RPG Units
 Unit/Category/AlienUnits=Alien
 Unit/Category/CrashRPGHeroes=Crash RPG Heroes
 Unit/Category/CrashRPGUnits=Crash RPG Units
+Unit/LifeArmorName/ProtossArmor=Protoss Armor
 Unit/LifeArmorName/ZergBuildingArmor=Zerg Building Armor
 Unit/Name/Beacon_Terranmedium=Beacon
 Unit/Name/CRPGAero=Aero
@@ -577,6 +589,7 @@ Unit/Name/GreaterSpire=Alien
 Unit/Name/GuardianMP=Alien
 Unit/Name/Hatchery=Alien
 Unit/Name/Hive=Alien
+Unit/Name/HunterPsionicProjection=Psionic Projection
 Unit/Name/HunterScarabMine=Scarab Mine
 Unit/Name/Hydralisk=Alien
 Unit/Name/HydraliskDen=Alien
@@ -602,6 +615,7 @@ Unit/Name/NydusNetwork=Alien
 Unit/Name/Overlord=Alien
 Unit/Name/Queen=Alien
 Unit/Name/Roach=Alien
+Unit/Name/ScatterCannonMissile=Scatter Cannon
 Unit/Name/SniperLevel4=Sniper
 Unit/Name/SpawningPool=Alien
 Unit/Name/SpineCrawler=Alien
@@ -628,6 +642,7 @@ Weapon/Name/HunterParticleBeam=Particle Beam
 Weapon/Name/HunterParticleDisruptors=Particle Disruptors
 Weapon/Name/HunterPhaseDisruptor=Phase Disruptor
 Weapon/Name/HunterPhaseDisruptors=Phase Disruptors
+Weapon/Name/HunterProjectionBeam=Projection Beam
 Weapon/Name/HunterPurifierGlaiveCannon=Purifier Glaive Cannon
 Weapon/Name/HunterScarabMines=Scarab Mines
 Weapon/Name/Hyperion32=ATS Laser Battery Copy

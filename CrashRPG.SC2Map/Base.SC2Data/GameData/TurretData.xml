@@ -4,4 +4,9 @@
         <Idle value="ResetIfMoving"/>
         <YawRate value="539.2968"/>
     </CTurret>
+    <CTurret id="Hunter" parent="FreeRotate">
+        <Idle value="FollowMovement"/>
+        <YawRate value="1080"/>
+        <YawIdleRate value="360"/>
+    </CTurret>
 </Catalog>

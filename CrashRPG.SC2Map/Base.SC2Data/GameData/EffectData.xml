@@ -1,17 +1,69 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CEffectRemoveBehavior id="HunterScatterCannonRemoveBehavior">
+    <CEffectSet id="CRPGTransferKillsAttributes">
+        <EffectArray value="CRPGTransferAttributes"/>
+        <EffectArray value="KillsToCaster"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="HunterProjectionBeamCreatePersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <ExpireEffect value="Suicide"/>
+        <PeriodCount value="5"/>
+        <PeriodicEffectArray value="HunterProjectionBeamDamage"/>
+        <PeriodicPeriodArray value="0.2"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="HunterProjectionBeamDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <ArmorReduction value="0"/>
+        <Kind value="Ranged"/>
+        <Amount value="4"/>
+    </CEffectDamage>
+    <CEffectIssueOrder id="HunterPsionicProjectionCancel">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Source"/>
+        <Abil value="Queue2"/>
+        <Player Value="Source"/>
+    </CEffectIssueOrder>
+    <CEffectApplyBehavior id="HunterPsionicProjectionApplyCooldownBehavior">
+        <ValidatorArray index="0" value="PsionicProjectionNotCoolingDown"/>
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
-        <BehaviorLink value="ImmortalTaldarimMissileSpeedStack"/>
-        <Count value="16"/>
-    </CEffectRemoveBehavior>
-    <CEffectDamage id="HunterScatterCannonDamage" parent="DU_WEAP_MISSILE">
+        <Behavior value="HunterPsionicProjectionCooldown"/>
+    </CEffectApplyBehavior>
+    <CEffectIssueOrder id="HunterPsionicProjectionStart">
         <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/HunterPsionicProjectionCancel"/>
+        <WhichUnit Value="Source"/>
+        <Abil value="HunterPsionicProjection"/>
+        <Player Value="Source"/>
+    </CEffectIssueOrder>
+    <CEffectUseMagazine id="HunterPsionicProjectionUseMagazine">
+        <EditorCategories value="Race:Protoss"/>
+        <MagazineAbil value="HunterPsionicProjection"/>
+    </CEffectUseMagazine>
+    <CEffectApplyBehavior id="HunterScarabMinesApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="HunterSlowScarabMine"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="HunterScarabMinesSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <SearchFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1.25" Effect="HunterScarabMinesApplyBehavior"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="HunterScatterCannonDamage">
+        <EditorCategories value="Race:Protoss"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
         <Amount value="40"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="1"/>
+        <SearchFlags index="OffsetAreaByAngle" value="1"/>
     </CEffectDamage>
     <CEffectSet id="HunterScatterCannonDamageSet">
         <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterScatterCannonDamage"/>
         <EffectArray value="HunterScatterCannonDamage"/>
         <EffectArray value="HunterScatterCannonDamage"/>
         <EffectArray value="HunterScatterCannonDamage"/>
@@ -20,15 +72,15 @@
     <CEffectLaunchMissile id="HunterScatterCannonLaunchMissile">
         <EditorCategories value="Race:Protoss"/>
         <ImpactLocation Value="TargetPoint"/>
-        <ImpactEffect value="HunterScatterCannonSearchArea"/>
-        <AmmoUnit value="ImmortalTaldarimWeaponMissile"/>
+        <ImpactEffect value="HunterScatterCannonDamage"/>
+        <AmmoUnit value="ScatterCannonMissile"/>
         <Movers Link="ImmortalTaldarimWeaponMover" IfRangeLTE="500"/>
     </CEffectLaunchMissile>
-    <CEffectLaunchMissile id="HunterScatterCannonLaunchMissileNoSearch">
-        <ValidatorArray value="TargetRadiusLE0Dot125"/>
+    <CEffectLaunchMissile id="HunterScatterCannonLaunchMissilePrimary">
         <EditorCategories value="Race:Protoss"/>
-        <ImpactEffect value="HunterScatterCannonDamage"/>
-        <AmmoUnit value="ImmortalTaldarimWeaponMissile"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="HunterScatterCannonSearchArea"/>
+        <AmmoUnit value="ScatterCannonMissile"/>
         <Movers Link="ImmortalTaldarimWeaponMover" IfRangeLTE="500"/>
     </CEffectLaunchMissile>
     <CEffectSet id="HunterScatterCannonLaunchMissileSet">
@@ -37,10 +89,7 @@
     </CEffectSet>
     <CEffectCreatePersistent id="HunterScatterCannonCreatePersistent">
         <EditorCategories value="Race:Protoss"/>
-        <WhichLocation Value="TargetUnit"/>
-        <InitialEffect value="HunterScatterCannonLaunchMissileNoSearch"/>
-        <ExpireEffect value="HunterScatterCannonRemoveBehavior"/>
-        <FinalEffect value="HunterScatterCannonRemoveBehavior"/>
+        <InitialEffect value="HunterScatterCannonLaunchMissilePrimary"/>
         <PeriodCount value="4"/>
         <PeriodicEffectArray value="HunterScatterCannonLaunchMissileSet"/>
         <PeriodicOffsetArray value="-0.75,0,0"/>
@@ -56,7 +105,7 @@
         <EditorCategories value="Race:Protoss"/>
         <IncludeArray Effect="ImmortalTaldarimWeaponRandomLarge" Value="Target"/>
         <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="0.6" Effect="HunterScatterCannonDamageSet"/>
+        <AreaArray Radius="1.5" Effect="HunterScatterCannonDamageSet"/>
     </CEffectEnumArea>
     <CEffectSet id="MechCalldownMechCreateSet">
         <EditorCategories value="Race:Terran"/>
@@ -80,15 +129,15 @@
         <Movers Link="AdeptWeapon"/>
     </CEffectLaunchMissile>
     <CEffectSet id="BeaconGiveHeroGiveSet">
-        <EffectArray value="BeaconGiveHeroModifyUnit"/>
         <EffectArray value="BeaconGiveHeroRemoveBehavior"/>
+        <EffectArray value="BeaconGiveHeroTransferBehavior"/>
     </CEffectSet>
     <CEffectRemoveBehavior id="BeaconGiveHeroRemoveBehavior">
         <BehaviorLink value="Invulnerable"/>
     </CEffectRemoveBehavior>
     <CEffectEnumArea id="BeaconGiveHeroSearchArea">
         <SearchFilters value="Heroic;Ally,Neutral,Enemy,Dead"/>
-        <AreaArray Radius="1" Effect="BeaconGiveHeroGiveSet"/>
+        <AreaArray Radius="1" Effect="BeaconGiveHeroRemoveBehavior"/>
     </CEffectEnumArea>
     <CEffectModifyUnit id="BeaconGiveHeroModifyUnit">
         <ModifyFlags index="Owner" value="1"/>
@@ -408,7 +457,8 @@
         <WhichLocation Value="TargetUnitOrPoint"/>
         <SpawnUnit value="InfestedInfestedBunker"/>
         <SpawnEffect value="InfestedAberrateCreateSet"/>
-        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="Placement" value="0"/>
     </CEffectCreateUnit>
     <CEffectEnumArea id="InfestedAberrateSearchAreaDetectCivilians">
         <EditorCategories value="Race:Zerg"/>
@@ -1155,7 +1205,7 @@
         <WhichLocation Value="TargetPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
-        <SpawnEffect value="KillsToCaster"/>
+        <SpawnEffect value="CRPGTransferKillsAttributes"/>
         <SpawnUnit value="HunterScarabMine"/>
     </CEffectCreateUnit>
     <CEffectApplyBehavior id="InfestedInfestationSporeApplyBehavior">
@@ -1316,6 +1366,9 @@
         <SearchFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray MaxCount="1" Radius="8" Effect="MechPointDefenseLaserSet"/>
     </CEffectEnumArea>
+    <CEffectDamage id="PsionicProjectionDummy" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+    </CEffectDamage>
     <CEffectSet id="VehicleCrucioShockCannonSet">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="VehicleCrucioShockCannonDirected"/>
@@ -1690,7 +1743,6 @@
     </CEffectDamage>
     <CEffectIssueOrder id="HunterScarabMineBurrowOrder">
         <EditorCategories value="Race:Protoss"/>
-        <Marker Link="Effect/VultureSpiderMineBurrowOrder"/>
         <WhichUnit Value="Caster"/>
         <Abil value="ScarabMineBurrow"/>
         <CmdFlags index="Preempt" value="1"/>

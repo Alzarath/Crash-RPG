@@ -27,6 +27,12 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="BeaconMove"/>
     </CAbilEffectTarget>
+    <CAbilQueue id="Queue2">
+        <EditorCategories value="Race:Neutral,AbilityorEffectType:Structures"/>
+        <QueueSize value="2"/>
+        <Flags index="Hidden" value="1"/>
+        <Flags index="Passive" value="1"/>
+    </CAbilQueue>
     <CAbilEffectTarget id="CRPGControlCrashedBattlecruiser">
         <Effect index="0" value="CRPGControlCrashedBattlecruiserApplyBehavior"/>
         <Flags index="AutoCast" value="1"/>
@@ -80,6 +86,8 @@
         </Cost>
         <CursorEffect value="HunterScatterCannonSearchArea"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="HunterScatterCannon"/>
+        <Arc value="360"/>
+        <Range value="6"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="InfestedInfestationSpore">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -128,7 +136,7 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <InfoArray index="0" Unit="CRPGInfestedLevel2"/>
     </CAbilMorph>
-    <CAbilEffectInstant id="InfestedInfestedEggInfestedCivilian">
+    <CAbilEffectInstant id="InfestedInfestedEgg">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="InfestedInfestedEggSwitch"/>
         <Flags index="BestUnit" value="1"/>
@@ -146,7 +154,7 @@
         <UninterruptibleArray index="Finish" value="1"/>
         <ProducedUnitArray value="InfestedInfestedCivilian"/>
         <ProducedUnitArray value="InfestedInfestedMarine"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfestedEgg"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfestedEgg" Requirements="InfestedMaxInfestedUnits"/>
     </CAbilEffectInstant>
     <CAbilMorph id="InfestedLevelUpMorphLevel2" parent="InfestedLevelUpMorphLevel1">
         <InfoArray index="0" Unit="CRPGInfestedLevel3"/>
@@ -206,7 +214,7 @@
         <Flags index="RequireTargetVision" value="0"/>
         <Flags index="Transient" value="1"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="50"/>
             <Charge Link="Abil/DefensiveMatrix"/>
             <Cooldown Link="Abil/DefensiveMatrix" TimeUse="20"/>
         </Cost>
@@ -248,17 +256,39 @@
     <CAbilMorph id="HunterLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <ActorKey value="MechLevelUpMorphLevel1"/>
-        <InfoArray index="0" Unit="CRPGHunterLevel2"/>
+        <InfoArray index="0" Unit="CRPGHunterLevel2">
+            <SectionArray index="Abils">
+                <EffectArray index="Finish" value="HunterPsionicProjectionRemoveCountBehaviors"/>
+            </SectionArray>
+        </InfoArray>
     </CAbilMorph>
     <CAbilMorph id="HunterLevelUpMorphLevel2" parent="HunterLevelUpMorphLevel1">
         <InfoArray index="0" Unit="CRPGHunterLevel3"/>
     </CAbilMorph>
     <CAbilMorph id="HunterLevelUpMorphLevel3" parent="HunterLevelUpMorphLevel2">
         <InfoArray index="0" Unit="CRPGHunterLevel4"/>
+        <Flags index="IgnoreFacing" value="0"/>
     </CAbilMorph>
     <CAbilMorph id="HunterLevelUpMorphLevel4" parent="HunterLevelUpMorphLevel3">
         <InfoArray index="0" Unit="CRPGHunterLevel5"/>
     </CAbilMorph>
+    <CAbilArmMagazine id="HunterPsionicProjection">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Flags index="AutoCastOffOwnerLeave" value="0"/>
+        <Flags index="Retarget" value="1"/>
+        <Leash value="4"/>
+        <InfoArray index="Ammo1" Time="5" Manage="Recall" Unit="HunterPsionicProjection">
+            <Charge Link="Abil/##id##"/>
+            <Cooldown Link="Abil/##id##"/>
+            <Button DefaultButtonFace="HunterPsionicProjection"/>
+            <Flags index="External" value="1"/>
+        </InfoArray>
+        <EffectArray index="Create" value="CRPGTransferKillsAttributes"/>
+        <EffectArray index="Death" value="InterceptorFate"/>
+        <EffectArray index="Release" value="KillsToCaster"/>
+        <ExternalAngle value="270"/>
+        <ExternalAngle value="90"/>
+    </CAbilArmMagazine>
     <CAbilEffectInstant id="MechShockBlast">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -605,6 +635,7 @@
         <Flags index="SuppressMovement" value="1"/>
         <InfoArray Unit="HunterScarabMine">
             <SectionArray index="Stats">
+                <DurationArray index="Duration" value="0.6"/>
                 <EffectArray index="Start" value="SpiderMineInvulnerable"/>
             </SectionArray>
         </InfoArray>
@@ -629,6 +660,7 @@
         <Placeholder value="HunterScarabMine"/>
         <Range value="3"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="HunterScarabMine"/>
+        <Arc value="360"/>
     </CAbilEffectTarget>
     <CAbilMorph id="ScarabMineBurrow">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>

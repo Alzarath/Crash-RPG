@@ -17,6 +17,7 @@ void InitLibs () {
 //--------------------------------------------------------------------------------------------------
 // Constants
 //--------------------------------------------------------------------------------------------------
+const int gv_survivorBasePlayer = 7;
 const fixed gv_damageFraction = 0.0625;
 
 //--------------------------------------------------------------------------------------------------
@@ -32,15 +33,15 @@ void InitGlobals () {
 //--------------------------------------------------------------------------------------------------
 // Global Function Declarations
 //--------------------------------------------------------------------------------------------------
-void gf_CreateSelectableHero (string lp_heroUnit, point lp_point);
+void gf_CreateSelectableHero (string lp_heroName);
 void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip);
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_MapInitialization;
-trigger gt_HeroGiven;
 trigger gt_MineralReward;
+trigger gt_HeroSelection;
 trigger gt_CreateSelectableHeroes;
 trigger gt_FreeHeroes;
 trigger gt_Updatetooltips;
@@ -48,11 +49,17 @@ trigger gt_Updatetooltips;
 //--------------------------------------------------------------------------------------------------
 // Global Functions
 //--------------------------------------------------------------------------------------------------
-void gf_CreateSelectableHero (string lp_heroUnit, point lp_point) {
+void gf_CreateSelectableHero (string lp_heroName) {
+    // Variable Declarations
+    point lv_creationPoint;
+
+    // Variable Initialization
+
     // Implementation
-    libNtve_gf_UnitCreateFacingPoint(1, lp_heroUnit, 0, 0, lp_point, RegionGetCenter(RegionEntireMap()));
+    lv_creationPoint = PointFromName(("Selection - " + lp_heroName));
+    libNtve_gf_UnitCreateFacingPoint(1, (("CRPG" + lp_heroName + "Level1")), 0, 0, lv_creationPoint, RegionGetCenter(RegionFromId(1)));
     UnitBehaviorAddPlayer(UnitLastCreated(), "Invulnerable", 0, 1);
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "Beacon_Terranmedium", 0, 0, lp_point);
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "Beacon_Terranmedium", 0, 0, lv_creationPoint);
 }
 
 void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip) {
@@ -68,14 +75,14 @@ void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip
 // Trigger: Map Initialization
 //--------------------------------------------------------------------------------------------------
 bool gt_MapInitialization_Func (bool testConds, bool runActions) {
+    int autoFAB08339_ae;
+    int autoFAB08339_ai;
     int auto194EA66D_catalog;
     int auto194EA66D_i;
-    playergroup auto99902C1A_g;
-    int auto99902C1A_p;
 
     // Variable Declarations
     string lv_unitType;
-    int lv_player;
+    int lv_pickedPlayer;
 
     // Variable Initialization
 
@@ -84,63 +91,32 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    PlayerGroupAdd(gv_survivors, 1);
-    PlayerGroupAdd(gv_survivors, 2);
-    PlayerGroupAdd(gv_survivors, 3);
-    PlayerGroupAdd(gv_survivors, 4);
-    PlayerGroupAdd(gv_survivors, 5);
-    PlayerGroupAdd(gv_survivors, 6);
-    PlayerGroupAdd(gv_survivors, 7);
-    libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
-    PlayerGroupLoopBegin(gv_survivors);
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        if ((PlayerType(PlayerGroupLoopCurrent()) == c_playerTypeUser)) {
+    autoFAB08339_ae = 6;
+    autoFAB08339_ai = 1;
+    lv_pickedPlayer = 1;
+    for ( ; ( (autoFAB08339_ai >= 0 && lv_pickedPlayer <= autoFAB08339_ae) || (autoFAB08339_ai <= 0 && lv_pickedPlayer >= autoFAB08339_ae) ) ; lv_pickedPlayer += autoFAB08339_ai ) {
+        if ((PlayerType(lv_pickedPlayer) == c_playerTypeUser)) {
+            PlayerGroupAdd(gv_survivors, lv_pickedPlayer);
             gv_remainingSelectors += 1;
-        }
+            libNtve_gf_SetAlliance(lv_pickedPlayer, 8, libNtve_ge_AllianceSetting_Enemy);
+            libNtve_gf_SetAlliance(lv_pickedPlayer, 0, libNtve_ge_AllianceSetting_Neutral);
+            auto194EA66D_catalog = c_gameCatalogUnit;
+            auto194EA66D_i = 1;
+            for ( ; auto194EA66D_i <= CatalogEntryCount(c_gameCatalogUnit) ; auto194EA66D_i += 1 ) {
+                lv_unitType = CatalogEntryGet(auto194EA66D_catalog, auto194EA66D_i);
+                if (((CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/HybridUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranCharacter") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergCharacter"))) {
+                    TechTreeUnitHelp(lv_pickedPlayer, lv_unitType, false);
+                }
 
-        libNtve_gf_SetAlliance(PlayerGroupLoopCurrent(), 8, libNtve_ge_AllianceSetting_Enemy);
-        libNtve_gf_SetAlliance(PlayerGroupLoopCurrent(), 0, libNtve_ge_AllianceSetting_Neutral);
-    }
-    PlayerGroupLoopEnd();
-    if ((PlayerType(1) == c_playerTypeUser)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 1, PointFromId(669968176));
-    }
-
-    if ((PlayerType(2) == c_playerTypeUser)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 2, PointFromId(1992567188));
-    }
-
-    if ((PlayerType(3) == c_playerTypeUser)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 3, PointFromId(11616904));
-    }
-
-    if ((PlayerType(4) == c_playerTypeUser)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 4, PointFromId(1752496603));
-    }
-
-    if ((PlayerType(5) == c_playerTypeUser)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 5, PointFromId(741491427));
-    }
-
-    if ((PlayerType(6) == c_playerTypeUser)) {
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, 6, PointFromId(1490897639));
-    }
-
-    HelpPanelEnableTechTreeButton(PlayerGroupAll(), false);
-    auto194EA66D_catalog = c_gameCatalogUnit;
-    auto194EA66D_i = 1;
-    for ( ; auto194EA66D_i <= CatalogEntryCount(c_gameCatalogUnit) ; auto194EA66D_i += 1 ) {
-        lv_unitType = CatalogEntryGet(auto194EA66D_catalog, auto194EA66D_i);
-        if (((CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/HybridUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranCharacter") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergCharacter"))) {
-            auto99902C1A_g = gv_survivors; 
-            auto99902C1A_p = 1;
-            for ( ; auto99902C1A_p <= PlayerGroupCount(auto99902C1A_g) ; auto99902C1A_p += BoolToInt(lv_player == PlayerGroupPlayer(auto99902C1A_g, auto99902C1A_p)) ) {
-                lv_player = PlayerGroupPlayer(auto99902C1A_g, auto99902C1A_p);
-                TechTreeUnitHelp(lv_player, lv_unitType, false);
             }
+            libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCivilian", 0, lv_pickedPlayer, PointFromName(("Player " + IntToString(lv_pickedPlayer) + " Spawn")));
+            UnitSelect(UnitLastCreated(), lv_pickedPlayer, true);
         }
 
     }
+    PlayerGroupAdd(gv_survivors, gv_survivorBasePlayer);
+    libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
+    HelpPanelEnableTechTreeButton(PlayerGroupAll(), false);
     AICampaignStart(8);
     return true;
 }
@@ -149,29 +125,6 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
 void gt_MapInitialization_Init () {
     gt_MapInitialization = TriggerCreate("gt_MapInitialization_Func");
     TriggerAddEventMapInit(gt_MapInitialization);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Hero Given
-//--------------------------------------------------------------------------------------------------
-bool gt_HeroGiven_Func (bool testConds, bool runActions) {
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    gv_remainingSelectors -= 1;
-    if ((gv_remainingSelectors == 0)) {
-        TriggerExecute(gt_FreeHeroes, true, false);
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_HeroGiven_Init () {
-    gt_HeroGiven = TriggerCreate("gt_HeroGiven_Func");
-    TriggerAddEventUnitAbility(gt_HeroGiven, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageComplete, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -194,6 +147,41 @@ void gt_MineralReward_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Hero Selection
+//--------------------------------------------------------------------------------------------------
+bool gt_HeroSelection_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_hero;
+    int lv_player;
+
+    // Variable Initialization
+    lv_hero = UnitGroupClosestToPoint(UnitGroup(null, 0, RegionFromId(1), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), UnitGetPosition(EventUnit()));
+    lv_player = UnitGetOwner(EventUnitTargetUnit());
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitRemove(lv_hero);
+    libNtve_gf_UnitCreateFacingPoint(1, UnitGetType(lv_hero), c_unitCreateIgnorePlacement, lv_player, UnitGetPosition(EventUnit()), RegionGetCenter(RegionFromId(1)));
+    UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("move", 0), UnitGroupClosestToPoint(UnitGroup("CRPGCrashedBattlecruiser", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(1)))), c_orderQueueReplace);
+    UnitSelect(UnitLastCreated(), lv_player, true);
+    gv_remainingSelectors -= 1;
+    if ((gv_remainingSelectors == 0)) {
+        TriggerExecute(gt_FreeHeroes, true, false);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_HeroSelection_Init () {
+    gt_HeroSelection = TriggerCreate("gt_HeroSelection_Func");
+    TriggerAddEventUnitAbility(gt_HeroSelection, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Create Selectable Heroes
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateSelectableHeroes_Func (bool testConds, bool runActions) {
@@ -202,12 +190,13 @@ bool gt_CreateSelectableHeroes_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    gf_CreateSelectableHero("CRPGAeroLevel1", PointFromId(1949826601));
-    gf_CreateSelectableHero("CRPGFighterLevel1", PointFromId(714557824));
-    gf_CreateSelectableHero("CRPGInfestedLevel1", PointFromId(1187947733));
-    gf_CreateSelectableHero("CRPGMechLevel1", PointFromId(1315754296));
-    gf_CreateSelectableHero("CRPGSniperLevel1", PointFromId(2061275486));
-    gf_CreateSelectableHero("CRPGVehicleLevel1", PointFromId(18820663));
+    gf_CreateSelectableHero("Aero");
+    gf_CreateSelectableHero("Fighter");
+    gf_CreateSelectableHero("Hunter");
+    gf_CreateSelectableHero("Infested");
+    gf_CreateSelectableHero("Mech");
+    gf_CreateSelectableHero("Sniper");
+    gf_CreateSelectableHero("Vehicle");
     return true;
 }
 
@@ -270,13 +259,16 @@ bool gt_Updatetooltips_Func (bool testConds, bool runActions) {
     lv_levelPoints = (UnitBehaviorCount(UnitGroupUnit(UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1), "LevelCounter") * CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "LevelCounter", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", EventPlayer()));
     lv_upgradePoints = CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "CRPGBaseAttributes", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", EventPlayer());
     lv_damageModifier = (((lv_levelPoints + lv_upgradePoints) * gv_damageFraction) + 1.0);
-    CatalogFieldValueSet(c_gameCatalogButton, "AeroYamatoCannon", "Tooltip", EventPlayer(), (("Blasts a target with a devastating plasma cannon, causing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroYamatoCannonDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "AeroYamatoCannon", "Tooltip", EventPlayer(), (("Blasts a target with a devastating plasma cannon, causing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroYamatoCannonDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
     CatalogFieldValueSet(c_gameCatalogButton, "AeroLaserArmaments", "Tooltip", EventPlayer(), (("Automatically fire Laser Batteries that deal <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroLaserArmamentsDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage to enemies below the hero.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "MechBarrage", "Tooltip", EventPlayer(), (("Stuns all enemies in a small area. Deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]\"/> seconds in a larger area.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "MechShockBlast", "Tooltip", EventPlayer(), (("Unleash a violent burst of energy, stunning and dealing up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "MechShocking", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechShockBlastDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage to nearby enemies over <d ref=\"Behavior,MechShocked,Duration\"/> seconds.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "SniperNuclearStrike", "Tooltip", EventPlayer(), (("Calls down a Nuclear Strike at a target location. Nuke takes <d ref=\"Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay\"/> seconds to land and deals up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "AttributeBonus[" + IntToString(7) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Structure) damage to enemies in a large radius.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage. Ignores armor.<n/><n/><c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));
-    CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicMunitions", "Tooltip", EventPlayer(), (("The Sniper's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "HunterPsionicProjection", "Tooltip", EventPlayer(), (("After not attacking for 5 seconds, project a psionic orb that will attack with the unit, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterProjectionBeamDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterProjectionBeamCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,HunterProjectionBeamCreatePersistent,PeriodCount * Effect,HunterProjectionBeamCreatePersistent,PeriodicPeriodArray[0]\"/> second. Can store up to 2.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "HunterScarabMine", "Tooltip", EventPlayer(), (("Scarab Mines pursue enemy units that come in range, detonating for <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterScarabMinesDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage and slowing nearby enemies in an area by <d ref=\"100 - (100 * Behavior,HunterSlowScarabMine,Modification.MoveSpeedMultiplier)\"/>% for <d ref=\"Behavior,HunterSlowScarabMine,Duration\"/> seconds.")));
+    CatalogFieldValueSet(c_gameCatalogButton, "HunterScatterCannon", "Tooltip", EventPlayer(), (("Launch a volley of missiles, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (5.0 * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterScatterCannonDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage in an area.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+    CatalogFieldValueSet(c_gameCatalogButton, "MechBarrage", "Tooltip", EventPlayer(), (("Stuns all enemies in a small area. Deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]\"/> seconds in a larger area.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+    CatalogFieldValueSet(c_gameCatalogButton, "MechShockBlast", "Tooltip", EventPlayer(), (("Unleash a violent burst of energy, stunning and dealing up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "MechShocking", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechShockBlastDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage to nearby enemies over <d ref=\"Behavior,MechShocked,Duration\"/> seconds.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+    CatalogFieldValueSet(c_gameCatalogButton, "SniperNuclearStrike", "Tooltip", EventPlayer(), (("Calls down a Nuclear Strike at a target location. Nuke takes <d ref=\"Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay\"/> seconds to land and deals up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "AttributeBonus[" + IntToString(7) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Structure) damage to enemies in a large radius.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+    CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c> <c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));
+    CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicMunitions", "Tooltip", EventPlayer(), (("This unit's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
     return true;
 }
 
@@ -292,8 +284,8 @@ void gt_Updatetooltips_Init () {
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
     gt_MapInitialization_Init();
-    gt_HeroGiven_Init();
     gt_MineralReward_Init();
+    gt_HeroSelection_Init();
     gt_CreateSelectableHeroes_Init();
     gt_FreeHeroes_Init();
     gt_Updatetooltips_Init();

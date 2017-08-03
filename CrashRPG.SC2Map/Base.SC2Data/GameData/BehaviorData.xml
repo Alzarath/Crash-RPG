@@ -103,21 +103,46 @@
         </Cost>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Period value="1"/>
+        <PeriodicEffect value="CrashedBattlecruiserMedicalFacilitiesSearchArea"/>
         <DamageResponse>
             <Cost>
                 <Charge Link="Behavior/CrashedBattlecruiserMedicalFacilities"/>
                 <Cooldown Link="Behavior/CrashedBattlecruiserMedicalFacilities"/>
             </Cost>
         </DamageResponse>
-        <Period value="1"/>
-        <PeriodicEffect value="CrashedBattlecruiserMedicalFacilitiesSearchArea"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterPsionicProjection">
+    <CBehaviorBuff id="HunterPsionicProjectionBase">
+        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
+        <DisableValidatorArray value="HunterPsionicProjectionMax"/>
+        <Period value="1"/>
+        <PeriodicEffect value="HunterPsionicProjectionApplyCooldownBehavior"/>
+        <Modification>
+            <AbilLinkDisableArray value="Queue2"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="HunterPsionicProjectionCooldown">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="5"/>
+        <Duration value="5.01"/>
+        <Cost>
+            <Cooldown TimeStart="5"/>
+        </Cost>
+        <InfoFlags index="Hidden" value="1"/>
+        <RemoveValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
+        <InitialEffect value="HunterPsionicProjectionStart"/>
+        <FinalEffect value="HunterPsionicProjectionCancel"/>
+        <Modification>
+            <AbilLinkEnableArray value="Queue2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterSlowScarabMine">
+        <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <Modification MoveSpeedMultiplier="0.6"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedBunkerEnableGaussRifle1">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -643,6 +668,7 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="2.5"/>
         <Modification MoveSpeedMultiplier="0.5" AttackSpeedMultiplier="0.5"/>
+        <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterStunnedShadowCharge">
         <Alignment value="Negative"/>

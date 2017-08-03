@@ -36,18 +36,18 @@
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="HunterDisruptorVolley">
-        <Icon value="Assets\Textures\btn-ability-protoss-phasedisruptor.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-phasedisruptor.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="HunterPsionicProjection">
-        <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-psionicprojection.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionicprojection.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="HunterScatterCannon">
-        <Icon value="Assets\Textures\BTN-Ability-Protoss-ScatterCannon.dds"/>
-        <AlertIcon value="Assets\Textures\BTN-Ability-Protoss-ScatterCannon.dds"/>
+        <Icon value="Assets\Textures\btn-ability-terran-haywiremissile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-haywiremissile.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="ImmortalTaldarimScatterCannon"/>
     </CButton>
@@ -293,7 +293,6 @@
         <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
         <EditorCategories value="Race:Protoss"/>
-        <TintRacially value="1"/>
     </CButton>
     <CButton id="SniperWeaponsFree">
         <Icon value="Assets\Textures\btn-ability-terran-weaponsfree.dds"/>

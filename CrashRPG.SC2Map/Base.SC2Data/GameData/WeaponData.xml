@@ -4,6 +4,17 @@
     <!-- Devourer ............................................................................... -->
     <!--                                                                                         -->
     <CWeaponLegacy id="DevourerMPWeapon"/>
+    <CWeaponLegacy id="HunterProjectionBeam">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="HunterProjectionBeamDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <TeleportResetRange value="0"/>
+        <Period value="5"/>
+        <Effect value="HunterProjectionBeamCreatePersistent"/>
+        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="HunterPurifierGlaiveCannon">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -453,9 +464,9 @@
         <AllowedMovement value="Slowing"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="HunterScarabMines">
-        <EditorCategories value="Race:Terran"/>
+        <EditorCategories value="Race:Protoss"/>
         <Options index="Melee" value="1"/>
-        <Icon value="Assets\Textures\btn-unit-terran-spidermine.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-artanis-scarabsplashradius.dds"/>
         <DisplayEffect value="HunterScarabMinesDamage"/>
         <TargetFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="0.1"/>

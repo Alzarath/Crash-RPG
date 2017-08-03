@@ -104,6 +104,20 @@
         <AreaArray Compare="GT" Count="0" Radius="5"/>
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,RawResource,HarvestableResource,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>
+    <CValidatorUnitCompareBehaviorCount id="HunterPsionicProjectionisActive">
+        <Value value="1"/>
+        <Behavior value="HunterPsionicProjectionActive"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorPlayerRequirement id="HunterPsionicProjectionMax">
+        <Find value="1"/>
+        <Value value="HunterArmPsionicProjection"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="PsionicProjectionNotCoolingDown">
+        <Behavior value="HunterPsionicProjectionCooldown"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HunterPsionicProjectionisnotActive">
+        <Behavior value="HunterPsionicProjectionActive"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorPlayerRequirement id="InfestedHas2InfestedCivilian">
         <Value value="InfestedHas2InfestedCivilian"/>
     </CValidatorPlayerRequirement>

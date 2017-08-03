@@ -2,6 +2,21 @@
 <Catalog>
     <CModel id="HitTestSphere">
         <Model value="Assets\Units\Test\HitTestSphere\HitTestSphere.m3"/>
+        <ShadowRadius value="0.000000"/>
+    </CModel>
+    <CModel id="PsionicProjection" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\Dragoon_Purifier_Coop_AirBomb_Missile\Dragoon_Purifier_Coop_AirBomb_Missile.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Radius value="0.250000"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+        <SelectionRadius value="0.312500"/>
+        <ShadowRadius value="0.312500"/>
+    </CModel>
+    <CModel id="PsionicProjectionGlazeDisabled">
+        <Model value="Assets\Effects\Glaze\PylonPowerOff_Glaze\PylonPowerOff_Glaze.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Lighting value="PsionicProjectionGlaze"/>
     </CModel>
     <CModel id="PurifierDragoonPlacement" parent="Placement" Race="Protoss">
         <Model value="Assets\Units\Protoss\Dragoon_Purifier_Coop_PlacementModel\Dragoon_Purifier_Coop_PlacementModel.m3"/>
@@ -15,7 +30,7 @@
         <ShadowRadius value="0.555400"/>
     </CModel>
     <CModel id="PurifierDragoonPortrait" parent="Portrait" Race="Protoss">
-        <Model value="Assets\Portraits\Protoss\FenixEx2Portrait\FenixEx2Portrait.m3"/>
+        <Model value="Assets\Portraits\Protoss\Immortal_Purifier_Portrait\Immortal_Purifier_Portrait.m3"/>
         <Image value="Assets\Textures\fenixportrait_static.dds"/>
     </CModel>
     <CModel id="PurifierDragoon" parent="Unit" Race="Protoss">
@@ -149,6 +164,18 @@
         <Model value="Assets\Portraits\Terran\DOM_GhostPortrait\DOM_GhostPortrait.m3"/>
         <Image value="Assets\Textures\dom_ghostportrait_static.dds"/>
         <Lighting value="GhostPortrait"/>
+    </CModel>
+    <CModel id="ProjectionBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\Sentry_Purifier_EnergyBeam\Sentry_Purifier_EnergyBeam.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <RadiusLoose value="1.000000"/>
+    </CModel>
+    <CModel id="PurifierScatterCannonMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Protoss\Scout_Purifier_AirMissile\Scout_Purifier_AirMissile.m3"/>
+    </CModel>
+    <CModel id="PurifierScatterCannonMissileImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\Scout_Purifier_AirMissile_Impact\Scout_Purifier_AirMissile_Impact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
     </CModel>
     <CModel id="SniperPortraitLevel5" parent="Portrait" Race="Terran">
         <Model value="Assets\Portraits\Terran\NovaPortrait\NovaPortrait.m3"/>
