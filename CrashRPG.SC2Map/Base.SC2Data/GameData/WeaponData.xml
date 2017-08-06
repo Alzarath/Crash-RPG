@@ -4,6 +4,35 @@
     <!-- Devourer ............................................................................... -->
     <!--                                                                                         -->
     <CWeaponLegacy id="DevourerMPWeapon"/>
+    <CWeaponLegacy id="HunterDisruptorVolley4">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="Disabled" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="HunterDisruptorVolleyDamage"/>
+        <DisplayAttackCount value="4"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <DamagePoint value="0"/>
+        <Effect value="HunterDisruptorVolleySet"/>
+        <LegacyOptions index="Uninterruptible" value="1"/>
+        <UninterruptibleDuration value="0.8"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HunterDisruptorVolley2">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="Disabled" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="HunterDisruptorVolleyDamage"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Marker Link="Weapon/HunterDisruptorVolley4"/>
+        <Cost>
+            <Cooldown Link="Weapon/HunterDisruptorVolley4"/>
+        </Cost>
+        <Period value="2"/>
+        <Effect value="HunterDisruptorVolleyProjectionCreatePersistent"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="HunterProjectionBeam">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -20,8 +49,9 @@
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="HunterPurifierGlaiveCannonDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="2.25"/>
-        <Effect value="HunterPurifierGlaiveCannonLaunchMissile"/>
+        <Period value="2"/>
+        <Effect value="HunterPurifierGlaiveCannonSet"/>
+        <Range value="6"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="AeroLaserBatteryATA">
         <EditorCategories value="Race:Terran"/>
@@ -53,7 +83,7 @@
         <Options index="DisplayCooldown" value="1"/>
         <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
         <DisplayEffect value="AeroYamatoGunDamage"/>
-        <Range value="10"/>
+        <Range value="6"/>
         <RangeSlop value="10"/>
         <Period value="6"/>
         <DamagePoint value="3"/>
@@ -68,7 +98,7 @@
         <DisplayEffect value="AeroArmageddonCannonRightDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AcquirePrioritization value="ByAngle"/>
-        <Range value="8"/>
+        <Range value="6"/>
         <Period value="0.4"/>
         <Effect value="AeroArmageddonCannonCreatePersistent"/>
         <AllowedMovement value="Slowing"/>
@@ -80,9 +110,9 @@
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="HunterPhaseDisruptorDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="7"/>
+        <Range value="6"/>
         <Period value="2"/>
-        <Effect value="HunterPhaseDisruptorLaunchMissile"/>
+        <Effect value="HunterPhaseDisruptorSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="Hyperion32">
         <EditorCategories value="Race:Terran"/>
@@ -222,23 +252,25 @@
         <DisplayEffect value="HunterParticleDisruptorsDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
-        <Period value="1.44"/>
-        <Effect value="HunterParticleDisruptorsLaunchMissile"/>
+        <Period value="2"/>
+        <Effect value="HunterParticleDisruptorsSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="HunterParticleBeam">
         <EditorCategories value="Race:Protoss"/>
         <Options index="Melee" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="HunterParticleBeamDamage"/>
-        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="0.1"/>
-        <Period value="1.5"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <Period value="2"/>
         <Effect value="HunterParticleBeamDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="HunterPhaseDisruptors" parent="PhaseDisruptors">
         <Name value="Weapon/Name/HunterPhaseDisruptors"/>
         <DisplayEffect value="HunterPhaseDisruptorsDamage"/>
-        <Effect value="HunterPhaseDisruptorsDamage"/>
+        <Effect value="HunterPhaseDisruptorsSet"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="2"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="VehicleLockOnDummy">
         <EditorCategories value="Race:Terran"/>

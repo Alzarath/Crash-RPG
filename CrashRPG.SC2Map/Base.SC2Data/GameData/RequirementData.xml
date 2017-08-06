@@ -5,10 +5,14 @@
         <NodeArray index="Show" Link="NotCountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="CRPGInRangeofArmory">
-        <NodeArray index="Use" Link="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit1337265981"/>
+        <NodeArray index="Use" Link="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714"/>
     </CRequirement>
     <CRequirement id="CRPGInRangeofCrashedBattlecruiser">
         <NodeArray index="Use" Link="CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428"/>
+    </CRequirement>
+    <CRequirement id="HunterDisruptorVolleyAvailable">
+        <EditorCategories value="Race:Protoss"/>
+        <NodeArray index="Use" Link="GTE3137215414CountBehaviorHunterDisruptorVolleyCounterCompleteOnlyAtUnit10"/>
     </CRequirement>
     <CRequirement id="InfestedMaxInfestedUnits">
         <EditorCategories value="Race:Zerg"/>

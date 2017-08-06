@@ -4,7 +4,7 @@
         <name value="Survivor Base"/>
         <shape type="circle">
             <center value="72.125,72"/>
-            <radius value="12.0004"/>
+            <radius value="20"/>
         </shape>
     </region>
 </Regions>

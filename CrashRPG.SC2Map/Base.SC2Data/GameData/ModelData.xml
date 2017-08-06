@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="PurifierAdeptPortrait" parent="Portrait" Race="Protoss">
+        <Model value="Assets\Portraits\Protoss\Adept_Purifier_Collection_Portrait\Adept_Purifier_Collection_Portrait.m3"/>
+        <Image value="Assets\Textures\AdeptPortrait_Static.dds"/>
+        <Lighting value="AdeptPortrait"/>
+    </CModel>
+    <CModel id="PurifierAdept" parent="Unit" Race="Protoss">
+        <Model value="Assets\Units\Protoss\Adept_Purifier_EX3_Coop\Adept_Purifier_EX3_Coop.m3"/>
+        <Occlusion value="Show"/>
+        <SquibTypeDefault value="Metal"/>
+    </CModel>
+    <CModel id="DisruptorVolleyImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\Scout_Purifier_AOE_AirMissile_Impact\Scout_Purifier_AOE_AirMissile_Impact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
     <CModel id="HitTestSphere">
         <Model value="Assets\Units\Test\HitTestSphere\HitTestSphere.m3"/>
         <ShadowRadius value="0.000000"/>
+        <SelectionLayer value="3"/>
     </CModel>
     <CModel id="PsionicProjection" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Protoss\Dragoon_Purifier_Coop_AirBomb_Missile\Dragoon_Purifier_Coop_AirBomb_Missile.m3"/>
@@ -176,6 +191,12 @@
     <CModel id="PurifierScatterCannonMissileImpact" parent="ImpactFX">
         <Model value="Assets\Effects\Protoss\Scout_Purifier_AirMissile_Impact\Scout_Purifier_AirMissile_Impact.m3"/>
         <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="DisruptorVolleyMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Protoss\Scout_Purifier_AOE_AirMissile\Scout_Purifier_AOE_AirMissile.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
     </CModel>
     <CModel id="SniperPortraitLevel5" parent="Portrait" Race="Terran">
         <Model value="Assets\Portraits\Terran\NovaPortrait\NovaPortrait.m3"/>

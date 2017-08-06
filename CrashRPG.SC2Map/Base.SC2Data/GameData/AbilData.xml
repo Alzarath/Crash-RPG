@@ -283,7 +283,7 @@
             <Button DefaultButtonFace="HunterPsionicProjection"/>
             <Flags index="External" value="1"/>
         </InfoArray>
-        <EffectArray index="Create" value="CRPGTransferKillsAttributes"/>
+        <EffectArray index="Create" value="HunterPsionicProjectionSet"/>
         <EffectArray index="Death" value="InterceptorFate"/>
         <EffectArray index="Release" value="KillsToCaster"/>
         <ExternalAngle value="270"/>
@@ -634,6 +634,12 @@
         <Flags index="IgnoreFacing" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <InfoArray Unit="HunterScarabMine">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
             <SectionArray index="Stats">
                 <DurationArray index="Duration" value="0.6"/>
                 <EffectArray index="Start" value="SpiderMineInvulnerable"/>
@@ -693,9 +699,10 @@
         <SmartFilters value="-;Neutral,Enemy"/>
         <AbilSetId value="AttackFriendly"/>
     </CAbilAttack>
-    <CAbilEffectTarget id="HunterBlink">
+    <CAbilEffectTarget id="HunterShadowBlink">
         <AbilSetId value="Blnk"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="HunterShadowBlinkTeleport"/>
         <Flags index="BestUnit" value="0"/>
         <Flags index="RequireTargetVision" value="0"/>
         <Cost>
@@ -704,7 +711,8 @@
         </Cost>
         <Range value="500"/>
         <Arc value="360"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="HunterBlink">
+        <AINotifyEffect value="HunterShadowBlinkTeleport"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterShadowBlink">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
     </CAbilEffectTarget>

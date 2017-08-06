@@ -24,6 +24,9 @@
         <Compare value="LT"/>
         <Value value="4"/>
     </CValidatorUnitCompareCargo>
+    <CValidatorUnitCompareBehaviorCount id="CRPGHasMedicalFacilitiesShield">
+        <Behavior value="CrashedBattlecruiserMedicalFacilitiesShields"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitFilters id="CRPGIsHero">
         <Filters value="Heroic;-"/>
     </CValidatorUnitFilters>
@@ -33,6 +36,11 @@
         <Value value="2"/>
         <Behavior value="LevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CRPGIsNotLevel4or5">
+        <Type value="And"/>
+        <CombineArray value="IsNotLevel4"/>
+        <CombineArray value="IsNotLevel5"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel3InfestedEgg">
         <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
         <Compare value="GE"/>
@@ -93,6 +101,11 @@
         <Value value="5"/>
         <Behavior value="LevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareDamageTakenTime id="CasterInCombatLong2">
+        <WhichUnit Value="Caster"/>
+        <Compare value="LT"/>
+        <Value value="5"/>
+    </CValidatorUnitCompareDamageTakenTime>
     <CValidatorUnitCompareBehaviorCount id="FighterHasRapidStrikes">
         <WhichUnit Value="Caster"/>
         <Value value="1"/>
@@ -104,6 +117,17 @@
         <AreaArray Compare="GT" Count="0" Radius="5"/>
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,RawResource,HarvestableResource,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>
+    <CValidatorUnitCompareBehaviorCount id="HunterCasterDisruptorVolleyReady">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="HunterDisruptorVolleyCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HunterDisruptorVolleyReady">
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="HunterDisruptorVolleyCounter"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="HunterPsionicProjectionisActive">
         <Value value="1"/>
         <Behavior value="HunterPsionicProjectionActive"/>

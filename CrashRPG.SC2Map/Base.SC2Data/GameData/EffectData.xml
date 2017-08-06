@@ -1,21 +1,106 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectApplyBehavior id="CRPGHeroRadarApplyBehavior">
+        <Behavior value="HeroDetectorRadar"/>
+        <Flags index="UseDuration" value="1"/>
+        <Duration value="2"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="CRPGRecentlyDamagedApplyBehavior">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CRPGRecentlyAttacked"/>
+    </CEffectApplyBehavior>
     <CEffectSet id="CRPGTransferKillsAttributes">
         <EffectArray value="CRPGTransferAttributes"/>
         <EffectArray value="KillsToCaster"/>
     </CEffectSet>
+    <CEffectSwitch id="HunterAttackSwitchLevel4">
+        <EditorCategories value="Race:Protoss"/>
+        <CaseArray Validator="HunterCasterDisruptorVolleyReady" Effect="HunterDisruptorVolleyCreatePersistent"/>
+    </CEffectSwitch>
+    <CEffectApplyBehavior id="HunterDisruptorVolleyApplyCountBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="HunterDisruptorVolleyCounter"/>
+    </CEffectApplyBehavior>
+    <CEffectLaunchMissile id="HunterDisruptorVolleyProjectionLaunchMissile">
+        <ValidatorArray index="0" value="HunterDisruptorVolleyLaunchMissileTargetFilters"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/HunterDisruptorVolleyLaunchMissile"/>
+        <LaunchLocation Effect="HunterDisruptorVolleyProjectionCreatePersistent" Value="TargetUnit"/>
+        <ImpactLocation Effect="HunterPsionicProjectionIterateMagazine" Value="TargetUnitOrPoint"/>
+        <ImpactEffect value="HunterDisruptorVolleyDamage"/>
+        <AmmoUnit value="WeaponDisruptorVolleyHunter"/>
+        <Movers Link="VoidThrasherMissileMover" IfRangeLTE="10"/>
+        <Movers Link="VoidThrasherMissileMover2" IfRangeLTE="30"/>
+        <Movers Link="VoidThrasherMissileMover3" IfRangeLTE="50"/>
+        <Movers Link="VoidThrasherMissileMover4" IfRangeLTE="70"/>
+        <Movers Link="VoidThrasherMissileMover5" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="HunterDisruptorVolleyProjectionSuicide">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Effect="HunterDisruptorVolleyProjectionCreatePersistent" Value="TargetUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="HunterPsionicProjectionApplyDisruptorCountBehavior">
+        <ValidatorArray index="0" value="HunterCasterDisruptorVolleyReady"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="HunterDisruptorVolleyCounter"/>
+        <Count value="10"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="HunterDisruptorVolleyCreatePersistent">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <ExpireEffect value="HunterDisruptorVolleyRemoveBehavior2"/>
+        <PeriodCount value="4"/>
+        <PeriodicEffectArray value="HunterDisruptorVolleyLaunchMissile"/>
+        <PeriodicPeriodArray value="0.2"/>
+    </CEffectCreatePersistent>
+    <CEffectRemoveBehavior id="HunterDisruptorVolleyRemoveBehavior2">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="HunterDisruptorVolleyCounter"/>
+        <Count value="9"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="HunterDisruptorVolleySet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterDisruptorVolleyCreatePersistent"/>
+        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
+    </CEffectSet>
+    <CEffectSet id="HunterPhaseDisruptorSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterPhaseDisruptorLaunchMissile"/>
+        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
+    </CEffectSet>
+    <CEffectSet id="HunterPhaseDisruptorsSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterPhaseDisruptorsDamage"/>
+        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
+    </CEffectSet>
+    <CEffectDamage id="HunterProjectionBeamSuicide">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Effect="HunterProjectionBeamCreatePersistent" Value="TargetUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectSet id="HunterPurifierGlaiveCannonSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterPurifierGlaiveCannonLaunchMissile"/>
+        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
+    </CEffectSet>
     <CEffectCreatePersistent id="HunterProjectionBeamCreatePersistent">
         <EditorCategories value="Race:Protoss"/>
-        <WhichLocation Value="TargetUnit"/>
         <TimeScaleSource Value="Caster"/>
-        <ExpireEffect value="Suicide"/>
+        <ExpireEffect value="HunterProjectionBeamSuicide"/>
         <PeriodCount value="5"/>
         <PeriodicEffectArray value="HunterProjectionBeamDamage"/>
         <PeriodicPeriodArray value="0.2"/>
     </CEffectCreatePersistent>
     <CEffectDamage id="HunterProjectionBeamDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
-        <ArmorReduction value="0"/>
+        <LaunchLocation Effect="HunterProjectionBeamCreatePersistent" Value="TargetUnit"/>
+        <ImpactLocation Effect="HunterPsionicProjectionIterateMagazine"/>
+        <ArmorReduction value="0.2"/>
         <Kind value="Ranged"/>
         <Amount value="4"/>
     </CEffectDamage>
@@ -31,6 +116,16 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="HunterPsionicProjectionCooldown"/>
     </CEffectApplyBehavior>
+    <CEffectEnumMagazine id="HunterPsionicProjectionIterateMagazine">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <EffectExternal value="HunterPsionicProjectionSwitch"/>
+    </CEffectEnumMagazine>
+    <CEffectSet id="HunterPsionicProjectionSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="CRPGTransferAttributes"/>
+        <EffectArray value="HunterPsionicProjectionApplyDisruptorCountBehavior"/>
+    </CEffectSet>
     <CEffectIssueOrder id="HunterPsionicProjectionStart">
         <EditorCategories value="Race:Protoss"/>
         <Marker Link="Effect/HunterPsionicProjectionCancel"/>
@@ -38,10 +133,16 @@
         <Abil value="HunterPsionicProjection"/>
         <Player Value="Source"/>
     </CEffectIssueOrder>
-    <CEffectUseMagazine id="HunterPsionicProjectionUseMagazine">
+    <CEffectSwitch id="HunterPsionicProjectionSwitch">
         <EditorCategories value="Race:Protoss"/>
-        <MagazineAbil value="HunterPsionicProjection"/>
-    </CEffectUseMagazine>
+        <CaseArray Validator="HunterDisruptorVolleyReady" Effect="HunterDisruptorVolleyProjectionCreatePersistent"/>
+        <CaseDefault value="HunterProjectionBeamCreatePersistent"/>
+    </CEffectSwitch>
+    <CEffectSet id="HunterParticleDisruptorsSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterParticleDisruptorsLaunchMissile"/>
+        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="HunterScarabMinesApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="HunterSlowScarabMine"/>
@@ -49,7 +150,7 @@
     <CEffectEnumArea id="HunterScarabMinesSearchArea">
         <EditorCategories value="Race:Protoss"/>
         <SearchFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="1.25" Effect="HunterScarabMinesApplyBehavior"/>
+        <AreaArray Radius="2" Effect="HunterScarabMinesApplyBehavior"/>
     </CEffectEnumArea>
     <CEffectDamage id="HunterScatterCannonDamage">
         <EditorCategories value="Race:Protoss"/>
@@ -107,6 +208,37 @@
         <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="1.5" Effect="HunterScatterCannonDamageSet"/>
     </CEffectEnumArea>
+    <CEffectDamage id="HunterDisruptorVolleyDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="HunterDisruptorVolleyLaunchMissile">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="HunterDisruptorVolleyDamage"/>
+        <AmmoUnit value="WeaponDisruptorVolleyHunter"/>
+        <Movers Link="VoidThrasherMissileMover" IfRangeLTE="10"/>
+        <Movers Link="VoidThrasherMissileMover2" IfRangeLTE="30"/>
+        <Movers Link="VoidThrasherMissileMover3" IfRangeLTE="50"/>
+        <Movers Link="VoidThrasherMissileMover4" IfRangeLTE="70"/>
+        <Movers Link="VoidThrasherMissileMover5" IfRangeLTE="500"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="HunterDisruptorVolleyProjectionCreatePersistent">
+        <EditorCategories value="Race:Zerg"/>
+        <ExpireEffect value="HunterDisruptorVolleyProjectionSuicide"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="HunterDisruptorVolleyProjectionLaunchMissile"/>
+        <PeriodicPeriodArray value="0.4"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="HunterShadowBlinkApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="HunterCloaked"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="HunterShadowBlinkSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterShadowBlinkApplyBehavior"/>
+        <EffectArray value="CRPGHeroRadarApplyBehavior"/>
+    </CEffectSet>
     <CEffectSet id="MechCalldownMechCreateSet">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="MechCalldownMechAddLevelsSwitch"/>
@@ -117,7 +249,6 @@
     </CEffectModifyUnit>
     <CEffectDamage id="HunterPurifierGlaiveCannonDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
-        <AttributeBonus index="Light" value="10"/>
         <Kind value="Ranged"/>
         <Amount value="20"/>
         <Death value="Blast"/>
@@ -160,9 +291,8 @@
     </CEffectSet>
     <CEffectDamage id="HunterPhaseDisruptorDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
-        <AttributeBonus index="Armored" value="8"/>
         <Kind value="Ranged"/>
-        <Amount value="14"/>
+        <Amount value="20"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="HunterPhaseDisruptorLaunchMissile">
         <EditorCategories value="Race:Protoss"/>
@@ -1282,7 +1412,7 @@
     </CEffectApplyBehavior>
     <CEffectDamage id="HunterParticleBeamDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
-        <Amount value="5"/>
+        <Amount value="20"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="HunterParticleDisruptorsLaunchMissile">
         <ValidatorArray index="0" value="StalkerTargetFilters"/>
@@ -1293,14 +1423,13 @@
     </CEffectLaunchMissile>
     <CEffectDamage id="HunterParticleDisruptorsDamage" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Protoss"/>
-        <AttributeBonus index="Armored" value="4"/>
-        <Amount value="10"/>
+        <AttributeBonus index="Armored" value="5"/>
+        <Amount value="20"/>
     </CEffectDamage>
     <CEffectDamage id="HunterPhaseDisruptorsDamage">
         <EditorCategories value="Race:Protoss"/>
         <ResponseFlags index="Acquire" value="1"/>
         <ResponseFlags index="Flee" value="1"/>
-        <AttributeBonus index="Armored" value="30"/>
         <ArmorReduction value="1"/>
         <Flags index="Notification" value="1"/>
         <Kind value="Ranged"/>
@@ -1366,9 +1495,6 @@
         <SearchFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray MaxCount="1" Radius="8" Effect="MechPointDefenseLaserSet"/>
     </CEffectEnumArea>
-    <CEffectDamage id="PsionicProjectionDummy" parent="DU_WEAP">
-        <EditorCategories value="Race:Protoss"/>
-    </CEffectDamage>
     <CEffectSet id="VehicleCrucioShockCannonSet">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="VehicleCrucioShockCannonDirected"/>
@@ -1652,10 +1778,10 @@
     <CEffectDamage id="SniperSniperRoundDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <ImpactLocation Value="TargetUnit"/>
-        <AttributeBonus index="Psionic" value="25"/>
+        <AttributeBonus index="Psionic" value="50"/>
         <ArmorReduction value="0"/>
         <Kind value="Spell"/>
-        <Amount value="25"/>
+        <Amount value="50"/>
         <Death value="Silentkill"/>
     </CEffectDamage>
     <CEffectModifyPlayer id="CRPGUpgradeDamage">
@@ -1810,7 +1936,7 @@
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="FighterShadowFuryTarget"/>
     </CEffectApplyBehavior>
-    <CEffectTeleport id="HunterBlink">
+    <CEffectTeleport id="HunterShadowBlinkTeleport">
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
         <ClearQueuedOrders value="0"/>
@@ -1819,6 +1945,7 @@
         <Range value="8"/>
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestCliff" value="1"/>
+        <TeleportEffect value="HunterShadowBlinkSet"/>
     </CEffectTeleport>
     <CEffectDamage id="HunterScarabMinesDamage">
         <EditorCategories value="Race:Protoss"/>
@@ -1831,9 +1958,9 @@
         <KindSplash value="Splash"/>
         <Amount value="100"/>
         <Death value="Blast"/>
-        <AreaArray Radius="0.4687" Fraction="1"/>
-        <AreaArray Radius="0.7812" Fraction="0.5"/>
-        <AreaArray Radius="1.25" Fraction="0.25"/>
+        <AreaArray Radius="1" Fraction="1"/>
+        <AreaArray Radius="1.5" Fraction="0.5"/>
+        <AreaArray Radius="2" Fraction="0.25"/>
         <ExcludeArray Value="Outer"/>
         <ExcludeArray Value="Target"/>
         <SearchFilters value="Ground;Self,Structure,Missile,Stasis,Dead,Invulnerable"/>
@@ -1843,6 +1970,7 @@
     <CEffectSet id="HunterScarabMinesSet">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterScarabMinesDamage"/>
+        <EffectArray value="HunterScarabMinesSearchArea"/>
         <EffectArray value="Suicide"/>
     </CEffectSet>
 </Catalog>

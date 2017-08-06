@@ -17,7 +17,7 @@
         <OperandArray value="GTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4"/>
         <OperandArray value="CountUnitOverlordCompleteOnly"/>
     </CRequirementAnd>
-    <CRequirementCountBehavior id="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit1337265981">
+    <CRequirementCountBehavior id="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGControlArmory" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
@@ -32,6 +32,11 @@
     <CRequirementCountBehavior id="CountBehaviorHeroVeterancyCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HeroVeterancy" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorHunterDisruptorVolleyCounterCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="HunterDisruptorVolleyCounter" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHunterPsionicProjectionCooldownCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -125,6 +130,10 @@
     <CRequirementGTE id="GTE2832794247CountBehaviorLevelCounterCompleteOnlyAtUnit1">
         <OperandArray index="0" value="CountBehaviorLevelCounterCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTE3137215414CountBehaviorHunterDisruptorVolleyCounterCompleteOnlyAtUnit10">
+        <OperandArray index="0" value="CountBehaviorHunterDisruptorVolleyCounterCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="10"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTE774336177CountBehaviorLevelCounterCompleteOnlyAtUnit2">
         <OperandArray index="0" value="CountBehaviorLevelCounterCompleteOnlyAtUnit"/>

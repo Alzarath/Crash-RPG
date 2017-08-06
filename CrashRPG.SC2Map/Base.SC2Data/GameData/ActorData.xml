@@ -3,6 +3,14 @@
     <CActorUnit id="DevourerMP">
         <UnitIcon value="Assets\Textures\btn-unit-zerg-devourerex3.dds"/>
     </CActorUnit>
+    <CActorRange id="HunterShadowBlinkRange" abil="HunterShadowBlink">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="Abil.HunterShadowBlink.TargetOn" Send="Create"/>
+        <On Terms="Abil.HunterShadowBlink.TargetOff" Send="Destroy"/>
+        <On Terms="Abil.HunterShadowBlink.ButtonHoverOn" Send="Create"/>
+        <On Terms="Abil.HunterShadowBlink.ButtonHoverOff" Send="Destroy"/>
+        <Range value="8.000000"/>
+    </CActorRange>
     <CActorSplat id="HunterScatterCannonCursorSplat" parent="ProtossCursorSplat" abil="HunterScatterCannon">
         <Model value="PsiStormCursorSplat"/>
     </CActorSplat>
@@ -61,13 +69,13 @@
         <On index="5" Terms="Effect.HunterPhaseDisruptorsDamage.Start; At Caster"/>
     </CActorAction>
     <CActorAction id="HunterScatterCannonAttack" parent="GenericAttack" effectImpact="HunterScatterCannonDamage" effectLaunch="HunterScatterCannonLaunchMissile">
-        <LaunchAttachQuery Methods="AMPatternImmortalTaldarim"/>
+        <LaunchAttachQuery Methods="AMPatternHunterScatterCannon"/>
         <LaunchAssets Sound="Scout_AirLeftAttackLaunch"/>
         <Missile value="HunterScatterCannonMissile"/>
         <ImpactMap index="None" Model="PurifierScatterCannonMissileImpact" Sound="Scout_AirLeftAttackImpact"/>
     </CActorAction>
     <CActorAction id="HunterScatterCannonAttackDirect" parent="GenericAttack" effectImpact="HunterScatterCannonSearchArea" effectLaunch="HunterScatterCannonLaunchMissilePrimary">
-        <LaunchAttachQuery Methods="AMPatternImmortalTaldarim"/>
+        <LaunchAttachQuery Methods="Center 0"/>
         <LaunchAssets Sound="Scout_AirLeftAttackLaunch"/>
         <Missile value="HunterScatterCannonMissile"/>
         <ImpactMap index="None" Model="PurifierScatterCannonMissileImpact" Sound="Scout_AirLeftAttackImpact"/>
@@ -96,9 +104,46 @@
         <DeathArray index="Normal" ModelLink="PurifierScatterCannonMissile"/>
     </CActorMissile>
     <CActorRange id="HunterScatterCannonRange" parent="RangeAbil" abil="HunterScatterCannon"/>
+    <CActorModel id="HunterShadowBlinkOutLevel4" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.HunterShadowBlinkTeleport.Start; At Source; ValidateUnit IsLevel4" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::scope.Launch ::Self"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary SOpForwardHunterLevel4"/>
+        <Model value="ZeratulBlinkOut"/>
+    </CActorModel>
+    <CActorModel id="HunterShadowBlinkOutLevel5" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.HunterShadowBlinkTeleport.Start; At Source; ValidateUnit IsLevel5" Send="Create"/>
+        <On Terms="ActorCreation" Send="RefSet ::scope.Launch ::Self"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary SOpForwardHunterLevel5"/>
+        <Model value="ZeratulBlinkOut"/>
+    </CActorModel>
     <CActorTurret id="HunterTurret">
         <On Terms="TurretEnable.Hunter" Send="Create"/>
     </CActorTurret>
+    <CActorAction id="HunterDisruptorVolleyAttack" parent="GenericAttack" effectImpact="HunterDisruptorVolleyDamage" effectLaunch="HunterDisruptorVolleyLaunchMissile">
+        <EditorCategories value=""/>
+        <LaunchAttachQuery Methods="AMPatternHunterDisruptorVolley"/>
+        <Missile value="HunterDisruptorVolleyMissile"/>
+        <ImpactMap index="None" Model="DisruptorVolleyImpact" Sound="VoidThrasherMissileImpact"/>
+    </CActorAction>
+    <CActorMissile id="HunterDisruptorVolleyMissile" parent="GenericAttackMissile" unitName="WeaponDisruptorVolleyHunter">
+        <On Terms="ActorCreation" Send="Create VoidThrasherMissile_AttackLaunch"/>
+        <On Terms="ActorCreation" Send="Create VoidThrasherMissile_flyByLoop"/>
+        <Model value="DisruptorVolleyMissile"/>
+    </CActorMissile>
+    <CActorUnit id="NydusNetwork">
+        <MinimapIcon value="Assets\Textures\ui_glues_icons_warning_small.dds"/>
+    </CActorUnit>
+    <CActorSiteOpForward id="SOpForwardHunterLevel3">
+        <HostForward Subject="CRPGHunterLevel3"/>
+    </CActorSiteOpForward>
+    <CActorSiteOpForward id="SOpForwardHunterLevel4">
+        <HostForward Subject="CRPGHunterLevel4"/>
+    </CActorSiteOpForward>
+    <CActorSiteOpForward id="SOpForwardHunterLevel5">
+        <HostForward Subject="CRPGHunterLevel5"/>
+    </CActorSiteOpForward>
     <CActorModel id="SelectionEnabler" parent="ModelAnimationStyleContinuous">
         <On Terms="UnitBirth.HunterScarabMine" Send="Create"/>
         <HostSiteOps Ops="SOpAttachOrigin"/>
@@ -138,6 +183,9 @@
     </CActorSound>
     <CActorUnit id="HunterPsionicProjection" parent="GenericUnitStandard" unitName="HunterPsionicProjection">
         <Macros value="BroodlingAnimSlateCleaner"/>
+        <On Terms="Effect.HunterProjectionBeamCreatePersistent.Start" Send="SetScale 0.050000 1.000000"/>
+        <On Terms="Effect.HunterDisruptorVolleyProjectionCreatePersistent.Start" Send="SetScale 0.050000 1.200000"/>
+        <On Terms="Behavior.HunterDisruptorVolleyCounter.On" Send="SetScale 1.500000"/>
         <Model value="PsionicProjection"/>
         <StatusBarFlags index="Shields" value="0"/>
         <StatusBarFlags index="Life" value="0"/>
@@ -641,13 +689,13 @@
         <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel2" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel2" Send="Destroy"/>
         <On Terms="UnitCreation.CRPGHunterProjectionLevel2" Send="Create"/>
-        <Model value="AdeptPurifier"/>
+        <Model value="PurifierAdept"/>
         <EventDataFootprint index="0" Model="CRPGHunterLevel2Footprint"/>
         <BuildModel value="AdeptPurifierWarpIn"/>
         <DeathArray index="Normal" ModelLink="AdeptPurifierDeath" VoiceLink="CRPGHunterLevel2DeathVoice"/>
         <DeathCustoms index="5" ActorModel="AdeptDeathRagdoll" ModelLink="AdeptPurifierDeathRagdoll" Name="RagdollBasic"/>
         <PlacementModel value="AdeptPurifier_Placement"/>
-        <PortraitModel value="AdeptPurifierPortrait"/>
+        <PortraitModel value="PurifierAdeptPortrait"/>
         <GroupIcon>
             <Image index="0" value="Assets\Textures\wireframe-protoss-adept-purifier.dds"/>
         </GroupIcon>
@@ -676,37 +724,23 @@
         <StatusBarOn index="Custom" value="1"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
     </CActorUnit>
-    <CActorUnit id="CRPGHunterLevel3" parent="Stalker" unitName="CRPGHunterLevel3">
-        <On index="0" Terms="UnitBirth.CRPGHunterLevel3"/>
+    <CActorUnit id="CRPGHunterLevel3" parent="StalkerPurifier" unitName="CRPGHunterLevel3">
+        <On index="0" Terms="UnitBirth.CRPGHunterLevel3" Send="Create SoundEmitter Stalker_Ambience"/>
         <On index="1" Terms="UnitBirth.CRPGHunterLevel3"/>
         <On index="2" Terms="UnitRevive.CRPGHunterLevel3"/>
         <On index="3" Terms="UnitRevive.CRPGHunterLevel3"/>
         <On index="4" Terms="UnitConstruction.CRPGHunterLevel3.Start"/>
         <On index="5" Terms="UnitConstruction.CRPGHunterLevel3.Finish"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsTerrazineShadow" Send="DeathCustomize Hallucination"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
         <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel3" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel3" Send="Destroy"/>
-        <HighlightTooltip value="Unit/Name/CRPGHunter"/>
-        <Model value="StalkerPurifier"/>
-        <BuildModel value="StalkerPurifierWarpIn"/>
-        <DeathArray index="Normal" ModelLink="StalkerPurifierDeath"/>
-        <PlacementModel value="StalkerPurifierPlacement"/>
-        <PortraitModel value="StalkerPurifierPortrait"/>
-        <GroupIcon>
-            <Image index="0" value="Assets\Textures\wireframe-protoss-stalker-purifier.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-unit-protoss-stalker-purifier.dds"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-stalker-purifier.dds"/>
-        <Wireframe>
-            <Image index="0" value="Assets\Textures\wireframe-protoss-stalker-purifier.dds"/>
-        </Wireframe>
-        <WireframeShield>
-            <Image index="0" value="Assets\Textures\wireframe-protoss-stalker-purifier-shield01.dds"/>
-            <Image index="1" value="Assets\Textures\wireframe-protoss-stalker-purifier-shield02.dds"/>
-            <Image index="2" value="Assets\Textures\wireframe-protoss-stalker-purifier-shield03.dds"/>
-        </WireframeShield>
         <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGHunter"/>
         <StatusBarOn index="Custom" value="1"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-stalker-purifier.dds"/>
     </CActorUnit>
     <CActorUnit id="CRPGHunterLevel4" parent="Dragoon" unitName="CRPGHunterLevel4">
         <On index="0" Terms="UnitBirth.CRPGHunterLevel4" Send="Create SoundEmitter CRPGHunterLevel4_Ambience"/>
@@ -721,6 +755,10 @@
         <On index="67" Terms="WeaponStop.HunterPhaseDisruptor.AttackStop" Send="TimerSet 4.000000 CoverDelay"/>
         <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel4" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel4" Send="Destroy"/>
+        <On Terms="WeaponStart.HunterDisruptorVolley4.AttackStart" Send="TimerKill CoverDelay"/>
+        <On Terms="WeaponStart.HunterDisruptorVolley4.AttackStart" Send="AnimClear CoverStand"/>
+        <On Terms="WeaponStart.HunterDisruptorVolley4.AttackStart" Send="AnimPlay Cover Cover PlayForever"/>
+        <On Terms="WeaponStop.HunterDisruptorVolley4.AttackStop" Send="TimerSet 4.000000 CoverDelay"/>
         <Model value="PurifierDragoon"/>
         <EventDataFootprint index="0" Actor="UnitFootprint" Model="CRPGHunterLevel4Footprint"/>
         <BuildModel value="PurifierDragoonWarpIn"/>
@@ -1212,9 +1250,10 @@
         <HostSiteOps Ops="SOpAttachOriginStationary"/>
         <Sound value="Medivac_Unload"/>
     </CActorSound>
-    <CActorRange id="CrashedBattlecruiserMedicalFacilitiesRange" behavior="CrashedBattlecruiserMedicalFacilitiesAura">
-        <On Terms="SelectionLocalUpdate.CRPGCrashedBattlecruiser.Start" Send="Create"/>
-        <On Terms="SelectionLocalUpdate.CRPGCrashedBattlecruiser.Stop" Send="Destroy"/>
+    <CActorRange id="CrashedBattlecruiserMedicalFacilitiesRange">
+        <On Terms="Behavior.CrashedBattlecruiserMedicalFacilitiesAura.On" Send="Create"/>
+        <On Terms="Behavior.CrashedBattlecruiserMedicalFacilitiesAura.Off" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetTintColor 0,255,0"/>
         <Range value="4.000000"/>
     </CActorRange>
     <CActorModel id="FighterShadowChargeStun" parent="ModelAnimationStyleContinuous">
@@ -2147,6 +2186,13 @@
         <On index="3" Terms="UnitRevive.CRPGSniperLevel2"/>
         <On index="4" Terms="UnitConstruction.CRPGSniperLevel2"/>
         <On index="5" Terms="UnitConstruction.CRPGSniperLevel2"/>
+        <On index="60" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStart" Send="AnimBaselineStop"/>
+        <On index="61" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
+        <On index="62" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStop" Send="AnimClear SpellA"/>
+        <On index="63" Terms="Abil.SniperSniperRoundEnhanced.SourceCastStop" Send="AnimBaselineStart"/>
+        <On index="64" Terms="Abil.SniperSniperRoundEnhanced.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
+        <On index="65" Terms="Abil.SniperSniperRoundEnhanced.SourceChannelStop" Send="AnimClear SpellB"/>
+        <On index="66" Terms="Abil.SniperSniperRoundEnhanced.SourceFinishStart" Send="AnimPlay SpellC Spell,C"/>
         <On index="75" Terms="AbilMorph.*.Finish; MorphFrom CRPGSniperLevel2" Send="Destroy"/>
         <On index="76" Terms="AbilMorph.*.Finish; MorphTo CRPGSniperLevel2" Send="Create"/>
         <Model value="GhostDominion"/>
@@ -2478,26 +2524,26 @@
         <Model value="TimeWarp"/>
         <Scale value="0.250000"/>
     </CActorModel>
-    <CActorSound id="HunterBlinkCloudSound" parent="SoundOneShot">
-        <On Terms="Abil.HunterBlink.TargetCastStart" Send="Create"/>
+    <CActorSound id="HunterShadowBlinkCloudSound" parent="SoundOneShot">
+        <On Terms="Abil.HunterShadowBlink.TargetCastStart" Send="Create"/>
         <Sound value="Zeratul_BlinkCloud"/>
     </CActorSound>
-    <CActorModel id="HunterBlinkIn" parent="ModelAnimationStyleOneShotNoOrphan">
-        <On Terms="Effect.HunterBlink.Stop; At Source" Send="Create"/>
+    <CActorModel id="HunterShadowBlinkIn" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.HunterShadowBlinkTeleport.Stop; At Source" Send="Create"/>
         <On Terms="ActorCreation" Send="RefSet ::scope.Impact ::Self"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOrigin SOpForwardScopeLaunch"/>
         <Model value="ZeratulBlinkIn"/>
     </CActorModel>
-    <CActorModel id="HunterBlinkOut" parent="ModelAnimationStyleOneShotNoOrphan">
-        <On Terms="Effect.HunterBlink.Start; At Source" Send="Create"/>
+    <CActorModel id="HunterShadowBlinkOut" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.HunterShadowBlinkTeleport.Start; At Source; ValidateUnit CRPGIsNotLevel4or5" Send="Create"/>
         <On Terms="ActorCreation" Send="RefSet ::scope.Launch ::Self"/>
         <Host Subject="_Selectable"/>
-        <HostSiteOps Ops="SOpAttachOriginStationary SOpForwardZeratulAiur01"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary SOpForwardHunterLevel3"/>
         <Model value="ZeratulBlinkOut"/>
     </CActorModel>
-    <CActorSound id="HunterBlinkSound" parent="SoundOneShot">
-        <On Terms="Abil.HunterBlink.TargetCastStart" Send="Create"/>
+    <CActorSound id="HunterShadowBlinkSound" parent="SoundOneShot">
+        <On Terms="Abil.HunterShadowBlink.TargetCastStart" Send="Create"/>
         <Sound value="Zeratul_Blink"/>
     </CActorSound>
     <CActorAction id="HunterScarabMinesAttack" parent="GenericAttack" effectAttack="HunterScarabMinesDamage">

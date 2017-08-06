@@ -10,4 +10,5 @@
     <DataComponent Type="uiui">UI/Layout/DescIndex.SC2Layout</DataComponent>
     <DataComponent Type="aiai">CustomAI</DataComponent>
     <DataComponent Type="regi">Regions</DataComponent>
+    <DataComponent Type="attr">Attributes</DataComponent>
 </Components>

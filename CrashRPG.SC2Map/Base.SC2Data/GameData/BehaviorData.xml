@@ -4,14 +4,37 @@
         <MinPoints value="-2"/>
         <Modification LifeArmorBonus="0.1" ShieldArmorBonus="0.1"/>
     </CBehaviorAttribute>
+    <CBehaviorBuff id="CRPGRecentlyAttacked">
+        <InfoFlags index="Hidden" value="1"/>
+        <RemoveValidatorArray value="CRPGHasMedicalFacilitiesShield"/>
+        <Duration value="10"/>
+        <Modification>
+            <VitalRegenMultiplier index="Shields" value="-1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGShieldDelayController">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGHasMedicalFacilitiesShield"/>
+        <DamageResponse Chance="1" Handled="CRPGRecentlyDamagedApplyBehavior"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="CrashedBattlecruiserMedicalFacilitiesShields">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="TargetLifeFull"/>
         <Duration value="2"/>
         <Modification>
-            <VitalRegenArray index="Shields" value="50"/>
+            <VitalRegenArray index="Shields" value="200"/>
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterCloaked">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <Modification>
+            <StateFlags index="Cloak" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterShadowFuryController">
         <InfoFlags index="Hidden" value="1"/>
@@ -112,6 +135,27 @@
             </Cost>
         </DamageResponse>
     </CBehaviorBuff>
+    <CBehaviorBuff id="HunterDisruptorVolleyController">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Requirements value="HunterDisruptorVolleyAvailable"/>
+        <Modification>
+            <WeaponEnableArray value="HunterDisruptorVolley2"/>
+            <WeaponEnableArray value="HunterDisruptorVolley4"/>
+            <WeaponDisableArray value="HunterPhaseDisruptor"/>
+            <WeaponDisableArray value="HunterPhaseDisruptors"/>
+            <WeaponDisableArray value="HunterProjectionBeam"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterDisruptorVolleyCounter">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <MaxStackCount value="10"/>
+        <DamageResponse Chance="1" Handled="HunterDisruptorVolleyApplyCountBehavior" Location="Attacker">
+            <RequireEffectArray value="HunterPhaseDisruptorDamage"/>
+            <RequireEffectArray value="HunterPhaseDisruptorsDamage"/>
+        </DamageResponse>
+    </CBehaviorBuff>
     <CBehaviorBuff id="HunterPsionicProjectionBase">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -141,7 +185,7 @@
         <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="2"/>
+        <Duration value="4"/>
         <Modification MoveSpeedMultiplier="0.6"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedBunkerEnableGaussRifle1">
@@ -543,7 +587,7 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="2"/>
         <Modification>
-            <VitalRegenArray index="Life" value="50"/>
+            <VitalRegenArray index="Life" value="200"/>
             <VitalRegenArray index="Energy" value="0.125"/>
         </Modification>
     </CBehaviorBuff>
@@ -645,6 +689,9 @@
         <VeterancyLevelArray MinVeterancyXP="12500"/>
         <VeterancyLevelArray MinVeterancyXP="15000"/>
         <VeterancyLevelArray MinVeterancyXP="15000"/>
+        <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
+        <SharedXPRadius index="Kills" value="20"/>
+        <SharedXPFraction index="Kills" value="0.5"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="SniperHoldFire">
         <InfoIcon value="Assets\Textures\btn-ability-terran-holdfire.dds"/>

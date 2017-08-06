@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CAttachMethodPattern id="AMPatternHunterScatterCannon">
+        <Keyword value="Weapon"/>
+        <Base value="::RollingIndex"/>
+        <Driver value="HunterScatterCannonLaunchMissile"/>
+    </CAttachMethodPattern>
+    <CAttachMethodPattern id="AMPatternHunterDisruptorVolley">
+        <Keyword value="Weapon"/>
+        <Base value="::RollingIndex"/>
+        <Driver value="HunterDisruptorVolleyLaunchMissile"/>
+    </CAttachMethodPattern>
     <CAttachMethodPattern id="AMPatternMechJavelinMissileLaunchers">
         <Keyword value="Weapon"/>
         <Driver value="MechJavelinMissileLaunchersLaunchMissile"/>

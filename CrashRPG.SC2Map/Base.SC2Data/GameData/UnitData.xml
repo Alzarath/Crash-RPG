@@ -49,6 +49,9 @@
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <HotkeyCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
+    <CUnit id="BattlecruiserHeliosMorph">
+        <LifeArmor value="200"/>
+    </CUnit>
     <CUnit id="Beacon_Terranmedium" parent="DESTRUCTIBLE">
         <FlagArray index="Uncommandable" value="0"/>
         <FlagArray index="Untargetable" value="1"/>
@@ -66,6 +69,9 @@
         <EditorCategories value="ObjectType:Other,ObjectFamily:Campaign"/>
         <LeaderAlias value=""/>
         <HotkeyAlias value=""/>
+    </CUnit>
+    <CUnit id="Bunker">
+        <FlagArray index="Invulnerable" value="1"/>
     </CUnit>
     <CUnit id="CRPGAeroLevel1" parent="CRPGHero">
         <Race value="Terr"/>
@@ -130,8 +136,8 @@
     </CUnit>
     <CUnit id="CRPGAeroLevel3" parent="CRPGAeroLevel2">
         <Name value="Unit/Name/CRPGAeroLevel3"/>
-        <LifeStart value="350"/>
-        <LifeMax value="350"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
         <AbilArray index="3" Link="AeroLevelUpMorphLevel3"/>
         <AbilArray Link="AeroDefensiveMatrix"/>
         <CardLayouts index="0">
@@ -164,8 +170,8 @@
     </CUnit>
     <CUnit id="CRPGAeroLevel5" parent="CRPGAeroLevel4">
         <Name value="Unit/Name/CRPGAeroLevel5"/>
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
         <AbilArray Link="AeroTacticalJump"/>
         <WeaponArray index="0" Link="AeroArmageddonCannons"/>
@@ -192,8 +198,8 @@
         <AbilArray Link="CRPGControlArmory"/>
         <CardLayouts index="0">
             <LayoutButtons index="3" Face="UpgradeArmor" Type="AbilCmd" AbilCmd="CRPGUpgradeArmor,Execute" Row="0" Column="1"/>
-            <LayoutButtons index="4" Face="SelectBuilder" Type="SelectBuilder" AbilCmd="CRPGArmoryResearch,Research9" Row="1" Column="3"/>
-            <LayoutButtons index="5" Face="UpgradeDamage" Type="AbilCmd" AbilCmd="CRPGUpgradeDamage,Execute" Row="0" Column="0"/>
+            <LayoutButtons index="4" Face="UpgradeDamage" Type="AbilCmd" AbilCmd="CRPGUpgradeDamage,Execute" Row="0" Column="0"/>
+            <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
             <LayoutButtons index="7" removed="1"/>
             <LayoutButtons index="8" removed="1"/>
@@ -222,8 +228,8 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="150"/>
-        <LifeMax value="150"/>
+        <LifeStart value="240"/>
+        <LifeMax value="240"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <Acceleration value="2.5"/>
         <LateralAcceleration value="46"/>
@@ -293,8 +299,8 @@
         <FlagArray index="TurnBeforeMove" value="1"/>
         <FlagArray index="AIThreatGround" value="0"/>
         <FlagArray index="AIThreatAir" value="0"/>
-        <LifeStart value="200"/>
-        <LifeMax value="200"/>
+        <LifeStart value="320"/>
+        <LifeMax value="320"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="720"/>
         <TurningRate value="360"/>
@@ -361,8 +367,8 @@
         <Collide index="Colossus" value="1"/>
         <Collide index="ForceField" value="0"/>
         <Collide index="Locust" value="0"/>
-        <LifeStart value="250"/>
-        <LifeMax value="250"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="720"/>
         <TurningRate value="360"/>
@@ -403,8 +409,8 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
-        <LifeStart value="80"/>
-        <LifeMax value="80"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
@@ -454,8 +460,8 @@
         <Sight value="12"/>
     </CUnit>
     <CUnit id="CRPGSniperLevel3" parent="CRPGSniperLevel2">
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
+        <LifeStart value="160"/>
+        <LifeMax value="160"/>
         <AbilArray index="3" Link="SniperLevelUpMorphLevel3"/>
         <AbilArray Link="SniperCloak"/>
         <AbilArray Link="SniperHoldFire"/>
@@ -515,8 +521,8 @@
         <SubgroupAlias value="CRPGSniperLevel4"/>
     </CUnit>
     <CUnit id="CRPGSniperLevel5" parent="CRPGSniperLevel4">
-        <LifeStart value="120"/>
-        <LifeMax value="120"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
         <AbilArray Link="SniperNuclearStrike"/>
         <CardLayouts index="0">
@@ -544,8 +550,8 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <Speed value="3"/>
         <Acceleration value="1000"/>
@@ -591,8 +597,8 @@
         <InnerRadius value="0.5"/>
     </CUnit>
     <CUnit id="CRPGVehicleLevel3" parent="CRPGVehicleLevel2">
-        <LifeStart value="125"/>
-        <LifeMax value="125"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
         <AbilArray index="3" Link="VehicleLevelUpMorphLevel3"/>
         <AbilArray Link="VehicleLockOn"/>
         <AbilArray Link="VehicleLockOnCancel"/>
@@ -632,8 +638,8 @@
         <FlagArray index="PreventDestroy" value="1"/>
         <FlagArray index="TurnBeforeMove" value="1"/>
         <FlagArray index="AIPressForwardDisabled" value="1"/>
-        <LifeStart value="150"/>
-        <LifeMax value="150"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
         <TurningRate value="360"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
         <AbilArray Link="VehicleSiegeMode"/>
@@ -704,7 +710,7 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="CRPGAlienLevel1" parent="Egg">
-        <Name value="Unit/Name/CRPGAlien"/>
+        <Name value="Unit/Name/Alien"/>
         <Collide index="Locust" value="0"/>
         <CardLayouts index="0">
             <LayoutButtons index="1" Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
@@ -720,14 +726,21 @@
         <Attributes index="Heroic" value="1"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
     </CUnit>
+    <CUnit id="Corruptor">
+        <Name value="Unit/Name/Alien"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    </CUnit>
     <CUnit id="CreepTumor">
         <KillXP value="5"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="CreepTumorBurrowed">
         <KillXP value="5"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="CreepTumorUsed">
         <KillXP value="5"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <!--                                                                                         -->
     <!-- Devourer ........................................................................... -->
@@ -736,15 +749,19 @@
         <KillXP value="80"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
         <GlossaryPriority value="200"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="Drone">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="Extractor">
         <KillXP value="25"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="GreaterSpire">
         <KillXP value="60"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <!--                                                                                         -->
     <!-- Guardian .............................................................................. -->
@@ -752,21 +769,49 @@
     <CUnit id="GuardianMP">
         <KillXP value="50"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="Hatchery">
         <KillXP value="50"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="Hive">
         <KillXP value="100"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="Hydralisk">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="HydraliskBurrowed">
+        <Name value="Unit/Name/Alien"/>
         <!--LayoutButtons Face="HydraliskFrenzy" Type="AbilCmd" AbilCmd="HydraliskFrenzy,Execute" Row="2" Column="0"/-->
     </CUnit>
     <CUnit id="HydraliskDen">
         <KillXP value="40"/>
+        <Name value="Unit/Name/Alien"/>
+    </CUnit>
+    <CUnit id="MissileTurret">
+        <FlagArray index="Invulnerable" value="1"/>
+    </CUnit>
+    <CUnit id="Mutalisk">
+        <Name value="Unit/Name/Alien"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    </CUnit>
+    <CUnit id="SupplyDepot">
+        <FlagArray index="Invulnerable" value="1"/>
+    </CUnit>
+    <CUnit id="SupplyDepotLowered">
+        <FlagArray index="Invulnerable" value="1"/>
+    </CUnit>
+    <CUnit id="WeaponDisruptorVolleyHunter" parent="MISSILE">
+        <Description value="Button/Tooltip/HunterDisruptorVolley"/>
+        <Race value="Prot"/>
+        <FlagArray index="Untargetable" value="0"/>
+        <LifeStart value="50"/>
+        <LifeMax value="50"/>
+        <Mover value="VoidThrasherMissileMover"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="ScatterCannonMissile" parent="MISSILE">
         <Race value="Prot"/>
@@ -774,6 +819,7 @@
     </CUnit>
     <CUnit id="InfestationPit">
         <KillXP value="50"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="InfestationSpore" parent="MISSILE">
         <Race value="Zerg"/>
@@ -852,38 +898,6 @@
         <InnerRadius value="0.25"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
-    <CUnit id="InfestedInfestedEggInfestedCivilian">
-        <Race value="Zerg"/>
-        <FlagArray index="UseLineOfSight" value="1"/>
-        <FlagArray index="NoScore" value="1"/>
-        <FlagArray index="AILifetime" value="1"/>
-        <PlaneArray index="Ground" value="1"/>
-        <Collide index="Ground" value="1"/>
-        <Collide index="Structure" value="1"/>
-        <Collide index="RoachBurrow" value="1"/>
-        <Collide index="ForceField" value="1"/>
-        <LifeStart value="70"/>
-        <LifeMax value="70"/>
-        <LifeArmor value="2"/>
-        <LifeRegenRate value="0.2734"/>
-        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
-        <Food value="-1"/>
-        <AbilArray Link="move"/>
-        <AbilArray Link="InfestedMorphToInfestedCivilian"/>
-        <BehaviorArray Link="InfestedInfestedEggTimedLife"/>
-        <BehaviorArray Link="LevelCounter"/>
-        <CardLayouts>
-            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
-            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
-            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
-            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
-            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="InfestedEmpathicRepercussion" Type="Passive" Requirements="InfestedEmpathicRepercussion" Row="1" Column="0"/>
-        </CardLayouts>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
-        <LeaderAlias value=""/>
-        <HotkeyAlias value=""/>
-    </CUnit>
     <CUnit id="InfestedInfestedEggInfestedMarine">
         <Race value="Zerg"/>
         <FlagArray index="UseLineOfSight" value="1"/>
@@ -894,8 +908,8 @@
         <Collide index="Structure" value="1"/>
         <Collide index="RoachBurrow" value="1"/>
         <Collide index="ForceField" value="1"/>
-        <LifeStart value="70"/>
-        <LifeMax value="70"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
         <LifeArmor value="2"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
@@ -924,6 +938,17 @@
             <Cooldown Link="InfestedInfestedEgg/Revive"/>
         </ReviveInfoBase>
     </CUnit>
+    <CUnit id="InfestedInfestedEggInfestedCivilian" parent="InfestedInfestedEggInfestedMarine">
+        <Name value="Unit/Name/InfestedInfestedEggInfestedCivilian"/>
+        <Description value="Button/Tooltip/InfestedInfestedEggInfestedCivilian"/>
+        <ReviveType value="InfestedInfestedEggInfestedCivilian"/>
+        <AbilArray index="1" Link="InfestedMorphToInfestedCivilian"/>
+        <TacticalAI value="InfestedInfestedEggInfestedCivilian"/>
+        <ReviveInfoBase>
+            <Charge Link="InfestedInfestedEggInfestedCivilian/Revive"/>
+            <Cooldown Link="InfestedInfestedEggInfestedCivilian/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
     <CUnit id="InfestedInfestedMarine" parent="InfestorTerran">
         <Name value="Unit/Name/InfestedInfestedMarine"/>
         <Description value="Button/Tooltip/InfestedInfestedMarine"/>
@@ -943,6 +968,8 @@
         <CargoSize value="1"/>
         <GlossaryCategory value="Unit/Category/CrashRPGUnits"/>
         <Attributes index="Summoned" value="1"/>
+        <LifeStart value="80"/>
+        <LifeMax value="80"/>
     </CUnit>
     <CUnit id="InfestedInfestedCivilian" parent="InfestedInfestedMarine">
         <Name value="Unit/Name/InfestedInfestedCivilian"/>
@@ -951,10 +978,12 @@
     </CUnit>
     <CUnit id="Lair">
         <KillXP value="75"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="Larva">
         <KillXP value="1"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="MechPointDefenseDrone">
         <Race value="Terr"/>
@@ -1021,11 +1050,11 @@
         <Collide index="Locust" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="15"/>
-        <LifeMax value="15"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
-        <ShieldsStart value="10"/>
-        <ShieldsMax value="10"/>
+        <ShieldsStart value="25"/>
+        <ShieldsMax value="25"/>
         <ShieldRegenDelay value="10"/>
         <ShieldRegenRate value="2"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
@@ -1042,6 +1071,7 @@
         <BehaviorArray Link="CRPGArmorAttributeUnit"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="LevelCounter"/>
+        <BehaviorArray Link="CRPGShieldDelayController"/>
         <BehaviorArray Link="ScarabMineInitialBurrow"/>
         <WeaponArray Link="HunterScarabMines"/>
         <Radius value="0.125"/>
@@ -1049,9 +1079,9 @@
         <SubgroupPriority value="15"/>
         <MinimapRadius value="0.25"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
-        <GlossaryCategory value="Unit/Category/TerranUnits"/>
+        <GlossaryCategory value="Unit/Category/CrashRPGUnits"/>
         <GlossaryPriority value="160"/>
-        <HotkeyCategory value="Unit/Category/TerranStory"/>
+        <HotkeyCategory value="Unit/Category/CrashRPGUnits"/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
     </CUnit>
@@ -1069,14 +1099,12 @@
         <AbilArray index="1" removed="1"/>
         <AbilArray index="2" removed="1"/>
         <AbilArray index="3" removed="1"/>
-        <BehaviorArray index="4" removed="1"/>
         <WeaponArray index="0" removed="1"/>
         <HotkeyAlias value="HunterScarabMineBurrowed"/>
         <EquipmentArray Weapon="HunterScarabMines"/>
         <GlossaryCategory value=""/>
         <KillDisplay value="Default"/>
         <RankDisplay value="Default"/>
-        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGInfested"/>
@@ -1086,8 +1114,8 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="95"/>
-        <LifeMax value="95"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <SpeedMultiplierCreep value="1.3"/>
@@ -1138,8 +1166,8 @@
         <BehaviorArray Link="InfestedCausticWeapons"/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel3" parent="CRPGInfestedLevel2">
-        <LifeStart value="110"/>
-        <LifeMax value="110"/>
+        <LifeStart value="160"/>
+        <LifeMax value="160"/>
         <Radius value="1"/>
         <SeparationRadius value="0.75"/>
         <Height value="0.5"/>
@@ -1176,8 +1204,8 @@
         <BehaviorArray Link="InfestedHardenedEquipmentCaster"/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel5" parent="CRPGInfestedLevel4">
-        <LifeStart value="125"/>
-        <LifeMax value="125"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
         <TurningRate value="999.8437"/>
         <Radius value="0.75"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
@@ -1198,19 +1226,29 @@
     <CUnit id="NydusCanal">
         <KillXP value="15"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="NydusNetwork">
         <KillXP value="50"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <!-- Adding multi setup back to void campaign overlords. -->
     <CUnit id="Overlord">
         <Food value="2"/>
         <BehaviorArray Link="UninfestedOverlord"/>
         <CardLayouts index="0">
-            <LayoutButtons Face="InfestedInfestedSupplies" Type="Passive" Requirements="InfestedNotUninfested" Row="1" Column="0"/>
+            <LayoutButtons>
+                <Face value="InfestedInfestedSupplies"/>
+                <Type value="Passive"/>
+                <Requirements value="InfestedNotUninfested"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="0"/>
+            </LayoutButtons>
             <RowText index="0" removed="1"/>
         </CardLayouts>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="CRPGHunterLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGHunter"/>
@@ -1219,11 +1257,11 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="40"/>
-        <LifeMax value="40"/>
+        <LifeStart value="90"/>
+        <LifeMax value="90"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
-        <ShieldsStart value="40"/>
-        <ShieldsMax value="40"/>
+        <ShieldsStart value="60"/>
+        <ShieldsMax value="60"/>
         <Acceleration value="2.5"/>
         <LateralAcceleration value="46"/>
         <StationaryTurningRate value="999.8437"/>
@@ -1250,6 +1288,8 @@
         <GlossaryCategory value=""/>
         <GlossaryStrongArray value="Roach"/>
         <GlossaryWeakArray value="Zergling"/>
+        <ShieldRegenDelay value="0"/>
+        <BehaviorArray Link="CRPGShieldDelayController"/>
     </CUnit>
     <CUnit id="CRPGHunterLevel2" parent="CRPGHunterLevel1">
         <Attributes index="Biological" value="1"/>
@@ -1290,11 +1330,10 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="0"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="60"/>
-        <LifeMax value="60"/>
-        <ShieldsStart value="60"/>
-        <ShieldsMax value="60"/>
-        <Speed value="2.9492"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
+        <ShieldsStart value="80"/>
+        <ShieldsMax value="80"/>
         <WeaponArray index="0" Link="HunterParticleDisruptors"/>
         <Radius value="0.625"/>
         <SeparationRadius value="0.625"/>
@@ -1302,7 +1341,7 @@
         <MinimapRadius value="0.625"/>
         <TauntDuration index="Dance" value="0"/>
         <AbilArray index="3" Link="HunterLevelUpMorphLevel3"/>
-        <AbilArray Link="HunterBlink"/>
+        <AbilArray Link="HunterShadowBlink"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -1312,16 +1351,16 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="HunterBlink" Type="AbilCmd" AbilCmd="HunterBlink,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="HunterShadowBlink" Type="AbilCmd" AbilCmd="HunterShadowBlink,Execute" Row="2" Column="0"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="CRPGHunterLevel4" parent="CRPGHunterLevel3">
         <LifeArmor value="1"/>
-        <Speed value="2.25"/>
         <LateralAcceleration value="0"/>
         <StationaryTurningRate value="720"/>
         <TurningRate value="720"/>
         <WeaponArray index="0" Link="HunterPhaseDisruptor" Turret="Hunter"/>
+        <WeaponArray Link="HunterDisruptorVolley4" Turret="Hunter"/>
         <CargoSize value="4"/>
         <FlagArray index="Turnable" value="0"/>
         <AbilArray index="3" Link="HunterLevelUpMorphLevel4"/>
@@ -1334,14 +1373,16 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="HunterDisruptorVolley" Type="Passive" Row="1" Column="1"/>
+            <LayoutButtons Face="HunterDisruptorVolley" Type="Passive" Behavior="HunterDisruptorVolleyController" Row="1" Column="1"/>
         </CardLayouts>
+        <BehaviorArray Link="HunterDisruptorVolleyCounter"/>
+        <BehaviorArray Link="HunterDisruptorVolleyController"/>
     </CUnit>
     <CUnit id="CRPGHunterLevel5" parent="CRPGHunterLevel4">
-        <LifeStart value="80"/>
-        <LifeMax value="80"/>
-        <ShieldsStart value="80"/>
-        <ShieldsMax value="80"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
         <WeaponArray index="0" Link="HunterPhaseDisruptors" Turret="Hunter"/>
         <Radius value="0.75"/>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
@@ -1349,14 +1390,6 @@
         <AbilArray index="3" Link="LevelUpDummy"/>
         <AbilArray Link="HunterScatterCannon"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="LevelUpDummy,Execute"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
             <LayoutButtons Face="HunterScatterCannon" Type="AbilCmd" AbilCmd="HunterScatterCannon,Execute" Row="2" Column="2"/>
         </CardLayouts>
     </CUnit>
@@ -1375,7 +1408,7 @@
         <BehaviorArray Link="CRPGDamageAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="LevelCounter"/>
-        <WeaponArray Link="HunterProjectionBeam"/>
+        <BehaviorArray Link="HunterDisruptorVolleyController"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -1383,41 +1416,55 @@
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
         </CardLayouts>
-        <InnerRadius value="0.375"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
     </CUnit>
     <!-- re adding spawn larva, to a hidden command card so the AI can use it -->
-    <CUnit id="Queen"/>
+    <CUnit id="Queen">
+        <Name value="Unit/Name/Alien"/>
+    </CUnit>
     <CUnit id="Roach">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
-    <CUnit id="RoachBurrowed"/>
+    <CUnit id="RoachBurrowed">
+        <Name value="Unit/Name/Alien"/>
+    </CUnit>
     <CUnit id="SpawningPool">
         <KillXP value="25"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="SpineCrawler">
         <KillXP value="40"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="SpineCrawlerUprooted">
         <KillXP value="40"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="Spire">
         <KillXP value="40"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="SporeCrawler">
         <KillXP value="40"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="SporeCrawlerUprooted">
         <KillXP value="40"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="Ultralisk">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
-    <CUnit id="UltraliskBurrowed"/>
+    <CUnit id="UltraliskBurrowed">
+        <Name value="Unit/Name/Alien"/>
+    </CUnit>
     <CUnit id="UltraliskCavern">
         <KillXP value="50"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
     <CUnit id="WeaponEmpathicRepercussion" parent="MISSILE">
         <Race value="Zerg"/>
@@ -1464,11 +1511,11 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
-        <ShieldsStart value="60"/>
-        <ShieldsMax value="60"/>
+        <ShieldsStart value="90"/>
+        <ShieldsMax value="90"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
@@ -1504,6 +1551,8 @@
             <ChanceArray index="Idle" value="70"/>
             <ChanceArray index="Turn" value="10"/>
         </Fidget>
+        <ShieldRegenDelay value="0"/>
+        <BehaviorArray Link="CRPGShieldDelayController"/>
     </CUnit>
     <CUnit id="CRPGFighterLevel2" parent="CRPGFighterLevel1">
         <AbilArray index="3" Link="FighterLevelUpMorphLevel2"/>
@@ -1521,10 +1570,10 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="CRPGFighterLevel3" parent="CRPGFighterLevel2">
-        <LifeStart value="125"/>
-        <LifeMax value="125"/>
-        <ShieldsStart value="80"/>
-        <ShieldsMax value="80"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <ShieldsStart value="120"/>
+        <ShieldsMax value="120"/>
         <AbilArray index="3" Link="FighterLevelUpMorphLevel3"/>
         <AbilArray Link="FighterShadowCharge"/>
         <CardLayouts index="0">
@@ -1563,10 +1612,10 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="CRPGFighterLevel5" parent="CRPGFighterLevel4">
-        <LifeStart value="150"/>
-        <LifeMax value="150"/>
-        <ShieldsStart value="100"/>
-        <ShieldsMax value="100"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <ShieldsStart value="150"/>
+        <ShieldsMax value="150"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
         <AbilArray Link="FighterShadowFury"/>
         <CardLayouts index="0">
@@ -1584,6 +1633,9 @@
     </CUnit>
     <CUnit id="Zergling">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <Name value="Unit/Name/Alien"/>
     </CUnit>
-    <CUnit id="ZerglingBurrowed"/>
+    <CUnit id="ZerglingBurrowed">
+        <Name value="Unit/Name/Alien"/>
+    </CUnit>
 </Catalog>

@@ -289,7 +289,7 @@
         <Icon value="Assets\Textures\BTN-Ability-Protoss-ShadowFury.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
-    <CButton id="HunterBlink">
+    <CButton id="HunterShadowBlink">
         <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
         <EditorCategories value="Race:Protoss"/>
