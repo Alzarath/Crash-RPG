@@ -2,7 +2,7 @@
 // 
 // Generated Map Script
 // 
-// Name:   Crash RPG
+// Name:   Crash RPG II
 // 
 //==================================================================================================
 include "TriggerLibs/NativeLib"
@@ -43,16 +43,18 @@ void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip
 //--------------------------------------------------------------------------------------------------
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
-trigger gt_MapInitialization;
-trigger gt_VictoryCondition;
 trigger gt_AttackWaves;
-trigger gt_BattlecruiserCrash;
-trigger gt_UnitTrickle;
-trigger gt_MineralReward;
+trigger gt_AlienTrickle;
 trigger gt_HeroSelection;
-trigger gt_CreateHeroSelection;
 trigger gt_FreeHeroes;
-trigger gt_Updatetooltips;
+trigger gt_CreateHeroSelection;
+trigger gt_DisableTurrets;
+trigger gt_MapInitialization;
+trigger gt_StartBattlecruiserScene;
+trigger gt_BattlecruiserCrash;
+trigger gt_MineralReward;
+trigger gt_UpdateTooltips;
+trigger gt_VictoryCondition;
 
 //--------------------------------------------------------------------------------------------------
 // Global Functions
@@ -142,6 +144,8 @@ void gf_CreateSelectableHero (string lp_heroName) {
     // Implementation
     lv_creationPoint = PointFromName(("Selection - " + lp_heroName));
     libNtve_gf_UnitCreateFacingPoint(1, (("CRPG" + lp_heroName + "Level1")), 0, 0, lv_creationPoint, RegionGetCenter(RegionFromId(1)));
+    UnitSetHeight(UnitLastCreated(), -2.0, 0.0);
+    UnitSetHeight(UnitLastCreated(), UnitTypeGetProperty(UnitGetType(UnitLastCreated()), c_unitPropHeight), 2.0);
     UnitBehaviorAddPlayer(UnitLastCreated(), "Invulnerable", 0, 1);
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "Beacon_Terranmedium", 0, 0, lv_creationPoint);
 }
@@ -153,112 +157,6 @@ void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip
 
     // Variable Initialization
 
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Map Initialization
-//--------------------------------------------------------------------------------------------------
-bool gt_MapInitialization_Func (bool testConds, bool runActions) {
-    int autoFAB08339_ae;
-    int autoFAB08339_ai;
-    int auto194EA66D_catalog;
-    int auto194EA66D_i;
-
-    // Variable Declarations
-    string lv_unitType;
-    int lv_pickedPlayer;
-
-    // Variable Initialization
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitGroupLoopBegin(UnitGroup(null, gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        libNtve_gf_ShowHideUnit(UnitGroupLoopCurrent(), false);
-    }
-    UnitGroupLoopEnd();
-    libNtve_gf_CinematicMode(true, PlayerGroupAll(), c_transitionDurationImmediate);
-    CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
-    autoFAB08339_ae = 12;
-    autoFAB08339_ai = 1;
-    lv_pickedPlayer = 1;
-    for ( ; ( (autoFAB08339_ai >= 0 && lv_pickedPlayer <= autoFAB08339_ae) || (autoFAB08339_ai <= 0 && lv_pickedPlayer >= autoFAB08339_ae) ) ; lv_pickedPlayer += autoFAB08339_ai ) {
-        if ((PlayerType(lv_pickedPlayer) == c_playerTypeUser)) {
-            PlayerGroupAdd(gv_survivors, lv_pickedPlayer);
-            gv_remainingSelectors += 1;
-            libNtve_gf_SetAlliance(lv_pickedPlayer, gv_alienPlayer, libNtve_ge_AllianceSetting_Enemy);
-            libNtve_gf_SetAlliance(lv_pickedPlayer, gv_survivorBasePlayer, libNtve_ge_AllianceSetting_AllyWithSharedVision);
-            libNtve_gf_SetAlliance(lv_pickedPlayer, 0, libNtve_ge_AllianceSetting_Neutral);
-            auto194EA66D_catalog = c_gameCatalogUnit;
-            auto194EA66D_i = 1;
-            for ( ; auto194EA66D_i <= CatalogEntryCount(c_gameCatalogUnit) ; auto194EA66D_i += 1 ) {
-                lv_unitType = CatalogEntryGet(auto194EA66D_catalog, auto194EA66D_i);
-                if (((CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/HybridUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranCharacter") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergCharacter"))) {
-                    TechTreeUnitHelp(lv_pickedPlayer, lv_unitType, false);
-                }
-
-            }
-        }
-
-    }
-    libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
-    HelpPanelEnableTechTreeButton(PlayerGroupAll(), false);
-    PlayerGroupLoopBegin(gv_survivors);
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        CameraPan(PlayerGroupLoopCurrent(), UnitGetPosition(UnitFromId(640316847)), 0.0, -1, 10.0, false);
-        CameraPan(PlayerGroupLoopCurrent(), PointFromId(1236227694), 7.0, -1, 10.0, false);
-    }
-    PlayerGroupLoopEnd();
-    CinematicFade(true, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
-    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/99303733"));
-    UnitIssueOrder(UnitFromId(640316847), OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(1236227694)), c_orderQueueReplace);
-    UnitSetHeight(UnitFromId(640316847), -1.0, 6.0);
-    AICampaignStart(gv_alienPlayer);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_MapInitialization_Init () {
-    gt_MapInitialization = TriggerCreate("gt_MapInitialization_Func");
-    TriggerAddEventMapInit(gt_MapInitialization);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Victory Condition
-//--------------------------------------------------------------------------------------------------
-bool gt_VictoryCondition_Func (bool testConds, bool runActions) {
-    // Conditions
-    if (testConds) {
-        if (!((UnitGetType(EventUnit()) == "NydusNetwork"))) {
-            return false;
-        }
-
-        if (!((UnitCount("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) == 0))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    PlayerGroupLoopBegin(gv_survivors);
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        GameOver(PlayerGroupLoopCurrent(), c_gameOverVictory, true, true);
-    }
-    PlayerGroupLoopEnd();
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_VictoryCondition_Init () {
-    gt_VictoryCondition = TriggerCreate("gt_VictoryCondition_Func");
-    TriggerAddEventUnitDied(gt_VictoryCondition, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -278,7 +176,7 @@ bool gt_AttackWaves_Func (bool testConds, bool runActions) {
     libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Event_Lab02_AlarmIncomingAttack", 0), 8.0, c_transmissionDurationAdd, false);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/72CDAAA6"));
     Wait(30.0, c_timeGame);
-    lv_waveWeight = (50 + ((gv_attackWave * gv_attackWave) * 10));
+    lv_waveWeight = (100 + ((gv_attackWave * gv_attackWave) * 2));
     while ((lv_waveWeight > 0)) {
         lv_waveWeight -= gf_CreateRandomAlien(lv_waveWeight, UnitGetPosition(UnitGroupRandomUnit(UnitGroup("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)), PointFromId(1236227694));
         Wait(0.1, c_timeGame);
@@ -294,38 +192,9 @@ void gt_AttackWaves_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Battlecruiser Crash
+// Trigger: Alien Trickle
 //--------------------------------------------------------------------------------------------------
-bool gt_BattlecruiserCrash_Func (bool testConds, bool runActions) {
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitKill(EventUnit());
-    CinematicFade(false, 2.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
-    UnitGroupLoopBegin(UnitGroup(null, gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, (1 << (c_targetFilterHidden - 32)), (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        libNtve_gf_ShowHideUnit(UnitGroupLoopCurrent(), true);
-    }
-    UnitGroupLoopEnd();
-    libNtve_gf_RemoveDeathModelsinRegionImmediately(RegionFromId(1));
-    TriggerExecute(gt_CreateHeroSelection, true, false);
-    libNtve_gf_CinematicMode(false, PlayerGroupAll(), c_transitionDurationDefault);
-    CinematicFade(true, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_BattlecruiserCrash_Init () {
-    gt_BattlecruiserCrash = TriggerCreate("gt_BattlecruiserCrash_Func");
-    TriggerAddEventUnitRangePoint(gt_BattlecruiserCrash, UnitRefFromUnit(UnitFromId(640316847)), PointFromId(25930053), 1.0, true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Unit Trickle
-//--------------------------------------------------------------------------------------------------
-bool gt_UnitTrickle_Func (bool testConds, bool runActions) {
+bool gt_AlienTrickle_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_placeholder;
     unit lv_spawningNydus;
@@ -343,35 +212,9 @@ bool gt_UnitTrickle_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_UnitTrickle_Init () {
-    gt_UnitTrickle = TriggerCreate("gt_UnitTrickle_Func");
-    TriggerAddEventTimePeriodic(gt_UnitTrickle, 45.0, c_timeGame);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Mineral Reward
-//--------------------------------------------------------------------------------------------------
-bool gt_MineralReward_Func (bool testConds, bool runActions) {
-    // Conditions
-    if (testConds) {
-        if (!((UnitHasBehavior2(libNtve_gf_KillingUnit(), "HeroVeterancy") == true))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    PlayerModifyPropertyFixed(libNtve_gf_KillingPlayer(), c_playerPropMinerals, c_playerPropOperAdd, (UnitGetPropertyFixed(EventUnit(), c_unitPropKillXP, c_unitPropCurrent) / 3.0));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_MineralReward_Init () {
-    gt_MineralReward = TriggerCreate("gt_MineralReward_Func");
-    TriggerAddEventUnitDied(gt_MineralReward, null);
+void gt_AlienTrickle_Init () {
+    gt_AlienTrickle = TriggerCreate("gt_AlienTrickle_Func");
+    TriggerAddEventTimePeriodic(gt_AlienTrickle, 45.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -410,6 +253,41 @@ void gt_HeroSelection_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Free Heroes
+//--------------------------------------------------------------------------------------------------
+bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupLoopBegin(UnitGroup(null, 0, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitRemove(UnitGroupLoopCurrent());
+    }
+    UnitGroupLoopEnd();
+    UnitGroupLoopBegin(UnitGroup("Bunker", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitRemove(UnitGroupLoopCurrent());
+    }
+    UnitGroupLoopEnd();
+    UnitGroupLoopBegin(UnitGroup("SupplyDepot", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("SupplyDepotLower", 0)), c_orderQueueReplace);
+    }
+    UnitGroupLoopEnd();
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/20A0E835"));
+    ObjectiveCreate(StringExternal("Param/Value/9039C785"), StringExternal("Param/Value/1E6C8800"), c_objectiveStateActive, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_FreeHeroes_Init () {
+    gt_FreeHeroes = TriggerCreate("gt_FreeHeroes_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Create Hero Selection
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateHeroSelection_Func (bool testConds, bool runActions) {
@@ -430,6 +308,7 @@ bool gt_CreateHeroSelection_Func (bool testConds, bool runActions) {
     gf_CreateSelectableHero("Hunter");
     gf_CreateSelectableHero("Infested");
     gf_CreateSelectableHero("Mech");
+    gf_CreateSelectableHero("Ship");
     gf_CreateSelectableHero("Sniper");
     gf_CreateSelectableHero("Vehicle");
     return true;
@@ -441,44 +320,185 @@ void gt_CreateHeroSelection_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Free Heroes
+// Trigger: Disable Turrets
 //--------------------------------------------------------------------------------------------------
-bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
+bool gt_DisableTurrets_Func (bool testConds, bool runActions) {
     // Actions
     if (!runActions) {
         return true;
     }
 
-    UnitGroupLoopBegin(UnitGroup(null, 0, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    UnitGroupLoopBegin(UnitGroup("MissileTurret", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
     for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitRemove(UnitGroupLoopCurrent());
-    }
-    UnitGroupLoopEnd();
-    UnitGroupLoopBegin(UnitGroup("Bunker", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitKill(UnitGroupLoopCurrent());
-    }
-    UnitGroupLoopEnd();
-    UnitGroupLoopBegin(UnitGroup("SupplyDepot", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
-        UnitIssueOrder(UnitGroupLoopCurrent(), Order(AbilityCommand("SupplyDepotLower", 0)), c_orderQueueReplace);
+        UnitSetPropertyFixed(UnitGroupLoopCurrent(), c_unitPropLifePercent, 33.0);
     }
     UnitGroupLoopEnd();
     libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/20A0E835"));
-    ObjectiveCreate(StringExternal("Param/Value/9039C785"), StringExternal("Param/Value/1E6C8800"), c_objectiveStateActive, true);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/9DE5257F"));
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_FreeHeroes_Init () {
-    gt_FreeHeroes = TriggerCreate("gt_FreeHeroes_Func");
+void gt_DisableTurrets_Init () {
+    gt_DisableTurrets = TriggerCreate("gt_DisableTurrets_Func");
+    TriggerAddEventTimeElapsed(gt_DisableTurrets, 480.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Update tooltips
+// Trigger: Map Initialization
 //--------------------------------------------------------------------------------------------------
-bool gt_Updatetooltips_Func (bool testConds, bool runActions) {
+bool gt_MapInitialization_Func (bool testConds, bool runActions) {
+    int autoFAB08339_ae;
+    int autoFAB08339_ai;
+    int auto194EA66D_catalog;
+    int auto194EA66D_i;
+
+    // Variable Declarations
+    string lv_unitType;
+    int lv_pickedPlayer;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoFAB08339_ae = 12;
+    autoFAB08339_ai = 1;
+    lv_pickedPlayer = 1;
+    for ( ; ( (autoFAB08339_ai >= 0 && lv_pickedPlayer <= autoFAB08339_ae) || (autoFAB08339_ai <= 0 && lv_pickedPlayer >= autoFAB08339_ae) ) ; lv_pickedPlayer += autoFAB08339_ai ) {
+        if ((PlayerType(lv_pickedPlayer) == c_playerTypeUser)) {
+            PlayerGroupAdd(gv_survivors, lv_pickedPlayer);
+            gv_remainingSelectors += 1;
+            libNtve_gf_SetAlliance(lv_pickedPlayer, gv_alienPlayer, libNtve_ge_AllianceSetting_Enemy);
+            libNtve_gf_SetAlliance(lv_pickedPlayer, gv_survivorBasePlayer, libNtve_ge_AllianceSetting_AllyWithSharedVision);
+            libNtve_gf_SetAlliance(lv_pickedPlayer, 0, libNtve_ge_AllianceSetting_Neutral);
+            auto194EA66D_catalog = c_gameCatalogUnit;
+            auto194EA66D_i = 1;
+            for ( ; auto194EA66D_i <= CatalogEntryCount(c_gameCatalogUnit) ; auto194EA66D_i += 1 ) {
+                lv_unitType = CatalogEntryGet(auto194EA66D_catalog, auto194EA66D_i);
+                if (((CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ProtossStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergStory") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/HybridUnits") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/TerranCharacter") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unitType, "GlossaryCategory", c_playerAny) == "Unit/Category/ZergCharacter"))) {
+                    TechTreeUnitHelp(lv_pickedPlayer, lv_unitType, false);
+                }
+
+            }
+        }
+
+    }
+    libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
+    HelpPanelEnableTechTreeButton(PlayerGroupAll(), false);
+    AICampaignStart(gv_alienPlayer);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MapInitialization_Init () {
+    gt_MapInitialization = TriggerCreate("gt_MapInitialization_Func");
+    TriggerAddEventMapInit(gt_MapInitialization);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Start Battlecruiser Scene
+//--------------------------------------------------------------------------------------------------
+bool gt_StartBattlecruiserScene_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv_unitType;
+    int lv_pickedPlayer;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitGroupLoopBegin(UnitGroup(null, gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        libNtve_gf_ShowHideUnit(UnitGroupLoopCurrent(), false);
+    }
+    UnitGroupLoopEnd();
+    libNtve_gf_CinematicMode(true, PlayerGroupAll(), c_transitionDurationImmediate);
+    CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    PlayerGroupLoopBegin(gv_survivors);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        CameraPan(PlayerGroupLoopCurrent(), UnitGetPosition(UnitFromId(640316847)), 0.0, -1, 10.0, false);
+        CameraPan(PlayerGroupLoopCurrent(), PointFromId(1236227694), 7.0, -1, 10.0, false);
+    }
+    PlayerGroupLoopEnd();
+    CinematicFade(true, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/627C2F4B"));
+    UnitIssueOrder(UnitFromId(640316847), OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(1236227694)), c_orderQueueReplace);
+    UnitSetHeight(UnitFromId(640316847), -1.0, 6.0);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_StartBattlecruiserScene_Init () {
+    gt_StartBattlecruiserScene = TriggerCreate("gt_StartBattlecruiserScene_Func");
+    TriggerAddEventMapInit(gt_StartBattlecruiserScene);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Battlecruiser Crash
+//--------------------------------------------------------------------------------------------------
+bool gt_BattlecruiserCrash_Func (bool testConds, bool runActions) {
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitKill(EventUnit());
+    CinematicFade(false, 2.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    UnitGroupLoopBegin(UnitGroup(null, gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, (1 << (c_targetFilterHidden - 32)), (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0));
+    for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+        libNtve_gf_ShowHideUnit(UnitGroupLoopCurrent(), true);
+    }
+    UnitGroupLoopEnd();
+    libNtve_gf_RemoveDeathModelsinRegionImmediately(RegionFromId(1));
+    TriggerExecute(gt_CreateHeroSelection, true, false);
+    libNtve_gf_CinematicMode(false, PlayerGroupAll(), c_transitionDurationDefault);
+    CinematicFade(true, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_BattlecruiserCrash_Init () {
+    gt_BattlecruiserCrash = TriggerCreate("gt_BattlecruiserCrash_Func");
+    TriggerAddEventUnitRangePoint(gt_BattlecruiserCrash, UnitRefFromUnit(UnitFromId(640316847)), PointFromId(25930053), 1.0, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Mineral Reward
+//--------------------------------------------------------------------------------------------------
+bool gt_MineralReward_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((PlayerGroupHasPlayer(gv_survivors, libNtve_gf_KillingPlayer()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerModifyPropertyFixed(libNtve_gf_KillingPlayer(), c_playerPropMinerals, c_playerPropOperAdd, (UnitGetPropertyFixed(EventUnit(), c_unitPropKillXP, c_unitPropCurrent) / 3.0));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_MineralReward_Init () {
+    gt_MineralReward = TriggerCreate("gt_MineralReward_Func");
+    TriggerAddEventUnitDied(gt_MineralReward, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Update Tooltips
+//--------------------------------------------------------------------------------------------------
+bool gt_UpdateTooltips_Func (bool testConds, bool runActions) {
     // Variable Declarations
     fixed lv_damageModifier;
     int lv_levelPoints;
@@ -508,26 +528,62 @@ bool gt_Updatetooltips_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_Updatetooltips_Init () {
-    gt_Updatetooltips = TriggerCreate("gt_Updatetooltips_Func");
-    TriggerAddEventUnitAbility(gt_Updatetooltips, null, AbilityCommand("CRPGUpgradeDamage", 0), c_unitAbilStageComplete, false);
-    TriggerAddEventUnitBehaviorChange(gt_Updatetooltips, null, "LevelCounter", c_unitBehaviorChangeIncrease);
+void gt_UpdateTooltips_Init () {
+    gt_UpdateTooltips = TriggerCreate("gt_UpdateTooltips_Func");
+    TriggerAddEventUnitAbility(gt_UpdateTooltips, null, AbilityCommand("CRPGUpgradeDamage", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitBehaviorChange(gt_UpdateTooltips, null, "LevelCounter", c_unitBehaviorChangeIncrease);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Victory Condition
+//--------------------------------------------------------------------------------------------------
+bool gt_VictoryCondition_Func (bool testConds, bool runActions) {
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetType(EventUnit()) == "NydusNetwork"))) {
+            return false;
+        }
+
+        if (!((UnitCount("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) == 0))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerGroupLoopBegin(gv_survivors);
+    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        GameOver(PlayerGroupLoopCurrent(), c_gameOverVictory, true, true);
+    }
+    PlayerGroupLoopEnd();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_VictoryCondition_Init () {
+    gt_VictoryCondition = TriggerCreate("gt_VictoryCondition_Func");
+    TriggerAddEventUnitDied(gt_VictoryCondition, null);
 }
 
 //--------------------------------------------------------------------------------------------------
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
-    gt_MapInitialization_Init();
-    gt_VictoryCondition_Init();
     gt_AttackWaves_Init();
-    gt_BattlecruiserCrash_Init();
-    gt_UnitTrickle_Init();
-    gt_MineralReward_Init();
+    gt_AlienTrickle_Init();
     gt_HeroSelection_Init();
-    gt_CreateHeroSelection_Init();
     gt_FreeHeroes_Init();
-    gt_Updatetooltips_Init();
+    gt_CreateHeroSelection_Init();
+    gt_DisableTurrets_Init();
+    gt_MapInitialization_Init();
+    gt_StartBattlecruiserScene_Init();
+    gt_BattlecruiserCrash_Init();
+    gt_MineralReward_Init();
+    gt_UpdateTooltips_Init();
+    gt_VictoryCondition_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

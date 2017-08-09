@@ -44,7 +44,6 @@
         <SubgroupPriority value="20"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
-        <ShieldRegenDelay value="10"/>
         <ShieldRegenRate value="2"/>
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <HotkeyCategory value="Unit/Category/CrashRPGHeroes"/>
@@ -115,6 +114,7 @@
         <GlossaryWeakArray value="Corruptor"/>
         <Description value="Button/Tooltip/CRPGAero"/>
         <GlossaryCategory value=""/>
+        <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="CRPGAeroLevel2" parent="CRPGAeroLevel1">
         <Name value="Unit/Name/CRPGAeroLevel2"/>
@@ -228,8 +228,8 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="240"/>
-        <LifeMax value="240"/>
+        <LifeStart value="360"/>
+        <LifeMax value="360"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <Acceleration value="2.5"/>
         <LateralAcceleration value="46"/>
@@ -262,6 +262,7 @@
             <LayoutButtons Face="MechEmergencyEvac" Type="AbilCmd" AbilCmd="MechEmergencyEvac,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <GlossaryCategory value=""/>
+        <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="CRPGMechLevel2" parent="CRPGMechLevel1">
         <DeathRevealRadius value="3"/>
@@ -299,8 +300,8 @@
         <FlagArray index="TurnBeforeMove" value="1"/>
         <FlagArray index="AIThreatGround" value="0"/>
         <FlagArray index="AIThreatAir" value="0"/>
-        <LifeStart value="320"/>
-        <LifeMax value="320"/>
+        <LifeStart value="480"/>
+        <LifeMax value="480"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="720"/>
         <TurningRate value="360"/>
@@ -367,8 +368,8 @@
         <Collide index="Colossus" value="1"/>
         <Collide index="ForceField" value="0"/>
         <Collide index="Locust" value="0"/>
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="720"/>
         <TurningRate value="360"/>
@@ -436,6 +437,7 @@
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
         <GlossaryCategory value=""/>
+        <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="CRPGSniperLevel2" parent="CRPGSniperLevel1">
         <AbilArray index="3" Link="SniperLevelUpMorphLevel2"/>
@@ -577,6 +579,7 @@
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Hydralisk"/>
         <GlossaryCategory value=""/>
+        <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="CRPGVehicleLevel2" parent="CRPGVehicleLevel1">
         <DamageDealtXP value="1"/>
@@ -730,6 +733,51 @@
         <Name value="Unit/Name/Alien"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
+    <CUnit id="CRPGShipLevel1" parent="CRPGHero">
+        <Name value="Unit/Name/CRPGShip"/>
+        <Description value="Button/Tooltip/CRPGShip"/>
+        <Race value="Prot"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Ground" value="0"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Locust" value="0"/>
+        <Collide index="Flying" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossPlating"/>
+        <ShieldsStart value="50"/>
+        <ShieldsMax value="50"/>
+        <Mover value="Fly"/>
+        <Speed value="2.75"/>
+        <Acceleration value="3.25"/>
+        <StationaryTurningRate value="1499.9414"/>
+        <TurningRate value="1499.9414"/>
+        <Height value="3.75"/>
+        <VisionHeight value="4"/>
+        <AbilArray index="3" Link="ShipLevelUpMorphLevel1"/>
+        <AbilArray Link="ShipDisruptionWeb"/>
+        <BehaviorArray Link="CRPGShieldDelayController"/>
+        <WeaponArray Link="ShipPhotonBlaster"/>
+        <WeaponArray Link="ShipNeutronFlare"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ShipLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="ShipDisruptionWeb" Type="AbilCmd" AbilCmd="ShipDisruptionWeb,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.75"/>
+        <SeparationRadius value="0.75"/>
+        <GlossaryCategory value=""/>
+        <GlossaryStrongArray value="Mutalisk"/>
+        <GlossaryWeakArray value="DevourerMP"/>
+    </CUnit>
     <CUnit id="CreepTumor">
         <KillXP value="5"/>
         <Name value="Unit/Name/Alien"/>
@@ -775,6 +823,52 @@
         <KillXP value="50"/>
         <Name value="Unit/Name/Alien"/>
     </CUnit>
+    <CUnit id="CRPGWizardLevel1" parent="CRPGHero">
+        <Name value="Unit/Name/CRPGWizard"/>
+        <Race value="Prot"/>
+        <FlagArray index="AlwaysThreatens" value="1"/>
+        <FlagArray index="AIThreatGround" value="1"/>
+        <FlagArray index="AIThreatAir" value="1"/>
+        <FlagArray index="AISplash" value="1"/>
+        <FlagArray index="AIHighPrioTarget" value="1"/>
+        <FlagArray index="AICaster" value="1"/>
+        <FlagArray index="AIPressForwardDisabled" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Psionic" value="1"/>
+        <LifeStart value="75"/>
+        <LifeMax value="75"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
+        <ShieldsStart value="75"/>
+        <ShieldsMax value="75"/>
+        <Acceleration value="1000"/>
+        <Deceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <AbilArray index="3" Link="WizardLevelUpMorphLevel1"/>
+        <AbilArray Link="WizardPsionicStorm"/>
+        <WeaponArray Link="WizardPsiBlast"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="WizardLevelUpMorphLevel1,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="WizardPsionicStorm" Type="AbilCmd" AbilCmd="WizardPsionicStorm,255" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <GlossaryStrongArray value="Hydralisk"/>
+        <GlossaryWeakArray value="Roach"/>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
     <CUnit id="Hive">
         <KillXP value="100"/>
         <Name value="Unit/Name/Alien"/>
@@ -798,11 +892,121 @@
         <Name value="Unit/Name/Alien"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
+    <CUnit id="CRPGShipLevel2" parent="CRPGShipLevel1">
+        <Attributes index="Light" value="0"/>
+        <Attributes index="Armored" value="1"/>
+        <AbilArray index="3" Link="ShipLevelUpMorphLevel2"/>
+        <BehaviorArray Link="ShipShieldEmitterAura"/>
+        <WeaponArray index="1" Link="ShipAntiMatterMissiles"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ShipLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="ShipShieldEmitter" Type="Passive" Row="1" Column="0"/>
+        </CardLayouts>
+    </CUnit>
+    <CUnit id="PreserverC2" parent="CRPGWizardLevel1">
+        <Description value="Button/Tooltip/PreserverBase"/>
+        <FlagArray index="Hero" value="0"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="AlwaysThreatens" value="0"/>
+        <FlagArray index="AIThreatGround" value="0"/>
+        <FlagArray index="AIThreatAir" value="0"/>
+        <FlagArray index="AISplash" value="0"/>
+        <FlagArray index="AIHighPrioTarget" value="0"/>
+        <FlagArray index="AICaster" value="0"/>
+        <FlagArray index="AIPressForwardDisabled" value="0"/>
+        <FlagArray index="ArmySelect" value="0"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Locust" value="0"/>
+        <Deceleration value="0"/>
+    </CUnit>
     <CUnit id="SupplyDepot">
         <FlagArray index="Invulnerable" value="1"/>
     </CUnit>
     <CUnit id="SupplyDepotLowered">
         <FlagArray index="Invulnerable" value="1"/>
+    </CUnit>
+    <CUnit id="CRPGShipLevel3" parent="CRPGShipLevel2">
+        <LifeStart value="125"/>
+        <LifeMax value="125"/>
+        <ShieldsStart value="75"/>
+        <ShieldsMax value="75"/>
+        <AbilArray index="3" Link="ShipLevelUpMorphLevel3"/>
+        <AbilArray Link="ShipPrismaticAlignment"/>
+        <WeaponArray index="0" Link="ShipWarpspaceCannon"/>
+        <WeaponArray index="1" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ShipLevelUpMorphLevel3,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="ShipPrismaticAlignment" Type="AbilCmd" AbilCmd="ShipPrismaticAlignment,On" Row="2" Column="1"/>
+            <LayoutButtons Face="ShipDisablePrismaticAlignment" Type="AbilCmd" AbilCmd="ShipPrismaticAlignment,Off" Row="2" Column="1"/>
+        </CardLayouts>
+        <Radius value="1"/>
+    </CUnit>
+    <CUnit id="CRPGShipLevel4" parent="CRPGShipLevel3">
+        <AbilArray index="3" Link="ShipLevelUpMorphLevel4"/>
+        <BehaviorArray Link="ShipGuardianShellAura"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ShipLevelUpMorphLevel4,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="ShipGuardianShell" Type="Passive" Row="1" Column="1"/>
+        </CardLayouts>
+        <SeparationRadius value="1"/>
+    </CUnit>
+    <CUnit id="CRPGShipLevel5" parent="CRPGShipLevel4">
+        <Facing value="45"/>
+        <FlagArray index="Turnable" value="0"/>
+        <Attributes index="Massive" value="1"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
+        <Speed value="2.25"/>
+        <Acceleration value="1.375"/>
+        <Deceleration value="1"/>
+        <StationaryTurningRate value="720"/>
+        <TurningRate value="720"/>
+        <AbilArray index="3" Link="LevelUpDummy"/>
+        <AbilArray index="4" Link="ShipDisruptionWebNoAim"/>
+        <AbilArray index="5" Link="ShipPrismaticAlignmentNoAim"/>
+        <AbilArray Link="ShipCloakingField"/>
+        <WeaponArray index="0" Link="ShipPurifierBeam" Turret="FreeRotate"/>
+        <WeaponArray Turret="MothershipRotate"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="LevelUpDummy,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons index="6" AbilCmd="ShipDisruptionWebNoAim,Execute"/>
+            <LayoutButtons index="8" Face="ShipPrismaticAlignment" Type="AbilCmd" AbilCmd="ShipPrismaticAlignmentNoAim,On" Row="2" Column="1"/>
+            <LayoutButtons index="9" Face="ShipDisablePrismaticAlignment" Type="AbilCmd" AbilCmd="ShipPrismaticAlignmentNoAim,Off" Row="2" Column="1"/>
+            <LayoutButtons Face="ShipCloakingField" Type="AbilCmd" AbilCmd="ShipCloakingField,Execute" Row="2" Column="2"/>
+        </CardLayouts>
+        <Radius value="1.375"/>
+        <SeparationRadius value="1.375"/>
+        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
     <CUnit id="WeaponDisruptorVolleyHunter" parent="MISSILE">
         <Description value="Button/Tooltip/HunterDisruptorVolley"/>
@@ -839,8 +1043,8 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Summoned" value="1"/>
-        <LifeStart value="200"/>
-        <LifeMax value="200"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
         <Speed value="1"/>
@@ -975,6 +1179,7 @@
         <Name value="Unit/Name/InfestedInfestedCivilian"/>
         <Description value="Button/Tooltip/InfestedInfestedCivilian"/>
         <WeaponArray index="0" Link="InfestedCivilianInfestedClaws"/>
+        <Speed value="1.75"/>
     </CUnit>
     <CUnit id="Lair">
         <KillXP value="75"/>
@@ -1144,7 +1349,6 @@
             <LayoutButtons Face="InfestedInfestedEgg" Type="AbilCmd" AbilCmd="InfestedInfestedEgg,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <GlossaryCategory value=""/>
-        <ShieldRegenDelay value="0"/>
         <Food value="6"/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel2" parent="CRPGInfestedLevel1">
@@ -1288,7 +1492,6 @@
         <GlossaryCategory value=""/>
         <GlossaryStrongArray value="Roach"/>
         <GlossaryWeakArray value="Zergling"/>
-        <ShieldRegenDelay value="0"/>
         <BehaviorArray Link="CRPGShieldDelayController"/>
     </CUnit>
     <CUnit id="CRPGHunterLevel2" parent="CRPGHunterLevel1">
@@ -1360,7 +1563,7 @@
         <StationaryTurningRate value="720"/>
         <TurningRate value="720"/>
         <WeaponArray index="0" Link="HunterPhaseDisruptor" Turret="Hunter"/>
-        <WeaponArray Link="HunterDisruptorVolley4" Turret="Hunter"/>
+        <WeaponArray Link="HunterDisruptorVolleyFour" Turret="Hunter"/>
         <CargoSize value="4"/>
         <FlagArray index="Turnable" value="0"/>
         <AbilArray index="3" Link="HunterLevelUpMorphLevel4"/>
@@ -1551,7 +1754,6 @@
             <ChanceArray index="Idle" value="70"/>
             <ChanceArray index="Turn" value="10"/>
         </Fidget>
-        <ShieldRegenDelay value="0"/>
         <BehaviorArray Link="CRPGShieldDelayController"/>
     </CUnit>
     <CUnit id="CRPGFighterLevel2" parent="CRPGFighterLevel1">

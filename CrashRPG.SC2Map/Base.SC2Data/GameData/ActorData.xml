@@ -1,5 +1,360 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CActorUnit id="CRPGWizardLevel1" parent="HighTemplar" unitName="CRPGWizardLevel1">
+        <On index="0" Terms="UnitBirth.CRPGWizardLevel1"/>
+        <On index="1" Terms="UnitBirth.CRPGWizardLevel1"/>
+        <On index="2" Terms="UnitRevive.CRPGWizardLevel1"/>
+        <On index="3" Terms="UnitRevive.CRPGWizardLevel1"/>
+        <On index="4" Terms="UnitConstruction.CRPGWizardLevel1.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGWizardLevel1.Finish"/>
+        <AbilSoundArray index="0" AbilCmd="WizardPsionicStorm,255"/>
+        <HighlightTooltip value="Unit/Name/CRPGWizardLevel1"/>
+    </CActorUnit>
+    <CActorAction id="WizardPsiBlastAttack" parent="GenericAttack" effectImpact="HighTemplarWeaponDamage" effectLaunch="WizardPsiBlastLaunchMissile">
+        <LaunchSiteOps Ops="SOpAttachCenter SOpMoveByDot15"/>
+        <LaunchAssets Sound="Ascendant_Launch"/>
+        <Missile value="HighTemplarAttackMissile"/>
+        <ImpactMap index="None" Model="HighTemplarAttackImpact" Sound="Ascendant_Impact"/>
+        <ImpactPhysics Name="HighTemplarPsiBlastImpact" MatchKeys="Basic" Physics="HighTemplarPsiBlastDeathImpactForce"/>
+    </CActorAction>
+    <CActorSound id="WizardPsionicStormImpactSound" parent="SoundOneShot">
+        <On Terms="Behavior.PsiStorm.On" Send="Create"/>
+        <Sound value="HighTemplar_PsionicStormImpact"/>
+    </CActorSound>
+    <CActorModel id="WizardPsionicStormImpactModel" parent="ModelAnimationStyleContinuous">
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Behavior.PsiStorm.Start" Send="Create"/>
+        <On Terms="Behavior.PsiStorm.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="HighTemplarPsiStormImpact"/>
+        <AutoScaleFactor value="0.750000"/>
+    </CActorModel>
+    <CActorModel id="WizardPsionicStormModel" parent="ModelAnimationStyleContinuous">
+        <On Terms="Effect.WizardPsionicStormCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.WizardPsionicStormCreatePersistent.Stop" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation; ValidatePlayer HaveVoidHighTemplarPsiStormFilter" Send="SetTintColor 0,255,0"/>
+        <On Terms="Effect.PsiStormShakurasPersistent.Start" Send="Create"/>
+        <On Terms="Effect.PsiStormShakurasPersistent.Stop" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <Model value="HighTemplarPsiStormModel"/>
+        <Scale value="1.300000"/>
+    </CActorModel>
+    <CActorSound id="WizardPsionicStormLaunchSound" parent="SoundContinuous">
+        <On Terms="Effect.WizardPsionicStormCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.WizardPsionicStormCreatePersistent.Stop" Send="Destroy"/>
+        <On Terms="Effect.PsiStormShakurasPersistent.Start" Send="Create"/>
+        <On Terms="Effect.PsiStormShakurasPersistent.Stop" Send="Destroy"/>
+        <HostSiteOps Ops="SOpShadow"/>
+        <Sound value="HighTemplar_PsionicStormLaunch"/>
+    </CActorSound>
+    <CActorSound id="WizardDeathLevel2" parent="SoundOneShot">
+        <On Terms="UnitDeathCustomize.CRPGWizardLevel1; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
+        <On Terms="UnitDeathCustomize.HighTemplarAir; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
+        <On Terms="UnitDeathCustomize.HighTemplarShakuras; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
+        <On Terms="UnitDeathCustomize.HighTemplarShakuras; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
+        <On Terms="UnitDeathCustomize.HighTemplarShakuras; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
+        <Sound value="HighTemplar_Death"/>
+    </CActorSound>
+    <CActorUnit id="CRPGWizardLevel2" parent="GenericUnitStandard" unitName="PreserverC2">
+        <Model value="PreserverC"/>
+        <BuildModel value="HighTemplarWarpIn"/>
+        <DeathArray index="Normal" ModelLink="ProtossSpiritDeath" SoundLink="HighTemplar_Death"/>
+        <PlacementModel value="HighTemplarPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="Preserver3Portrait"/>
+        <WalkAnimMoveSpeed value="2.25"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+        </GroupIcon>
+        <HighlightTooltip value="Unit/Name/CRPGWizardLevel2"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <UnitIcon value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-preserver02-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-preserver02-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-preserver02-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorSound id="ShipCloakingFieldOffSound" parent="SoundOneShot">
+        <Terms value="ValidateUnit NotWorkerAndNotCloakedAndNotDead"/>
+        <On Terms="Behavior.ShipCloakingField.Off" Send="Create"/>
+        <Sound value="Mothership_CloakFieldOff"/>
+    </CActorSound>
+    <CActorSound id="ShipCloakingFieldOnSound" parent="SoundOneShot">
+        <Terms value="ValidateUnit NotWorkerAndNotCloaked"/>
+        <On Terms="Behavior.ShipCloakingField.On" Send="Create"/>
+        <Sound value="Mothership_CloakFieldOn"/>
+    </CActorSound>
+    <CActorAction id="ShipPrismaticBeamNoAimAttack" parent="GenericAttackBase">
+        <On Terms="Effect.ShipPrismaticBeamNoAimCreatePersistent.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.ShipPrismaticBeamNoAimCreatePersistent.Stop" Send="Destroy"/>
+        <LaunchAttachQuery Methods="Overhead 0"/>
+        <LaunchAssets Model="ShipPrismaticBeamAttackLaunch" Sound="ShipPrismaticBeamAttackLaunch"/>
+        <Beam value="ShipPrismaticBeamBeam"/>
+        <Missile value="ShipPrismaticBeamAttackMissile"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance SOpForwardLaunchGuide"/>
+        <ImpactMap index="None" Model="ShipPrismaticBeamAttackImpact" Sound="ShipPrismaticBeamAttackImpact" ModelReaction="ShipPrismaticBeamAttackImpactReaction"/>
+        <ImpactMap index="Shield" Sound="ShipPrismaticBeamAttackImpactShield" ModelReaction="ShipPrismaticBeamAttackImpactReactionShield"/>
+        <DamageMap index="None" Model="ShipPrismaticBeamAttackDamage" Sound="ShipPrismaticBeamAttackDamage" ModelReaction="ShipPrismaticBeamAttackDamageReaction"/>
+        <DamageMap index="Shield" Sound="ShipPrismaticBeamAttackDamageShield" ModelReaction="ShipPrismaticBeamAttackDamageReactionShield"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="LaunchForceSite" value="1"/>
+        <Lifetime value="-1.000000"/>
+    </CActorAction>
+    <CActorAction id="ShipPurifierBeamAttack" parent="GenericAttackBase">
+        <On Terms="Effect.ShipPurifierBeamCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.ShipPurifierBeamDamage.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
+        <On Terms="Effect.ShipPurifierBeamCreatePersistent.Stop" Send="Destroy WhenReady"/>
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMClosest2ToTarget AMPatternMothershipBeam"/>
+        <LaunchAssets Sound="Mothership_AttackLaunch"/>
+        <Beam value="ShipPurifierBeamBeam"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+        <Lifetime value="-1.000000"/>
+    </CActorAction>
+    <CActorBeamSimple id="ShipPurifierBeamBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <On Terms="Effect.ShipPurifierBeamCreatePersistent.Stop" Send="AnimBracketStop BSD"/>
+        <Model value="MothershipAttackBeam"/>
+    </CActorBeamSimple>
+    <CActorAction id="ShipPurifierBeamSecondaryAttack" parent="GenericAttackBase">
+        <On Terms="Effect.ShipPurifierBeamSecondaryCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.ShipPurifierBeamDamage.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
+        <On Terms="Effect.ShipPurifierBeamCreatePersistent.Stop" Send="Destroy WhenReady"/>
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMClosest2ToTarget AMPatternMothershipBeam"/>
+        <Beam value="ShipPurifierBeamSecondaryBeam"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+        <Lifetime value="-1.000000"/>
+    </CActorAction>
+    <CActorBeamSimple id="ShipPurifierBeamSecondaryBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <On Terms="Effect.ShipPurifierBeamSecondaryCreatePersistent.Stop" Send="AnimBracketStop BSD"/>
+        <Model value="MothershipAttackBeam"/>
+    </CActorBeamSimple>
+    <CActorSound id="ShipGuardianShellDeathSound" parent="SoundOneShot">
+        <On Terms="Behavior.ShipGuardianShell.Off" Send="Create"/>
+        <Sound value="SOA_GuardianShell_End"/>
+    </CActorSound>
+    <CActorModel id="ShipGuardianShellLongModel" parent="ModelAnimationStyleContinuous">
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Behavior.ShipGuardianShell.On; ValidateUnit IsCarrier" Send="Create"/>
+        <On Terms="Behavior.ShipGuardianShell.On; ValidateUnit IsVoidRay" Send="Create"/>
+        <On Terms="Behavior.ShipGuardianShell.On; ValidateUnit IsBattlecruiser" Send="Create"/>
+        <On Terms="Behavior.ShipGuardianShell.On; ValidateUnit IsHerculesCombine" Send="Create"/>
+        <On Terms="Behavior.ShipGuardianShell.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation; ValidateUnit IsBattlecruiser" Send="SetScale 1.500000"/>
+        <On Terms="ActorCreation; ValidateUnit IsHerculesCombine" Send="SetScale 1.500000"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="SOAHeroicShieldLongModel"/>
+        <AutoScaleFactor value="0.800000"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorModel id="ShipGuardianShellModel" parent="ModelAnimationStyleContinuous">
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Behavior.ShipGuardianShell.On" Send="Create"/>
+        <On Terms="Behavior.ShipGuardianShell.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation; ValidateUnit IsColossus" Send="Destroy"/>
+        <On Terms="ActorCreation; ValidateUnit IsCarrier" Send="Destroy"/>
+        <On Terms="ActorCreation; ValidateUnit IsVoidRay" Send="Destroy"/>
+        <On Terms="ActorCreation; ValidateUnit IsBattlecruiser" Send="Destroy"/>
+        <On Terms="ActorCreation; ValidateUnit IsHerculesCombine" Send="Destroy"/>
+        <On Terms="ActorCreation; ValidateUnit IsThor" Send="SetScale 1.200000"/>
+        <On Terms="ActorCreation; ValidateUnit IsGoliath" Send="SetScale 1.200000"/>
+        <On Terms="ActorCreation; ValidateUnit IsCyclone" Send="SetScale 1.200000"/>
+        <On Terms="ActorCreation; ValidateUnit IsImmortal" Send="SetScale 1.200000"/>
+        <On Terms="ActorCreation; ValidateUnit IsPhoenix" Send="SetScale 1.200000"/>
+        <On Terms="ActorCreation; ValidateUnit IsTempest" Send="SetScale 1.200000"/>
+        <On Terms="ActorCreation; ValidateUnit IsScienceVessel" Send="SetScale 0.700000"/>
+        <On Terms="ActorCreation; ValidateUnit IsCorsairMP" Send="SetScale 0.900000"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter SOpForwardNorth"/>
+        <Model value="SOAHeroicShieldModel"/>
+        <AutoScaleFactor value="0.800000"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorSound id="ShipGuardianShellBirthSound" parent="SoundOneShot">
+        <On Terms="Behavior.ShipGuardianShell.On" Send="Create"/>
+        <Sound value="SOA_GuardianShell_Start"/>
+    </CActorSound>
+    <CActorSound id="ShipGuardianShellLoopSound" parent="SoundContinuous">
+        <On Terms="Behavior.ShipGuardianShell.On" Send="Create"/>
+        <On Terms="Behavior.ShipGuardianShell.Off" Send="Destroy"/>
+        <Sound value="SOA_GuardianShell_Loop"/>
+    </CActorSound>
+    <CActorModel id="GuardianShellTallModel" parent="ModelAnimationStyleContinuous">
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Behavior.ShipGuardianShell.On; ValidateUnit IsColossus" Send="Create"/>
+        <On Terms="Behavior.ShipGuardianShell.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter SOpForwardNorth"/>
+        <Model value="SOAHeroicShieldTallModel"/>
+        <AutoScaleFactor value="0.800000"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorAction id="ShipWarpspaceCannonAttack" parent="GenericAttack" effectImpact="ArbiterMPWeaponDamage" effectLaunch="ShipWarpspaceCannonLaunchMissile">
+        <Missile value="ArbiterMPWeaponMissile"/>
+        <ImpactMap index="None" Model="ArbiterMPWeaponImpact" Sound="ArbiterMP_AttackImpact"/>
+    </CActorAction>
+    <CActorUnit id="CRPGShipLevel1" parent="CorsairMP" unitName="CRPGShipLevel1">
+        <On index="0" Terms="UnitBirth.CRPGShipLevel1" Send="Create SoundEmitter CRPGShipLevel1_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGShipLevel1"/>
+        <On index="2" Terms="UnitRevive.CRPGShipLevel1"/>
+        <On index="3" Terms="UnitRevive.CRPGShipLevel1"/>
+        <On index="4" Terms="UnitConstruction.CRPGShipLevel1.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGShipLevel1.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGShipLevel1" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGShipLevel1" Send="Destroy"/>
+        <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGShip"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGShipLevel2" parent="Scout" unitName="CRPGShipLevel2">
+        <On index="0" Terms="UnitBirth.CRPGShipLevel2"/>
+        <On index="1" Terms="UnitBirth.CRPGShipLevel2"/>
+        <On index="2" Terms="UnitRevive.CRPGShipLevel2"/>
+        <On index="3" Terms="UnitRevive.CRPGShipLevel2"/>
+        <On index="4" Terms="UnitConstruction.CRPGShipLevel2.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGShipLevel2.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGShipLevel2" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGShipLevel2" Send="Destroy"/>
+        <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGShip"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGShipLevel3" parent="VoidRay" unitName="CRPGShipLevel3">
+        <On index="0" Terms="UnitBirth.CRPGShipLevel3"/>
+        <On index="1" Terms="UnitBirth.CRPGShipLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGShipLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGShipLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGShipLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGShipLevel3.Finish"/>
+        <On index="60" Terms="WeaponStart.ShipPrismaticBeam.AttackStart"/>
+        <On index="61" Terms="WeaponStart.ShipPrismaticBeam.AttackStart"/>
+        <On index="62" Terms="WeaponStop.ShipPrismaticBeam.AttackStop; ValidateUnit NotQuadAndNotDoubleDamage"/>
+        <On index="63" Terms="WeaponStop.ShipPrismaticBeam.AttackStop"/>
+        <On index="72" Terms="WeaponStart.ShipPrismaticBeam.AttackStart; IsStatus WeaponAnim 0"/>
+        <On index="73" Terms="WeaponStart.ShipPrismaticBeam.AttackStart; IsStatus WeaponAnim 0"/>
+        <On index="74" Terms="WeaponStart.ShipPrismaticBeam.AttackStart"/>
+        <On index="75" Terms="WeaponStop.ShipPrismaticBeam.AttackStop"/>
+        <On index="76" Terms="WeaponStop.ShipPrismaticBeam.AttackStop; IsStatus WeaponEnhanced 0"/>
+        <On index="77" Terms="WeaponStop.ShipPrismaticBeam.AttackStop; IsStatus WeaponEnhanced 0"/>
+        <On index="84" Terms="WeaponStart.ShipPrismaticBeam.AttackStart; IsStatus WeaponEnhanced 0"/>
+        <On index="88" Terms="WeaponStart.ShipPrismaticBeam.AttackStart; IsStatus WeaponEnhanced 0"/>
+        <On index="123" Terms="WeaponStart.ShipPrismaticBeam.AttackStart" Send="Create VoidRayVoidCenterBeam"/>
+        <On index="124" Terms="WeaponStop.ShipPrismaticBeam.AttackStop" Target="VoidRayVoidCenterBeam" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGShipLevel3" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGShipLevel3" Send="Destroy"/>
+        <On Terms="WeaponStart.ShipWarpspaceCannon.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.ShipWarpspaceCannon.AttackStop" Send="AnimBracketStop Attack"/>
+        <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGShip"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGShipLevel4" parent="ArbiterMP" unitName="CRPGShipLevel4">
+        <On index="0" Terms="UnitBirth.CRPGShipLevel4" Send="Create SoundEmitter CRPGShipLevel4_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGShipLevel4"/>
+        <On index="2" Terms="UnitRevive.CRPGShipLevel4"/>
+        <On index="3" Terms="UnitRevive.CRPGShipLevel4"/>
+        <On index="4" Terms="UnitConstruction.CRPGShipLevel4.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGShipLevel4.Finish"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGShipLevel4" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGShipLevel4" Send="Destroy"/>
+        <On Terms="Abil.ShipDisruptionWeb.SourceCastStart" Send="$Spell"/>
+        <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGShip"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGShipLevel5" parent="Mothership" unitName="CRPGShipLevel5">
+        <On index="0" Terms="UnitBirth.CRPGShipLevel5"/>
+        <On index="1" Terms="UnitBirth.CRPGShipLevel5"/>
+        <On index="2" Terms="UnitRevive.CRPGShipLevel5"/>
+        <On index="3" Terms="UnitRevive.CRPGShipLevel5"/>
+        <On index="4" Terms="UnitConstruction.CRPGShipLevel5.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGShipLevel5.Finish"/>
+        <On index="62" Terms="UnitBirth.CRPGShipLevel5.Normal"/>
+        <On index="63" Terms="UnitBirth.CRPGShipLevel5.Normal"/>
+        <On index="64" Terms="UnitBirth.CRPGShipLevel5.Normal"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGShipLevel5" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGShipLevel5" Send="Destroy"/>
+        <On Terms="WeaponStart.ShipPrismaticBeamNoAim.AttackStart" Send="AnimBracketStart Attack Stand,Work,Start Stand,Work Stand,Work,End"/>
+        <On Terms="WeaponStop.ShipPrismaticBeamNoAim.AttackStop" Send="AnimBracketStop Attack"/>
+        <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <HighlightTooltip value="Unit/Name/CRPGShip"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorAction id="ShipNeutronFlareAttack" parent="GenericAttack" effectAttack="ShipNeutronFlare">
+        <LaunchAssets Model="CorsairMPAttackLaunch" Sound="CorsairMP_AttackLaunch"/>
+        <LaunchModel value="CorsairGenericAttackLaunchModel"/>
+        <Beam value="CorsairMPAttackBeam"/>
+        <Missile value="CorsairMPAttackMissile"/>
+        <ImpactMap index="None" Model="CorsairMPAttackImpact" Sound="CorsairMP_AttackImpact"/>
+    </CActorAction>
+    <CActorAction id="ShipPhotonBlastersAttack" parent="GenericAttack" effectLaunch="ShipPhotonBlasterDamage">
+        <LaunchAssets Model="ScoutGroundAttackLaunch" Sound="ScoutGroundAttackLaunch"/>
+        <LaunchModel value="ScoutGroundAttackModel"/>
+        <Beam value="ScoutGroundAttackBeam"/>
+        <Missile value="ScoutGroundAttackMissile"/>
+        <ImpactMap index="None" Model="ScoutGroundAttackImpact" Sound="Scout_GroundAttackImpact"/>
+        <ImpactModel value="ScoutGroundAttackModel"/>
+    </CActorAction>
+    <CActorModel id="ShipShieldEmitter" parent="ModelAnimationStyleContinuous">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Behavior.ShipShieldEmitterAura.On" Send="Create"/>
+        <On Terms="Behavior.ShipShieldEmitterAura.Off" Send="Destroy"/>
+        <On Terms="ModelEvent; ModelEventName SoundStart" Send="Create GuardianShieldSoundBirth"/>
+        <On Terms="ModelEvent; ModelEventName SoundLoopStart" Send="Create GuardianShieldSoundLoop"/>
+        <On Terms="ModelEvent; ModelEventName SoundLoopEnd" Send="Create GuardianShieldSoundDeath"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachCenter" HoldRotation="1"/>
+        <Model value="ShieldEmitter"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorModel id="ShipShieldEmitterImpactModel" parent="GuardianShieldImpact">
+        <On index="3" Terms="Behavior.ShipShieldEmitter.On"/>
+    </CActorModel>
+    <CActorAction id="ShipAntiMatterMissilesLeftAttack" parent="GenericAttack" effectImpact="ShipAntiMatterMissilesDamage" effectLaunch="ShipAntiMatterMissilesLeftLaunchMissile">
+        <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
+        <LaunchAssets Sound="Scout_AirAttackLaunch"/>
+        <Missile value="ScoutAirLeftAttackMissile"/>
+        <ImpactMap index="None" Model="ScoutAirLeftAttackImpact" Sound="Scout_AirAttackImpact"/>
+    </CActorAction>
+    <CActorAction id="ShipAntiMatterMissilesRightAttack" parent="GenericAttack" effectImpact="ShipAntiMatterMissilesDamage" effectLaunch="ShipAntiMatterMissilesRightLaunchMissile">
+        <LaunchAttachQuery Methods="AMFilterWeaponRight"/>
+        <Missile value="ScoutAirRightAttackMissile"/>
+        <ImpactMap index="None" Model="ScoutAirRightAttackImpact"/>
+    </CActorAction>
+    <CActorModel id="ShipDisruptionWebImpactModel" parent="ModelAnimationStyleContinuous">
+        <On Terms="Effect.ShipDisruptionWebCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.ShipDisruptionWebCreatePersistent.Stop" Send="AnimBracketStop BSD"/>
+        <Model value="CorsairMPDisruptionWebImpact"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorSound id="ShipDisruptionWebLaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.ShipDisruptionWebCreatePersistent.Start" Send="Create"/>
+        <Sound value="CorsairMP_DisruptionWebLaunch"/>
+    </CActorSound>
+    <CActorSound id="ShipDisruptionWebLoopSound" parent="SoundOneShot">
+        <On Terms="Effect.ShipDisruptionWebCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.ShipDisruptionWebCreatePersistent.Stop" Send="Destroy"/>
+        <Sound value="CorsairMP_DisruptionWebLoop"/>
+    </CActorSound>
     <CActorUnit id="DevourerMP">
         <UnitIcon value="Assets\Textures\btn-unit-zerg-devourerex3.dds"/>
     </CActorUnit>
@@ -177,7 +532,7 @@
         <On Terms="Effect.HunterProjectionBeamCreatePersistent.Start" Send="Create"/>
         <Sound value="Mothership_AttackLaunch"/>
     </CActorSound>
-    <CActorSound id="HunterProjectionBeamSoundEnd" parent="SoundOneShot">
+    <CActorSound id="HunterProjectionBeamEndSound" parent="SoundOneShot">
         <On Terms="Effect.HunterProjectionBeamCreatePersistent.Stop" Send="Create"/>
         <Sound value="Mohandar_WeaponEnd"/>
     </CActorSound>
@@ -190,6 +545,24 @@
         <StatusBarFlags index="Shields" value="0"/>
         <StatusBarFlags index="Life" value="0"/>
     </CActorUnit>
+    <CActorRange id="ShipShipPassivesRange">
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGShipLevel2; Selected" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel2.Start" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel3.Start" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel4.Start" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel5.Start" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel2.StartEditorGround" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel3.StartEditorGround" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel4.StartEditorGround" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel5.StartEditorGround" Send="Create"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel2.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel3.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel4.Stop" Send="Destroy"/>
+        <On Terms="SelectionLocalUpdate.CRPGShipLevel5.Stop" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetTintColor 0,0,255"/>
+        <Range value="5.000000"/>
+        <Icon value="Assets\Textures\radaricon2.dds"/>
+    </CActorRange>
     <CActorLookAt id="VehicleWeaponTurretLookAt" parent="UnitTurret">
         <On Terms="TurretEnable.CRPGVehicle" Send="Create"/>
         <Types Id="DefaultLookAtTurret" Name="LookAtType/CycloneTurret">
@@ -755,10 +1128,10 @@
         <On index="67" Terms="WeaponStop.HunterPhaseDisruptor.AttackStop" Send="TimerSet 4.000000 CoverDelay"/>
         <On Terms="AbilMorph.*.Finish; MorphTo CRPGHunterLevel4" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGHunterLevel4" Send="Destroy"/>
-        <On Terms="WeaponStart.HunterDisruptorVolley4.AttackStart" Send="TimerKill CoverDelay"/>
-        <On Terms="WeaponStart.HunterDisruptorVolley4.AttackStart" Send="AnimClear CoverStand"/>
-        <On Terms="WeaponStart.HunterDisruptorVolley4.AttackStart" Send="AnimPlay Cover Cover PlayForever"/>
-        <On Terms="WeaponStop.HunterDisruptorVolley4.AttackStop" Send="TimerSet 4.000000 CoverDelay"/>
+        <On Terms="WeaponStart.HunterDisruptorVolleyFour.AttackStart" Send="TimerKill CoverDelay"/>
+        <On Terms="WeaponStart.HunterDisruptorVolleyFour.AttackStart" Send="AnimClear CoverStand"/>
+        <On Terms="WeaponStart.HunterDisruptorVolleyFour.AttackStart" Send="AnimPlay Cover Cover PlayForever"/>
+        <On Terms="WeaponStop.HunterDisruptorVolleyFour.AttackStop" Send="TimerSet 4.000000 CoverDelay"/>
         <Model value="PurifierDragoon"/>
         <EventDataFootprint index="0" Actor="UnitFootprint" Model="CRPGHunterLevel4Footprint"/>
         <BuildModel value="PurifierDragoonWarpIn"/>
@@ -1121,7 +1494,7 @@
     </CActorSplat>
     <CActorModel id="CRPGLevelUpEffect" parent="ModelAnimationStyleOneShot">
         <EditorCategories value=""/>
-        <On Terms="Effect.CRPGIncreaseLevelCounter.Start; ValidateUnit IsHeroic" Send="Create"/>
+        <On Terms="Effect.CRPGLevelUpSet.Start" Send="Create"/>
         <On Terms="AnimDone" Send="Destroy"/>
         <Model value="KerriganRespawnImpact"/>
     </CActorModel>
@@ -2558,5 +2931,55 @@
     </CActorSound>
     <CActorSound id="HunterScarabMineSeekSound" parent="SoundOneShot">
         <Sound value="Reaver_AttackLaunch"/>
+    </CActorSound>
+    <CActorAction id="ShipPrismaticBeamAttack" parent="GenericAttackBase">
+        <On Terms="Effect.ShipPrismaticBeamCreatePersistent.Start; At Caster" Send="Create"/>
+        <On Terms="Effect.ShipPrismaticBeamCreatePersistent.Stop" Send="Destroy"/>
+        <LaunchAttachQuery Methods="Weapon 1"/>
+        <Beam value="ShipPrismaticBeamBeam"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance SOpForwardLaunchGuide"/>
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="LaunchForceSite" value="1"/>
+        <Lifetime value="-1.000000"/>
+    </CActorAction>
+    <CActorBeamSimple id="ShipPrismaticBeamBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <Aliases value="_VoidRayChargeAttackBeam"/>
+        <Supporter Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <On Terms="ActorCreation" Target="::Host" Send="Signal VoidRayChargeAttackBeamModel"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <On Terms="Effect.ShipPrismaticBeamCreatePersistent.Stop; At Effect" Send="TimerSet 0.125000 DelayDestroy"/>
+        <On Terms="TimerExpired; TimerName DelayDestroy" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="RefSetFromRequest ::actor.CasterUnit _Unit Caster Find"/>
+        <On Terms="ActorCreation" Target="::actor.CasterUnit" Send="Signal CampaignBeamCreated"/>
+        <On Terms="Effect.ShipPrismaticBeamNoAimCreatePersistent.Stop; At Effect" Send="TimerSet 0.125000 DelayDestroy"/>
+        <Host Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <Model value="VoidRayAttackBeam"/>
+    </CActorBeamSimple>
+    <CActorSound id="ShipPrismaticBeamEndSound" parent="VoidRaySoundEnd">
+        <On index="1" Terms="WeaponStop.ShipPrismaticBeam.AttackStop"/>
+        <On index="2" Terms="Effect.ShipPrismaticBeamCreatePersistent.Stop" Send="Create"/>
+        <On index="3" Terms="WeaponStop.ShipPrismaticBeamNoAim.AttackStop" Send="Create"/>
+        <On index="4" Terms="Effect.ShipPrismaticBeamNoAimCreatePersistent.Stop" Send="Create"/>
+        <On index="5" removed="1"/>
+        <On index="6" removed="1"/>
+        <On index="7" removed="1"/>
+    </CActorSound>
+    <CActorSound id="ShipPrismaticBeamStartSound" parent="VoidRaySoundStart">
+        <On index="1" Terms="Effect.ShipPrismaticBeamCreatePersistent.Start"/>
+        <On index="2" Terms="Effect.ShipPrismaticBeamNoAimCreatePersistent.Start" Send="Create"/>
+        <On index="3" removed="1"/>
+        <On index="4" removed="1"/>
+        <On index="5" removed="1"/>
+        <On index="6" removed="1"/>
+        <On index="7" removed="1"/>
+    </CActorSound>
+    <CActorSound id="ShipPrismaticBeamLoopSound" parent="SoundContinuous">
+        <Inherits index="Visibility" value="0"/>
+        <On Terms="Effect.ShipPrismaticBeamCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.ShipPrismaticBeamCreatePersistent.Stop" Send="Destroy"/>
+        <On Terms="Effect.ShipPrismaticBeamNoAimCreatePersistent.Start" Send="Create"/>
+        <On Terms="Effect.ShipPrismaticBeamNoAimCreatePersistent.Stop" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <Sound value="VoidRay_WeaponLoop1"/>
     </CActorSound>
 </Catalog>

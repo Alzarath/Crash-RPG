@@ -16,13 +16,150 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CRPGHasMedicalFacilitiesShield"/>
         <DamageResponse Chance="1" Handled="CRPGRecentlyDamagedApplyBehavior"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardPsionicStorm">
+        <Alignment value="Negative"/>
+        <Cost>
+            <Charge Link="Behavior/PsiStorm"/>
+            <Cooldown Link="Behavior/PsiStorm"/>
+        </Cost>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-psistorm.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+        <Duration value="0.6665"/>
+        <Period value="0.571"/>
+        <InitialEffect value="WizardPsionicStormInitialDamage"/>
+        <PeriodicEffect value="WizardPsionicStormDamage"/>
+        <DamageResponse>
+            <Cost>
+                <Charge Link="Behavior/PsiStorm"/>
+                <Cooldown Link="Behavior/PsiStorm"/>
+            </Cost>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipCloakField">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\BTN-Ability-Protoss-CloakField.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <BuffFlags index="DisableWhileUnderConstruction" value="1"/>
+        <Duration value="30"/>
+        <Period value="0.2"/>
+        <PeriodicEffect value="ShipCloakingFieldSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipCloakingField">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-cloakfield.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+        <Duration value="0.5"/>
+        <Modification>
+            <StateFlags index="Cloak" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CorsairDisableFakeWeapon2">
+        <InfoFlags index="Hidden" value="1"/>
+        <DisableValidatorArray value="CorsairFakeWeaponBehaviorDisable"/>
+        <Modification>
+            <WeaponDisableArray value="CorsairFakeWeapon"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="DevourerMPAcidSpores">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-acidspores.dds"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipGuardianShellAura">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-spearofadun-guardianshell.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="ShipGuardianShellSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipGuardianShell">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-spearofadun-guardianshell.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Duration value="5"/>
+        <ExpireEffect value="ShipGuardianShellApplyCooldownBehavior"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipGuardianShellProcBuff">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-shield-protoss-plasmashields.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <RemoveValidatorArray value="ShipNotRecentlyProtected2"/>
+        <DamageResponse>
+            <Chance value="1"/>
+            <Fatal value="1"/>
+            <Handled value="ShipGuardianShellApplyProtectedBehavior"/>
+            <ModifyFraction value="0"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipPrismaticAlignmentNoAim">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\BTN-Ability-Protoss-VoidRayPrismaticAlignment.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="hasEnergy"/>
+        <Modification>
+            <VitalRegenArray index="Energy" value="-2"/>
+            <WeaponArray Link="ShipPrismaticBeamNoAim"/>
+            <WeaponDisableArray value="ShipPurifierBeam"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipRecentlyProtectedGuardianShell">
+        <Alignment value="Negative"/>
+        <BehaviorFlags index="Permanent" value="1"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-techupgrade-terran-tomahawkpowercell.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Duration value="60"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="SOAHeroicShieldProcBuff"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipPrismaticAlignment">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\BTN-Ability-Protoss-VoidRayPrismaticAlignment.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="hasEnergy"/>
+        <RemoveValidatorArray value="IsNotLevel5"/>
+        <FinalEffect value="ShipPrismaticAlignmentAppleBehavior"/>
+        <Modification>
+            <VitalRegenArray index="Energy" value="-2"/>
+            <WeaponArray Link="ShipPrismaticBeam"/>
+            <WeaponDisableArray value="ShipWarpspaceCannon"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipShieldEmitter">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldbattery.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="10"/>
+        <Modification>
+            <VitalMaxArray index="Shields" value="20"/>
+            <VitalRegenArray index="Shields" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipDisruptionWeb">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-disruptionweb.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Duration value="0.3"/>
+        <Modification MoveSpeedMultiplier="0.6">
+            <StateFlags index="SuppressAttack" value="1"/>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="CrashedBattlecruiserMedicalFacilitiesShields">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="TargetLifeFull"/>
         <Duration value="2"/>
         <Modification>
-            <VitalRegenArray index="Shields" value="200"/>
+            <VitalRegenArray index="Shields" value="100"/>
         </Modification>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
@@ -140,8 +277,8 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Requirements value="HunterDisruptorVolleyAvailable"/>
         <Modification>
-            <WeaponEnableArray value="HunterDisruptorVolley2"/>
-            <WeaponEnableArray value="HunterDisruptorVolley4"/>
+            <WeaponEnableArray value="HunterDisruptorVolleyTwo"/>
+            <WeaponEnableArray value="HunterDisruptorVolleyFour"/>
             <WeaponDisableArray value="HunterPhaseDisruptor"/>
             <WeaponDisableArray value="HunterPhaseDisruptors"/>
             <WeaponDisableArray value="HunterProjectionBeam"/>
@@ -187,6 +324,7 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="4"/>
         <Modification MoveSpeedMultiplier="0.6"/>
+        <Alignment value="Negative"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedBunkerEnableGaussRifle1">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -268,12 +406,14 @@
             <DamageDealtFraction index="Splash" value="0.2"/>
         </Modification>
         <DisableValidatorArray value="InfestedInRange"/>
+        <Alignment value="Positive"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedHardenedEquipmentDefensive">
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <DamageResponse Chance="1" ModifyFraction="0.8"/>
         <DisableValidatorArray value="InfestedInRange"/>
+        <Alignment value="Positive"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterShadowCharging">
         <Alignment value="Positive"/>
@@ -293,6 +433,7 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="8"/>
         <Modification AttackSpeedMultiplier="2"/>
+        <Alignment value="Positive"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedInRange">
         <InfoFlags index="Hidden" value="1"/>
@@ -309,10 +450,27 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="InfestedNotInRange"/>
         <Modification MoveSpeedMultiplier="0.5" AttackSpeedMultiplier="0.5"/>
+        <Alignment value="Negative"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KillsToTarget">
         <InfoFlags index="Hidden" value="1"/>
         <KillCredit Value="Target"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipShieldEmitterHero">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-shieldbattery.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="10"/>
+        <Modification>
+            <VitalMaxArray index="Shields" value="50"/>
+            <VitalRegenArray index="Shields" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipShieldEmitterAura">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="ShipShieldEmitterSearchArea"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="UninfestedOverlord">
         <InfoFlags index="Hidden" value="1"/>
@@ -323,6 +481,7 @@
     <CBehaviorBuff id="InfestedInfestedCivilianCount">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Duration value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedInfestedTerranTrackingBuff">
         <InfoFlags index="Hidden" value="1"/>
@@ -549,47 +708,15 @@
             <StateFlags index="SuppressRadar" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="NeuralParasiteDrone2">
-        <Alignment value="Negative"/>
-        <InfoFlags index="Hidden" value="1"/>
-        <InfoIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite.dds"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <Period value="0.0625"/>
-        <PeriodicEffect value="NeuralParasiteDroneRemoveCheck2"/>
-        <Player Value="Caster"/>
-        <AcquirePlayer Effect="NeuralParasiteLaunchMissile" Value="Target"/>
-        <Modification>
-            <StateFlags index="SuppressPassenger" value="1"/>
-            <AbilClassDisableArray index="CAbilTransport" value="1"/>
-            <AbilLinkDisableArray value="ArchonWarp"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="NeuralTimedLife2">
-        <Alignment value="Negative"/>
-        <InfoIcon value="Assets\Textures\btn-ability-terran-tosh-mindblast.dds"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisplayDuration index="Self" value="1"/>
-        <DisplayDuration index="Ally" value="1"/>
-        <DisplayDuration index="Neutral" value="1"/>
-        <DisplayDuration index="Enemy" value="1"/>
-        <Duration value="5"/>
-        <FinalEffect value="TimedLifeFate"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedBunkerTransientFire">
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <Modification>
-            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle1"/>
-            <WeaponDisableArray value="InfestedMarineInfestedGaussRifle"/>
-        </Modification>
-    </CBehaviorBuff>
     <CBehaviorBuff id="CrashedBattlecruiserMedicalFacilities">
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="2"/>
         <Modification>
-            <VitalRegenArray index="Life" value="200"/>
+            <VitalRegenArray index="Life" value="100"/>
             <VitalRegenArray index="Energy" value="0.125"/>
         </Modification>
+        <Alignment value="Positive"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="VehicleGraduatingRange">
         <InfoFlags index="Hidden" value="1"/>
@@ -691,7 +818,8 @@
         <VeterancyLevelArray MinVeterancyXP="15000"/>
         <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
         <SharedXPRadius index="Kills" value="20"/>
-        <SharedXPFraction index="Kills" value="0.5"/>
+        <SharedXPFraction index="Kills" value="0.25"/>
+        <Flags index="CombineNumericModifications" value="0"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="SniperHoldFire">
         <InfoIcon value="Assets\Textures\btn-ability-terran-holdfire.dds"/>

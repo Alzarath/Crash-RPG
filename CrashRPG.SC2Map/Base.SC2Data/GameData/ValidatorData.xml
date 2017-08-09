@@ -248,6 +248,17 @@
     <CValidatorUnitCompareBehaviorCount id="MechNotShocking">
         <Behavior value="MechShocking"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ShipRecentlyProtected">
+        <Value value="1"/>
+        <Behavior value="ShipRecentlyProtectedGuardianShell"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ShipNotRecentlyProtected2">
+        <Behavior value="ShipRecentlyProtectedGuardianShell"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareField id="UnknownValidator">
+        <Field value="FlagArray[1]"/>
+        <Value value="0"/>
+    </CValidatorUnitCompareField>
     <CValidatorLocationCompareRange id="VehicleLockOnCasterNearTarget">
         <WhichLocation Value="TargetUnit"/>
         <Compare value="LT"/>

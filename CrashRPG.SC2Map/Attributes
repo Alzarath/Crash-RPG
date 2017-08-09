@@ -143,6 +143,16 @@
                 <Slot Id="5"/>
                 <Value Id="1415934578"/>
             </Default>
+            <Default>
+                <Slot Id="12"/>
+                <Value Id="1415934578"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="13"/>
+                <Value Id="1516597863"/>
+                <Locked/>
+            </Default>
         </Attribute>
         <Attribute Namespace="999" Id="2011">
             <Default>
@@ -190,6 +200,39 @@
             <Default>
                 <Slot Id="6"/>
                 <Value Id="0"/>
+            </Default>
+        </Attribute>
+    </Variant>
+    <Variant>
+        <Id Value="2"/>
+        <CategoryId Value="11"/>
+        <ModeId Value="1"/>
+        <ModeName Value="Variant002/ModeName"/>
+        <ModeDesc Value="Variant002/ModeDesc"/>
+        <MaxTeamSize Value="12"/>
+        <AttributeHidden Namespace="999" Id="3006"/>
+        <Attribute Namespace="999" Id="1001">
+            <Default>
+                <Slot Id="Global"/>
+                <Value Id="28271"/>
+            </Default>
+        </Attribute>
+        <Attribute Namespace="999" Id="2000">
+            <Default>
+                <Slot Id="Global"/>
+                <Value Id="29746"/>
+            </Default>
+        </Attribute>
+        <Attribute Namespace="999" Id="500">
+            <Default>
+                <Slot Id="12"/>
+                <Value Id="1131375984"/>
+                <Locked/>
+            </Default>
+            <Default>
+                <Slot Id="13"/>
+                <Value Id="1131375984"/>
+                <Locked/>
             </Default>
         </Attribute>
     </Variant>

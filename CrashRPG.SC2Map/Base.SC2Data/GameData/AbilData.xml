@@ -13,7 +13,7 @@
         </Cost>
         <InfoArray>
             <SectionArray index="Stats">
-                <EffectArray index="Finish" value="CRPGIncreaseLevelCounter"/>
+                <EffectArray index="Finish" value="CRPGLevelUpSet"/>
             </SectionArray>
         </InfoArray>
         <AutoCastValidatorArray value="IsDead"/>
@@ -26,6 +26,34 @@
         <Range value="1"/>
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="BeaconMove"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="WizardPsionicStorm" parent="PsiStorm">
+        <Name value="Abil/Name/WizardPsionicStorm"/>
+        <Effect index="0" value="WizardPsionicStormCreatePersistent"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="WizardPsionicStorm"/>
+    </CAbilEffectTarget>
+    <CAbilEffectInstant id="ShipCloakingField">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ShipCloakingFieldApplyBehavior"/>
+        <Cost>
+            <Vital index="Energy" value="150"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ShipCloakingField"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="ShipDisruptionWeb">
+        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Effect index="0" value="ShipDisruptionWebCreatePersistent"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge Link="Abil/CorsairMPDisruptionWeb"/>
+            <Cooldown Link="Abil/CorsairMPDisruptionWeb"/>
+        </Cost>
+        <Range value="9"/>
+        <CursorEffect value="CorsairMPDisruptionWebSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ShipDisruptionWeb"/>
     </CAbilEffectTarget>
     <CAbilQueue id="Queue2">
         <EditorCategories value="Race:Neutral,AbilityorEffectType:Structures"/>
@@ -136,6 +164,15 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <InfoArray index="0" Unit="CRPGInfestedLevel2"/>
     </CAbilMorph>
+    <CAbilMorph id="InfestedLevelUpMorphLevel2" parent="InfestedLevelUpMorphLevel1">
+        <InfoArray index="0" Unit="CRPGInfestedLevel3"/>
+    </CAbilMorph>
+    <CAbilMorph id="InfestedLevelUpMorphLevel3" parent="InfestedLevelUpMorphLevel2">
+        <InfoArray index="0" Unit="CRPGInfestedLevel4"/>
+    </CAbilMorph>
+    <CAbilMorph id="InfestedLevelUpMorphLevel4" parent="InfestedLevelUpMorphLevel3">
+        <InfoArray index="0" Unit="CRPGInfestedLevel5"/>
+    </CAbilMorph>
     <CAbilEffectInstant id="InfestedInfestedEgg">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="InfestedInfestedEggSwitch"/>
@@ -156,15 +193,6 @@
         <ProducedUnitArray value="InfestedInfestedMarine"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfestedEgg" Requirements="InfestedMaxInfestedUnits"/>
     </CAbilEffectInstant>
-    <CAbilMorph id="InfestedLevelUpMorphLevel2" parent="InfestedLevelUpMorphLevel1">
-        <InfoArray index="0" Unit="CRPGInfestedLevel3"/>
-    </CAbilMorph>
-    <CAbilMorph id="InfestedLevelUpMorphLevel3" parent="InfestedLevelUpMorphLevel2">
-        <InfoArray index="0" Unit="CRPGInfestedLevel4"/>
-    </CAbilMorph>
-    <CAbilMorph id="InfestedLevelUpMorphLevel4" parent="InfestedLevelUpMorphLevel3">
-        <InfoArray index="0" Unit="CRPGInfestedLevel5"/>
-    </CAbilMorph>
     <CAbilMorph id="InfestedMorphToInfestedMarine" parent="MorphToInfestedTerran">
         <Name value="Abil/Name/InfestedMorphToInfestedMarine"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfestedEgg"/>
@@ -256,14 +284,14 @@
     <CAbilMorph id="HunterLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <ActorKey value="MechLevelUpMorphLevel1"/>
-        <InfoArray index="0" Unit="CRPGHunterLevel2">
+        <InfoArray index="0" Unit="CRPGHunterLevel2"/>
+    </CAbilMorph>
+    <CAbilMorph id="HunterLevelUpMorphLevel2" parent="HunterLevelUpMorphLevel1">
+        <InfoArray index="0" Unit="CRPGHunterLevel3">
             <SectionArray index="Abils">
                 <EffectArray index="Finish" value="HunterPsionicProjectionRemoveCountBehaviors"/>
             </SectionArray>
         </InfoArray>
-    </CAbilMorph>
-    <CAbilMorph id="HunterLevelUpMorphLevel2" parent="HunterLevelUpMorphLevel1">
-        <InfoArray index="0" Unit="CRPGHunterLevel3"/>
     </CAbilMorph>
     <CAbilMorph id="HunterLevelUpMorphLevel3" parent="HunterLevelUpMorphLevel2">
         <InfoArray index="0" Unit="CRPGHunterLevel4"/>
@@ -394,6 +422,54 @@
         <AutoCastValidatorArray value="CasterNotHoldingPosition"/>
         <AutoCastValidatorArray value="ChargeMinTriggerDistance"/>
     </CAbilAugment>
+    <CAbilEffectTarget id="ShipDisruptionWebNoAim">
+        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Effect index="0" value="ShipDisruptionWebCreatePersistent"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge Link="Abil/CorsairMPDisruptionWeb"/>
+            <Cooldown Link="Abil/CorsairMPDisruptionWeb"/>
+        </Cost>
+        <InterruptCost>
+            <Charge Link="Abil/ShipDisruptionWeb"/>
+            <Cooldown Link="Abil/ShipDisruptionWeb"/>
+        </InterruptCost>
+        <Range value="9"/>
+        <Arc value="360"/>
+        <Marker Link="Abil/ShipDisruptionWeb"/>
+        <CursorEffect value="CorsairMPDisruptionWebSearch"/>
+        <AINotifyEffect value="ShipDisruptionWeb"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ShipDisruptionWeb"/>
+    </CAbilEffectTarget>
+    <CAbilBehavior id="ShipPrismaticAlignment">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="On" DefaultButtonFace="ShipPrismaticAlignment"/>
+        <CmdButtonArray index="Off" DefaultButtonFace="ShipDisablePrismaticAlignment"/>
+        <Flags index="Toggle" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge Link="Abil/PrismaticBeamWeapon"/>
+            <Cooldown Link="Abil/PrismaticBeamWeapon" TimeUse="4"/>
+        </Cost>
+        <BehaviorArray value="ShipPrismaticAlignment"/>
+    </CAbilBehavior>
+    <CAbilBehavior id="ShipPrismaticAlignmentNoAim">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="On" DefaultButtonFace="ShipPrismaticAlignment"/>
+        <CmdButtonArray index="Off" DefaultButtonFace="ShipDisablePrismaticAlignment"/>
+        <Flags index="Toggle" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge Link="Abil/PrismaticBeamWeapon"/>
+            <Cooldown Link="Abil/PrismaticBeamWeapon" TimeUse="4"/>
+        </Cost>
+        <BehaviorArray value="ShipPrismaticAlignmentNoAim"/>
+    </CAbilBehavior>
     <CAbilMorph id="SniperLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
         <InfoArray index="0" Unit="CRPGSniperLevel2"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -460,6 +536,19 @@
     </CAbilMorph>
     <CAbilMorph id="ShipLevelUpMorphLevel4" parent="ShipLevelUpMorphLevel3">
         <InfoArray index="0" Unit="CRPGShipLevel5"/>
+    </CAbilMorph>
+    <CAbilMorph id="WizardLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
+        <InfoArray index="0" Unit="CRPGWizardLevel2"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+    </CAbilMorph>
+    <CAbilMorph id="WizardLevelUpMorphLevel2" parent="WizardLevelUpMorphLevel1">
+        <InfoArray index="0" Unit="CRPGWizardLevel3"/>
+    </CAbilMorph>
+    <CAbilMorph id="WizardLevelUpMorphLevel3" parent="WizardLevelUpMorphLevel2">
+        <InfoArray index="0" Unit="CRPGWizardLevel4"/>
+    </CAbilMorph>
+    <CAbilMorph id="WizardLevelUpMorphLevel4" parent="WizardLevelUpMorphLevel3">
+        <InfoArray index="0" Unit="CRPGWizardLevel5"/>
     </CAbilMorph>
     <CAbilEffectTarget id="VehicleLockOnLongRange">
         <Alignment value="Negative"/>

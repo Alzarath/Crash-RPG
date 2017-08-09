@@ -35,6 +35,42 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-queen.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="WizardPsionicStorm">
+        <Tooltip value="Button/Tooltip/PsiStorm"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
+        <AlertTooltip value="Button/Tooltip/PsiStorm"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HighArchonPsiStorm"/>
+    </CButton>
+    <CButton id="ShipCloakingField">
+        <Icon value="Assets\Textures\btn-ability-protoss-cloakfield-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-cloakfield-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="CloakingField"/>
+    </CButton>
+    <CButton id="ShipGuardianShell">
+        <Icon value="Assets\Textures\btn-ability-spearofadun-guardianshell.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-spearofadun-guardianshell.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="SOAHeroicShield"/>
+    </CButton>
+    <CButton id="ShipDisablePrismaticAlignment">
+        <Icon value="Assets\Textures\btn-ability-protoss-prismaticbeam-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-prismaticbeam-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="ShipPrismaticAlignment"/>
+    </CButton>
+    <CButton id="ShipShieldEmitter">
+        <Icon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ShipDisruptionWeb">
+        <Icon value="Assets\Textures\btn-ability-protoss-disruptionweb.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionweb.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="HunterDisruptorVolley">
         <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
@@ -301,5 +337,10 @@
         <TintRacially value="1"/>
         <HotkeySet value="HoldFire"/>
         <HidesForSimpleText value="0"/>
+    </CButton>
+    <CButton id="ShipPrismaticAlignment">
+        <Icon value="Assets\Textures\BTN-Ability-Protoss-VoidRayPrismaticAlignment.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Protoss-VoidRayPrismaticAlignment.dds"/>
+        <EditorCategories value="Race:Protoss"/>
     </CButton>
 </Catalog>

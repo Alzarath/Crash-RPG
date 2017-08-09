@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="ShieldEmitter" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\XelNagaShieldDome\XelNagaShieldDome.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="SoundStart"/>
+            <Type value="Custom"/>
+            <Time value="0.010000"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,01"/>
+            <Name value="SoundLoopStart"/>
+            <Type value="Custom"/>
+            <Time value="0.010000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="SoundLoopEnd"/>
+            <Type value="Custom"/>
+            <Time value="0.010000"/>
+        </Events>
+        <Lighting value="GuardianShield"/>
+        <ScaleMax value="1.000000,1.000000,2.000000"/>
+        <ScaleMin value="1.000000,1.000000,2.000000"/>
+    </CModel>
     <CModel id="PurifierAdeptPortrait" parent="Portrait" Race="Protoss">
         <Model value="Assets\Portraits\Protoss\Adept_Purifier_Collection_Portrait\Adept_Purifier_Collection_Portrait.m3"/>
         <Image value="Assets\Textures\AdeptPortrait_Static.dds"/>

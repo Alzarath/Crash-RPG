@@ -1,10 +1,64 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CWeaponLegacy id="WizardPsiBlast">
+        <Name value="Weapon/Name/PsiBlast"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="WizardPsiBlastDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="7"/>
+        <Period value="1.754"/>
+        <Effect value="WizardPsiBlastLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShipPrismaticBeamNoAim">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
+        <DisplayEffect value="ShipPrismaticBeamDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <RangeSlop value="2"/>
+        <Arc value="360"/>
+        <Marker Link="Weapon/ShipPrismaticBeam"/>
+        <Cost>
+            <Cooldown Link="Weapon/ShipPrismaticBeam"/>
+        </Cost>
+        <Period value="0.8"/>
+        <Backswing value="0.75"/>
+        <Effect value="ShipPrismaticBeamNoAimCreatePersistent"/>
+        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShipPurifierBeam">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
+        <DisplayEffect value="ShipPurifierBeamDamage"/>
+        <DisplayAttackCount value="4"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TeleportResetRange value="0"/>
+        <Arc value="360"/>
+        <Period value="1.6"/>
+        <DamagePoint value="0"/>
+        <Effect value="ShipPurifierBeamSet"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShipWarpspaceCannon">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
+        <DisplayEffect value="ShipWarpspaceCannonDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="1.6"/>
+        <Effect value="ShipWarpspaceCannonLaunchMissile"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
     <!--                                                                                         -->
     <!-- Devourer ............................................................................... -->
     <!--                                                                                         -->
     <CWeaponLegacy id="DevourerMPWeapon"/>
-    <CWeaponLegacy id="HunterDisruptorVolley4">
+    <CWeaponLegacy id="HunterDisruptorVolleyFour">
         <EditorCategories value="Race:Protoss"/>
         <Options index="Disabled" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -18,7 +72,7 @@
         <LegacyOptions index="Uninterruptible" value="1"/>
         <UninterruptibleDuration value="0.8"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="HunterDisruptorVolley2">
+    <CWeaponLegacy id="HunterDisruptorVolleyTwo">
         <EditorCategories value="Race:Protoss"/>
         <Options index="Disabled" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -89,6 +143,7 @@
         <DamagePoint value="3"/>
         <Effect value="AeroYamatoGunSet"/>
         <AllowedMovement value="Slowing"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="AeroArmageddonCannons">
         <EditorCategories value="Race:Terran"/>
@@ -113,31 +168,6 @@
         <Range value="6"/>
         <Period value="2"/>
         <Effect value="HunterPhaseDisruptorSet"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="Hyperion32">
-        <EditorCategories value="Race:Terran"/>
-        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
-        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
-        <DisplayEffect value="AeroLaserArmamentsDamage"/>
-        <DisplayAttackCount value="20"/>
-        <TargetFilters value="Ground;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <ChaseFilters value="-;Self,Player,Ally,Neutral,Enemy,Air,Ground,Light,Armored,Biological,Robotic,Mechanical,Psionic,Massive,Structure,Worker,RawResource,HarvestableResource,Missile,Destructible,Item,Uncommandable,CanHaveEnergy,CanHaveShields,PreventDefeat,PreventReveal"/>
-        <AcquireTargetSorts>
-            <SortArray value="TSRandom"/>
-        </AcquireTargetSorts>
-        <AcquirePrioritization value="ByAngle"/>
-        <MinScanRange value="10"/>
-        <Range value="10"/>
-        <RangeSlop value="0"/>
-        <Arc value="360"/>
-        <Period value="0.8"/>
-        <DamagePoint value="0"/>
-        <Backswing value="0"/>
-        <Effect value="AeroLaserArmamentsCreatePersistent"/>
-        <AllowedMovement value="Moving"/>
-        <RandomDelayMin value="-0.13"/>
-        <RandomDelayMax value="0.1875"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestedCivilianInfestedClaws">
         <EditorCategories value="Race:Zerg"/>
@@ -271,6 +301,33 @@
         <Effect value="HunterPhaseDisruptorsSet"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="2"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShipAntiMatterMissiles">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
+        <DisplayEffect value="ShipAntiMatterMissilesDamage"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="1.6"/>
+        <Effect value="ShipAntiMatterMissilesCreatePersistent"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShipPhotonBlaster">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
+        <DisplayEffect value="ShipPhotonBlasterDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="0.8"/>
+        <Effect value="ShipPhotonBlasterDamage"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShipNeutronFlare">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="0.8"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Slowing"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="VehicleLockOnDummy">
         <EditorCategories value="Race:Terran"/>
@@ -504,5 +561,19 @@
         <Range value="0.1"/>
         <Period value="0.833"/>
         <Effect value="HunterScarabMinesSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShipPrismaticBeam">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
+        <DisplayEffect value="ShipPrismaticBeamDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <RangeSlop value="2"/>
+        <ArcSlop value="39.9902"/>
+        <Period value="0.8"/>
+        <Backswing value="0.75"/>
+        <Effect value="ShipPrismaticBeamCreatePersistent"/>
+        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
+        <AllowedMovement value="Moving"/>
     </CWeaponLegacy>
 </Catalog>
