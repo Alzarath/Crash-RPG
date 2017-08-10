@@ -8,6 +8,7 @@ Abil/Name/CRPGControlArmory=Control Armory
 Abil/Name/CRPGControlCrashedBattlecruiser=Control Crashed Battlecruiser
 Abil/Name/CRPGUpgradeArmor=Upgrade Armor
 Abil/Name/CRPGUpgradeDamage=Upgrade Damage
+Abil/Name/CRPGUpgradeEnergy=Upgrade Energy
 Abil/Name/DefaultAbilityLevelUpMorph=Level Up
 Abil/Name/FighterRapidStrikes=Rapid Strikes
 Abil/Name/FighterShadowCharge=Shadow Charge
@@ -50,13 +51,17 @@ Abil/Name/VehicleLockOnLongRange=Lock On
 Abil/Name/VehicleOverdrive=Overdrive
 Abil/Name/VehicleSiegeMode=Siege
 Abil/Name/VehicleUnsiege=Unsiege
+Abil/Name/WizardConfusion=Confusion
+Abil/Name/WizardPsionicOrb=Psionic Orb
 Abil/Name/WizardPsionicStorm=Psionic Storm
 Abil/TargetMessage/AttackFriendly=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   To Attack<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Behavior/Name/AeroDefensiveMatrix=Defensive Matrix
 Behavior/Name/CRPGArmorAttribute=Armor
 Behavior/Name/CRPGArmorAttributeUnit=Armor
 Behavior/Name/CRPGDamageAttribute=Damage
+Behavior/Name/CRPGEnergyAttribute=Energy
 Behavior/Name/CRPGExperienceTrickle=Experience Trickle
+Behavior/Name/CRPGHeroVeterancy=Hero Veterancy
 Behavior/Name/CrashedBattlecruiserMedicalFacilities=Medical Facilities
 Behavior/Name/CrashedBattlecruiserMedicalFacilitiesAura=Medical Facilities
 Behavior/Name/DevourerMPAcidSpores=Acid Spores
@@ -65,7 +70,6 @@ Behavior/Name/FighterRapidStrikes=Rapid Strikes
 Behavior/Name/FighterShadowCharging=Shadow Charging
 Behavior/Name/FighterSlowShadowCharge=Slow
 Behavior/Name/FighterStunnedShadowCharge=Stunned
-Behavior/Name/HeroVeterancy=Hero Veterancy
 Behavior/Name/HunterCloaked=Cloaked
 Behavior/Name/HunterSlowScarabMine=Slow
 Behavior/Name/InfestedBunkerEnableGaussRifle13=Enable Gauss Rifle 3
@@ -89,11 +93,17 @@ Behavior/Name/SniperDeadlyToxinDamage=Deadly Toxin
 Behavior/Name/SniperHoldFire=Hold Fire
 Behavior/Name/VehicleLockOnTarget=Lock On
 Behavior/Name/VehicleOverdrive=Overdrive
+Behavior/Name/WizardConfusion=Confusion
+Behavior/Name/WizardEnergyMatrix=Energy Matrix
+Behavior/Name/WizardPsionicOrb=Psionic Orb
 Behavior/Name/WizardPsionicStorm=Psionic Storm
+Behavior/Name/WizardPsionicStormRestore=Psionic Storm
+Behavior/Name/WizardSlowPsionicOrb=Slow
 Behavior/Tooltip/AeroDefensiveMatrix=While active, the Defensive Matrix blocks all incoming damage.
-Behavior/Tooltip/CRPGArmorAttribute=Increases the unit's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
-Behavior/Tooltip/CRPGArmorAttributeUnit=Increases the unit's life and shield armor values by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttributeUnit,Modification.LifeArmorBonus" precision="2"/></c> per point.
-Behavior/Tooltip/CRPGDamageAttribute=Increase the unit's attack and spell damage by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGDamageAttribute,Modification.DamageDealtFraction[Melee] * 100" precision="2"/>%</c> per point.
+Behavior/Tooltip/CRPGArmorAttribute=Increases the unit's life and shield armor by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
+Behavior/Tooltip/CRPGArmorAttributeUnit=Increases the unit's life and shield armor by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttributeUnit,Modification.LifeArmorBonus" precision="2"/></c> per point.
+Behavior/Tooltip/CRPGDamageAttribute=Increase the unit's attack and spell damage by <c val="#ColorAttackInfo"><d ref="100 * Behavior,CRPGDamageAttribute,Modification.DamageDealtFraction[0]" Precision="2"/>%</c>.
+Behavior/Tooltip/CRPGEnergyAttribute=Increase the unit's base energy regeneration by <c val="#ColorAttackInfo"><d ref="0.625 / Behavior,CRPGEnergyAttribute,Modification.VitalRegenArray[Energy]"/>%</c>.
 Behavior/Tooltip/CRPGSlow=This unit has reduced movement speed.
 Behavior/Tooltip/CrashedBattlecruiserMedicalFacilities=Life and Shield regeneration is massively increased. Energy regeneration is slightly increased.
 Behavior/Tooltip/CrashedBattlecruiserMedicalFacilitiesAura=Regenerates nearby allies' health and energy.
@@ -120,7 +130,10 @@ Behavior/Tooltip/ShipShieldEmitterHero=This unit has increased shield life and s
 Behavior/Tooltip/SniperDeadlyToxinDamage=Target was recently inflicted with a horrible toxin and has built an immunity toward it.
 Behavior/Tooltip/VehicleLockOnTarget=This unit has been targeted by a Lock On ability.
 Behavior/Tooltip/VehicleOverdrive=This unit's movement speed is increased by 70%.
+Behavior/Tooltip/WizardConfusion=This unit is attacking its allies.
+Behavior/Tooltip/WizardEnergyMatrix=This unit has increased energy regeneration.
 Behavior/Tooltip/WizardPsionicStorm=Target is under the effects of Psionic Storm and will take massive damage while in this area of effect.
+Behavior/Tooltip/WizardPsionicStormRestore=Target is under the effects of Psionic Storm and will restore shields while in this area of effect.
 Button/Name/AeroDefensiveMatrix=Defensive Matrix
 Button/Name/AeroFireSuppressionSystem=Fire Suppression System
 Button/Name/AeroLaserArmaments=Laser Armaments
@@ -174,6 +187,7 @@ Button/Name/SniperToxicMunitions=Toxic Munitions
 Button/Name/SniperWeaponsFree=Weapons Free
 Button/Name/UpgradeArmor=Upgrade Armor
 Button/Name/UpgradeDamage=Upgrade Damage
+Button/Name/UpgradeEnergy=Upgrade Energy
 Button/Name/VehicleAutomaticServos=Automatic Servos
 Button/Name/VehicleCancel=Cancel
 Button/Name/VehicleGraduatingRange=Graduating Range
@@ -181,7 +195,11 @@ Button/Name/VehicleLockOn=Lock On
 Button/Name/VehicleOverdrive=Overdrive
 Button/Name/VehicleSiegeMode=Siege Mode
 Button/Name/VehicleUnsiege=Tank Mode
+Button/Name/WizardConfusion=Confusion
+Button/Name/WizardEnergyMatrix=Energy Matrix
+Button/Name/WizardPsionicOrb=Psionic Orb
 Button/Name/WizardPsionicStorm=Psionic Storm
+Button/Name/WizardShieldOvercharge=Shield Overcharge
 Button/Tooltip/AeroDefensiveMatrix=Surrounds the hero with a shield that can absorb <d ref="Behavior,DefensiveMatrix,Modification.VitalMaxArray[1]"/> damage.
 Button/Tooltip/AeroFireSuppressionSystem=Unit automatically repairs itself up to 50% life.
 Button/Tooltip/AeroLaserArmaments=Automatically fire Laser Batteries that deal <c val="#ColorAttackInfo"><d ref="Effect,AeroLaserArmamentsDamage,Amount"/></c> damage to enemies below the hero.
@@ -196,9 +214,12 @@ Button/Tooltip/AlienMorphRavager=Ranged alien. Regenerates faster while burrowed
 Button/Tooltip/AlienMorphRoach=Ranged alien. Regenerates faster while burrowed.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGAero=Slow and Powerful Warship Hero. Uses a mix of defensive and offensive abilities.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Yamato Cannon</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Fire Suppression System<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Defensive Matrix<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Laser Armaments<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Tactical Jump</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGAeroLevel32=Powerful warship. Can use Yamato Cannon and Tactical Jump.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGArmorAttribute=Increases units' life and shield armor by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
 Button/Tooltip/CRPGArmory=Contains damage and armor upgrades.
 Button/Tooltip/CRPGCivilian=Nobody. Only used to select a hero. What a pitiful life.
 Button/Tooltip/CRPGCrashedBattlecruiser=The remains of a downed Battlecruiser. Medical facilities miraculously continue to function.
+Button/Tooltip/CRPGDamageAttribute=Increases units' attack and spell damage by <c val="#ColorAttackInfo"><d ref="100 * Behavior,CRPGDamageAttribute,Modification.DamageDealtFraction[0]" Precision="2"/>%</c>.
+Button/Tooltip/CRPGEnergyAttribute=Increases units' base energy regeneration by <c val="#ColorAttackInfo"><d ref="0.625 / Behavior,CRPGEnergyAttribute,Modification.VitalRegenArray[Energy]"/>%</c>.
 Button/Tooltip/CRPGFighter=Aggressive melee warrior. Uses gap-closers and powerful weapons.<n/><n/><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Rapid Strikes</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Psi Blades</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Shadow Charge</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Resurgence</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Shadow Assault</c><n/><n/><c val="#ColorAttackInfo">Can attack ground units</c>
 Button/Tooltip/CRPGHunter=Harasser. Uses timing and mobility.<n/><n/><s val="ModLeftSize16"><n/><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Scarab Mine</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Psionic Projection<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Shadow Blink<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Disruptor Volley<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Scatter Cannon</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGHunterLevel1=Basic worker unit. Can gather resources and warp in Protoss structures.<n/><n/><c val="ffff8a">Can attack ground units.</c>
@@ -213,7 +234,10 @@ Button/Tooltip/CRPGSniper=Tactical assassin. Adept at destroying high-value targ
 Button/Tooltip/CRPGVehicle=Flexible skirmisher. Utilizes speed and range.<n/><n/><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Overdrive</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Automatic Servos</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Lock On</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Graduating Range</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Siege Mode</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGVehicleLevel3=Mobile assault drone. Can use Lock On to quickly fire while moving.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGVehicleLevel4=Fast, high-damage hovertank. Rail Gun can fire while the Diamondback is moving.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/CRPGWizard=Powerful caster. Uses area of effect and supportive abilities to decimate its enemies and assist its allies.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Psionic Storm</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Energy Matrix<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Psionic Orb<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Shield Overcharge<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Confusion</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGWizardLevel1=Potent psionic master. Can use Feedback and Psionic Storm. Can merge into an Archon.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/CRPGWizardLevel3=Tal'darim Faction<n/>Potent psionic master. Can use Psionic Orb, Mind Blast, and Sacrifice.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/CRPGWizardLevel4=Powerful psionic attacker.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/DevourerMP=Anti-air support unit. Attacks reduce attack speed and armor.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c>
 Button/Tooltip/FighterPsiBlades=The hero attacks twice, increasing its total base damage.
 Button/Tooltip/FighterRapidStrikes=Gain 50% increased attack speed for 8 seconds.
@@ -247,6 +271,7 @@ Button/Tooltip/MechPilot=Mech Evacuee.<n/><n/>Return to base to enter a new mech
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
 Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that use automated defensive lasers to intercept enemy projectiles.
 Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShocking,PeriodCount * Effect,MechShockBlastDamage,Amount"/></c> damage to nearby enemies over <d ref="Behavior,MechShocked,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/PsiStorm=Creates a storm of psionic energy that lasts 4 seconds, causing up to <c val="#ColorAttackInfo"><d ref="(Effect,WizardPsionicStormCreatePersistent,PeriodCount + 2) * Effect,WizardPsionicStormDamage,Amount"/></c> damage to all enemy units in the target area.
 Button/Tooltip/ShipCloakingField=Cloaks self and friendly nearby units for <d ref="Behavior,ShipCloakField,Duration"/> seconds.
 Button/Tooltip/ShipDisablePrismaticAlignment=Deactivates the Prismatic Beam, restoring its original weapons.
 Button/Tooltip/ShipDisruptionWeb=Creates a web of energy on the ground that prevents enemy structures and ground units from attacking for <d ref="Effect,ShipDisruptionWebCreatePersistent,PeriodicPeriodArray[0] * Effect,ShipDisruptionWebCreatePersistent,PeriodCount"/> seconds and slows them by <d ref="1 - Behavior,ShipDisruptionWeb,Modification.MoveSpeedMultiplier * 100"/>%.
@@ -270,6 +295,10 @@ Button/Tooltip/VehicleOverdrive=Increases the unit's movement speed by <d ref="(
 Button/Tooltip/VehicleSiegeMode=Deploys into Siege Mode. In this mode, the hero gains an area attack and does more damage. While in Siege Mode, the hero cannot move or attack targets at close range.
 Button/Tooltip/VehicleUnsiege=Reverts to Tank Mode. In this mode the hero can move, but does less damage.
 Button/Tooltip/WarpInCRPGHunterLevel2=Purifier Faction<n/>Ranged specialist. Can use Psionic Transfer.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/WizardConfusion=Forces enemy units in the target area to attack each other for <d ref="Behavior,WizardConfusion,Duration"/> seconds.
+Button/Tooltip/WizardEnergyMatrix=Increased energy regeneration by <d ref="100 * Behavior,WizardEnergyMatrixAura,Modification.VitalRegenMultiplier[Energy]"/>%. Nearby friendly heroes gain <d ref="100 * Behavior,WizardEnergyMatrix,Modification.VitalRegenMultiplier[Energy]" Precision="1"/>% increased energy regeneration.
+Button/Tooltip/WizardPsionicOrb=Unleashes a traveling Psionic Orb that deals <c val="#ColorAttackInfo"><d ref="Effect,WizardPsionicOrbDamage,Amount / Behavior,WizardPsionicOrb,Period"/></c> damage per second and slows all enemies' movement along its path by <d ref="1 - Behavior,WizardSlowPsionicOrb,Modification.MoveSpeedMultiplier * 100"/>%.
+Button/Tooltip/WizardShieldOvercharge=Health is allocated to the units' shields. Psionic Storm now heals allied units' shields for the amount it would damage enemies.
 DocInfo/DescLong=A spiritual sequel to the classic StarCraft: Brood War map series, Crash RPG.
 DocInfo/DescShort=6
 DocInfo/HowToPlayBasic00=Pick a hero
@@ -335,6 +364,7 @@ Effect/Name/CRPGTransferKillsAttributes=Transfer Kills Attributes
 Effect/Name/CRPGTransferSelectionToSource=Transfer Selection To Source
 Effect/Name/CRPGUpgradeArmor=Upgrade Armor
 Effect/Name/CRPGUpgradeDamage=Upgrade Damage
+Effect/Name/CRPGUpgradeEnergy=Upgrade Energy
 Effect/Name/CalldownMech=Calldown Mech
 Effect/Name/CrashedBattlecruiserMedicalFacilitiesApplyBehavior=Medical Facilities
 Effect/Name/CrashedBattlecruiserMedicalFacilitiesApplyShieldBehavior=Medical Facilities
@@ -619,14 +649,40 @@ Effect/Name/VehicleTyphoonMissilePodLaunchMissileLeftSet=Typhoon Missile Pod
 Effect/Name/VehicleTyphoonMissilePodLaunchMissileRight=Typhoon Missile Pod
 Effect/Name/VehicleTyphoonMissilePodLaunchMissileRightSet=Typhoon Missile Pod
 Effect/Name/VehicleTyphoonMissilePodLaunchMissileSwitch=Typhoon Missile Pod
+Effect/Name/VoidArchonShockAttackApply2=Void Archon Shock Attack (Apply) Copy
+Effect/Name/WizardAgonizingBlastDamage=Agonizing Blast
+Effect/Name/WizardAgonizingBlastLaunchMissile=Agonizing Blast
+Effect/Name/WizardChaoticTorretDamage=Chaotic Torret
+Effect/Name/WizardConfusionApplyBehavior=Confusion
+Effect/Name/WizardConfusionAttackIssueOrder=Confusion
+Effect/Name/WizardConfusionAttackSearchArea=Confusion
+Effect/Name/WizardConfusionEndIssueOrder=Confusion
+Effect/Name/WizardConfusionEndSet=Confusion
+Effect/Name/WizardConfusionInitialApplyBehavior=Confusion
+Effect/Name/WizardConfusionInitialSet=Confusion
+Effect/Name/WizardConfusionSearchArea=Confusion
+Effect/Name/WizardConfusionStopIssueOrder=Confusion
+Effect/Name/WizardEnergyMatrixApplyBehavior=Energy Matrix
+Effect/Name/WizardEnergyMatrixSearchArea=Energy Matrix
 Effect/Name/WizardPsiBlastDamage=Psi Blast
 Effect/Name/WizardPsiBlastLaunchMissile=Psi Blast
-Effect/Name/WizardPsiBlastSet=Psi Blast
+Effect/Name/WizardPsionicOrbApplyBehavior=Psionic Orb
+Effect/Name/WizardPsionicOrbApplyOrbBehavior=Psionic Orb
+Effect/Name/WizardPsionicOrbDamage=Psionic Orb
+Effect/Name/WizardPsionicOrbDestroyPersistent=Psionic Orb
+Effect/Name/WizardPsionicOrbInitialCreatePersistent=Psionic Orb
+Effect/Name/WizardPsionicOrbLaunchMissile=Psionic Orb
+Effect/Name/WizardPsionicOrbSearchArea=Psionic Orb
+Effect/Name/WizardPsionicOrbSet=Psionic Orb
+Effect/Name/WizardPsionicShockwaveDamage=Psionic Shockwave
 Effect/Name/WizardPsionicStormApplyBehavior=Psionic Storm
+Effect/Name/WizardPsionicStormApplyRestoreBehavior=Psionic Storm
 Effect/Name/WizardPsionicStormCreatePersistent=Psionic Storm
 Effect/Name/WizardPsionicStormDamage=Psionic Storm
+Effect/Name/WizardPsionicStormHealing=Psionic Storm
 Effect/Name/WizardPsionicStormInitialDamage=Psionic Storm
 Effect/Name/WizardPsionicStormSearchArea=Psionic Storm
+Effect/Name/WizardPsionicStormSwitch=Psionic Storm
 LoadingScreen/TextBody=<c val="C60000">You have one life.</c> Make the most of it.<n/>Level up to unlock new abilities.<n/>Destroy the Alien Nests located at each corner and edge of the map.
 LoadingScreen/Tip=You have one life. Make the most of it.
 LoadingScreen/Title=<s val="CampaignPanelTitle">Crash RPG</s>
@@ -656,14 +712,14 @@ Param/Value/9DE5257F=Air defences are losing power.
 RequirementNode/Tooltip/CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714=Nearby hero
 RequirementNode/Tooltip/CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428=Near Crashed Battlecruiser
 RequirementNode/Tooltip/CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055=Near summoner
-RequirementNode/Tooltip/GT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnit=Correct Level
-RequirementNode/Tooltip/GTE142027770CountBehaviorLevelCounterCompleteOnlyAtUnit5=Level 5
-RequirementNode/Tooltip/GTE1845366357CountBehaviorLevelCounterCompleteOnlyAtUnit4=Level 4
-RequirementNode/Tooltip/GTE2494718353CountBehaviorLevelCounterCompleteOnlyAtUnit3=Level 3
-RequirementNode/Tooltip/GTE2832794247CountBehaviorLevelCounterCompleteOnlyAtUnit1=Level 1
+RequirementNode/Tooltip/GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGLevelCounterCompleteOnlyAtUnit=Correct Level
+RequirementNode/Tooltip/GTE142027770CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5=Level 5
+RequirementNode/Tooltip/GTE1845366357CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit4=Level 4
+RequirementNode/Tooltip/GTE2494718353CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit3=Level 3
+RequirementNode/Tooltip/GTE2832794247CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit1=Level 1
 RequirementNode/Tooltip/GTE3137215414CountBehaviorHunterDisruptorVolleyCounterCompleteOnlyAtUnit10=Attack 4 times
-RequirementNode/Tooltip/GTE774336177CountBehaviorLevelCounterCompleteOnlyAtUnit2=Level 2
-RequirementNode/Tooltip/LT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5=Not maximum level
+RequirementNode/Tooltip/GTE774336177CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit2=Level 2
+RequirementNode/Tooltip/LT3618176718CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5=Not maximum level
 RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=Not Infested
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
 RequirementNode/Tooltip/Not3697774798CountBehaviorInfestedInfestedCompleteOnly=No Infestation Spore Victim
@@ -699,6 +755,8 @@ Unit/Name/CRPGShip=Ship
 Unit/Name/CRPGSniper=Sniper
 Unit/Name/CRPGVehicle=Vehicle
 Unit/Name/CRPGWizard=Wizard
+Unit/Name/CRPGWizardLevel3=Wizard
+Unit/Name/CRPGWizardLevel5=Wizard
 Unit/Name/CreepTumorUsed=Alien
 Unit/Name/DevourerMP=Alien
 Unit/Name/GuardianMP=Alien
@@ -779,4 +837,6 @@ Weapon/Name/VehicleFragmentationGrenade=Fragmentation Grenade
 Weapon/Name/VehicleGaussCannon=Gauss Cannon
 Weapon/Name/VehicleLockOnDummy=Lock On
 Weapon/Name/VehicleTyphoonMissilePod=Typhoon Missile Pod
+Weapon/Name/WizardChaoticTorrent=Chaotic Torrent
+Weapon/Name/WizardPsionicShockwave=Psionic Shockwave
 Weapon/Tip/ShipPurifierBeam=75% armor penetration

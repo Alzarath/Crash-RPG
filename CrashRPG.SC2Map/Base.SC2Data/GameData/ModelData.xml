@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="EnergyMatrixAuraSplat" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Zerg\QueenRegenAura\QueenRegenAura.m3"/>
+        <EditorCategories value="Race:Neutral"/>
+        <ScaleMax value="4.250000,4.250000,4.250000"/>
+        <ScaleMin value="4.250000,4.250000,4.250000"/>
+    </CModel>
     <CModel id="ShieldEmitter" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Protoss\XelNagaShieldDome\XelNagaShieldDome.m3"/>
         <EditorCategories value="Race:Protoss"/>

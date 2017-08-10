@@ -1,23 +1,192 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CEffectSet id="WizardPsiBlastSet">
-        <EffectArray value="WizardPsiBlastDamage"/>
+    <CEffectModifyPlayer id="CRPGUpgradeEnergy">
+        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[3].Points" Value="1"/>
+    </CEffectModifyPlayer>
+    <CEffectApplyBehavior id="WizardConfusionInitialApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="WizardConfusionInitial"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WizardConfusionApplyBehavior">
+        <ValidatorArray index="0" value="NotFrenzied"/>
+        <ValidatorArray value="NotWarpPrism"/>
+        <ValidatorArray value="NotOverlord"/>
+        <ValidatorArray value="NotMedivac"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="WizardConfusion"/>
+    </CEffectApplyBehavior>
+    <CEffectIssueOrder id="WizardConfusionAttackIssueOrder">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Source"/>
+        <Abil value="attack"/>
+        <Target Value="TargetUnit"/>
+    </CEffectIssueOrder>
+    <CEffectEnumArea id="WizardConfusionAttackSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Heroic,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetSorts>
+            <SortArray value="TSRandom"/>
+            <SortArray value="TSConfused"/>
+        </TargetSorts>
+        <AreaArray MaxCount="1" Radius="4" Effect="WizardConfusionAttackIssueOrder"/>
+    </CEffectEnumArea>
+    <CEffectIssueOrder id="WizardConfusionEndIssueOrder">
+        <EditorCategories value="Race:Protoss"/>
+        <Abil value="stop"/>
+    </CEffectIssueOrder>
+    <CEffectSet id="WizardConfusionEndSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="WizardConfusionEndIssueOrder"/>
+        <EffectArray value="IssueAIOrderSuicide"/>
     </CEffectSet>
+    <CEffectEnumArea id="WizardConfusionSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2" Effect="WizardConfusionApplyBehavior"/>
+    </CEffectEnumArea>
+    <CEffectIssueOrder id="WizardConfusionStopIssueOrder">
+        <EditorCategories value="Race:Protoss"/>
+        <Abil value="stop"/>
+    </CEffectIssueOrder>
+    <CEffectSet id="WizardConfusionInitialSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="WizardConfusionStopIssueOrder"/>
+        <EffectArray value="WizardConfusionAttackSearchArea"/>
+        <EffectArray value="WizardConfusionInitialApplyBehavior"/>
+    </CEffectSet>
+    <CEffectDamage id="WizardChaoticTorretDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="16"/>
+        <AreaArray Radius="0.25" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDestroyPersistent id="WizardPsionicOrbDestroyPersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetPoint"/>
+        <Count value="1"/>
+        <Radius value="1"/>
+    </CEffectDestroyPersistent>
+    <CEffectCreateHealer id="WizardPsionicStormHealing">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/InfestedMendingSalivaHealing"/>
+        <Flags index="Channeled" value="0"/>
+        <PeriodCount value="1"/>
+        <PeriodicPeriod value="1"/>
+        <RechargeVital value="Shields"/>
+        <RechargeVitalRate value="10"/>
+    </CEffectCreateHealer>
+    <CEffectDamage id="WizardPsionicShockwaveDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="16"/>
+        <AreaArray Radius="0.25" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="VoidArchonShockAttackApply2">
+        <EditorCategories value=""/>
+        <Behavior value="VoidArchonShockAttackDebuff"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="WizardAgonizingBlastDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Kind value="Ranged"/>
+        <Amount value="16"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="WizardAgonizingBlastLaunchMissile">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="WizardAgonizingBlastDamage"/>
+        <AmmoUnit value="AscendantWeapon"/>
+        <Movers Link="AscendantWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="WizardPsionicOrbSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="WizardPsionicOrbApplyBehavior"/>
+        <EffectArray value="WizardPsionicOrbDamage"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="WizardPsionicOrbApplyOrbBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="WizardPsionicOrb"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WizardPsionicOrbApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="WizardSlowPsionicOrb"/>
+        <ValidatorArray index="0" value="NotStructureTarget"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="WizardPsionicOrbDamage">
+        <EditorCategories value="Race:Protoss"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="WizardPsionicOrbInitialCreatePersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="SourcePoint"/>
+        <InitialEffect value="WizardPsionicOrbLaunchMissile"/>
+        <InitialOffset value="0,-13,0"/>
+        <PeriodCount value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="WizardPsionicOrbLaunchMissile">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <LaunchEffect value="WizardPsionicOrbApplyOrbBehavior"/>
+        <ImpactEffect value="WizardPsionicOrbDestroyPersistent"/>
+        <AmmoUnit value="VoidHighTemplarPsiOrbMissile"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="WizardPsionicOrbSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetSorts>
+            <SortArray value="TSRandom"/>
+        </TargetSorts>
+        <AreaArray Radius="5" Effect="WizardPsionicOrbSet"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="WizardEnergyMatrixApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="WizardEnergyMatrix"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="WizardEnergyMatrixSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <SearchFilters value="-;Self,Neutral,Enemy,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="5" Effect="WizardEnergyMatrixApplyBehavior"/>
+    </CEffectEnumArea>
     <CEffectDamage id="WizardPsiBlastDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
         <Kind value="Ranged"/>
-        <Amount value="9"/>
+        <Amount value="16"/>
         <Death value="Blast"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="WizardPsiBlastLaunchMissile">
         <EditorCategories value="Race:Protoss"/>
-        <ImpactEffect value="WizardPsiBlastSet"/>
+        <ImpactEffect value="WizardPsiBlastDamage"/>
         <AmmoUnit value="HighTemplarWeapon"/>
         <Movers Link="HighTemplarWeapon"/>
     </CEffectLaunchMissile>
     <CEffectApplyBehavior id="WizardPsionicStormApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
-        <Behavior value="PsiStorm"/>
+        <Behavior value="WizardPsionicStorm"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WizardPsionicStormApplyRestoreBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="WizardPsionicStormRestore"/>
     </CEffectApplyBehavior>
     <CEffectDamage id="WizardPsionicStormDamage">
         <ValidatorArray value="PsiStormUTargetFilters"/>
@@ -25,6 +194,11 @@
         <Visibility value="Hidden"/>
         <Amount value="10"/>
     </CEffectDamage>
+    <CEffectSwitch id="WizardPsionicStormSwitch">
+        <EditorCategories value="Race:Protoss"/>
+        <CaseArray Validator="WizardPsionicStormRestoreValidators" Effect="WizardPsionicStormApplyRestoreBehavior"/>
+        <CaseArray Validator="TargetIsEnemyOrNeutral" Effect="WizardPsionicStormApplyBehavior"/>
+    </CEffectSwitch>
     <CEffectDamage id="WizardPsionicStormInitialDamage">
         <ValidatorArray value="PsiStormUTargetFilters"/>
         <EditorCategories value="Race:Protoss"/>
@@ -39,14 +213,14 @@
         <PeriodCount value="6"/>
         <PeriodicEffectArray value="WizardPsionicStormSearchArea"/>
         <PeriodicPeriodArray value="0.5712"/>
-        <AINotifyEffect value="PsiStormSearch"/>
+        <AINotifyEffect value="WizardPsionicStormSearchArea"/>
     </CEffectCreatePersistent>
     <CEffectEnumArea id="WizardPsionicStormSearchArea">
         <EditorCategories value="Race:Protoss"/>
         <AINotifyFlags index="HurtFriend" value="1"/>
         <AINotifyFlags index="HurtEnemy" value="1"/>
-        <SearchFilters value="-;Player,Ally,Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="1.5" Effect="WizardPsionicStormApplyBehavior"/>
+        <SearchFilters value="-;Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="WizardPsionicStormSwitch"/>
         <SearchFlags index="CallForHelp" value="1"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="ShipCloakingFieldHeroRadarApplyBehavior">
@@ -779,7 +953,7 @@
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="CRPGGiveAttributeLevelCounter">
         <ValidatorArray index="0" removed="1"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="CRPGGiveAttributeDamage">
         <ValidatorArray index="0" removed="1"/>
@@ -1345,7 +1519,7 @@
     </CEffectDamage>
     <CEffectModifyUnit id="CRPGAddExperience1">
         <XP value="1"/>
-        <VeterancyBehavior value="HeroVeterancy"/>
+        <VeterancyBehavior value="CRPGHeroVeterancy"/>
     </CEffectModifyUnit>
     <CEffectApplyBehavior id="AeroDefensiveMatrixApplyBehavior">
         <EditorCategories value="Race:Terran"/>
@@ -1543,11 +1717,11 @@
     </CEffectSet>
     <CEffectModifyUnit id="CRPGAddExperience12500">
         <XP value="12500"/>
-        <VeterancyBehavior value="HeroVeterancy"/>
+        <VeterancyBehavior value="CRPGHeroVeterancy"/>
     </CEffectModifyUnit>
     <CEffectModifyUnit id="CRPGAddExperience15000">
         <XP value="15000"/>
-        <VeterancyBehavior value="HeroVeterancy"/>
+        <VeterancyBehavior value="CRPGHeroVeterancy"/>
     </CEffectModifyUnit>
     <CEffectSwitch id="MechEmergencyEvacAddLevelsSwitch">
         <CaseArray Validator="CasterGELevel2EmergencyEvac" Effect="CRPGIncreaseLevelCounter" FallThrough="1"/>
@@ -1584,7 +1758,7 @@
     </CEffectSet>
     <CEffectModifyUnit id="CRPGAddExperience7500">
         <XP value="7500"/>
-        <VeterancyBehavior value="HeroVeterancy"/>
+        <VeterancyBehavior value="CRPGHeroVeterancy"/>
     </CEffectModifyUnit>
     <CEffectCreateUnit id="HunterScarabMineCreateUnit">
         <EditorCategories value="Race:Protoss"/>
@@ -1873,7 +2047,7 @@
         <Amount value="10"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="CRPGIncreaseLevelCounter">
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CEffectApplyBehavior>
     <CEffectDamage id="MechJavelinMissileLaunchersDamage" parent="DU_WEAP_SPLASH">
         <EditorCategories value="Race:Terran"/>

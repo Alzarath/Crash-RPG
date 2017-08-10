@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CWeaponLegacy id="WizardChaoticTorrent">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="WizardChaoticTorretDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="1.75"/>
+        <Effect value="WizardChaoticTorretDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="WizardPsionicShockwave">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="WizardPsionicShockwaveDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="1.75"/>
+        <Effect value="WizardPsionicShockwaveDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="WizardAgonizingBlast">
+        <Name value="Weapon/Name/Ascendant"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="WizardAgonizingBlastDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="1.754"/>
+        <Effect value="WizardAgonizingBlastLaunchMissile"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="WizardPsiBlast">
         <Name value="Weapon/Name/PsiBlast"/>
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="WizardPsiBlastDamage"/>
-        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="7"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="1.754"/>
         <Effect value="WizardPsiBlastLaunchMissile"/>
     </CWeaponLegacy>

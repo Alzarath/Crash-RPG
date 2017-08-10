@@ -37,4 +37,6 @@ Button/Hotkey/VehicleLockOn=Q
 Button/Hotkey/VehicleOverdrive=W
 Button/Hotkey/VehicleSiegeMode=E
 Button/Hotkey/VehicleUnsiege=E
-Button/Hotkey/WizardPsionicStorm=T
+Button/Hotkey/WizardConfusion=E
+Button/Hotkey/WizardPsionicOrb=W
+Button/Hotkey/WizardPsionicStorm=Q

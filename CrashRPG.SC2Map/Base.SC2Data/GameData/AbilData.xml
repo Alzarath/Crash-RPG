@@ -27,6 +27,39 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="BeaconMove"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="CRPGUpgradeEnergy">
+        <Cost>
+            <Resource index="Minerals" value="100"/>
+            <Charge CountMax="255" CountUse="-1"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeEnergy" Requirements="CRPGInRangeofArmory"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="WizardConfusion">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="WizardConfusionSearchArea"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Charge Link="Abil/DarkArchonConfusion"/>
+            <Cooldown Link="Abil/DarkArchonConfusion" TimeUse="2"/>
+        </Cost>
+        <Range value="9"/>
+        <CursorEffect value="DarkArchonConfusionSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="WizardConfusion"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="WizardPsionicOrb">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Effect index="0" value="WizardPsionicOrbInitialCreatePersistent"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Charge Link="Abil/VoidHighTemplarPsiOrb"/>
+            <Cooldown Link="Abil/VoidHighTemplarPsiOrb" TimeUse="2"/>
+        </Cost>
+        <Range value="13"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="WizardPsionicOrb"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="WizardPsionicStorm" parent="PsiStorm">
         <Name value="Abil/Name/WizardPsionicStorm"/>
         <Effect index="0" value="WizardPsionicStormCreatePersistent"/>

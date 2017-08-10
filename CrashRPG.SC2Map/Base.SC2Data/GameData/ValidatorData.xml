@@ -34,7 +34,7 @@
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
         <Value value="2"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="CRPGIsNotLevel4or5">
         <Type value="And"/>
@@ -45,61 +45,61 @@
         <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="3"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CRPGCasterGELevel3">
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
         <Value value="3"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel4InfestedEgg">
         <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="4"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CRPGCasterGELevel4">
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
         <Value value="4"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel5InfestedEgg">
         <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="5"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel2InfestedEggMarine">
         <WhichUnit Effect="InfestedInfestedEggCreateEggMarine" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="2"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel3InfestedEggMarine">
         <WhichUnit Effect="InfestedInfestedEggCreateEggMarine" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="3"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel4InfestedEggMarine">
         <WhichUnit Effect="InfestedInfestedEggCreateEggMarine" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="4"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel5InfestedEggMarine">
         <WhichUnit Effect="InfestedInfestedEggCreateEggMarine" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="5"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CRPGCasterGELevel5">
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
         <Value value="5"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareDamageTakenTime id="CasterInCombatLong2">
         <WhichUnit Value="Caster"/>
@@ -175,72 +175,72 @@
         <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="1"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel2InfestedEgg">
         <WhichUnit Effect="InfestedInfestedEggCreateEgg" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="2"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel2EmergencyEvac">
         <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="2"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel2CalldownMech">
         <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="2"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel3EmergencyEvac">
         <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="3"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel3CalldownMech">
         <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="3"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel4EmergencyEvac">
         <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="4"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel4CalldownMech">
         <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="4"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel5EmergencyEvac">
         <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="5"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel1EmergencyEvac">
         <WhichUnit Effect="MechEmergencyEvacSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="1"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel5CalldownMech">
         <WhichUnit Effect="MechCalldownMechSuicideSet" Value="Caster"/>
         <Compare value="GE"/>
         <Value value="5"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareVeterancyLevel id="GELevel2Veterancy">
         <Compare value="GE"/>
         <Value value="2"/>
-        <Behavior value="HeroVeterancy"/>
+        <Behavior value="CRPGHeroVeterancy"/>
     </CValidatorUnitCompareVeterancyLevel>
     <CValidatorUnitType id="InfestedIsInfestedMarine">
         <Value value="InfestedInfestedMarine"/>
@@ -354,72 +354,72 @@
     <CValidatorUnitCompareBehaviorCount id="GELevel1">
         <Compare value="GE"/>
         <Value value="1"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="GELevel2">
         <Compare value="GE"/>
         <Value value="2"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="GELevel3">
         <Compare value="GE"/>
         <Value value="3"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="GELevel4">
         <Compare value="GE"/>
         <Value value="4"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="GELevel5">
         <Compare value="GE"/>
         <Value value="5"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsLevel2">
         <Value value="2"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsLevel3">
         <Value value="3"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsLevel4">
         <Value value="4"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsLevel5">
         <Value value="5"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsNotLevel1">
         <Compare value="NE"/>
         <Value value="1"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsLevel1">
         <Value value="1"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsNotLevel2">
         <Compare value="NE"/>
         <Value value="2"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsNotLevel3">
         <Compare value="NE"/>
         <Value value="3"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsNotLevel4">
         <Compare value="NE"/>
         <Value value="4"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="IsNotLevel5">
         <Compare value="NE"/>
         <Value value="5"/>
-        <Behavior value="LevelCounter"/>
+        <Behavior value="CRPGLevelCounter"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="VehicleLockOnPeriodicValidators2">
         <Type value="And"/>
@@ -437,4 +437,9 @@
         <Compare value="LE"/>
         <Behavior value="SniperDeadlyToxinDamage"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="WizardPsionicStormRestoreValidators">
+        <Type value="And"/>
+        <CombineArray value="CRPGCasterGELevel4"/>
+        <CombineArray value="TargetIsAllyorPlayer"/>
+    </CValidatorCombine>
 </Catalog>

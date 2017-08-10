@@ -35,6 +35,33 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-queen.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
+    <CButton id="UpgradeEnergy">
+        <Tooltip value="Button/Tooltip/CRPGEnergyAttribute"/>
+        <Icon value="Assets\Textures\btn-upgrade-karax-energyregen200.dds"/>
+        <AlertTooltip value="Button/Tooltip/CRPGEnergyAttribute"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-karax-energyregen200.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+    </CButton>
+    <CButton id="WizardConfusion">
+        <Icon value="Assets\Textures\btn-ability-protoss-confusion.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-confusion.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="WizardShieldOvercharge">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-adeptshieldupgrade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-adeptshieldupgrade.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="WizardPsionicOrb">
+        <Icon value="Assets\Textures\btn-ability-protoss-psionicorb.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HidesForSimpleText value="0"/>
+    </CButton>
+    <CButton id="WizardEnergyMatrix">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-khaydarinamulet.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-khaydarinamulet.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="WizardPsionicStorm">
         <Tooltip value="Button/Tooltip/PsiStorm"/>
         <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
@@ -292,16 +319,16 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
         <EditorCategories value="Race:Neutral"/>
-        <Tooltip value="Behavior/Tooltip/CRPGDamageAttribute"/>
-        <AlertTooltip value="Behavior/Tooltip/CRPGDamageAttribute"/>
+        <Tooltip value="Button/Tooltip/CRPGDamageAttribute"/>
+        <AlertTooltip value="Button/Tooltip/CRPGDamageAttribute"/>
     </CButton>
     <CButton id="UpgradeArmor">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <EditorCategories value="Race:Neutral"/>
         <HotkeyAlias value="UpgradeDamage"/>
-        <Tooltip value="Behavior/Tooltip/CRPGArmorAttribute"/>
-        <AlertTooltip value="Behavior/Tooltip/CRPGArmorAttribute"/>
+        <Tooltip value="Button/Tooltip/CRPGArmorAttribute"/>
+        <AlertTooltip value="Button/Tooltip/CRPGArmorAttribute"/>
     </CButton>
     <CButton id="SniperCloakOff">
         <Icon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>

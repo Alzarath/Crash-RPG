@@ -56,22 +56,22 @@
         <NodeArray index="Use" Link="LTCountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2"/>
     </CRequirement>
     <CRequirement id="GELevel2">
-        <NodeArray index="Show" Link="GTE774336177CountBehaviorLevelCounterCompleteOnlyAtUnit2"/>
+        <NodeArray index="Show" Link="GTE774336177CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit2"/>
     </CRequirement>
     <CRequirement id="GELevel3">
-        <NodeArray index="Show" Link="GTE2494718353CountBehaviorLevelCounterCompleteOnlyAtUnit3"/>
+        <NodeArray index="Show" Link="GTE2494718353CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit3"/>
     </CRequirement>
     <CRequirement id="GELevel4">
-        <NodeArray index="Show" Link="GTE1845366357CountBehaviorLevelCounterCompleteOnlyAtUnit4"/>
+        <NodeArray index="Show" Link="GTE1845366357CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit4"/>
     </CRequirement>
     <CRequirement id="GELevel5">
-        <NodeArray index="Show" Link="GTE142027770CountBehaviorLevelCounterCompleteOnlyAtUnit5"/>
+        <NodeArray index="Show" Link="GTE142027770CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5"/>
     </CRequirement>
     <CRequirement id="CRPGIsAppropriateLevel">
-        <NodeArray index="Use" Link="AndGT3553322166CountBehaviorHeroVeterancyCompleteOnlyAtUnitCountBehaviorLevelCounterCompleteOnlyAtUnitLT3618176718CountBehaviorLevelCounterCompleteOnlyAtUnit5"/>
+        <NodeArray index="Use" Link="AndGT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGLevelCounterCompleteOnlyAtUnitLT3618176718CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5"/>
     </CRequirement>
     <CRequirement id="GELevel1">
-        <NodeArray index="Show" Link="GTE2832794247CountBehaviorLevelCounterCompleteOnlyAtUnit1"/>
+        <NodeArray index="Show" Link="GTE2832794247CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit1"/>
     </CRequirement>
     <CRequirement id="HunterArmPsionicProjection">
         <EditorCategories value="Race:Protoss,TechType:Unit"/>

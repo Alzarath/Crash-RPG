@@ -4,6 +4,12 @@
         <MinPoints value="-2"/>
         <Modification LifeArmorBonus="0.1" ShieldArmorBonus="0.1"/>
     </CBehaviorAttribute>
+    <CBehaviorAttribute id="CRPGEnergyAttribute">
+        <MinPoints value="-2"/>
+        <Modification>
+            <VitalRegenArray index="Energy" value="0.0625"/>
+        </Modification>
+    </CBehaviorAttribute>
     <CBehaviorBuff id="CRPGRecentlyAttacked">
         <InfoFlags index="Hidden" value="1"/>
         <RemoveValidatorArray value="CRPGHasMedicalFacilitiesShield"/>
@@ -17,6 +23,82 @@
         <DisableValidatorArray value="CRPGHasMedicalFacilitiesShield"/>
         <DamageResponse Chance="1" Handled="CRPGRecentlyDamagedApplyBehavior"/>
         <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardConfusion">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-confusion.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="10"/>
+        <Period value="1"/>
+        <InitialEffect value="WizardConfusionInitialSet"/>
+        <PeriodicEffect value="WizardConfusionAttackSearchArea"/>
+        <ExpireEffect value="WizardConfusionEndSet"/>
+        <Modification>
+            <StateFlags index="Passive" value="1"/>
+            <StateFlags index="IgnorePlayerAlliedFlags" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardConfusionInitial">
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="0.0625"/>
+        <FinalEffect value="WizardConfusionAttackSearchArea"/>
+        <Modification>
+            <StateFlags index="Passive" value="1"/>
+            <AbilClassDisableArray index="CAbilAttack" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardPsionicStormRestore">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-psistorm.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+        <Duration value="0.6665"/>
+        <Period value="0.571"/>
+        <InitialEffect value="WizardPsionicStormHealing"/>
+        <PeriodicEffect value="WizardPsionicStormHealing"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardSlowPsionicOrb">
+        <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
+        <Alignment value="Negative"/>
+        <Cost>
+            <Charge Link="Behavior/HunterSlowScarabMine"/>
+            <Cooldown Link="Behavior/HunterSlowScarabMine"/>
+        </Cost>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <Modification MoveSpeedMultiplier="0.75"/>
+        <DamageResponse>
+            <Cost>
+                <Charge Link="Behavior/HunterSlowScarabMine"/>
+                <Cooldown Link="Behavior/HunterSlowScarabMine"/>
+            </Cost>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardPsionicOrb">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="WizardPsionicOrbSearchArea"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardEnergyMatrixAura">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="WizardEnergyMatrixSearchArea"/>
+        <Modification>
+            <VitalRegenMultiplier index="Energy" value="0.25"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardEnergyMatrix">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-arguslink.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="0.5666"/>
+        <Modification>
+            <VitalRegenMultiplier index="Energy" value="0.125"/>
+        </Modification>
+        <Alignment value="Positive"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="WizardPsionicStorm">
         <Alignment value="Negative"/>
@@ -57,13 +139,6 @@
         <Duration value="0.5"/>
         <Modification>
             <StateFlags index="Cloak" value="1"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="CorsairDisableFakeWeapon2">
-        <InfoFlags index="Hidden" value="1"/>
-        <DisableValidatorArray value="CorsairFakeWeaponBehaviorDisable"/>
-        <Modification>
-            <WeaponDisableArray value="CorsairFakeWeapon"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="DevourerMPAcidSpores">
@@ -215,16 +290,18 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterResurgenceDisabled">
         <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="60"/>
         <Modification>
             <BehaviorLinkDisableArray value="FighterResurgence"/>
         </Modification>
-        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterInvulnerableResurgence">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <DisplayDuration index="Self" value="1"/>
         <Duration value="3"/>
         <Period value="3"/>
@@ -243,7 +320,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterStunnedResurgence">
         <InfoFlags index="Hidden" value="1"/>
-        <InfoIcon value="Assets\Textures\btn-ability-terran-ultrasonicpulse.dds"/>
+        <InfoIcon value="Assets\Textures\btn-behavior-incapacitated.dds"/>
         <BehaviorCategories index="Stun" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="3"/>
@@ -335,12 +412,12 @@
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedBunkerEnableGaussRifle2">
+        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CRPGCargoLT2"/>
         <Modification>
             <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle2"/>
         </Modification>
-        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedBunkerEnableGaussRifle3">
         <InfoFlags index="Hidden" value="1"/>
@@ -641,6 +718,7 @@
             <AttributeChangeArray Attribute="CRPGArmorAttribute" Points="-2"/>
             <AttributeChangeArray Attribute="CRPGArmorAttributeUnit" Points="-2"/>
             <AttributeChangeArray Attribute="CRPGDamageAttribute" Points="-2"/>
+            <AttributeChangeArray Attribute="CRPGEnergyAttribute" Points="-2"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="MechEjecting">
@@ -780,14 +858,15 @@
         <MinPoints value="-2"/>
         <Modification LifeArmorBonus="0.2" ShieldArmorBonus="0.2"/>
     </CBehaviorAttribute>
-    <CBehaviorBuff id="LevelCounter">
+    <CBehaviorBuff id="CRPGLevelCounter">
+        <InfoFlags index="Hidden" value="1"/>
         <MaxStackCount value="5"/>
         <Modification>
             <AttributeChangeArray Attribute="CRPGArmorAttribute" Points="2"/>
             <AttributeChangeArray Attribute="CRPGArmorAttributeUnit" Points="2"/>
             <AttributeChangeArray Attribute="CRPGDamageAttribute" Points="2"/>
+            <AttributeChangeArray Attribute="CRPGEnergyAttribute" Points="2"/>
         </Modification>
-        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SniperDeadlyToxinDamage">
         <Alignment value="Negative"/>
@@ -809,17 +888,17 @@
         <InfoFlags index="Hidden" value="1"/>
         <Modification SightBonus="2"/>
     </CBehaviorBuff>
-    <CBehaviorVeterancy id="HeroVeterancy">
+    <CBehaviorVeterancy id="CRPGHeroVeterancy">
+        <Flags index="CombineNumericModifications" value="0"/>
+        <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
         <XPFraction index="Kills" value="10"/>
+        <SharedXPRadius index="Kills" value="20"/>
+        <SharedXPFraction index="Kills" value="0.25"/>
         <VeterancyLevelArray/>
         <VeterancyLevelArray MinVeterancyXP="7500"/>
         <VeterancyLevelArray MinVeterancyXP="12500"/>
         <VeterancyLevelArray MinVeterancyXP="15000"/>
         <VeterancyLevelArray MinVeterancyXP="15000"/>
-        <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
-        <SharedXPRadius index="Kills" value="20"/>
-        <SharedXPFraction index="Kills" value="0.25"/>
-        <Flags index="CombineNumericModifications" value="0"/>
     </CBehaviorVeterancy>
     <CBehaviorBuff id="SniperHoldFire">
         <InfoIcon value="Assets\Textures\btn-ability-terran-holdfire.dds"/>
@@ -847,7 +926,7 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterStunnedShadowCharge">
         <Alignment value="Negative"/>
-        <InfoIcon value="Assets\Textures\btn-ability-terran-ultrasonicpulse.dds"/>
+        <InfoIcon value="Assets\Textures\btn-behavior-incapacitated.dds"/>
         <BehaviorCategories index="Stun" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="2.5"/>

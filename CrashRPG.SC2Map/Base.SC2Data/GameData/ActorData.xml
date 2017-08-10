@@ -1,15 +1,143 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CActorUnit id="CRPGWizardLevel1" parent="HighTemplar" unitName="CRPGWizardLevel1">
-        <On index="0" Terms="UnitBirth.CRPGWizardLevel1"/>
-        <On index="1" Terms="UnitBirth.CRPGWizardLevel1"/>
-        <On index="2" Terms="UnitRevive.CRPGWizardLevel1"/>
-        <On index="3" Terms="UnitRevive.CRPGWizardLevel1"/>
-        <On index="4" Terms="UnitConstruction.CRPGWizardLevel1.Start"/>
-        <On index="5" Terms="UnitConstruction.CRPGWizardLevel1.Finish"/>
-        <AbilSoundArray index="0" AbilCmd="WizardPsionicStorm,255"/>
-        <HighlightTooltip value="Unit/Name/CRPGWizardLevel1"/>
-    </CActorUnit>
+    <CActorModel id="WizardPsionicOrbSlowDebuff" parent="ModelAnimationStyleContinuous">
+        <Terms value="Cap 1"/>
+        <On Terms="Behavior.WizardSlowPsionicOrb.On" Send="Create"/>
+        <On Terms="Behavior.WizardSlowPsionicOrb.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <Model value="HybridSlowDebuff"/>
+        <AutoScaleFactor value="2.000000"/>
+    </CActorModel>
+    <CActorSplat id="WizardConfusionCursorSplat" parent="ProtossCursorSplat" abil="WizardConfusion"/>
+    <CActorRange id="WizardConfusionRange" parent="RangeAbil" abil="WizardConfusion"/>
+    <CActorModel id="WizardConfusionImpactModel" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.WizardConfusionSearchArea" Send="Create"/>
+        <Model value="DarkArchonConfusionCastImpactModel"/>
+    </CActorModel>
+    <CActorSound id="WizardConfusionImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.WizardConfusionSearchArea" Send="Create"/>
+        <Sound value="DarkArchonConfusionImpactActorSound"/>
+    </CActorSound>
+    <CActorModel id="WizardConfusionModel" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.WizardConfusion.On" Send="Create"/>
+        <On Terms="Behavior.WizardConfusion.Off" Send="Destroy"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="DarkArchonConfusionModel"/>
+    </CActorModel>
+    <CActorModel id="HunterScarabMineSlowDebuff" parent="ModelAnimationStyleContinuous">
+        <Terms value="Cap 1"/>
+        <On Terms="Behavior.HunterSlowScarabMine.On" Send="Create"/>
+        <On Terms="Behavior.HunterSlowScarabMine.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <Model value="HybridSlowDebuff"/>
+        <AutoScaleFactor value="2.000000"/>
+    </CActorModel>
+    <CActorAction id="WizardPsionicShockwaveAttack" parent="GenericAttack" effectAttack="WizardPsionicShockwaveDamage">
+        <LaunchAssets Sound="Archon_AttackLaunch"/>
+        <Beam value="WizardPsionicShockwaveBeam"/>
+        <BeamScope value="Caster"/>
+        <Missile value="ArchonAttackMissile"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance VoidRaySOpForwardLaunch"/>
+        <ImpactMap index="None" Model="ArchonAttackImpact" Sound="Archon_AttackImpact"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+    </CActorAction>
+    <CActorAction id="WizardChaoticTorrentAttack" parent="GenericAttack" effectAttack="WizardChaoticTorretDamage">
+        <LaunchAssets Sound="Archon_AttackLaunch"/>
+        <Beam value="WizardChaoticTorrentBeam"/>
+        <BeamScope value="Caster"/>
+        <Missile value="ArchonAttackMissile"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeNoVizEnhance VoidRaySOpForwardLaunch"/>
+        <ImpactMap index="None" Model="DarkArchonAttackImpact" Sound="Archon_AttackImpact"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+    </CActorAction>
+    <CActorBeamSimple id="WizardPsionicShockwaveBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSDb" Send="Destroy"/>
+        <Model value="ArchonAttackBeam"/>
+        <Scale value="0.500000"/>
+    </CActorBeamSimple>
+    <CActorSound id="CRPGWizardDeathLevel4" parent="SoundOneShot">
+        <On Terms="UnitDeathCustomize.CRPGWizardLevel4; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
+        <Sound value="Archon_Death"/>
+    </CActorSound>
+    <CActorQuad id="WizardPsionicOrbAttackGuide" parent="ZergGuideVisualQuadDown" abil="WizardPsionicOrb">
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <LaunchActor value="ProtossGuideVisualQuadLargeLaunch"/>
+        <CenterActor value="ProtossGuideVisualQuadLargeCenter"/>
+        <ImpactActor value="ProtossGuideVisualQuadLargeImpact"/>
+        <Height value="13.000000"/>
+        <Width value="10.000000"/>
+    </CActorQuad>
+    <CActorSplat id="WizardPsionicOrbCursorSplat" parent="ProtossCursorSplat" abil="WizardPsionicOrb">
+        <Model value="VoidHighTemplarPsiOrbCursorSplat"/>
+    </CActorSplat>
+    <CActorRange id="WizardPsionicOrbRange" parent="RangeAbil" abil="WizardPsionicOrb"/>
+    <CActorAction id="WizardAgonizingBlastAttack" parent="GenericAttack" effectImpact="WizardAgonizingBlastDamage" effectLaunch="WizardAgonizingBlastLaunchMissile">
+        <LaunchSiteOps Ops="SOpAttachCenter SOpMoveByDot15"/>
+        <LaunchAssets Sound="Karass_AttackLaunch"/>
+        <Missile value="AscendantAttackMissile"/>
+        <ImpactMap index="None" Model="AscendantAttackImpact" Sound="Karass_AttackImpact"/>
+        <ImpactPhysics Name="AscendantPsiBlastImpact" MatchKeys="Basic" Physics="AscendantPsiBlastDeathImpactForce"/>
+    </CActorAction>
+    <CActorAction id="WizardPsionicOrbAttack" parent="GenericAttack" effectImpact="WizardPsionicOrbDestroyPersistent" effectLaunch="WizardPsionicOrbLaunchMissile">
+        <EditorCategories value=""/>
+        <LaunchAssets Sound="HighTemplar_PsionicOrbLaunch"/>
+        <Missile value="VoidHighTemplarPsiOrbMissile"/>
+        <ImpactPointSiteOps Ops="SOpTargetPointStationary SOpShadow AlarakPsiOrbImpactOffset"/>
+        <ImpactMap index="None" Model="VoidHighTemplarPsiOrbFinalImpactModel" Sound="HighTemplar_PsionicOrbImpact"/>
+        <ImpactModel value="WizardPsionicOrbImpactModel"/>
+    </CActorAction>
+    <CActorModel id="WizardPsionicOrbImpactModel">
+        <Flags index="SuppressCreationErrors" value="1"/>
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="AnimBracketStart BSD {} {} Death ContentPlayOnce 0.200000 AsTimeScale"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSD" Send="Destroy"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorBeamSimple id="WizardPsionicOrbBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <On Terms="ActorCreation" Send="TimerSet 1.000000 Death"/>
+        <On Terms="TimerExpired; TimerName Death" Send="AnimBracketStop BSD"/>
+        <Model value="VoidHighTemplarPsiOrbBeam"/>
+        <Scale value="0.500000"/>
+    </CActorBeamSimple>
+    <CActorAction id="WizardPsionicOrbBeamAttack" parent="GenericAttack" effectAttack="WizardPsionicOrbDamage">
+        <EditorCategories value=""/>
+        <Beam value="WizardPsionicOrbBeam"/>
+        <ImpactMap index="None" Sound="HighTemplar_PsionicOrbBeamImpact"/>
+    </CActorAction>
+    <CActorBeamSimple id="WizardChaoticTorrentBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <On Terms="AnimBracketState.*.AfterClosing; AnimName BSDb" Send="Destroy"/>
+        <Model value="DarkArchonAttackBeam"/>
+        <Scale value="0.500000"/>
+    </CActorBeamSimple>
+    <CActorSplat id="WizardPsionicStormCursorSplat" parent="ProtossCursorSplat" abil="WizardPsionicStorm">
+        <Model value="PsiStormCursorSplat"/>
+    </CActorSplat>
+    <CActorRange id="WizardPsionicStormRange" parent="RangeAbil" abil="WizardPsionicStorm">
+        <Icon value="Assets\Textures\RadarIcon2.dds"/>
+        <IconArcLength value="3.250000"/>
+    </CActorRange>
+    <CActorModel id="WizardEnergyMatrixImpactModel" parent="ModelAnimationStyleOneShot">
+        <Terms value="Cap 1"/>
+        <Inherits index="CloakEffect" value="1"/>
+        <On Terms="Behavior.WizardEnergyMatrix.On" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachCenterSoft"/>
+        <Model value="ArtanisAstralWindImpactModel"/>
+        <AutoScaleFactor value="1.000000"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorModel id="WizardEnergyMatrixAuraModel" parent="ModelAddition">
+        <On Terms="Behavior.WizardEnergyMatrixAura.On" Send="Create"/>
+        <On Terms="Behavior.WizardEnergyMatrixAura.Off" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetTintColor 0,128,255"/>
+        <HostSiteOps Ops="SOpShadow SOpForwardNorth"/>
+        <Model value="EnergyMatrixAuraSplat"/>
+    </CActorModel>
     <CActorAction id="WizardPsiBlastAttack" parent="GenericAttack" effectImpact="HighTemplarWeaponDamage" effectLaunch="WizardPsiBlastLaunchMissile">
         <LaunchSiteOps Ops="SOpAttachCenter SOpMoveByDot15"/>
         <LaunchAssets Sound="Ascendant_Launch"/>
@@ -18,14 +146,14 @@
         <ImpactPhysics Name="HighTemplarPsiBlastImpact" MatchKeys="Basic" Physics="HighTemplarPsiBlastDeathImpactForce"/>
     </CActorAction>
     <CActorSound id="WizardPsionicStormImpactSound" parent="SoundOneShot">
-        <On Terms="Behavior.PsiStorm.On" Send="Create"/>
+        <On Terms="Behavior.WizardPsionicStorm.On" Send="Create"/>
         <Sound value="HighTemplar_PsionicStormImpact"/>
     </CActorSound>
     <CActorModel id="WizardPsionicStormImpactModel" parent="ModelAnimationStyleContinuous">
         <Inherits index="BaseModelScale" value="1"/>
         <Inherits index="Scale" value="1"/>
-        <On Terms="Behavior.PsiStorm.Start" Send="Create"/>
-        <On Terms="Behavior.PsiStorm.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="Behavior.WizardPsionicStorm.On" Send="Create"/>
+        <On Terms="Behavior.WizardPsionicStorm.Off" Send="AnimBracketStop BSD"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachCenter"/>
         <Model value="HighTemplarPsiStormImpact"/>
@@ -57,27 +185,101 @@
         <On Terms="UnitDeathCustomize.HighTemplarShakuras; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
         <Sound value="HighTemplar_Death"/>
     </CActorSound>
-    <CActorUnit id="CRPGWizardLevel2" parent="GenericUnitStandard" unitName="PreserverC2">
-        <Model value="PreserverC"/>
+    <CActorUnit id="CRPGWizardLevel1" parent="GenericUnitStandard" unitName="CRPGWizardLevel1">
+        <Model value="HighTemplar"/>
+        <On index="0" Send="Create SoundEmitter HighTemplar_Ambience"/>
+        <On Terms="Abil.WizardPsionicStorm.SourceCastStart" Send="AnimPlay Spell A"/>
+        <On Terms="Abil.WizardPsionicOrb.SourceCastStart" Send="AnimPlay Spell A"/>
+        <On Terms="Abil.WizardConfusion.SourceCastStart" Send="AnimPlay Spell A"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGWizardLevel1" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo CRPGWizardLevel1" Send="Create"/>
+        <On Terms="WeaponStart.WizardPsiBlast.AttackStart" Send="AnimPlay Attack Spell,A"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.200000 Shadow"/>
+        <On Terms="TimerExpired; TimerName Shadow; IsStatus ShadowCreate 1; !Option Model Low" Send="Create HighTemplarShadow"/>
+        <On Terms="TimerExpired; TimerName Shadow" Send="TimerSet 0.200000 Shadow"/>
+        <On Terms="UnitMovementUpdate.*.Stand" Send="StatusSet ShadowCreate 0"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="StatusSet ShadowCreate 1"/>
+        <On Terms="ActorCreation" Send="StatusSet ShadowCreate 0"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create HighTemplar_Land"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Templar_LandSweetener"/>
         <BuildModel value="HighTemplarWarpIn"/>
         <DeathArray index="Normal" ModelLink="ProtossSpiritDeath" SoundLink="HighTemplar_Death"/>
         <PlacementModel value="HighTemplarPlacement"/>
         <PlacementSound value="Protoss_BuildingPlacementSmall"/>
-        <PortraitModel value="Preserver3Portrait"/>
+        <PortraitModel value="HighTemplarPortrait"/>
         <WalkAnimMoveSpeed value="2.25"/>
         <GroupIcon>
-            <Image value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar.dds"/>
         </GroupIcon>
-        <HighlightTooltip value="Unit/Name/CRPGWizardLevel2"/>
+        <HighlightTooltip value="Unit/Name/CRPGWizard"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
-        <UnitIcon value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+        <UnitIcon value="Assets\Textures\wireframe-protoss-hightemplar.dds"/>
         <Wireframe>
-            <Image value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar.dds"/>
         </Wireframe>
         <WireframeShield>
-            <Image value="Assets\Textures\wireframe-protoss-preserver02-shield01.dds"/>
-            <Image value="Assets\Textures\wireframe-protoss-preserver02-shield02.dds"/>
-            <Image value="Assets\Textures\wireframe-protoss-preserver02-shield03.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-hightemplar-shield03.dds"/>
+        </WireframeShield>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <AbilSoundArray AbilCmd="WizardPsionicStorm,Execute" Sound="HighTemplar_PsionicStormVO"/>
+        <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-hightemplar.dds"/>
+        <SelectAbilCmd value="WizardPsionicStorm,Execute"/>
+        <SoundArray index="Ready" value="HighTemplarVoid_Ready"/>
+        <SoundArray index="Help" value="HighTemplarVoid_Help"/>
+        <SoundArray index="What" value="HighTemplarVoid_What"/>
+        <SoundArray index="Yes" value="HighTemplarVoid_Yes"/>
+        <SoundArray index="Attack" value="HighTemplarVoid_Attack"/>
+        <SoundArray index="Pissed" value="HighTemplarVoid_Pissed"/>
+        <StatusBarOn index="Custom" value="1"/>
+        <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+    </CActorUnit>
+    <CActorUnit id="CRPGWizardLevel2" parent="CRPGWizardLevel1" unitName="CRPGWizardLevel2">
+        <Model value="PreserverC"/>
+        <PortraitModel value="Preserver3Portrait"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+        </GroupIcon>
+        <UnitIcon value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-preserver02.dds"/>
+        </Wireframe>
+        <AbilSoundArray AbilCmd="WizardPsionicStorm,Execute" Sound="HighTemplar_PsionicStormVO"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-preserver02.dds"/>
+        <On index="0" Terms="UnitBirth.CRPGWizardLevel2" Send="Create SoundEmitter HighTemplar_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGWizardLevel2"/>
+        <On index="2" Terms="UnitRevive.CRPGWizardLevel2"/>
+        <On index="3" Terms="UnitRevive.CRPGWizardLevel2"/>
+        <On index="4" Terms="UnitConstruction.CRPGWizardLevel2.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGWizardLevel2.Finish"/>
+        <On index="65" Terms="Abil.WizardPsionicStorm.SourceCastStart" Send="AnimPlay Spell Stand,Work,Start"/>
+        <On index="66" Terms="Abil.WizardPsionicOrb.SourceCastStart" Send="AnimPlay Spell Stand,Work,Start"/>
+        <On index="67" Terms="Abil.WizardConfusion.SourceCastStart" Send="AnimPlay Spell Stand,Work,End"/>
+        <On index="68" Terms="AbilMorph.*.Finish; MorphFrom CRPGWizardLevel2" Send="Destroy"/>
+        <On index="69" Terms="AbilMorph.*.Finish; MorphTo CRPGWizardLevel2" Send="Create"/>
+        <On index="70" Terms="WeaponStart.WizardPsiBlast.AttackStart" Send="AnimPlay Attack Attack"/>
+        <On Terms="AnimDone; AnimName Spell" Send="AnimPlay End Stand,Work,End"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Spell" Send="AnimClear Attack"/>
+        <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying End" Send="AnimClear Attack"/>
+        <EventDataFootprint index="0" Model="CRPGWizardLevel2Footprint"/>
+        <DeathArray index="Normal" VoiceLink="CRPGWizardLevel2DeathVoice"/>
+        <GroupSoundArray index="What" value="CRPGWizardLevel2_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="CRPGWizardLevel2_GroupYes"/>
+        <GroupSoundArray index="Attack" value="CRPGWizardLevel2_GroupAttack"/>
+        <GroupSoundArray index="Board" value="CRPGWizardLevel2_GroupBoard"/>
+        <SoundArray index="Birth" value="CRPGWizardLevel2_Birth"/>
+        <SoundArray index="Movement" value="CRPGWizardLevel2_Movement"/>
+        <SoundArray index="Turning" value="CRPGWizardLevel2_Turning"/>
+        <SoundArray index="Board" value="CRPGWizardLevel2_Board"/>
+        <SoundArray index="Click" value="CRPGWizardLevel2_Click"/>
+        <SoundArray index="ClickError" value="CRPGWizardLevel2_ClickError"/>
+        <SoundArray index="Highlight" value="CRPGWizardLevel2_Highlight"/>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-preserver02-shield01.dds"/>
+            <Image index="1" value="Assets\Textures\wireframe-protoss-preserver02-shield02.dds"/>
+            <Image index="2" value="Assets\Textures\wireframe-protoss-preserver02-shield03.dds"/>
         </WireframeShield>
     </CActorUnit>
     <CActorSound id="ShipCloakingFieldOffSound" parent="SoundOneShot">
@@ -645,7 +847,7 @@
         <Icon value="Assets\Textures\RadarIcon2.dds"/>
         <IconArcLength value="3.250000"/>
     </CActorRange>
-    <CActorModel id="FighterShadowChargeSlow" parent="ModelAnimationStyleContinuous">
+    <CActorModel id="FighterShadowChargeSlowDebuff" parent="ModelAnimationStyleContinuous">
         <Terms value="Cap 1"/>
         <On Terms="Behavior.FighterSlowShadowCharge.On" Send="Create"/>
         <On Terms="Behavior.FighterSlowShadowCharge.Off" Send="Destroy"/>
@@ -2982,4 +3184,190 @@
         <Host Subject="_Selectable"/>
         <Sound value="VoidRay_WeaponLoop1"/>
     </CActorSound>
+    <CActorUnit id="CRPGWizardLevel3" parent="CRPGWizardLevel2" unitName="CRPGWizardLevel3">
+        <Aliases value="_UnitSmall"/>
+        <On index="0" Terms="UnitBirth.CRPGWizardLevel3" Send="Create SoundEmitter CRPGWizardLevel3_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGWizardLevel3"/>
+        <On index="2" Terms="UnitRevive.CRPGWizardLevel3"/>
+        <On index="3" Terms="UnitRevive.CRPGWizardLevel3"/>
+        <On index="4" Terms="UnitConstruction.CRPGWizardLevel3.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGWizardLevel3.Finish"/>
+        <On index="65" Terms="Abil.WizardPsionicStorm.SourceCastStart" Send="AnimPlay Spell A"/>
+        <On index="66" Terms="Abil.WizardPsionicOrb.SourceCastStart" Send="AnimPlay Spell A"/>
+        <On index="67" Terms="Abil.WizardConfusion.SourceCastStart" Send="AnimPlay Spell A"/>
+        <On index="68" Terms="AbilMorph.*.Finish; MorphFrom CRPGWizardLevel3" Send="Destroy"/>
+        <On index="69" Terms="AbilMorph.*.Finish; MorphTo CRPGWizardLevel3" Send="Create"/>
+        <On index="70" Terms="WeaponStart.WizardAgonizingBlast.AttackStart" Send="AnimPlay Attack Spell,A"/>
+        <On index="72" Terms="TimerExpired; TimerName Shadow; IsStatus ShadowCreate 1; !Option Model Low" Send="Create HighTemplarTaldarimShadow"/>
+        <On index="79" removed="1"/>
+        <On index="80" removed="1"/>
+        <On index="81" removed="1"/>
+        <Model value="HighTemplarTaldarim"/>
+        <AnimBlendTime value="0.450000"/>
+        <EventDataFootprint index="0" Model="CRPGWizardLevel3Footprint"/>
+        <BuildModel value="HighTemplarTaldarimWarpIn"/>
+        <DeathArray index="Normal" ModelLink="HighTemplarTaldarimDeath" SoundLink="Ascendant_Death_Fx" VoiceLink="Ascendant_Death"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathSmall" Name="Hallucination"/>
+        <PlacementModel value="HighTemplarTaldarimPlacement"/>
+        <PortraitModel value="HighTemplarTaldarimPortrait"/>
+        <AbilSoundArray index="0" AbilCmd="PsiStorm,Execute" Sound="HighTemplar_PsionicStormVO"/>
+        <AbilSoundArray index="1" AbilCmd="ArchonWarp,SelectedUnits" Sound="HighTemplar_ArchonWarpVO"/>
+        <AbilSoundArray AbilCmd="TemporalRift,Execute" Sound="HighTemplar_Attack"/>
+        <BarOffset value="70"/>
+        <BarWidth value="42"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-hightemplar-taldarim.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="CRPGWizardLevel3_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="CRPGWizardLevel3_GroupYes"/>
+        <GroupSoundArray index="Attack" value="CRPGWizardLevel3_GroupAttack"/>
+        <GroupSoundArray index="Board" value="CRPGWizardLevel3_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-hightemplar-taldarim.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGWizardLevel3"/>
+        <SoundArray index="Birth" value="HighTemplar_Birth"/>
+        <SoundArray index="Ready" value="Ascendant_Ready"/>
+        <SoundArray index="Help" value="Ascendant_What"/>
+        <SoundArray index="What" value="Ascendant_What"/>
+        <SoundArray index="Yes" value="Ascendant_Yes"/>
+        <SoundArray index="Attack" value="Ascendant_Attack"/>
+        <SoundArray index="Pissed" value="Ascendant_Pissed"/>
+        <SoundArray index="Movement" value="CRPGWizardLevel3_Movement"/>
+        <SoundArray index="Turning" value="CRPGWizardLevel3_Turning"/>
+        <SoundArray index="Board" value="CRPGWizardLevel3_Board"/>
+        <SoundArray index="Click" value="CRPGWizardLevel3_Click"/>
+        <SoundArray index="ClickError" value="CRPGWizardLevel3_ClickError"/>
+        <SoundArray index="Highlight" value="CRPGWizardLevel3_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-hightemplar-taldarim.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-hightemplar-taldarim.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-hightemplar-taldarim-shield01.dds"/>
+            <Image index="1" value="Assets\Textures\wireframe-protoss-hightemplar-taldarim-shield02.dds"/>
+            <Image index="2" value="Assets\Textures\wireframe-protoss-hightemplar-taldarim-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGWizardLevel4" parent="CRPGWizardLevel3" unitName="CRPGWizardLevel4">
+        <Aliases index="2" value="_UnitLarge"/>
+        <On index="0" Terms="UnitBirth.CRPGWizardLevel4" Send="Create SoundEmitter CRPGWizardLevel3_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGWizardLevel4"/>
+        <On index="2" Terms="UnitRevive.CRPGWizardLevel4"/>
+        <On index="3" Terms="UnitRevive.CRPGWizardLevel4"/>
+        <On index="4" Terms="UnitConstruction.CRPGWizardLevel4"/>
+        <On index="5" Terms="UnitConstruction.CRPGWizardLevel4"/>
+        <On index="68" Terms="AbilMorph.*.Finish; MorphFrom CRPGWizardLevel4" Send="Destroy"/>
+        <On index="69" Terms="AbilMorph.*.Finish; MorphTo CRPGWizardLevel4" Send="Create"/>
+        <On index="70" Terms="UnitHeightUpdate.*.Land" Send="Create Archon_Land"/>
+        <On index="71" Terms="UnitHeightUpdate.*.Land" Send="Create Archon_LandSweetener"/>
+        <On index="72" Terms="UnitMovementUpdate.*.Walk" Target="ArchonAttackBeam" Send="Destroy"/>
+        <On index="73" Terms="Abil.attack.ReadyStop" Target="ArchonAttackBeam" Send="Destroy"/>
+        <On index="74" Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On index="75" Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On index="76" Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On index="77" Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On index="78" removed="1"/>
+        <Model value="Archon"/>
+        <AnimBlendTime value="-1.000000"/>
+        <EventDataFootprint index="0" Model="ArchonFootprint"/>
+        <BuildModel value="Archon"/>
+        <DeathArray index="Normal" ModelLink="ArchonDeath" SoundLink="Archon_Explode" VoiceLink="ArchonDeathVoice"/>
+        <DeathArray index="UnderConstruction" ModelLink="ProtossMediumUnitDeath" SoundLink="Archon_Explode"/>
+        <DeathCustoms index="5" ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathLarge" Name="Hallucination"/>
+        <DeathCustoms ModelLink="DarkProtossArchonDeath" Name="DarkProtoss"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <PlacementModel value="Archon"/>
+        <PlacementSound value=""/>
+        <PortraitModel value="ArchonPortrait"/>
+        <WalkAnimMoveSpeed value="3.75"/>
+        <BarOffset value="120"/>
+        <BarWidth value="66"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\Wireframe-Protoss-Archon.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="Archon_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="Archon_GroupYes"/>
+        <GroupSoundArray index="Attack" value="Archon_GroupAttack"/>
+        <GroupSoundArray index="Board" value="Archon_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-archon.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGWizardLevel4"/>
+        <SoundArray index="Birth" value=""/>
+        <SoundArray index="Ready" value="Archon_Ready"/>
+        <SoundArray index="Help" value="Archon_Help"/>
+        <SoundArray index="What" value="Archon_What"/>
+        <SoundArray index="Yes" value="Archon_Yes"/>
+        <SoundArray index="Attack" value="Archon_Attack"/>
+        <SoundArray index="Pissed" value="Archon_Pissed"/>
+        <SoundArray index="Movement" value="Archon_Movement"/>
+        <SoundArray index="Turning" value="Archon_Turning"/>
+        <SoundArray index="Board" value="Archon_Board"/>
+        <SoundArray index="Click" value="Archon_Click"/>
+        <SoundArray index="ClickError" value="Archon_ClickError"/>
+        <SoundArray index="Highlight" value="Archon_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-archon.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\Wireframe-Protoss-Archon.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\Wireframe-Protoss-Archon-Shield01.dds"/>
+            <Image index="1" value="Assets\Textures\Wireframe-Protoss-Archon-Shield02.dds"/>
+            <Image index="2" value="Assets\Textures\Wireframe-Protoss-Archon-Shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGWizardLevel5" parent="CRPGWizardLevel4" unitName="CRPGWizardLevel5">
+        <On index="0" Terms="UnitBirth.CRPGWizardLevel5" Send="Create SoundEmitter CRPGWizardLevel5_Ambience"/>
+        <On index="1" Terms="UnitBirth.CRPGWizardLevel5"/>
+        <On index="2" Terms="UnitRevive.CRPGWizardLevel5"/>
+        <On index="3" Terms="UnitRevive.CRPGWizardLevel5"/>
+        <On index="4" Terms="UnitConstruction.CRPGWizardLevel5.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGWizardLevel5.Finish"/>
+        <On index="68" Terms="AbilMorph.*.Finish; MorphFrom CRPGWizardLevel5" Send="Destroy"/>
+        <On index="69" Terms="AbilMorph.*.Finish; MorphTo CRPGWizardLevel5" Send="Create"/>
+        <Model value="DarkArchon"/>
+        <EventDataFootprint index="0" Model="CRPGWizardLevel5Footprint"/>
+        <BuildModel value="DarkArchonWarpIn"/>
+        <DeathArray index="Normal" ModelLink="DarkArchonDeath" VoiceLink="CRPGWizardLevel5DeathVoice"/>
+        <DeathCustoms index="5" ModelLink="DarkProtossArchonDeath" SoundLink="" Name="DarkProtoss"/>
+        <DeathCustoms index="6" ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathLarge" Name="Hallucination"/>
+        <DeathCustoms index="7" removed="1"/>
+        <PlacementModel value="DarkArchonPlacement"/>
+        <PortraitModel value="DarkArchonEx2Portrait"/>
+        <AbilSoundArray index="0" AbilCmd="DarkArchonMindControl,Execute" Sound="DarkArchon_MindControlVO"/>
+        <AbilSoundArray index="1" removed="1"/>
+        <AbilSoundArray index="2" removed="1"/>
+        <GroupIcon>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-darkarchon.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="CRPGWizardLevel5_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="CRPGWizardLevel5_GroupYes"/>
+        <GroupSoundArray index="Attack" value="CRPGWizardLevel5_GroupAttack"/>
+        <GroupSoundArray index="Board" value="CRPGWizardLevel5_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-darkarchon.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGWizardLevel5"/>
+        <SoundArray index="Ready" value="DarkArchon_Ready"/>
+        <SoundArray index="Help" value="DarkArchon_Help"/>
+        <SoundArray index="What" value="DarkArchon_What"/>
+        <SoundArray index="Yes" value="DarkArchon_Yes"/>
+        <SoundArray index="Attack" value="DarkArchon_Attack"/>
+        <SoundArray index="Pissed" value="DarkArchon_Pissed"/>
+        <SoundArray index="Movement" value="CRPGWizardLevel5_Movement"/>
+        <SoundArray index="Turning" value="CRPGWizardLevel5_Turning"/>
+        <SoundArray index="Board" value="CRPGWizardLevel5_Board"/>
+        <SoundArray index="Click" value="CRPGWizardLevel5_Click"/>
+        <SoundArray index="ClickError" value="CRPGWizardLevel5_ClickError"/>
+        <SoundArray index="Highlight" value="CRPGWizardLevel5_Highlight"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-darkarchon.dds"/>
+        <Wireframe>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-darkarchon.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image index="0" value="Assets\Textures\wireframe-protoss-darkarchon-shield01.dds"/>
+            <Image index="1" value="Assets\Textures\wireframe-protoss-darkarchon-shield02.dds"/>
+            <Image index="2" value="Assets\Textures\wireframe-protoss-darkarchon-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
 </Catalog>
