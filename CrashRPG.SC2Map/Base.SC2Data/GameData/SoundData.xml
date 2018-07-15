@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CSound id="Talis_Attack" parent="ProtossAck_Void">
+        <AssetArray TemplateParam="Adept_Attack00" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack00.ogg"/>
+        <AssetArray TemplateParam="Adept_Attack01" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack01.ogg"/>
+        <AssetArray TemplateParam="Adept_Attack02" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack02.ogg"/>
+        <AssetArray TemplateParam="Adept_Attack03" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack03.ogg"/>
+        <AssetArray TemplateParam="Adept_Attack04" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack04.ogg"/>
+        <AssetArray TemplateParam="Adept_Attack05" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack05.ogg"/>
+        <AssetArray TemplateParam="Adept_Attack06" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack06.ogg"/>
+        <AssetArray TemplateParam="Adept_Attack07" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack07.ogg"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="Talis_Help" parent="ProtossHelp">
+        <AssetArray TemplateParam="Adept_Help00" File="LocalizedData\Sounds\VO\Protoss\Talis_Help00.ogg"/>
+        <AssetArray TemplateParam="Adept_Help01" File="LocalizedData\Sounds\VO\Protoss\Talis_Help01.ogg"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Talis_Ready" parent="ProtossReady">
+        <AssetArray TemplateParam="Adept_Ready00" File="LocalizedData\Sounds\VO\Protoss\Talis_Ready00.ogg"/>
+        <AssetArray TemplateParam="Adept_Ready01" File="LocalizedData\Sounds\VO\Protoss\Talis_Ready01.ogg"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="Talis_Pissed" parent="ProtossPissed">
+        <AssetArray TemplateParam="Adept_Pissed00" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed00.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed01" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed01.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed02" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed02.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed03" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed03.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed04" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed04.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed05" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed05.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed06" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed06.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed07" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed07.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed08" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed08.ogg"/>
+        <AssetArray TemplateParam="Adept_Pissed09" File="LocalizedData\Sounds\VO\Protoss\Talis_Pissed09.ogg"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="Talis_Yes" parent="ProtossAck_Void">
+        <AssetArray TemplateParam="Adept_Yes00" File="LocalizedData\Sounds\VO\Protoss\Talis_Yes00.ogg"/>
+        <AssetArray TemplateParam="Adept_Yes01" File="LocalizedData\Sounds\VO\Protoss\Talis_Yes01.ogg"/>
+        <AssetArray TemplateParam="Adept_Yes02" File="LocalizedData\Sounds\VO\Protoss\Talis_Yes02.ogg"/>
+        <AssetArray TemplateParam="Adept_Yes03" File="LocalizedData\Sounds\VO\Protoss\Talis_Yes03.ogg"/>
+        <AssetArray TemplateParam="Adept_Yes04" File="LocalizedData\Sounds\VO\Protoss\Talis_Yes04.ogg"/>
+        <AssetArray TemplateParam="Adept_Yes05" File="LocalizedData\Sounds\VO\Protoss\Talis_Yes05.ogg"/>
+        <AssetArray TemplateParam="Adept_Yes06" File="LocalizedData\Sounds\VO\Protoss\Talis_Yes06.ogg"/>
+        <AssetArray TemplateParam="Adept_Yes07" File="LocalizedData\Sounds\VO\Protoss\Talis_Yes07.ogg"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="Talis_What" parent="ProtossAck_Void">
+        <AssetArray TemplateParam="Adept_What00" File="LocalizedData\Sounds\VO\Protoss\Talis_What00.ogg"/>
+        <AssetArray TemplateParam="Adept_What01" File="LocalizedData\Sounds\VO\Protoss\Talis_What01.ogg"/>
+        <AssetArray TemplateParam="Adept_What02" File="LocalizedData\Sounds\VO\Protoss\Talis_What02.ogg"/>
+        <AssetArray TemplateParam="Adept_What03" File="LocalizedData\Sounds\VO\Protoss\Talis_What03.ogg"/>
+        <AssetArray TemplateParam="Adept_What04" File="LocalizedData\Sounds\VO\Protoss\Talis_What04.ogg"/>
+        <AssetArray TemplateParam="Adept_What05" File="LocalizedData\Sounds\VO\Protoss\Talis_What05.ogg"/>
+        <AssetArray TemplateParam="Adept_What06" File="LocalizedData\Sounds\VO\Protoss\Talis_What06.ogg"/>
+        <AssetArray TemplateParam="Adept_What07" File="LocalizedData\Sounds\VO\Protoss\Talis_What07.ogg"/>
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
     <CSound id="AeroYamatoGunChargeUp" parent="Spell">
         <EditorCategories value="Race:Terran"/>
         <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_YamatoAttackCharge0.wav" Pitch="6.000000,6.000000"/>
@@ -96,5 +164,55 @@
         <Pitch value="-1.000000,1.000000"/>
         <Spread value="20.000000"/>
         <Volume value="-1.000000,0.000000"/>
+    </CSound>
+    <CSound id="Ravasaur_Explode" parent="Roach_Explode">
+        <DupeThresholdPoints/>
+        <DupeThresholdPoints Count="5" Volume="-9.000000"/>
+        <Volume value="-4.000000,-2.000000"/>
+    </CSound>
+    <CSound id="Ravasaur_Movement" parent="Movement">
+        <AssetArray File="Assets\Sounds\Tyrannozor_Vx_Mv_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tyrannozor_Vx_Mv_02.wav" FacialGroup=""/>
+        <Chance value="0"/>
+        <DupeDestroyCount value="2"/>
+        <DupeMuteCount value="2"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-10.000000,-7.000000"/>
+    </CSound>
+    <CSound id="Ravasaur_Pissed" parent="ZergPissed">
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Death_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Death_03.wav" FacialGroup=""/>
+        <Pitch value="3.000000,6.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="Ravasaur_Ready" parent="Ready">
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Ready_00.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Ready_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Ready_02.ogg" FacialGroup=""/>
+        <Pitch value="4.000000,6.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="Ravasaur_What" parent="ZergAck">
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_What_00.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_What_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_What_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_What_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_What_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_What_05.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_What_06.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_What_07.ogg" FacialGroup=""/>
+        <Pitch value="3.000000,6.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="Ravasaur_Yes" parent="ZergAck">
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Yes_00.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Yes_01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Yes_02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Yes_03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Yes_04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Yes_06.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\PrimalToughGuy_Yes_07.ogg" FacialGroup=""/>
+        <Pitch value="3.000000,6.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
     </CSound>
 </Catalog>

@@ -1,7 +1,11 @@
 ﻿Abil/Name/AeroDefensiveMatrix=Defensive Matrix
 Abil/Name/AeroTacticalJump=Tactical Jump
 Abil/Name/AeroYamatoCannon=Yamato Cannon
-Abil/Name/AlienMetamorphosis=Metamorphosis
+Abil/Name/AlienAssaultFormMorph=Assault Form
+Abil/Name/AlienGatherDrone=Gather
+Abil/Name/AlienHarvesterFormMorph=Harvester Fom
+Abil/Name/AlienLeaperFormMorph=Leaper Form
+Abil/Name/AlienMetamorphosisMorph=Metamorphosis
 Abil/Name/AttackFriendly=Attack
 Abil/Name/BeaconGiveHero=Give Hero
 Abil/Name/CRPGControlArmory=Control Armory
@@ -13,10 +17,14 @@ Abil/Name/DefaultAbilityLevelUpMorph=Level Up
 Abil/Name/FighterRapidStrikes=Rapid Strikes
 Abil/Name/FighterShadowCharge=Shadow Charge
 Abil/Name/FighterShadowFury=Shadow Fury
+Abil/Name/HunterDisruptorVolley=Disruptor Volley
+Abil/Name/HunterDisruptorVolleyFree=Disruptor Volley
 Abil/Name/HunterPsionicProjection=Psionic Projection
 Abil/Name/HunterScarabMine=Scarab Mine
-Abil/Name/HunterScatterCannon=Scatter Cannon
+Abil/Name/HunterScarabMineFree=Scarab Mine
 Abil/Name/HunterShadowBlink=Shadow Blink
+Abil/Name/HunterShadowTransfer=Shadow Transfer
+Abil/Name/HunterShadowTransferFree=Shadow Transfer
 Abil/Name/InfestedAberrate=Aberrate
 Abil/Name/InfestedBunkerTransport=Load-Unload
 Abil/Name/InfestedInfestationSpore=Infestation Spore
@@ -28,7 +36,9 @@ Abil/Name/MechBarrage=Barrage
 Abil/Name/MechCalldownMech=Calldown: Mech
 Abil/Name/MechEmergencyEvac=Emergency Evac
 Abil/Name/MechPointDefenseDrones=Point Defense Drones
+Abil/Name/MechRepair=Repair
 Abil/Name/MechShockBlast=Shock Blast
+Abil/Name/PickupHunterPlasma=Pickup Hunter Plasma
 Abil/Name/Queue2=Queue (2)
 Abil/Name/ScarabMineBurrow=Burrow
 Abil/Name/ScarabMineUnburrow=Unburrow
@@ -45,6 +55,15 @@ Abil/Name/SniperLevelUpMorphLevel3=Level Up
 Abil/Name/SniperNuclearStrike=Nuclear Strike
 Abil/Name/SniperSnipe=Sniper Round
 Abil/Name/SniperWeaponsFree=Weapons Free
+Abil/Name/SwarmerEvolveLevel4=Evolve
+Abil/Name/SwarmerHangar=Hangar
+Abil/Name/SwarmerMergeLevel1=Merge
+Abil/Name/SwarmerMergeLevel2=Merge
+Abil/Name/SwarmerMergeLevel3=Merge
+Abil/Name/SwarmerMorphtoSwarmer=Morph to Swarmer
+Abil/Name/SwarmerMorphtoSwarmerSpawn=Morph to Swarmer Spawn
+Abil/Name/SwarmerSpawn=Spawn
+Abil/Name/SwarmerSplit=Split
 Abil/Name/VehicleLockOn=Lock On
 Abil/Name/VehicleLockOnCancel=Lock On
 Abil/Name/VehicleLockOnLongRange=Lock On
@@ -56,12 +75,16 @@ Abil/Name/WizardPsionicOrb=Psionic Orb
 Abil/Name/WizardPsionicStorm=Psionic Storm
 Abil/TargetMessage/AttackFriendly=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   To Attack<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Behavior/Name/AeroDefensiveMatrix=Defensive Matrix
+Behavior/Name/AlienParasiticHarvest=Parasitic Harvest
+Behavior/Name/AlienParasiticHarvest2=Harvested
+Behavior/Name/AlienSpeedBuff=Speed
 Behavior/Name/CRPGArmorAttribute=Armor
 Behavior/Name/CRPGArmorAttributeUnit=Armor
 Behavior/Name/CRPGDamageAttribute=Damage
 Behavior/Name/CRPGEnergyAttribute=Energy
 Behavior/Name/CRPGExperienceTrickle=Experience Trickle
 Behavior/Name/CRPGHeroVeterancy=Hero Veterancy
+Behavior/Name/CRPGMineralReward=Mineral Reward
 Behavior/Name/CrashedBattlecruiserMedicalFacilities=Medical Facilities
 Behavior/Name/CrashedBattlecruiserMedicalFacilitiesAura=Medical Facilities
 Behavior/Name/DevourerMPAcidSpores=Acid Spores
@@ -71,6 +94,8 @@ Behavior/Name/FighterShadowCharging=Shadow Charging
 Behavior/Name/FighterSlowShadowCharge=Slow
 Behavior/Name/FighterStunnedShadowCharge=Stunned
 Behavior/Name/HunterCloaked=Cloaked
+Behavior/Name/HunterPlasmaCharge=Plasma Charge
+Behavior/Name/HunterPlasmaSeared=Plasma Seared
 Behavior/Name/HunterSlowScarabMine=Slow
 Behavior/Name/InfestedBunkerEnableGaussRifle13=Enable Gauss Rifle 3
 Behavior/Name/InfestedBunkerEnableGaussRifle14=Enable Gauss Rifle 4
@@ -91,6 +116,7 @@ Behavior/Name/ShipShieldEmitter=Shield Emitter
 Behavior/Name/ShipShieldEmitterHero=Shield Emitter
 Behavior/Name/SniperDeadlyToxinDamage=Deadly Toxin
 Behavior/Name/SniperHoldFire=Hold Fire
+Behavior/Name/SwarmerHeroVeterancy=Hero Veterancy
 Behavior/Name/VehicleLockOnTarget=Lock On
 Behavior/Name/VehicleOverdrive=Overdrive
 Behavior/Name/WizardConfusion=Confusion
@@ -113,6 +139,7 @@ Behavior/Tooltip/FighterRapidStrikes=This unit has increased attack speed.
 Behavior/Tooltip/FighterShadowCharging=This unit has greatly increased movement speed.
 Behavior/Tooltip/FighterStunnedShadowCharge=This unit cannot move or attack.
 Behavior/Tooltip/HunterCloaked=This unit is cloaked and will only be revealed by detectors or effects.
+Behavior/Tooltip/HunterPlasmaSeared=This unit is seared and will shed a canister of plasma when killed.
 Behavior/Tooltip/InfestedHardenedEquipmentDefensive=This unit takes reduced damage.
 Behavior/Tooltip/InfestedHardenedEquipmentOffensive=This unit deals increased damage.
 Behavior/Tooltip/InfestedInfested=This unit is being controlled by an Infested.
@@ -139,13 +166,16 @@ Button/Name/AeroFireSuppressionSystem=Fire Suppression System
 Button/Name/AeroLaserArmaments=Laser Armaments
 Button/Name/AeroTacticalJump=Tactical Jump
 Button/Name/AeroYamatoCannon=Yamato Cannon
-Button/Name/AlienMorphDrone=Morph
-Button/Name/AlienMorphHunterling=Morph
-Button/Name/AlienMorphHydralisk=Morph
-Button/Name/AlienMorphPygalisk=Morph
-Button/Name/AlienMorphQueen=Morph
-Button/Name/AlienMorphRavager=Morph
-Button/Name/AlienMorphRoach=Morph
+Button/Name/AlienAssaultForm=Assault Form
+Button/Name/AlienBruiserForm=Bruiser Form
+Button/Name/AlienEvolution=Alien Evolution
+Button/Name/AlienHarvesterForm=Harvester Form
+Button/Name/AlienLeaperForm=Leaper Form
+Button/Name/AlienMetamorphosis=Metamorphosis
+Button/Name/AlienParasiticHarvest=Parasitic Harvest
+Button/Name/AlienSiegeForm=Siege Form
+Button/Name/AlienSupportForm=Support Form
+Button/Name/AlienTankForm=Tank Form
 Button/Name/CRPGLevelUp=Level Up
 Button/Name/FighterPsiBlades=Psi Blades
 Button/Name/FighterRapidStrikes=Rapid Strikes
@@ -153,10 +183,12 @@ Button/Name/FighterResurgence=Resurgence
 Button/Name/FighterShadowCharge=Shadow Charge
 Button/Name/FighterShadowFury=Shadow Fury
 Button/Name/HunterDisruptorVolley=Disruptor Volley
+Button/Name/HunterPlasmaDiffusion=Plasma Diffusion
 Button/Name/HunterPsionicProjection=Psionic Projection
 Button/Name/HunterScarabMine=Scarab Mine
 Button/Name/HunterScatterCannon=Scatter Cannon
 Button/Name/HunterShadowBlink=Shadow Blink
+Button/Name/HunterShadowTransfer=Shadow Transfer
 Button/Name/InfestedAberrate=Aberrate
 Button/Name/InfestedCausticWeapons=Caustic Weapons
 Button/Name/InfestedEmpathicRepercussion=Empathic Repercussion
@@ -165,12 +197,14 @@ Button/Name/InfestedHardenedEquipment=Hardened Equipment
 Button/Name/InfestedInfest=Infestation Spore
 Button/Name/InfestedInfestedEgg=Infested Egg
 Button/Name/InfestedInfestedSupplies=Infested Supplies
+Button/Name/Interceptor2=Build Interceptor Copy
 Button/Name/MechBarrage=Barrage
 Button/Name/MechCalldownMech=Calldown: Mech
 Button/Name/MechEmergencyEvac=Emergency Evac
 Button/Name/MechMultiLockTargetingSystem=Multi-Lock Targeting System
 Button/Name/MechPointDefenseDrones=Point Defense Drones
 Button/Name/MechShockBlast=Shock Blast
+Button/Name/Repair2=Repair Copy
 Button/Name/ShipCloakingField=Cloaking Field
 Button/Name/ShipDisablePrismaticAlignment=Disable Prismatic Alignment
 Button/Name/ShipDisruptionWeb=Disruption Web
@@ -185,6 +219,11 @@ Button/Name/SniperNuclearStrike=Nuclear Strike
 Button/Name/SniperSnipe=Sniper Round
 Button/Name/SniperToxicMunitions=Toxic Munitions
 Button/Name/SniperWeaponsFree=Weapons Free
+Button/Name/SwarmerEvolve=Evolve
+Button/Name/SwarmerMergeSelected=Merge
+Button/Name/SwarmerMergeTarget=Merge
+Button/Name/SwarmerSpawm=Spawn
+Button/Name/SwarmerSplit=Split
 Button/Name/UpgradeArmor=Upgrade Armor
 Button/Name/UpgradeDamage=Upgrade Damage
 Button/Name/UpgradeEnergy=Upgrade Energy
@@ -205,15 +244,22 @@ Button/Tooltip/AeroFireSuppressionSystem=Unit automatically repairs itself up to
 Button/Tooltip/AeroLaserArmaments=Automatically fire Laser Batteries that deal <c val="#ColorAttackInfo"><d ref="Effect,AeroLaserArmamentsDamage,Amount"/></c> damage to enemies below the hero.
 Button/Tooltip/AeroTacticalJump=After <d ref="Behavior,AeroTacticalJumpTeleportOut,Duration + Behavior,AeroTacticalJumpTeleport,Duration + Behavior,AeroTacticalJumpTeleportIn,Duration" precision="1"/> seconds, warps to the target location. Invulnerable while warping.<n/><n/><c val="#ColorAttackInfo">Does not require vision.</c>
 Button/Tooltip/AeroYamatoCannon=Blasts a target with a devastating plasma cannon, dealing <c val="#ColorAttackInfo"><d ref="Effect,AeroYamatoCannonDamage,Amount"/></c> damage.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
-Button/Tooltip/AlienMorphDrone=Economic alien. Able to gather minerals for experience.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/AlienMorphHunterling=Aggressive alien. Can leap at enemies.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/AlienMorphHydralisk=Ranged alien. Regenerates faster while burrowed. Can cast Impale.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/AlienMorphPygalisk=Aggressive alien. Deals damage in an area. Can burrow charge.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/AlienMorphQueen=Ranged alien. Can cast Ultimate Sacrifice.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/AlienMorphRavager=Ranged alien. Regenerates faster while burrowed. Can cast Corrosive Bile.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/AlienMorphRoach=Ranged alien. Regenerates faster while burrowed.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienAssaultForm=Ranged alien. Regenerates faster while burrowed. Can cast Impale.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/AlienBruiserForm=Ranged alien. Regenerates faster while burrowed.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienEvolution=Passive benefits unlocked through leveling.<n/><n/><img path="Assets\Textures\sc2_ui_collection_emojilist_lockicon.dds" height="12" width="12"/> Leaper - Speed increased<n/><img path="Assets\Textures\sc2_ui_collection_emojilist_lockicon.dds" height="12" width="12"/> Assault - Damage increased<n/><img path="Assets\Textures\sc2_ui_collection_emojilist_lockicon.dds" height="12" width="12"/> Bruiser - Health increased<n/><img path="Assets\Textures\sc2_ui_collection_emojilist_lockicon.dds" height="12" width="12"/> Support - Health Regeneration increased<n/><img path="Assets\Textures\sc2_ui_collection_emojilist_lockicon.dds" height="12" width="12"/> Siege - Energy Regeneration increased<n/><img path="Assets\Textures\sc2_ui_collection_emojilist_lockicon.dds" height="12" width="12"/> Tank - Armor increased
+Button/Tooltip/AlienHarvestMinerals=Workers can harvest resources from this Mineral Field.
+Button/Tooltip/AlienHarvesterForm=Economic alien. Able to gather minerals for experience.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienLeaperForm=Aggressive alien. Can leap at enemies.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienMetamorphosis=Morph into an egg, gaining enhanced defensive capabilities. Allows the Alien to morph into another form.
+Button/Tooltip/AlienParasiticHarvest=The Alien injects a parasite whenever it attacks which congeals into minerals for <d ref="Behavior,AlienParasiticHarvest2,Duration"/> seconds. When the unit dies, it drops minerals equal to the amount of times it was attacked by the Alien.
+Button/Tooltip/AlienSiegeForm=Ranged alien. Regenerates faster while burrowed. Can cast Corrosive Bile.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AlienSupportForm=Ranged alien. Can cast Ultimate Sacrifice.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/AlienTankForm=Aggressive alien. Deals damage in an area. Can burrow charge.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGAero=Slow and Powerful Warship Hero. Uses a mix of defensive and offensive abilities.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Yamato Cannon</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Fire Suppression System<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Defensive Matrix<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Laser Armaments<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Tactical Jump</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGAeroLevel32=Powerful warship. Can use Yamato Cannon and Tactical Jump.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGAlienHeroDrone=Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/CRPGAlienHeroHunterling=Fast melee creature. Can morph into a Baneling.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/CRPGAlienHeroHydralisk=High-damage ranged unit.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/CRPGArmorAttribute=Increases units' life and shield armor by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
 Button/Tooltip/CRPGArmory=Contains damage and armor upgrades.
 Button/Tooltip/CRPGCivilian=Nobody. Only used to select a hero. What a pitiful life.
@@ -227,10 +273,14 @@ Button/Tooltip/CRPGHunterLevel3=Ranged attack strider. Can use Blink.<n/><n/><c 
 Button/Tooltip/CRPGHunterLevel4=Aiur Faction<n/>Ranged assault strider. Has enhanced life and attack damage.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/CRPGInfested=Supportive summoner. Uses Infested Terran to attack the enemy.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Infested Eggs</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Caustic Weapons<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Aberrate<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Hardened Equipment<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Infestation Spore</s><n/><n/><c val="#ColorAttackInfo">Can heal ground and air units.</c>
 Button/Tooltip/CRPGLevelUp=Levels up the hero to the next available level, granting it additional abilties.
-Button/Tooltip/CRPGMech=Tough machine. Uses defensive and area of effect abilities.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Emergency Evac</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Point Defense Drone<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Shock Blast<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Multi-Lock Targeting System<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Barrage</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/CRPGShip=Agile flyer. Uses supportive abillities to improve himself and allies in combat.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Disruption Web</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Shield Emitter<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Prismatic Alignment<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Guardian Shell<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Cloaking Field</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGMech=Tough machine. Uses defensive and area of effect abilities.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Emergency Evac</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Point Defense Drone</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Shock Blast</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Multi-Lock Targeting System</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Barrage</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGShip=Agile flyer. Uses supportive abillities to improve himself and allies in combat.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Disruption Web</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Shield Emitter</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Prismatic Alignment</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Guardian Shell</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Cloaking Field</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShipLevel5=Ultimate Protoss vessel. Can use Photon Overcharge, Mass Recall, and Time Warp abilities. Cloaks nearby friendly units and structures.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
-Button/Tooltip/CRPGSniper=Tactical assassin. Adept at destroying high-value targets.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Sniper Round</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Enhanced Optics<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Personal Cloaking<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Toxic Munitions<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Nuclear Strike</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGSniper=Tactical assassin. Adept at destroying high-value targets from a distance.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Sniper Round</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Enhanced Optics</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Personal Cloaking</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Toxic Munitions</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Nuclear Strike</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGSwarmer=Horde creature. Weak alone, powerful in numbers. <c val="B0B0FF">Unique leveling system</c>.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Uses:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Split & Merge</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Spawn & Merge</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Spawn & Merge</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Evolve</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Spawn</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/CRPGSwarmerLevel1=Fast melee unit. Leaps over obstacles and onto targets from range. Deals increased damage. Can morph into a Baneling.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
+Button/Tooltip/CRPGSwarmerLevel32=Ranged unit. Shoots large globs of acid at long range.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
+Button/Tooltip/CRPGSwarmerSpawn=Horde creature. Weak alone, powerful in numbers.
 Button/Tooltip/CRPGVehicle=Flexible skirmisher. Utilizes speed and range.<n/><n/><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Overdrive</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Automatic Servos</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Lock On</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Graduating Range</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Siege Mode</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGVehicleLevel3=Mobile assault drone. Can use Lock On to quickly fire while moving.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGVehicleLevel4=Fast, high-damage hovertank. Rail Gun can fire while the Diamondback is moving.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
@@ -239,17 +289,20 @@ Button/Tooltip/CRPGWizardLevel1=Potent psionic master. Can use Feedback and Psio
 Button/Tooltip/CRPGWizardLevel3=Tal'darim Faction<n/>Potent psionic master. Can use Psionic Orb, Mind Blast, and Sacrifice.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/CRPGWizardLevel4=Powerful psionic attacker.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/DevourerMP=Anti-air support unit. Attacks reduce attack speed and armor.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c>
+Button/Tooltip/Egg=Aliens morph in the safety of these cocoons.
 Button/Tooltip/FighterPsiBlades=The hero attacks twice, increasing its total base damage.
 Button/Tooltip/FighterRapidStrikes=Gain 50% increased attack speed for 8 seconds.
 Button/Tooltip/FighterResurgence=Grants invulnerability for <d ref="Behavior,FighterInvulnerableResurgence,Duration"/> seconds upon taking lethal damage, preventing death and replenishing Shields and Life. Releases a large blast of energy that knocks back and deals <c val="#ColorAttackInfo"><d ref="Effect,FighterResurgenceDamage,Amount"/></c> damage to all nearby enemies.<n/><n/>This effect cannot occur more than once every <d ref="Behavior,FighterResurgenceDisabled,Duration"/> seconds.
 Button/Tooltip/FighterShadowCharge=Briefly go invisible and intercept enemy ground units, increasing movement speed. Stuns nearby ground units on impact.
 Button/Tooltip/FighterShadowFury=Become invisible and unrevealable, jumping between <d ref="Behavior,FighterShadowFuryController,PeriodCount+1"/> targets, slashing at each <d ref="Effect,FighterShadowFuryAttackCreatePersistent,PeriodCount"/> (<d ref="Effect,FighterShadowFuryAttackRapidCreatePersistent2,PeriodCount"/> while Rapid Strikes is active) times.
 Button/Tooltip/GuardianMP=Long range siege unit.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/HunterDisruptorVolley=After every fourth attack, prepare a volley of four long-range projectiles to fire at the next attack target. Psionic Projections also fire two projectiles each.
-Button/Tooltip/HunterPsionicProjection=After not attacking for 5 seconds, project a psionic orb that will attack with the unit, dealing <c val="#ColorAttackInfo"><d ref="Effect,HunterProjectionBeamCreatePersistent,PeriodCount * Effect,HunterProjectionBeamDamage,Amount"/> damage over <d ref="Effect,HunterProjectionBeamCreatePersistent,PeriodCount * Effect,HunterProjectionBeamCreatePersistent,PeriodicPeriodArray[0]"/> second. Can store up to 2.
+Button/Tooltip/HunterDisruptorVolley=Fire a volley of four long-range projectiles at the next attack target. Impacts Psionic Projection.
+Button/Tooltip/HunterPlasmaDiffusion=Enemies killed after the unit attacks them drops plasma canisters. Picking up ten of them will cause the next spell to be free with no cooldown.
+Button/Tooltip/HunterPsionicProjection=After not attacking for <d ref="Abil,HunterPsionicProjection,InfoArray[Ammo1].Time"/> seconds, project a psionic orb that will attack with the unit, dealing <c val="#ColorAttackInfo"><d ref="Effect,HunterProjectionBeamCreatePersistent,PeriodCount * Effect,HunterProjectionBeamDamage,Amount"/> damage over <d ref="Effect,HunterProjectionBeamCreatePersistent,PeriodCount * Effect,HunterProjectionBeamCreatePersistent,PeriodicPeriodArray[0]"/> second. Can store up to 2.
 Button/Tooltip/HunterScarabMine=Scarab Mines pursue enemy units that come in range, detonating for <c val="#ColorAttackInfo"><d ref="Effect,HunterScarabMinesDamage,Amount"/></c> damage and slowing nearby enemies in an area by <d ref="100 - (100 * Behavior,HunterSlowScarabMine,Modification.MoveSpeedMultiplier)"/>% for <d ref="Behavior,HunterSlowScarabMine,Duration"/> seconds.
 Button/Tooltip/HunterScatterCannon=Launch a volley of missiles, dealing <c val="#ColorAttackInfo"><d ref="Effect,HunterScatterCannonDamage,Amount * 5"/></c> damage in an area.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/HunterShadowBlink=Teleport to a nearby location, temporarily becoming invisible.
+Button/Tooltip/HunterShadowTransfer=Cloak for up to <d ref="Behavior,HunterShadowTransferTimer,Duration"/> seconds and project an invulnerable Shade that can move but cannot attack.<n/><n/>Teleports to the Shade's location <d ref="Behavior,HunterShadowTransferTimer,Duration"/> seconds after activation.<n/><n/>Can be canceled after activation.
 Button/Tooltip/InfestedAberrate=Merges two Infested Civilians into a more powerful monstrosity.
 Button/Tooltip/InfestedCausticWeapons=Infested Terran after the first two spawn with Gauss Rifles.
 Button/Tooltip/InfestedEmpathicRepercussion=When killed, the owner takes <d ref="Effect,InfestedEmpathicRepercussionModifyUnit,VitalArray[Life].Change * (-1)"/> damage and recovers <d ref="Effect,InfestedEmpathicRepercussionModifyUnit,VitalArray[Energy].Change"/> energy.
@@ -263,15 +316,18 @@ Button/Tooltip/InfestedInfestedEggInfestedCivilian=Spawn an Infested Terran. Inf
 Button/Tooltip/InfestedInfestedEggInfestedMarine=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
 Button/Tooltip/InfestedInfestedMarine=Infested Marines do moderate damage.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfestedInfestedSupplies=This supply-giving unit is infested, allowing up to two additional Infested Terran to be summoned.
+Button/Tooltip/Interceptor2=Builds Interceptors that automatically attack the Carrier's target. Carriers may not attack without Interceptors.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/MechBarrage=Stuns all enemies in a small area. Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageDamage,Amount"/></c> damage over <d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]"/> seconds in a larger area.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c><n/>
 Button/Tooltip/MechCalldownMech=Calls down the Pilot's Mech.
 Button/Tooltip/MechEmergencyEvac=Ejects the Pilot to safety, destroying the Mech. The Pilot can return to base to re-acquire another Mech.<n/><n/><c val="FF0000">WARNING: Resets your current level progress.</c>
 Button/Tooltip/MechMultiLockTargetingSystem=The hero can target ground and air units simultaneously.
 Button/Tooltip/MechPilot=Mech Evacuee.<n/><n/>Return to base to enter a new mech.
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
-Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that use automated defensive lasers to intercept enemy projectiles.
+Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that can each use automated defensive lasers to intercept enemy projectiles or repair friendly mechanical units by <d ref="Effect,MechPointDefenseLaserRepair,VitalArray[Life].ChangeFraction * 100"/>% every <d ref="Behavior,MechPointDefenseCooldown,Duration"/> seconds.
 Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShocking,PeriodCount * Effect,MechShockBlastDamage,Amount"/></c> damage to nearby enemies over <d ref="Behavior,MechShocked,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/PickupHunterPlasmaCanister=Powerful area of effect explosives. Damages ground and air units in the targeted area.
 Button/Tooltip/PsiStorm=Creates a storm of psionic energy that lasts 4 seconds, causing up to <c val="#ColorAttackInfo"><d ref="(Effect,WizardPsionicStormCreatePersistent,PeriodCount + 2) * Effect,WizardPsionicStormDamage,Amount"/></c> damage to all enemy units in the target area.
+Button/Tooltip/Repair2=Restores life to mechanical units and structures at the cost of resources.
 Button/Tooltip/ShipCloakingField=Cloaks self and friendly nearby units for <d ref="Behavior,ShipCloakField,Duration"/> seconds.
 Button/Tooltip/ShipDisablePrismaticAlignment=Deactivates the Prismatic Beam, restoring its original weapons.
 Button/Tooltip/ShipDisruptionWeb=Creates a web of energy on the ground that prevents enemy structures and ground units from attacking for <d ref="Effect,ShipDisruptionWebCreatePersistent,PeriodicPeriodArray[0] * Effect,ShipDisruptionWebCreatePersistent,PeriodCount"/> seconds and slows them by <d ref="1 - Behavior,ShipDisruptionWeb,Modification.MoveSpeedMultiplier * 100"/>%.
@@ -287,6 +343,13 @@ Button/Tooltip/SniperNuclearStrike=Calls down a Nuclear Strike at a target locat
 Button/Tooltip/SniperSnipe=A careful shot, dealing <c val="#ColorAttackInfo"><d ref="Effect,SniperSniperRoundDamage,Amount"/></c> (<c val="#ColorAttackInfo"><d ref="Effect,SniperSniperRoundDamage,Amount + Effect,SniperSniperRoundDamage,AttributeBonus[5]"/></c> vs. Psionic) damage.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c> <c val="#ColorAttackInfo">Can only target biological units.</c>
 Button/Tooltip/SniperToxicMunitions=This unit's projectiles are coated in a deadly toxin that deals <c val="#ColorAttackInfo"><d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Effect,SniperDeadlyToxinDamage,Amount"/></c> damage over <d ref="Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period"/> seconds to any enemy damaged by it for the first time.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/SniperWeaponsFree=Orders selected units to fire at will. They will engage enemy units within range and chase them as normal.
+Button/Tooltip/SwarmerEvolve=Evolves into Swarmer's ultimate form.
+Button/Tooltip/SwarmerMerge=Sacrifices 2 Swarmers to evolve into a stronger variant.
+Button/Tooltip/SwarmerMergeTarget=Sacrifices 2 Swarmers to create a more powerful Swarmer.
+Button/Tooltip/SwarmerSpawm=Lays an egg, resetting the unit's experience and spawning a new Swarmer after <d ref="Abil,SwarmerMorphtoSwarmer,InfoArray[0].SectionArray[Stats].DurationArray[Delay]"/> seconds.
+Button/Tooltip/SwarmerSplit=Splits the unit into two eggs, resetting its experience and each spawning a new Swarmer after <d ref="Abil,SwarmerMorphtoSwarmer,InfoArray[0].SectionArray[Stats].DurationArray[Duration]"/> seconds.
+Button/Tooltip/SwarmerSwarmerEgg=Spawns a Swarmer.
+Button/Tooltip/SwarmerSwarmerEggSpawn=Spawns a Swarmer.
 Button/Tooltip/VehicleAutomaticServos=The Vehicle's turret can fire while moving.
 Button/Tooltip/VehicleCancel=Cancels the current Lock On, and allows you to select a new target.
 Button/Tooltip/VehicleGraduatingRange=Increases the unit's range by 6 over 12 seconds while it remains immobile.
@@ -339,6 +402,18 @@ Effect/Name/AeroYamatoGunApplyBehavior=Yamato Gun
 Effect/Name/AeroYamatoGunDamage=Yamato Gun
 Effect/Name/AeroYamatoGunLaunchMissile=Yamato Gun
 Effect/Name/AeroYamatoGunSet=Yamato Gun
+Effect/Name/AlienClawsDamage=Claws
+Effect/Name/AlienClawsDamageHero=Claws
+Effect/Name/AlienMeleeHeroHydraliskSet=Melee
+Effect/Name/AlienNeedleSpinesHeroDamage=Needle Spines
+Effect/Name/AlienNeedleSpinesHeroLaunchMissile=Needle Spines
+Effect/Name/AlienParasiticHarvestApplyBehavior=Parasitic Harvest
+Effect/Name/AlienParasiticHarvestCreateUnit=Parasitic Harvest
+Effect/Name/AlienParasiticHarvestModifyUnit=Parasitic Harvest
+Effect/Name/AlienParasiticHarvestRemoveBehavior=Parasitic Harvest
+Effect/Name/AlienParasiticHarvestSearchArea=Parasitic Harvest
+Effect/Name/AlienParasiticHarvestSwitch=Parasitic Harvest
+Effect/Name/AlienParasiticHarvestTransferBehavior=Parasitic Harvest
 Effect/Name/BeaconGiveHeroGiveSet=Give Hero
 Effect/Name/BeaconGiveHeroModifyUnit=Give Hero
 Effect/Name/BeaconGiveHeroRemoveBehavior=Give Hero
@@ -347,6 +422,7 @@ Effect/Name/BeaconGiveHeroSet=Give Hero
 Effect/Name/CRPGAddExperience1=Add Experience
 Effect/Name/CRPGAddExperience12500=Add Experience
 Effect/Name/CRPGAddExperience15000=Add Experience
+Effect/Name/CRPGAddExperience50=Add Experience
 Effect/Name/CRPGAddExperience7500=Add Experience
 Effect/Name/CRPGControlArmoryApplyBehavior=Control Armory
 Effect/Name/CRPGControlCrashedBattlecruiserApplyBehavior=Control Crashed Battlecruiser
@@ -355,13 +431,14 @@ Effect/Name/CRPGGiveAttributeBaseAttributes=Give Attribute
 Effect/Name/CRPGGiveAttributeDamage=Give Attribute
 Effect/Name/CRPGGiveAttributeLevelCounter=Give Attribute
 Effect/Name/CRPGGiveAttributes=Give Attributes
-Effect/Name/CRPGHeroRadarApplyBehavior=Hero Radar
 Effect/Name/CRPGIncreaseLevelCounter=Increase Level Counter
+Effect/Name/CRPGLevelUpDummyVisuals=Level Up
 Effect/Name/CRPGLevelUpSet=Level Up
 Effect/Name/CRPGRecentlyDamagedApplyBehavior=Recently Damaged
 Effect/Name/CRPGTransferAttributes=Transfer Attributes
 Effect/Name/CRPGTransferKillsAttributes=Transfer Kills Attributes
 Effect/Name/CRPGTransferSelectionToSource=Transfer Selection To Source
+Effect/Name/CRPGTransferSelectionToTarget=Transfer Selection To Target
 Effect/Name/CRPGUpgradeArmor=Upgrade Armor
 Effect/Name/CRPGUpgradeDamage=Upgrade Damage
 Effect/Name/CRPGUpgradeEnergy=Upgrade Energy
@@ -412,54 +489,73 @@ Effect/Name/FighterShadowFuryTeleportSwitch=Shadow Fury
 Effect/Name/FighterSolariteReaperCleaveSet=Solarite Reaper
 Effect/Name/FighterSolariteReaperCreatePersistent=Solarite Reaper
 Effect/Name/FighterSolariteReaperDamage=Solarite Reaper
-Effect/Name/HunterAttackSwitchLevel4=Attack Switch
-Effect/Name/HunterDisruptorVolleyApplyCountBehavior=Disruptor Volley
+Effect/Name/HunterDisruptorVolleyApplyBehavior=Disruptor Volley
 Effect/Name/HunterDisruptorVolleyCreatePersistent=Disruptor Volley
 Effect/Name/HunterDisruptorVolleyDamage=Disruptor Volley
+Effect/Name/HunterDisruptorVolleyFreeSet=Disruptor Volley
+Effect/Name/HunterDisruptorVolleyIterateMagazine=Disruptor Volley
 Effect/Name/HunterDisruptorVolleyLaunchMissile=Disruptor Volley
 Effect/Name/HunterDisruptorVolleyProjectionCreatePersistent=Disruptor Volley
 Effect/Name/HunterDisruptorVolleyProjectionLaunchMissile=Disruptor Volley
 Effect/Name/HunterDisruptorVolleyProjectionSuicide=Disruptor Volley
 Effect/Name/HunterDisruptorVolleyRemoveBehavior=Disruptor Volley
 Effect/Name/HunterDisruptorVolleySet=Disruptor Volley
-Effect/Name/HunterParticleBeamDamage=Particle Beam
-Effect/Name/HunterParticleDisruptorsDamage=Particle Disruptors
-Effect/Name/HunterParticleDisruptorsLaunchMissile=Particle Disruptors
-Effect/Name/HunterParticleDisruptorsSet=Particle Disruptors
-Effect/Name/HunterPhaseDisruptorDamage=Phase Disruptor
-Effect/Name/HunterPhaseDisruptorLaunchMissile=Phase Disruptor
-Effect/Name/HunterPhaseDisruptorSet=Phase Disruptor
-Effect/Name/HunterPhaseDisruptorsDamage=Phase Disruptors
-Effect/Name/HunterPhaseDisruptorsSet=Phase Disruptors
+Effect/Name/HunterPlasmaChargeReduceCooldown=Plasma Charge
+Effect/Name/HunterPlasmaChargeRemoveBehavior=Plasma Charge
+Effect/Name/HunterPlasmaDiffusionApplyBehavior=Plasma Diffusion
+Effect/Name/HunterPlasmaDiffusionApplySubunitBehavior=Plasma Diffusion
+Effect/Name/HunterPlasmaDiffusionCreateUnit=Plasma Diffusion
 Effect/Name/HunterProjectionBeamCreatePersistent=Projection Beam
 Effect/Name/HunterProjectionBeamDamage=Projection Beam
 Effect/Name/HunterProjectionBeamSuicide=Projection Beam
 Effect/Name/HunterPsionicProjectionApplyCooldownBehavior=Psionic Projection
 Effect/Name/HunterPsionicProjectionApplyDisruptorCountBehavior=Psionic Projection
 Effect/Name/HunterPsionicProjectionCancel=Psionic Projection
-Effect/Name/HunterPsionicProjectionIterateMagazine=Psionic Projection
-Effect/Name/HunterPsionicProjectionSet=Psionic Projection
 Effect/Name/HunterPsionicProjectionStart=Psionic Projection
 Effect/Name/HunterPsionicProjectionSwitch=Psionic Projection
 Effect/Name/HunterPurifierGlaiveCannonDamage=Purifier Glaive Cannon
+Effect/Name/HunterPurifierGlaiveCannonIterateMagazine=Purifier Glaive Cannon
 Effect/Name/HunterPurifierGlaiveCannonLaunchMissile=Purifier Glaive Cannon
+Effect/Name/HunterPurifierGlaiveCannonPurifierLaunchMissile=Purifier Glaive Cannon
+Effect/Name/HunterPurifierGlaiveCannonPurifierSet=Purifier Glaive Cannon
 Effect/Name/HunterPurifierGlaiveCannonSet=Purifier Glaive Cannon
 Effect/Name/HunterScarabMineBurrowOrder=Scarab Mine
 Effect/Name/HunterScarabMineCreateUnit=Scarab Mine
+Effect/Name/HunterScarabMineCreationSet=Scarab Mine
+Effect/Name/HunterScarabMineFreeSet=Scarab Mine
 Effect/Name/HunterScarabMinesApplyBehavior=Scarab Mines
 Effect/Name/HunterScarabMinesDamage=Scarab Mines
 Effect/Name/HunterScarabMinesSearchArea=Scarab Mines
 Effect/Name/HunterScarabMinesSet=Scarab Mines
-Effect/Name/HunterScatterCannonCreatePersistent=Scatter Cannon
-Effect/Name/HunterScatterCannonDamage=Scatter Cannon
-Effect/Name/HunterScatterCannonDamageSet=Scatter Cannon
-Effect/Name/HunterScatterCannonLaunchMissile=Scatter Cannon
-Effect/Name/HunterScatterCannonLaunchMissilePrimary=Scatter Cannon
-Effect/Name/HunterScatterCannonLaunchMissileSet=Scatter Cannon
-Effect/Name/HunterScatterCannonSearchArea=Scatter Cannon
 Effect/Name/HunterShadowBlinkApplyBehavior=Shadow Blink
+Effect/Name/HunterShadowBlinkApplyHeroRadarBehavior=Shadow Blink
 Effect/Name/HunterShadowBlinkSet=Shadow Blink
 Effect/Name/HunterShadowBlinkTeleport=Shadow Blink
+Effect/Name/HunterShadowTransferApplyCasterBehavior=Shadow Transfer
+Effect/Name/HunterShadowTransferApplyHeroRadar=Shadow Transfer
+Effect/Name/HunterShadowTransferCancelKillDummy=Shadow Transfer
+Effect/Name/HunterShadowTransferCancelRemoveBehavior=Shadow Transfer
+Effect/Name/HunterShadowTransferCancelRemoveCasterBehavior=Shadow Transfer
+Effect/Name/HunterShadowTransferCancelSet=Shadow Transfer
+Effect/Name/HunterShadowTransferCreateUnit=Shadow Transfer
+Effect/Name/HunterShadowTransferFreeSet2=Shadow Transfer
+Effect/Name/HunterShadowTransferInitialSet=Shadow Transfer
+Effect/Name/HunterShadowTransferRemoveDisablesFungalGrowth=Shadow Transfer
+Effect/Name/HunterShadowTransferRemoveDisablesFungalGrowthSpeed=Shadow Transfer
+Effect/Name/HunterShadowTransferRemoveDisablesGravitonBeam=Shadow Transfer
+Effect/Name/HunterShadowTransferRemoveDisablesMothershipRecalled=Shadow Transfer
+Effect/Name/HunterShadowTransferRemoveDisablesMothershipRecalling=Shadow Transfer
+Effect/Name/HunterShadowTransferRemoveDisablesNeuralParasite=Shadow Transfer
+Effect/Name/HunterShadowTransferRemoveDisablesSet=Shadow Transfer
+Effect/Name/HunterShadowTransferRemoveHeroRadar=Shadow Transfer
+Effect/Name/HunterShadowTransferSpawnApplyBehavior=Shadow Transfer
+Effect/Name/HunterShadowTransferSpawnApplyTimerBehavior=Shadow Transfer
+Effect/Name/HunterShadowTransferSpawnIssueOrder=Shadow Transfer
+Effect/Name/HunterShadowTransferSpawnSet=Shadow Transfer
+Effect/Name/HunterShadowTransferTeleport=Shadow Transfer
+Effect/Name/HunterShadowTransferTeleportOrderQueue=Shadow Transfer
+Effect/Name/HunterShadowTransferTeleportSelect=Shadow Transfer
+Effect/Name/HunterShadowTransferTeleportSet=Shadow Transfer
 Effect/Name/InfestedAberrateApplyBehavior=Aberrate
 Effect/Name/InfestedAberrateCreateSet=Aberrate
 Effect/Name/InfestedAberrateCreateUnit=Aberrate
@@ -553,10 +649,14 @@ Effect/Name/MechJavelinMissileLaunchersLaunchMissile=Javelin Missile Launchers
 Effect/Name/MechMeleeDamage=Melee
 Effect/Name/MechPointDefenseLaserApplyBehavior=Point Defense Laser
 Effect/Name/MechPointDefenseLaserDamage=Point Defense Laser
-Effect/Name/MechPointDefenseLaserSearch=Point Defense Laser
-Effect/Name/MechPointDefenseLaserSet=Point Defense Laser
+Effect/Name/MechPointDefenseLaserDamageSearch=Point Defense Laser
+Effect/Name/MechPointDefenseLaserDamageSet=Point Defense Laser
+Effect/Name/MechPointDefenseLaserRepair=Point Defense Laser
+Effect/Name/MechPointDefenseLaserRepairSearch=Point Defense Laser
+Effect/Name/MechPointDefenseLaserRepairSet=Point Defense Laser
 Effect/Name/MechRailgunDamage=Railgun
 Effect/Name/MechRailgunMissile=Railgun
+Effect/Name/MechRepair=Repair
 Effect/Name/MechShockBlastApplyBehaviorShocked=Shock Blast
 Effect/Name/MechShockBlastApplyBehaviorShocking=Shock Blast
 Effect/Name/MechShockBlastCreatePersistent=Shock Blast
@@ -566,6 +666,10 @@ Effect/Name/MechShockBlastSet=Shock Blast
 Effect/Name/MechThorsHammerCreatePersistent=Thor's Hammer
 Effect/Name/MechThorsHammerDamage=Thor's Hammer
 Effect/Name/MechTwinAutocannonsDamage=Twin Autocannons
+Effect/Name/NeedleSpinesDamage=Melee
+Effect/Name/PickupHunterPlasmaApplyBehavior=Pickup Hunter Plasma
+Effect/Name/PickupHunterPlasmaSet=Pickup Hunter Plasma
+Effect/Name/PointDefenseLaserCreatePersistent=Point Defense Laser
 Effect/Name/RapidStrikesApplyBehavior=Rapid Strikes
 Effect/Name/ShipAntiMatterMissilesCreatePersistent=Anti-Matter Missiles
 Effect/Name/ShipAntiMatterMissilesDamage=Anti-Matter Missiles
@@ -615,6 +719,29 @@ Effect/Name/SniperNuclearStrikeDetonate=Nuclear Strike
 Effect/Name/SniperNuclearStrikePersistent=Nuclear Strike
 Effect/Name/SniperSniperRoundDamage=Sniper Round
 Effect/Name/SniperWeaponsFree=Weapons Free
+Effect/Name/SwarmerBiteLevel4Damage=Bite
+Effect/Name/SwarmerClawsLevel1Damage=Claws
+Effect/Name/SwarmerClawsLevel2Damage=Claws
+Effect/Name/SwarmerClawsLevel3Damage=Claws
+Effect/Name/SwarmerEvolveSet=Evolve
+Effect/Name/SwarmerLayCreateEgg=Lay
+Effect/Name/SwarmerLaySet=Lay
+Effect/Name/SwarmerReduceExperience=Reduce Experience
+Effect/Name/SwarmerSpawnCreateEgg=Spawn
+Effect/Name/SwarmerSpawnImpactSet=Spawn
+Effect/Name/SwarmerSpawnInitialSet=Spawn
+Effect/Name/SwarmerSpawnIssueOrder=Spawn
+Effect/Name/SwarmerSpawnLaunchMissile=Spawn
+Effect/Name/SwarmerSpawnSwitch=Spawn
+Effect/Name/SwarmerSpawnUltimateApplySuppressorBehavior=Spawn
+Effect/Name/SwarmerSpawnUltimateCreateEgg=Spawn
+Effect/Name/SwarmerSpawnUltimateCreatePersistent=Spawn
+Effect/Name/SwarmerSpawnUltimateInitialSet=Spawn
+Effect/Name/SwarmerSpawnUltimateIssueOrder=Spawn
+Effect/Name/SwarmerSpawnUltimateIterateMagazine=Spawn
+Effect/Name/SwarmerSplitCreateLeftEgg=Split
+Effect/Name/SwarmerSplitCreateRightEgg=Split
+Effect/Name/SwarmerSplitSet=Split
 Effect/Name/TransferKillsToSource=Transfer Kills To Source
 Effect/Name/VehicleArcliteCannonDamage=Arclite Cannon
 Effect/Name/VehicleCrucioShockCannonBlast=Crucio Shock Cannon
@@ -649,7 +776,6 @@ Effect/Name/VehicleTyphoonMissilePodLaunchMissileLeftSet=Typhoon Missile Pod
 Effect/Name/VehicleTyphoonMissilePodLaunchMissileRight=Typhoon Missile Pod
 Effect/Name/VehicleTyphoonMissilePodLaunchMissileRightSet=Typhoon Missile Pod
 Effect/Name/VehicleTyphoonMissilePodLaunchMissileSwitch=Typhoon Missile Pod
-Effect/Name/VoidArchonShockAttackApply2=Void Archon Shock Attack (Apply) Copy
 Effect/Name/WizardAgonizingBlastDamage=Agonizing Blast
 Effect/Name/WizardAgonizingBlastLaunchMissile=Agonizing Blast
 Effect/Name/WizardChaoticTorretDamage=Chaotic Torret
@@ -713,12 +839,16 @@ RequirementNode/Tooltip/CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit38411307
 RequirementNode/Tooltip/CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428=Near Crashed Battlecruiser
 RequirementNode/Tooltip/CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055=Near summoner
 RequirementNode/Tooltip/GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGLevelCounterCompleteOnlyAtUnit=Correct Level
+RequirementNode/Tooltip/GTE1254047826CountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit10=10 Plasma Charges
 RequirementNode/Tooltip/GTE142027770CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5=Level 5
 RequirementNode/Tooltip/GTE1845366357CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit4=Level 4
 RequirementNode/Tooltip/GTE2494718353CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit3=Level 3
 RequirementNode/Tooltip/GTE2832794247CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit1=Level 1
-RequirementNode/Tooltip/GTE3137215414CountBehaviorHunterDisruptorVolleyCounterCompleteOnlyAtUnit10=Attack 4 times
+RequirementNode/Tooltip/GTE3553322166CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2=Correct Level
 RequirementNode/Tooltip/GTE774336177CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit2=Level 2
+RequirementNode/Tooltip/GTE774336177CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2=Level 2
+RequirementNode/Tooltip/LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8=Carrier must have fewer than 8 Interceptors
+RequirementNode/Tooltip/LT3608225112SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterCountUnitSwarmerSwarmerEggSpawnQueuedOrBetterMulCountUnitCRPGSw3625105664=Less than 8 Swarmers
 RequirementNode/Tooltip/LT3618176718CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5=Not maximum level
 RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=Not Infested
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
@@ -727,12 +857,18 @@ RequirementNode/Tooltip/Or1799048625LTSumCountUnitInfestedInfestedCivilianQueued
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/AlienUnits=Alien Units
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGHeroes=Crash RPG Heroes
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGUnits=Crash RPG Units
-Unit/Category/AlienUnits=Alien
+Unit/Category/AlienUnits=Alien Units
 Unit/Category/CrashRPGHeroes=Crash RPG Heroes
 Unit/Category/CrashRPGUnits=Crash RPG Units
+Unit/InfoText/AlienHarvestMinerals=Use any ground unit to collect 100 minerals.
+Unit/LifeArmorName/None=
 Unit/LifeArmorName/ProtossArmor=Protoss Armor
+Unit/LifeArmorName/ZergGroundArmor=Zerg Ground Carapace
 Unit/Name/Alien=Alien
+Unit/Name/AlienHarvestMinerals=Harvest Minerals
+Unit/Name/Baneling=Alien
 Unit/Name/Beacon_Terranmedium=Beacon
+Unit/Name/Brutalisk=Alien
 Unit/Name/Bunker=Defensive Bunker
 Unit/Name/CRPGAero=Aero
 Unit/Name/CRPGAeroLevel1=Aero
@@ -741,6 +877,9 @@ Unit/Name/CRPGAeroLevel3=Aero
 Unit/Name/CRPGAeroLevel42=Aero
 Unit/Name/CRPGAeroLevel5=Aero
 Unit/Name/CRPGAlien=Alien
+Unit/Name/CRPGAlienHeroHunterling=Zergling
+Unit/Name/CRPGAlienHeroHydralisk=Hydralisk
+Unit/Name/CRPGAlienLevel1Drone=Drone
 Unit/Name/CRPGArmory=Armory
 Unit/Name/CRPGCivilian=Civilian
 Unit/Name/CRPGCrashedBattlecruiser=Crashed Battlecruiser
@@ -753,6 +892,11 @@ Unit/Name/CRPGInfested=Infested
 Unit/Name/CRPGMech=Mech
 Unit/Name/CRPGShip=Ship
 Unit/Name/CRPGSniper=Sniper
+Unit/Name/CRPGSwarmerLevel1=Swarmer
+Unit/Name/CRPGSwarmerLevel2=Swarmer
+Unit/Name/CRPGSwarmerLevel3=Swarmer
+Unit/Name/CRPGSwarmerLevel4=Swarmer
+Unit/Name/CRPGSwarmerLevel5=Swarmer
 Unit/Name/CRPGVehicle=Vehicle
 Unit/Name/CRPGWizard=Wizard
 Unit/Name/CRPGWizardLevel3=Wizard
@@ -760,6 +904,10 @@ Unit/Name/CRPGWizardLevel5=Wizard
 Unit/Name/CreepTumorUsed=Alien
 Unit/Name/DevourerMP=Alien
 Unit/Name/GuardianMP=Alien
+Unit/Name/HotSHunter=Alien
+Unit/Name/HotSRaptor=Alien
+Unit/Name/HotSSplitterlingBig=Alien
+Unit/Name/HotSSwarmling=Alien
 Unit/Name/HunterPsionicProjection=Psionic Projection
 Unit/Name/HunterScarabMine=Scarab Mine
 Unit/Name/InfestationSpore=Infestation Spore
@@ -778,30 +926,35 @@ Unit/Name/MechRailgunWeapon=Railgun
 Unit/Name/MissileTurret=Defensive Turret
 Unit/Name/Mutalisk=Alien
 Unit/Name/NydusNetwork=Nydus Network
+Unit/Name/PickupHunterPlasmaCanister=Plasma Canister
 Unit/Name/ScatterCannonMissile=Scatter Cannon
 Unit/Name/SniperLevel4=Sniper
 Unit/Name/SupplyDepot=Defensive Wall
 Unit/Name/SupplyDepotLowered=Defensive Wall
+Unit/Name/SwarmerSwarmerEgg=Swarmer Egg
+Unit/Name/SwarmerSwarmerEggSpawn=Swarmer Egg
+Unit/Name/SwarmerSwarmerSpawn=Swarmer
 Unit/Name/VehicleFragmentationGrenadeWeapon=Fragmentation Grenade
 Unit/Name/VehicleGaussCannonWeapon=Gauss Cannon
 Unit/Name/VehicleTyphoonMissilePodWeapon=Typhoon Missile Pod
 Unit/Name/WeaponDisruptorVolleyHunter=Disruptor Volley
 Unit/Name/WeaponEmpathicRepercussion=Empathic Repercussion
+Unit/Name/WeaponPurifierGlaiveCannon=Purifier Glaive Cannon
 Unit/ShieldArmorName/ProtossPlasmaShields=Protoss Plasma Shields
+UnitSubtitle/CRPGSwarmerLevel1=Raptor Strain
 Variant002/ModeDesc=All settings may be customized.
 Weapon/Name/AeroArmageddonCannons=Armageddon Cannons
 Weapon/Name/AeroLaserBatteryATA=Laser Battery
 Weapon/Name/AeroLaserbatteryATS=Laser battery
 Weapon/Name/AeroYamatoGun=Yamato Gun
+Weapon/Name/AlienClawsHero=Claws
+Weapon/Name/AlienClawsHeroDrone=Claws
+Weapon/Name/AlienMeleeHeroHydralisk=Melee
+Weapon/Name/AlienNeedleSpinesHero=Needle Spines
 Weapon/Name/DevourerMPWeapon=Corrosive Acid
 Weapon/Name/FighterPsiBlades=Psi Blades
 Weapon/Name/FighterSolariteReaper=Solarite Reaper
 Weapon/Name/HunterDisruptorVolleyFour=Disruptor Volley
-Weapon/Name/HunterDisruptorVolleyTwo=Disruptor Volley
-Weapon/Name/HunterParticleBeam=Particle Beam
-Weapon/Name/HunterParticleDisruptors=Particle Disruptors
-Weapon/Name/HunterPhaseDisruptor=Phase Disruptor
-Weapon/Name/HunterPhaseDisruptors=Phase Disruptors
 Weapon/Name/HunterProjectionBeam=Projection Beam
 Weapon/Name/HunterPurifierGlaiveCannon=Purifier Glaive Cannon
 Weapon/Name/HunterScarabMines=Scarab Mines
@@ -821,6 +974,7 @@ Weapon/Name/MechRailgun=Railgun
 Weapon/Name/MechThorsHammer=Thor's Hammer
 Weapon/Name/MechTwinAutocannons=Twin Autocannons
 Weapon/Name/PointDefenseLaserMech=Point Defense Laser
+Weapon/Name/PurifierGlaiveCannonPurifier=Purifier Glaive Cannon
 Weapon/Name/ShipAntiMatterMissiles=Anti-Matter Missiles
 Weapon/Name/ShipNeutronFlare=Neutron Flare
 Weapon/Name/ShipPhotonBlaster=Photon Blaster
@@ -830,6 +984,12 @@ Weapon/Name/ShipPurifierBeam=Purifier Beam
 Weapon/Name/ShipWarpspaceCannon=Warpspace Cannon
 Weapon/Name/SniperC10CanisterRifle=C-10 Canister Rifle
 Weapon/Name/SniperC20ACanisterRifle=C-20A Canister Rifle
+Weapon/Name/SwarmSpawnLevel5=Spawn
+Weapon/Name/SwarmeBiteLevel4=Bite
+Weapon/Name/SwarmerClawsLevel1=Claws
+Weapon/Name/SwarmerClawsLevel2=Claws
+Weapon/Name/SwarmerClawsLevel3=Claws
+Weapon/Name/SwarmerSpawn=Spawn
 Weapon/Name/VehicleArcliteCannon=Arclite Cannon
 Weapon/Name/VehicleCrucioShockCannon=Crucio Shock Cannon
 Weapon/Name/VehicleEvisceratorRailGun=Eviscerator Rail Gun

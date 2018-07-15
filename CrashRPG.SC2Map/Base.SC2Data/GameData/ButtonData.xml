@@ -1,39 +1,105 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CButton id="AlienMorphDrone">
+    <CButton id="HunterPlasmaDiffusion">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="Interceptor2">
+        <Icon value="Assets\Textures\btn-unit-protoss-interceptor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-protoss-interceptor.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="Repair2">
+        <Icon value="Assets\Textures\btn-ability-terran-repair.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-repair.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="SwarmerMergeSelected">
+        <Tooltip value="Button/Tooltip/SwarmerMerge"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+        <AlertTooltip value="Button/Tooltip/SwarmerMerge"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="SwarmerEvolve">
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+        <EditorCategories value="Race:PrimalZerg"/>
+        <HotkeyAlias value="SwarmerMergeSelected"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="SwarmerMergeTarget">
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="HunterShadowTransfer">
+        <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="AlienEvolution">
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienHarvesterForm">
         <Icon value="Assets\Textures\btn-unit-zerg-drone.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-drone.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="AlienMorphPygalisk">
+    <CButton id="AlienParasiticHarvest">
+        <Icon value="Assets\Textures\btn-doodad-minerals.dds"/>
+        <AlertIcon value="Assets\Textures\btn-doodad-minerals.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienTankForm">
         <Icon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-ultralisk.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="AlienMorphHydralisk">
+    <CButton id="AlienAssaultForm">
         <Icon value="Assets\Textures\btn-unit-zerg-hydralisk.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-hydralisk.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="AlienMorphRoach">
+    <CButton id="AlienBruiserForm">
         <Icon value="Assets\Textures\btn-unit-zerg-roach.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-roach.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="AlienMorphHunterling">
+    <CButton id="AlienLeaperForm">
         <Icon value="Assets\Textures\btn-unit-zerg-brutalisk.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-brutalisk.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="AlienMorphRavager">
+    <CButton id="AlienSiegeForm">
         <Icon value="Assets\Textures\btn-unit-zerg-ravager.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-ravager.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="AlienMorphQueen">
+    <CButton id="AlienSupportForm">
         <Icon value="Assets\Textures\btn-unit-zerg-queen.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-queen.dds"/>
         <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienMetamorphosis">
+        <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="BlightbringerCreateEggs"/>
+    </CButton>
+    <CButton id="SwarmerSplit">
+        <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <EditorCategories value="Race:PrimalZerg"/>
+    </CButton>
+    <CButton id="SwarmerSpawm">
+        <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <EditorCategories value="Race:PrimalZerg"/>
     </CButton>
     <CButton id="UpgradeEnergy">
         <Tooltip value="Button/Tooltip/CRPGEnergyAttribute"/>
@@ -326,7 +392,6 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <EditorCategories value="Race:Neutral"/>
-        <HotkeyAlias value="UpgradeDamage"/>
         <Tooltip value="Button/Tooltip/CRPGArmorAttribute"/>
         <AlertTooltip value="Button/Tooltip/CRPGArmorAttribute"/>
     </CButton>

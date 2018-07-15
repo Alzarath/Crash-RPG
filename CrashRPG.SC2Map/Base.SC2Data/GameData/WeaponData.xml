@@ -1,5 +1,122 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CWeaponLegacy id="PurifierGlaiveCannonPurifier">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="HunterPurifierGlaiveCannonDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <Period value="2"/>
+        <Effect value="HunterPurifierGlaiveCannonPurifierSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AlienClawsHero">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="AlienClawsDamageHero"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="HotSZerglingClaws"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AlienClawsHeroDrone">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <DisplayEffect value="AlienClawsDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.5"/>
+        <Effect value="AlienClawsDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AlienMeleeHeroHydralisk">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.5"/>
+        <Marker Link="Weapon/NeedleSpines"/>
+        <Cost>
+            <Cooldown Link="Weapon/NeedleSpines"/>
+        </Cost>
+        <Period value="0.83"/>
+        <DamagePoint value="0.3"/>
+        <Effect value="AlienMeleeHeroHydraliskSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AlienNeedleSpinesHero">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="AlienNeedleSpinesHeroDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="0.83"/>
+        <DamagePoint value="0.208"/>
+        <Effect value="AlienNeedleSpinesHeroLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmerSpawn">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Options index="Hidden" value="1"/>
+        <Icon value="Assets\Textures\btn-unit-collection-primal-zergling.dds"/>
+        <DisplayEffect value="SwarmerClawsLevel1Damage"/>
+        <TargetFilters value="Visible;Air,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="8"/>
+        <Arc value="360"/>
+        <Period value="0.5"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <Effect value=""/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmSpawnLevel5">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <DisplayEffect value="SwarmerBiteLevel4Damage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="SwarmerSpawnUltimateCreateEgg"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmerClawsLevel1">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-dehaka-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SwarmerClawsLevel1Damage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="SwarmerClawsLevel1Damage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmerClawsLevel2">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-dehaka-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SwarmerClawsLevel2Damage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="SwarmerClawsLevel2Damage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmerClawsLevel3">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-dehaka-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SwarmerClawsLevel3Damage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="SwarmerClawsLevel3Damage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SwarmeBiteLevel4">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-dehaka-meleeattacks-level0.dds"/>
+        <DisplayEffect value="SwarmerBiteLevel4Damage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.696"/>
+        <Effect value="SwarmerBiteLevel4Damage"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="WizardChaoticTorrent">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -96,21 +213,6 @@
         <LegacyOptions index="Uninterruptible" value="1"/>
         <UninterruptibleDuration value="0.8"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="HunterDisruptorVolleyTwo">
-        <EditorCategories value="Race:Protoss"/>
-        <Options index="Disabled" value="1"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <DisplayEffect value="HunterDisruptorVolleyDamage"/>
-        <DisplayAttackCount value="2"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="10"/>
-        <Marker Link="Weapon/HunterDisruptorVolley4"/>
-        <Cost>
-            <Cooldown Link="Weapon/HunterDisruptorVolley4"/>
-        </Cost>
-        <Period value="2"/>
-        <Effect value="HunterDisruptorVolleyProjectionCreatePersistent"/>
-    </CWeaponLegacy>
     <CWeaponLegacy id="HunterProjectionBeam">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -183,15 +285,6 @@
         <AllowedMovement value="Slowing"/>
         <RandomDelayMin value="0"/>
         <RandomDelayMax value="0"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="HunterPhaseDisruptor">
-        <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <DisplayEffect value="HunterPhaseDisruptorDamage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="6"/>
-        <Period value="2"/>
-        <Effect value="HunterPhaseDisruptorSet"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestedCivilianInfestedClaws">
         <EditorCategories value="Race:Zerg"/>
@@ -284,7 +377,7 @@
         <Cost>
             <Cooldown Link="Weapon/PsiBlades"/>
         </Cost>
-        <Period value="1.2"/>
+        <Period value="1.25"/>
         <DamagePoint value="0"/>
         <Effect value="FighterSolariteReaperCleaveSet"/>
     </CWeaponLegacy>
@@ -299,32 +392,6 @@
         <Period value="1.2"/>
         <DamagePoint value="0"/>
         <Effect value="FighterPsiBladesCreatePersistent"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="HunterParticleDisruptors">
-        <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <DisplayEffect value="HunterParticleDisruptorsDamage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="6"/>
-        <Period value="2"/>
-        <Effect value="HunterParticleDisruptorsSet"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="HunterParticleBeam">
-        <EditorCategories value="Race:Protoss"/>
-        <Options index="Melee" value="1"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <DisplayEffect value="HunterParticleBeamDamage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="6"/>
-        <Period value="2"/>
-        <Effect value="HunterParticleBeamDamage"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="HunterPhaseDisruptors" parent="PhaseDisruptors">
-        <Name value="Weapon/Name/HunterPhaseDisruptors"/>
-        <DisplayEffect value="HunterPhaseDisruptorsDamage"/>
-        <Effect value="HunterPhaseDisruptorsSet"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="2"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShipAntiMatterMissiles">
         <EditorCategories value="Race:Protoss"/>
@@ -393,7 +460,7 @@
         <Period value="0"/>
         <DamagePoint value="0"/>
         <Backswing value="0"/>
-        <Effect value="MechPointDefenseLaserSet"/>
+        <Effect value="MechPointDefenseLaserDamageSet"/>
         <LegacyOptions index="FaceTargetWhileInCooldown" value="0"/>
         <AllowedMovement value="Moving"/>
         <RandomDelayMin value="0"/>

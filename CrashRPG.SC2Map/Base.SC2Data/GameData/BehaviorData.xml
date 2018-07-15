@@ -1,8 +1,151 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CBehaviorBuff id="HunterPlasmaCanisterFate" parent="TimedLife">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-explode.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="30"/>
+        <KillCredit Value="Unknown"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterPlasmaDiffusionSubunit">
+        <Cost>
+            <Charge Link="Behavior/HunterPlasmaDiffusion"/>
+            <Cooldown Link="Behavior/HunterPlasmaDiffusion"/>
+        </Cost>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <DisableValidatorArray value="HunterCasterHasPlasmaDiffusion"/>
+        <DamageResponse Chance="1" Handled="HunterPlasmaDiffusionApplyBehavior" Location="Attacker"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterPlasmaSeared">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\wireframe-general-pickupplasmarounds.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Duration value="5"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="HunterPlasmaDiffusionCreateUnit"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterPlasmaCharge">
+        <Cost>
+            <Cooldown TimeStart="10" TimeUse="10"/>
+        </Cost>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <MaxStackCount value="10"/>
+        <RefreshEffect value="HunterPlasmaChargeReduceCooldown"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterPlasmaDiffusion">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <DamageResponse Chance="1" Handled="HunterPlasmaDiffusionApplyBehavior" Location="Attacker"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedInfestedEggTimedLife2" parent="TimedLife">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <ExpireEffect value="InfestedInfestedCivilianIssueOrder"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGVeterancySuppressor">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Neutral"/>
+        <Modification>
+            <BehaviorClassDisableArray index="CBehaviorVeterancy" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwarmerPrecursorSwarmer">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stun" value="1"/>
+            <StateFlags index="NoDraw" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+            <StateFlags index="Unselectable" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwarmerEggAnimation" parent="SwarmHostEggAnimationDefault">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Duration value="23"/>
+    </CBehaviorBuff>
+    <CBehaviorVeterancy id="SwarmerHeroVeterancy">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Flags index="CombineNumericModifications" value="0"/>
+        <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
+        <XPFraction index="Kills" value="10"/>
+        <SharedXPRadius index="Kills" value="20"/>
+        <SharedXPFraction index="Kills" value="0.25"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="CRPGMineralReward">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterDisruptorVolley">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Modification>
+            <WeaponEnableArray value="HunterDisruptorVolleyFour"/>
+            <WeaponDisableArray value="HunterPurifierGlaiveCannon"/>
+            <WeaponDisableArray value="PurifierGlaiveCannonPurifier"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterShadowTransfer">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Modification MoveSpeedBonus="1.75">
+            <StateFlags index="Benign" value="1"/>
+            <StateFlags index="Passive" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="SuppressPassenger" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterShadowTransferCaster">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <DisableValidatorArray value="NotBeingAbducted"/>
+        <DisableValidatorArray value="KD8CasterKnockingBack"/>
+        <Duration value="8.0625"/>
+        <FinalEffect value="HunterShadowTransferCancelRemoveBehavior"/>
+        <ExpireEffect value="HunterShadowTransferCancelRemoveBehavior"/>
+        <Modification>
+            <StateFlags index="Cloak" value="1"/>
+            <StateFlags index="SuppressPassenger" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="HunterShadowTransferTimer">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Neutral" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <DisableValidatorArray value="CasterNotAbducted"/>
+        <DisableValidatorArray value="KD8CasterKnockingBack"/>
+        <RemoveValidatorArray value="CasterNotDead"/>
+        <RemoveValidatorArray value="CasterIsNotShadowTransferring"/>
+        <Duration value="8"/>
+        <FinalEffect value="HunterShadowTransferCancelSet"/>
+        <ExpireEffect value="HunterShadowTransferTeleportSet"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienParasiticHarvest">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
+        <DamageResponse Chance="1" Handled="AlienParasiticHarvestApplyBehavior" Location="Attacker"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienParasiticHarvest2">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
+        <MaxStackCount value="250"/>
+        <Duration value="60"/>
+        <DamageResponse Chance="1" Fatal="1" Handled="AlienParasiticHarvestSwitch"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienSpeedBuff">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorAttribute id="CRPGArmorAttributeUnit">
         <MinPoints value="-2"/>
-        <Modification LifeArmorBonus="0.1" ShieldArmorBonus="0.1"/>
+        <Modification LifeArmorBonus="0.125" ShieldArmorBonus="0.125"/>
     </CBehaviorAttribute>
     <CBehaviorAttribute id="CRPGEnergyAttribute">
         <MinPoints value="-2"/>
@@ -24,6 +167,21 @@
         <DamageResponse Chance="1" Handled="CRPGRecentlyDamagedApplyBehavior"/>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="CarryHarvestMineralsMinerals">
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorResource id="MineralsHarvestMinerals">
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\icon-mineral.dds"/>
+        <Capacity value="2000"/>
+        <Contents value="1"/>
+        <HarvestTime value="2.786"/>
+        <HarvestAmount value="5"/>
+        <Flags index="RemoveWhenEmpty" value="1"/>
+        <ReturnDelay value="0.5"/>
+        <ExhaustedAlert value="ResourceExhausted_Mineral"/>
+        <CarryResourceBehavior value="CarryHarvestMineralsMinerals"/>
+    </CBehaviorResource>
     <CBehaviorBuff id="WizardConfusion">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-confusion.dds"/>
@@ -349,33 +507,12 @@
             </Cost>
         </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterDisruptorVolleyController">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Requirements value="HunterDisruptorVolleyAvailable"/>
-        <Modification>
-            <WeaponEnableArray value="HunterDisruptorVolleyTwo"/>
-            <WeaponEnableArray value="HunterDisruptorVolleyFour"/>
-            <WeaponDisableArray value="HunterPhaseDisruptor"/>
-            <WeaponDisableArray value="HunterPhaseDisruptors"/>
-            <WeaponDisableArray value="HunterProjectionBeam"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="HunterDisruptorVolleyCounter">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <MaxStackCount value="10"/>
-        <DamageResponse Chance="1" Handled="HunterDisruptorVolleyApplyCountBehavior" Location="Attacker">
-            <RequireEffectArray value="HunterPhaseDisruptorDamage"/>
-            <RequireEffectArray value="HunterPhaseDisruptorsDamage"/>
-        </DamageResponse>
-    </CBehaviorBuff>
     <CBehaviorBuff id="HunterPsionicProjectionBase">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
         <DisableValidatorArray value="HunterPsionicProjectionMax"/>
-        <Period value="1"/>
+        <Period value="0.25"/>
         <PeriodicEffect value="HunterPsionicProjectionApplyCooldownBehavior"/>
         <Modification>
             <AbilLinkDisableArray value="Queue2"/>
@@ -383,9 +520,9 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="HunterPsionicProjectionCooldown">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="5.01"/>
+        <Duration value="3.0625"/>
         <Cost>
-            <Cooldown TimeStart="5"/>
+            <Cooldown TimeStart="3"/>
         </Cost>
         <InfoFlags index="Hidden" value="1"/>
         <RemoveValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
@@ -741,8 +878,8 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <DisableValidatorArray value="MechPointDefenseNotOnCooldown"/>
-        <Period value="0.0625"/>
-        <PeriodicEffect value="MechPointDefenseLaserSearch"/>
+        <Period value="0.125"/>
+        <PeriodicEffect value="PointDefenseLaserCreatePersistent"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MechPointDefenseCooldown">
         <InfoFlags index="Hidden" value="1"/>
@@ -856,11 +993,11 @@
     </CBehaviorAttribute>
     <CBehaviorAttribute id="CRPGArmorAttribute">
         <MinPoints value="-2"/>
-        <Modification LifeArmorBonus="0.2" ShieldArmorBonus="0.2"/>
+        <Modification LifeArmorBonus="0.25" ShieldArmorBonus="0.25"/>
     </CBehaviorAttribute>
     <CBehaviorBuff id="CRPGLevelCounter">
         <InfoFlags index="Hidden" value="1"/>
-        <MaxStackCount value="5"/>
+        <MaxStackCount value="7"/>
         <Modification>
             <AttributeChangeArray Attribute="CRPGArmorAttribute" Points="2"/>
             <AttributeChangeArray Attribute="CRPGArmorAttributeUnit" Points="2"/>

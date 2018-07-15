@@ -1,8 +1,482 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectSet id="CRPGLevelUpDummyVisuals"/>
+    <CEffectApplyBehavior id="HunterPlasmaDiffusionApplySubunitBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="HunterPlasmaDiffusionSubunit"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="HunterScarabMineCreationSet">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/HunterScarabMineFreeSet"/>
+        <EffectArray value="HunterPlasmaDiffusionApplySubunitBehavior"/>
+        <EffectArray value="CRPGTransferKillsAttributes"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectSet id="HunterShadowTransferFreeSet2">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterPlasmaChargeRemoveBehavior"/>
+        <EffectArray value="HunterShadowTransferInitialSet"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="HunterPlasmaChargeReduceCooldown">
+        <EditorCategories value="Race:Protoss"/>
+        <Cost Behavior="HunterPlasmaCharge" CooldownTimeUse="1"/>
+    </CEffectModifyUnit>
+    <CEffectRemoveBehavior id="HunterPlasmaChargeRemoveBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="HunterPlasmaCharge"/>
+    </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="HunterPlasmaDiffusionApplyBehavior">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="HunterPlasmaSeared"/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="HunterPlasmaDiffusionCreateUnit">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <SpawnOwner Value="Caster"/>
+        <SpawnUnit value="PickupHunterPlasmaCanister"/>
+    </CEffectCreateUnit>
+    <CEffectEnumMagazine id="HunterPurifierGlaiveCannonIterateMagazine">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <EffectExternal value="HunterProjectionBeamCreatePersistent"/>
+    </CEffectEnumMagazine>
+    <CEffectLaunchMissile id="HunterPurifierGlaiveCannonPurifierLaunchMissile">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="HunterPurifierGlaiveCannonDamage"/>
+        <AmmoUnit value="WeaponPurifierGlaiveCannon"/>
+        <Movers Link="AdeptWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectModifyUnit id="CRPGTransferSelectionToTarget">
+        <SelectTransferUnit Value="Target"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="HunterPurifierGlaiveCannonPurifierSet">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/HunterPurifierGlaiveCannonSet"/>
+        <EffectArray value="HunterPurifierGlaiveCannonPurifierLaunchMissile"/>
+        <EffectArray value="HunterPurifierGlaiveCannonIterateMagazine"/>
+    </CEffectSet>
+    <CEffectSet id="HunterScarabMineFreeSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterPlasmaChargeRemoveBehavior"/>
+        <EffectArray value="HunterScarabMineCreateUnit"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectSet id="HunterDisruptorVolleyFreeSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterPlasmaChargeRemoveBehavior"/>
+        <EffectArray value="HunterDisruptorVolleyApplyBehavior"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="MechPointDefenseLaserRepair">
+        <EditorCategories value="Race:Terran"/>
+        <VitalArray index="Life" ChangeFraction="0.02"/>
+    </CEffectModifyUnit>
+    <CEffectEnumArea id="MechPointDefenseLaserRepairSearch">
+        <EditorCategories value="Race:Terran"/>
+        <SearchFilters value="Mechanical,Visible;Self,Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="8" Effect="MechPointDefenseLaserRepairSet"/>
+        <MaxCount value="1"/>
+    </CEffectEnumArea>
+    <CEffectSet id="MechPointDefenseLaserRepairSet">
+        <ValidatorArray value="LifeLTE98"/>
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="MechPointDefenseLaserRepair"/>
+        <EffectArray value="MechPointDefenseLaserApplyBehavior"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="PickupHunterPlasmaApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="HunterPlasmaCharge"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="PickupHunterPlasmaSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="PickupHunterPlasmaApplyBehavior"/>
+        <EffectArray value="PickupRemoveDelayDeath"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="PointDefenseLaserCreatePersistent">
+        <EditorCategories value="Race:Terran"/>
+        <PeriodCount value="2"/>
+        <PeriodicValidator value="MechPointDefenseNotOnCooldown"/>
+        <PeriodicEffectArray value="MechPointDefenseLaserDamageSearch"/>
+        <PeriodicEffectArray value="MechPointDefenseLaserRepairSearch"/>
+        <PeriodicPeriodArray value="0.0625"/>
+    </CEffectCreatePersistent>
+    <CEffectCreateHealer id="MechRepair">
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="NotVortexd"/>
+        <ValidatorArray value="NotStasis"/>
+        <EditorCategories value="Race:Terran"/>
+        <RechargeVitalFraction value="1"/>
+        <TimeFactor value="1"/>
+    </CEffectCreateHealer>
+    <CEffectSet id="SwarmerEvolveSet">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <EffectArray value="CRPGAddExperience7500"/>
+        <EffectArray value="CRPGLevelUpDummyVisuals"/>
+    </CEffectSet>
+    <CEffectIssueOrder id="SwarmerSpawnUltimateIssueOrder">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Abil value="SwarmerMorphtoSwarmerSpawn"/>
+    </CEffectIssueOrder>
+    <CEffectSwitch id="SwarmerSpawnSwitch">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <CaseArray Validator="SwarmerTargetisSwarmerSpawnEgg" Effect="SwarmerSpawnUltimateIssueOrder"/>
+        <CaseDefault value="SwarmerSpawnIssueOrder"/>
+    </CEffectSwitch>
+    <CEffectUseMagazine id="SwarmerSpawnUltimateIterateMagazine">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <AmmoEffect value="SwarmerSpawnUltimateInitialSet"/>
+    </CEffectUseMagazine>
+    <CEffectCreatePersistent id="SwarmerSpawnUltimateCreatePersistent">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="8"/>
+        <PeriodicValidator value="CasterNotDead"/>
+        <PeriodicEffectArray value="SwarmerSpawnUltimateIterateMagazine"/>
+        <PeriodicPeriodArray value="0.5"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="SwarmerClawsLevel1Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Amount value="8"/>
+    </CEffectDamage>
+    <CEffectRemoveBehavior id="HunterDisruptorVolleyRemoveBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="HunterDisruptorVolley"/>
+    </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="HunterDisruptorVolleyApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="HunterDisruptorVolley"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="HunterShadowTransferApplyHeroRadar">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="HeroDetectorRadar"/>
+        <Flags index="UseDuration" value="1"/>
+        <Duration value="10"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="HunterShadowTransferRemoveHeroRadar">
+        <WhichUnit Effect="HunterShadowTransferSpawnApplyTimerBehavior" Value="Caster"/>
+        <BehaviorCategories index="Cloak" value="1"/>
+        <BehaviorCategories index="Invulnerable" value="1"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <BehaviorCategories index="User3" value="1"/>
+        <BehaviorCategories index="User5" value="1"/>
+        <BehaviorCategories index="User6" value="1"/>
+        <BehaviorCategories index="User7" value="1"/>
+        <BehaviorCategories index="User13" value="1"/>
+        <BehaviorCategories index="User14" value="1"/>
+    </CEffectRemoveBehavior>
+    <CEffectCreateUnit id="HunterShadowTransferCreateUnit">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="CasterUnit"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="HunterShadowTransferSpawnSet"/>
+        <SpawnUnit value="AdeptPhaseShift"/>
+        <SpawnRange value="1"/>
+    </CEffectCreateUnit>
+    <CEffectRemoveBehavior id="HunterShadowTransferCancelRemoveBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <BehaviorLink value="AdeptPhaseShiftCaster"/>
+    </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="HunterShadowTransferApplyCasterBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="HunterShadowTransferCaster"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="HunterShadowTransferInitialSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterShadowTransferApplyCasterBehavior"/>
+        <EffectArray value="HunterShadowTransferCreateUnit"/>
+        <EffectArray value="HunterShadowTransferApplyHeroRadar"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectIssueOrder id="HunterShadowTransferSpawnIssueOrder">
+        <EditorCategories value="Race:Protoss"/>
+        <Abil value="move"/>
+        <Target Effect="HunterShadowTransferCreateUnit" Value="TargetPoint"/>
+    </CEffectIssueOrder>
+    <CEffectDamage id="HunterShadowTransferCancelKillDummy">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Effect="HunterShadowTransferSpawnApplyTimerBehavior" Value="TargetUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectSet id="HunterShadowTransferRemoveDisablesSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterShadowTransferRemoveDisablesNeuralParasite"/>
+        <EffectArray value="HunterShadowTransferRemoveDisablesMothershipRecalled"/>
+        <EffectArray value="HunterShadowTransferRemoveDisablesMothershipRecalling"/>
+        <EffectArray value="HunterShadowTransferRemoveDisablesFungalGrowth"/>
+        <EffectArray value="HunterShadowTransferRemoveDisablesFungalGrowthSpeed"/>
+        <EffectArray value="HunterShadowTransferRemoveDisablesGravitonBeam"/>
+        <EffectArray value="PhaseStasisTrapRemove"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="HunterShadowTransferTeleportSelect">
+        <ImpactUnit Value="Caster"/>
+        <SelectTransferUnit Effect="HunterShadowTransferSpawnApplyTimerBehavior" Value="Target"/>
+        <SelectTransferFlags index="DeselectSource" value="1"/>
+        <SelectTransferFlags index="IncludeControlGroups" value="1"/>
+        <FacingLocation Effect="HunterShadowTransferTeleportSet" Value="SourceUnit"/>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="HunterShadowTransferSpawnApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="HunterShadowTransfer"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="HunterShadowTransferSpawnSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterShadowTransferSpawnApplyBehavior"/>
+        <EffectArray value="HunterShadowTransferSpawnApplyTimerBehavior"/>
+        <EffectArray value="HunterShadowTransferSpawnIssueOrder"/>
+    </CEffectSet>
+    <CEffectTeleport id="HunterShadowTransferTeleport">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <MinDistance value="0"/>
+        <TargetLocation Effect="HunterShadowTransferTeleportSet" Value="TargetPoint"/>
+    </CEffectTeleport>
+    <CEffectSet id="HunterShadowTransferTeleportSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterShadowTransferRemoveDisablesSet"/>
+        <EffectArray value="HunterShadowTransferTeleportSelect"/>
+        <EffectArray value="HunterShadowTransferCancelKillDummy"/>
+        <EffectArray value="HunterShadowTransferTeleport"/>
+        <EffectArray value="HunterShadowTransferTeleportOrderQueue"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="HunterShadowTransferSpawnApplyTimerBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="HunterShadowTransferTimer"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="HunterShadowTransferTeleportOrderQueue">
+        <EditorCategories value="Race:Protoss"/>
+        <LaunchUnit Effect="HunterShadowTransferTeleportSet"/>
+        <ImpactUnit Value="Caster"/>
+        <CopyOrderCount value="50"/>
+        <CopyRallyCount value="50"/>
+    </CEffectModifyUnit>
+    <CEffectRemoveBehavior id="HunterShadowTransferCancelRemoveCasterBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <BehaviorLink value="AdeptPhaseShiftCaster"/>
+    </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="AlienParasiticHarvestApplyBehavior">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="AlienParasiticHarvest2"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="AlienParasiticHarvestRemoveBehavior">
+        <EditorCategories value="Race:Zerg"/>
+        <BehaviorLink value="AlienParasiticHarvest2"/>
+    </CEffectRemoveBehavior>
+    <CEffectModifyUnit id="AlienParasiticHarvestModifyUnit">
+        <EditorCategories value="Race:Zerg"/>
+        <Resources value="1"/>
+    </CEffectModifyUnit>
+    <CEffectSwitch id="AlienParasiticHarvestSwitch">
+        <EditorCategories value="Race:Zerg"/>
+        <CaseArray Validator="AlienResourceInArea" Effect="AlienParasiticHarvestCreateUnit"/>
+        <CaseDefault value="AlienParasiticHarvestSearchArea"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSwitch>
+    <CEffectTransferBehavior id="AlienParasiticHarvestTransferBehavior">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="AlienParasiticHarvest2"/>
+    </CEffectTransferBehavior>
+    <CEffectEnumArea id="AlienParasiticHarvestSearchArea">
+        <EditorCategories value="Race:Zerg"/>
+        <SearchFilters value="HarvestableResource;-"/>
+        <AreaArray MaxCount="1" Radius="2" Effect="AlienParasiticHarvestModifyUnit"/>
+    </CEffectEnumArea>
+    <CEffectModifyUnit id="CRPGAddExperience50">
+        <Marker Link="Effect/CRPGAddExperience1"/>
+        <XP value="1"/>
+        <VeterancyBehavior value="CRPGHeroVeterancy"/>
+    </CEffectModifyUnit>
     <CEffectModifyPlayer id="CRPGUpgradeEnergy">
         <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[3].Points" Value="1"/>
     </CEffectModifyPlayer>
+    <CEffectDamage id="AlienClawsDamageHero" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectDamage id="AlienMeleeHeroHydralisk" parent="NeedleSpinesDamage">
+        <Kind value="Melee"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectSet id="AlienMeleeHeroHydraliskSet">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="ParalyticSpines"/>
+        <EffectArray value="AlienMeleeHeroHydralisk"/>
+    </CEffectSet>
+    <CEffectDamage id="AlienNeedleSpinesHeroDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="12"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="AlienNeedleSpinesHeroLaunchMissile">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="NeedleSpinesImpactSwitch"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectCreateUnit id="AlienParasiticHarvestCreateUnit">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnitOrPoint"/>
+        <SpawnOwner Value="Neutral"/>
+        <SpawnUnit value="AlienHarvestMinerals"/>
+    </CEffectCreateUnit>
+    <CEffectDestroyPersistent id="HunterShadowTransferRemoveDisablesGravitonBeam">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Effect="HunterShadowTransferSpawnApplyTimerBehavior"/>
+        <Effect value="GravitonBeam"/>
+        <Count value="1"/>
+        <Radius value="1"/>
+    </CEffectDestroyPersistent>
+    <CEffectRemoveBehavior id="HunterShadowTransferRemoveDisablesFungalGrowth">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Effect="HunterShadowTransferSpawnApplyTimerBehavior" Value="Caster"/>
+        <BehaviorLink value="FungalGrowth"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="HunterShadowTransferRemoveDisablesFungalGrowthSpeed">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Effect="HunterShadowTransferSpawnApplyTimerBehavior" Value="Caster"/>
+        <BehaviorLink value="FungalGrowthMovement"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="HunterShadowTransferRemoveDisablesMothershipRecalled">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Effect="HunterShadowTransferSpawnApplyTimerBehavior" Value="Caster"/>
+        <BehaviorLink value="MothershipRecalled"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="HunterShadowTransferRemoveDisablesMothershipRecalling">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Effect="HunterShadowTransferSpawnApplyTimerBehavior" Value="Caster"/>
+        <BehaviorLink value="MothershipRecalling"/>
+    </CEffectRemoveBehavior>
+    <CEffectRemoveBehavior id="HunterShadowTransferRemoveDisablesNeuralParasite">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Effect="HunterShadowTransferSpawnApplyTimerBehavior" Value="Caster"/>
+        <BehaviorLink value="NeuralParasite"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="HunterShadowTransferCancelSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterShadowTransferCancelRemoveCasterBehavior"/>
+        <EffectArray value="HunterShadowTransferCancelKillDummy"/>
+        <EffectArray value="HunterShadowTransferRemoveHeroRadar"/>
+    </CEffectSet>
+    <CEffectDamage id="SwarmerClawsLevel2Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Amount value="10"/>
+    </CEffectDamage>
+    <CEffectDamage id="SwarmerClawsLevel3Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Amount value="12"/>
+    </CEffectDamage>
+    <CEffectDamage id="SwarmerBiteLevel4Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Amount value="16"/>
+    </CEffectDamage>
+    <CEffectCreateUnit id="SwarmerSpawnUltimateCreateEgg">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <WhichLocation Value="CasterUnitOrPoint"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <SpawnEffect value="SwarmerSpawnUltimateInitialSet"/>
+        <SpawnUnit value="SwarmerSwarmerEgg"/>
+        <SpawnRange value="3"/>
+        <SpawnOffset value="0,2"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="SwarmerSpawnUltimateInitialSet">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="KillsToCaster"/>
+        <EffectArray value="SwarmerSpawnLaunchMissile"/>
+        <EffectArray value="CRPGTransferAttributes"/>
+        <EffectArray value="SwarmerSpawnUltimateApplySuppressorBehavior"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="SwarmerSpawnUltimateApplySuppressorBehavior">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Behavior value="CRPGVeterancySuppressor"/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="SwarmerSplitCreateLeftEgg">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <WhichLocation Value="CasterUnitOrPoint"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <SpawnEffect value="SwarmerSpawnInitialSet"/>
+        <SpawnUnit value="SwarmerSwarmerEgg"/>
+        <SpawnRange value="3"/>
+        <SpawnOffset value="-2,0"/>
+    </CEffectCreateUnit>
+    <CEffectIssueOrder id="SwarmerSpawnIssueOrder">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <Abil value="SwarmerMorphtoSwarmer"/>
+    </CEffectIssueOrder>
+    <CEffectCreateUnit id="SwarmerSpawnCreateEgg">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <WhichLocation Value="CasterUnitOrPoint"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <SpawnEffect value="SwarmerSpawnInitialSet"/>
+        <SpawnUnit value="SwarmerSwarmerEgg"/>
+        <SpawnRange value="3"/>
+        <SpawnOffset value="0,2"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="SwarmerSpawnImpactSet">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <EffectArray value="RemovePrecursor"/>
+        <EffectArray value="SwarmerSpawnSwitch"/>
+    </CEffectSet>
+    <CEffectSet id="SwarmerSpawnInitialSet">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <EffectArray value="SwarmerReduceExperience"/>
+        <EffectArray value="SwarmerSpawnLaunchMissile"/>
+        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="CRPGTransferSelectionToTarget"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="SwarmerSpawnLaunchMissile">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Value="TargetUnitOrPoint"/>
+        <FinishEffect value="SwarmerSpawnImpactSet"/>
+        <AmmoOwner Value="Origin"/>
+        <AmmoUnit value="InfestedInfestedEggMissile"/>
+        <Movers Link="InfestedTerransWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="AlienClawsDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CEffectCreateUnit id="SwarmerLayCreateEgg">
+        <EditorCategories value="Race:PrimalZerg"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="SwarmerLaySet">
+        <EditorCategories value="Race:PrimalZerg"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="SwarmerReduceExperience">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <XP value="-7500"/>
+        <ImpactUnit Value="Caster"/>
+    </CEffectModifyUnit>
+    <CEffectCreateUnit id="SwarmerSplitCreateRightEgg">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <WhichLocation Value="CasterUnitOrPoint"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <SpawnEffect value="SwarmerSpawnInitialSet"/>
+        <SpawnUnit value="SwarmerSwarmerEgg"/>
+        <SpawnRange value="3"/>
+        <SpawnOffset value="2,0"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="SwarmerSplitSet">
+        <EditorCategories value="Race:PrimalZerg"/>
+        <EffectArray value="SwarmerSplitCreateLeftEgg"/>
+        <EffectArray value="SwarmerSplitCreateRightEgg"/>
+        <EffectArray value="Suicide"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="WizardConfusionInitialApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="WizardConfusionInitial"/>
@@ -99,10 +573,6 @@
         <SearchFlags index="OffsetByUnitRadius" value="0"/>
         <SearchFlags index="SameCliff" value="0"/>
     </CEffectDamage>
-    <CEffectApplyBehavior id="VoidArchonShockAttackApply2">
-        <EditorCategories value=""/>
-        <Behavior value="VoidArchonShockAttackDebuff"/>
-    </CEffectApplyBehavior>
     <CEffectDamage id="WizardAgonizingBlastDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
         <Kind value="Ranged"/>
@@ -346,13 +816,14 @@
         <Movers Link="MissileDefault" IfRangeLTE="1"/>
         <Movers Link="ArbiterMPWeaponMissile" IfRangeLTE="4"/>
     </CEffectLaunchMissile>
-    <CEffectApplyBehavior id="CRPGHeroRadarApplyBehavior">
+    <CEffectApplyBehavior id="HunterShadowBlinkApplyHeroRadarBehavior">
         <Behavior value="HeroDetectorRadar"/>
         <Flags index="UseDuration" value="1"/>
         <Duration value="2"/>
     </CEffectApplyBehavior>
     <CEffectSet id="CRPGLevelUpSet">
         <EffectArray value="CRPGIncreaseLevelCounter"/>
+        <EffectArray value="CRPGLevelUpDummyVisuals"/>
     </CEffectSet>
     <CEffectApplyBehavior id="CRPGRecentlyDamagedApplyBehavior">
         <WhichUnit Value="Caster"/>
@@ -443,21 +914,12 @@
         <EffectArray value="ShipDisruptionWebApplyBehavior"/>
         <EffectArray value="ShipDisruptionWebIterateTransport"/>
     </CEffectSet>
-    <CEffectSwitch id="HunterAttackSwitchLevel4">
-        <EditorCategories value="Race:Protoss"/>
-        <CaseArray Validator="HunterCasterDisruptorVolleyReady" Effect="HunterDisruptorVolleyCreatePersistent"/>
-    </CEffectSwitch>
-    <CEffectApplyBehavior id="HunterDisruptorVolleyApplyCountBehavior">
-        <EditorCategories value="Race:Protoss"/>
-        <WhichUnit Value="Caster"/>
-        <Behavior value="HunterDisruptorVolleyCounter"/>
-    </CEffectApplyBehavior>
     <CEffectLaunchMissile id="HunterDisruptorVolleyProjectionLaunchMissile">
         <ValidatorArray index="0" value="HunterDisruptorVolleyLaunchMissileTargetFilters"/>
         <EditorCategories value="Race:Protoss"/>
         <Marker Link="Effect/HunterDisruptorVolleyLaunchMissile"/>
         <LaunchLocation Effect="HunterDisruptorVolleyProjectionCreatePersistent" Value="TargetUnit"/>
-        <ImpactLocation Effect="HunterPsionicProjectionIterateMagazine" Value="TargetUnitOrPoint"/>
+        <ImpactLocation Effect="HunterDisruptorVolleyIterateMagazine"/>
         <ImpactEffect value="HunterDisruptorVolleyDamage"/>
         <AmmoUnit value="WeaponDisruptorVolleyHunter"/>
         <Movers Link="VoidThrasherMissileMover" IfRangeLTE="10"/>
@@ -481,31 +943,15 @@
     <CEffectCreatePersistent id="HunterDisruptorVolleyCreatePersistent">
         <EditorCategories value="Race:Zerg"/>
         <WhichLocation Value="TargetUnit"/>
-        <ExpireEffect value="HunterDisruptorVolleyRemoveBehavior"/>
         <PeriodCount value="4"/>
         <PeriodicEffectArray value="HunterDisruptorVolleyLaunchMissile"/>
         <PeriodicPeriodArray value="0.2"/>
+        <FinalEffect value="HunterDisruptorVolleyRemoveBehavior"/>
     </CEffectCreatePersistent>
-    <CEffectRemoveBehavior id="HunterDisruptorVolleyRemoveBehavior">
-        <EditorCategories value="Race:Protoss"/>
-        <WhichUnit Value="Caster"/>
-        <BehaviorLink value="HunterDisruptorVolleyCounter"/>
-        <Count value="9"/>
-    </CEffectRemoveBehavior>
     <CEffectSet id="HunterDisruptorVolleySet">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterDisruptorVolleyCreatePersistent"/>
-        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
-    </CEffectSet>
-    <CEffectSet id="HunterPhaseDisruptorSet">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="HunterPhaseDisruptorLaunchMissile"/>
-        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
-    </CEffectSet>
-    <CEffectSet id="HunterPhaseDisruptorsSet">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="HunterPhaseDisruptorsDamage"/>
-        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
+        <EffectArray value="HunterDisruptorVolleyIterateMagazine"/>
     </CEffectSet>
     <CEffectDamage id="HunterProjectionBeamSuicide">
         <EditorCategories value="Race:Protoss"/>
@@ -516,7 +962,7 @@
     <CEffectSet id="HunterPurifierGlaiveCannonSet">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterPurifierGlaiveCannonLaunchMissile"/>
-        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
+        <EffectArray value="HunterPurifierGlaiveCannonIterateMagazine"/>
     </CEffectSet>
     <CEffectCreatePersistent id="HunterProjectionBeamCreatePersistent">
         <EditorCategories value="Race:Protoss"/>
@@ -529,7 +975,7 @@
     <CEffectDamage id="HunterProjectionBeamDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
         <LaunchLocation Effect="HunterProjectionBeamCreatePersistent" Value="TargetUnit"/>
-        <ImpactLocation Effect="HunterPsionicProjectionIterateMagazine"/>
+        <ImpactLocation Effect="HunterPurifierGlaiveCannonIterateMagazine"/>
         <ArmorReduction value="0.2"/>
         <Kind value="Ranged"/>
         <Amount value="6"/>
@@ -546,33 +992,22 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="HunterPsionicProjectionCooldown"/>
     </CEffectApplyBehavior>
-    <CEffectEnumMagazine id="HunterPsionicProjectionIterateMagazine">
+    <CEffectEnumMagazine id="HunterDisruptorVolleyIterateMagazine">
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
-        <EffectExternal value="HunterPsionicProjectionSwitch"/>
+        <EffectExternal value="HunterDisruptorVolleyProjectionCreatePersistent"/>
     </CEffectEnumMagazine>
-    <CEffectSet id="HunterPsionicProjectionSet">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="CRPGTransferAttributes"/>
-        <EffectArray value="HunterPsionicProjectionApplyDisruptorCountBehavior"/>
-    </CEffectSet>
     <CEffectIssueOrder id="HunterPsionicProjectionStart">
         <EditorCategories value="Race:Protoss"/>
-        <Marker Link="Effect/HunterPsionicProjectionCancel"/>
         <WhichUnit Value="Source"/>
         <Abil value="HunterPsionicProjection"/>
         <Player Value="Source"/>
     </CEffectIssueOrder>
     <CEffectSwitch id="HunterPsionicProjectionSwitch">
         <EditorCategories value="Race:Protoss"/>
-        <CaseArray Validator="HunterDisruptorVolleyReady" Effect="HunterDisruptorVolleyProjectionCreatePersistent"/>
+        <CaseArray Validator="HunterCasterDisruptorVolleyReady" Effect="HunterDisruptorVolleyProjectionCreatePersistent"/>
         <CaseDefault value="HunterProjectionBeamCreatePersistent"/>
     </CEffectSwitch>
-    <CEffectSet id="HunterParticleDisruptorsSet">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="HunterParticleDisruptorsLaunchMissile"/>
-        <EffectArray value="HunterPsionicProjectionIterateMagazine"/>
-    </CEffectSet>
     <CEffectApplyBehavior id="HunterScarabMinesApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="HunterSlowScarabMine"/>
@@ -582,64 +1017,8 @@
         <SearchFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="2" Effect="HunterScarabMinesApplyBehavior"/>
     </CEffectEnumArea>
-    <CEffectDamage id="HunterScatterCannonDamage">
-        <EditorCategories value="Race:Protoss"/>
-        <ResponseFlags index="Acquire" value="1"/>
-        <ResponseFlags index="Flee" value="1"/>
-        <Flags index="Notification" value="1"/>
-        <Amount value="40"/>
-        <SearchFlags index="CallForHelp" value="1"/>
-        <SearchFlags index="OffsetByUnitRadius" value="1"/>
-        <SearchFlags index="OffsetAreaByAngle" value="1"/>
-    </CEffectDamage>
-    <CEffectSet id="HunterScatterCannonDamageSet">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="HunterScatterCannonDamage"/>
-        <EffectArray value="HunterScatterCannonDamage"/>
-        <EffectArray value="HunterScatterCannonDamage"/>
-        <EffectArray value="HunterScatterCannonDamage"/>
-        <EffectArray value="HunterScatterCannonDamage"/>
-    </CEffectSet>
-    <CEffectLaunchMissile id="HunterScatterCannonLaunchMissile">
-        <EditorCategories value="Race:Protoss"/>
-        <ImpactLocation Value="TargetPoint"/>
-        <ImpactEffect value="HunterScatterCannonDamage"/>
-        <AmmoUnit value="ScatterCannonMissile"/>
-        <Movers Link="ImmortalTaldarimWeaponMover" IfRangeLTE="500"/>
-    </CEffectLaunchMissile>
-    <CEffectLaunchMissile id="HunterScatterCannonLaunchMissilePrimary">
-        <EditorCategories value="Race:Protoss"/>
-        <ImpactLocation Value="TargetPoint"/>
-        <ImpactEffect value="HunterScatterCannonSearchArea"/>
-        <AmmoUnit value="ScatterCannonMissile"/>
-        <Movers Link="ImmortalTaldarimWeaponMover" IfRangeLTE="500"/>
-    </CEffectLaunchMissile>
-    <CEffectSet id="HunterScatterCannonLaunchMissileSet">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="HunterScatterCannonLaunchMissile"/>
-    </CEffectSet>
-    <CEffectCreatePersistent id="HunterScatterCannonCreatePersistent">
-        <EditorCategories value="Race:Protoss"/>
-        <InitialEffect value="HunterScatterCannonLaunchMissilePrimary"/>
-        <PeriodCount value="4"/>
-        <PeriodicEffectArray value="HunterScatterCannonLaunchMissileSet"/>
-        <PeriodicOffsetArray value="-0.75,0,0"/>
-        <PeriodicOffsetArray value="0.75,0,0"/>
-        <PeriodicOffsetArray value="0,-0.75,0"/>
-        <PeriodicOffsetArray value="0,0.75,0"/>
-        <PeriodicPeriodArray value="0"/>
-        <PeriodicPeriodArray value="0.0625"/>
-        <PeriodicPeriodArray value="0.0625"/>
-        <PeriodicPeriodArray value="0.0625"/>
-    </CEffectCreatePersistent>
-    <CEffectEnumArea id="HunterScatterCannonSearchArea">
-        <EditorCategories value="Race:Protoss"/>
-        <IncludeArray Effect="ImmortalTaldarimWeaponRandomLarge" Value="Target"/>
-        <SearchFilters value="Ground;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="1.5" Effect="HunterScatterCannonDamageSet"/>
-    </CEffectEnumArea>
     <CEffectDamage id="HunterDisruptorVolleyDamage" parent="DU_WEAP">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Protoss"/>
         <Kind value="Ranged"/>
         <Amount value="20"/>
     </CEffectDamage>
@@ -654,11 +1033,12 @@
         <Movers Link="VoidThrasherMissileMover5" IfRangeLTE="500"/>
     </CEffectLaunchMissile>
     <CEffectCreatePersistent id="HunterDisruptorVolleyProjectionCreatePersistent">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Protoss"/>
         <ExpireEffect value="HunterDisruptorVolleyProjectionSuicide"/>
         <PeriodCount value="2"/>
         <PeriodicEffectArray value="HunterDisruptorVolleyProjectionLaunchMissile"/>
         <PeriodicPeriodArray value="0.4"/>
+        <FinalEffect value="HunterDisruptorVolleyRemoveBehavior"/>
     </CEffectCreatePersistent>
     <CEffectApplyBehavior id="HunterShadowBlinkApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
@@ -667,7 +1047,7 @@
     <CEffectSet id="HunterShadowBlinkSet">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterShadowBlinkApplyBehavior"/>
-        <EffectArray value="CRPGHeroRadarApplyBehavior"/>
+        <EffectArray value="HunterShadowBlinkApplyHeroRadarBehavior"/>
     </CEffectSet>
     <CEffectSet id="MechCalldownMechCreateSet">
         <EditorCategories value="Race:Terran"/>
@@ -719,16 +1099,6 @@
         <EffectArray value="CrashedBattlecruiserMedicalFacilitiesApplyBehavior"/>
         <EffectArray value="CrashedBattlecruiserMedicalFacilitiesApplyShieldBehavior"/>
     </CEffectSet>
-    <CEffectDamage id="HunterPhaseDisruptorDamage" parent="DU_WEAP">
-        <EditorCategories value="Race:Protoss"/>
-        <Kind value="Ranged"/>
-        <Amount value="25"/>
-    </CEffectDamage>
-    <CEffectLaunchMissile id="HunterPhaseDisruptorLaunchMissile">
-        <EditorCategories value="Race:Protoss"/>
-        <ImpactEffect value="HunterPhaseDisruptorDamage"/>
-        <AmmoUnit value="DragoonWeapon"/>
-    </CEffectLaunchMissile>
     <CEffectApplyBehavior id="FighterRapidStrikes">
         <EditorCategories value="Race:Protoss"/>
     </CEffectApplyBehavior>
@@ -1765,7 +2135,7 @@
         <WhichLocation Value="TargetPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
-        <SpawnEffect value="CRPGTransferKillsAttributes"/>
+        <SpawnEffect value="HunterScarabMineCreationSet"/>
         <SpawnUnit value="HunterScarabMine"/>
     </CEffectCreateUnit>
     <CEffectApplyBehavior id="InfestedInfestationSporeApplyBehavior">
@@ -1812,26 +2182,6 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="FighterShadowCharging"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="HunterParticleBeamDamage" parent="DU_WEAP">
-        <EditorCategories value="Race:Protoss"/>
-        <Amount value="25"/>
-    </CEffectDamage>
-    <CEffectLaunchMissile id="HunterParticleDisruptorsLaunchMissile">
-        <ValidatorArray index="0" value="StalkerTargetFilters"/>
-        <ValidatorArray value=""/>
-        <EditorCategories value="Race:Protoss"/>
-        <ImpactEffect value="HunterParticleDisruptorsDamage"/>
-        <AmmoUnit value="StalkerWeapon"/>
-    </CEffectLaunchMissile>
-    <CEffectDamage id="HunterParticleDisruptorsDamage" parent="DU_WEAP_MISSILE">
-        <EditorCategories value="Race:Protoss"/>
-        <Amount value="25"/>
-    </CEffectDamage>
-    <CEffectDamage id="HunterPhaseDisruptorsDamage" parent="DU_WEAP">
-        <EditorCategories value="Race:Protoss"/>
-        <Kind value="Ranged"/>
-        <Amount value="25"/>
-    </CEffectDamage>
     <CEffectDamage id="ShipNeutronFlare" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
         <AttributeBonus index="Light" value="5"/>
@@ -1893,16 +2243,16 @@
         <ModifyFlags index="Hide" value="1"/>
         <ModifyFlags index="NullifyMissile" value="1"/>
     </CEffectModifyUnit>
-    <CEffectSet id="MechPointDefenseLaserSet">
+    <CEffectSet id="MechPointDefenseLaserDamageSet">
         <ValidatorArray value="PointDefenseDroneUnitFilter"/>
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="MechPointDefenseLaserDamage"/>
         <EffectArray value="MechPointDefenseLaserApplyBehavior"/>
     </CEffectSet>
-    <CEffectEnumArea id="MechPointDefenseLaserSearch">
+    <CEffectEnumArea id="MechPointDefenseLaserDamageSearch">
         <EditorCategories value="Race:Terran"/>
         <SearchFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray MaxCount="1" Radius="8" Effect="MechPointDefenseLaserSet"/>
+        <AreaArray MaxCount="1" Radius="8" Effect="MechPointDefenseLaserDamageSet"/>
     </CEffectEnumArea>
     <CEffectSet id="VehicleCrucioShockCannonSet">
         <EditorCategories value="Race:Terran"/>
@@ -2317,7 +2667,7 @@
     </CEffectSwitch>
     <CEffectDamage id="FighterSolariteReaperDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
-        <Amount value="12"/>
+        <Amount value="16"/>
         <Death value="Eviscerate"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="FighterSolariteReaperCreatePersistent">

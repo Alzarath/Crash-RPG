@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CValidatorUnitCompareBehaviorCount id="AlienIsHarvestMinerals">
+        <Compare value="GE"/>
+        <Value value="1"/>
+        <Behavior value="MineralsHarvestMinerals"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorLocationEnumArea id="AlienResourceInArea">
+        <AreaArray Radius="2"/>
+        <Compare value="Eq"/>
+        <SearchFilters value="HarvestableResource;-"/>
+    </CValidatorLocationEnumArea>
     <CValidatorUnitCompareCargo id="CRPGCargoGE5">
         <Compare value="LT"/>
         <Value value="5"/>
@@ -106,6 +116,10 @@
         <Compare value="LT"/>
         <Value value="5"/>
     </CValidatorUnitCompareDamageTakenTime>
+    <CValidatorUnitCompareBehaviorCount id="CasterIsNotShadowTransferring">
+        <WhichUnit Effect="HunterShadowTransferCreateUnit" Value="Caster"/>
+        <Behavior value="AdeptPhaseShiftCancelDummy"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="FighterHasRapidStrikes">
         <WhichUnit Value="Caster"/>
         <Value value="1"/>
@@ -120,14 +134,14 @@
     <CValidatorUnitCompareBehaviorCount id="HunterCasterDisruptorVolleyReady">
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
-        <Value value="10"/>
-        <Behavior value="HunterDisruptorVolleyCounter"/>
+        <Value value="1"/>
+        <Behavior value="HunterDisruptorVolley"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorUnitCompareBehaviorCount id="HunterDisruptorVolleyReady">
-        <Compare value="GE"/>
-        <Value value="10"/>
-        <Behavior value="HunterDisruptorVolleyCounter"/>
-    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="HunterPlasmaChargeValidator">
+        <Type value="And"/>
+        <CombineArray value="HunterTargetHasPlasmaDiffusion"/>
+        <CombineArray value="HunterTargetPlasmaChargeNotMax"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="HunterPsionicProjectionisActive">
         <Value value="1"/>
         <Behavior value="HunterPsionicProjectionActive"/>
@@ -136,6 +150,27 @@
         <Find value="1"/>
         <Value value="HunterArmPsionicProjection"/>
     </CValidatorPlayerRequirement>
+    <CValidatorUnitCompareBehaviorCount id="HunterCasterHasPlasmaDiffusion">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="HunterPlasmaDiffusion"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HunterTargetPlasmaChargeNotMax">
+        <Compare value="LT"/>
+        <Value value="10"/>
+        <Behavior value="HunterPlasmaCharge"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareVital id="LifeLTE98">
+        <ResultFailed value="TooMuchLife"/>
+        <Compare value="LE"/>
+        <Type value="Fraction"/>
+        <Value value="0.98"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorLocationEnumArea id="MechNearbyMechanicalUnit">
+        <WhichLocation Value="CasterUnitOrPoint"/>
+        <AreaArray Radius="8"/>
+        <SearchFilters value="Mechanical,Visible;Neutral,Enemy,Dead,Hidden,Invulnerable"/>
+    </CValidatorLocationEnumArea>
     <CValidatorUnitCompareBehaviorCount id="PsionicProjectionNotCoolingDown">
         <Behavior value="HunterPsionicProjectionCooldown"/>
     </CValidatorUnitCompareBehaviorCount>
@@ -255,10 +290,17 @@
     <CValidatorUnitCompareBehaviorCount id="ShipNotRecentlyProtected2">
         <Behavior value="ShipRecentlyProtectedGuardianShell"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HunterTargetHasPlasmaDiffusion">
+        <Value value="1"/>
+        <Behavior value="HunterPlasmaDiffusion"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareField id="UnknownValidator">
         <Field value="FlagArray[1]"/>
         <Value value="0"/>
     </CValidatorUnitCompareField>
+    <CValidatorUnitType id="SwarmerTargetisSwarmerSpawnEgg">
+        <Value value="SwarmerSwarmerEggSpawn"/>
+    </CValidatorUnitType>
     <CValidatorLocationCompareRange id="VehicleLockOnCasterNearTarget">
         <WhichLocation Value="TargetUnit"/>
         <Compare value="LT"/>

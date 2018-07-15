@@ -18,6 +18,220 @@
         </InfoArray>
         <AutoCastValidatorArray value="IsDead"/>
     </CAbilMorph>
+    <CAbilEffectInstant id="HunterDisruptorVolleyFree">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="HunterDisruptorVolleyFreeSet"/>
+        <Cost/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterDisruptorVolley" Requirements="HunterMaxPlasmaChargeShow"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="HunterScarabMineFree">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="HunterScarabMineFreeSet"/>
+        <Cost>
+            <Charge Location="Unit">
+                <Flags index="RestoreAllChargesOnCooldown" value="1"/>
+            </Charge>
+        </Cost>
+        <Placeholder value="HunterScarabMine"/>
+        <Range value="3"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterScarabMine" Requirements="HunterMaxPlasmaChargeShow"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="HunterShadowTransferFree">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Effect index="0" value="HunterShadowTransferFreeSet2"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Flags index="TransientPreferred" value="1"/>
+        <Cost>
+            <Cooldown TimeUse="20"/>
+        </Cost>
+        <InterruptCost>
+            <Charge Link="Abil/HunterShadowTransfer"/>
+            <Cooldown Link="Abil/HunterShadowTransfer"/>
+        </InterruptCost>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <Marker Link="Abil/HunterShadowTransfer"/>
+        <AINotifyEffect value="HunterShadowTransfer"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterShadowTransfer" Requirements="HunterMaxPlasmaChargeShow">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="MechRepair" parent="Repair">
+        <Name value="Abil/Name/MechRepair"/>
+        <Effect index="0" value="MechRepair"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Repair2"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="PickupHunterPlasma">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="PickupHunterPlasmaSet"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Range value="1"/>
+        <Arc value="360"/>
+        <AutoCastFilters value="Ground;Ally,Neutral,Enemy,Structure,Missile,Destructible,Stasis,Dead,Hidden,Benign"/>
+        <AutoCastRange value="1"/>
+        <AutoCastValidatorArray value="HunterPlasmaChargeValidator"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
+    </CAbilEffectTarget>
+    <CAbilArmMagazine id="SwarmerHangar" parent="CarrierHangar">
+        <Name value="Abil/Name/SwarmerHangar"/>
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Leash value="500"/>
+        <InfoArray index="Ammo1" Time="4" CountStart="1" Manage="Ignore" Unit="SwarmerSwarmerEggSpawn">
+            <Button DefaultButtonFace="SwarmerSpawm" Requirements="SwarmerMaxSwarmerUltimate"/>
+            <Flags index="External" value="1"/>
+            <Flags index="LeashRetarget" value="0"/>
+        </InfoArray>
+        <EffectArray index="Create" value=""/>
+        <EffectArray index="Death" value=""/>
+        <EffectArray index="Launch" value="SwarmerSpawnUltimateInitialSet"/>
+        <ExternalAngle value="180"/>
+    </CAbilArmMagazine>
+    <CAbilMerge id="SwarmerMergeLevel2">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="SelectedUnits" DefaultButtonFace="SwarmerMergeSelected" State="Restricted">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="WithTarget" DefaultButtonFace="SwarmerMergeTarget" State="Restricted"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Effect value="CRPGLevelUpDummyVisuals"/>
+        <Info Unit="CRPGSwarmerLevel3" Time="3"/>
+    </CAbilMerge>
+    <CAbilMerge id="SwarmerMergeLevel3">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="SelectedUnits" DefaultButtonFace="SwarmerMergeSelected" State="Restricted">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="WithTarget" DefaultButtonFace="SwarmerMergeTarget" State="Restricted"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Effect value="CRPGLevelUpDummyVisuals"/>
+        <Info Unit="CRPGSwarmerLevel4" Time="3"/>
+    </CAbilMerge>
+    <CAbilMorph id="SwarmerEvolveLevel4">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <ActorKey value="SwarmerMorphtoSwarmer"/>
+        <Cost>
+            <Charge Link="Abil/SwarmerMorphtoSwarmer"/>
+            <Cooldown Link="Abil/SwarmerMorphtoSwarmer"/>
+        </Cost>
+        <InfoArray Unit="CRPGSwarmerLevel5">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="3"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="3"/>
+                <EffectArray index="Finish" value="SwarmerEvolveSet"/>
+            </SectionArray>
+        </InfoArray>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SwarmerEvolve" Requirements="SwarmerGELevel2"/>
+    </CAbilMorph>
+    <CAbilMorph id="SwarmerMorphtoSwarmerSpawn">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <InfoArray Unit="SwarmerSwarmerSpawn">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="3"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilEffectInstant id="SwarmerSpawn">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="SwarmerSpawnCreateEgg"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <CastIntroTime value="0"/>
+        <CastOutroTime value="0"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <ProducedUnitArray value="CRPGSwarmerLevel1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SwarmerSpawm" Requirements="SwarmerMaxSwarmer"/>
+    </CAbilEffectInstant>
+    <CAbilMerge id="SwarmerMergeLevel1">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="SelectedUnits" DefaultButtonFace="SwarmerMergeSelected" State="Restricted" Requirements="SwarmerHasLevels">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="WithTarget" DefaultButtonFace="SwarmerMergeTarget" State="Restricted"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Effect value="CRPGLevelUpDummyVisuals"/>
+        <Info Unit="CRPGSwarmerLevel2" Time="3"/>
+    </CAbilMerge>
+    <CAbilEffectInstant id="HunterDisruptorVolley">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="HunterDisruptorVolleyApplyBehavior"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterDisruptorVolley" Requirements="HunterDisruptorVolleyAvailable"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="HunterShadowTransfer">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Effect index="0" value="HunterShadowTransferInitialSet"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Flags index="TransientPreferred" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Charge Link="Abil/AdeptPhaseShift"/>
+            <Cooldown Link="Abil/AdeptPhaseShift" TimeUse="20"/>
+        </Cost>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterShadowTransfer">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilMorph id="AlienMetamorphosisMorph">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienMetamorphosis"/>
+        <ActorKey value="AeroLevelUpMorphLevel1"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Birth" value="1"/>
+        <Flags index="DisableAbils" value="1"/>
+        <Flags index="FastBuild" value="1"/>
+        <Flags index="Interruptible" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <Flags index="Rally" value="1"/>
+        <Flags index="RallyReset" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <Cost>
+            <Cooldown TimeStart="5"/>
+        </Cost>
+        <InfoArray Unit="CRPGAlienLevel1" RandomDelayMin="5" RandomDelayMax="5"/>
+    </CAbilMorph>
+    <CAbilMorph id="AlienHarvesterFormMorph" parent="AlienMetamorphosisMorph">
+        <Name value="Abil/Name/AlienHarvesterFormMorph"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienHarvesterForm"/>
+        <InfoArray index="0" Unit="CRPGAlienHeroDrone" RandomDelayMin="5" RandomDelayMax="5"/>
+    </CAbilMorph>
+    <CAbilMorph id="AlienLeaperFormMorph" parent="AlienMetamorphosisMorph">
+        <Name value="Abil/Name/AlienLeaperFormMorph"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienLeaperForm"/>
+        <InfoArray index="0" Unit="CRPGAlienHeroHunterling" RandomDelayMin="5" RandomDelayMax="5"/>
+    </CAbilMorph>
+    <CAbilMorph id="AlienAssaultFormMorph" parent="AlienMetamorphosisMorph">
+        <Name value="Abil/Name/AlienAssaultFormMorph"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienAssaultForm"/>
+        <InfoArray index="0" Unit="CRPGAlienHeroHydralisk" RandomDelayMin="5" RandomDelayMax="5"/>
+    </CAbilMorph>
     <CAbilEffectTarget id="BeaconGiveHero">
         <Effect index="0" value="BeaconGiveHeroSet"/>
         <Flags index="AutoCast" value="1"/>
@@ -29,10 +243,45 @@
     </CAbilEffectTarget>
     <CAbilEffectInstant id="CRPGUpgradeEnergy">
         <Cost>
-            <Resource index="Minerals" value="100"/>
+            <Resource index="Minerals" value="200"/>
             <Charge CountMax="255" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeEnergy" Requirements="CRPGInRangeofArmory"/>
+    </CAbilEffectInstant>
+    <CAbilHarvest id="AlienGatherDrone">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <ResourceAllowed index="Vespene" value="0"/>
+        <ResourceAllowed index="Terrazine" value="0"/>
+        <ResourceAllowed index="Custom" value="0"/>
+        <ResourceAmountMultiplier index="Minerals" value="10"/>
+    </CAbilHarvest>
+    <CAbilMorph id="SwarmerMorphtoSwarmer">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <InfoArray Unit="CRPGSwarmerLevel1">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="3"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilEffectInstant id="SwarmerSplit">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="SwarmerSplitSet"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <CastIntroTime value="0"/>
+        <CastOutroTime value="0"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <ProducedUnitArray value="CRPGSwarmerLevel1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SwarmerSplit" Requirements="SwarmerMaxSwarmer"/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="WizardConfusion">
         <Alignment value="Negative"/>
@@ -74,7 +323,6 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="ShipCloakingField"/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="ShipDisruptionWeb">
-        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Effect index="0" value="ShipDisruptionWebCreatePersistent"/>
         <Flags index="AllowMovement" value="1"/>
@@ -138,18 +386,6 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="FighterRapidStrikes"/>
         <Flags index="Transient" value="1"/>
     </CAbilEffectInstant>
-    <CAbilEffectTarget id="HunterScatterCannon">
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Effect index="0" value="HunterScatterCannonCreatePersistent"/>
-        <Cost>
-            <Vital index="Energy" value="75"/>
-            <Cooldown TimeUse="5"/>
-        </Cost>
-        <CursorEffect value="HunterScatterCannonSearchArea"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="HunterScatterCannon"/>
-        <Arc value="360"/>
-        <Range value="6"/>
-    </CAbilEffectTarget>
     <CAbilEffectTarget id="InfestedInfestationSpore">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="InfestedInfestationSporeLaunchMissile"/>
@@ -235,13 +471,9 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilTrain id="AlienMetamorphosis" parent="LarvaTrain">
-        <Name value="Abil/Name/AlienMetamorphosis"/>
-        <MorphUnit value="CRPGAlienLevel1"/>
-    </CAbilTrain>
     <CAbilEffectTarget id="MechBarrage">
         <Alignment value="Negative"/>
-        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
+        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <InfoTooltipPriority value="1"/>
         <Effect index="0" value="MechBarrageCreatePersistent"/>
@@ -284,7 +516,6 @@
         </CmdButtonArray>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="AeroTacticalJump">
-        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Effect index="0" value="AeroTacticalJumpCreatePrecursor"/>
         <Flags index="AllowMovement" value="1"/>
@@ -337,14 +568,14 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
         <Flags index="Retarget" value="1"/>
-        <Leash value="4"/>
-        <InfoArray index="Ammo1" Time="5" Manage="Recall" Unit="HunterPsionicProjection">
+        <Leash value="2"/>
+        <InfoArray index="Ammo1" Time="3" Manage="Recall" Unit="HunterPsionicProjection">
             <Charge Link="Abil/##id##"/>
             <Cooldown Link="Abil/##id##"/>
             <Button DefaultButtonFace="HunterPsionicProjection"/>
             <Flags index="External" value="1"/>
         </InfoArray>
-        <EffectArray index="Create" value="HunterPsionicProjectionSet"/>
+        <EffectArray index="Create" value="CRPGTransferAttributes"/>
         <EffectArray index="Death" value="InterceptorFate"/>
         <EffectArray index="Release" value="KillsToCaster"/>
         <ExternalAngle value="270"/>
@@ -365,7 +596,7 @@
         </Cost>
     </CAbilEffectInstant>
     <CAbilArmMagazine id="MechPointDefenseDrones">
-        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
+        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
         <Leash value="12"/>
@@ -383,14 +614,14 @@
     </CAbilArmMagazine>
     <CAbilEffectInstant id="CRPGUpgradeArmor">
         <Cost>
-            <Resource index="Minerals" value="100"/>
+            <Resource index="Minerals" value="200"/>
             <Charge CountMax="255" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeArmor" Requirements="CRPGInRangeofArmory"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="CRPGUpgradeDamage">
         <Cost>
-            <Resource index="Minerals" value="100"/>
+            <Resource index="Minerals" value="200"/>
             <Charge CountMax="255" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeDamage" Requirements="CRPGInRangeofArmory"/>
@@ -456,7 +687,6 @@
         <AutoCastValidatorArray value="ChargeMinTriggerDistance"/>
     </CAbilAugment>
     <CAbilEffectTarget id="ShipDisruptionWebNoAim">
-        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Effect index="0" value="ShipDisruptionWebCreatePersistent"/>
         <Flags index="AllowMovement" value="1"/>
@@ -585,7 +815,6 @@
     </CAbilMorph>
     <CAbilEffectTarget id="VehicleLockOnLongRange">
         <Alignment value="Negative"/>
-        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <PrepEffect value="VehicleLockOnInitialApplyBehavior"/>
         <Effect index="0" value="VehicleLockOnInitialSet"/>
@@ -629,7 +858,6 @@
     </CAbilMorph>
     <CAbilEffectTarget id="VehicleLockOn">
         <Alignment value="Negative"/>
-        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <PrepEffect value="VehicleLockOnInitialApplyBehavior"/>
         <Effect index="0" value="VehicleLockOnInitialSet"/>
@@ -657,7 +885,6 @@
         <FollowRange value="6"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="VehicleLockOnCancel">
-        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="VehicleLockOnDisableAttackRemoveBehavior"/>
         <Flags index="Transient" value="1"/>
@@ -672,7 +899,6 @@
         </Cost>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="VehicleOverdrive">
-        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="VehicleOverdriveApplyBehavior"/>
         <Flags index="Transient" value="1"/>
@@ -723,7 +949,6 @@
     </CAbilEffectTarget>
     <CAbilEffectTarget id="AeroYamatoCannon">
         <Alignment value="Negative"/>
-        <OrderArray index="0" DisplayType="Confirm" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="AeroYamatoCannonLaunchMissile"/>
         <Flags index="AllowMovement" value="1"/>

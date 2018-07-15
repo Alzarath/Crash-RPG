@@ -1,10 +1,157 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CModel id="AdeptDeathKhalai" parent="AdeptDeathBase">
+        <Model value="Assets\Units\Protoss\Purifier_Adept_Death\Purifier_Adept_Death.m3"/>
+        <Lighting value="AdeptDeath"/>
+    </CModel>
+    <CModel id="CRPGLevelUpGlaze">
+        <Model value="Assets\Effects\Glaze\Glaze_Dehaka_LevelUp\Glaze_Dehaka_LevelUp.m3"/>
+        <EditorCategories value="Race:Neutral"/>
+    </CModel>
+    <CModel id="CRPGLevelUpImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Zerg\Dehaka_Coop_LevelUp\Dehaka_Coop_LevelUp.m3"/>
+        <EditorCategories value="Race:Neutral"/>
+        <Lighting value="KerriganRespawnImpact"/>
+    </CModel>
+    <CModel id="PurifierGlaiveImpact" parent="MissileFX">
+        <Model value="Assets\Effects\Protoss\Adept_Collection_Purifier_Missile_Impact\Adept_Collection_Purifier_Missile_Impact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="AdeptKhalai" parent="AdeptBase">
+        <Model value="Assets\Units\Protoss\Adept\Adept.m3"/>
+        <Lighting value="Adept"/>
+    </CModel>
+    <CModel id="AdeptPlacementKhalai" parent="Placement" Race="Protoss">
+        <Model value="Assets\Effects\Protoss\Adept_Placement\Adept_Placement.m3"/>
+        <Lighting value="AdeptPlacement"/>
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="AdeptPortraitKhalai" parent="AdeptPortraitBase">
+        <Model value="Assets\Portraits\Protoss\AdeptEx2Portrait\AdeptEx2Portrait.m3"/>
+        <Image value="Assets\Textures\AdeptPortrait_Static.dds"/>
+        <Lighting value="AdeptPortrait"/>
+    </CModel>
+    <CModel id="AdeptWarpInKhalai" parent="AdeptWarpInBase">
+        <Model value="Assets\Effects\Protoss\Adept_WarpIn\Adept_WarpIn.m3"/>
+        <Lighting value="AdeptWarpIn"/>
+    </CModel>
+    <CModel id="PurifierGlaiveWeapon" parent="MissileFX">
+        <Model value="Assets\Effects\Protoss\Adept_Collection_Purifier_Missile\Adept_Collection_Purifier_Missile.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
     <CModel id="EnergyMatrixAuraSplat" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Zerg\QueenRegenAura\QueenRegenAura.m3"/>
         <EditorCategories value="Race:Neutral"/>
         <ScaleMax value="4.250000,4.250000,4.250000"/>
         <ScaleMin value="4.250000,4.250000,4.250000"/>
+    </CModel>
+    <CModel id="Ravasaur_Primal_Collection" parent="Unit" Race="Zerg">
+        <RequiredAnims value="Assets\Units\Zerg\PrimalZerg_RequiredAnims\PrimalZerg_RequiredAnims.m3a"/>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="Primal_Ravasaur_PawScratches"/>
+            <Type value="Sound"/>
+            <Time value="0.609000"/>
+            <Payload value="Primal_Ravasaur_PawScratches"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Ravasaur_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.203000"/>
+            <Payload value="Ravasaur_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,00"/>
+            <Name value="Ravasaur_AttackImpact"/>
+            <Type value="Sound"/>
+            <Time value="0.396000"/>
+            <Payload value="Ravasaur_AttackImpact"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,03"/>
+            <Name value="Ravasaur_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.203000"/>
+            <Payload value="Ravasaur_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,04"/>
+            <Name value="AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.200000"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,04"/>
+            <Name value="Ravasaur_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.203000"/>
+            <Payload value="Ravasaur_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,04"/>
+            <Name value="Ravasaur_AttackLaunch"/>
+            <Type value="Sound"/>
+            <Time value="0.748000"/>
+            <Payload value="Ravasaur_AttackLaunch"/>
+        </Events>
+        <Events>
+            <Anim value="Spell,00"/>
+            <Name value="AttackLaunchB"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Ravasaur_AttackVox"/>
+        </Events>
+        <Events>
+            <Anim value="Spell,00"/>
+            <Name value="Spit"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Ravasaur_Spit"/>
+        </Events>
+        <Events>
+            <Anim value="Jump,Start,00"/>
+            <Name value="Primal_Ravasaur_Lurch_Vx"/>
+            <Type value="Sound"/>
+            <Time value="0.005000"/>
+            <Payload value="Primal_Ravasaur_Lurch_Vx"/>
+        </Events>
+        <Events>
+            <Anim value="Jump,End,00"/>
+            <Name value="Primal_Ravasaur_Land"/>
+            <Type value="Sound"/>
+            <Time value="0.016000"/>
+            <Payload value="Primal_Ravasaur_Land"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,00"/>
+            <Name value="Primal_Ravasaur_Mv_Fs"/>
+            <Type value="Sound"/>
+            <Time value="0.073000"/>
+            <Payload value="Primal_Ravasaur_Mv_Fs"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,00"/>
+            <Name value="Primal_Ravasaur_Mv_Fs"/>
+            <Type value="Sound"/>
+            <Time value="0.530000"/>
+            <Payload value="Primal_Ravasaur_Mv_Fs"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid05"/>
+        <Radius value="0.600000"/>
+        <SelectionRadius value="0.571000"/>
+        <ShadowRadius value="0.571000"/>
+        <SquibTypeDefault value="Flesh"/>
+        <TechPurchaseCamera value="Star2CameraMid05"/>
+        <Tipability value="0.750000"/>
+        <TipabilityLength value="0.800000"/>
+        <TipabilityWidth value="0.800000"/>
+        <UnitGlossaryCamera value="Star2CameraMid05"/>
+    </CModel>
+    <CModel id="Ravasaur_Primal_Collection_Death" parent="UnitDeath" Race="Zerg">
+        <LowQualityModel value="ZergMediumUnitDeathLow"/>
+        <Occlusion value="Show"/>
     </CModel>
     <CModel id="ShieldEmitter" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Protoss\XelNagaShieldDome\XelNagaShieldDome.m3"/>
@@ -30,16 +177,6 @@
         <Lighting value="GuardianShield"/>
         <ScaleMax value="1.000000,1.000000,2.000000"/>
         <ScaleMin value="1.000000,1.000000,2.000000"/>
-    </CModel>
-    <CModel id="PurifierAdeptPortrait" parent="Portrait" Race="Protoss">
-        <Model value="Assets\Portraits\Protoss\Adept_Purifier_Collection_Portrait\Adept_Purifier_Collection_Portrait.m3"/>
-        <Image value="Assets\Textures\AdeptPortrait_Static.dds"/>
-        <Lighting value="AdeptPortrait"/>
-    </CModel>
-    <CModel id="PurifierAdept" parent="Unit" Race="Protoss">
-        <Model value="Assets\Units\Protoss\Adept_Purifier_EX3_Coop\Adept_Purifier_EX3_Coop.m3"/>
-        <Occlusion value="Show"/>
-        <SquibTypeDefault value="Metal"/>
     </CModel>
     <CModel id="DisruptorVolleyImpact" parent="ImpactFX">
         <Model value="Assets\Effects\Protoss\Scout_Purifier_AOE_AirMissile_Impact\Scout_Purifier_AOE_AirMissile_Impact.m3"/>
@@ -218,6 +355,7 @@
     </CModel>
     <CModel id="PurifierScatterCannonMissile" parent="MissileFX">
         <Model value="Assets\Effects\Protoss\Scout_Purifier_AirMissile\Scout_Purifier_AirMissile.m3"/>
+        <EditorCategories value="Race:Protoss"/>
     </CModel>
     <CModel id="PurifierScatterCannonMissileImpact" parent="ImpactFX">
         <Model value="Assets\Effects\Protoss\Scout_Purifier_AirMissile_Impact\Scout_Purifier_AirMissile_Impact.m3"/>
@@ -232,6 +370,28 @@
     <CModel id="SniperPortraitLevel5" parent="Portrait" Race="Terran">
         <Model value="Assets\Portraits\Terran\NovaPortrait\NovaPortrait.m3"/>
         <RequiredAnims value="Assets\Portraits\Terran\NovaPortrait_RequiredAnims\NovaPortrait_RequiredAnims.m3a"/>
+    </CModel>
+    <CModel id="Supplicant" parent="Unit">
+        <Model value="Assets\Units\Protoss\Supplicant\Supplicant.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="SupplicantDeath" parent="UnitDeath">
+        <Model value="Assets\Units\Protoss\Supplicant_Death\Supplicant_Death.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Lighting value="Supplicant"/>
+    </CModel>
+    <CModel id="PortraitSupplicant" parent="Portrait">
+        <Model value="Assets\Portraits\Protoss\Supplicant_Portrait\Supplicant_Portrait.m3"/>
+        <AnimBlendTime value="-1.000000"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Flags index="Download" value="1"/>
+        <Flags index="FOW" value="1"/>
+        <Flags index="IgnoreAspectRatioScale" value="0"/>
+        <Image value=""/>
+        <Lighting value="Supplicant"/>
+        <PausedParticleSystemBehavior value="Automatic"/>
+        <Priority value="32"/>
+        <Quality value="1"/>
     </CModel>
     <CModel id="WarHoundMech" parent="Unit">
         <Model value="Assets\Units\Terran\MercCommander\MercCommander.m3"/>
@@ -310,5 +470,18 @@
         <Radius value="1.750000"/>
         <SelectionLayer value="2"/>
         <ShadowRadius value="2.000000"/>
+    </CModel>
+    <CModel id="Hunterling" parent="ZerglingBase">
+        <Model value="Assets\Units\Zerg\L2D_Hunterling\L2D_Hunterling.m3"/>
+        <ScaleMax value="0.840000,0.840000,0.840000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+    </CModel>
+    <CModel id="ZerglingDeath2" parent="ZerglingDeathBase">
+        <Model value="Assets\Units\Zerg\L2D_HunterlingDeath\L2D_HunterlingDeath.m3"/>
+    </CModel>
+    <CModel id="HunterlingPortrait" parent="ZerglingPortraitBase">
+        <Model value="Assets\Portraits\Zerg\L2D_HunterlingPortrait\L2D_HunterlingPortrait.m3"/>
+        <Image value="Assets\Textures\hunterlingportrait_static.dds"/>
+        <Lighting value="ZerglingPortrait"/>
     </CModel>
 </Catalog>
