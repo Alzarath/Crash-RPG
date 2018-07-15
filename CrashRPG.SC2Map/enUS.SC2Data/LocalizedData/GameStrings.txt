@@ -74,6 +74,22 @@ Abil/Name/WizardConfusion=Confusion
 Abil/Name/WizardPsionicOrb=Psionic Orb
 Abil/Name/WizardPsionicStorm=Psionic Storm
 Abil/TargetMessage/AttackFriendly=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   To Attack<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
+Attribute001/Desc=The level that all heroes start at.
+Attribute001/Name=Starting Level
+Attribute001/Value001/Desc=Heroes being at level 1
+Attribute001/Value001/Name=Level 1
+Attribute001/Value002/Desc=Heroes being at level 2
+Attribute001/Value002/Name=Level 2
+Attribute001/Value003/Desc=Heroes being at level 3
+Attribute001/Value003/Name=Level 3
+Attribute001/Value004/Desc=Heroes being at level 4
+Attribute001/Value004/Name=Level 4
+Attribute001/Value005/Desc=Heroes being at level 5
+Attribute001/Value005/Name=Level 5
+Attribute002/Desc=Checks if the tutorial is enabled.
+Attribute002/Name=Tutorial
+Attribute002/Value001/Name=On
+Attribute002/Value002/Name=Off
 Behavior/Name/AeroDefensiveMatrix=Defensive Matrix
 Behavior/Name/AlienParasiticHarvest=Parasitic Harvest
 Behavior/Name/AlienParasiticHarvest2=Harvested
@@ -285,7 +301,6 @@ Button/Tooltip/CRPGVehicle=Flexible skirmisher. Utilizes speed and range.<n/><n/
 Button/Tooltip/CRPGVehicleLevel3=Mobile assault drone. Can use Lock On to quickly fire while moving.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGVehicleLevel4=Fast, high-damage hovertank. Rail Gun can fire while the Diamondback is moving.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGWizard=Powerful caster. Uses area of effect and supportive abilities to decimate its enemies and assist its allies.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Psionic Storm</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Energy Matrix<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Psionic Orb<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Shield Overcharge<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Confusion</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/CRPGWizardLevel1=Potent psionic master. Can use Feedback and Psionic Storm. Can merge into an Archon.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/CRPGWizardLevel3=Tal'darim Faction<n/>Potent psionic master. Can use Psionic Orb, Mind Blast, and Sacrifice.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/CRPGWizardLevel4=Powerful psionic attacker.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/DevourerMP=Anti-air support unit. Attacks reduce attack speed and armor.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c>
@@ -829,12 +844,32 @@ MapInfo/Player12/Name=Survivor 12
 MapInfo/Player13/Name=Survivor Base
 MapInfo/Player14/Name=Aliens
 MapInfo/Player15/Name=Hostile
-Param/Value/1E6C8800=The aliens are using their nests to lock us down. Evacuation won't come until we can secure the area.
+Param/Value/025AEB56=Select a Hero
 Param/Value/20A0E835=Ground defences are down.
+Param/Value/397C5ADF=Destroy Alien spawners <s val="SimpleCommandRow">(</s>
+Param/Value/3B8A3C30=Destroy Alien spawners <s val="SimpleCommandRow">(
+Param/Value/456D0485=Minerals can be used to upgrade a hero's attack, armor, and energy regeneraiton.
+Param/Value/4BE9A739= took too long to select a hero.
+Param/Value/4E80A046=I'm re-routing the remaining power to the Battlecruiser's medical systems. Good luck out there.
 Param/Value/627C2F4B=Mayday! We're going down! Brace for impact!
+Param/Value/6805F0CF=)</s>
 Param/Value/72CDAAA6=<c val="FF0000">Attack wave incoming.</c> I advise returning to base.
-Param/Value/9039C785=Destroy the Alien Nests
+Param/Value/8152B75E=Congratulations, you defeated the aliens!
+Param/Value/89C94BBD=There are spawners at each edge and corner of the map. Destroy them all to achieve victory.<n/><n/><c val="808080">Note: This is a placeholder objective, there will be more interesting objectives later in development.</c>
 Param/Value/9DE5257F=Air defences are losing power.
+Param/Value/A1BE09AD=Everyone okay? Good. We'll need to fight out way our of here.
+Param/Value/ABFFB158=Experience is used to level up your hero.
+Param/Value/B18DC15D=This is the end of the tutorial. Feel free to continue playing or quit and join other players.
+Param/Value/B48473DC=Very good. Your objective is to survive, level up, and kill the enemy.
+Param/Value/C27C6B11=)</s>
+Param/Value/CC765462=You seem to have an idea of what you're doing.
+Param/Value/CE85816A=To begin, please use your Civilian to move to a beacon and select a hero.
+Param/Value/CF2B3A82=Killing enemies gives experience and minerals.
+Param/Value/D89A801B=/
+Param/Value/DF30EE6D=To win, complete the objectives located at the top right of your screen.
+Param/Value/E66AC2E1=/
+Param/Value/F5058BFC=Destroy the Alien spawners <c val="008040">(<c val="C4C400">0</c>/8)</c>
+Param/Value/FF711E04=Welcome to the tutorial. This will run like a normal game, albeit with less aggressive Aliens.
 RequirementNode/Tooltip/CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714=Nearby hero
 RequirementNode/Tooltip/CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428=Near Crashed Battlecruiser
 RequirementNode/Tooltip/CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055=Near summoner
@@ -942,7 +977,13 @@ Unit/Name/WeaponEmpathicRepercussion=Empathic Repercussion
 Unit/Name/WeaponPurifierGlaiveCannon=Purifier Glaive Cannon
 Unit/ShieldArmorName/ProtossPlasmaShields=Protoss Plasma Shields
 UnitSubtitle/CRPGSwarmerLevel1=Raptor Strain
-Variant002/ModeDesc=All settings may be customized.
+Upgrade/Name/CRPGAdvancedAbilityUpgrade=Advanced Ability Upgrade
+Upgrade/Name/CRPGBasicAbilityUpgrade=Basic Ability Upgrade
+Upgrade/Name/CRPGUltimateAbilityUpgrade=Ultimate Ability Upgrade
+Variant002/ModeDesc=Learn how to play the game
+Variant002/ModeName=Training
+Variant003/ModeDesc=All settings may be customized.
+Variant003/ModeName=Custom
 Weapon/Name/AeroArmageddonCannons=Armageddon Cannons
 Weapon/Name/AeroLaserBatteryATA=Laser Battery
 Weapon/Name/AeroLaserbatteryATS=Laser battery
@@ -999,4 +1040,4 @@ Weapon/Name/VehicleLockOnDummy=Lock On
 Weapon/Name/VehicleTyphoonMissilePod=Typhoon Missile Pod
 Weapon/Name/WizardChaoticTorrent=Chaotic Torrent
 Weapon/Name/WizardPsionicShockwave=Psionic Shockwave
-Weapon/Tip/ShipPurifierBeam=75% armor penetration
+Weapon/Tip/ShipPurifierBeam=

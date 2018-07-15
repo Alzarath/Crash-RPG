@@ -1335,7 +1335,8 @@
         <On Terms="Abil.HunterShadowBlink.ButtonHoverOff" Send="Destroy"/>
         <Range value="8.000000"/>
     </CActorRange>
-    <CActorAction id="HunterPurifierGlaiveCannonAttack" parent="GenericAttack" effectImpact="HunterPurifierGlaiveCannonDamage" effectLaunch="HunterPurifierGlaiveCannonLaunchMissile">
+    <CActorAction id="HunterPurifierGlaiveCannonAction" parent="GenericAttack" effectImpact="HunterPurifierGlaiveCannonDamage" effectLaunch="HunterPurifierGlaiveCannonLaunchMissile">
+        <LaunchAttachQuery Methods="$GenericAttackLaunchMethods AMFilterWeaponRight"/>
         <LaunchAssets Sound="Adept_AttackLaunch"/>
         <Missile value="AdeptAttackMissile"/>
         <ImpactMap index="None" Model="AdeptImpact" Sound="Adept_AttackImpact"/>
@@ -3229,54 +3230,237 @@
         <LookAtPriorityList value="VehicleWeaponTurretLookAt"/>
         <LookAtPriorityList value="CycloneLockOnTurretLookAt"/>
     </CActorUnit>
-    <CActorUnit id="CRPGVehicleLevel5SiegeMode" parent="SiegeTankSieged" unitName="CRPGVehicleLevel5SiegeMode">
-        <On index="0" Terms="UnitBirth.CRPGVehicleLevel5SiegeMode"/>
-        <On index="1" Terms="UnitBirth.CRPGVehicleLevel5SiegeMode"/>
-        <On index="2" Terms="UnitRevive.CRPGVehicleLevel5SiegeMode"/>
-        <On index="3" Terms="UnitRevive.CRPGVehicleLevel5SiegeMode"/>
-        <On index="4" Terms="UnitConstruction.CRPGVehicleLevel5SiegeMode.Start"/>
-        <On index="5" Terms="UnitConstruction.CRPGVehicleLevel5SiegeMode.Finish"/>
-        <On index="65" Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel5SiegeMode"/>
-        <On index="66" Terms="AbilMorph.*.Start; MorphFrom CRPGVehicleLevel5SiegeMode"/>
-        <On index="69" Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel5SiegeMode"/>
-        <On index="70" Terms="AbilMorph.*.Start; MorphFrom CRPGVehicleLevel5SiegeMode"/>
+    <CActorUnit id="CRPGVehicleLevel5SiegeMode" parent="GenericUnitMorph" unitName="CRPGVehicleLevel5SiegeMode">
+        <Aliases value="_UnitLarge"/>
+        <Aliases value="_CreepEngulfable"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <On index="0" Send="Create SoundEmitter SiegeTankSieged_Ambience"/>
+        <On index="69" Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode" Send="Create"/>
+        <On index="70" Terms="AbilMorph.*.Start; MorphFrom CRPGVehicleLevel5SiegeMode; MorphTo CRPGVehicleLevel5TankMode" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SiegeTank_Land"/>
+        <On Terms="ActorCreation; CreepIntersects" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="Signal.*.YoinkStart; CreepEngulfs" Send="CreepEngulfmentStop"/>
+        <On Terms="Signal.*.YoinkStart; CreepIntersects" Send="CreepEngulfmentStop"/>
+        <On Terms="Signal.*.YoinkStop; CreepEngulfs" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="Signal.*.YoinkStop; CreepIntersects" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="AbilTransport.*.CargoLoad; CreepEngulfs" Send="CreepEngulfmentStop"/>
+        <On Terms="AbilTransport.*.CargoLoad; CreepIntersects" Send="CreepEngulfmentStop"/>
+        <On Terms="AbilTransport.*.CargoLoad" Send="AliasRemove _CreepEngulfable"/>
+        <On Terms="AbilTransport.*.CargoUnload" Send="AliasAdd _CreepEngulfable"/>
+        <On Terms="AbilTransport.*.CargoUnload; CreepIntersects" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="AbilTransport.*.CargoUnload; CreepEngulfs" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="Effect.MothershipCoreMassRecallTeleport.Start; CreepIntersects" Send="CreepEngulfmentStop"/>
+        <On Terms="Effect.MothershipCoreMassRecallTeleport.Start; CreepEngulfs" Send="CreepEngulfmentStop"/>
+        <On Terms="Effect.MothershipCoreMassRecallTeleport.Stop; CreepIntersects" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="Effect.MothershipCoreMassRecallTeleport.Stop; CreepEngulfs" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="Effect.MothershipMassRecallTeleport.Start; CreepIntersects" Send="CreepEngulfmentStop"/>
+        <On Terms="Effect.MothershipMassRecallTeleport.Start; CreepEngulfs" Send="CreepEngulfmentStop"/>
+        <On Terms="Effect.MothershipMassRecallTeleport.Stop; CreepIntersects" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="Effect.MothershipMassRecallTeleport.Stop; CreepEngulfs" Send="CreepEngulfmentStartTransition"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
         <On Terms="Effect.VehicleLockOnCreatePersistent.Start; At Caster" Send="Create VehicleLockOnTrackingBeam"/>
         <On Terms="Effect.VehicleLockOnSwitch.Start" Send="AnimBracketStart Attack Attack"/>
         <On Terms="Effect.VehicleLockOnSwitch.Start; AnimPlaying Birth" Send="AnimClear Birth"/>
         <On Terms="Effect.VehicleLockOnSwitch.Stop" Send="AnimBracketStop Attack"/>
         <On Terms="TurretTarget.Cyclone.Set" Target="CycloneLockOnTurretLookAt" Send="LookAtEngage"/>
         <On Terms="TurretTarget.Cyclone.Clear" Target="CycloneLockOnTurretLookAt" Send="LookAtDisengage"/>
-        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <Model value="SiegeTankSieged"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataFootprint index="0" Model="SiegeTankSiegedFootprint"/>
+        <CreepHeightClass value="Small"/>
+        <CreepRateGrow value="Grow"/>
+        <CreepRateShrink value="Shrink"/>
+        <LookAtPriorityList value="VehicleWeaponTurretLookAt"/>
+        <LookAtPriorityList value="CycloneLockOnTurretLookAt"/>
+        <BuildModel value="SiegeTankSieged"/>
+        <DeathArray index="Normal" ModelLink="SiegeTankSiegedDeath" SoundLink="SiegeTank_Explode" VoiceLink="SiegeTankSiegedDeathVoice"/>
+        <DeathCustoms ModelLink="TerranLargeUnitDeathLow" Name="AntiGravTerran"/>
+        <DeathCustoms ActorModel="SiegeTankDeathRagdoll" ModelLink="SiegeTankSiegedDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <PlacementModel value="SiegeTankSieged"/>
+        <PortraitModel value="SiegeTankPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSiegeTank"/>
+        </TerrainSquibs>
+        <BarOffset value="75"/>
+        <BarWidth value="102"/>
         <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-SiegeMode.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="SiegeTankSieged_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="SiegeTankSieged_GroupYes"/>
+        <GroupSoundArray index="Attack" value="SiegeTankSieged_GroupAttack"/>
+        <GroupSoundArray index="Board" value="SiegeTankSieged_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-siegetanksiegemode.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Birth" value="SiegeTankSieged_Birth"/>
+        <SoundArray index="Ready" value="SiegeTank_Ready"/>
+        <SoundArray index="Help" value="SiegeTank_Help"/>
+        <SoundArray index="What" value="SiegeTank_What"/>
+        <SoundArray index="Yes" value="SiegeTank_Yes"/>
+        <SoundArray index="Attack" value="SiegeTank_Attack"/>
+        <SoundArray index="Pissed" value="SiegeTank_Pissed"/>
+        <SoundArray index="Movement" value="SiegeTankSieged_Movement"/>
+        <SoundArray index="Turning" value="SiegeTankSieged_Turning"/>
+        <SoundArray index="Board" value="SiegeTankSieged_Board"/>
+        <SoundArray index="Click" value="SiegeTankSieged_Click"/>
+        <SoundArray index="ClickError" value="SiegeTankSieged_ClickError"/>
+        <SoundArray index="Highlight" value="SiegeTankSieged_Highlight"/>
         <StatusBarOn index="Custom" value="1"/>
         <UnitFlags index="StandAnimBirthVariation" value="1"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
-        <BarOffset value="75"/>
-        <LookAtPriorityList value="VehicleWeaponTurretLookAt"/>
-        <LookAtPriorityList value="CycloneLockOnTurretLookAt"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-siegetanksiegemode.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-SiegeMode.dds"/>
+        </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGVehicleLevel5TankMode" parent="SiegeTank" unitName="CRPGVehicleLevel5TankMode">
-        <On index="0" Terms="UnitBirth.CRPGVehicleLevel5TankMode"/>
-        <On index="1" Terms="UnitBirth.CRPGVehicleLevel5TankMode"/>
-        <On index="2" Terms="UnitRevive.CRPGVehicleLevel5TankMode"/>
-        <On index="3" Terms="UnitRevive.CRPGVehicleLevel5TankMode"/>
-        <On index="4" Terms="UnitConstruction.CRPGVehicleLevel5TankMode.Start"/>
-        <On index="5" Terms="UnitConstruction.CRPGVehicleLevel5TankMode.Finish"/>
-        <On index="65" Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel5TankMode"/>
-        <On index="66" Terms="AbilMorph.*.Start; MorphFrom CRPGVehicleLevel5TankMode"/>
-        <On index="69" Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel5TankMode"/>
-        <On index="70" Terms="AbilMorph.*.Start; MorphFrom CRPGVehicleLevel5TankMode"/>
+    <CActorUnit id="CRPGVehicleLevel5TankMode" parent="GenericUnitMorph" unitName="CRPGVehicleLevel5TankMode">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <On index="0" Send="Create SoundEmitter SiegeTank_Ambience"/>
+        <On index="69" Terms="AbilMorph.*.Finish; MorphTo CRPGVehicleLevel5TankMode; MorphFrom CRPGVehicleLevel5SiegeMode" Send="Create"/>
+        <On index="70" Terms="AbilMorph.*.Start; MorphFrom CRPGVehicleLevel5TankMode; MorphTo CRPGVehicleLevel5SiegeMode" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SiegeTank_Land"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveVoidShade" Send="DeathCustomize Shadow"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit HaveTerrazineShadow" Send="DeathCustomize Shadow"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel4; MorphTo CRPGVehicleLevel5TankMode" Send="Create"/>
         <On Terms="TurretTarget.Cyclone.Set" Target="CycloneLockOnTurretLookAt" Send="LookAtEngage"/>
         <On Terms="TurretTarget.Cyclone.Clear" Target="CycloneLockOnTurretLookAt" Send="LookAtDisengage"/>
         <On Terms="Effect.VehicleLockOnCreatePersistent.Start; At Caster" Send="Create VehicleLockOnTrackingBeam"/>
-        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <Model value="SiegeTank"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <EventDataFootprint index="0" Model="SiegeTankFootprint"/>
+        <CreepHeightClass value="Tiny"/>
+        <LookAtPriorityList value="VehicleWeaponTurretLookAt"/>
+        <LookAtPriorityList value="CycloneLockOnTurretLookAt"/>
+        <BuildModel value="SiegeTank"/>
+        <DeathArray index="Normal" ModelLink="SiegeTankDeath" SoundLink="SiegeTank_Explode" VoiceLink="SiegeTankDeathVoice"/>
+        <DeathCustoms ModelLink="TerranLargeUnitDeathLow" Name="AntiGravTerran"/>
+        <DeathCustoms ActorModel="SiegeTankDeathRagdoll" ModelLink="SiegeTankDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms>
+            <ModelLink value="DeathVoidShadowMedium"/>
+            <SoundLink value="ShadowUnit_DeathFX"/>
+            <VoiceLink value="ShadowUnit_DeathVox"/>
+            <Name value="Shadow"/>
+        </DeathCustoms>
+        <DeathCustomData Name="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="SiegeTank"/>
+        <PortraitModel value="SiegeTankPortrait"/>
+        <StandAnimTurnTime value="3.33"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSiegeTank"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="1"/>
+        <AbilSoundArray AbilCmd="SiegeMode,Execute" Sound="SiegeTank_SiegeModeVO"/>
+        <BarOffset value="75"/>
+        <BarWidth value="102"/>
         <CustomUnitStatusFrame value="CustomUI/CustomHeroUnitStatusFrameTemplate"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-TankMode.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="What" value="SiegeTank_GroupWhat"/>
+        <GroupSoundArray index="Yes" value="SiegeTank_GroupYes"/>
+        <GroupSoundArray index="Attack" value="SiegeTank_GroupAttack"/>
+        <GroupSoundArray index="Board" value="SiegeTank_GroupBoard"/>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Birth" value="SiegeTank_Birth"/>
+        <SoundArray index="Ready" value="SiegeTank_Ready"/>
+        <SoundArray index="Help" value="SiegeTank_Help"/>
+        <SoundArray index="What" value="SiegeTank_What"/>
+        <SoundArray index="Yes" value="SiegeTank_Yes"/>
+        <SoundArray index="Attack" value="SiegeTank_Attack"/>
+        <SoundArray index="Pissed" value="SiegeTank_Pissed"/>
+        <SoundArray index="Movement" value="SiegeTank_Movement"/>
+        <SoundArray index="Turning" value="SiegeTank_Turning"/>
+        <SoundArray index="Board" value="SiegeTank_Board"/>
+        <SoundArray index="Click" value="SiegeTank_Click"/>
+        <SoundArray index="ClickError" value="SiegeTank_ClickError"/>
+        <SoundArray index="Highlight" value="SiegeTank_Highlight"/>
         <StatusBarOn index="Custom" value="1"/>
         <UnitFlags index="StandAnimBirthVariation" value="1"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
-        <BarOffset value="75"/>
-        <LookAtPriorityList value="VehicleWeaponTurretLookAt"/>
-        <LookAtPriorityList value="CycloneLockOnTurretLookAt"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-TankMode.dds"/>
+        </Wireframe>
     </CActorUnit>
     <CActorSound id="VehicleSiegeModeSound" parent="SoundOneShot">
         <On Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode" Send="Create"/>
@@ -3288,25 +3472,88 @@
         <On Terms="UnitDeath.CRPGVehicleLevel5TankMode" Send="Destroy"/>
         <Sound value="SiegeTank_MorphToTank"/>
     </CActorSound>
-    <CActorUnit id="VehicleSiegeModeMorphModel" parent="SiegeModeMorphModel">
-        <On index="62" Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode"/>
-        <On index="63" Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode"/>
-        <On index="64" Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5SiegeMode"/>
-        <On index="65" Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5TankMode"/>
-        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+    <CActorUnit id="VehicleSiegeModeMorphModel" parent="GenericUnitBaseMorphTransition" unitName="SiegeModeMorphModel">
+        <Aliases value="_UnitLarge"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5SiegeMode; MorphFrom CRPGVehicleLevel5TankMode" Send="AnimPlay Start Morph,Start"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5SiegeMode" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5TankMode" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SiegeTank_Land"/>
+        <Model value="SiegeTankSiegedMorph"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <CreepHeightClass value="Tiny"/>
+        <DeathArray index="Normal" ModelLink="TerranLargeUnitDeath" SoundLink="SiegeTank_Explode"/>
+        <DeathCustoms ModelLink="TerranLargeUnitDeathLow" Name="AntiGravTerran"/>
+        <PortraitModel value="SiegeTankPortrait"/>
+        <BarOffset value="80"/>
+        <BarWidth value="102"/>
         <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-SiegeMode.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-siegetanksiegemode.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="SiegeTank_Ready"/>
+        <SoundArray index="Help" value="SiegeTank_Help"/>
+        <SoundArray index="What" value="SiegeTank_What"/>
+        <SoundArray index="Yes" value="SiegeTank_Yes"/>
+        <SoundArray index="Attack" value="SiegeTank_Attack"/>
+        <SoundArray index="Pissed" value="SiegeTank_Pissed"/>
         <StatusBarOn index="Custom" value="1"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-siegetanksiegemode.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-SiegeMode.dds"/>
+        </Wireframe>
     </CActorUnit>
-    <CActorUnit id="VehicleTankModeMorphModel" parent="TankModeMorphModel">
-        <On index="62" Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5TankMode; MorphFrom CRPGVehicleLevel5SiegeMode"/>
-        <On index="63" Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5TankMode; MorphFrom CRPGVehicleLevel5SiegeMode"/>
-        <On index="64" Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5TankMode"/>
-        <On index="65" Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5SiegeMode"/>
-        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+    <CActorUnit id="VehicleTankModeMorphModel" parent="GenericUnitBaseMorphTransition" unitName="TankModeMorphModel">
+        <Aliases value="_UnitLarge"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5TankMode; MorphFrom CRPGVehicleLevel5SiegeMode" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGVehicleLevel5TankMode; MorphFrom CRPGVehicleLevel5SiegeMode" Send="AnimPlay End Morph,End"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5TankMode" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGVehicleLevel5SiegeMode" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SiegeTank_Land"/>
+        <On Terms="ActorCreation; CreepEngulfs" Send="CreepEngulfmentStopTransition"/>
+        <Model value="SiegeTankSiegedMorph"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <CreepHeightClass value="Tiny"/>
+        <CreepRateGrow value="Grow"/>
+        <CreepRateShrink value="Shrink"/>
+        <DeathArray index="Normal" ModelLink="TerranLargeUnitDeath" SoundLink="SiegeTank_Explode"/>
+        <DeathCustoms ModelLink="TerranLargeUnitDeathLow" Name="AntiGravTerran"/>
+        <PortraitModel value="SiegeTankPortrait"/>
+        <AbilSoundArray AbilCmd="SiegeMode,Execute" Sound="SiegeTank_SiegeModeVO"/>
+        <BarOffset value="80"/>
+        <BarWidth value="102"/>
         <CustomUnitStatusFrame value="HotS_UnitStatus/KerriganHeroUnitStatusFrameTemplate"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-TankMode.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGVehicle"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="SiegeTank_Ready"/>
+        <SoundArray index="Help" value="SiegeTank_Help"/>
+        <SoundArray index="What" value="SiegeTank_What"/>
+        <SoundArray index="Yes" value="SiegeTank_Yes"/>
+        <SoundArray index="Attack" value="SiegeTank_Attack"/>
+        <SoundArray index="Pissed" value="SiegeTank_Pissed"/>
         <StatusBarOn index="Custom" value="1"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-TankMode.dds"/>
+        </Wireframe>
     </CActorUnit>
     <CActorAction id="VehicleCrucioShockCannonAttack" parent="GenericAttack" effectAttack="VehicleCrucioShockCannonBlast">
         <LaunchAssets Model="SiegeTankSiegedAttackLaunch" Sound="SiegeTank_SiegedAttackLaunch"/>

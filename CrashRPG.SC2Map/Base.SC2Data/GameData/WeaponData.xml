@@ -176,8 +176,7 @@
         <Options index="OnlyFireWhileInAttackOrder" value="0"/>
         <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
-        <DisplayEffect value="ShipPurifierBeamDamage"/>
-        <DisplayAttackCount value="4"/>
+        <DisplayEffect value="ShipPurifierBeamDamageDisplay"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <TeleportResetRange value="0"/>
         <Arc value="360"/>

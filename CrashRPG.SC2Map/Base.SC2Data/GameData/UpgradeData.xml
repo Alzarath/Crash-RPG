@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CUpgrade id="CRPGUltimateAbilityUpgrade">
+        <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGBasicAbilityUpgrade">
+        <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGAdvancedAbilityUpgrade">
+        <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+    </CUpgrade>
+</Catalog>

@@ -27,6 +27,7 @@
         <BehaviorArray Link="CRPGEnergyAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="CRPGLevelCounter"/>
+        <BehaviorArray Link="CRPGShieldDelayController"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -148,7 +149,6 @@
         <GlossaryWeakArray value="Corruptor"/>
         <Description value="Button/Tooltip/CRPGAero"/>
         <GlossaryCategory value=""/>
-        <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="CRPGAeroLevel2" parent="CRPGAeroLevel1">
         <Name value="Unit/Name/CRPGAeroLevel2"/>
@@ -301,7 +301,6 @@
             <LayoutButtons Face="Repair2" Type="AbilCmd" AbilCmd="MechRepair,Execute" Row="1" Column="0"/>
         </CardLayouts>
         <GlossaryCategory value=""/>
-        <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="CRPGMechLevel2" parent="CRPGMechLevel1">
         <DeathRevealRadius value="3"/>
@@ -476,7 +475,6 @@
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
         <GlossaryCategory value=""/>
-        <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="CRPGSniperLevel2" parent="CRPGSniperLevel1">
         <AbilArray index="3" Link="SniperLevelUpMorphLevel2"/>
@@ -652,7 +650,6 @@
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Hydralisk"/>
         <GlossaryCategory value=""/>
-        <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit id="CRPGVehicleLevel2" parent="CRPGVehicleLevel1">
         <DamageDealtXP value="1"/>
@@ -811,6 +808,7 @@
         <AbilArray Link="AlienLeaperFormMorph"/>
         <AbilArray Link="AlienAssaultFormMorph"/>
         <BehaviorArray index="0" Link="AlienHeroVeterancy"/>
+        <BehaviorArray index="6" removed="1"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="AlienHarvesterForm" Type="AbilCmd" AbilCmd="AlienHarvesterFormMorph,Execute" Row="0" Column="0"/>
             <LayoutButtons index="1" Face="AlienLeaperForm" Type="AbilCmd" AbilCmd="AlienLeaperFormMorph,Execute" Row="0" Column="1"/>
@@ -869,7 +867,6 @@
         <VisionHeight value="4"/>
         <AbilArray index="3" Link="ShipLevelUpMorphLevel1"/>
         <AbilArray Link="ShipDisruptionWeb"/>
-        <BehaviorArray Link="CRPGShieldDelayController"/>
         <WeaponArray Link="ShipPhotonBlaster"/>
         <WeaponArray Link="ShipNeutronFlare"/>
         <CardLayouts index="0">
@@ -1017,12 +1014,11 @@
         <GlossaryWeakArray value="Roach"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
-        <BehaviorArray Link="CRPGShieldDelayController"/>
         <CargoSize value="2"/>
         <GlossaryCategory value=""/>
+        <Description value="Button/Tooltip/CRPGWizard"/>
     </CUnit>
     <CUnit id="CRPGWizardLevel2" parent="CRPGWizardLevel1">
-        <Description value="Button/Tooltip/CRPGWizard"/>
         <AbilArray index="3" Link="WizardLevelUpMorphLevel2"/>
         <BehaviorArray Link="WizardEnergyMatrixAura"/>
         <CardLayouts index="0">
@@ -1817,7 +1813,6 @@
         <GlossaryCategory value=""/>
         <GlossaryStrongArray value="Roach"/>
         <GlossaryWeakArray value="Zergling"/>
-        <BehaviorArray Link="CRPGShieldDelayController"/>
     </CUnit>
     <CUnit id="CRPGHunterLevel2" parent="CRPGHunterLevel1">
         <TauntDuration index="Dance" value="5"/>
@@ -2069,7 +2064,6 @@
             <ChanceArray index="Idle" value="70"/>
             <ChanceArray index="Turn" value="10"/>
         </Fidget>
-        <BehaviorArray Link="CRPGShieldDelayController"/>
     </CUnit>
     <CUnit id="CRPGFighterLevel2" parent="CRPGFighterLevel1">
         <AbilArray index="3" Link="FighterLevelUpMorphLevel2"/>

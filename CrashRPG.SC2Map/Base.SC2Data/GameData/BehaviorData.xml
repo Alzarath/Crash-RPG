@@ -451,7 +451,7 @@
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="60"/>
+        <Duration value="300"/>
         <Modification>
             <BehaviorLinkDisableArray value="FighterResurgence"/>
         </Modification>

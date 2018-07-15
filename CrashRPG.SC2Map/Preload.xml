@@ -3,7 +3,10 @@
 <Actor id="SYSTEM_ActorConfig"/>
 <Actor id="DOM_GroundTrims" Variations="8"/>
 <Behavior id="Invulnerable"/>
+<Behavior id="CRPGHeroVeterancy"/>
 <Model id="BattlecruiserPortrait"/>
+<Model id="BriefingUnitSelectLarge"/>
+<Model id="BriefingUnitSelectSmall"/>
 <Sound id="NydusWorm_Unload" Variations="0"/>
 <Sound id="Dialogue_Transmission5Seconds" Variations="0"/>
 <Sound id="Event_Lab02_AlarmIncomingAttack" Variations="0"/>

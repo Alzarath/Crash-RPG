@@ -25,11 +25,20 @@ const fixed gv_damageFraction = 0.0625;
 // Global Variables
 //--------------------------------------------------------------------------------------------------
 int gv_attackWave;
-int gv_remainingSelectors;
 playergroup gv_survivors;
+bool gv_tutorialOn;
+int gv_maxAlienSpawners;
+unit gv_hero;
+int gv_remainingSelectors;
+timer gv_heroSelectionTimer;
+int gv_heroSelectionTimerWindow;
+int gv_primaryObjective;
 
 void InitGlobals () {
     gv_survivors = PlayerGroupEmpty();
+    gv_maxAlienSpawners = TechTreeUnitCount(gv_alienPlayer, "NydusNetwork", c_techCountCompleteOnly);
+    gv_heroSelectionTimerWindow = c_timerWindowNone;
+    gv_primaryObjective = c_invalidObjectiveId;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -55,15 +64,21 @@ point gf_GetOppositePoint (point lp_point, point lp_center);
 //--------------------------------------------------------------------------------------------------
 trigger gt_AttackWaves;
 trigger gt_AlienTrickle;
-trigger gt_HeroSelection;
-trigger gt_FreeHeroes;
 trigger gt_CreateHeroSelection;
 trigger gt_DisableTurrets;
 trigger gt_MapInitialization;
 trigger gt_PlayerLeaves;
 trigger gt_StartBattlecruiserScene;
 trigger gt_BattlecruiserCrash;
+trigger gt_TutorialStart;
+trigger gt_TutorialChooseHeroBefore;
+trigger gt_TutorialChooseHeroAfter;
+trigger gt_TutorialMechanicalIntroduction;
+trigger gt_HeroSelection;
+trigger gt_FreeHeroes;
+trigger gt_Timeout;
 trigger gt_UpdateTooltips;
+trigger gt_CreateOjbectives;
 trigger gt_VictoryCondition;
 
 //--------------------------------------------------------------------------------------------------
@@ -331,6 +346,18 @@ void gf_CreateSelectableHero (string lp_heroName) {
     UnitSetHeight(UnitLastCreated(), -2.0, 0.0);
     UnitSetHeight(UnitLastCreated(), UnitTypeGetProperty(UnitGetType(UnitLastCreated()), c_unitPropHeight), 2.0);
     UnitBehaviorAddPlayer(UnitLastCreated(), "Invulnerable", 0, 1);
+    if ((GameAttributeGameValue("1") == "0002")) {
+        UnitXPSetCurrentLevel(UnitLastCreated(), "CRPGHeroVeterancy", 2);
+    }
+    else if ((GameAttributeGameValue("1") == "0003")) {
+        UnitXPSetCurrentLevel(UnitLastCreated(), "CRPGHeroVeterancy", 3);
+    }
+    else if ((GameAttributeGameValue("1") == "0004")) {
+        UnitXPSetCurrentLevel(UnitLastCreated(), "CRPGHeroVeterancy", 4);
+    }
+    else if ((GameAttributeGameValue("1") == "0005")) {
+        UnitXPSetCurrentLevel(UnitLastCreated(), "CRPGHeroVeterancy", 5);
+    }
     libNtve_gf_CreateUnitsWithDefaultFacing(1, "Beacon_Terranmedium", 0, 0, lv_creationPoint);
 }
 
@@ -409,100 +436,6 @@ bool gt_AlienTrickle_Func (bool testConds, bool runActions) {
 void gt_AlienTrickle_Init () {
     gt_AlienTrickle = TriggerCreate("gt_AlienTrickle_Func");
     TriggerAddEventMapInit(gt_AlienTrickle);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Hero Selection
-//--------------------------------------------------------------------------------------------------
-bool gt_HeroSelection_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    unit lv_hero;
-    int lv_player;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_hero = UnitGroupClosestToPoint(UnitGroup(null, 0, RegionFromId(1), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), UnitGetPosition(EventUnit()));
-    lv_player = UnitGetOwner(EventUnitTargetUnit());
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    UnitRemove(lv_hero);
-    libNtve_gf_UnitCreateFacingPoint(1, UnitGetType(lv_hero), c_unitCreateIgnorePlacement, lv_player, UnitGetPosition(EventUnit()), RegionGetCenter(RegionFromId(1)));
-    if ((UnitGetType(lv_hero) == "CRPGAlienLevel1")) {
-        UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("Rally", 0), UnitGroupClosestToPoint(UnitGroup("CRPGCrashedBattlecruiser", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(1)))), c_orderQueueReplace);
-        UnitIssueOrder(UnitLastCreated(), Order(AbilityCommand("AlienMetamorphosis", 1)), c_orderQueueAddToEnd);
-    }
-    else {
-        UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("move", 0), UnitGroupClosestToPoint(UnitGroup("CRPGCrashedBattlecruiser", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(1)))), c_orderQueueReplace);
-    }
-    UnitSelect(UnitLastCreated(), lv_player, true);
-    gv_remainingSelectors -= 1;
-    if ((gv_remainingSelectors == 0)) {
-        TriggerExecute(gt_FreeHeroes, true, false);
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_HeroSelection_Init () {
-    gt_HeroSelection = TriggerCreate("gt_HeroSelection_Func");
-    TriggerAddEventUnitAbility(gt_HeroSelection, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageComplete, false);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Free Heroes
-//--------------------------------------------------------------------------------------------------
-bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    unitgroup autoF0649EFE_g;
-    int autoF0649EFE_u;
-    unit autoF0649EFE_var;
-    unitgroup autoC2208D7F_g;
-    int autoC2208D7F_u;
-    unit autoC2208D7F_var;
-    unitgroup auto9196D33C_g;
-    int auto9196D33C_u;
-    unit auto9196D33C_var;
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    autoF0649EFE_g = UnitGroup(null, 0, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    autoF0649EFE_u = UnitGroupCount(autoF0649EFE_g, c_unitCountAll);
-    for (;; autoF0649EFE_u -= 1) {
-        autoF0649EFE_var = UnitGroupUnitFromEnd(autoF0649EFE_g, autoF0649EFE_u);
-        if (autoF0649EFE_var == null) { break; }
-        UnitRemove(autoF0649EFE_var);
-    }
-    autoC2208D7F_g = UnitGroup("Bunker", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    autoC2208D7F_u = UnitGroupCount(autoC2208D7F_g, c_unitCountAll);
-    for (;; autoC2208D7F_u -= 1) {
-        autoC2208D7F_var = UnitGroupUnitFromEnd(autoC2208D7F_g, autoC2208D7F_u);
-        if (autoC2208D7F_var == null) { break; }
-        UnitRemove(autoC2208D7F_var);
-    }
-    auto9196D33C_g = UnitGroup("SupplyDepot", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    auto9196D33C_u = UnitGroupCount(auto9196D33C_g, c_unitCountAll);
-    for (;; auto9196D33C_u -= 1) {
-        auto9196D33C_var = UnitGroupUnitFromEnd(auto9196D33C_g, auto9196D33C_u);
-        if (auto9196D33C_var == null) { break; }
-        UnitIssueOrder(auto9196D33C_var, Order(AbilityCommand("SupplyDepotLower", 0)), c_orderQueueReplace);
-    }
-    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/20A0E835"));
-    ObjectiveCreate(StringExternal("Param/Value/9039C785"), StringExternal("Param/Value/1E6C8800"), c_objectiveStateActive, true);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void gt_FreeHeroes_Init () {
-    gt_FreeHeroes = TriggerCreate("gt_FreeHeroes_Func");
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -618,6 +551,12 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
         }
 
     }
+    if ((GameAttributeGameValue("2") == "0001")) {
+        gv_tutorialOn = true;
+        gv_attackWave = -5;
+        TriggerEnable(gt_TutorialChooseHeroBefore, true);
+    }
+
     libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
     HelpPanelEnableTechTreeButton(PlayerGroupAll(), false);
     AICampaignStart(gv_alienPlayer);
@@ -697,8 +636,8 @@ bool gt_StartBattlecruiserScene_Func (bool testConds, bool runActions) {
         CameraPan(auto56A2C87D_var, PointFromId(1236227694), 7.0, -1, 10.0, false);
     }
     CinematicFade(true, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
-    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/627C2F4B"));
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
     UnitIssueOrder(UnitFromId(640316847), OrderTargetingPoint(AbilityCommand("move", 0), PointFromId(1236227694)), c_orderQueueReplace);
     UnitSetHeight(UnitFromId(640316847), -1.0, 6.0);
     return true;
@@ -735,8 +674,27 @@ bool gt_BattlecruiserCrash_Func (bool testConds, bool runActions) {
     }
     libNtve_gf_RemoveDeathModelsinRegionImmediately(RegionFromId(1));
     TriggerExecute(gt_CreateHeroSelection, true, false);
+    if ((gv_tutorialOn == false)) {
+        TimerStart(TimerCreate(), 60.0, false, c_timeGame);
+        gv_heroSelectionTimer = TimerLastStarted();
+        TimerWindowCreate(TimerLastStarted(), StringExternal("Param/Value/025AEB56"), true, false);
+        gv_heroSelectionTimerWindow = TimerWindowLastCreated();
+        TimerWindowSetFormat(TimerWindowLastCreated(), StringToText("<sectotal/>"));
+        TimerWindowShowBorder(TimerWindowLastCreated(), true);
+        TimerWindowSetStyle(TimerWindowLastCreated(), c_timerWindowStyleHorizontalTitleTime, false);
+        TimerWindowShowProgressBar(TimerWindowLastCreated(), true);
+    }
+
     libNtve_gf_CinematicMode(false, PlayerGroupAll(), c_transitionDurationDefault);
-    CinematicFade(true, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, false);
+    CinematicFade(true, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/A1BE09AD"));
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, true);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/4E80A046"));
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
+    if ((gv_tutorialOn == true)) {
+        TriggerExecute(gt_TutorialStart, true, false);
+    }
+
     return true;
 }
 
@@ -744,6 +702,281 @@ bool gt_BattlecruiserCrash_Func (bool testConds, bool runActions) {
 void gt_BattlecruiserCrash_Init () {
     gt_BattlecruiserCrash = TriggerCreate("gt_BattlecruiserCrash_Func");
     TriggerAddEventUnitRangePoint(gt_BattlecruiserCrash, UnitRefFromUnit(UnitFromId(640316847)), PointFromId(25930053), 1.0, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tutorial Start
+//--------------------------------------------------------------------------------------------------
+bool gt_TutorialStart_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/FF711E04"));
+    Wait(8.0, c_timeGame);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/CE85816A"));
+    TriggerEnable(gt_TutorialChooseHeroAfter, true);
+    TriggerEnable(gt_TutorialChooseHeroBefore, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TutorialStart_Init () {
+    gt_TutorialStart = TriggerCreate("gt_TutorialStart_Func");
+    TriggerEnable(gt_TutorialStart, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tutorial Choose Hero (Before)
+//--------------------------------------------------------------------------------------------------
+bool gt_TutorialChooseHeroBefore_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(gt_TutorialChooseHeroBefore, false);
+    TriggerStop(gt_TutorialStart);
+    TriggerStop(gt_BattlecruiserCrash);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/CC765462"));
+    Wait(3.0, c_timeGame);
+    TriggerExecute(gt_TutorialMechanicalIntroduction, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TutorialChooseHeroBefore_Init () {
+    gt_TutorialChooseHeroBefore = TriggerCreate("gt_TutorialChooseHeroBefore_Func");
+    TriggerEnable(gt_TutorialChooseHeroBefore, false);
+    TriggerAddEventUnitAbility(gt_TutorialChooseHeroBefore, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tutorial Choose Hero (After)
+//--------------------------------------------------------------------------------------------------
+bool gt_TutorialChooseHeroAfter_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_heroUnit;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerEnable(gt_TutorialChooseHeroAfter, false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/B48473DC"));
+    Wait(5.0, c_timeGame);
+    TriggerExecute(gt_TutorialMechanicalIntroduction, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TutorialChooseHeroAfter_Init () {
+    gt_TutorialChooseHeroAfter = TriggerCreate("gt_TutorialChooseHeroAfter_Func");
+    TriggerEnable(gt_TutorialChooseHeroAfter, false);
+    TriggerAddEventUnitAbility(gt_TutorialChooseHeroAfter, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Tutorial Mechanical Introduction
+//--------------------------------------------------------------------------------------------------
+bool gt_TutorialMechanicalIntroduction_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    actor lv_ping;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/CF2B3A82"));
+    Wait(5.0, c_timeGame);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/ABFFB158"));
+    libNtve_gf_AttachModelToUnit(gv_hero, "BriefingUnitSelectSmall", "Ref_Origin");
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "CRPGLevelUp", true);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "SwarmerMergeSelected", true);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "SwarmerEvolve", true);
+    Wait(12.0, c_timeGame);
+    libNtve_gf_KillModel(libNtve_gf_ActorLastCreated());
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "CRPGLevelUp", false);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "SwarmerMergeSelected", false);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "SwarmerEvolve", false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/456D0485"));
+    libNtve_gf_CreateModelAtPoint("BriefingUnitSelectLarge", UnitGetPosition(UnitGroupUnit(UnitGroupSearch("CRPGArmory", UnitGetOwner(gv_hero), RegionGetCenter(RegionFromId(1)), 30.0, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1)));
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeDamage", true);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeArmor", true);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeEnergy", true);
+    Wait(12.0, c_timeGame);
+    libNtve_gf_KillModel(libNtve_gf_ActorLastCreated());
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeDamage", false);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeArmor", false);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeEnergy", false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/DF30EE6D"));
+    Wait(8.0, c_timeGame);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/B18DC15D"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_TutorialMechanicalIntroduction_Init () {
+    gt_TutorialMechanicalIntroduction = TriggerCreate("gt_TutorialMechanicalIntroduction_Func");
+    TriggerEnable(gt_TutorialMechanicalIntroduction, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Hero Selection
+//--------------------------------------------------------------------------------------------------
+bool gt_HeroSelection_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_selectedHero;
+    int lv_player;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_selectedHero = UnitGroupClosestToPoint(UnitGroup(null, 0, RegionFromId(1), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), UnitGetPosition(EventUnit()));
+    lv_player = UnitGetOwner(EventUnitTargetUnit());
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UnitSetOwner(lv_selectedHero, lv_player, true);
+    UnitBehaviorRemove(lv_selectedHero, "Invulnerable", 1);
+    if ((UnitGetType(lv_selectedHero) == "CRPGAlienLevel1")) {
+        UnitIssueOrder(lv_selectedHero, OrderTargetingUnit(AbilityCommand("Rally", 0), UnitGroupClosestToPoint(UnitGroup("CRPGCrashedBattlecruiser", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(1)))), c_orderQueueReplace);
+        UnitIssueOrder(lv_selectedHero, Order(AbilityCommand("AlienHarvesterFormMorph", 0)), c_orderQueueAddToEnd);
+    }
+    else {
+        UnitIssueOrder(lv_selectedHero, OrderTargetingUnit(AbilityCommand("move", 0), UnitGroupClosestToPoint(UnitGroup("CRPGCrashedBattlecruiser", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(1)))), c_orderQueueReplace);
+    }
+    UnitSelect(lv_selectedHero, lv_player, true);
+    gv_remainingSelectors -= 1;
+    if ((gv_tutorialOn == true)) {
+        gv_hero = lv_selectedHero;
+    }
+
+    if ((gv_remainingSelectors == 0)) {
+        TriggerExecute(gt_FreeHeroes, true, false);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_HeroSelection_Init () {
+    gt_HeroSelection = TriggerCreate("gt_HeroSelection_Func");
+    TriggerAddEventUnitAbility(gt_HeroSelection, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageComplete, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Free Heroes
+//--------------------------------------------------------------------------------------------------
+bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    unitgroup autoF0649EFE_g;
+    int autoF0649EFE_u;
+    unit autoF0649EFE_var;
+    unitgroup autoC2208D7F_g;
+    int autoC2208D7F_u;
+    unit autoC2208D7F_var;
+    unitgroup auto4963B6DA_g;
+    int auto4963B6DA_u;
+    unit auto4963B6DA_var;
+    unitgroup auto9196D33C_g;
+    int auto9196D33C_u;
+    unit auto9196D33C_var;
+
+    // Conditions
+    if (testConds) {
+        if (!((ObjectiveGetState(gv_primaryObjective) != c_objectiveStateActive))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    ObjectiveSetState(gv_primaryObjective, c_objectiveStateActive);
+    TriggerDestroy(gt_Timeout);
+    TimerWindowDestroy(gv_heroSelectionTimerWindow);
+    libNtve_gf_StopTimer(gv_heroSelectionTimer);
+    autoF0649EFE_g = UnitGroup(null, 0, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoF0649EFE_u = UnitGroupCount(autoF0649EFE_g, c_unitCountAll);
+    for (;; autoF0649EFE_u -= 1) {
+        autoF0649EFE_var = UnitGroupUnitFromEnd(autoF0649EFE_g, autoF0649EFE_u);
+        if (autoF0649EFE_var == null) { break; }
+        UnitRemove(autoF0649EFE_var);
+    }
+    autoC2208D7F_g = UnitGroup("Bunker", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoC2208D7F_u = UnitGroupCount(autoC2208D7F_g, c_unitCountAll);
+    for (;; autoC2208D7F_u -= 1) {
+        autoC2208D7F_var = UnitGroupUnitFromEnd(autoC2208D7F_g, autoC2208D7F_u);
+        if (autoC2208D7F_var == null) { break; }
+        UnitRemove(autoC2208D7F_var);
+    }
+    auto4963B6DA_g = UnitGroup("CRPGCivilian", c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto4963B6DA_u = UnitGroupCount(auto4963B6DA_g, c_unitCountAll);
+    for (;; auto4963B6DA_u -= 1) {
+        auto4963B6DA_var = UnitGroupUnitFromEnd(auto4963B6DA_g, auto4963B6DA_u);
+        if (auto4963B6DA_var == null) { break; }
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(UnitGetOwner(auto4963B6DA_var)), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(UnitGetOwner(auto4963B6DA_var), false))) + StringExternal("Param/Value/4BE9A739")));
+        UnitRemove(auto4963B6DA_var);
+        GameOver(UnitGetOwner(auto4963B6DA_var), c_gameOverDefeat, true, true);
+    }
+    auto9196D33C_g = UnitGroup("SupplyDepot", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto9196D33C_u = UnitGroupCount(auto9196D33C_g, c_unitCountAll);
+    for (;; auto9196D33C_u -= 1) {
+        auto9196D33C_var = UnitGroupUnitFromEnd(auto9196D33C_g, auto9196D33C_u);
+        if (auto9196D33C_var == null) { break; }
+        UnitIssueOrder(auto9196D33C_var, Order(AbilityCommand("SupplyDepotLower", 0)), c_orderQueueReplace);
+    }
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_TopLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/20A0E835"));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_FreeHeroes_Init () {
+    gt_FreeHeroes = TriggerCreate("gt_FreeHeroes_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Timeout
+//--------------------------------------------------------------------------------------------------
+bool gt_Timeout_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((gv_tutorialOn == false))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    TriggerExecute(gt_FreeHeroes, true, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_Timeout_Init () {
+    gt_Timeout = TriggerCreate("gt_Timeout_Func");
+    TriggerAddEventTimer(gt_Timeout, gv_heroSelectionTimer);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -766,17 +999,29 @@ bool gt_UpdateTooltips_Func (bool testConds, bool runActions) {
     lv_levelPoints = (UnitBehaviorCount(UnitGroupUnit(UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1), 1), "CRPGLevelCounter") * CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "CRPGLevelCounter", "Modification.AttributeChangeArray[" + IntToString(1) + "].Points", EventPlayer()));
     lv_upgradePoints = CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "CRPGBaseAttributes", "Modification.AttributeChangeArray[" + IntToString(2) + "].Points", EventPlayer());
     lv_damageModifier = (((lv_levelPoints + lv_upgradePoints) * gv_damageFraction) + 1.0);
+    if ((TechTreeUpgradeCount(EventPlayer(), "CRPGBasicAbilityUpgrade", c_techCountCompleteOnly) == 1)) {
+    }
+    else {
+        CatalogFieldValueSet(c_gameCatalogButton, "AeroYamatoCannon", "Tooltip", EventPlayer(), (("Blasts a target with a devastating plasma cannon, causing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroYamatoCannonDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+        CatalogFieldValueSet(c_gameCatalogButton, "HunterScarabMine", "Tooltip", EventPlayer(), (("Scarab Mines pursue enemy units that come in range, detonating for <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterScarabMinesDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage and slowing nearby enemies in an area by <d ref=\"100 - (100 * Behavior,HunterSlowScarabMine,Modification.MoveSpeedMultiplier)\"/>% for <d ref=\"Behavior,HunterSlowScarabMine,Duration\"/> seconds.")));
+        CatalogFieldValueSet(c_gameCatalogButton, "MechBarrage", "Tooltip", EventPlayer(), (("Stuns all enemies in a small area. Deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]\"/> seconds in a larger area.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+        CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c> <c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));
+        CatalogFieldValueSet(c_gameCatalogButton, "WizardPsionicStorm", "Tooltip", EventPlayer(), (("Creates a storm of psionic energy that lasts 4 seconds, causing up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * ((2.0 + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "WizardPsionicStormCreatePersistent", "PeriodCount", EventPlayer())) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "WizardPsionicStormDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage to all enemy units in the target area.")));
+    }
+    if ((TechTreeUpgradeCount(EventPlayer(), "CRPGAdvancedAbilityUpgrade", c_techCountCompleteOnly) == 1)) {
+    }
+    else {
+        CatalogFieldValueSet(c_gameCatalogButton, "MechShockBlast", "Tooltip", EventPlayer(), (("Unleash a violent burst of energy, stunning and dealing up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "MechShocking", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechShockBlastDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage to nearby enemies over <d ref=\"Behavior,MechShocked,Duration\"/> seconds.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+        CatalogFieldValueSet(c_gameCatalogButton, "WizardPsionicOrb", "Tooltip", EventPlayer(), (("Unleashes a traveling Psionic Orb that slows and deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "WizardPsionicOrbDamage", "Amount", EventPlayer()) / libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogBehavior, "WizardPsionicOrb", "Period", c_playerAny))), c_fixedPrecisionAny) + "</c> damage per second and slows all enemies movement along its path by <d ref=\"1 - Behavior,WizardSlowPsionicOrb,Modification.MoveSpeedMultiplier * 100\"/>%.")));
+    }
+    if ((TechTreeUpgradeCount(EventPlayer(), "CRPGUltimateAbilityUpgrade", c_techCountCompleteOnly) == 1)) {
+    }
+    else {
+        CatalogFieldValueSet(c_gameCatalogButton, "SniperNuclearStrike", "Tooltip", EventPlayer(), (("Calls down a Nuclear Strike at a target location. Nuke takes <d ref=\"Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay\"/> seconds to land and deals up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "AttributeBonus[" + IntToString(7) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Structure) damage to enemies in a large radius.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+    }
     CatalogFieldValueSet(c_gameCatalogButton, "AeroLaserArmaments", "Tooltip", EventPlayer(), (("Automatically fire Laser Batteries that deal <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroLaserArmamentsDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage to enemies below the hero.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "AeroYamatoCannon", "Tooltip", EventPlayer(), (("Blasts a target with a devastating plasma cannon, causing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroYamatoCannonDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
     CatalogFieldValueSet(c_gameCatalogButton, "HunterPsionicProjection", "Tooltip", EventPlayer(), (("After not attacking for 5 seconds, project a psionic orb that will attack with the unit, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterProjectionBeamDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterProjectionBeamCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,HunterProjectionBeamCreatePersistent,PeriodCount * Effect,HunterProjectionBeamCreatePersistent,PeriodicPeriodArray[0]\"/> second. Can store up to 2.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "HunterScarabMine", "Tooltip", EventPlayer(), (("Scarab Mines pursue enemy units that come in range, detonating for <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterScarabMinesDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage and slowing nearby enemies in an area by <d ref=\"100 - (100 * Behavior,HunterSlowScarabMine,Modification.MoveSpeedMultiplier)\"/>% for <d ref=\"Behavior,HunterSlowScarabMine,Duration\"/> seconds.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "MechBarrage", "Tooltip", EventPlayer(), (("Stuns all enemies in a small area. Deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]\"/> seconds in a larger area.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
-    CatalogFieldValueSet(c_gameCatalogButton, "MechShockBlast", "Tooltip", EventPlayer(), (("Unleash a violent burst of energy, stunning and dealing up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "MechShocking", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechShockBlastDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage to nearby enemies over <d ref=\"Behavior,MechShocked,Duration\"/> seconds.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
-    CatalogFieldValueSet(c_gameCatalogButton, "SniperNuclearStrike", "Tooltip", EventPlayer(), (("Calls down a Nuclear Strike at a target location. Nuke takes <d ref=\"Effect,SniperNuclearStrikePersistent,InitialDelay + Effect,SniperNuclearStrikePersistent,ExpireDelay + Effect,SniperNuclearStrikeDetonate,InitialDelay\"/> seconds to land and deals up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperNuclearStrikeDamage", "AttributeBonus[" + IntToString(7) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Structure) damage to enemies in a large radius.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
-    CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c> <c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));
     CatalogFieldValueSet(c_gameCatalogButton, "SniperToxicMunitions", "Tooltip", EventPlayer(), (("This unit's projectiles are coated in a deadly toxin that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogBehavior, "SniperDeadlyToxinDamage", "PeriodCount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperDeadlyToxinDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Behavior,SniperDeadlyToxinDamage,PeriodCount * Behavior,SniperDeadlyToxinDamage,Period\"/> seconds to any enemy damaged by it for the first time.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
-    CatalogFieldValueSet(c_gameCatalogButton, "WizardPsionicOrb", "Tooltip", EventPlayer(), (("Unleashes a traveling Psionic Orb that slows and deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "WizardPsionicOrbDamage", "Amount", EventPlayer()) / libNtve_gf_CatalogFieldValueGetAsReal(c_gameCatalogBehavior, "WizardPsionicOrb", "Period", c_playerAny))), c_fixedPrecisionAny) + "</c> damage per second and slows all enemies movement along its path by <d ref=\"1 - Behavior,WizardSlowPsionicOrb,Modification.MoveSpeedMultiplier * 100\"/>%.")));
-    CatalogFieldValueSet(c_gameCatalogButton, "WizardPsionicStorm", "Tooltip", EventPlayer(), (("Creates a storm of psionic energy that lasts 4 seconds, causing up to <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * ((2.0 + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "WizardPsionicStormCreatePersistent", "PeriodCount", EventPlayer())) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "WizardPsionicStormDamage", "Amount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage to all enemy units in the target area.")));
     return true;
 }
 
@@ -785,6 +1030,27 @@ void gt_UpdateTooltips_Init () {
     gt_UpdateTooltips = TriggerCreate("gt_UpdateTooltips_Func");
     TriggerAddEventUnitAbility(gt_UpdateTooltips, null, AbilityCommand("CRPGUpgradeDamage", 0), c_unitAbilStageComplete, false);
     TriggerAddEventUnitBehaviorChange(gt_UpdateTooltips, null, "CRPGLevelCounter", c_unitBehaviorChangeIncrease);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Create Ojbectives
+//--------------------------------------------------------------------------------------------------
+bool gt_CreateOjbectives_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    ObjectiveCreateForPlayers((StringExternal("Param/Value/397C5ADF") + IntToText((gv_maxAlienSpawners - TechTreeUnitCount(gv_alienPlayer, "NydusNetwork", c_techCountCompleteOnly))) + StringExternal("Param/Value/E66AC2E1") + IntToText(gv_maxAlienSpawners) + StringExternal("Param/Value/6805F0CF")), StringExternal("Param/Value/89C94BBD"), c_objectiveStateHidden, true, gv_survivors);
+    gv_primaryObjective = ObjectiveLastCreated();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_CreateOjbectives_Init () {
+    gt_CreateOjbectives = TriggerCreate("gt_CreateOjbectives_Func");
+    TriggerAddEventMapInit(gt_CreateOjbectives);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -800,10 +1066,6 @@ bool gt_VictoryCondition_Func (bool testConds, bool runActions) {
         if (!((UnitGetType(EventUnit()) == "NydusNetwork"))) {
             return false;
         }
-
-        if (!((UnitCount("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) == 0))) {
-            return false;
-        }
     }
 
     // Actions
@@ -811,13 +1073,20 @@ bool gt_VictoryCondition_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    auto25B3F9EE_g = gv_survivors;
-    auto25B3F9EE_var = -1;
-    while (true) {
-        auto25B3F9EE_var = PlayerGroupNextPlayer(auto25B3F9EE_g, auto25B3F9EE_var);
-        if (auto25B3F9EE_var < 0) { break; }
-        GameOver(auto25B3F9EE_var, c_gameOverVictory, true, true);
+    ObjectiveSetName(gv_primaryObjective, (StringExternal("Param/Value/3B8A3C30") + IntToText((gv_maxAlienSpawners - TechTreeUnitCount(gv_alienPlayer, "NydusNetwork", c_techCountCompleteOnly))) + StringExternal("Param/Value/D89A801B") + IntToText(gv_maxAlienSpawners) + StringExternal("Param/Value/C27C6B11")));
+    if ((UnitCount("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) == 0)) {
+        libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/8152B75E"));
+        Wait(6.0, c_timeReal);
+        auto25B3F9EE_g = gv_survivors;
+        auto25B3F9EE_var = -1;
+        while (true) {
+            auto25B3F9EE_var = PlayerGroupNextPlayer(auto25B3F9EE_g, auto25B3F9EE_var);
+            if (auto25B3F9EE_var < 0) { break; }
+            GameOver(auto25B3F9EE_var, c_gameOverVictory, true, true);
+        }
     }
+
     return true;
 }
 
@@ -833,15 +1102,21 @@ void gt_VictoryCondition_Init () {
 void InitTriggers () {
     gt_AttackWaves_Init();
     gt_AlienTrickle_Init();
-    gt_HeroSelection_Init();
-    gt_FreeHeroes_Init();
     gt_CreateHeroSelection_Init();
     gt_DisableTurrets_Init();
     gt_MapInitialization_Init();
     gt_PlayerLeaves_Init();
     gt_StartBattlecruiserScene_Init();
     gt_BattlecruiserCrash_Init();
+    gt_TutorialStart_Init();
+    gt_TutorialChooseHeroBefore_Init();
+    gt_TutorialChooseHeroAfter_Init();
+    gt_TutorialMechanicalIntroduction_Init();
+    gt_HeroSelection_Init();
+    gt_FreeHeroes_Init();
+    gt_Timeout_Init();
     gt_UpdateTooltips_Init();
+    gt_CreateOjbectives_Init();
     gt_VictoryCondition_Init();
 }
 
