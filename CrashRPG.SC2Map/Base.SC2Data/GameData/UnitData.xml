@@ -57,6 +57,51 @@
     <CUnit id="HotSSwarmlingBurrowed">
         <KillResource index="Minerals" value="5"/>
     </CUnit>
+    <CUnit id="ShipStasisWard">
+        <Race value="Prot"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="AIThreatGround" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <FlagArray index="AISplash" value="1"/>
+        <FlagArray index="AIHighPrioTarget" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="30"/>
+        <LifeMax value="30"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossBuildingPlating"/>
+        <ShieldsStart value="30"/>
+        <ShieldsMax value="30"/>
+        <ShieldRegenDelay value="10"/>
+        <ShieldRegenRate value="2"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
+        <Sight value="4"/>
+        <AttackTargetPriority value="10"/>
+        <AbilArray Link="ShipStasisWardActivate"/>
+        <AbilArray Link="BuildInProgress"/>
+        <BehaviorArray Link="ShipStasisWardCloak"/>
+        <CardLayouts>
+            <LayoutButtons Face="ShipStasisWardStasis" Type="Passive" AbilCmd="ShipStasisWardActivate,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="ShipStasisWardPermanentlyCloaked" Type="Passive" Row="2" Column="1"/>
+        </CardLayouts>
+        <Radius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <Footprint value="OracleStasisTrap"/>
+        <PlacementFootprint value="OracleStasisTrap"/>
+        <MinimapRadius value="0.375"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <AINotifyEffect value="OracleStasisTrapActivate"/>
+        <GlossaryCategory value="Unit/Category/ProtossUnits"/>
+        <GlossaryPriority value="250"/>
+        <KillDisplay value="Never"/>
+        <RankDisplay value="Never"/>
+    </CUnit>
     <CUnit id="PickupHunterPlasmaCanister" parent="ITEM">
         <Race value="Prot"/>
         <Mob value="Campaign"/>
@@ -109,8 +154,7 @@
     </CUnit>
     <CUnit id="CRPGAeroLevel1" parent="CRPGHero">
         <Race value="Terr"/>
-        <FlagArray index="Hero" value="0"/>
-        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="0"/>
         <PlaneArray index="Air" value="1"/>
         <Collide index="Ground" value="0"/>
         <Collide index="ForceField" value="0"/>
@@ -411,8 +455,8 @@
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="720"/>
         <TurningRate value="360"/>
-        <WeaponArray index="0" Link="MechJavelinMissileLaunchers" Turret=""/>
-        <WeaponArray index="1" Link="MechThorsHammer" Turret=""/>
+        <WeaponArray index="0" Link="MechThorsHammer" Turret=""/>
+        <WeaponArray index="1" Link="MechJavelinMissileLaunchers" Turret=""/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -490,7 +534,7 @@
                 <Column value="4"/>
             </LayoutButtons>
             <LayoutButtons index="6" Face="SniperSnipe" Type="AbilCmd" AbilCmd="SniperSniperRoundEnhanced,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="SniperEnhancedOptics" Type="Passive" Requirements="GELevel2" Row="1" Column="0"/>
+            <LayoutButtons Face="SniperEnhancedOptics" Type="Passive" Row="1" Column="0"/>
         </CardLayouts>
         <ReviveType value="CRPGSniperLevel2"/>
         <LeaderAlias value="CRPGSniperLevel2"/>
@@ -503,8 +547,8 @@
         <LifeMax value="215"/>
         <AbilArray index="3" Link="SniperLevelUpMorphLevel3"/>
         <AbilArray Link="SniperCloak"/>
-        <AbilArray Link="SniperHoldFire"/>
-        <AbilArray Link="SniperWeaponsFree"/>
+        <AbilArray Link="CRPGHoldFire"/>
+        <AbilArray Link="CRPGWeaponsFree"/>
         <WeaponArray index="0" Link="SniperC20ACanisterRifle"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
@@ -515,19 +559,18 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons index="7" Face="SniperEnhancedOptics" Type="Passive" Requirements="" Row="1" Column="0"/>
             <LayoutButtons>
-                <Face value="SniperHoldFire"/>
+                <Face value="CRPGHoldFire"/>
                 <Type value="AbilCmd"/>
-                <AbilCmd value="SniperHoldFire,Execute"/>
+                <AbilCmd value="CRPGHoldFire,255"/>
                 <ShowInGlossary value="0"/>
                 <Row value="1"/>
                 <Column value="2"/>
             </LayoutButtons>
             <LayoutButtons>
-                <Face value="SniperWeaponsFree"/>
+                <Face value="CRPGWeaponsFree"/>
                 <Type value="AbilCmd"/>
-                <AbilCmd value="SniperWeaponsFree,Execute"/>
+                <AbilCmd value="CRPGWeaponsFree,255"/>
                 <ShowInGlossary value="0"/>
                 <Row value="1"/>
                 <Column value="3"/>
@@ -626,7 +669,7 @@
         <LifeStart value="200"/>
         <LifeMax value="200"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
-        <Speed value="3"/>
+        <Speed value="2.75"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46"/>
         <AbilArray index="3" Link="VehicleLevelUpMorphLevel1"/>
@@ -851,7 +894,7 @@
         <Collide index="ForceField" value="0"/>
         <Collide index="Locust" value="0"/>
         <Collide index="Flying" value="1"/>
-        <Attributes index="Light" value="1"/>
+        <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
         <LifeStart value="150"/>
         <LifeMax value="150"/>
@@ -859,7 +902,6 @@
         <ShieldsStart value="50"/>
         <ShieldsMax value="50"/>
         <Mover value="Fly"/>
-        <Speed value="2.75"/>
         <Acceleration value="3.25"/>
         <StationaryTurningRate value="1499.9414"/>
         <TurningRate value="1499.9414"/>
@@ -1184,24 +1226,6 @@
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
         <KillResource index="Minerals" value="40"/>
     </CUnit>
-    <CUnit id="CRPGShipLevel2" parent="CRPGShipLevel1">
-        <Attributes index="Light" value="0"/>
-        <Attributes index="Armored" value="1"/>
-        <AbilArray index="3" Link="ShipLevelUpMorphLevel2"/>
-        <BehaviorArray Link="ShipShieldEmitterAura"/>
-        <WeaponArray index="1" Link="ShipAntiMatterMissiles"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="ShipLevelUpMorphLevel2,Execute"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons Face="ShipShieldEmitter" Type="Passive" Row="1" Column="0"/>
-        </CardLayouts>
-    </CUnit>
     <CUnit id="Roach">
         <Name value="Unit/Name/Alien"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
@@ -1213,15 +1237,55 @@
     <CUnit id="SupplyDepotLowered">
         <FlagArray index="Invulnerable" value="1"/>
     </CUnit>
+    <CUnit id="CRPGShipLevel2" parent="CRPGShipLevel1">
+        <AbilArray index="3" Link="ShipLevelUpMorphLevel2"/>
+        <AbilArray Link="CRPGHoldFire"/>
+        <AbilArray Link="CRPGWeaponsFree"/>
+        <BehaviorArray Link="ShipCloakField"/>
+        <WeaponArray index="0" Link="ShipWarpspaceCannon"/>
+        <WeaponArray index="1" removed="1"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="ShipLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons>
+                <Face value="CRPGHoldFire"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="CRPGHoldFire,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="2"/>
+            </LayoutButtons>
+            <LayoutButtons>
+                <Face value="CRPGWeaponsFree"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="CRPGWeaponsFree,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="3"/>
+            </LayoutButtons>
+            <LayoutButtons Face="ShipCloakingField" Type="Passive" Row="1" Column="0"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+    </CUnit>
     <CUnit id="CRPGShipLevel3" parent="CRPGShipLevel2">
+        <Name value="Unit/Name/CRPGShipLevel3"/>
         <LifeStart value="175"/>
         <LifeMax value="175"/>
         <ShieldsStart value="75"/>
         <ShieldsMax value="75"/>
+        <Acceleration value="3"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
         <AbilArray index="3" Link="ShipLevelUpMorphLevel3"/>
-        <AbilArray Link="ShipPrismaticAlignment"/>
-        <WeaponArray index="0" Link="ShipWarpspaceCannon"/>
-        <WeaponArray index="1" removed="1"/>
+        <AbilArray Link="ShipBuildStasisWard"/>
+        <WeaponArray index="0" Link="ShipPulsarBeam"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -1231,14 +1295,22 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="ShipPrismaticAlignment" Type="AbilCmd" AbilCmd="ShipPrismaticAlignment,On" Row="2" Column="1"/>
-            <LayoutButtons Face="ShipDisablePrismaticAlignment" Type="AbilCmd" AbilCmd="ShipPrismaticAlignment,Off" Row="2" Column="1"/>
+            <LayoutButtons Face="ShipStasisWard" Type="AbilCmd" AbilCmd="ShipBuildStasisWard,Build1" Row="2" Column="1"/>
         </CardLayouts>
-        <Radius value="1"/>
+        <Radius value="0.75"/>
+        <SeparationRadius value="0.75"/>
+        <MinimapRadius value="1"/>
     </CUnit>
     <CUnit id="CRPGShipLevel4" parent="CRPGShipLevel3">
+        <Name value="Unit/Name/CRPGShipLevel4"/>
+        <Facing value="45"/>
+        <FlagArray index="Turnable" value="0"/>
+        <Acceleration value="1.0625"/>
+        <LateralAcceleration value="46.0625"/>
+        <Height value="3"/>
         <AbilArray index="3" Link="ShipLevelUpMorphLevel4"/>
-        <BehaviorArray Link="ShipGuardianShellAura"/>
+        <BehaviorArray Link="ShipPurifierTurrets"/>
+        <WeaponArray index="0" Link="ShipPurifierCannon" Turret="MothershipCoreTurret"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -1248,45 +1320,36 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="ShipGuardianShell" Type="Passive" Row="1" Column="1"/>
+            <LayoutButtons Face="ShipPurifierTurrets" Type="Passive" Row="1" Column="1"/>
         </CardLayouts>
+        <Radius value="1"/>
         <SeparationRadius value="1"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="CRPGShipLevel5" parent="CRPGShipLevel4">
-        <Facing value="45"/>
-        <FlagArray index="Turnable" value="0"/>
+        <Name value="Unit/Name/CRPGShip"/>
         <Attributes index="Massive" value="1"/>
         <LifeStart value="200"/>
         <LifeMax value="200"/>
         <ShieldsStart value="100"/>
         <ShieldsMax value="100"/>
-        <Speed value="2.25"/>
         <Acceleration value="1.375"/>
         <Deceleration value="1"/>
+        <LateralAcceleration value="0"/>
         <StationaryTurningRate value="720"/>
         <TurningRate value="720"/>
+        <Height value="3.75"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
-        <AbilArray index="4" Link="ShipDisruptionWebNoAim"/>
-        <AbilArray index="5" Link="ShipPrismaticAlignmentNoAim"/>
-        <AbilArray Link="ShipCloakingField"/>
+        <AbilArray Link="ShipVortex"/>
         <WeaponArray index="0" Link="ShipPurifierBeam" Turret="FreeRotate"/>
         <WeaponArray Turret="MothershipRotate"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="LevelUpDummy,Execute"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons index="6" AbilCmd="ShipDisruptionWebNoAim,Execute"/>
-            <LayoutButtons index="8" Face="ShipPrismaticAlignment" Type="AbilCmd" AbilCmd="ShipPrismaticAlignmentNoAim,On" Row="2" Column="1"/>
-            <LayoutButtons index="9" Face="ShipDisablePrismaticAlignment" Type="AbilCmd" AbilCmd="ShipPrismaticAlignmentNoAim,Off" Row="2" Column="1"/>
-            <LayoutButtons Face="ShipCloakingField" Type="AbilCmd" AbilCmd="ShipCloakingField,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="ShipVortex" Type="AbilCmd" AbilCmd="ShipVortex,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <Radius value="1.375"/>
         <SeparationRadius value="1.375"/>
+        <MinimapRadius value="0.5"/>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Melee"/>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
     <CUnit id="WeaponDisruptorVolleyHunter" parent="MISSILE">
@@ -1375,6 +1438,7 @@
         <GlossaryCategory value="Unit/Category/CrashRPGUnits"/>
         <GlossaryPriority value="219"/>
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="InfestedInfestedEggMissile" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
@@ -2035,7 +2099,7 @@
         <TurningRate value="999.8437"/>
         <KillXP value="20"/>
         <AbilArray index="3" Link="FighterLevelUpMorphLevel1"/>
-        <AbilArray Link="FighterRapidStrikes"/>
+        <AbilArray Link="FighterLightningDash"/>
         <WeaponArray Link="FighterSolariteReaper"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
@@ -2046,7 +2110,7 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="FighterRapidStrikes" Type="AbilCmd" AbilCmd="FighterRapidStrikes,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="FighterLightningDash" Type="AbilCmd" AbilCmd="FighterLightningDash,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.375"/>
@@ -2086,7 +2150,7 @@
         <ShieldsStart value="150"/>
         <ShieldsMax value="150"/>
         <AbilArray index="3" Link="FighterLevelUpMorphLevel3"/>
-        <AbilArray Link="FighterShadowCharge"/>
+        <AbilArray Link="FighterRapidStrikes"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -2096,7 +2160,7 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="FighterShadowCharge" Type="AbilCmd" AbilCmd="FighterShadowCharge,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="FighterRapidStrikes" Type="AbilCmd" AbilCmd="FighterRapidStrikes,Execute" Row="2" Column="1"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="CRPGFighterLevel4" parent="CRPGFighterLevel3">

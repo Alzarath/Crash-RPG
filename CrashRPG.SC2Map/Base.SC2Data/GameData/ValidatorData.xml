@@ -11,28 +11,34 @@
         <SearchFilters value="HarvestableResource;-"/>
     </CValidatorLocationEnumArea>
     <CValidatorUnitCompareCargo id="CRPGCargoGE5">
-        <Compare value="LT"/>
+        <Compare value="GE"/>
         <Value value="5"/>
+        <Type value="Used"/>
     </CValidatorUnitCompareCargo>
     <CValidatorUnitCompareCargo id="CRPGCargoGE6">
-        <Compare value="LT"/>
+        <Compare value="GE"/>
         <Value value="6"/>
+        <Type value="Used"/>
     </CValidatorUnitCompareCargo>
-    <CValidatorUnitCompareCargo id="CRPGCargoLT1">
-        <Compare value="LT"/>
+    <CValidatorUnitCompareCargo id="CRPGCargoGTE1">
+        <Compare value="GE"/>
+        <Type value="Used"/>
         <Value value="1"/>
     </CValidatorUnitCompareCargo>
     <CValidatorUnitCompareCargo id="CRPGCargoLT2">
-        <Compare value="LT"/>
+        <Compare value="GE"/>
         <Value value="2"/>
+        <Type value="Used"/>
     </CValidatorUnitCompareCargo>
     <CValidatorUnitCompareCargo id="CRPGCargoLT3">
-        <Compare value="LT"/>
+        <Compare value="GE"/>
         <Value value="3"/>
+        <Type value="Used"/>
     </CValidatorUnitCompareCargo>
     <CValidatorUnitCompareCargo id="CRPGCargoGE4">
-        <Compare value="LT"/>
+        <Compare value="GE"/>
         <Value value="4"/>
+        <Type value="Used"/>
     </CValidatorUnitCompareCargo>
     <CValidatorUnitCompareBehaviorCount id="CRPGHasMedicalFacilitiesShield">
         <Behavior value="CrashedBattlecruiserMedicalFacilitiesShields"/>
@@ -119,6 +125,10 @@
     <CValidatorUnitCompareBehaviorCount id="CasterIsNotShadowTransferring">
         <WhichUnit Effect="HunterShadowTransferCreateUnit" Value="Caster"/>
         <Behavior value="AdeptPhaseShiftCancelDummy"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ShipCloakingFieldInCombat">
+        <Value value="1"/>
+        <Behavior value="ShipInCombatCloakingField"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="FighterHasRapidStrikes">
         <WhichUnit Value="Caster"/>
@@ -282,6 +292,17 @@
     </CValidatorUnitType>
     <CValidatorUnitCompareBehaviorCount id="MechNotShocking">
         <Behavior value="MechShocking"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ShipCloakingFieldOutOfCombat">
+        <Behavior value="ShipInCombatCloakingField"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ShipCloakingFieldCasterOutOfCombat">
+        <WhichUnit Value="Source"/>
+        <Behavior value="ShipInCombatCasterCloakingField"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ShipCloakingFieldSourceOutOfCombat">
+        <WhichUnit Value="Source"/>
+        <Behavior value="ShipInCombatCloakingField"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="ShipRecentlyProtected">
         <Value value="1"/>

@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CButton id="FighterLightningDash">
+        <Icon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ShipPurifierTurrets">
+        <Icon value="Assets\Textures\btn-ability-protoss-purify.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ShipStasisWardStasis">
+        <Icon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="HunterPlasmaDiffusion">
         <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
@@ -9,6 +22,17 @@
         <Icon value="Assets\Textures\btn-unit-protoss-interceptor.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-protoss-interceptor.dds"/>
         <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ShipStasisWard">
+        <Icon value="Assets\Textures\btn-ability-protoss-oracle-stasisward.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-oracle-stasisward.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="ShipStasisWardPermanentlyCloaked">
+        <Icon value="Assets\Textures\btn-upgrade-vorazun-stasiswardpermanentlycloaked.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-vorazun-stasiswardpermanentlycloaked.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="PermanentlyCloakedObserver"/>
     </CButton>
     <CButton id="Repair2">
         <Icon value="Assets\Textures\btn-ability-terran-repair.dds"/>
@@ -108,6 +132,11 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-karax-energyregen200.dds"/>
         <EditorCategories value="Race:Neutral"/>
     </CButton>
+    <CButton id="ShipVortex">
+        <Icon value="Assets\Textures\BTN-Ability-Protoss-Blackhole-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="Vortex"/>
+    </CButton>
     <CButton id="WizardConfusion">
         <Icon value="Assets\Textures\btn-ability-protoss-confusion.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-confusion.dds"/>
@@ -141,23 +170,6 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-cloakfield-color.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="CloakingField"/>
-    </CButton>
-    <CButton id="ShipGuardianShell">
-        <Icon value="Assets\Textures\btn-ability-spearofadun-guardianshell.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-spearofadun-guardianshell.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-        <HotkeyAlias value="SOAHeroicShield"/>
-    </CButton>
-    <CButton id="ShipDisablePrismaticAlignment">
-        <Icon value="Assets\Textures\btn-ability-protoss-prismaticbeam-color.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-prismaticbeam-color.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-        <HotkeyAlias value="ShipPrismaticAlignment"/>
-    </CButton>
-    <CButton id="ShipShieldEmitter">
-        <Icon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-shieldbattery-color.dds"/>
-        <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="ShipDisruptionWeb">
         <Icon value="Assets\Textures\btn-ability-protoss-disruptionweb.dds"/>
@@ -200,10 +212,10 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
-    <CButton id="SniperHoldFire">
+    <CButton id="CRPGHoldFire">
         <Icon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
-        <EditorCategories value="Race:Terran"/>
+        <EditorCategories value="Race:Neutral"/>
         <TintRacially value="1"/>
         <HotkeySet value="HoldFire"/>
         <HidesForSimpleText value="0"/>
@@ -422,17 +434,12 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
-    <CButton id="SniperWeaponsFree">
+    <CButton id="CRPGWeaponsFree">
         <Icon value="Assets\Textures\btn-ability-terran-weaponsfree.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-weaponsfree.dds"/>
-        <EditorCategories value="Race:Terran"/>
+        <EditorCategories value="Race:Neutral"/>
         <TintRacially value="1"/>
         <HotkeySet value="HoldFire"/>
         <HidesForSimpleText value="0"/>
-    </CButton>
-    <CButton id="ShipPrismaticAlignment">
-        <Icon value="Assets\Textures\BTN-Ability-Protoss-VoidRayPrismaticAlignment.dds"/>
-        <AlertIcon value="Assets\Textures\BTN-Ability-Protoss-VoidRayPrismaticAlignment.dds"/>
-        <EditorCategories value="Race:Protoss"/>
     </CButton>
 </Catalog>

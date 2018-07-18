@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CWeaponLegacy id="ShipPurifierCannon">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
+        <DisplayEffect value="ShipPurifierCannonDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <RangeSlop value="0"/>
+        <Period value="1.6"/>
+        <Effect value="ShipPurifierCannonLaunchMissile"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShipPulsarBeam">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-oraclepulsarcannonon.dds"/>
+        <DisplayEffect value="ShipPulsarBeamDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="4"/>
+        <RangeSlop value="0"/>
+        <Period value="1.6"/>
+        <Backswing value="0.75"/>
+        <Effect value="ShipPulsarBeamCreatePersistent"/>
+        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="PurifierGlaiveCannonPurifier">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -150,26 +175,6 @@
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="1.754"/>
         <Effect value="WizardPsiBlastLaunchMissile"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="ShipPrismaticBeamNoAim">
-        <EditorCategories value="Race:Protoss"/>
-        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
-        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
-        <DisplayEffect value="ShipPrismaticBeamDamage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="6"/>
-        <RangeSlop value="2"/>
-        <Arc value="360"/>
-        <Marker Link="Weapon/ShipPrismaticBeam"/>
-        <Cost>
-            <Cooldown Link="Weapon/ShipPrismaticBeam"/>
-        </Cost>
-        <Period value="0.8"/>
-        <Backswing value="0.75"/>
-        <Effect value="ShipPrismaticBeamNoAimCreatePersistent"/>
-        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
-        <AllowedMovement value="Moving"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShipPurifierBeam">
         <EditorCategories value="Race:Protoss"/>
@@ -359,10 +364,11 @@
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle5" parent="InfestedBunkerInfestedGaussRifle1">
         <Tip value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
+        <Effect value="InfestedBunkerInfestedGaussRifleDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle6" parent="InfestedBunkerInfestedGaussRifle1">
         <Tip value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
-        <Effect value="InfestedBunkerInfestedGaussRifleDamage4"/>
+        <Effect value="InfestedBunkerInfestedGaussRifleDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="FighterSolariteReaper">
         <EditorCategories value="Race:Protoss"/>
@@ -376,7 +382,7 @@
         <Cost>
             <Cooldown Link="Weapon/PsiBlades"/>
         </Cost>
-        <Period value="1.25"/>
+        <Period value="1.2"/>
         <DamagePoint value="0"/>
         <Effect value="FighterSolariteReaperCleaveSet"/>
     </CWeaponLegacy>
@@ -391,16 +397,6 @@
         <Period value="1.2"/>
         <DamagePoint value="0"/>
         <Effect value="FighterPsiBladesCreatePersistent"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="ShipAntiMatterMissiles">
-        <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
-        <DisplayEffect value="ShipAntiMatterMissilesDamage"/>
-        <DisplayAttackCount value="2"/>
-        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="1.6"/>
-        <Effect value="ShipAntiMatterMissilesCreatePersistent"/>
-        <AllowedMovement value="Slowing"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShipPhotonBlaster">
         <EditorCategories value="Race:Protoss"/>
@@ -418,6 +414,8 @@
         <Period value="0.8"/>
         <LegacyOptions index="NoDeceleration" value="1"/>
         <AllowedMovement value="Slowing"/>
+        <DisplayEffect value="ShipNeutronFlareDamage"/>
+        <Effect value="ShipNeutronFlareDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="VehicleLockOnDummy">
         <EditorCategories value="Race:Terran"/>
@@ -498,7 +496,7 @@
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
         <Arc value="29.9926"/>
-        <Period value="1.5"/>
+        <Period value="1"/>
         <Effect value="MechHellfireMissilePackCreatePersistent"/>
         <Backswing value="0"/>
     </CWeaponLegacy>
@@ -526,7 +524,7 @@
         <AcquirePrioritization value="ByAngle"/>
         <Range value="10"/>
         <Arc value="26.8945"/>
-        <Period value="3"/>
+        <Period value="2"/>
         <Backswing value="0"/>
         <Effect value="JavelinMissileLaunchersCreatePer"/>
         <LegacyOptions index="KeepChanneling" value="1"/>
@@ -603,7 +601,7 @@
         <MinScanRange value="10"/>
         <Range value="6"/>
         <Period value="1"/>
-        <Effect value="MechRailgunMissile"/>
+        <Effect value="MechRailgunLaunchMissile"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="VehicleGaussCannon">
         <EditorCategories value="Race:Terran"/>
@@ -629,7 +627,7 @@
         <Cost>
             <Cooldown Link="Weapon/WarHound"/>
         </Cost>
-        <Period value="1.3"/>
+        <Period value="1"/>
         <Effect value="MechMeleeDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestedMendingSaliva">
@@ -651,19 +649,5 @@
         <Range value="0.1"/>
         <Period value="0.833"/>
         <Effect value="HunterScarabMinesSet"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="ShipPrismaticBeam">
-        <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
-        <DisplayEffect value="ShipPrismaticBeamDamage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="6"/>
-        <RangeSlop value="2"/>
-        <ArcSlop value="39.9902"/>
-        <Period value="0.8"/>
-        <Backswing value="0.75"/>
-        <Effect value="ShipPrismaticBeamCreatePersistent"/>
-        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
-        <AllowedMovement value="Moving"/>
     </CWeaponLegacy>
 </Catalog>

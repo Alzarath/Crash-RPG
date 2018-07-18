@@ -32,6 +32,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGHeroVeterancy" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorCRPGHoldFireCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGHoldFire" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGLevelCounter" State="CompleteOnlyAtUnit"/>
@@ -42,7 +47,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="HunterPlasmaCharge" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorHunterPsionicProjectionCooldownCompleteOnlyAtUnit">
@@ -64,10 +68,6 @@
     <CRequirementCountBehavior id="CountBehaviorInfestedInfestedCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InfestedInfested" State="CompleteOnly"/>
-    </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorSniperHoldFireCompleteOnlyAtUnit">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="SniperHoldFire" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -186,7 +186,6 @@
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTECountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit10">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="10"/>
     </CRequirementGTE>
@@ -261,14 +260,15 @@
     <CRequirementNot id="NotAndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly">
         <OperandArray index="0" value="AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly"/>
     </CRequirementNot>
+    <CRequirementNot id="NotCountBehaviorCRPGHoldFireCompleteOnlyAtUnit">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountBehaviorCRPGHoldFireCompleteOnlyAtUnit"/>
+    </CRequirementNot>
     <CRequirementNot id="NotCountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountBehaviorHunterPsionicProjectionCooldownCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorHunterPsionicProjectionCooldownCompleteOnlyAtUnit"/>
-    </CRequirementNot>
-    <CRequirementNot id="NotCountBehaviorSniperHoldFireCompleteOnlyAtUnit">
-        <OperandArray index="0" value="CountBehaviorSniperHoldFireCompleteOnlyAtUnit"/>
     </CRequirementNot>
     <CRequirementOr id="Or1799048625LTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfes3620715993">
         <OperandArray value="LTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQue1582461755"/>

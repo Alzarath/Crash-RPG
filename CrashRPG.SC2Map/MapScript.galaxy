@@ -63,6 +63,7 @@ point gf_GetOppositePoint (point lp_point, point lp_center);
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_AttackWaves;
+trigger gt_AlienInitialTrickle;
 trigger gt_AlienTrickle;
 trigger gt_CreateHeroSelection;
 trigger gt_DisableTurrets;
@@ -408,6 +409,37 @@ void gt_AttackWaves_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Alien Initial Trickle
+//--------------------------------------------------------------------------------------------------
+bool gt_AlienInitialTrickle_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_trickles;
+    int lv_trickleWeight;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    while ((lv_trickles > 0)) {
+        lv_trickleWeight = (2 * TruncI(((PlayerGroupCount(gv_survivors) * 0.5) + 1.0)));
+        gf_SpawnAlienLoop(lv_trickleWeight, 2);
+        lv_trickles -= 1;
+        Wait(5.0, c_timeGame);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AlienInitialTrickle_Init () {
+    gt_AlienInitialTrickle = TriggerCreate("gt_AlienInitialTrickle_Func");
+    TriggerAddEventMapInit(gt_AlienInitialTrickle);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Alien Trickle
 //--------------------------------------------------------------------------------------------------
 bool gt_AlienTrickle_Func (bool testConds, bool runActions) {
@@ -517,6 +549,8 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
     // Variable Declarations
     string lv_unitType;
     int lv_pickedPlayer;
+    int lv_trickles;
+    int lv_trickleWeight;
 
     // Automatic Variable Declarations
     const int autoFAB08339_ae = 12;
@@ -525,6 +559,7 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
     int auto194EA66D_i;
 
     // Variable Initialization
+    lv_trickles = 6;
 
     // Actions
     if (!runActions) {
@@ -1101,6 +1136,7 @@ void gt_VictoryCondition_Init () {
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
     gt_AttackWaves_Init();
+    gt_AlienInitialTrickle_Init();
     gt_AlienTrickle_Init();
     gt_CreateHeroSelection_Init();
     gt_DisableTurrets_Init();

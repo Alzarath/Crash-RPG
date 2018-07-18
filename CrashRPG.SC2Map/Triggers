@@ -22,6 +22,7 @@
         <Item Type="FunctionDef" Id="6F80B0EA"/>
         <Item Type="FunctionDef" Id="3DDA3A31"/>
         <Item Type="Trigger" Id="CC85BD4D"/>
+        <Item Type="Trigger" Id="C630301B"/>
         <Item Type="Trigger" Id="0A700C94"/>
     </Element>
     <Element Type="Variable" Id="A556DC6F">
@@ -2983,6 +2984,200 @@
         <ParameterDef Type="ParamDef" Id="ACF94A17"/>
         <Variable Type="Variable" Id="E05C5621"/>
     </Element>
+    <Element Type="Trigger" Id="C630301B">
+        <Variable Type="Variable" Id="4D6E3703"/>
+        <Variable Type="Variable" Id="182A7FD6"/>
+        <Event Type="FunctionCall" Id="4F8A97AD"/>
+        <Action Type="FunctionCall" Id="84E3643D"/>
+    </Element>
+    <Element Type="Variable" Id="4D6E3703">
+        <VariableType>
+            <Type Value="int"/>
+        </VariableType>
+        <Value Type="Param" Id="00E4EA68"/>
+    </Element>
+    <Element Type="Param" Id="00E4EA68">
+        <Value>0</Value>
+        <ValueType Type="int"/>
+    </Element>
+    <Element Type="Variable" Id="182A7FD6">
+        <VariableType>
+            <Type Value="int"/>
+        </VariableType>
+        <Value Type="Param" Id="0185AD62"/>
+    </Element>
+    <Element Type="Param" Id="0185AD62">
+        <Value>0</Value>
+        <ValueType Type="int"/>
+    </Element>
+    <Element Type="FunctionCall" Id="4F8A97AD">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000120"/>
+    </Element>
+    <Element Type="FunctionCall" Id="84E3643D">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="71596144"/>
+        <FunctionCall Type="FunctionCall" Id="6244CF4E"/>
+        <FunctionCall Type="FunctionCall" Id="EDF02045"/>
+        <FunctionCall Type="FunctionCall" Id="0D81FB46"/>
+        <FunctionCall Type="FunctionCall" Id="E9277BCB"/>
+        <FunctionCall Type="FunctionCall" Id="82F5C620"/>
+    </Element>
+    <Element Type="FunctionCall" Id="6244CF4E">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000136"/>
+        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="A1B37466"/>
+        <Parameter Type="Param" Id="F4BEC1C3"/>
+        <Parameter Type="Param" Id="CEFF4305"/>
+    </Element>
+    <Element Type="Param" Id="F4BEC1C3">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000219"/>
+        <Variable Type="Variable" Id="182A7FD6"/>
+    </Element>
+    <Element Type="Param" Id="CEFF4305">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000220"/>
+        <FunctionCall Type="FunctionCall" Id="B2197AA2"/>
+    </Element>
+    <Element Type="FunctionCall" Id="B2197AA2">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000128"/>
+        <Parameter Type="Param" Id="49C5FBAC"/>
+        <Parameter Type="Param" Id="37492AD8"/>
+        <Parameter Type="Param" Id="4CF52729"/>
+    </Element>
+    <Element Type="Param" Id="49C5FBAC">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000206"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="00000087"/>
+    </Element>
+    <Element Type="Param" Id="37492AD8">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000207"/>
+        <FunctionCall Type="FunctionCall" Id="111398D2"/>
+    </Element>
+    <Element Type="FunctionCall" Id="111398D2">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="3D9AC30F"/>
+        <Parameter Type="Param" Id="40064114"/>
+    </Element>
+    <Element Type="Param" Id="40064114">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="3F266806"/>
+        <FunctionCall Type="FunctionCall" Id="B4178CF4"/>
+    </Element>
+    <Element Type="FunctionCall" Id="B4178CF4">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000129"/>
+        <Parameter Type="Param" Id="C2343005"/>
+        <Parameter Type="Param" Id="D27CCBD7"/>
+        <Parameter Type="Param" Id="37E501D9"/>
+    </Element>
+    <Element Type="Param" Id="C2343005">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000209"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="00000085"/>
+    </Element>
+    <Element Type="Param" Id="D27CCBD7">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000210"/>
+        <Value>1.0</Value>
+        <ValueType Type="fixed"/>
+    </Element>
+    <Element Type="Param" Id="37E501D9">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000208"/>
+        <FunctionCall Type="FunctionCall" Id="695A05F9"/>
+    </Element>
+    <Element Type="FunctionCall" Id="695A05F9">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000129"/>
+        <Parameter Type="Param" Id="3C8BFB15"/>
+        <Parameter Type="Param" Id="A50BA07C"/>
+        <Parameter Type="Param" Id="DAD25A87"/>
+    </Element>
+    <Element Type="Param" Id="3C8BFB15">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000209"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="00000087"/>
+    </Element>
+    <Element Type="Param" Id="A50BA07C">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000210"/>
+        <Value>0.5</Value>
+        <ValueType Type="fixed"/>
+    </Element>
+    <Element Type="Param" Id="DAD25A87">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000208"/>
+        <FunctionCall Type="FunctionCall" Id="B8302BDA"/>
+    </Element>
+    <Element Type="FunctionCall" Id="B8302BDA">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000061"/>
+        <Parameter Type="Param" Id="730EF44C"/>
+    </Element>
+    <Element Type="Param" Id="730EF44C">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000102"/>
+        <Variable Type="Variable" Id="D7267EFD"/>
+    </Element>
+    <Element Type="Param" Id="4CF52729">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000205"/>
+        <Value>2</Value>
+        <ValueType Type="int"/>
+    </Element>
+    <Element Type="FunctionCall" Id="EDF02045">
+        <FunctionDef Type="FunctionDef" Id="890CC3D2"/>
+        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="A1B37466"/>
+        <Parameter Type="Param" Id="BE7C0565"/>
+        <Parameter Type="Param" Id="16A3482B"/>
+    </Element>
+    <Element Type="Param" Id="BE7C0565">
+        <ParameterDef Type="ParamDef" Id="D9FCB010"/>
+        <Variable Type="Variable" Id="182A7FD6"/>
+    </Element>
+    <Element Type="Param" Id="16A3482B">
+        <ParameterDef Type="ParamDef" Id="ACF94A17"/>
+        <Value>2</Value>
+        <ValueType Type="int"/>
+    </Element>
+    <Element Type="FunctionCall" Id="0D81FB46">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="A0F31305"/>
+        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="A1B37466"/>
+        <Parameter Type="Param" Id="907482B3"/>
+        <Parameter Type="Param" Id="903DBB93"/>
+        <Parameter Type="Param" Id="F08F5EC0"/>
+    </Element>
+    <Element Type="Param" Id="907482B3">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="5BFF7323"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="00000086"/>
+    </Element>
+    <Element Type="Param" Id="903DBB93">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="6725C0EB"/>
+        <Value>1</Value>
+        <ValueType Type="int"/>
+    </Element>
+    <Element Type="Param" Id="F08F5EC0">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="7B3B0884"/>
+        <Variable Type="Variable" Id="4D6E3703"/>
+    </Element>
+    <Element Type="FunctionCall" Id="E9277BCB">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000242"/>
+        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="A1B37466"/>
+        <Parameter Type="Param" Id="7AB3AEE8"/>
+        <Parameter Type="Param" Id="2F0A6E16"/>
+    </Element>
+    <Element Type="Param" Id="7AB3AEE8">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000419"/>
+        <Value>5.0</Value>
+        <ValueType Type="fixed"/>
+    </Element>
+    <Element Type="Param" Id="2F0A6E16">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000420"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="00000013"/>
+    </Element>
+    <Element Type="FunctionCall" Id="82F5C620">
+        <FunctionDef Type="FunctionDef" Library="Ntve" Id="C439C375"/>
+        <SubFunctionType Type="SubFuncType" Library="Ntve" Id="20298AEC"/>
+        <Parameter Type="Param" Id="4AE2FFE7"/>
+        <Parameter Type="Param" Id="7D82B5D6"/>
+        <Parameter Type="Param" Id="278FF933"/>
+    </Element>
+    <Element Type="Param" Id="4AE2FFE7">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="ABB380C4"/>
+        <Variable Type="Variable" Id="4D6E3703"/>
+    </Element>
+    <Element Type="Param" Id="7D82B5D6">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="51567265"/>
+        <Preset Type="PresetValue" Library="Ntve" Id="40567BEE"/>
+    </Element>
+    <Element Type="Param" Id="278FF933">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="4A15EC5F"/>
+        <Value>0</Value>
+        <ValueType Type="int"/>
+    </Element>
     <Element Type="Trigger" Id="0A700C94">
         <Variable Type="Variable" Id="456BB460"/>
         <Variable Type="Variable" Id="57E9347A"/>
@@ -4332,6 +4527,8 @@
     <Element Type="Trigger" Id="F469B9BB">
         <Variable Type="Variable" Id="5F5D0453"/>
         <Variable Type="Variable" Id="C5145DAB"/>
+        <Variable Type="Variable" Id="066C83D4"/>
+        <Variable Type="Variable" Id="055334DC"/>
         <Event Type="FunctionCall" Id="C826D712"/>
         <Action Type="Comment" Id="9AA33DFE"/>
         <Action Type="FunctionCall" Id="FAB08339"/>
@@ -4358,6 +4555,26 @@
         <Value Type="Param" Id="E00432DC"/>
     </Element>
     <Element Type="Param" Id="E00432DC">
+        <Value>0</Value>
+        <ValueType Type="int"/>
+    </Element>
+    <Element Type="Variable" Id="066C83D4">
+        <VariableType>
+            <Type Value="int"/>
+        </VariableType>
+        <Value Type="Param" Id="68A95990"/>
+    </Element>
+    <Element Type="Param" Id="68A95990">
+        <Value>6</Value>
+        <ValueType Type="int"/>
+    </Element>
+    <Element Type="Variable" Id="055334DC">
+        <VariableType>
+            <Type Value="int"/>
+        </VariableType>
+        <Value Type="Param" Id="8A46605A"/>
+    </Element>
+    <Element Type="Param" Id="8A46605A">
         <Value>0</Value>
         <ValueType Type="int"/>
     </Element>

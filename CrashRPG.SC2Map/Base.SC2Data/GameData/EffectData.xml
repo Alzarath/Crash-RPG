@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectCreatePersistent id="FighterLightningDashCreatePersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <InitialEffect value="FighterLightningDashSwitch"/>
+        <PeriodCount value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectCreateUnit id="FighterLightningDashCreateUnit">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="Placement" value="0"/>
+        <SpawnEffect value="FighterLightningDashCreatePersistentPoint"/>
+        <SpawnRange value="0"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="FighterLightningDashCreateUnitClosest">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <SpawnEffect value="FighterLightningDashCreatePersistentPoint"/>
+        <SpawnRange value="8"/>
+    </CEffectCreateUnit>
+    <CEffectCreatePersistent id="FighterLightningDashCreatePersistentPoint">
+        <WhichLocation Value="TargetUnit"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="MakePrecursor"/>
+        <PeriodicEffectArray value="FighterLightningDashLaunchMissile"/>
+        <PeriodicPeriodArray value="0"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FighterLightningDashDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="30"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FighterLightningDashLaunchMissile">
+        <EditorCategories value="Race:Protoss"/>
+        <LaunchLocation Value="CasterUnit"/>
+        <ImpactLocation Effect="FighterLightningDashCreatePersistentPoint" Value="TargetPoint"/>
+        <FinishEffect value="FighterLightningDashImpactSet"/>
+        <Flags index="2D" value="1"/>
+        <Movers Link="ArtanisLightningDashMissile"/>
+        <DeathType value="Unknown"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="FighterLightningDashImpactSet">
+        <EffectArray value="FighterLightningDashStunSearchArea"/>
+        <EffectArray value="FighterLightningDashSearchArea"/>
+        <EffectArray value="FighterLightningDashKillPrecursor"/>
+    </CEffectSet>
+    <CEffectDamage id="FighterLightningDashKillPrecursor">
+        <ImpactLocation Effect="FighterLightningDashCreatePersistentPoint" Value="TargetUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Death value="Remove"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="FighterLightningDashSearchArea">
+        <SearchFilters value="Ground;Player,Ally,Neutral,Structure,Missile,Item,Stasis,Dead,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="FighterLightningDashDamage"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="FighterLightningDashStunApplyBehavior">
+        <Behavior value="FighterStunnedLightningDash"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="FighterLightningDashStunSearchArea">
+        <SearchFilters value="Ground;Player,Ally,Neutral,Structure,Missile,Item,Stasis,Dead,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="FighterLightningDashStunApplyBehavior"/>
+    </CEffectEnumArea>
+    <CEffectSwitch id="FighterLightningDashSwitch">
+        <CaseArray Validator="ArtanisLightningDashCheck" Effect="FighterLightningDashCreateUnit"/>
+        <CaseDefault value="FighterLightningDashCreateUnitClosest"/>
+    </CEffectSwitch>
     <CEffectSet id="CRPGLevelUpDummyVisuals"/>
+    <CEffectDamage id="InfestedBunkerInfestedGaussRifleDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/InfestedBunkerInfestedGaussRifleDamage1"/>
+        <Kind value="Ranged"/>
+        <Amount value="6"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="ShipPurifierTurretsApplySlowBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="ShipSlowPurifierTurrets"/>
+    </CEffectApplyBehavior>
     <CEffectApplyBehavior id="HunterPlasmaDiffusionApplySubunitBehavior">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="HunterPlasmaDiffusionSubunit"/>
@@ -85,6 +163,111 @@
         <EffectArray value="MechPointDefenseLaserRepair"/>
         <EffectArray value="MechPointDefenseLaserApplyBehavior"/>
     </CEffectSet>
+    <CEffectLaunchMissile id="ShipPurifierCannonLaunchMissile">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="ShipPurifierCannonDamage"/>
+        <AmmoUnit value="RepulsorCannonWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ShipPurifierCannonDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Visibility value="Visible"/>
+        <Kind value="Ranged"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="ShipCloakingFieldCasterCombatApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ShipInCombatCasterCloakingField"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ShipCloakingFieldCasterApplyBehavior">
+        <ValidatorArray index="0" value="ShipCloakingFieldCasterOutOfCombat"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ShipCloakingFieldCaster"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ShipCloakingFieldCombatApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="ShipInCombatCloakingField"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="ShipCloakingFieldInitialSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ShipCloakingFieldCasterApplyBehavior"/>
+        <EffectArray value="ShipCloakingFieldSearchArea"/>
+    </CEffectSet>
+    <CEffectEnumArea id="StasisWardStasisTrapSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <ImpactLocation Value="CasterUnit"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="5" Effect="StasisWardStasisTrapSearchSet"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="StasisWardStasisTrapApplyTargetBehavior">
+        <ValidatorArray index="0" value="NotFrenzied"/>
+        <ValidatorArray value="IsNotRecallingCombine"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="ShipStasisWardStasisTarget"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="StasisWardStasisTrapCreatePersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="CasterPoint"/>
+        <PeriodCount value="3"/>
+        <PeriodicEffectArray value="StasisWardStasisTrapRevealCreatePersistent"/>
+        <PeriodicEffectArray value="StasisWardStasisTrapSearchArea"/>
+        <PeriodicEffectArray value="SuicideRemove"/>
+        <PeriodicPeriodArray value="0.5"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="1.66"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="StasisWardStasisTrapSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="StasisWardStasisTrapCreatePersistent"/>
+        <EffectArray value="StasisWardStasisTrapApplyCasterBehavior"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="StasisWardStasisTrapApplyCasterBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ShipStasisWardStasisCaster"/>
+    </CEffectApplyBehavior>
+    <CEffectIssueOrder id="StasisWardStasisTrapIssueOrder">
+        <EditorCategories value="Race:Protoss"/>
+        <Abil value="TerranBuild"/>
+        <AbilCmdIndex value="30"/>
+    </CEffectIssueOrder>
+    <CEffectCreatePersistent id="StasisWardStasisTrapRevealCreatePersistent">
+        <WhichLocation Value="CasterUnit"/>
+        <ExpireDelay value="4"/>
+        <RevealRadius value="4"/>
+        <RevealFlags index="Unfog" value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="StasisWardStasisTrapSearchSet">
+        <ValidatorArray value="ActivateStasisWardValidators"/>
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="StasisWardStasisTrapStopIssueStopOrder"/>
+        <EffectArray value="StasisWardStasisTrapIssueOrder"/>
+        <EffectArray value="StasisWardStasisTrapApplyTargetBehavior"/>
+    </CEffectSet>
+    <CEffectIssueOrder id="StasisWardStasisTrapStopIssueStopOrder">
+        <ValidatorArray value="OracleStasisTrapBuildingSet"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Abil value="stop"/>
+    </CEffectIssueOrder>
+    <CEffectCreatePersistent id="ShipPulsarBeamCreatePersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <InitialEffect value="ShipPulsarBeamDamage"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="ShipPulsarBeamDamage"/>
+        <PeriodicPeriodArray value="0.4"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="ShipPulsarBeamDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <ArmorReduction value="0.5"/>
+        <Visibility value="Visible"/>
+        <Kind value="Ranged"/>
+        <Amount value="10"/>
+    </CEffectDamage>
     <CEffectApplyBehavior id="PickupHunterPlasmaApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="HunterPlasmaCharge"/>
@@ -477,6 +660,76 @@
         <EffectArray value="SwarmerSplitCreateRightEgg"/>
         <EffectArray value="Suicide"/>
     </CEffectSet>
+    <CEffectSwitch id="ShipVortexApplyBehaviorDisable">
+        <EditorCategories value="Race:Protoss"/>
+        <CaseArray Validator="TargetIsEnemy" Effect="ShipVortexApplyBehaviorDisableEnemy"/>
+        <CaseDefault value="ShipVortexApplyBehaviorDisableOther"/>
+    </CEffectSwitch>
+    <CEffectApplyBehavior id="ShipVortexApplyBehaviorDisableEnemy">
+        <ValidatorArray index="0" value="IsNotWarpingIn"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="ShipVortexEnemy"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ShipVortexApplyBehaviorDisableOther">
+        <ValidatorArray index="0" value="IsNotWarpingIn"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="ShipVortex"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="ShipVortexCreatePersistent">
+        <EditorCategories value="Race:Protoss"/>
+        <PeriodCount value="320"/>
+        <PeriodicEffectArray value="VortexSearchArea2"/>
+        <PeriodicPeriodArray value="0.0625"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="ShipVortexVisibilityDummy">
+        <EditorCategories value="Race:Protoss"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Flags index="NoBehaviorResponse" value="1"/>
+    </CEffectDamage>
+    <CEffectSet id="VortexEffect2">
+        <ValidatorArray value="NoYoink"/>
+        <ValidatorArray value="IsNotMothershipCorePurifyNexus"/>
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ShipVortexKillForcefield"/>
+        <EffectArray value="VortexUnburrow2"/>
+        <EffectArray value="ShipVortexVisibilityDummy"/>
+        <EffectArray value="VortexUnsiege2"/>
+        <EffectArray value="ShipVortexApplyBehaviorDisable"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="VortexExit2">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="ShipVortexExit"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyForce id="ShipVortexForce">
+        <ValidatorArray value="IsNotWarpBubble"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Effect="VortexCreatePersistent" Value="TargetPoint"/>
+        <Amount value="-0.1"/>
+    </CEffectApplyForce>
+    <CEffectDamage id="ShipVortexKillForcefield">
+        <ValidatorArray value="TargetIsForceField"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/VortexKillForcefield"/>
+        <Flags index="Kill" value="1"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="VortexSearchArea2">
+        <EditorCategories value="Race:Protoss"/>
+        <SearchFilters value="-;Self,Structure,Missile,Item,Dead,Hidden"/>
+        <AreaArray Radius="2.5" Effect="VortexEffect2"/>
+    </CEffectEnumArea>
+    <CEffectIssueOrder id="VortexUnburrow2">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/Vortex"/>
+        <Abil value="BurrowZerglingUp"/>
+    </CEffectIssueOrder>
+    <CEffectIssueOrder id="VortexUnsiege2">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/Vortex"/>
+        <Abil value="Unsiege"/>
+    </CEffectIssueOrder>
     <CEffectApplyBehavior id="WizardConfusionInitialApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="WizardConfusionInitial"/>
@@ -705,36 +958,22 @@
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ShipCloakingFieldApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
-        <WhichUnit Value="Caster"/>
         <Behavior value="ShipCloakField"/>
     </CEffectApplyBehavior>
     <CEffectEnumArea id="ShipCloakingFieldSearchArea">
         <EditorCategories value="Race:Protoss"/>
+        <LaunchLocation Value="CasterUnit"/>
         <ImpactLocation Value="CasterUnit"/>
-        <SearchFilters value="-;Neutral,Enemy,Missile,Dead,Hidden"/>
+        <SearchFilters value="-;Self,Neutral,Enemy,Structure,Missile,Dead,Hidden,Summoned"/>
         <AreaArray Radius="5" Effect="ShipCloakingFieldSet"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
     <CEffectSet id="ShipCloakingFieldSet">
+        <ValidatorArray value="ShipCloakingFieldOutOfCombat"/>
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="ShipCloakingFieldCloakApplyBehavior"/>
         <EffectArray value="ShipCloakingFieldHeroRadarApplyBehavior"/>
     </CEffectSet>
-    <CEffectApplyBehavior id="ShipPrismaticAlignmentAppleBehavior">
-        <ValidatorArray index="0" value="IsLevel5"/>
-        <EditorCategories value="Race:Protoss"/>
-        <Behavior value="ShipPrismaticAlignmentNoAim"/>
-    </CEffectApplyBehavior>
-    <CEffectCreatePersistent id="ShipPrismaticBeamNoAimCreatePersistent">
-        <EditorCategories value="Race:Protoss"/>
-        <WhichLocation Value="TargetUnit"/>
-        <TimeScaleSource Value="Caster"/>
-        <Flags index="Channeled" value="1"/>
-        <Flags index="PersistUntilDestroyed" value="1"/>
-        <InitialEffect value="ShipPrismaticBeamDamage"/>
-        <PeriodicEffectArray value="ShipPrismaticBeamDamage"/>
-        <PeriodicPeriodArray value="0.8"/>
-    </CEffectCreatePersistent>
     <CEffectDamage id="ShipPurifierBeamDamage" parent="DU_WEAP_MISSILE">
         <ValidatorArray value="MothershipRangeCheck"/>
         <ValidatorArray value="NotHidden"/>
@@ -850,35 +1089,6 @@
         <AreaArray Radius="5" Effect="ShipShieldEmitterSwitch"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
-    <CEffectCreatePersistent id="ShipAntiMatterMissilesCreatePersistent">
-        <EditorCategories value="Race:Protoss"/>
-        <WhichLocation Value="TargetUnit"/>
-        <PeriodCount value="2"/>
-        <PeriodicEffectArray value="ShipAntiMatterMissilesLeftLaunchMissile"/>
-        <PeriodicEffectArray value="ShipAntiMatterMissilesRightLaunchMissile"/>
-        <PeriodicPeriodArray value="0"/>
-        <PeriodicPeriodArray value="0"/>
-    </CEffectCreatePersistent>
-    <CEffectLaunchMissile id="ShipAntiMatterMissilesLeftLaunchMissile">
-        <EditorCategories value="Race:Protoss"/>
-        <ImpactEffect value="ShipAntiMatterMissilesDamage"/>
-        <AmmoUnit value="ScoutAirWeaponLeft"/>
-        <Movers Link="MissileDefault" IfRangeLTE="1"/>
-        <Movers Link="ScoutAirWeaponLeft" IfRangeLTE="4"/>
-    </CEffectLaunchMissile>
-    <CEffectLaunchMissile id="ShipAntiMatterMissilesRightLaunchMissile">
-        <EditorCategories value="Race:Protoss"/>
-        <ImpactEffect value="ShipAntiMatterMissilesDamage"/>
-        <AmmoUnit value="ScoutAirWeaponRight"/>
-        <Movers Link="MissileDefault" IfRangeLTE="1"/>
-        <Movers Link="ScoutAirWeaponRight" IfRangeLTE="4"/>
-    </CEffectLaunchMissile>
-    <CEffectDamage id="ShipAntiMatterMissilesDamage" parent="DU_WEAP">
-        <EditorCategories value="Race:Protoss"/>
-        <Visibility value="Visible"/>
-        <Kind value="Ranged"/>
-        <Amount value="10"/>
-    </CEffectDamage>
     <CEffectDamage id="ShipPhotonBlasterDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
         <AttributeBonus index="Light" value="5"/>
@@ -1426,19 +1636,16 @@
     </CEffectDamage>
     <CEffectDamage id="InfestedBunkerInfestedGaussRifleDamage2" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
-        <Marker Link="Effect/InfestedMarineInfestedGaussRifleDamage"/>
         <Kind value="Ranged"/>
         <Amount value="6"/>
     </CEffectDamage>
     <CEffectDamage id="InfestedBunkerInfestedGaussRifleDamage3" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
-        <Marker Link="Effect/InfestedMarineInfestedGaussRifleDamage"/>
         <Kind value="Ranged"/>
         <Amount value="6"/>
     </CEffectDamage>
     <CEffectDamage id="InfestedBunkerInfestedGaussRifleDamage4" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
-        <Marker Link="Effect/InfestedMarineInfestedGaussRifleDamage"/>
         <Kind value="Ranged"/>
         <Amount value="6"/>
     </CEffectDamage>
@@ -1674,7 +1881,6 @@
     </CEffectDamage>
     <CEffectDamage id="InfestedBunkerInfestedGaussRifleDamage1" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
-        <Marker Link="Effect/InfestedMarineInfestedGaussRifleDamage"/>
         <Kind value="Ranged"/>
         <Amount value="6"/>
     </CEffectDamage>
@@ -2182,7 +2388,7 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="FighterShadowCharging"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="ShipNeutronFlare" parent="DU_WEAP">
+    <CEffectDamage id="ShipNeutronFlareDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
         <AttributeBonus index="Light" value="5"/>
         <Kind value="Splash"/>
@@ -2516,17 +2722,16 @@
         <Kind value="Ranged"/>
         <Amount value="20"/>
     </CEffectDamage>
-    <CEffectApplyBehavior id="SniperHoldFire">
-        <EditorCategories value="Race:Terran"/>
+    <CEffectApplyBehavior id="CRPGHoldFire">
         <WhichUnit Value="Caster"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="SniperHoldFireB" parent="GhostHoldFireB">
-        <Name value="Effect/Name/SniperHoldFireB"/>
-        <Behavior value="SniperHoldFire"/>
+    <CEffectApplyBehavior id="CRPGHoldFireB">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="CRPGHoldFire"/>
     </CEffectApplyBehavior>
     <CEffectRemoveBehavior id="SniperWeaponsFree">
         <EditorCategories value="Race:Terran"/>
-        <BehaviorLink value="SniperHoldFire"/>
+        <BehaviorLink value="CRPGHoldFire"/>
     </CEffectRemoveBehavior>
     <CEffectDamage id="SniperC10CanisterRifleDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
@@ -2592,7 +2797,7 @@
         <Kind value="Ranged"/>
         <Amount value="20"/>
     </CEffectDamage>
-    <CEffectLaunchMissile id="MechRailgunMissile">
+    <CEffectLaunchMissile id="MechRailgunLaunchMissile">
         <EditorCategories value="Race:Terran"/>
         <ImpactEffect value="MechRailgunDamage"/>
         <AmmoUnit value="MechRailgunWeapon"/>
@@ -2667,7 +2872,7 @@
     </CEffectSwitch>
     <CEffectDamage id="FighterSolariteReaperDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
-        <Amount value="16"/>
+        <Amount value="12"/>
         <Death value="Eviscerate"/>
     </CEffectDamage>
     <CEffectCreatePersistent id="FighterSolariteReaperCreatePersistent">
@@ -2731,18 +2936,4 @@
         <EffectArray value="HunterScarabMinesSearchArea"/>
         <EffectArray value="Suicide"/>
     </CEffectSet>
-    <CEffectCreatePersistent id="ShipPrismaticBeamCreatePersistent">
-        <EditorCategories value="Race:Protoss"/>
-        <WhichLocation Value="TargetUnit"/>
-        <TimeScaleSource Value="Caster"/>
-        <Flags index="Channeled" value="1"/>
-        <Flags index="PersistUntilDestroyed" value="1"/>
-        <InitialEffect value="ShipPrismaticBeamDamage"/>
-        <PeriodicEffectArray value="ShipPrismaticBeamDamage"/>
-        <PeriodicPeriodArray value="0.8"/>
-    </CEffectCreatePersistent>
-    <CEffectDamage id="ShipPrismaticBeamDamage" parent="DU_WEAP">
-        <EditorCategories value="Race:Protoss"/>
-        <Amount value="16"/>
-    </CEffectDamage>
 </Catalog>

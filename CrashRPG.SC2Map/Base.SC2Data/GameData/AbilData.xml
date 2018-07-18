@@ -18,6 +18,34 @@
         </InfoArray>
         <AutoCastValidatorArray value="IsDead"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="FighterLightningDash">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Effect index="0" value="FighterLightningDashCreatePersistent"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Charge Link="Abil/ArtanisLightningDash"/>
+            <Cooldown Link="Abil/ArtanisLightningDash" TimeUse="5"/>
+        </Cost>
+        <Range value="8"/>
+        <Arc value="4.9987"/>
+        <CursorEffect value="ArtanisLightningDashSearch"/>
+        <AINotifyEffect value="FighterLightningDashCreatePersistent"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FighterLightningDash"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="ShipVortex">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ShipVortexCreatePersistent"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Charge Link="Abil/ArtanisVortex"/>
+            <Cooldown Link="ArtanisVortex"/>
+        </Cost>
+        <Range value="9"/>
+        <Arc value="360"/>
+        <AutoCastFilters value="Visible;Self,Player,Ally"/>
+        <CursorEffect value="ArtanisVortexSearchArea"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Vortex"/>
+    </CAbilEffectTarget>
     <CAbilEffectInstant id="HunterDisruptorVolleyFree">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="HunterDisruptorVolleyFreeSet"/>
@@ -64,6 +92,37 @@
         <Effect index="0" value="MechRepair"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Repair2"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="ShipStasisWardActivate">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="StasisWardStasisTrapSet"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Cost>
+            <Charge Link="Abil/OracleStasisTrapActivate"/>
+            <Cooldown Link="Abil/OracleStasisTrapActivate" TimeUse="0.5"/>
+        </Cost>
+        <Arc value="360"/>
+        <AutoCastRange value="3"/>
+        <AutoCastValidatorArray value="ActivateStasisWardTargetInRange"/>
+        <PrepTime value="0"/>
+        <AINotifyEffect value="StasisWardStasisTrapSearchArea"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ActivateStasisWard"/>
+    </CAbilEffectInstant>
+    <CAbilBuild id="ShipBuildStasisWard">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <FlagArray index="RequireFacing" value="1"/>
+        <InfoArray index="Build1" Unit="ShipStasisWard" Time="5">
+            <Vital index="Energy" value="50"/>
+            <Button DefaultButtonFace="ShipStasisWard">
+                <Flags index="ShowInGlossary" value="1"/>
+            </Button>
+        </InfoArray>
+        <Range value="5"/>
+        <EffectArray index="Start" value="OracleStasisTrapBuildBeamOn"/>
+        <EffectArray index="Finish" value="OracleStasisTrapBuildBeamOff"/>
+        <EffectArray index="Cancel" value="OracleStasisTrapBuildBeamOff"/>
+    </CAbilBuild>
     <CAbilEffectTarget id="PickupHunterPlasma">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="PickupHunterPlasmaSet"/>
@@ -243,7 +302,7 @@
     </CAbilEffectTarget>
     <CAbilEffectInstant id="CRPGUpgradeEnergy">
         <Cost>
-            <Resource index="Minerals" value="200"/>
+            <Resource index="Minerals" value="100"/>
             <Charge CountMax="255" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeEnergy" Requirements="CRPGInRangeofArmory"/>
@@ -568,7 +627,7 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
         <Flags index="Retarget" value="1"/>
-        <Leash value="2"/>
+        <Leash value="0"/>
         <InfoArray index="Ammo1" Time="3" Manage="Recall" Unit="HunterPsionicProjection">
             <Charge Link="Abil/##id##"/>
             <Cooldown Link="Abil/##id##"/>
@@ -599,7 +658,7 @@
         <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
-        <Leash value="12"/>
+        <Leash value="0"/>
         <InfoArray index="Ammo1" Time="10" CountStart="2" Manage="Recall" Unit="MechPointDefenseDrone">
             <Charge Link="Abil/##id##"/>
             <Cooldown Link="Abil/##id##"/>
@@ -614,14 +673,14 @@
     </CAbilArmMagazine>
     <CAbilEffectInstant id="CRPGUpgradeArmor">
         <Cost>
-            <Resource index="Minerals" value="200"/>
+            <Resource index="Minerals" value="100"/>
             <Charge CountMax="255" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeArmor" Requirements="CRPGInRangeofArmory"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="CRPGUpgradeDamage">
         <Cost>
-            <Resource index="Minerals" value="200"/>
+            <Resource index="Minerals" value="100"/>
             <Charge CountMax="255" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeDamage" Requirements="CRPGInRangeofArmory"/>
@@ -707,32 +766,6 @@
         <AINotifyEffect value="ShipDisruptionWeb"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ShipDisruptionWeb"/>
     </CAbilEffectTarget>
-    <CAbilBehavior id="ShipPrismaticAlignment">
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <CmdButtonArray index="On" DefaultButtonFace="ShipPrismaticAlignment"/>
-        <CmdButtonArray index="Off" DefaultButtonFace="ShipDisablePrismaticAlignment"/>
-        <Flags index="Toggle" value="1"/>
-        <Flags index="Transient" value="1"/>
-        <Cost>
-            <Vital index="Energy" value="25"/>
-            <Charge Link="Abil/PrismaticBeamWeapon"/>
-            <Cooldown Link="Abil/PrismaticBeamWeapon" TimeUse="4"/>
-        </Cost>
-        <BehaviorArray value="ShipPrismaticAlignment"/>
-    </CAbilBehavior>
-    <CAbilBehavior id="ShipPrismaticAlignmentNoAim">
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <CmdButtonArray index="On" DefaultButtonFace="ShipPrismaticAlignment"/>
-        <CmdButtonArray index="Off" DefaultButtonFace="ShipDisablePrismaticAlignment"/>
-        <Flags index="Toggle" value="1"/>
-        <Flags index="Transient" value="1"/>
-        <Cost>
-            <Vital index="Energy" value="25"/>
-            <Charge Link="Abil/PrismaticBeamWeapon"/>
-            <Cooldown Link="Abil/PrismaticBeamWeapon" TimeUse="4"/>
-        </Cost>
-        <BehaviorArray value="ShipPrismaticAlignmentNoAim"/>
-    </CAbilBehavior>
     <CAbilMorph id="SniperLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
         <InfoArray index="0" Unit="CRPGSniperLevel2"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -928,15 +961,17 @@
         <CmdButtonArray index="On" DefaultButtonFace="SniperCloakOn" Requirements=""/>
         <CmdButtonArray index="Off" DefaultButtonFace="SniperCloakOff"/>
     </CAbilBehavior>
-    <CAbilEffectInstant id="SniperHoldFire" parent="GhostHoldFire">
-        <Name value="Abil/Name/SniperHoldFire"/>
-        <Effect index="0" value="SniperHoldFire"/>
-        <CmdButtonArray index="Execute" Requirements="SniperNotHoldingFire"/>
+    <CAbilEffectInstant id="CRPGHoldFire" parent="GhostHoldFire">
+        <Name value="Abil/Name/CRPGHoldFire"/>
+        <EditorCategories value="Race:Neutral,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CRPGHoldFire"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGHoldFire" Requirements="CRPGNotHoldingFire"/>
     </CAbilEffectInstant>
-    <CAbilEffectInstant id="SniperWeaponsFree" parent="GhostWeaponsFree">
-        <Name value="Abil/Name/SniperWeaponsFree"/>
+    <CAbilEffectInstant id="CRPGWeaponsFree" parent="GhostWeaponsFree">
+        <Name value="Abil/Name/CRPGWeaponsFree"/>
+        <EditorCategories value="Race:Neutral,AbilityorEffectType:Units"/>
         <Effect index="0" value="SniperWeaponsFree"/>
-        <CmdButtonArray index="Execute" Requirements="SniperHoldingFire"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGWeaponsFree" Requirements="CRPGHoldingFire"/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="SniperSnipe" parent="Snipe">
         <Name value="Abil/Name/SniperSnipe"/>

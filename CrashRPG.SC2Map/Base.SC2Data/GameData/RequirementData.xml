@@ -111,10 +111,12 @@
         <EditorCategories value="Race:Terran,TechType:Ability"/>
         <NodeArray index="Show" Link="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
     </CRequirement>
-    <CRequirement id="SniperHoldingFire">
-        <NodeArray index="Show" Link="CountBehaviorSniperHoldFireCompleteOnlyAtUnit"/>
+    <CRequirement id="CRPGHoldingFire">
+        <EditorCategories value="Race:Neutral"/>
+        <NodeArray index="Show" Link="CountBehaviorCRPGHoldFireCompleteOnlyAtUnit"/>
     </CRequirement>
-    <CRequirement id="SniperNotHoldingFire">
-        <NodeArray index="Show" Link="NotCountBehaviorSniperHoldFireCompleteOnlyAtUnit"/>
+    <CRequirement id="CRPGNotHoldingFire">
+        <EditorCategories value="Race:Neutral,TechType:Ability"/>
+        <NodeArray index="Show" Link="NotCountBehaviorCRPGHoldFireCompleteOnlyAtUnit"/>
     </CRequirement>
 </Catalog>
