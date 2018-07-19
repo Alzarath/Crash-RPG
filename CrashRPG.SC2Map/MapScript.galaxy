@@ -27,6 +27,7 @@ const fixed gv_damageFraction = 0.0625;
 int gv_attackWave;
 playergroup gv_survivors;
 bool gv_tutorialOn;
+bool gv_revives;
 int gv_maxAlienSpawners;
 unit gv_hero;
 int gv_remainingSelectors;
@@ -36,6 +37,7 @@ int gv_primaryObjective;
 
 void InitGlobals () {
     gv_survivors = PlayerGroupEmpty();
+    gv_revives = true;
     gv_maxAlienSpawners = TechTreeUnitCount(gv_alienPlayer, "NydusNetwork", c_techCountCompleteOnly);
     gv_heroSelectionTimerWindow = c_timerWindowNone;
     gv_primaryObjective = c_invalidObjectiveId;
@@ -69,6 +71,7 @@ trigger gt_CreateHeroSelection;
 trigger gt_DisableTurrets;
 trigger gt_MapInitialization;
 trigger gt_PlayerLeaves;
+trigger gt_PlayerDies;
 trigger gt_StartBattlecruiserScene;
 trigger gt_BattlecruiserCrash;
 trigger gt_TutorialStart;
@@ -589,6 +592,10 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
         TriggerEnable(gt_TutorialChooseHeroBefore, true);
     }
 
+    if ((GameAttributeGameValue("3") == "0002")) {
+        gv_tutorialOn = false;
+    }
+
     libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
     HelpPanelEnableTechTreeButton(PlayerGroupAll(), false);
     AICampaignStart(gv_alienPlayer);
@@ -606,6 +613,12 @@ void gt_MapInitialization_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerLeaves_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    unitgroup autoFE4A6372_g;
+    int autoFE4A6372_u;
+    unit autoFE4A6372_var;
+    const int autoC73115C5_ae = 12;
+    int autoC73115C5_var;
+
     // Conditions
     if (testConds) {
         if (!((PlayerGroupHasPlayer(gv_survivors, EventPlayer()) == true))) {
@@ -619,6 +632,26 @@ bool gt_PlayerLeaves_Func (bool testConds, bool runActions) {
     }
 
     PlayerGroupRemove(gv_survivors, EventPlayer());
+    autoFE4A6372_g = UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoFE4A6372_u = UnitGroupCount(autoFE4A6372_g, c_unitCountAll);
+    for (;; autoFE4A6372_u -= 1) {
+        autoFE4A6372_var = UnitGroupUnitFromEnd(autoFE4A6372_g, autoFE4A6372_u);
+        if (autoFE4A6372_var == null) { break; }
+        UnitKill(autoFE4A6372_var);
+    }
+    if ((PlayerGroupCount(gv_survivors) > 0)) {
+    }
+    else {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/DD6DA546"));
+        libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, true);
+        autoC73115C5_var = 1;
+        for ( ; autoC73115C5_var <= autoC73115C5_ae; autoC73115C5_var += 1 ) {
+            if ((PlayerType(autoC73115C5_var) == c_playerTypeUser)) {
+                GameOver(autoC73115C5_var, c_gameOverDefeat, true, true);
+            }
+
+        }
+    }
     return true;
 }
 
@@ -626,6 +659,99 @@ bool gt_PlayerLeaves_Func (bool testConds, bool runActions) {
 void gt_PlayerLeaves_Init () {
     gt_PlayerLeaves = TriggerCreate("gt_PlayerLeaves_Func");
     TriggerAddEventPlayerLeft(gt_PlayerLeaves, c_playerAny, c_gameResultUndecided);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Player Dies
+//--------------------------------------------------------------------------------------------------
+bool gt_PlayerDies_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    bool lv_hasHero;
+
+    // Automatic Variable Declarations
+    unitgroup auto34912850_g;
+    int auto34912850_u;
+    unit auto34912850_var;
+    const int auto08070438_ae = 12;
+    int auto08070438_var;
+    const int autoB3581BF0_ae = 12;
+    int autoB3581BF0_var;
+
+    // Variable Initialization
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeHeroic) == true))) {
+            return false;
+        }
+
+        if (!((PlayerGroupHasPlayer(gv_survivors, EventPlayer()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto34912850_g = UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto34912850_u = UnitGroupCount(auto34912850_g, c_unitCountAll);
+    for (;; auto34912850_u -= 1) {
+        auto34912850_var = UnitGroupUnitFromEnd(auto34912850_g, auto34912850_u);
+        if (auto34912850_var == null) { break; }
+        if ((UnitTypeTestFlag(UnitGetType(auto34912850_var), c_unitFlagHero) == true)) {
+            lv_hasHero = true;
+            break;
+        }
+
+    }
+    if ((lv_hasHero == false)) {
+        if ((gv_revives == false)) {
+            PlayerGroupRemove(gv_survivors, EventPlayer());
+            if ((PlayerGroupCount(gv_survivors) > 0)) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(EventPlayer()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventPlayer(), false))) + StringExternal("Param/Value/2D1DD6FD")));
+            }
+            else {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(EventPlayer()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventPlayer(), false))) + StringExternal("Param/Value/03B9F83D")));
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/43147C13"));
+                libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, true);
+                auto08070438_var = 1;
+                for ( ; auto08070438_var <= auto08070438_ae; auto08070438_var += 1 ) {
+                    if ((PlayerType(auto08070438_var) == c_playerTypeUser)) {
+                        GameOver(auto08070438_var, c_gameOverDefeat, true, true);
+                    }
+
+                }
+            }
+        }
+        else {
+            PlayerGroupRemove(gv_survivors, EventPlayer());
+            if ((PlayerGroupCount(gv_survivors) > 0)) {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(EventPlayer()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventPlayer(), false))) + StringExternal("Param/Value/0BD72FCB")));
+            }
+            else {
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(EventPlayer()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(EventPlayer(), false))) + StringExternal("Param/Value/94FAEF32")));
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/CC7D0E58"));
+                libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, true);
+                autoB3581BF0_var = 1;
+                for ( ; autoB3581BF0_var <= autoB3581BF0_ae; autoB3581BF0_var += 1 ) {
+                    if ((PlayerType(autoB3581BF0_var) == c_playerTypeUser)) {
+                        GameOver(autoB3581BF0_var, c_gameOverDefeat, true, true);
+                    }
+
+                }
+            }
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_PlayerDies_Init () {
+    gt_PlayerDies = TriggerCreate("gt_PlayerDies_Func");
+    TriggerAddEventUnitDied(gt_PlayerDies, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -886,7 +1012,7 @@ bool gt_HeroSelection_Func (bool testConds, bool runActions) {
     }
 
     UnitRemove(lv_selectedHero);
-    libNtve_gf_UnitCreateFacingPoint(1, UnitGetType(lv_selectedHero), c_unitCreateIgnorePlacement, 1, UnitGetPosition(lv_selectedHero), RegionGetCenter(RegionFromId(1)));
+    libNtve_gf_UnitCreateFacingPoint(1, UnitGetType(lv_selectedHero), c_unitCreateIgnorePlacement, lv_player, UnitGetPosition(lv_selectedHero), RegionGetCenter(RegionFromId(1)));
     lv_selectedHero = UnitLastCreated();
     if ((UnitGetType(lv_selectedHero) == "CRPGAlienLevel1")) {
         UnitIssueOrder(lv_selectedHero, OrderTargetingUnit(AbilityCommand("Rally", 0), UnitGroupClosestToPoint(UnitGroup("CRPGCrashedBattlecruiser", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(1)))), c_orderQueueReplace);
@@ -1144,6 +1270,7 @@ void InitTriggers () {
     gt_DisableTurrets_Init();
     gt_MapInitialization_Init();
     gt_PlayerLeaves_Init();
+    gt_PlayerDies_Init();
     gt_StartBattlecruiserScene_Init();
     gt_BattlecruiserCrash_Init();
     gt_TutorialStart_Init();

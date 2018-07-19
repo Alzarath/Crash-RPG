@@ -53,7 +53,7 @@
     <CUnit id="CRPGWizardLevel2" parent="CRPGHero">
         <Name value="Unit/Name/CRPGWizard"/>
         <Description value="Button/Tooltip/CRPGWizard"/>
-        <Race value="Prot"/>
+        <Race value=""/>
         <FlagArray index="AlwaysThreatens" value="1"/>
         <FlagArray index="AIThreatGround" value="1"/>
         <FlagArray index="AIThreatAir" value="1"/>
@@ -65,11 +65,11 @@
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
-        <LifeStart value="75"/>
-        <LifeMax value="75"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
-        <ShieldsStart value="75"/>
-        <ShieldsMax value="75"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
         <Acceleration value="1000"/>
         <Deceleration value="1000"/>
         <LateralAcceleration value="46"/>
@@ -110,6 +110,7 @@
     </CUnit>
     <CUnit id="InfestedAbomination">
         <PushPriority value="11"/>
+        <KillResource index="Minerals" value="150"/>
     </CUnit>
     <CUnit id="ShipStasisWard">
         <Race value="Prot"/>
@@ -217,8 +218,8 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
         <Attributes index="Massive" value="1"/>
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranShipPlating"/>
         <Mover value="Fly"/>
         <Speed value="1.25"/>
@@ -269,8 +270,8 @@
     </CUnit>
     <CUnit id="CRPGAeroLevel3" parent="CRPGAeroLevel2">
         <Name value="Unit/Name/CRPGAeroLevel3"/>
-        <LifeStart value="625"/>
-        <LifeMax value="625"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
         <AbilArray index="3" Link="AeroLevelUpMorphLevel3"/>
         <AbilArray Link="AeroDefensiveMatrix"/>
         <CardLayouts index="0">
@@ -303,8 +304,8 @@
     </CUnit>
     <CUnit id="CRPGAeroLevel5" parent="CRPGAeroLevel4">
         <Name value="Unit/Name/CRPGAeroLevel5"/>
-        <LifeStart value="750"/>
-        <LifeMax value="750"/>
+        <LifeStart value="600"/>
+        <LifeMax value="600"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
         <AbilArray Link="AeroTacticalJump"/>
         <WeaponArray index="0" Link="AeroArmageddonCannons"/>
@@ -1072,7 +1073,7 @@
     </CUnit>
     <CUnit id="CRPGWizardLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGWizard"/>
-        <Race value="Prot"/>
+        <Race value=""/>
         <FlagArray index="AlwaysThreatens" value="1"/>
         <FlagArray index="AIThreatGround" value="1"/>
         <FlagArray index="AIThreatAir" value="1"/>
@@ -1084,11 +1085,11 @@
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
-        <LifeStart value="75"/>
-        <LifeMax value="75"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
-        <ShieldsStart value="75"/>
-        <ShieldsMax value="75"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
         <Acceleration value="1000"/>
         <Deceleration value="1000"/>
         <LateralAcceleration value="46"/>
@@ -1121,10 +1122,10 @@
         <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGWizardLevel3" parent="CRPGWizardLevel2">
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
-        <ShieldsStart value="100"/>
-        <ShieldsMax value="100"/>
+        <LifeStart value="125"/>
+        <LifeMax value="125"/>
+        <ShieldsStart value="125"/>
+        <ShieldsMax value="125"/>
         <AbilArray index="3" Link="WizardLevelUpMorphLevel3"/>
         <AbilArray Link="WizardPsionicOrb"/>
         <WeaponArray index="0" Link="WizardAgonizingBlast"/>
@@ -1173,10 +1174,10 @@
     <CUnit id="CRPGWizardLevel5" parent="CRPGWizardLevel4">
         <AbilArray index="3" Link="LevelUpDummy"/>
         <AbilArray Link="WizardReanimate"/>
-        <LifeStart value="125"/>
-        <LifeMax value="125"/>
-        <ShieldsStart value="125"/>
-        <ShieldsMax value="125"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <ShieldsStart value="150"/>
+        <ShieldsMax value="150"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -1188,6 +1189,7 @@
             </LayoutButtons>
             <LayoutButtons Face="WizardReanimate" Type="AbilCmd" AbilCmd="WizardReanimate,Execute" Row="2" Column="2"/>
         </CardLayouts>
+        <Race value="Prot"/>
     </CUnit>
     <CUnit id="Hive">
         <KillXP value="100"/>
@@ -1956,10 +1958,10 @@
     </CUnit>
     <CUnit id="CRPGHunterLevel3" parent="CRPGHunterLevel2">
         <DeathRevealRadius value="3"/>
-        <LifeStart value="125"/>
-        <LifeMax value="125"/>
-        <ShieldsStart value="125"/>
-        <ShieldsMax value="125"/>
+        <LifeStart value="130"/>
+        <LifeMax value="130"/>
+        <ShieldsStart value="130"/>
+        <ShieldsMax value="130"/>
         <TauntDuration index="Dance" value="0"/>
         <AbilArray index="3" Link="HunterLevelUpMorphLevel3"/>
         <AbilArray Link="HunterShadowTransfer"/>
@@ -1974,6 +1976,7 @@
             </LayoutButtons>
             <LayoutButtons Face="HunterShadowTransfer" Type="AbilCmd" AbilCmd="HunterShadowTransfer,Execute" Row="2" Column="1"/>
         </CardLayouts>
+        <Race value=""/>
     </CUnit>
     <CUnit id="CRPGHunterLevel4" parent="CRPGHunterLevel3">
         <AbilArray index="3" Link="HunterLevelUpMorphLevel4"/>
@@ -1998,10 +2001,10 @@
         <WeaponArray index="0" Link="PurifierGlaiveCannonPurifier"/>
     </CUnit>
     <CUnit id="CRPGHunterLevel5" parent="CRPGHunterLevel4">
-        <LifeStart value="150"/>
-        <LifeMax value="150"/>
-        <ShieldsStart value="150"/>
-        <ShieldsMax value="150"/>
+        <LifeStart value="160"/>
+        <LifeMax value="160"/>
+        <ShieldsStart value="160"/>
+        <ShieldsMax value="160"/>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
         <TauntDuration index="Dance" value="5"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
@@ -2012,6 +2015,7 @@
             <LayoutButtons Face="HunterDisruptorVolley" Type="AbilCmd" AbilCmd="HunterDisruptorVolley,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <WeaponArray Link="HunterDisruptorVolleyFour"/>
+        <Race value="Prot"/>
     </CUnit>
     <CUnit id="HunterPsionicProjection">
         <Race value="Prot"/>

@@ -518,6 +518,8 @@
     <CBehaviorBuff id="DevourerMPAcidSpores">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-zerg-acidspores.dds"/>
+        <MaxStackCount value="10"/>
+        <Modification AttackSpeedMultiplier="0.935"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShipGuardianShellAura">
         <InfoFlags index="Hidden" value="1"/>

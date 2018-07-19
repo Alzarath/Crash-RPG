@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectModifyPlayer id="CRPGReviveModifyPlayer">
+        <EffectArray Operation="Set" Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[0].Points" Value="-2"/>
+        <EffectArray Operation="Set" Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[1].Points" Value="-2"/>
+        <EffectArray Operation="Set" Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[2].Points" Value="-2"/>
+        <EffectArray Operation="Set" Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[3].Points" Value="-2"/>
+    </CEffectModifyPlayer>
     <CEffectSet id="FighterAstralWindSet">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="FighterAstralWindSelfHeal"/>

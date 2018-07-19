@@ -2,6 +2,11 @@
 <Catalog>
     <CGame id="Dflt">
         <VeterancySearchRadius value="0"/>
+        <TeamColors index="10">
+            <Value index="Diffuse" value="1.000000,1.000000,1.000000,1.000000"/>
+            <Value index="Emissive" value="0.500000,0.500000,0.500000,1.000000"/>
+            <Value index="Selected" value="1.000000,1.000000,1.000000,1.000000"/>
+        </TeamColors>
         <!-- Test Builds -->
         <!-- <AIBuilds index="213" Enabled="0"/>
              <AIBuilds index="214" Enabled="0"/>
