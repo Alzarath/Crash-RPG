@@ -696,7 +696,7 @@ bool gt_BattlecruiserCrash_Func (bool testConds, bool runActions) {
     }
 
     UnitKill(EventUnit());
-    CinematicFade(false, 3.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    CinematicFade(false, 2.5, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
     auto9E0A3EF5_g = UnitGroup(null, gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, (1 << (c_targetFilterHidden - 32)), (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
     auto9E0A3EF5_u = UnitGroupCount(auto9E0A3EF5_g, c_unitCountAll);
     for (;; auto9E0A3EF5_u -= 1) {
@@ -751,6 +751,8 @@ bool gt_TutorialStart_Func (bool testConds, bool runActions) {
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/CE85816A"));
     TriggerEnable(gt_TutorialChooseHeroAfter, true);
     TriggerEnable(gt_TutorialChooseHeroBefore, false);
+    Wait(8.0, c_timeGame);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/A8A4D396"));
     return true;
 }
 
@@ -802,6 +804,7 @@ bool gt_TutorialChooseHeroAfter_Func (bool testConds, bool runActions) {
     }
 
     TriggerEnable(gt_TutorialChooseHeroAfter, false);
+    TriggerStop(gt_TutorialStart);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/B48473DC"));
     Wait(5.0, c_timeGame);
     TriggerExecute(gt_TutorialMechanicalIntroduction, true, false);
@@ -882,8 +885,9 @@ bool gt_HeroSelection_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    UnitSetOwner(lv_selectedHero, lv_player, true);
-    UnitBehaviorRemove(lv_selectedHero, "Invulnerable", 1);
+    UnitRemove(lv_selectedHero);
+    libNtve_gf_UnitCreateFacingPoint(1, UnitGetType(lv_selectedHero), c_unitCreateIgnorePlacement, 1, UnitGetPosition(lv_selectedHero), RegionGetCenter(RegionFromId(1)));
+    lv_selectedHero = UnitLastCreated();
     if ((UnitGetType(lv_selectedHero) == "CRPGAlienLevel1")) {
         UnitIssueOrder(lv_selectedHero, OrderTargetingUnit(AbilityCommand("Rally", 0), UnitGroupClosestToPoint(UnitGroup("CRPGCrashedBattlecruiser", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), RegionGetCenter(RegionFromId(1)))), c_orderQueueReplace);
         UnitIssueOrder(lv_selectedHero, Order(AbilityCommand("AlienHarvesterFormMorph", 0)), c_orderQueueAddToEnd);

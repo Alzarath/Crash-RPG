@@ -30,12 +30,15 @@
     <PatchNote>
         <Version>
             <Value>0.1</Value>
+            <Value>1.0</Value>
         </Version>
         <Date>
             <Value>8/6/2017</Value>
+            <Value>7/18/2018</Value>
         </Date>
         <Notes>
             <Value>1,2</Value>
+            <Value>3,4,5,6,7,8,9</Value>
         </Notes>
     </PatchNote>
 </DocInfo>

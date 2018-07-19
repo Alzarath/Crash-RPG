@@ -180,7 +180,7 @@
         <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
         <Flags index="CombineNumericModifications" value="0"/>
         <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
-        <XPFraction index="Kills" value="10"/>
+        <XPFraction index="Kills" value="20"/>
         <SharedXPRadius index="Kills" value="20"/>
         <SharedXPFraction index="Kills" value="0.25"/>
         <VeterancyLevelArray/>
@@ -1214,7 +1214,7 @@
     <CBehaviorVeterancy id="CRPGHeroVeterancy">
         <Flags index="CombineNumericModifications" value="0"/>
         <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
-        <XPFraction index="Kills" value="10"/>
+        <XPFraction index="Kills" value="20"/>
         <SharedXPRadius index="Kills" value="20"/>
         <SharedXPFraction index="Kills" value="0.25"/>
         <VeterancyLevelArray/>

@@ -99,6 +99,7 @@
         <GlossaryWeakArray value="Roach"/>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="HotSRaptorBurrowed">
         <KillXP value="10"/>
@@ -106,6 +107,9 @@
     </CUnit>
     <CUnit id="HotSSwarmlingBurrowed">
         <KillResource index="Minerals" value="5"/>
+    </CUnit>
+    <CUnit id="InfestedAbomination">
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="ShipStasisWard">
         <Race value="Prot"/>
@@ -243,6 +247,7 @@
         <GlossaryWeakArray value="Corruptor"/>
         <Description value="Button/Tooltip/CRPGAero"/>
         <GlossaryCategory value=""/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGAeroLevel2" parent="CRPGAeroLevel1">
         <Name value="Unit/Name/CRPGAeroLevel2"/>
@@ -395,6 +400,7 @@
             <LayoutButtons Face="Repair2" Type="AbilCmd" AbilCmd="MechRepair,Execute" Row="1" Column="0"/>
         </CardLayouts>
         <GlossaryCategory value=""/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGMechLevel2" parent="CRPGMechLevel1">
         <DeathRevealRadius value="3"/>
@@ -569,6 +575,7 @@
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
         <GlossaryCategory value=""/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGSniperLevel2" parent="CRPGSniperLevel1">
         <AbilArray index="3" Link="SniperLevelUpMorphLevel2"/>
@@ -743,6 +750,7 @@
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Hydralisk"/>
         <GlossaryCategory value=""/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGVehicleLevel2" parent="CRPGVehicleLevel1">
         <DamageDealtXP value="1"/>
@@ -977,6 +985,7 @@
         <GlossaryCategory value=""/>
         <GlossaryStrongArray value="Mutalisk"/>
         <GlossaryWeakArray value="DevourerMP"/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CreepTumor">
         <KillXP value="5"/>
@@ -1109,6 +1118,7 @@
         <CargoSize value="2"/>
         <GlossaryCategory value=""/>
         <Description value="Button/Tooltip/CRPGWizard"/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGWizardLevel3" parent="CRPGWizardLevel2">
         <LifeStart value="100"/>
@@ -1772,6 +1782,7 @@
         </CardLayouts>
         <GlossaryCategory value=""/>
         <Food value="6"/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGInfestedLevel2" parent="CRPGInfestedLevel1">
         <TurningRate value="999.8437"/>
@@ -1915,6 +1926,7 @@
         <GlossaryCategory value=""/>
         <GlossaryStrongArray value="Roach"/>
         <GlossaryWeakArray value="Zergling"/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGHunterLevel2" parent="CRPGHunterLevel1">
         <TauntDuration index="Dance" value="5"/>
@@ -2071,6 +2083,7 @@
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
         <Name value="Unit/Name/Alien"/>
         <KillResource index="Minerals" value="150"/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="UltraliskBurrowed">
         <Name value="Unit/Name/Alien"/>
@@ -2166,6 +2179,7 @@
             <ChanceArray index="Idle" value="70"/>
             <ChanceArray index="Turn" value="10"/>
         </Fidget>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGFighterLevel2" parent="CRPGFighterLevel1">
         <AbilArray index="3" Link="FighterLevelUpMorphLevel2"/>
@@ -2329,6 +2343,7 @@
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
         <GlossaryCategory value=""/>
+        <PushPriority value="11"/>
     </CUnit>
     <CUnit id="CRPGSwarmerLevel2" parent="CRPGSwarmerLevel1">
         <Name value="Unit/Name/CRPGSwarmerLevel2"/>
@@ -2421,7 +2436,6 @@
     </CUnit>
     <CUnit id="CRPGSwarmerLevel5" parent="CRPGSwarmerLevel4">
         <Name value="Unit/Name/CRPGSwarmerLevel5"/>
-        <PushPriority value="11"/>
         <LifeStart value="250"/>
         <LifeMax value="250"/>
         <Speed value="2.25"/>
@@ -2461,6 +2475,7 @@
             <LayoutButtons index="5" removed="1"/>
             <LayoutButtons index="6" removed="1"/>
         </CardLayouts>
+        <PushPriority value="10"/>
     </CUnit>
     <CUnit id="ZerglingBurrowed">
         <Name value="Unit/Name/Alien"/>
