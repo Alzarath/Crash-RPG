@@ -34,7 +34,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorCRPGHoldFireCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="CRPGHoldFire" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit">
@@ -149,6 +148,21 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SwarmerSwarmerSpawn" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAdvancedAbilityUpgradeCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAdvancedAbilityUpgrade" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGBasicAbilityUpgradeCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGBasicAbilityUpgrade" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGUltimateAbilityUpgradeCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGUltimateAbilityUpgrade" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountUpgrade>
     <CRequirementGT id="GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGLevelCounterCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
@@ -261,7 +275,6 @@
         <OperandArray index="0" value="AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountBehaviorCRPGHoldFireCompleteOnlyAtUnit">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="CountBehaviorCRPGHoldFireCompleteOnlyAtUnit"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit">

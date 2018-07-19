@@ -10,6 +10,10 @@
         <Compare value="Eq"/>
         <SearchFilters value="HarvestableResource;-"/>
     </CValidatorLocationEnumArea>
+    <CValidatorPlayerRequirement id="CRPGAbilityUpgradeBasic">
+        <Find value="1"/>
+        <Value value="CRPGAbilityUpgradeBasic"/>
+    </CValidatorPlayerRequirement>
     <CValidatorUnitCompareCargo id="CRPGCargoGE5">
         <Compare value="GE"/>
         <Value value="5"/>
@@ -137,7 +141,7 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorLocationEnumArea id="FighterTargetsInAreaShadowFury">
         <ResultFailed value="LoadAllNoTargetsFound,No Targets Found"/>
-        <WhichLocation Effect="FighterShadowFuryCreatePersistent"/>
+        <WhichLocation Effect="AssassinShadowFuryCreatePersistent"/>
         <AreaArray Compare="GT" Count="0" Radius="5"/>
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,RawResource,HarvestableResource,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
     </CValidatorLocationEnumArea>
@@ -315,6 +319,9 @@
         <Value value="1"/>
         <Behavior value="HunterPlasmaDiffusion"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitType id="TargetIsFighterLevel4">
+        <Value value="CRPGFighterLevel4"/>
+    </CValidatorUnitType>
     <CValidatorUnitCompareField id="UnknownValidator">
         <Field value="FlagArray[1]"/>
         <Value value="0"/>
@@ -500,9 +507,14 @@
         <Compare value="LE"/>
         <Behavior value="SniperDeadlyToxinDamage"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="WizardCasterHasConfusionEnabler">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="WizardConfusionEnabler"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="WizardPsionicStormRestoreValidators">
         <Type value="And"/>
-        <CombineArray value="CRPGCasterGELevel4"/>
+        <CombineArray value="CRPGAbilityUpgradeBasic"/>
         <CombineArray value="TargetIsAllyorPlayer"/>
     </CValidatorCombine>
 </Catalog>

@@ -18,6 +18,18 @@
         </InfoArray>
         <AutoCastValidatorArray value="IsDead"/>
     </CAbilMorph>
+    <CAbilEffectInstant id="FighterAstralWind">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="FighterAstralWindSet"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Charge Link="Abil/ArtanisAstralWind"/>
+            <Cooldown Link="Abil/ArtanisAstralWind" TimeUse="30"/>
+        </Cost>
+        <AINotifyEffect value="FighterAstralWindSet"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FighterAstralWind"/>
+    </CAbilEffectInstant>
     <CAbilEffectTarget id="FighterLightningDash">
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Effect index="0" value="FighterLightningDashCreatePersistent"/>
@@ -342,19 +354,6 @@
         <ProducedUnitArray value="CRPGSwarmerLevel1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SwarmerSplit" Requirements="SwarmerMaxSwarmer"/>
     </CAbilEffectInstant>
-    <CAbilEffectTarget id="WizardConfusion">
-        <Alignment value="Negative"/>
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Effect index="0" value="WizardConfusionSearchArea"/>
-        <Cost>
-            <Vital index="Energy" value="75"/>
-            <Charge Link="Abil/DarkArchonConfusion"/>
-            <Cooldown Link="Abil/DarkArchonConfusion" TimeUse="2"/>
-        </Cost>
-        <Range value="9"/>
-        <CursorEffect value="DarkArchonConfusionSearch"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="WizardConfusion"/>
-    </CAbilEffectTarget>
     <CAbilEffectTarget id="WizardPsionicOrb">
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Effect index="0" value="WizardPsionicOrbInitialCreatePersistent"/>
@@ -368,9 +367,18 @@
         <UninterruptibleArray index="Cast" value="1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="WizardPsionicOrb"/>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="WizardPsionicStorm" parent="PsiStorm">
-        <Name value="Abil/Name/WizardPsionicStorm"/>
+    <CAbilEffectTarget id="WizardPsionicStorm">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="WizardPsionicStormCreatePersistent"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Cooldown TimeUse="2"/>
+        </Cost>
+        <Range value="9"/>
+        <CastOutroTime value="0.5"/>
+        <CursorEffect value="WizardPsionicStormSearchArea"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="WizardPsionicStorm"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="ShipCloakingField">
@@ -412,9 +420,9 @@
         <AutoCastRange value="4"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Designate"/>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="FighterShadowFury">
+    <CAbilEffectTarget id="AssassinShadowFury">
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
-        <Effect index="0" value="FighterShadowFuryCreatePersistent"/>
+        <Effect index="0" value="AssassinShadowFuryCreatePersistent"/>
         <Flags index="AutoCast" value="1"/>
         <Flags index="BestUnit" value="0"/>
         <Cost>
@@ -434,7 +442,7 @@
         <UninterruptibleArray index="Finish" value="1"/>
         <UninterruptibleArray index="Bail" value="1"/>
         <CursorEffect value="DarkTemplarShadowFurySearch"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="FighterShadowFury"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AssassinShadowFury"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="FighterRapidStrikes">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -1097,5 +1105,17 @@
         <CmdButtonArray index="Execute" DefaultButtonFace="HunterShadowBlink">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="WizardReanimate">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="InfestedAberrateSet2"/>
+        <Cost>
+            <Vital index="Energy" value="125"/>
+            <Cooldown TimeUse="15"/>
+        </Cost>
+        <Range value="9"/>
+        <CursorEffect value="WizardReanimateSearchArea"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="WizardReanimate"/>
     </CAbilEffectTarget>
 </Catalog>

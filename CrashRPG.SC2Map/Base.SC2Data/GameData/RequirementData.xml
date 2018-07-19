@@ -4,8 +4,16 @@
         <EditorCategories value="Race:Protoss,TechType:Unit"/>
         <NodeArray index="Use" Link="LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8"/>
     </CRequirement>
+    <CRequirement id="CRPGAbilityUpgradeAdvanced">
+        <EditorCategories value="Race:Neutral,TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAdvancedAbilityUpgradeCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="CRPGAbilityUpgradeSuperior">
+        <EditorCategories value="Race:Neutral,TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGUltimateAbilityUpgradeCompleteOnlyAtUnit"/>
+    </CRequirement>
     <CRequirement id="FighterResurgenceOffCooldown">
-        <EditorCategories value="Race:Protoss,TechType:Ability"/>
+        <EditorCategories value="Race:Protoss"/>
         <NodeArray index="Show" Link="NotCountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="CRPGInRangeofArmory">
@@ -14,8 +22,12 @@
     <CRequirement id="CRPGInRangeofCrashedBattlecruiser">
         <NodeArray index="Use" Link="CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428"/>
     </CRequirement>
+    <CRequirement id="CRPGAbilityUpgradeBasic">
+        <EditorCategories value="Race:Neutral,TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGBasicAbilityUpgradeCompleteOnlyAtUnit"/>
+    </CRequirement>
     <CRequirement id="HunterMaxPlasmaChargeUse">
-        <EditorCategories value="Race:Protoss,TechType:Ability"/>
+        <EditorCategories value="Race:Protoss"/>
         <NodeArray index="Use" Link="GTE1254047826CountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit10"/>
     </CRequirement>
     <CRequirement id="InfestedMaxInfestedUnits">
@@ -55,7 +67,7 @@
         <NodeArray index="Use" Link="Not3697774798CountBehaviorInfestedInfestedCompleteOnly"/>
     </CRequirement>
     <CRequirement id="MechArmPointDefenseDrone">
-        <EditorCategories value="Race:Terran,TechType:Unit"/>
+        <EditorCategories value="Race:Terran"/>
         <CanBeSuppressed index="Use" value="0"/>
         <NodeArray index="Use" Link="LTCountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2"/>
     </CRequirement>
@@ -78,37 +90,37 @@
         <NodeArray index="Show" Link="GTE2832794247CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit1"/>
     </CRequirement>
     <CRequirement id="HunterArmPsionicProjection">
-        <EditorCategories value="Race:Protoss,TechType:Unit"/>
+        <EditorCategories value="Race:Protoss"/>
         <CanBeSuppressed index="Use" value="0"/>
         <NodeArray index="Use" Link="LTCountUnitHunterPsionicProjectionQueuedOrBetterAtUnit2"/>
     </CRequirement>
     <CRequirement id="HunterMaxPlasmaChargeShow">
-        <EditorCategories value="Race:Protoss,TechType:Ability"/>
+        <EditorCategories value="Race:Protoss"/>
         <NodeArray index="Use" Link="GTECountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit10"/>
         <NodeArray index="Show" Link="GTECountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit10"/>
     </CRequirement>
     <CRequirement id="SwarmerMaxSwarmer">
-        <EditorCategories value="Race:PrimalZerg,TechType:Unit"/>
+        <EditorCategories value="Race:PrimalZerg"/>
         <NodeArray index="Use" Link="AndLT3608225112SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterCountUnitSwarmerSwarmerEggSpawnQueuedOrBetterMulCountUnitCRP2107868716"/>
         <NodeArray index="Show" Link="CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="SwarmerHasLevels">
-        <EditorCategories value="Race:PrimalZerg,TechType:Unit"/>
+        <EditorCategories value="Race:PrimalZerg"/>
         <NodeArray index="Show" Link="CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="SwarmerGELevel2">
-        <EditorCategories value="Race:PrimalZerg,TechType:Unit"/>
+        <EditorCategories value="Race:PrimalZerg"/>
         <NodeArray index="Use" Link="GTE3553322166CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2"/>
     </CRequirement>
     <CRequirement id="SwarmerMaxSwarmerUltimate">
-        <EditorCategories value="Race:PrimalZerg,TechType:Unit"/>
+        <EditorCategories value="Race:PrimalZerg"/>
         <NodeArray index="Use" Link="LT3608225112SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterCountUnitSwarmerSwarmerEggSpawnQueuedOrBetterMulCountUnitCRPGSw3625105664"/>
     </CRequirement>
     <CRequirement id="VehicleNotLockedOn">
         <NodeArray index="Use" Link="Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="VehicleLockedOn">
-        <EditorCategories value="Race:Terran,TechType:Ability"/>
+        <EditorCategories value="Race:Terran"/>
         <NodeArray index="Show" Link="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="CRPGHoldingFire">
@@ -116,7 +128,7 @@
         <NodeArray index="Show" Link="CountBehaviorCRPGHoldFireCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="CRPGNotHoldingFire">
-        <EditorCategories value="Race:Neutral,TechType:Ability"/>
+        <EditorCategories value="Race:Neutral"/>
         <NodeArray index="Show" Link="NotCountBehaviorCRPGHoldFireCompleteOnlyAtUnit"/>
     </CRequirement>
 </Catalog>

@@ -549,8 +549,6 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
     // Variable Declarations
     string lv_unitType;
     int lv_pickedPlayer;
-    int lv_trickles;
-    int lv_trickleWeight;
 
     // Automatic Variable Declarations
     const int autoFAB08339_ae = 12;
@@ -559,7 +557,6 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
     int auto194EA66D_i;
 
     // Variable Initialization
-    lv_trickles = 6;
 
     // Actions
     if (!runActions) {
@@ -699,7 +696,7 @@ bool gt_BattlecruiserCrash_Func (bool testConds, bool runActions) {
     }
 
     UnitKill(EventUnit());
-    CinematicFade(false, 2.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    CinematicFade(false, 3.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
     auto9E0A3EF5_g = UnitGroup(null, gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, (1 << (c_targetFilterHidden - 32)), (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
     auto9E0A3EF5_u = UnitGroupCount(auto9E0A3EF5_g, c_unitCountAll);
     for (;; auto9E0A3EF5_u -= 1) {
@@ -1038,6 +1035,7 @@ bool gt_UpdateTooltips_Func (bool testConds, bool runActions) {
     }
     else {
         CatalogFieldValueSet(c_gameCatalogButton, "AeroYamatoCannon", "Tooltip", EventPlayer(), (("Blasts a target with a devastating plasma cannon, causing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "AeroYamatoCannonDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
+        CatalogFieldValueSet(c_gameCatalogButton, "FighterLightningDash", "Tooltip", EventPlayer(), (("Charge toward a locaiton, unleashing a blast of energy that deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "FighterLightningDashDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage to nearby enemies and stuns them for <d ref=\"Behavior,FighterStunnedShadowCharge,Duration\"/> seconds.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
         CatalogFieldValueSet(c_gameCatalogButton, "HunterScarabMine", "Tooltip", EventPlayer(), (("Scarab Mines pursue enemy units that come in range, detonating for <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "HunterScarabMinesDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> damage and slowing nearby enemies in an area by <d ref=\"100 - (100 * Behavior,HunterSlowScarabMine,Modification.MoveSpeedMultiplier)\"/>% for <d ref=\"Behavior,HunterSlowScarabMine,Duration\"/> seconds.")));
         CatalogFieldValueSet(c_gameCatalogButton, "MechBarrage", "Tooltip", EventPlayer(), (("Stuns all enemies in a small area. Deals <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageDamage", "Amount", EventPlayer()) * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "MechBarrageCreatePersistent", "PeriodCount", EventPlayer()))), c_fixedPrecisionAny) + "</c> damage over <d ref=\"Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]\"/> seconds in a larger area.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c>")));
         CatalogFieldValueSet(c_gameCatalogButton, "SniperSnipe", "Tooltip", EventPlayer(), (("A careful shot, dealing <c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer())), c_fixedPrecisionAny) + "</c> (<c val=\"#ColorAttackInfo\">" + FixedToString((lv_damageModifier * (CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "Amount", EventPlayer()) + CatalogFieldValueGetAsInt(c_gameCatalogEffect, "SniperSniperRoundDamage", "AttributeBonus[" + IntToString(5) + "]", EventPlayer()))), c_fixedPrecisionAny) + "</c> vs. Psionic) damage.<n/><n/><c val=\"#ColorGlueValue\">Ignores armor.</c> <c val=\"#ColorAttackInfo\">Can only target biological units.</c>")));

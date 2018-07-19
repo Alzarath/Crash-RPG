@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CBehaviorBuff id="WizardConfusionEnabler">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="FighterStunnedLightningDash">
         <InfoIcon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
         <BehaviorCategories index="Stun" value="1"/>
@@ -259,7 +263,7 @@
     <CBehaviorAttribute id="CRPGEnergyAttribute">
         <MinPoints value="-2"/>
         <Modification>
-            <VitalRegenArray index="Energy" value="0.0625"/>
+            <VitalRegenMultiplier index="Energy" value="0.1"/>
         </Modification>
     </CBehaviorAttribute>
     <CBehaviorBuff id="CRPGRecentlyAttacked">
@@ -359,7 +363,7 @@
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-confusion.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="10"/>
+        <Duration value="3"/>
         <Period value="1"/>
         <InitialEffect value="WizardConfusionInitialSet"/>
         <PeriodicEffect value="WizardConfusionAttackSearchArea"/>
@@ -380,6 +384,31 @@
             <AbilClassDisableArray index="CAbilAttack" value="1"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="WizardPreordained">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-mindcontrol.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+        <Duration value="15"/>
+        <DamageResponse>
+            <Chance value="1"/>
+            <Fatal value="1"/>
+            <Handled value="WizardReanimateSetReanimating"/>
+            <ModifyFraction value="0"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardReanimated">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-mindcontrol.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <TimeScaleSource Value="Global"/>
+        <Duration value="60"/>
+        <ExpireEffect value="Suicide"/>
+        <Player Value="Caster"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="WizardPsionicStormRestore">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-psistorm.dds"/>
@@ -389,6 +418,19 @@
         <Period value="0.571"/>
         <InitialEffect value="WizardPsionicStormHealing"/>
         <PeriodicEffect value="WizardPsionicStormHealing"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardReanimating">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-mindcontrol.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+        <Duration value="2"/>
+        <Period value="0.1"/>
+        <PeriodicEffect value="ReanimateModifyUnit"/>
+        <ExpireEffect value="WizardReanimateSetReanimated"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stun" value="1"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="WizardSlowPsionicOrb">
         <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
@@ -413,23 +455,24 @@
         <Period value="0.5"/>
         <PeriodicEffect value="WizardPsionicOrbSearchArea"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="WizardEnergyMatrixAura">
+    <CBehaviorBuff id="WizardKhaydarinAmuletAura">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Period value="0.5"/>
-        <PeriodicEffect value="WizardEnergyMatrixSearchArea"/>
+        <PeriodicEffect value="WizardKhaydarinAmuletSearchArea"/>
         <Modification>
+            <VitalMaxArray index="Energy" value="50"/>
             <VitalRegenMultiplier index="Energy" value="0.25"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="WizardEnergyMatrix">
+    <CBehaviorBuff id="WizardKhaydarinAmulet">
+        <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-arguslink.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="0.5666"/>
         <Modification>
             <VitalRegenMultiplier index="Energy" value="0.125"/>
         </Modification>
-        <Alignment value="Positive"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="WizardPsionicStorm">
         <Alignment value="Negative"/>
@@ -562,9 +605,9 @@
         <Duration value="2.24"/>
         <Period value="0.56"/>
         <PeriodCount value="4"/>
-        <InitialEffect value="FighterShadowFurySearchArea"/>
-        <PeriodicEffect value="FighterShadowFurySearchArea"/>
-        <FinalEffect value="FighterShadowFuryApplyFinalDelayBehavior"/>
+        <InitialEffect value="AssassinShadowFurySearchArea"/>
+        <PeriodicEffect value="AssassinShadowFurySearchArea"/>
+        <FinalEffect value="AssassinShadowFuryApplyFinalDelayBehavior"/>
         <Modification>
             <ModifyFlags index="DisableWeapons" value="1"/>
             <StateFlags index="Cloak" value="1"/>
@@ -576,7 +619,7 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Duration value="0.56"/>
-        <FinalEffect value="FighterShadowFuryTeleportFinalCreatePersistent"/>
+        <FinalEffect value="AssassinShadowFuryTeleportFinalCreatePersistent"/>
         <Modification>
             <ModifyFlags index="DisableWeapons" value="1"/>
             <StateFlags index="Invulnerable" value="1"/>
@@ -867,12 +910,6 @@
             <ModifyFlags index="SuppressMoving" value="1"/>
             <ModifyFlags index="SuppressTurning" value="1"/>
         </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="AeroYamatoCannonWeaponCooldown">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <DisplayDuration index="Self" value="1"/>
-        <Duration value="3"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGControlArmory">
         <EditorCategories value="AbilityorEffectType:Units"/>

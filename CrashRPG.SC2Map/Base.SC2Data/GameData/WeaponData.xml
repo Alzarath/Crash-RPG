@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CWeaponLegacy id="WizardChaoticTorrent">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="WizardChaoticTorrentDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="1.75"/>
+        <Effect value="WizardChaoticTorrentDamage"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="ShipPurifierCannon">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-airweaponslevel0.dds"/>
@@ -142,14 +150,6 @@
         <Period value="0.696"/>
         <Effect value="SwarmerBiteLevel4Damage"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="WizardChaoticTorrent">
-        <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <DisplayEffect value="WizardChaoticTorretDamage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="1.75"/>
-        <Effect value="WizardChaoticTorretDamage"/>
-    </CWeaponLegacy>
     <CWeaponLegacy id="WizardPsionicShockwave">
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
@@ -164,7 +164,7 @@
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="WizardAgonizingBlastDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="1.754"/>
+        <Period value="1.75"/>
         <Effect value="WizardAgonizingBlastLaunchMissile"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="WizardPsiBlast">
@@ -173,7 +173,7 @@
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <DisplayEffect value="WizardPsiBlastDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="1.754"/>
+        <Period value="1.75"/>
         <Effect value="WizardPsiBlastLaunchMissile"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShipPurifierBeam">
@@ -271,7 +271,7 @@
         <RangeSlop value="10"/>
         <Period value="6"/>
         <DamagePoint value="3"/>
-        <Effect value="AeroYamatoGunSet"/>
+        <Effect value="AeroYamatoGunLaunchMissile"/>
         <AllowedMovement value="Slowing"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>

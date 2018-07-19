@@ -6,6 +6,7 @@ Abil/Name/AlienGatherDrone=Gather
 Abil/Name/AlienHarvesterFormMorph=Harvester Fom
 Abil/Name/AlienLeaperFormMorph=Leaper Form
 Abil/Name/AlienMetamorphosisMorph=Metamorphosis
+Abil/Name/AssassinShadowFury=Shadow Fury
 Abil/Name/AttackFriendly=Attack
 Abil/Name/BeaconGiveHero=Give Hero
 Abil/Name/CRPGControlArmory=Control Armory
@@ -16,10 +17,10 @@ Abil/Name/CRPGUpgradeDamage=Upgrade Damage
 Abil/Name/CRPGUpgradeEnergy=Upgrade Energy
 Abil/Name/CRPGWeaponsFree=Weapons Free
 Abil/Name/DefaultAbilityLevelUpMorph=Level Up
+Abil/Name/FighterAstralWind=Astral Wind
 Abil/Name/FighterLightningDash=Lightning Dash
 Abil/Name/FighterRapidStrikes=Rapid Strikes
 Abil/Name/FighterShadowCharge=Shadow Charge
-Abil/Name/FighterShadowFury=Shadow Fury
 Abil/Name/HunterDisruptorVolley=Disruptor Volley
 Abil/Name/HunterDisruptorVolleyFree=Disruptor Volley
 Abil/Name/HunterPsionicProjection=Psionic Projection
@@ -72,9 +73,9 @@ Abil/Name/VehicleLockOnLongRange=Lock On
 Abil/Name/VehicleOverdrive=Overdrive
 Abil/Name/VehicleSiegeMode=Siege
 Abil/Name/VehicleUnsiege=Unsiege
-Abil/Name/WizardConfusion=Confusion
 Abil/Name/WizardPsionicOrb=Psionic Orb
 Abil/Name/WizardPsionicStorm=Psionic Storm
+Abil/Name/WizardReanimate=Reanimate
 Abil/TargetMessage/AttackFriendly=<IMG path="Assets\Textures\tutorialmouseleftbuttondown.dds" alignment="absolutemiddle"/>   To Attack<n/><IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/>   Cancel
 Attribute001/Desc=The level that all heroes start at.
 Attribute001/Name=Starting Level
@@ -142,10 +143,13 @@ Behavior/Name/SwarmerHeroVeterancy=Hero Veterancy
 Behavior/Name/VehicleLockOnTarget=Lock On
 Behavior/Name/VehicleOverdrive=Overdrive
 Behavior/Name/WizardConfusion=Confusion
-Behavior/Name/WizardEnergyMatrix=Energy Matrix
+Behavior/Name/WizardKhaydarinAmulet=Khaydarin Amulet
+Behavior/Name/WizardPreordained=Preordained
 Behavior/Name/WizardPsionicOrb=Psionic Orb
 Behavior/Name/WizardPsionicStorm=Psionic Storm
 Behavior/Name/WizardPsionicStormRestore=Psionic Storm
+Behavior/Name/WizardReanimated=Reanimated
+Behavior/Name/WizardReanimating=Reanimating
 Behavior/Name/WizardSlowPsionicOrb=Slow
 Behavior/Tooltip/AeroDefensiveMatrix=While active, the Defensive Matrix blocks all incoming damage.
 Behavior/Tooltip/CRPGArmorAttribute=Increases the unit's life and shield armor by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttribute,Modification.LifeArmorBonus" precision="2"/></c> per point.
@@ -182,9 +186,12 @@ Behavior/Tooltip/SniperDeadlyToxinDamage=Target was recently inflicted with a ho
 Behavior/Tooltip/VehicleLockOnTarget=This unit has been targeted by a Lock On ability.
 Behavior/Tooltip/VehicleOverdrive=This unit's movement speed is increased by 70%.
 Behavior/Tooltip/WizardConfusion=This unit is attacking its allies.
-Behavior/Tooltip/WizardEnergyMatrix=This unit has increased energy regeneration.
+Behavior/Tooltip/WizardKhaydarinAmulet=This unit has increased energy regeneration.
+Behavior/Tooltip/WizardPreordained=Target will resurrect for the enemy when killed.
 Behavior/Tooltip/WizardPsionicStorm=Target is under the effects of Psionic Storm and will take massive damage while in this area of effect.
 Behavior/Tooltip/WizardPsionicStormRestore=Target is under the effects of Psionic Storm and will restore shields while in this area of effect.
+Behavior/Tooltip/WizardReanimated=Target is serving a new master.
+Behavior/Tooltip/WizardReanimating=Target is resurrecting.
 Button/Name/AeroDefensiveMatrix=Defensive Matrix
 Button/Name/AeroFireSuppressionSystem=Fire Suppression System
 Button/Name/AeroLaserArmaments=Laser Armaments
@@ -200,15 +207,16 @@ Button/Name/AlienParasiticHarvest=Parasitic Harvest
 Button/Name/AlienSiegeForm=Siege Form
 Button/Name/AlienSupportForm=Support Form
 Button/Name/AlienTankForm=Tank Form
+Button/Name/AssassinShadowFury=Shadow Fury
 Button/Name/CRPGHoldFire=Hold Fire
 Button/Name/CRPGLevelUp=Level Up
 Button/Name/CRPGWeaponsFree=Weapons Free
+Button/Name/FighterAstralWind=Astral Wind
 Button/Name/FighterLightningDash=Lightning Dash
 Button/Name/FighterPsiBlades=Psi Blades
 Button/Name/FighterRapidStrikes=Rapid Strikes
 Button/Name/FighterResurgence=Resurgence
 Button/Name/FighterShadowCharge=Shadow Charge
-Button/Name/FighterShadowFury=Shadow Fury
 Button/Name/HunterDisruptorVolley=Disruptor Volley
 Button/Name/HunterPlasmaDiffusion=Plasma Diffusion
 Button/Name/HunterPsionicProjection=Psionic Projection
@@ -261,10 +269,10 @@ Button/Name/VehicleOverdrive=Overdrive
 Button/Name/VehicleSiegeMode=Siege Mode
 Button/Name/VehicleUnsiege=Tank Mode
 Button/Name/WizardConfusion=Confusion
-Button/Name/WizardEnergyMatrix=Energy Matrix
+Button/Name/WizardKhaydarinAmulet=Khaydarin Amulet
 Button/Name/WizardPsionicOrb=Psionic Orb
 Button/Name/WizardPsionicStorm=Psionic Storm
-Button/Name/WizardShieldOvercharge=Shield Overcharge
+Button/Name/WizardReanimate=Reanimate
 Button/Tooltip/AeroDefensiveMatrix=Surrounds the hero with a shield that can absorb <d ref="Behavior,DefensiveMatrix,Modification.VitalMaxArray[1]"/> damage.
 Button/Tooltip/AeroFireSuppressionSystem=Unit automatically repairs itself up to 50% life.
 Button/Tooltip/AeroLaserArmaments=Automatically fire Laser Batteries that deal <c val="#ColorAttackInfo"><d ref="Effect,AeroLaserArmamentsDamage,Amount"/></c> damage to enemies below the hero.
@@ -281,6 +289,7 @@ Button/Tooltip/AlienParasiticHarvest=The Alien injects a parasite whenever it at
 Button/Tooltip/AlienSiegeForm=Ranged alien. Regenerates faster while burrowed. Can cast Corrosive Bile.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/AlienSupportForm=Ranged alien. Can cast Ultimate Sacrifice.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/AlienTankForm=Aggressive alien. Deals damage in an area. Can burrow charge.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/AssassinShadowFury=Become invisible and unrevealable, jumping between <d ref="Behavior,FighterShadowFuryController,PeriodCount+1"/> targets, slashing at each <d ref="Effect,FighterShadowFuryAttackCreatePersistent,PeriodCount"/> (<d ref="Effect,FighterShadowFuryAttackRapidCreatePersistent2,PeriodCount"/> while Rapid Strikes is active) times.
 Button/Tooltip/CRPGAero=Slow and Powerful Warship Hero. Uses a mix of defensive and offensive abilities.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Yamato Cannon</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Fire Suppression System<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Defensive Matrix<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Laser Armaments<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Tactical Jump</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGAeroLevel32=Powerful warship. Can use Yamato Cannon and Tactical Jump.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGAlienHeroDrone=Basic worker unit. Can harvest minerals and vespene gas. Can mutate into structures.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
@@ -315,15 +324,14 @@ Button/Tooltip/CRPGVehicleLevel4=Fast, high-damage hovertank. Rail Gun can fire 
 Button/Tooltip/CRPGWeaponsFree=Orders selected units to fire at will. They will engage enemy units within range and chase them as normal.
 Button/Tooltip/CRPGWizard=Powerful caster. Uses area of effect and supportive abilities to decimate its enemies and assist its allies.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Psionic Storm</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Energy Matrix<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Psionic Orb<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Shield Overcharge<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Confusion</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGWizardLevel3=Tal'darim Faction<n/>Potent psionic master. Can use Psionic Orb, Mind Blast, and Sacrifice.<n/><n/><c val="ffff8a">Can attack ground units.</c>
-Button/Tooltip/CRPGWizardLevel4=Powerful psionic attacker.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/DevourerMP=Anti-air support unit. Attacks reduce attack speed and armor.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c>
 Button/Tooltip/Egg=Aliens morph in the safety of these cocoons.
-Button/Tooltip/FighterLightningDash=The unit charges toward a locaiton, unleashing a blast of energy that deals <c val="#ColorAttackInfo"><d ref="Effect,FighterLightningDashDamage,Amount"/></c> damage to nearby enemies and stuns them for <d ref="Behavior,FighterStunnedShadowCharge,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/FighterAstralWind=Heals all nearby friendly units for <d ref="Effect,FighterAstralWindSelfHeal,VitalArray[0].Change"/> life and <d ref="Effect,FighterAstralWindSelfHeal,VitalArray[1].Change"/> shields.
+Button/Tooltip/FighterLightningDash=Charge toward a locaiton, unleashing a blast of energy that deals <c val="#ColorAttackInfo"><d ref="Effect,FighterLightningDashDamage,Amount"/></c> damage to nearby enemies and stuns them for <d ref="Behavior,FighterStunnedShadowCharge,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/FighterPsiBlades=The hero attacks twice, increasing its total base damage.
 Button/Tooltip/FighterRapidStrikes=Gain 50% increased attack speed for 8 seconds.
 Button/Tooltip/FighterResurgence=Grants invulnerability for <d ref="Behavior,FighterInvulnerableResurgence,Duration"/> seconds upon taking lethal damage, preventing death and replenishing Shields and Life. Releases a large blast of energy that knocks back and deals <c val="#ColorAttackInfo"><d ref="Effect,FighterResurgenceDamage,Amount"/></c> damage to all nearby enemies.<n/><n/>This effect cannot occur more than once every <d ref="Behavior,FighterResurgenceDisabled,Duration"/> seconds.
 Button/Tooltip/FighterShadowCharge=Briefly go invisible and intercept enemy ground units, increasing movement speed. Stuns nearby ground units on impact.
-Button/Tooltip/FighterShadowFury=Become invisible and unrevealable, jumping between <d ref="Behavior,FighterShadowFuryController,PeriodCount+1"/> targets, slashing at each <d ref="Effect,FighterShadowFuryAttackCreatePersistent,PeriodCount"/> (<d ref="Effect,FighterShadowFuryAttackRapidCreatePersistent2,PeriodCount"/> while Rapid Strikes is active) times.
 Button/Tooltip/GuardianMP=Long range siege unit.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/HunterDisruptorVolley=Fire a volley of four long-range projectiles at the next attack target. Impacts Psionic Projection.
 Button/Tooltip/HunterPlasmaDiffusion=Enemies killed after the unit attacks them drops plasma canisters. Picking up ten of them will cause the next spell to be free with no cooldown.
@@ -355,7 +363,7 @@ Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles. 
 Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that can each use automated defensive lasers to intercept enemy projectiles or repair friendly mechanical units by <d ref="Effect,MechPointDefenseLaserRepair,VitalArray[Life].ChangeFraction * 100"/>% every <d ref="Behavior,MechPointDefenseCooldown,Duration"/> seconds.
 Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShocking,PeriodCount * Effect,MechShockBlastDamage,Amount"/></c> damage to nearby enemies over <d ref="Behavior,MechShocked,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/PickupHunterPlasmaCanister=Powerful area of effect explosives. Damages ground and air units in the targeted area.
-Button/Tooltip/PsiStorm=Creates a storm of psionic energy that lasts 4 seconds, causing up to <c val="#ColorAttackInfo"><d ref="(Effect,WizardPsionicStormCreatePersistent,PeriodCount + 2) * Effect,WizardPsionicStormDamage,Amount"/></c> damage to all enemy units in the target area.
+Button/Tooltip/PsiStorm=Creates a storm of psionic energy that lasts <d time="4"/>, causing up to 80 damage to all units in the target area.
 Button/Tooltip/Repair2=Restores life to mechanical units and structures at the cost of resources.
 Button/Tooltip/ShipCloakingField=Cloaks self and friendly nearby units for <d ref="Behavior,ShipCloakField,Duration"/> seconds.
 Button/Tooltip/ShipDisruptionWeb=Creates a web of energy on the ground that prevents enemy structures and ground units from attacking for <d ref="Effect,ShipDisruptionWebCreatePersistent,PeriodicPeriodArray[0] * Effect,ShipDisruptionWebCreatePersistent,PeriodCount"/> seconds and slows them by <d ref="1 - Behavior,ShipDisruptionWeb,Modification.MoveSpeedMultiplier * 100"/>%.
@@ -386,10 +394,12 @@ Button/Tooltip/VehicleOverdrive=Increases the unit's movement speed by <d ref="(
 Button/Tooltip/VehicleSiegeMode=Deploys into Siege Mode. In this mode, the hero gains an area attack and does more damage. While in Siege Mode, the hero cannot move or attack targets at close range.
 Button/Tooltip/VehicleUnsiege=Reverts to Tank Mode. In this mode the hero can move, but does less damage.
 Button/Tooltip/WarpInCRPGHunterLevel2=Purifier Faction<n/>Ranged specialist. Can use Psionic Transfer.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/WizardConfusion=Forces enemy units in the target area to attack each other for <d ref="Behavior,WizardConfusion,Duration"/> seconds.
+Button/Tooltip/WizardConfusion=Enemy units damaged by this unit's abilities are forced to attack eachother for <d ref="Behavior,WizardConfusion,Duration"/> seconds.
 Button/Tooltip/WizardEnergyMatrix=Increased energy regeneration by <d ref="100 * Behavior,WizardEnergyMatrixAura,Modification.VitalRegenMultiplier[Energy]"/>%. Nearby friendly heroes gain <d ref="100 * Behavior,WizardEnergyMatrix,Modification.VitalRegenMultiplier[Energy]" Precision="1"/>% increased energy regeneration.
+Button/Tooltip/WizardKhaydarinAmulet=Increased energy regeneration by <d ref="100 * Behavior,WizardKhaydarinAmuletAura,Modification.VitalRegenMultiplier[Energy]"/>% and maximum energy by <d ref="Behavior,WizardKhaydarinAmuletAura,Modification.VitalMaxArray[Energy]"/>. Nearby friendly heroes gain <d ref="100 * Behavior,WizardKhaydarinAmulet,Modification.VitalRegenMultiplier[Energy]" Precision="1"/>% increased energy regeneration.
 Button/Tooltip/WizardPsionicOrb=Unleashes a traveling Psionic Orb that deals <c val="#ColorAttackInfo"><d ref="Effect,WizardPsionicOrbDamage,Amount / Behavior,WizardPsionicOrb,Period"/></c> damage per second and slows all enemies' movement along its path by <d ref="1 - Behavior,WizardSlowPsionicOrb,Modification.MoveSpeedMultiplier * 100"/>%.
-Button/Tooltip/WizardShieldOvercharge=Health is allocated to the units' shields. Psionic Storm now heals allied units' shields for the amount it would damage enemies.
+Button/Tooltip/WizardPsionicStorm=Creates a storm of psionic energy that lasts <d ref="Effect,WizardPsionicStormCreatePersistent,PeriodCount * Effect,WizardPsionicStormCreatePersistent,PeriodicPeriodArray[0]"/> seconds, causing up to <c val="#ColorAttackInfo"><d ref="Effect,WizardPsionicStormDamage,Amount * (Effect,WizardPsionicStormCreatePersistent,PeriodCount + 2)"/></c> damage to all units in the target area.
+Button/Tooltip/WizardReanimate=Curses enemies in an area to resurrect if killed within <d ref="Behavior,WizardPreordained,Duration"/> seconds, causing them serve the caster for <d ref="Behavior,WizardReanimated,Duration"/> seconds.
 DocInfo/DescLong=A spiritual sequel to the classic StarCraft: Brood War map series, Crash RPG.
 DocInfo/DescShort=6
 DocInfo/HowToPlayBasic00=Pick a hero
@@ -426,10 +436,8 @@ Effect/Name/AeroTacticalJumpTeleportOutTargetApplyBehavior=Tactical Jump
 Effect/Name/AeroTacticalJumpTeleportSet=Tactical Jump
 Effect/Name/AeroYamatoCannonDamage=Yamato Cannon
 Effect/Name/AeroYamatoCannonLaunchMissile=Yamato Cannon
-Effect/Name/AeroYamatoGunApplyBehavior=Yamato Gun
 Effect/Name/AeroYamatoGunDamage=Yamato Gun
 Effect/Name/AeroYamatoGunLaunchMissile=Yamato Gun
-Effect/Name/AeroYamatoGunSet=Yamato Gun
 Effect/Name/AlienClawsDamage=Claws
 Effect/Name/AlienClawsDamageHero=Claws
 Effect/Name/AlienMeleeHeroHydraliskSet=Melee
@@ -442,6 +450,26 @@ Effect/Name/AlienParasiticHarvestRemoveBehavior=Parasitic Harvest
 Effect/Name/AlienParasiticHarvestSearchArea=Parasitic Harvest
 Effect/Name/AlienParasiticHarvestSwitch=Parasitic Harvest
 Effect/Name/AlienParasiticHarvestTransferBehavior=Parasitic Harvest
+Effect/Name/AssassinShadowFuryApplyControllerBehavior=Shadow Fury
+Effect/Name/AssassinShadowFuryApplyFinalDelayBehavior=Shadow Fury
+Effect/Name/AssassinShadowFuryApplyTargetBehavior=Shadow Fury
+Effect/Name/AssassinShadowFuryAttackCreatePersistent=Shadow Fury
+Effect/Name/AssassinShadowFuryAttackRapidCreatePersistent=Shadow Fury
+Effect/Name/AssassinShadowFuryAttackSwitch=Shadow Fury
+Effect/Name/AssassinShadowFuryCreatePersistent=Shadow Fury
+Effect/Name/AssassinShadowFuryFacing=Shadow Fury
+Effect/Name/AssassinShadowFuryImpactSet=Shadow Fury
+Effect/Name/AssassinShadowFurySearchArea=Shadow Fury
+Effect/Name/AssassinShadowFurySet=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleport=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleportCreatePersistent1=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleportCreatePersistent2=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleportCreatePersistent3=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleportCreatePersistent4=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleportCreatePersistent5=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleportFinal=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleportFinalCreatePersistent=Shadow Fury
+Effect/Name/AssassinShadowFuryTeleportSwitch=Shadow Fury
 Effect/Name/BeaconGiveHeroGiveSet=Give Hero
 Effect/Name/BeaconGiveHeroModifyUnit=Give Hero
 Effect/Name/BeaconGiveHeroRemoveBehavior=Give Hero
@@ -477,6 +505,11 @@ Effect/Name/CrashedBattlecruiserMedicalFacilitiesApplyBehavior=Medical Facilitie
 Effect/Name/CrashedBattlecruiserMedicalFacilitiesApplyShieldBehavior=Medical Facilities
 Effect/Name/CrashedBattlecruiserMedicalFacilitiesSearchArea=Medical Facilities
 Effect/Name/CrashedBattlecruiserMedicalFacilitiesSet=Medical Facilities
+Effect/Name/FighterAstralWindOtherHeal=Astral Wind
+Effect/Name/FighterAstralWindOtherSet=Astral Wind
+Effect/Name/FighterAstralWindSearchArea=Astral Wind
+Effect/Name/FighterAstralWindSelfHeal=Astral Wind
+Effect/Name/FighterAstralWindSet=Astral Wind
 Effect/Name/FighterLightningDashCreatePersistent=Lightning Dash
 Effect/Name/FighterLightningDashCreatePersistentPoint=Lightning Dash
 Effect/Name/FighterLightningDashCreateUnit=Lightning Dash
@@ -508,26 +541,6 @@ Effect/Name/FighterShadowChargeApplySlowBehavior=Shadow Charge
 Effect/Name/FighterShadowChargeApplyStunBehavior=Shadow Charge
 Effect/Name/FighterShadowChargeSearchArea=Shadow Charge
 Effect/Name/FighterShadowChargeSwitch=Shadow Charge
-Effect/Name/FighterShadowFuryApplyControllerBehavior=Shadow Fury
-Effect/Name/FighterShadowFuryApplyFinalDelayBehavior=Shadow Fury
-Effect/Name/FighterShadowFuryApplyTargetBehavior=Shadow Fury
-Effect/Name/FighterShadowFuryAttackCreatePersistent=Shadow Fury
-Effect/Name/FighterShadowFuryAttackRapidCreatePersistent=Shadow Fury
-Effect/Name/FighterShadowFuryAttackSwitch=Shadow Fury
-Effect/Name/FighterShadowFuryCreatePersistent=Shadow Fury
-Effect/Name/FighterShadowFuryFacing=Shadow Fury
-Effect/Name/FighterShadowFuryImpactSet=Shadow Fury
-Effect/Name/FighterShadowFurySearchArea=Shadow Fury
-Effect/Name/FighterShadowFurySet=Shadow Fury
-Effect/Name/FighterShadowFuryTeleport=Shadow Fury
-Effect/Name/FighterShadowFuryTeleportCreatePersistent1=Shadow Fury
-Effect/Name/FighterShadowFuryTeleportCreatePersistent2=Shadow Fury
-Effect/Name/FighterShadowFuryTeleportCreatePersistent3=Shadow Fury
-Effect/Name/FighterShadowFuryTeleportCreatePersistent4=Shadow Fury
-Effect/Name/FighterShadowFuryTeleportCreatePersistent5=Shadow Fury
-Effect/Name/FighterShadowFuryTeleportFinal=Shadow Fury
-Effect/Name/FighterShadowFuryTeleportFinalCreatePersistent=Shadow Fury
-Effect/Name/FighterShadowFuryTeleportSwitch=Shadow Fury
 Effect/Name/FighterSolariteReaperCleaveSet=Solarite Reaper
 Effect/Name/FighterSolariteReaperCreatePersistent=Solarite Reaper
 Effect/Name/FighterSolariteReaperDamage=Solarite Reaper
@@ -608,6 +621,7 @@ Effect/Name/InfestedAberrateRefundEnergy=Aberrate
 Effect/Name/InfestedAberrateSearchAreaDetectCivilians=Aberrate
 Effect/Name/InfestedAberrateSearchAreaKillCivilians=Aberrate
 Effect/Name/InfestedAberrateSet=Aberrate
+Effect/Name/InfestedAberrateSet2=Aberrate Copy
 Effect/Name/InfestedAberrateSwitch=Aberrate
 Effect/Name/InfestedBunkerDebrisClaw=Debris Claw
 Effect/Name/InfestedBunkerInfestedGaussRifleDamage=Infested Gauss Rifle
@@ -714,6 +728,7 @@ Effect/Name/PickupHunterPlasmaApplyBehavior=Pickup Hunter Plasma
 Effect/Name/PickupHunterPlasmaSet=Pickup Hunter Plasma
 Effect/Name/PointDefenseLaserCreatePersistent=Point Defense Laser
 Effect/Name/RapidStrikesApplyBehavior=Rapid Strikes
+Effect/Name/ReanimateModifyUnit=Reanimate
 Effect/Name/ShipCloakingFieldApplyBehavior=Cloaking Field
 Effect/Name/ShipCloakingFieldCasterApplyBehavior=Cloaking Field
 Effect/Name/ShipCloakingFieldCasterCombatApplyBehavior=Cloaking Field
@@ -841,7 +856,7 @@ Effect/Name/VortexUnburrow2=Vortex Unburrow Copy
 Effect/Name/VortexUnsiege2=Vortex Unsiege Copy
 Effect/Name/WizardAgonizingBlastDamage=Agonizing Blast
 Effect/Name/WizardAgonizingBlastLaunchMissile=Agonizing Blast
-Effect/Name/WizardChaoticTorretDamage=Chaotic Torret
+Effect/Name/WizardChaoticTorrentDamage=Chaotic Torrent
 Effect/Name/WizardConfusionApplyBehavior=Confusion
 Effect/Name/WizardConfusionAttackIssueOrder=Confusion
 Effect/Name/WizardConfusionAttackSearchArea=Confusion
@@ -849,10 +864,9 @@ Effect/Name/WizardConfusionEndIssueOrder=Confusion
 Effect/Name/WizardConfusionEndSet=Confusion
 Effect/Name/WizardConfusionInitialApplyBehavior=Confusion
 Effect/Name/WizardConfusionInitialSet=Confusion
-Effect/Name/WizardConfusionSearchArea=Confusion
 Effect/Name/WizardConfusionStopIssueOrder=Confusion
-Effect/Name/WizardEnergyMatrixApplyBehavior=Energy Matrix
-Effect/Name/WizardEnergyMatrixSearchArea=Energy Matrix
+Effect/Name/WizardKhaydarinAmuletApplyBehavior=Khaydarin Amulet
+Effect/Name/WizardKhaydarinAmuletSearchArea=Khaydarin Amulet
 Effect/Name/WizardPsiBlastDamage=Psi Blast
 Effect/Name/WizardPsiBlastLaunchMissile=Psi Blast
 Effect/Name/WizardPsionicOrbApplyBehavior=Psionic Orb
@@ -867,11 +881,22 @@ Effect/Name/WizardPsionicShockwaveDamage=Psionic Shockwave
 Effect/Name/WizardPsionicStormApplyBehavior=Psionic Storm
 Effect/Name/WizardPsionicStormApplyRestoreBehavior=Psionic Storm
 Effect/Name/WizardPsionicStormCreatePersistent=Psionic Storm
+Effect/Name/WizardPsionicStormCreatePersistentConfusion=Psionic Storm
 Effect/Name/WizardPsionicStormDamage=Psionic Storm
 Effect/Name/WizardPsionicStormHealing=Psionic Storm
 Effect/Name/WizardPsionicStormInitialDamage=Psionic Storm
+Effect/Name/WizardPsionicStormInitialSwitch=Psionic Storm
 Effect/Name/WizardPsionicStormSearchArea=Psionic Storm
+Effect/Name/WizardPsionicStormSet=Psionic Storm
 Effect/Name/WizardPsionicStormSwitch=Psionic Storm
+Effect/Name/WizardReanimateApplyBehavior=Reanimate
+Effect/Name/WizardReanimateApplyBehaviorReanimated=Reanimate
+Effect/Name/WizardReanimateApplyBehaviorReanimating=Reanimate
+Effect/Name/WizardReanimateRemoveBehavior=Reanimate
+Effect/Name/WizardReanimateSearchArea=Reanimate
+Effect/Name/WizardReanimateSet=Reanimate
+Effect/Name/WizardReanimateSetReanimated=Reanimate
+Effect/Name/WizardReanimateSetReanimating=Reanimate
 LoadingScreen/TextBody=<c val="C60000">You have one life.</c> Make the most of it.<n/>Level up to unlock new abilities.<n/>Destroy the Alien Nests located at each corner and edge of the map.
 LoadingScreen/Tip=You have one life. Make the most of it.
 LoadingScreen/Title=<s val="CampaignPanelTitle">Crash RPG</s>
@@ -905,7 +930,7 @@ Param/Value/72CDAAA6=<c val="FF0000">Attack wave incoming.</c> I advise returnin
 Param/Value/8152B75E=Congratulations, you defeated the aliens!
 Param/Value/89C94BBD=There are spawners at each edge and corner of the map. Destroy them all to achieve victory.<n/><n/><c val="808080">Note: This is a placeholder objective, there will be more interesting objectives later in development.</c>
 Param/Value/9DE5257F=Air defences are losing power.
-Param/Value/A1BE09AD=Everyone okay? Good. We'll need to fight out way our of here.
+Param/Value/A1BE09AD=Everyone okay? Good. We'll need to fight our way out of here.
 Param/Value/ABFFB158=Experience is used to level up your hero.
 Param/Value/B18DC15D=This is the end of the tutorial. Feel free to continue playing or quit and join other players.
 Param/Value/B48473DC=Very good. Your objective is to survive, level up, and kill the enemy.
@@ -944,7 +969,6 @@ Unit/Category/AlienUnits=Alien Units
 Unit/Category/CrashRPGHeroes=Crash RPG Heroes
 Unit/Category/CrashRPGUnits=Crash RPG Units
 Unit/InfoText/AlienHarvestMinerals=Use any ground unit to collect 100 minerals.
-Unit/LifeArmorName/None=
 Unit/LifeArmorName/ProtossArmor=Protoss Armor
 Unit/LifeArmorName/ProtossPlating=Protoss Plating
 Unit/LifeArmorName/ZergGroundArmor=Zerg Ground Carapace
@@ -985,10 +1009,9 @@ Unit/Name/CRPGSwarmerLevel4=Swarmer
 Unit/Name/CRPGSwarmerLevel5=Swarmer
 Unit/Name/CRPGVehicle=Vehicle
 Unit/Name/CRPGWizard=Wizard
-Unit/Name/CRPGWizardLevel3=Wizard
-Unit/Name/CRPGWizardLevel5=Wizard
 Unit/Name/CreepTumorUsed=Alien
 Unit/Name/DevourerMP=Alien
+Unit/Name/FighterResurgenceCorpseLevel4=Sentinel Wreckage
 Unit/Name/GuardianMP=Alien
 Unit/Name/HotSHunter=Alien
 Unit/Name/HotSRaptor=Alien
@@ -1091,4 +1114,3 @@ Weapon/Name/VehicleLockOnDummy=Lock On
 Weapon/Name/VehicleTyphoonMissilePod=Typhoon Missile Pod
 Weapon/Name/WizardChaoticTorrent=Chaotic Torrent
 Weapon/Name/WizardPsionicShockwave=Psionic Shockwave
-Weapon/Tip/ShipPurifierBeam=

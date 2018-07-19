@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CButton id="FighterAstralWind">
+        <Icon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
     <CButton id="FighterLightningDash">
         <Icon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
         <EditorCategories value="Race:Protoss"/>
@@ -142,28 +146,27 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-confusion.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
-    <CButton id="WizardShieldOvercharge">
-        <Icon value="Assets\Textures\btn-upgrade-protoss-adeptshieldupgrade.dds"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-adeptshieldupgrade.dds"/>
+    <CButton id="WizardReanimate">
+        <Icon value="Assets\Textures\btn-ability-kerrigan-revive.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-kerrigan-revive.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <HidesForSimpleText value="0"/>
     </CButton>
     <CButton id="WizardPsionicOrb">
         <Icon value="Assets\Textures\btn-ability-protoss-psionicorb.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <HidesForSimpleText value="0"/>
     </CButton>
-    <CButton id="WizardEnergyMatrix">
+    <CButton id="WizardKhaydarinAmulet">
         <Icon value="Assets\Textures\btn-upgrade-protoss-khaydarinamulet.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-khaydarinamulet.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="WizardPsionicStorm">
-        <Tooltip value="Button/Tooltip/PsiStorm"/>
         <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
-        <AlertTooltip value="Button/Tooltip/PsiStorm"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
         <EditorCategories value="Race:Protoss"/>
-        <HotkeyAlias value="HighArchonPsiStorm"/>
+        <HidesForSimpleText value="0"/>
     </CButton>
     <CButton id="ShipCloakingField">
         <Icon value="Assets\Textures\btn-ability-protoss-cloakfield-color.dds"/>
@@ -425,7 +428,7 @@
         <AlertIcon value="Assets\Textures\BTN-Ability-Protoss-ShadowCharge.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
-    <CButton id="FighterShadowFury">
+    <CButton id="AssassinShadowFury">
         <Icon value="Assets\Textures\BTN-Ability-Protoss-ShadowFury.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>

@@ -13,6 +13,21 @@
         <EditorCategories value="Race:Neutral"/>
         <Lighting value="KerriganRespawnImpact"/>
     </CModel>
+    <CModel id="WizardReanimated" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Neutral\Reanimator_Resurrect_Coop\Reanimator_Resurrect_Coop.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="DarkHighTemplar">
+        <Model value="Assets\Units\Protoss\DarkHighTemplar\DarkHighTemplar.m3"/>
+    </CModel>
+    <CModel id="DarkHighTemplarDeath">
+        <Model value="Assets\Units\Protoss\DarkHighTemplarDeath\DarkHighTemplarDeath.m3"/>
+    </CModel>
+    <CModel id="Mutator_Void_Reanimator" parent="Unit" Race="Protoss">
+        <Occlusion value="Show"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
     <CModel id="PurifierGlaiveImpact" parent="MissileFX">
         <Model value="Assets\Effects\Protoss\Adept_Collection_Purifier_Missile_Impact\Adept_Collection_Purifier_Missile_Impact.m3"/>
         <EditorCategories value="Race:Protoss"/>
@@ -152,6 +167,10 @@
     <CModel id="Ravasaur_Primal_Collection_Death" parent="UnitDeath" Race="Zerg">
         <LowQualityModel value="ZergMediumUnitDeathLow"/>
         <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="WizardReanimating" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\AmonShard_AOERadius_Impact\AmonShard_AOERadius_Impact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
     </CModel>
     <CModel id="ShieldEmitter" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Protoss\XelNagaShieldDome\XelNagaShieldDome.m3"/>

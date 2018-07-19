@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectSet id="FighterAstralWindSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="FighterAstralWindSelfHeal"/>
+        <EffectArray value="FighterAstralWindSearchArea"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="FighterAstralWindOtherHeal">
+        <EditorCategories value="Race:Protoss"/>
+        <VitalArray index="Life" Change="100"/>
+        <VitalArray index="Shields" Change="50"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="FighterAstralWindOtherSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="FighterAstralWindOtherHeal"/>
+    </CEffectSet>
+    <CEffectEnumArea id="FighterAstralWindSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ExcludeArray Effect="ArtanisAstralWind" Value="Target"/>
+        <SearchFilters value="-;Enemy,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="6" Effect="FighterAstralWindOtherSet"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+    </CEffectEnumArea>
+    <CEffectModifyUnit id="FighterAstralWindSelfHeal">
+        <EditorCategories value="Race:Protoss"/>
+        <VitalArray index="Life" Change="100"/>
+        <VitalArray index="Shields" Change="50"/>
+    </CEffectModifyUnit>
     <CEffectCreatePersistent id="FighterLightningDashCreatePersistent">
         <EditorCategories value="Race:Protoss"/>
         <Marker>
@@ -69,11 +96,21 @@
         <CaseDefault value="FighterLightningDashCreateUnitClosest"/>
     </CEffectSwitch>
     <CEffectSet id="CRPGLevelUpDummyVisuals"/>
+    <CEffectSet id="InfestedAberrateSet2">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="WizardReanimateSearchArea"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
     <CEffectDamage id="InfestedBunkerInfestedGaussRifleDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/InfestedBunkerInfestedGaussRifleDamage1"/>
         <Kind value="Ranged"/>
         <Amount value="6"/>
+    </CEffectDamage>
+    <CEffectDamage id="WizardChaoticTorrentDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Kind value="Ranged"/>
+        <Amount value="16"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="ShipPurifierTurretsApplySlowBehavior">
         <EditorCategories value="Race:Protoss"/>
@@ -739,6 +776,8 @@
         <ValidatorArray value="NotWarpPrism"/>
         <ValidatorArray value="NotOverlord"/>
         <ValidatorArray value="NotMedivac"/>
+        <ValidatorArray value="TargetIsEnemy"/>
+        <ValidatorArray value="WizardCasterHasConfusionEnabler"/>
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="WizardConfusion"/>
     </CEffectApplyBehavior>
@@ -767,12 +806,6 @@
         <EffectArray value="WizardConfusionEndIssueOrder"/>
         <EffectArray value="IssueAIOrderSuicide"/>
     </CEffectSet>
-    <CEffectEnumArea id="WizardConfusionSearchArea">
-        <EditorCategories value="Race:Protoss"/>
-        <ImpactLocation Value="TargetPoint"/>
-        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="2" Effect="WizardConfusionApplyBehavior"/>
-    </CEffectEnumArea>
     <CEffectIssueOrder id="WizardConfusionStopIssueOrder">
         <EditorCategories value="Race:Protoss"/>
         <Abil value="stop"/>
@@ -783,26 +816,63 @@
         <EffectArray value="WizardConfusionAttackSearchArea"/>
         <EffectArray value="WizardConfusionInitialApplyBehavior"/>
     </CEffectSet>
-    <CEffectDamage id="WizardChaoticTorretDamage" parent="DU_WEAP">
-        <EditorCategories value="Race:Protoss"/>
-        <Kind value="Ranged"/>
-        <KindSplash value="Splash"/>
-        <Amount value="16"/>
-        <AreaArray Radius="0.25" Fraction="1"/>
-        <AreaArray Radius="0.5" Fraction="0.5"/>
-        <AreaArray Radius="1" Fraction="0.25"/>
-        <ExcludeArray Value="Outer"/>
-        <ExcludeArray Value="Target"/>
-        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <SearchFlags index="OffsetByUnitRadius" value="0"/>
-        <SearchFlags index="SameCliff" value="0"/>
-    </CEffectDamage>
     <CEffectDestroyPersistent id="WizardPsionicOrbDestroyPersistent">
         <EditorCategories value="Race:Protoss"/>
         <WhichLocation Value="TargetPoint"/>
         <Count value="1"/>
         <Radius value="1"/>
     </CEffectDestroyPersistent>
+    <CEffectCreatePersistent id="WizardPsionicStormCreatePersistentConfusion">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/WizardPsionicStormCreatePersistent"/>
+        <InitialEffect value="WizardPsionicStormSearchArea"/>
+        <PeriodCount value="6"/>
+        <PeriodicEffectArray value="WizardPsionicStormSearchArea"/>
+        <PeriodicPeriodArray value="0.5712"/>
+        <AINotifyEffect value="WizardPsionicStormSearchArea"/>
+    </CEffectCreatePersistent>
+    <CEffectSwitch id="WizardPsionicStormInitialSwitch">
+        <EditorCategories value="Race:Protoss"/>
+        <CaseArray Validator="WizardCasterHasConfusionEnabler" Effect="WizardPsionicStormCreatePersistentConfusion"/>
+        <CaseDefault value="WizardPsionicStormCreatePersistent"/>
+    </CEffectSwitch>
+    <CEffectApplyBehavior id="WizardReanimateApplyBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="WizardPreordained"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="ReanimateModifyUnit">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Source"/>
+        <VitalArray index="Life" ChangeFraction="0.05"/>
+        <VitalArray index="Shields" ChangeFraction="0.05"/>
+    </CEffectModifyUnit>
+    <CEffectRemoveBehavior id="WizardReanimateRemoveBehavior">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Source"/>
+        <BehaviorLink value="WizardPreordained"/>
+    </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="WizardReanimateApplyBehaviorReanimated">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="WizardReanimated"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="WizardReanimateApplyBehaviorReanimating">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="WizardReanimating"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="WizardReanimateSearchArea">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2" Effect="WizardReanimateApplyBehavior"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectEnumArea>
+    <CEffectSet id="WizardPsionicStormSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="WizardPsionicStormApplyBehavior"/>
+        <EffectArray value="WizardConfusionApplyBehavior"/>
+    </CEffectSet>
     <CEffectCreateHealer id="WizardPsionicStormHealing">
         <EditorCategories value="Race:Protoss"/>
         <Marker Link="Effect/InfestedMendingSalivaHealing"/>
@@ -842,6 +912,7 @@
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="WizardPsionicOrbApplyBehavior"/>
         <EffectArray value="WizardPsionicOrbDamage"/>
+        <EffectArray value="WizardConfusionApplyBehavior"/>
     </CEffectSet>
     <CEffectApplyBehavior id="WizardPsionicOrbApplyOrbBehavior">
         <EditorCategories value="Race:Protoss"/>
@@ -882,14 +953,14 @@
         </TargetSorts>
         <AreaArray Radius="5" Effect="WizardPsionicOrbSet"/>
     </CEffectEnumArea>
-    <CEffectApplyBehavior id="WizardEnergyMatrixApplyBehavior">
+    <CEffectApplyBehavior id="WizardKhaydarinAmuletApplyBehavior">
         <EditorCategories value="Race:Protoss"/>
-        <Behavior value="WizardEnergyMatrix"/>
+        <Behavior value="WizardKhaydarinAmulet"/>
     </CEffectApplyBehavior>
-    <CEffectEnumArea id="WizardEnergyMatrixSearchArea">
+    <CEffectEnumArea id="WizardKhaydarinAmuletSearchArea">
         <EditorCategories value="Race:Protoss"/>
         <SearchFilters value="-;Self,Neutral,Enemy,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="5" Effect="WizardEnergyMatrixApplyBehavior"/>
+        <AreaArray Radius="5" Effect="WizardKhaydarinAmuletApplyBehavior"/>
     </CEffectEnumArea>
     <CEffectDamage id="WizardPsiBlastDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Protoss"/>
@@ -920,7 +991,7 @@
     <CEffectSwitch id="WizardPsionicStormSwitch">
         <EditorCategories value="Race:Protoss"/>
         <CaseArray Validator="WizardPsionicStormRestoreValidators" Effect="WizardPsionicStormApplyRestoreBehavior"/>
-        <CaseArray Validator="TargetIsEnemyOrNeutral" Effect="WizardPsionicStormApplyBehavior"/>
+        <CaseDefault value="WizardPsionicStormSet"/>
     </CEffectSwitch>
     <CEffectDamage id="WizardPsionicStormInitialDamage">
         <ValidatorArray value="PsiStormUTargetFilters"/>
@@ -1312,7 +1383,7 @@
     <CEffectApplyBehavior id="FighterRapidStrikes">
         <EditorCategories value="Race:Protoss"/>
     </CEffectApplyBehavior>
-    <CEffectCreatePersistent id="FighterShadowFuryAttackCreatePersistent">
+    <CEffectCreatePersistent id="AssassinShadowFuryAttackCreatePersistent">
         <EditorCategories value="Race:Protoss"/>
         <WhichLocation Value="TargetUnit"/>
         <TimeScaleSource Value="Caster"/>
@@ -1323,7 +1394,7 @@
         <PeriodicPeriodArray value="0.28"/>
         <PeriodicPeriodArray value="0.42"/>
     </CEffectCreatePersistent>
-    <CEffectCreatePersistent id="FighterShadowFuryAttackRapidCreatePersistent">
+    <CEffectCreatePersistent id="AssassinShadowFuryAttackRapidCreatePersistent">
         <EditorCategories value="Race:Protoss"/>
         <Marker Link="Effect/FighterShadowFuryAttackCreatePersistent"/>
         <WhichLocation Value="TargetUnit"/>
@@ -1339,126 +1410,126 @@
         <PeriodicPeriodArray value="0.42"/>
         <PeriodicPeriodArray value="0.49"/>
     </CEffectCreatePersistent>
-    <CEffectSwitch id="FighterShadowFuryAttackSwitch">
+    <CEffectSwitch id="AssassinShadowFuryAttackSwitch">
         <EditorCategories value="Race:Protoss"/>
-        <CaseArray Validator="FighterHasRapidStrikes" Effect="FighterShadowFuryAttackRapidCreatePersistent"/>
-        <CaseDefault value="FighterShadowFuryAttackCreatePersistent"/>
+        <CaseArray Validator="FighterHasRapidStrikes" Effect="AssassinShadowFuryAttackRapidCreatePersistent"/>
+        <CaseDefault value="AssassinShadowFuryAttackCreatePersistent"/>
     </CEffectSwitch>
-    <CEffectModifyUnit id="FighterShadowFuryFacing">
+    <CEffectModifyUnit id="AssassinShadowFuryFacing">
         <EditorCategories value="Race:Protoss"/>
         <ImpactUnit Value="Caster"/>
-        <FacingLocation Effect="FighterShadowFuryImpactSet" Value="TargetUnit"/>
+        <FacingLocation Effect="AssassinShadowFuryImpactSet" Value="TargetUnit"/>
         <FacingType value="LookAt"/>
     </CEffectModifyUnit>
-    <CEffectApplyBehavior id="FighterShadowFuryApplyControllerBehavior">
+    <CEffectApplyBehavior id="AssassinShadowFuryApplyControllerBehavior">
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="FighterShadowFuryController"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="FighterShadowFuryApplyFinalDelayBehavior">
+    <CEffectApplyBehavior id="AssassinShadowFuryApplyFinalDelayBehavior">
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="FighterShadowFuryFinalDelay"/>
     </CEffectApplyBehavior>
-    <CEffectSet id="FighterShadowFuryImpactSet">
+    <CEffectSet id="AssassinShadowFuryImpactSet">
         <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="FighterShadowFuryTeleportSwitch"/>
-        <EffectArray value="FighterShadowFuryAttackSwitch"/>
+        <EffectArray value="AssassinShadowFuryTeleportSwitch"/>
+        <EffectArray value="AssassinShadowFuryAttackSwitch"/>
     </CEffectSet>
-    <CEffectCreatePersistent id="FighterShadowFuryCreatePersistent">
+    <CEffectCreatePersistent id="AssassinShadowFuryCreatePersistent">
         <ValidatorArray value="ShadowFuryCliffLevelEqual"/>
         <ValidatorArray value="FighterTargetsInAreaShadowFury"/>
         <EditorCategories value="Race:Protoss"/>
-        <InitialEffect value="FighterShadowFuryApplyControllerBehavior"/>
+        <InitialEffect value="AssassinShadowFuryApplyControllerBehavior"/>
     </CEffectCreatePersistent>
-    <CEffectEnumArea id="FighterShadowFurySearchArea">
+    <CEffectEnumArea id="AssassinShadowFurySearchArea">
         <EditorCategories value="Race:Protoss"/>
-        <LaunchLocation Effect="FighterShadowFuryCreatePersistent" Value="TargetPoint"/>
-        <ImpactLocation Effect="FighterShadowFuryCreatePersistent"/>
+        <LaunchLocation Effect="AssassinShadowFuryCreatePersistent" Value="TargetPoint"/>
+        <ImpactLocation Effect="AssassinShadowFuryCreatePersistent"/>
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,RawResource,HarvestableResource,Missile,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <TargetSorts RequestCount="1">
             <SortArray value="FighterShadowFuryTargeted"/>
             <SortArray value="TSRandom"/>
         </TargetSorts>
-        <AreaArray MaxCount="1" Radius="5" Effect="FighterShadowFurySet"/>
+        <AreaArray MaxCount="1" Radius="5" Effect="AssassinShadowFurySet"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
-    <CEffectCreatePersistent id="FighterShadowFuryTeleportCreatePersistent1">
+    <CEffectCreatePersistent id="AssassinShadowFuryTeleportCreatePersistent1">
         <EditorCategories value="Race:Protoss"/>
         <OffsetVectorStartLocation Value="SourcePoint"/>
         <OffsetVectorEndLocation Effect="TargetPoint"/>
         <PeriodCount value="1"/>
-        <PeriodicEffectArray value="FighterShadowFuryTeleport"/>
+        <PeriodicEffectArray value="AssassinShadowFuryTeleport"/>
         <PeriodicOffsetArray value="0.2,-0.8,0"/>
         <PeriodicPeriodArray value="0"/>
     </CEffectCreatePersistent>
-    <CEffectTeleport id="FighterShadowFuryTeleport">
+    <CEffectTeleport id="AssassinShadowFuryTeleport">
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
         <ClearQueuedOrders value="0"/>
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestFog" value="0"/>
-        <TeleportEffect value="FighterShadowFuryFacing"/>
+        <TeleportEffect value="AssassinShadowFuryFacing"/>
     </CEffectTeleport>
-    <CEffectCreatePersistent id="FighterShadowFuryTeleportCreatePersistent2">
+    <CEffectCreatePersistent id="AssassinShadowFuryTeleportCreatePersistent2">
         <EditorCategories value="Race:Protoss"/>
         <OffsetVectorStartLocation Value="SourcePoint"/>
         <OffsetVectorEndLocation Effect="TargetPoint"/>
         <PeriodCount value="1"/>
-        <PeriodicEffectArray value="FighterShadowFuryTeleport"/>
+        <PeriodicEffectArray value="AssassinShadowFuryTeleport"/>
         <PeriodicOffsetArray value="0.3,-1.2,0"/>
         <PeriodicPeriodArray value="0"/>
     </CEffectCreatePersistent>
-    <CEffectCreatePersistent id="FighterShadowFuryTeleportCreatePersistent3">
+    <CEffectCreatePersistent id="AssassinShadowFuryTeleportCreatePersistent3">
         <EditorCategories value="Race:Protoss"/>
         <OffsetVectorStartLocation Value="SourcePoint"/>
         <OffsetVectorEndLocation Effect="TargetPoint"/>
         <PeriodCount value="1"/>
-        <PeriodicEffectArray value="FighterShadowFuryTeleport"/>
+        <PeriodicEffectArray value="AssassinShadowFuryTeleport"/>
         <PeriodicOffsetArray value="0.3,-1.7,0"/>
         <PeriodicPeriodArray value="0"/>
     </CEffectCreatePersistent>
-    <CEffectCreatePersistent id="FighterShadowFuryTeleportCreatePersistent4">
+    <CEffectCreatePersistent id="AssassinShadowFuryTeleportCreatePersistent4">
         <EditorCategories value="Race:Protoss"/>
         <OffsetVectorStartLocation Value="SourcePoint"/>
         <OffsetVectorEndLocation Effect="TargetPoint"/>
         <PeriodCount value="1"/>
-        <PeriodicEffectArray value="FighterShadowFuryTeleport"/>
+        <PeriodicEffectArray value="AssassinShadowFuryTeleport"/>
         <PeriodicOffsetArray value="0.4,-2.2,0"/>
         <PeriodicPeriodArray value="0"/>
     </CEffectCreatePersistent>
-    <CEffectCreatePersistent id="FighterShadowFuryTeleportCreatePersistent5">
+    <CEffectCreatePersistent id="AssassinShadowFuryTeleportCreatePersistent5">
         <EditorCategories value="Race:Protoss"/>
         <OffsetVectorStartLocation Value="SourcePoint"/>
         <OffsetVectorEndLocation Effect="TargetPoint"/>
         <PeriodCount value="1"/>
-        <PeriodicEffectArray value="FighterShadowFuryTeleport"/>
+        <PeriodicEffectArray value="AssassinShadowFuryTeleport"/>
         <PeriodicOffsetArray value="0.4,-2.7,0"/>
         <PeriodicPeriodArray value="0"/>
     </CEffectCreatePersistent>
-    <CEffectTeleport id="FighterShadowFuryTeleportFinal">
+    <CEffectTeleport id="AssassinShadowFuryTeleportFinal">
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
         <ClearQueuedOrders value="0"/>
-        <PlacementAround Effect="FighterShadowFuryCreatePersistent" Value="OriginPoint"/>
+        <PlacementAround Effect="AssassinShadowFuryCreatePersistent" Value="OriginPoint"/>
         <PlacementRange value="10"/>
         <Range value="10"/>
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestFog" value="0"/>
         <TeleportEffect value="FighterShadowFuryRemoveCasterBehavior"/>
     </CEffectTeleport>
-    <CEffectCreatePersistent id="FighterShadowFuryTeleportFinalCreatePersistent">
+    <CEffectCreatePersistent id="AssassinShadowFuryTeleportFinalCreatePersistent">
         <EditorCategories value="Race:Protoss"/>
         <WhichLocation Value="OriginPoint"/>
-        <InitialEffect value="FighterShadowFuryTeleportFinal"/>
+        <InitialEffect value="AssassinShadowFuryTeleportFinal"/>
     </CEffectCreatePersistent>
-    <CEffectSwitch id="FighterShadowFuryTeleportSwitch">
+    <CEffectSwitch id="AssassinShadowFuryTeleportSwitch">
         <EditorCategories value="Race:Protoss"/>
-        <CaseArray Validator="TargetRadiusGT2" Effect="FighterShadowFuryTeleportCreatePersistent5"/>
-        <CaseArray Validator="TargetRadiusGT1Dot5" Effect="FighterShadowFuryTeleportCreatePersistent4"/>
-        <CaseArray Validator="TargetRadiusGT1" Effect="FighterShadowFuryTeleportCreatePersistent3"/>
-        <CaseArray Validator="TargetRadiusGT0Dot5" Effect="FighterShadowFuryTeleportCreatePersistent2"/>
-        <CaseDefault value="FighterShadowFuryTeleportCreatePersistent1"/>
+        <CaseArray Validator="TargetRadiusGT2" Effect="AssassinShadowFuryTeleportCreatePersistent5"/>
+        <CaseArray Validator="TargetRadiusGT1Dot5" Effect="AssassinShadowFuryTeleportCreatePersistent4"/>
+        <CaseArray Validator="TargetRadiusGT1" Effect="AssassinShadowFuryTeleportCreatePersistent3"/>
+        <CaseArray Validator="TargetRadiusGT0Dot5" Effect="AssassinShadowFuryTeleportCreatePersistent2"/>
+        <CaseDefault value="AssassinShadowFuryTeleportCreatePersistent1"/>
     </CEffectSwitch>
     <CEffectApplyBehavior id="FighterResurgenceApplyDisableBehavior">
         <EditorCategories value="Race:Protoss"/>
@@ -2046,16 +2117,6 @@
         <ImpactEffect value="AeroYamatoGunDamage"/>
         <AmmoUnit value="YamatoWeapon"/>
     </CEffectLaunchMissile>
-    <CEffectApplyBehavior id="AeroYamatoGunApplyBehavior">
-        <EditorCategories value="Race:Terran"/>
-        <WhichUnit Value="Caster"/>
-        <Behavior value="AeroYamatoCannonWeaponCooldown"/>
-    </CEffectApplyBehavior>
-    <CEffectSet id="AeroYamatoGunSet">
-        <EditorCategories value="Race:Terran"/>
-        <EffectArray value="AeroYamatoGunLaunchMissile"/>
-        <EffectArray value="AeroYamatoGunApplyBehavior"/>
-    </CEffectSet>
     <CEffectCreatePersistent id="AeroArmageddonCannonCreatePersistent">
         <EditorCategories value="Race:Terran"/>
         <WhichLocation Value="TargetUnitOrPoint"/>
@@ -2889,13 +2950,13 @@
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="FighterSolariteReaperCreatePersistent"/>
     </CEffectSet>
-    <CEffectSet id="FighterShadowFurySet">
+    <CEffectSet id="AssassinShadowFurySet">
         <ValidatorArray value="NotLarva"/>
         <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="FighterShadowFuryApplyTargetBehavior"/>
-        <EffectArray value="FighterShadowFuryImpactSet"/>
+        <EffectArray value="AssassinShadowFuryApplyTargetBehavior"/>
+        <EffectArray value="AssassinShadowFuryImpactSet"/>
     </CEffectSet>
-    <CEffectApplyBehavior id="FighterShadowFuryApplyTargetBehavior">
+    <CEffectApplyBehavior id="AssassinShadowFuryApplyTargetBehavior">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="FighterShadowFuryTarget"/>
     </CEffectApplyBehavior>
@@ -2935,5 +2996,22 @@
         <EffectArray value="HunterScarabMinesDamage"/>
         <EffectArray value="HunterScarabMinesSearchArea"/>
         <EffectArray value="Suicide"/>
+    </CEffectSet>
+    <CEffectSet id="WizardReanimateSetReanimated">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ReanimateModifyUnit"/>
+        <EffectArray value="WizardReanimateApplyBehaviorReanimated"/>
+        <EffectArray value="CRPGTransferAttributes"/>
+        <EffectArray value="CRPGGiveAttributes"/>
+    </CEffectSet>
+    <CEffectSet id="WizardReanimateSet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="WizardReanimateApplyBehavior"/>
+        <EffectArray value="WizardConfusionApplyBehavior"/>
+    </CEffectSet>
+    <CEffectSet id="WizardReanimateSetReanimating">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="WizardReanimateRemoveBehavior"/>
+        <EffectArray value="WizardReanimateApplyBehaviorReanimating"/>
     </CEffectSet>
 </Catalog>

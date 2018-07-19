@@ -50,6 +50,56 @@
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <HotkeyCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
+    <CUnit id="CRPGWizardLevel2" parent="CRPGHero">
+        <Name value="Unit/Name/CRPGWizard"/>
+        <Description value="Button/Tooltip/CRPGWizard"/>
+        <Race value="Prot"/>
+        <FlagArray index="AlwaysThreatens" value="1"/>
+        <FlagArray index="AIThreatGround" value="1"/>
+        <FlagArray index="AIThreatAir" value="1"/>
+        <FlagArray index="AISplash" value="1"/>
+        <FlagArray index="AIHighPrioTarget" value="1"/>
+        <FlagArray index="AICaster" value="1"/>
+        <FlagArray index="AIPressForwardDisabled" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Psionic" value="1"/>
+        <LifeStart value="75"/>
+        <LifeMax value="75"/>
+        <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
+        <ShieldsStart value="75"/>
+        <ShieldsMax value="75"/>
+        <Acceleration value="1000"/>
+        <Deceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <AbilArray index="3" Link="WizardLevelUpMorphLevel2"/>
+        <AbilArray Link="WizardPsionicStorm"/>
+        <WeaponArray Link="WizardPsiBlast"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="CRPGLevelUp"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="WizardLevelUpMorphLevel2,Execute"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons Face="WizardPsionicStorm" Type="AbilCmd" AbilCmd="WizardPsionicStorm,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="WizardKhaydarinAmulet" Type="Passive" Row="1" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <CargoSize value="2"/>
+        <GlossaryCategory value=""/>
+        <GlossaryStrongArray value="Hydralisk"/>
+        <GlossaryWeakArray value="Roach"/>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
     <CUnit id="HotSRaptorBurrowed">
         <KillXP value="10"/>
         <KillResource index="Minerals" value="10"/>
@@ -1060,21 +1110,6 @@
         <GlossaryCategory value=""/>
         <Description value="Button/Tooltip/CRPGWizard"/>
     </CUnit>
-    <CUnit id="CRPGWizardLevel2" parent="CRPGWizardLevel1">
-        <AbilArray index="3" Link="WizardLevelUpMorphLevel2"/>
-        <BehaviorArray Link="WizardEnergyMatrixAura"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="WizardLevelUpMorphLevel2,Execute"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons Face="WizardEnergyMatrix" Type="Passive" Row="1" Column="0"/>
-        </CardLayouts>
-    </CUnit>
     <CUnit id="CRPGWizardLevel3" parent="CRPGWizardLevel2">
         <LifeStart value="100"/>
         <LifeMax value="100"/>
@@ -1094,14 +1129,23 @@
             </LayoutButtons>
             <LayoutButtons Face="WizardPsionicOrb" Type="AbilCmd" AbilCmd="WizardPsionicOrb,Execute" Row="2" Column="1"/>
         </CardLayouts>
+        <ReviveType value="CRPGWizardLevel1"/>
+        <BehaviorArray Link="WizardKhaydarinAmuletAura"/>
+        <TacticalAI value="CRPGWizardLevel1"/>
+        <LeaderAlias value="CRPGWizardLevel1"/>
+        <HotkeyAlias value="CRPGWizardLevel1"/>
+        <SelectAlias value="CRPGWizardLevel1"/>
+        <SubgroupAlias value="CRPGWizardLevel1"/>
+        <AIEvaluateAlias value="CRPGWizardLevel1"/>
+        <ReviveInfoBase>
+            <Charge Link="CRPGWizardLevel1/Revive"/>
+            <Cooldown Link="CRPGWizardLevel1/Revive"/>
+        </ReviveInfoBase>
     </CUnit>
     <CUnit id="CRPGWizardLevel4" parent="CRPGWizardLevel3">
-        <Collide index="ForceField" value="0"/>
-        <Attributes index="Light" value="0"/>
-        <Attributes index="Biological" value="0"/>
-        <Attributes index="Massive" value="1"/>
-        <Deceleration value="0"/>
         <AbilArray index="3" Link="WizardLevelUpMorphLevel4"/>
+        <BehaviorArray Link="WizardConfusionEnabler"/>
+        <WeaponArray index="0" Link="WizardChaoticTorrent"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -1111,21 +1155,18 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="WizardShieldOvercharge" Type="Passive" Row="1" Column="1"/>
+            <LayoutButtons Face="WizardConfusion" Type="Passive" Row="1" Column="1"/>
         </CardLayouts>
-        <Radius value="1"/>
-        <SeparationRadius value="0.75"/>
-        <InnerRadius value="0.75"/>
-        <CargoSize value="4"/>
-        <MinimapRadius value="0.75"/>
         <TauntDuration index="Cheer" value="0"/>
         <TauntDuration index="Dance" value="0"/>
     </CUnit>
     <CUnit id="CRPGWizardLevel5" parent="CRPGWizardLevel4">
+        <AbilArray index="3" Link="LevelUpDummy"/>
+        <AbilArray Link="WizardReanimate"/>
+        <LifeStart value="125"/>
+        <LifeMax value="125"/>
         <ShieldsStart value="125"/>
         <ShieldsMax value="125"/>
-        <AbilArray index="3" Link="LevelUpDummy"/>
-        <AbilArray Link="WizardConfusion"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -1135,11 +1176,8 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="WizardConfusion" Type="AbilCmd" AbilCmd="WizardConfusion,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="WizardReanimate" Type="AbilCmd" AbilCmd="WizardReanimate,Execute" Row="2" Column="2"/>
         </CardLayouts>
-        <LifeStart value="125"/>
-        <LifeMax value="125"/>
-        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
     <CUnit id="Hive">
         <KillXP value="100"/>
@@ -2192,7 +2230,7 @@
         <ShieldsStart value="200"/>
         <ShieldsMax value="200"/>
         <AbilArray index="3" Link="LevelUpDummy"/>
-        <AbilArray Link="FighterShadowFury"/>
+        <AbilArray Link="FighterAstralWind"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>
@@ -2202,7 +2240,7 @@
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="FighterShadowFury" Type="AbilCmd" AbilCmd="FighterShadowFury,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="FighterAstralWind" Type="AbilCmd" AbilCmd="FighterAstralWind,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
