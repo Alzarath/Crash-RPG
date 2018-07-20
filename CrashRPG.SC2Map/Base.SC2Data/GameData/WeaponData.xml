@@ -23,7 +23,7 @@
         <EditorCategories value="Race:Protoss"/>
         <Icon value="Assets\Textures\btn-ability-protoss-oraclepulsarcannonon.dds"/>
         <DisplayEffect value="ShipPulsarBeamDamage"/>
-        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="4"/>
         <RangeSlop value="0"/>
         <Period value="1.6"/>
@@ -320,7 +320,7 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
         <DisplayEffect value="InfestedMarineInfestedGaussRifleDamage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="0.8608"/>
+        <Period value="1.2"/>
         <DamagePoint value="0.25"/>
         <Backswing value="0.75"/>
         <Effect value="InfestedMarineInfestedGaussRifleDamage"/>
@@ -344,7 +344,7 @@
         <Cost>
             <Cooldown Link="Weapon/InfestedMarineInfestedGaussRifle"/>
         </Cost>
-        <Period value="0.8608"/>
+        <Period value="1.2"/>
         <DamagePoint value="0.25"/>
         <Backswing value="0"/>
         <Effect value="InfestedBunkerInfestedGaussRifleDamage1"/>

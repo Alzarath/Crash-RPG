@@ -18,6 +18,15 @@
         </InfoArray>
         <AutoCastValidatorArray value="IsDead"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="RandomizeHero">
+        <Effect index="0" value="BeaconRandomizeHeroDummy"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <TargetFilters value="Ground,Heroic,Worker,Invulnerable;Player,Ally,Enemy"/>
+        <Range value="1.2"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BeaconMove"/>
+    </CAbilEffectTarget>
     <CAbilEffectInstant id="FighterAstralWind">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="FighterAstralWindSet"/>
@@ -986,6 +995,7 @@
         <Effect index="0" value="SniperSniperRoundDamage"/>
         <CastIntroTime index="0" value="1.5"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SniperSnipe"/>
+        <TargetFilters index="0" value="Biological,Visible;Self,Player,Ally,Structure,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="SniperSniperRoundEnhanced" parent="SniperSnipe">
         <CastIntroTime index="0" value="0.5"/>
@@ -1082,6 +1092,9 @@
         <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Worker,Missile,Stasis,Dead,Hidden,Invulnerable,Benign"/>
         <AutoCastRange value="2"/>
     </CAbilMorph>
+    <CAbilAttack id="attack">
+        <SupportedFilters value="-;Self,Ally,Outer"/>
+    </CAbilAttack>
     <CAbilAttack id="AttackFriendly" parent="attack">
         <Name value="Abil/Name/AttackFriendly"/>
         <TargetMessage value="Abil/TargetMessage/AttackFriendly"/>

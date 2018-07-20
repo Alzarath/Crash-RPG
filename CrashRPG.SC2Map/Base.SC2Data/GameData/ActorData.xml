@@ -7,6 +7,27 @@
         <StatusBarOn index="Custom" value="1"/>
         <UnitFlags index="SuppressDefaultStatusBar" value="1"/>
     </CActorUnit>
+    <CActorUnit id="Beacon_NovaMedium" parent="GenericUnitStandardNoAutoSoundLinks" unitName="BeaconRandomHero">
+        <Model value="Beacon_Nova"/>
+        <BuildModel value="Beacon_Nova"/>
+        <DeathArray index="Normal" ModelLink="Beacon_NovaSmall"/>
+        <PlacementModel value="Beacon_Nova"/>
+        <WalkAnimMoveSpeed value="0"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-nova-beacon.dds"/>
+        </GroupIcon>
+        <StatusBarFlags index="Shields" value="0"/>
+        <StatusBarFlags index="Life" value="0"/>
+        <StatusBarFlags index="Energy" value="0"/>
+        <StatusBarFlags index="Cargo" value="0"/>
+        <StatusBarFlags index="Progress" value="0"/>
+        <StatusBarFlags index="Duration" value="0"/>
+        <StatusBarFlags index="Magazine" value="0"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-nova-beacon.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorModel id="FighterAstralWindCast" parent="ModelAnimationStyleOneShot">
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Visibility" value="1"/>
@@ -1062,7 +1083,7 @@
             <Image value="Assets\Textures\Wireframe-Zerg-Egg.dds"/>
             <Image value="Assets\Textures\Wireframe-Zerg-InfestedMarineEggMissile.dds"/>
         </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-unit-zerg-InfestedMarineEgg.dds"/>
+        <HeroIcon value="Assets\Textures\btn-unit-collection-primal-zergling.dds"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
         <SoundArray index="What" value="InfestedTerranEgg_What"/>
         <UnitIcon value="Assets\Textures\btn-unit-zerg-InfestedMarineEgg.dds"/>
@@ -1649,7 +1670,7 @@
         <On Terms="UnitDeathCustomize.CRPGHunterLevel2; ValidateUnit IsNotHallucination; PassChance 25.000000" Send="Create"/>
         <Sound value="Adept_Death"/>
     </CActorSound>
-    <CActorUnit id="Beacon_Terran_Medium" parent="GenericUnitStandardNoAutoSoundLinks" unitName="Beacon_Terranmedium">
+    <CActorUnit id="Beacon_Terran_Medium" parent="GenericUnitStandardNoAutoSoundLinks" unitName="BeaconSelectHero">
         <Model value="Beacon_Terran"/>
         <Scale value="0.650000"/>
         <BuildModel value="Beacon_Terran"/>
@@ -1658,7 +1679,6 @@
         <GroupIcon>
             <Image value="Assets\Textures\wireframe-general-circleofpower-terran.dds"/>
         </GroupIcon>
-        <HighlightTooltip value="Unit/Name/Beacon_Terran_Medium"/>
         <StatusBarFlags index="Shields" value="0"/>
         <StatusBarFlags index="Life" value="0"/>
         <StatusBarFlags index="Energy" value="0"/>
@@ -1701,6 +1721,7 @@
     </CActorMissile>
     <CActorUnit id="NydusNetwork">
         <MinimapIcon value="Assets\Textures\ui_glues_icons_warning_small.dds"/>
+        <MinimapRenderPriority value="Hero"/>
     </CActorUnit>
     <CActorSiteOpForward id="SOpForwardHunterLevel3">
         <HostForward Subject="CRPGHunterLevel3"/>

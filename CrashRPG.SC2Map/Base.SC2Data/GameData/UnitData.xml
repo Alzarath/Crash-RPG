@@ -50,6 +50,36 @@
         <ShieldArmorName value="Unit/ShieldArmorName/ProtossPlasmaShields"/>
         <HotkeyCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnit>
+    <CUnit id="BeaconRandomHero" parent="DESTRUCTIBLE">
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Undetectable" value="1"/>
+        <FlagArray index="Unradarable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <AbilArray Link="RandomizeHero"/>
+        <CardLayouts>
+            <LayoutButtons Face="BeaconMove" Type="AbilCmd" AbilCmd="RandomizeHero,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.875"/>
+        <SeparationRadius value="0.875"/>
+        <MinimapRadius value="0.875"/>
+        <EditorCategories value="ObjectType:Other,ObjectFamily:Campaign"/>
+        <LeaderAlias value=""/>
+        <HotkeyAlias value=""/>
+    </CUnit>
+    <CUnit id="BroodLord">
+        <KillResource index="Minerals" value="70"/>
+    </CUnit>
+    <CUnit id="Broodling">
+        <KillXP value="2"/>
+        <KillResource index="Minerals" value="2"/>
+    </CUnit>
+    <CUnit id="BroodlingEscort">
+        <KillXP value="2"/>
+        <KillResource index="Minerals" value="2"/>
+    </CUnit>
     <CUnit id="CRPGWizardLevel2" parent="CRPGHero">
         <Name value="Unit/Name/CRPGWizard"/>
         <Description value="Button/Tooltip/CRPGWizard"/>
@@ -105,12 +135,34 @@
         <KillXP value="10"/>
         <KillResource index="Minerals" value="10"/>
     </CUnit>
+    <CUnit id="HotSSplitterlingMedium">
+        <KillXP value="2"/>
+        <KillResource index="Minerals" value="5"/>
+    </CUnit>
+    <CUnit id="HotSSplitterlingMediumBurrowed">
+        <KillXP value="5"/>
+        <KillResource index="Minerals" value="5"/>
+    </CUnit>
     <CUnit id="HotSSwarmlingBurrowed">
         <KillResource index="Minerals" value="5"/>
     </CUnit>
     <CUnit id="InfestedAbomination">
         <PushPriority value="11"/>
-        <KillResource index="Minerals" value="150"/>
+        <KillResource index="Minerals" value="80"/>
+    </CUnit>
+    <CUnit id="KerriganInfestBroodling">
+        <KillXP value="2"/>
+        <KillResource index="Minerals" value="2"/>
+    </CUnit>
+    <CUnit id="Leviathan">
+        <LifeStart value="1250"/>
+        <LifeMax value="1250"/>
+        <KillXP value="300"/>
+        <KillResource index="Minerals" value="300"/>
+    </CUnit>
+    <CUnit id="Scourge">
+        <KillXP value="20"/>
+        <KillResource index="Minerals" value="20"/>
     </CUnit>
     <CUnit id="ShipStasisWard">
         <Race value="Prot"/>
@@ -174,14 +226,16 @@
     <CUnit id="Baneling">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
         <KillResource index="Minerals" value="30"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="BanelingBurrowed">
         <KillResource index="Minerals" value="20"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="BattlecruiserHeliosMorph">
         <LifeArmor value="200"/>
     </CUnit>
-    <CUnit id="Beacon_Terranmedium" parent="DESTRUCTIBLE">
+    <CUnit id="BeaconSelectHero" parent="DESTRUCTIBLE">
         <FlagArray index="Uncommandable" value="0"/>
         <FlagArray index="Untargetable" value="1"/>
         <FlagArray index="Undetectable" value="1"/>
@@ -200,9 +254,9 @@
         <HotkeyAlias value=""/>
     </CUnit>
     <CUnit id="Brutalisk">
-        <KillXP value="500"/>
+        <KillXP value="300"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
-        <KillResource index="Minerals" value="500"/>
+        <KillResource index="Minerals" value="300"/>
     </CUnit>
     <CUnit id="Bunker">
         <FlagArray index="Invulnerable" value="1"/>
@@ -1198,10 +1252,12 @@
     </CUnit>
     <CUnit id="HotSHunter">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
-        <KillResource index="Minerals" value="30"/>
+        <KillResource index="Minerals" value="40"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="HotSHunterBurrowed">
         <KillResource index="Minerals" value="20"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="HotSRaptor">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
@@ -1211,12 +1267,15 @@
     <CUnit id="HotSSplitterlingBig">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
         <KillResource index="Minerals" value="30"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="HotSSplitterlingBigBurrowed">
         <KillResource index="Minerals" value="20"/>
+        <KillXP value="15"/>
     </CUnit>
     <CUnit id="HotSSwarmling">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <KillResource index="Minerals" value="5"/>
     </CUnit>
     <CUnit id="Hydralisk">
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
@@ -1438,8 +1497,8 @@
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Summoned" value="1"/>
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
         <LifeRegenRate value="0.2734"/>
         <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
         <Speed value="1"/>
@@ -1551,6 +1610,7 @@
     </CUnit>
     <CUnit id="SwarmerSwarmerEgg">
         <Race value="Zerg"/>
+        <FlagArray index="Hero" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
         <FlagArray index="NoScore" value="1"/>
         <FlagArray index="AILifetime" value="1"/>
@@ -1582,6 +1642,7 @@
             <Charge Link="InfestedInfestedEggInfestedCivilian/Revive"/>
             <Cooldown Link="InfestedInfestedEggInfestedCivilian/Revive"/>
         </ReviveInfoBase>
+        <Attributes index="Heroic" value="1"/>
     </CUnit>
     <CUnit id="InfestedInfestedMarine" parent="InfestorTerran">
         <Name value="Unit/Name/InfestedInfestedMarine"/>
@@ -2138,8 +2199,6 @@
         <Name value="Unit/Name/CRPGFighter"/>
         <Description value="Button/Tooltip/CRPGFighter"/>
         <Race value="Prot"/>
-        <FlagArray index="Hero" value="0"/>
-        <FlagArray index="PreventDestroy" value="1"/>
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
@@ -2483,5 +2542,6 @@
     </CUnit>
     <CUnit id="ZerglingBurrowed">
         <Name value="Unit/Name/Alien"/>
+        <KillResource index="Minerals" value="5"/>
     </CUnit>
 </Catalog>

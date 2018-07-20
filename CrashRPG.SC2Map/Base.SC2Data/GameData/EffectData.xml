@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CEffectApplyBehavior id="BeaconGiveHeroApplyBehavior"/>
+    <CEffectModifyUnit id="BeaconRandomizeHeroDummy"/>
     <CEffectModifyPlayer id="CRPGReviveModifyPlayer">
         <EffectArray Operation="Set" Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[0].Points" Value="-2"/>
         <EffectArray Operation="Set" Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[1].Points" Value="-2"/>
@@ -107,6 +109,9 @@
         <EffectArray value="WizardReanimateSearchArea"/>
         <TargetLocationType value="Point"/>
     </CEffectSet>
+    <CEffectDamage id="InfestedAbomination">
+        <AttributeBonus index="Armored" value="10"/>
+    </CEffectDamage>
     <CEffectDamage id="InfestedBunkerInfestedGaussRifleDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/InfestedBunkerInfestedGaussRifleDamage1"/>
@@ -1019,7 +1024,7 @@
         <EditorCategories value="Race:Protoss"/>
         <AINotifyFlags index="HurtFriend" value="1"/>
         <AINotifyFlags index="HurtEnemy" value="1"/>
-        <SearchFilters value="-;Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFilters value="-;Ally,Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="1.5" Effect="WizardPsionicStormSwitch"/>
         <SearchFlags index="CallForHelp" value="1"/>
     </CEffectEnumArea>
@@ -1340,6 +1345,7 @@
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="MechCalldownMechAddLevelsSwitch"/>
         <EffectArray value="CRPGTransferSelectionToSource"/>
+        <EffectArray value="SuicideRemove"/>
     </CEffectSet>
     <CEffectModifyUnit id="CRPGTransferSelectionToSource">
         <SelectTransferUnit Value="Source"/>
@@ -1358,14 +1364,14 @@
     </CEffectLaunchMissile>
     <CEffectSet id="BeaconGiveHeroGiveSet">
         <EffectArray value="BeaconGiveHeroRemoveBehavior"/>
-        <EffectArray value="BeaconGiveHeroTransferBehavior"/>
+        <EffectArray value="BeaconGiveHeroApplyBehavior"/>
     </CEffectSet>
     <CEffectRemoveBehavior id="BeaconGiveHeroRemoveBehavior">
         <BehaviorLink value="Invulnerable"/>
     </CEffectRemoveBehavior>
     <CEffectEnumArea id="BeaconGiveHeroSearchArea">
         <SearchFilters value="Heroic;Ally,Neutral,Enemy,Dead"/>
-        <AreaArray Radius="1" Effect="BeaconGiveHeroRemoveBehavior"/>
+        <AreaArray Radius="1" Effect="BeaconGiveHeroGiveSet"/>
     </CEffectEnumArea>
     <CEffectModifyUnit id="BeaconGiveHeroModifyUnit">
         <ModifyFlags index="Owner" value="1"/>
@@ -2314,7 +2320,6 @@
         <Name value="Effect/Name/CalldownMech"/>
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="MechCalldownMechCreateUnitSwitch"/>
-        <EffectArray value="SuicideRemove"/>
     </CEffectSet>
     <CEffectSet id="MechEmergencyEvacCreateSet">
         <EditorCategories value="Race:Terran"/>

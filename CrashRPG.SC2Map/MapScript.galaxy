@@ -26,9 +26,10 @@ const fixed gv_damageFraction = 0.0625;
 //--------------------------------------------------------------------------------------------------
 int gv_attackWave;
 playergroup gv_survivors;
+int gv_maxAlienSpawners;
 bool gv_tutorialOn;
 bool gv_revives;
-int gv_maxAlienSpawners;
+int gv_sharedMinerals;
 unit gv_hero;
 int gv_remainingSelectors;
 timer gv_heroSelectionTimer;
@@ -37,8 +38,8 @@ int gv_primaryObjective;
 
 void InitGlobals () {
     gv_survivors = PlayerGroupEmpty();
-    gv_revives = true;
     gv_maxAlienSpawners = TechTreeUnitCount(gv_alienPlayer, "NydusNetwork", c_techCountCompleteOnly);
+    gv_revives = true;
     gv_heroSelectionTimerWindow = c_timerWindowNone;
     gv_primaryObjective = c_invalidObjectiveId;
 }
@@ -54,10 +55,12 @@ string gf_SetAlienType2 ();
 string gf_SetAlienType4 ();
 string gf_SetAlienType6 ();
 string gf_SetAlienType8 ();
+string gf_SetAlienType12 ();
 string gf_SetAlienType24 ();
 int gf_GetAlienWeight (string lp_alienType);
 int gf_GetAlienCount (string lp_alienType);
 void gf_CreateSelectableHero (string lp_heroName);
+void gf_RandomizeHero (unit lp_unit);
 void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip);
 point gf_GetOppositePoint (point lp_point, point lp_center);
 
@@ -65,6 +68,7 @@ point gf_GetOppositePoint (point lp_point, point lp_center);
 // Trigger Variables
 //--------------------------------------------------------------------------------------------------
 trigger gt_AttackWaves;
+trigger gt_AttackWaveInitial;
 trigger gt_AlienInitialTrickle;
 trigger gt_AlienTrickle;
 trigger gt_CreateHeroSelection;
@@ -72,6 +76,7 @@ trigger gt_DisableTurrets;
 trigger gt_MapInitialization;
 trigger gt_PlayerLeaves;
 trigger gt_PlayerDies;
+trigger gt_SharedMinerals;
 trigger gt_StartBattlecruiserScene;
 trigger gt_BattlecruiserCrash;
 trigger gt_TutorialStart;
@@ -79,6 +84,7 @@ trigger gt_TutorialChooseHeroBefore;
 trigger gt_TutorialChooseHeroAfter;
 trigger gt_TutorialMechanicalIntroduction;
 trigger gt_HeroSelection;
+trigger gt_HeroRandomization;
 trigger gt_FreeHeroes;
 trigger gt_Timeout;
 trigger gt_UpdateTooltips;
@@ -157,10 +163,13 @@ string gf_SetRandomAlien (int lp_alienWeight) {
 
     // Implementation
     if ((lp_alienWeight >= 24)) {
-        lv_rollRoof = 59;
+        lv_rollRoof = 64;
+    }
+    else if ((lp_alienWeight >= 12)) {
+        lv_rollRoof = 63;
     }
     else if ((lp_alienWeight >= 8)) {
-        lv_rollRoof = 58;
+        lv_rollRoof = 60;
     }
     else if ((lp_alienWeight >= 6)) {
         lv_rollRoof = 56;
@@ -187,8 +196,11 @@ string gf_SetRandomAlien (int lp_alienWeight) {
     else if ((lv_roll <= 56)) {
         return gf_SetAlienType6();
     }
-    else if ((lv_roll <= 58)) {
+    else if ((lv_roll <= 60)) {
         return gf_SetAlienType8();
+    }
+    else if ((lv_roll <= 63)) {
+        return gf_SetAlienType12();
     }
     return gf_SetAlienType24();
 }
@@ -220,13 +232,13 @@ string gf_SetAlienType2 () {
     lv_roll = RandomInt(1, 15);
 
     // Implementation
-    if ((lv_roll <= 1)) {
+    if ((lv_roll <= 2)) {
         return "Scourge";
     }
-    else if ((lv_roll <= 2)) {
+    else if ((lv_roll <= 3)) {
         return "HotSHunter";
     }
-    else if ((lv_roll <= 3)) {
+    else if ((lv_roll <= 4)) {
         return "HotSSplitterlingBig";
     }
     else if ((lv_roll <= 5)) {
@@ -256,25 +268,34 @@ string gf_SetAlienType6 () {
 
     // Automatic Variable Declarations
     // Variable Initialization
-    lv_roll = RandomInt(1, 18);
+    lv_roll = RandomInt(1, 2);
 
     // Implementation
-    if ((lv_roll <= 3)) {
-        return "BroodLord";
-    }
-    else if ((lv_roll <= 6)) {
+    if ((lv_roll <= 1)) {
         return "InfestedAbomination";
     }
-    else if ((lv_roll <= 10)) {
-        return "Corruptor";
-    }
-    else if ((lv_roll <= 14)) {
-        return "DevourerMP";
-    }
-    return "InfestedAbomination";
+    return "Corruptor";
 }
 
 string gf_SetAlienType8 () {
+    // Variable Declarations
+    int lv_roll;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_roll = RandomInt(1, 4);
+
+    // Implementation
+    if ((lv_roll <= 1)) {
+        return "BroodLord";
+    }
+    else if ((lv_roll <= 2)) {
+        return "GuardianMP";
+    }
+    return "DevourerMP";
+}
+
+string gf_SetAlienType12 () {
     // Variable Declarations
     int lv_roll;
 
@@ -310,17 +331,20 @@ int gf_GetAlienWeight (string lp_alienType) {
     else if (((lp_alienType == "Roach") || (lp_alienType == "Baneling") || (lp_alienType == "HotSHunter") || (lp_alienType == "HotSSplitterlingBig") || (lp_alienType == "Scourge"))) {
         return 2;
     }
-    else if (((lp_alienType == "Hydralisk") || (lp_alienType == "Mutalisk") || (lp_alienType == "InfestedAbomination"))) {
+    else if (((lp_alienType == "Hydralisk") || (lp_alienType == "Mutalisk"))) {
         return 4;
     }
-    else if (((lp_alienType == "GuardianMP") || (lp_alienType == "DevourerMP") || (lp_alienType == "Corruptor") || (lp_alienType == "BroodLord"))) {
+    else if (((lp_alienType == "InfestedAbomination") || (lp_alienType == "Corruptor"))) {
         return 6;
     }
-    else if (((lp_alienType == "Ultralisk"))) {
+    else if (((lp_alienType == "GuardianMP") || (lp_alienType == "DevourerMP") || (lp_alienType == "BroodLord"))) {
         return 8;
     }
-    else if (((lp_alienType == "Brutalisk") || (lp_alienType == "Leviathan"))) {
+    else if (((lp_alienType == "Ultralisk"))) {
         return 12;
+    }
+    else if (((lp_alienType == "Brutalisk") || (lp_alienType == "Leviathan"))) {
+        return 24;
     }
     return 1;
 }
@@ -362,7 +386,18 @@ void gf_CreateSelectableHero (string lp_heroName) {
     else if ((GameAttributeGameValue("1") == "0005")) {
         UnitXPSetCurrentLevel(UnitLastCreated(), "CRPGHeroVeterancy", 5);
     }
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "Beacon_Terranmedium", 0, 0, lv_creationPoint);
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "BeaconSelectHero", 0, 0, lv_creationPoint);
+}
+
+void gf_RandomizeHero (unit lp_unit) {
+    // Variable Declarations
+    point lv_creationPoint;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Implementation
+    UnitSetPosition(lp_unit, UnitGetPosition(UnitGroupRandomUnit(UnitGroup("BeaconSelectHero", 0, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)), false);
 }
 
 void gf_UpdateTooltip (unit lp_affectedUnit, string lp_button, string lp_tooltip) {
@@ -386,6 +421,7 @@ point gf_GetOppositePoint (point lp_point, point lp_center) {
 //--------------------------------------------------------------------------------------------------
 bool gt_AttackWaves_Func (bool testConds, bool runActions) {
     // Variable Declarations
+    int lv_alienWeight;
     int lv_waveWeight;
 
     // Automatic Variable Declarations
@@ -396,19 +432,53 @@ bool gt_AttackWaves_Func (bool testConds, bool runActions) {
         return true;
     }
 
+    lv_alienWeight = (6 + ((gv_attackWave * gv_attackWave) * 2));
+    lv_waveWeight = (40 + (((gv_attackWave * gv_attackWave) * 2) + (PlayerGroupCount(gv_survivors) * 20)));
+    lv_waveWeight = MaxI(500, 0);
     gv_attackWave += 1;
     libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Event_Lab02_AlarmIncomingAttack", 0), 8.0, c_transmissionDurationAdd, false);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/72CDAAA6"));
     Wait(30.0, c_timeGame);
-    lv_waveWeight = (40 + (((gv_attackWave * gv_attackWave) * 2) + (PlayerGroupCount(PlayerGroupAlliance(c_playerGroupAlly, 1)) * 20)));
-    gf_SpawnAlienLoop(lv_waveWeight, lv_waveWeight);
+    gf_SpawnAlienLoop(lv_waveWeight, lv_alienWeight);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void gt_AttackWaves_Init () {
     gt_AttackWaves = TriggerCreate("gt_AttackWaves_Func");
-    TriggerAddEventTimePeriodic(gt_AttackWaves, 300.0, c_timeGame);
+    TriggerAddEventTimePeriodic(gt_AttackWaves, 600.0, c_timeGame);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Attack Wave Initial
+//--------------------------------------------------------------------------------------------------
+bool gt_AttackWaveInitial_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_alienWeight;
+    int lv_waveWeight;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_alienWeight = (6 + (gv_attackWave * 2));
+    gv_attackWave += 1;
+    libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Event_Lab02_AlarmIncomingAttack", 0), 8.0, c_transmissionDurationAdd, false);
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/3A6417AA"));
+    Wait(30.0, c_timeGame);
+    lv_waveWeight = (40 + (((gv_attackWave * gv_attackWave) * 2) + (PlayerGroupCount(gv_survivors) * 20)));
+    gf_SpawnAlienLoop(lv_waveWeight, lv_alienWeight);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AttackWaveInitial_Init () {
+    gt_AttackWaveInitial = TriggerCreate("gt_AttackWaveInitial_Func");
+    TriggerAddEventTimeElapsed(gt_AttackWaveInitial, 300.0, c_timeGame);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -421,6 +491,7 @@ bool gt_AlienInitialTrickle_Func (bool testConds, bool runActions) {
 
     // Automatic Variable Declarations
     // Variable Initialization
+    lv_trickles = 6;
 
     // Actions
     if (!runActions) {
@@ -459,7 +530,7 @@ bool gt_AlienTrickle_Func (bool testConds, bool runActions) {
     }
 
     while ((gv_attackWave >= 0)) {
-        lv_alienWeight = (2 + gv_attackWave);
+        lv_alienWeight = (2 + (gv_attackWave * 2));
         lv_trickleWeight = (lv_alienWeight * TruncI(((PlayerGroupCount(gv_survivors) * 0.5) + 1.0)));
         Wait((30 - MinI(gv_attackWave, 15)), c_timeGame);
         gf_SpawnAlienLoop(lv_trickleWeight, lv_alienWeight);
@@ -505,6 +576,7 @@ bool gt_CreateHeroSelection_Func (bool testConds, bool runActions) {
     gf_CreateSelectableHero("Swarmer");
     gf_CreateSelectableHero("Vehicle");
     gf_CreateSelectableHero("Wizard");
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "BeaconRandomHero", 0, 0, PointFromId(313352671));
     return true;
 }
 
@@ -558,6 +630,12 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
     const int autoFAB08339_ai = 1;
     int auto194EA66D_catalog;
     int auto194EA66D_i;
+    unitgroup auto2F13A50F_g;
+    int auto2F13A50F_u;
+    unit auto2F13A50F_var;
+    unitgroup autoBE1804FF_g;
+    int autoBE1804FF_u;
+    unit autoBE1804FF_var;
 
     // Variable Initialization
 
@@ -583,6 +661,13 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
                 }
 
             }
+            auto2F13A50F_g = UnitGroup("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+            auto2F13A50F_u = UnitGroupCount(auto2F13A50F_g, c_unitCountAll);
+            for (;; auto2F13A50F_u -= 1) {
+                auto2F13A50F_var = UnitGroupUnitFromEnd(auto2F13A50F_g, auto2F13A50F_u);
+                if (auto2F13A50F_var == null) { break; }
+                VisRevealArea(lv_pickedPlayer, RegionCircle(UnitGetPosition(auto2F13A50F_var), 4.0), 1.0, false);
+            }
         }
 
     }
@@ -593,9 +678,31 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
     }
 
     if ((GameAttributeGameValue("3") == "0002")) {
-        gv_tutorialOn = false;
+        gv_revives = false;
     }
 
+    if ((GameAttributeGameValue("4") == "0001")) {
+        gv_sharedMinerals = 4;
+    }
+    else if ((GameAttributeGameValue("4") == "0002")) {
+        gv_sharedMinerals = 3;
+    }
+    else if ((GameAttributeGameValue("4") == "0003")) {
+        gv_sharedMinerals = 2;
+    }
+    else if ((GameAttributeGameValue("4") == "0004")) {
+        gv_sharedMinerals = 1;
+    }
+    else if (true) {
+        TriggerEnable(gt_SharedMinerals, false);
+    }
+    autoBE1804FF_g = UnitGroup("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoBE1804FF_u = UnitGroupCount(autoBE1804FF_g, c_unitCountAll);
+    for (;; autoBE1804FF_u -= 1) {
+        autoBE1804FF_var = UnitGroupUnitFromEnd(autoBE1804FF_g, autoBE1804FF_u);
+        if (autoBE1804FF_var == null) { break; }
+        VisRevealArea(lv_pickedPlayer, RegionCircle(UnitGetPosition(autoBE1804FF_var), 4.0), 1.0, false);
+    }
     libNtve_gf_SetPlayerGroupAlliance(gv_survivors, libNtve_ge_AllianceSetting_AllyWithSharedVision);
     HelpPanelEnableTechTreeButton(PlayerGroupAll(), false);
     AICampaignStart(gv_alienPlayer);
@@ -695,7 +802,7 @@ bool gt_PlayerDies_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    auto34912850_g = UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto34912850_g = UnitGroup(null, EventPlayer(), RegionEntireMap(), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
     auto34912850_u = UnitGroupCount(auto34912850_g, c_unitCountAll);
     for (;; auto34912850_u -= 1) {
         auto34912850_var = UnitGroupUnitFromEnd(auto34912850_g, auto34912850_u);
@@ -752,6 +859,49 @@ bool gt_PlayerDies_Func (bool testConds, bool runActions) {
 void gt_PlayerDies_Init () {
     gt_PlayerDies = TriggerCreate("gt_PlayerDies_Func");
     TriggerAddEventUnitDied(gt_PlayerDies, null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Shared Minerals
+//--------------------------------------------------------------------------------------------------
+bool gt_SharedMinerals_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    playergroup autoA4D2E93A_g;
+    int autoA4D2E93A_var;
+
+    // Conditions
+    if (testConds) {
+        if (!((UnitGetOwner(EventUnit()) == gv_alienPlayer))) {
+            return false;
+        }
+
+        if (!((PlayerGroupHasPlayer(gv_survivors, libNtve_gf_KillingPlayer()) == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoA4D2E93A_g = gv_survivors;
+    autoA4D2E93A_var = -1;
+    while (true) {
+        autoA4D2E93A_var = PlayerGroupNextPlayer(autoA4D2E93A_g, autoA4D2E93A_var);
+        if (autoA4D2E93A_var < 0) { break; }
+        if ((autoA4D2E93A_var != libNtve_gf_KillingPlayer())) {
+            PlayerModifyPropertyInt(autoA4D2E93A_var, c_playerPropMinerals, c_playerPropOperAdd, TruncI(((CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(EventUnit()), "KillResource[" + IntToString(0) + "]", gv_alienPlayer) / 4.0) * gv_sharedMinerals)));
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_SharedMinerals_Init () {
+    gt_SharedMinerals = TriggerCreate("gt_SharedMinerals_Func");
+    TriggerAddEventUnitDied(gt_SharedMinerals, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1037,7 +1187,27 @@ bool gt_HeroSelection_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_HeroSelection_Init () {
     gt_HeroSelection = TriggerCreate("gt_HeroSelection_Func");
-    TriggerAddEventUnitAbility(gt_HeroSelection, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageComplete, false);
+    TriggerAddEventUnitAbility(gt_HeroSelection, null, AbilityCommand("BeaconGiveHero", 0), c_unitAbilStageExecute, false);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Hero Randomization
+//--------------------------------------------------------------------------------------------------
+bool gt_HeroRandomization_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    gf_RandomizeHero(EventUnitTargetUnit());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_HeroRandomization_Init () {
+    gt_HeroRandomization = TriggerCreate("gt_HeroRandomization_Func");
+    TriggerAddEventUnitAbility(gt_HeroRandomization, null, AbilityCommand("RandomizeHero", 0), c_unitAbilStageExecute, false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1051,9 +1221,9 @@ bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
     unitgroup autoC2208D7F_g;
     int autoC2208D7F_u;
     unit autoC2208D7F_var;
-    unitgroup auto4963B6DA_g;
-    int auto4963B6DA_u;
-    unit auto4963B6DA_var;
+    unitgroup auto367C7FF3_g;
+    int auto367C7FF3_u;
+    unit auto367C7FF3_var;
     unitgroup auto9196D33C_g;
     int auto9196D33C_u;
     unit auto9196D33C_var;
@@ -1088,14 +1258,12 @@ bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
         if (autoC2208D7F_var == null) { break; }
         UnitRemove(autoC2208D7F_var);
     }
-    auto4963B6DA_g = UnitGroup("CRPGCivilian", c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    auto4963B6DA_u = UnitGroupCount(auto4963B6DA_g, c_unitCountAll);
-    for (;; auto4963B6DA_u -= 1) {
-        auto4963B6DA_var = UnitGroupUnitFromEnd(auto4963B6DA_g, auto4963B6DA_u);
-        if (auto4963B6DA_var == null) { break; }
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(UnitGetOwner(auto4963B6DA_var)), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(UnitGetOwner(auto4963B6DA_var), false))) + StringExternal("Param/Value/4BE9A739")));
-        UnitRemove(auto4963B6DA_var);
-        GameOver(UnitGetOwner(auto4963B6DA_var), c_gameOverDefeat, true, true);
+    auto367C7FF3_g = UnitGroup("SupplyDepot", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto367C7FF3_u = UnitGroupCount(auto367C7FF3_g, c_unitCountAll);
+    for (;; auto367C7FF3_u -= 1) {
+        auto367C7FF3_var = UnitGroupUnitFromEnd(auto367C7FF3_g, auto367C7FF3_u);
+        if (auto367C7FF3_var == null) { break; }
+        UnitSetPropertyFixed(auto367C7FF3_var, c_unitPropLifePercent, 33.0);
     }
     auto9196D33C_g = UnitGroup("SupplyDepot", gv_survivorBasePlayer, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
     auto9196D33C_u = UnitGroupCount(auto9196D33C_g, c_unitCountAll);
@@ -1118,7 +1286,18 @@ void gt_FreeHeroes_Init () {
 // Trigger: Timeout
 //--------------------------------------------------------------------------------------------------
 bool gt_Timeout_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    bool lv_avoidedPick;
+    int lv_numberofCivilians;
+    unit lv_pickedUnit;
+
     // Automatic Variable Declarations
+    unitgroup auto4963B6DA_g;
+    int auto4963B6DA_u;
+    unit auto4963B6DA_var;
+
+    // Variable Initialization
+
     // Conditions
     if (testConds) {
         if (!((gv_tutorialOn == false))) {
@@ -1131,7 +1310,32 @@ bool gt_Timeout_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    TriggerExecute(gt_FreeHeroes, true, false);
+    while ((UnitGroupCount(UnitGroup("BeaconSelectHero", 0, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0) && (UnitGroupCount(UnitGroup("CRPGCivilian", c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0)) {
+        if ((lv_numberofCivilians > 0)) {
+            lv_pickedUnit = UnitGroupUnit(UnitGroup("CRPGCivilian", c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), lv_numberofCivilians);
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(UnitGetOwner(lv_pickedUnit)), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(UnitGetOwner(lv_pickedUnit), false))) + StringExternal("Param/Value/4BE9A739")));
+            gf_RandomizeHero(lv_pickedUnit);
+            lv_numberofCivilians -= 1;
+            Wait(0.5, c_timeGame);
+        }
+        else {
+            lv_numberofCivilians = UnitGroupCount(UnitGroup("CRPGCivilian", c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
+        }
+    }
+    auto4963B6DA_g = UnitGroup("CRPGCivilian", c_playerAny, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    auto4963B6DA_u = UnitGroupCount(auto4963B6DA_g, c_unitCountAll);
+    for (;; auto4963B6DA_u -= 1) {
+        auto4963B6DA_var = UnitGroupUnitFromEnd(auto4963B6DA_g, auto4963B6DA_u);
+        if (auto4963B6DA_var == null) { break; }
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (TextWithColor(PlayerName(UnitGetOwner(auto4963B6DA_var)), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(UnitGetOwner(auto4963B6DA_var), false))) + StringExternal("Param/Value/D7DDE917")));
+        lv_avoidedPick = true;
+        UnitKill(auto4963B6DA_var);
+    }
+    Wait(0.5, c_timeGame);
+    if ((lv_avoidedPick == true)) {
+        TriggerExecute(gt_FreeHeroes, true, false);
+    }
+
     return true;
 }
 
@@ -1220,13 +1424,25 @@ void gt_CreateOjbectives_Init () {
 // Trigger: Victory Condition
 //--------------------------------------------------------------------------------------------------
 bool gt_VictoryCondition_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_survivingAlienNests;
+
     // Automatic Variable Declarations
-    playergroup auto25B3F9EE_g;
-    int auto25B3F9EE_var;
+    playergroup autoBAEA7A0A_g;
+    int autoBAEA7A0A_var;
+    playergroup autoC8568E42_g;
+    int autoC8568E42_var;
+
+    // Variable Initialization
+    lv_survivingAlienNests = UnitGroupCount(UnitGroup("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
 
     // Conditions
     if (testConds) {
         if (!((UnitGetType(EventUnit()) == "NydusNetwork"))) {
+            return false;
+        }
+
+        if (!((UnitGetOwner(EventUnit()) == gv_alienPlayer))) {
             return false;
         }
     }
@@ -1236,17 +1452,47 @@ bool gt_VictoryCondition_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    ObjectiveSetName(gv_primaryObjective, (StringExternal("Param/Value/3B8A3C30") + IntToText((gv_maxAlienSpawners - TechTreeUnitCount(gv_alienPlayer, "NydusNetwork", c_techCountCompleteOnly))) + StringExternal("Param/Value/D89A801B") + IntToText(gv_maxAlienSpawners) + StringExternal("Param/Value/C27C6B11")));
-    if ((UnitCount("NydusNetwork", gv_alienPlayer, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0) == 0)) {
+    ObjectiveSetName(gv_primaryObjective, (StringExternal("Param/Value/3B8A3C30") + IntToText((gv_maxAlienSpawners - lv_survivingAlienNests)) + StringExternal("Param/Value/D89A801B") + IntToText(gv_maxAlienSpawners) + StringExternal("Param/Value/C27C6B11")));
+    if ((lv_survivingAlienNests == 0)) {
+        TriggerEnable(gt_PlayerDies, false);
+        TriggerEnable(gt_PlayerLeaves, false);
+        ObjectiveSetState(gv_primaryObjective, c_objectiveStateCompleted);
         libNtve_gf_SendTransmissionSimple(TransmissionSourceFromModel("BattlecruiserPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), SoundLink("Dialogue_Transmission5Seconds", 0), 0.0, c_transmissionDurationAdd, false);
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/8152B75E"));
         Wait(6.0, c_timeReal);
-        auto25B3F9EE_g = gv_survivors;
-        auto25B3F9EE_var = -1;
+        autoBAEA7A0A_g = PlayerGroupAll();
+        autoBAEA7A0A_var = -1;
         while (true) {
-            auto25B3F9EE_var = PlayerGroupNextPlayer(auto25B3F9EE_g, auto25B3F9EE_var);
-            if (auto25B3F9EE_var < 0) { break; }
-            GameOver(auto25B3F9EE_var, c_gameOverVictory, true, true);
+            autoBAEA7A0A_var = PlayerGroupNextPlayer(autoBAEA7A0A_g, autoBAEA7A0A_var);
+            if (autoBAEA7A0A_var < 0) { break; }
+            if ((PlayerType(autoBAEA7A0A_var) == c_playerTypeUser)) {
+                if ((PlayerType(autoBAEA7A0A_var) == c_playerTypeUser)) {
+                    if ((PlayerGroupHasPlayer(gv_survivors, autoBAEA7A0A_var) == true)) {
+                        UIDisplayMessage(PlayerGroupSingle(autoBAEA7A0A_var), c_messageAreaSubtitle, StringExternal("Param/Value/1D9F00F2"));
+                    }
+                    else {
+                        UIDisplayMessage(PlayerGroupSingle(autoBAEA7A0A_var), c_messageAreaSubtitle, StringExternal("Param/Value/88AFC3AF"));
+                    }
+                }
+
+            }
+
+        }
+        Wait(4.0, c_timeReal);
+        autoC8568E42_g = PlayerGroupAll();
+        autoC8568E42_var = -1;
+        while (true) {
+            autoC8568E42_var = PlayerGroupNextPlayer(autoC8568E42_g, autoC8568E42_var);
+            if (autoC8568E42_var < 0) { break; }
+            if ((PlayerType(autoC8568E42_var) == c_playerTypeUser)) {
+                if ((PlayerGroupHasPlayer(gv_survivors, autoC8568E42_var) == true)) {
+                    GameOver(autoC8568E42_var, c_gameOverVictory, true, true);
+                }
+                else {
+                    GameOver(autoC8568E42_var, c_gameOverTie, true, true);
+                }
+            }
+
         }
     }
 
@@ -1264,6 +1510,7 @@ void gt_VictoryCondition_Init () {
 //--------------------------------------------------------------------------------------------------
 void InitTriggers () {
     gt_AttackWaves_Init();
+    gt_AttackWaveInitial_Init();
     gt_AlienInitialTrickle_Init();
     gt_AlienTrickle_Init();
     gt_CreateHeroSelection_Init();
@@ -1271,6 +1518,7 @@ void InitTriggers () {
     gt_MapInitialization_Init();
     gt_PlayerLeaves_Init();
     gt_PlayerDies_Init();
+    gt_SharedMinerals_Init();
     gt_StartBattlecruiserScene_Init();
     gt_BattlecruiserCrash_Init();
     gt_TutorialStart_Init();
@@ -1278,6 +1526,7 @@ void InitTriggers () {
     gt_TutorialChooseHeroAfter_Init();
     gt_TutorialMechanicalIntroduction_Init();
     gt_HeroSelection_Init();
+    gt_HeroRandomization_Init();
     gt_FreeHeroes_Init();
     gt_Timeout_Init();
     gt_UpdateTooltips_Init();

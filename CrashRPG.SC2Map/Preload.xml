@@ -47,8 +47,9 @@
 <Unit id="Scourge"/>
 <Unit id="CreepTumorUsed"/>
 <Unit id="SunkenColony"/>
-<Unit id="Beacon_Terranmedium"/>
 <Unit id="CRPGArmory"/>
 <Unit id="CRPGCrashedBattlecruiser"/>
 <Unit id="CRPGCivilian"/>
+<Unit id="BeaconRandomHero"/>
+<Unit id="BeaconSelectHero"/>
 </Preload>

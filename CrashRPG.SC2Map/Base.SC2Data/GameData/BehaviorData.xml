@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CBehaviorBuff id="BeaconTempGiven">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Player Value="Target"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="WizardConfusionEnabler">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -686,20 +690,10 @@
         <Duration value="1.25"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CrashedBattlecruiserMedicalFacilitiesAura">
-        <Cost>
-            <Charge Link="Behavior/CrashedBattlecruiserMedicalFacilities"/>
-            <Cooldown Link="Behavior/CrashedBattlecruiserMedicalFacilities"/>
-        </Cost>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Period value="1"/>
         <PeriodicEffect value="CrashedBattlecruiserMedicalFacilitiesSearchArea"/>
-        <DamageResponse>
-            <Cost>
-                <Charge Link="Behavior/CrashedBattlecruiserMedicalFacilities"/>
-                <Cooldown Link="Behavior/CrashedBattlecruiserMedicalFacilities"/>
-            </Cost>
-        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="HunterPsionicProjectionBase">
         <InfoFlags index="Hidden" value="1"/>
