@@ -1695,10 +1695,18 @@
     </CBehaviorBuff>
     <CBehaviorAttribute id="CRPGDamageAttribute">
         <Modification>
-            <DamageDealtFraction index="Spell" value="0.125"/>
-            <DamageDealtFraction index="Melee" value="0.125"/>
-            <DamageDealtFraction index="Ranged" value="0.125"/>
-            <DamageDealtFraction index="Splash" value="0.125"/>
+            <DamageDealtFraction index="Spell" value="0">
+                <AccumulatorArray value="HeroDamageMultiplierConstant"/>
+            </DamageDealtFraction>
+            <DamageDealtFraction index="Melee" value="0">
+                <AccumulatorArray value="HeroDamageMultiplierConstant"/>
+            </DamageDealtFraction>
+            <DamageDealtFraction index="Ranged" value="0">
+                <AccumulatorArray value="HeroDamageMultiplierConstant"/>
+            </DamageDealtFraction>
+            <DamageDealtFraction index="Splash" value="0">
+                <AccumulatorArray value="HeroDamageMultiplierConstant"/>
+            </DamageDealtFraction>
         </Modification>
     </CBehaviorAttribute>
     <CBehaviorAttribute id="CRPGArmorAttribute">

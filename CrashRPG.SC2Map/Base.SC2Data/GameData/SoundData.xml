@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CSound id="Ghost_NukeExplode2" parent="Spell">
         <EditorCategories value="Race:Terran"/>
@@ -19,6 +19,19 @@
         <DupePrioritization value="Oldest"/>
         <Pitch value="3.000000,5.000000"/>
         <Volume value="-10.610000,-9.610000"/>
+    </CSound>
+    <CSound id="SJBattlecruiser_AttackLaunchLouder" parent="Combat">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\SJBattlecruiser_AttackLaunch_00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\SJBattlecruiser_AttackLaunch_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\SJBattlecruiser_AttackLaunch_02.wav" FacialGroup=""/>
+        <DupeDestroyCount value="12"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="12"/>
+        <Pitch value="3.000000,5.000000"/>
+        <Volume value="-3.100000,-2.520000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="20.000000" Volume="-96.000000"/>
     </CSound>
     <CSound id="Tychus_Medic_HealMatrix_AOE" parent="Spell">
         <EditorCategories value="Race:Terran"/>
@@ -136,38 +149,6 @@
         <Flags index="NeedsUpdate" value="1"/>
         <Flags index="NeedsTTS" value="1"/>
         <Volume value="-4.000000,-4.000000"/>
-    </CSound>
-    <CSound id="AeroYamatoGunChargeUp" parent="Spell">
-        <EditorCategories value="Race:Terran"/>
-        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_YamatoAttackCharge0.wav" Pitch="6.000000,6.000000"/>
-        <DupeDestroyCount value="8"/>
-        <DupeMaximumMethod value="Replace"/>
-        <DupeMuteCount value="8"/>
-        <Volume value="-0.920000,-0.920000"/>
-    </CSound>
-    <CSound id="AeroYamatoGunattackImpact" parent="Terran_ExplosionMedium">
-        <AssetArray index="0" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="1" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="2" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="3" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="4" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="5" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="6" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="7" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="8" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="9" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="1.000000,7.000000"/>
-        <DupeDestroyCount value="8"/>
-        <DupeMuteCount value="8"/>
-        <Pitch value="0.000000,0.000000"/>
-        <Volume value="0.000000,0.000000"/>
-    </CSound>
-    <CSound id="AeroYamatoGunAttackLaunch" parent="Spell">
-        <EditorCategories value="Race:Terran"/>
-        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_YamatoAttackLaunch0.wav" Pitch="4.000000,4.000000"/>
-        <DupeDestroyCount value="8"/>
-        <DupeMaximumMethod value="Replace"/>
-        <DupeMuteCount value="8"/>
-        <Volume value="-0.920000,-0.500000"/>
     </CSound>
     <CSound id="FighterRapidStrikesEndSound" parent="Spell">
         <EditorCategories value="Race:Protoss"/>

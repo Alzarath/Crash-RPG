@@ -6612,8 +6612,6 @@
         <ImpactMap index="None" Model="BattlecruiserAirAttackImpact" Sound="Battlecruiser_AirAttackImpact" ModelReaction="BattlecruiserAirAttackImpactReaction"/>
         <ImpactMap index="Shield" Sound="BattlecruiserAirAttackImpactShield" ModelReaction="BattlecruiserAirAttackImpactReactionShield"/>
         <ImpactPhysics Name="ATAImpact" MatchKeys="BasicAir" Physics="BattlecruiserAttackAirForce"/>
-        <DamageMap index="None" Model="BattlecruiserAirAttackDamage" Sound="BattlecruiserAirAttackDamage" ModelReaction="BattlecruiserAirAttackDamageReaction"/>
-        <DamageMap index="Shield" Sound="BattlecruiserAirAttackDamageShield" ModelReaction="BattlecruiserAirAttackDamageReactionShield"/>
         <ActionFlags index="LaunchForceSite" value="1"/>
     </CActorAction>
     <CActorAction id="AeroLaserBattery@AttackATS" parent="GenericAttack" effectImpact="AeroLaserBattery@DamageATS" effectLaunch="AeroLaserBattery@LMATS">
@@ -6624,8 +6622,6 @@
         <ImpactMap index="None" Model="BattlecruiserGroundAttackImpact" Sound="Battlecruiser_GroundAttackImpact" ModelReaction="BattlecruiserGroundAttackImpactReaction"/>
         <ImpactMap index="Shield" Sound="BattlecruiserGroundAttackImpactShield" ModelReaction="BattlecruiserGroundAttackImpactReactionShield"/>
         <ImpactPhysics Name="ATSImpact" MatchKeys="Basic" Physics="BattlecruiserAttackGroundForce"/>
-        <DamageMap index="None" Model="BattlecruiserGroundAttackDamage" Sound="BattlecruiserGroundAttackDamage" ModelReaction="BattlecruiserGroundAttackDamageReaction"/>
-        <DamageMap index="Shield" Sound="BattlecruiserGroundAttackDamageShield" ModelReaction="BattlecruiserGroundAttackDamageReactionShield"/>
         <ActionFlags index="LaunchForceSite" value="1"/>
     </CActorAction>
     <CActorAction id="AeroYamatoCannon@Attack" parent="GenericAttack" effectImpact="AeroYamatoCannon@Damage" effectLaunch="AeroYamatoCannon@LM">

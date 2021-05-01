@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAccumulatorArithmetic id="HeroDamageRatio">
+        <Parameters value="0">
+            <AccumulatorArray value="HeroDamageAttributePoints"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="HeroDamageMultiplierConstant"/>
+        </Parameters>
+        <Operation value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorAttributePoints id="HeroDamageAttributePoints">
+        <Attribute value="CRPGDamageAttribute"/>
+    </CAccumulatorAttributePoints>
+    <CAccumulatorConstant id="HeroDamageMultiplierConstant">
+        <Amount value="0.125"/>
+    </CAccumulatorConstant>
+    <CAccumulatorArithmetic id="HeroDamageMultiplier">
+        <Parameters value="1">
+            <AccumulatorArray value="HeroDamageRatio"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+</Catalog>
