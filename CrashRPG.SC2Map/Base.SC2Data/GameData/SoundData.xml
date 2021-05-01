@@ -1,5 +1,74 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
+    <CSound id="Ghost_NukeExplode2" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Explosion_Metal_Impact_DebrisFly_01.wav"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Spread value="180.000000"/>
+    </CSound>
+    <CSound id="Mech_AttackLaunchLevel1" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch4.wav"/>
+        <DupeDestroyCount value="8"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="3"/>
+        <DupePrioritization value="Oldest"/>
+        <Pitch value="3.000000,5.000000"/>
+        <Volume value="-10.610000,-9.610000"/>
+    </CSound>
+    <CSound id="Tychus_Medic_HealMatrix_AOE" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_04.wav" FacialGroup=""/>
+        <Flags index="VariationFallback" value="0"/>
+        <Pitch value="-2.000000,-1.000000"/>
+        <Spread value="30.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Tychus_Medic_HealMatrix_End" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Off_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Off_02.wav" FacialGroup=""/>
+        <Flags index="VariationFallback" value="0"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Spread value="15.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Tychus_Medic_HealMatrix_Start" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Start_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Start_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Start_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Start_04.wav" FacialGroup=""/>
+        <Flags index="VariationFallback" value="0"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Spread value="20.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="WizardAgonizingBlastImpact" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackImpact3.wav"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-2.500000,-2.500000"/>
+    </CSound>
+    <CSound id="WizardAgonizingBlastLaunch" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackLaunch3.wav"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
     <CSound id="Talis_Attack" parent="ProtossAck_Void">
         <AssetArray TemplateParam="Adept_Attack00" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack00.ogg"/>
         <AssetArray TemplateParam="Adept_Attack01" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack01.ogg"/>

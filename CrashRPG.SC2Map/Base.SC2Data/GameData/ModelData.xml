@@ -1,5 +1,15 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CModel id="AeroLaserArmaments@Missile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\BattleCruiserMissile\BattleCruiserMissile.m3"/>
+        <EditorCategories value="Race:Terran"/>
+    </CModel>
+    <CModel id="AeroLaserBattery@Missile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\BattleCruiserMissile\BattleCruiserMissile.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <ScaleMax value="1.000000,3.000000,1.000000"/>
+        <ScaleMin value="1.000000,3.000000,1.000000"/>
+    </CModel>
     <CModel id="AdeptDeathKhalai" parent="AdeptDeathBase">
         <Model value="Assets\Units\Protoss\Purifier_Adept_Death\Purifier_Adept_Death.m3"/>
         <Lighting value="AdeptDeath"/>
@@ -10,8 +20,96 @@
     </CModel>
     <CModel id="CRPGLevelUpImpact" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Zerg\Dehaka_Coop_LevelUp\Dehaka_Coop_LevelUp.m3"/>
-        <EditorCategories value="Race:Neutral"/>
         <Lighting value="KerriganRespawnImpact"/>
+    </CModel>
+    <CModel id="GhostNukeTarget">
+        <Model value="Assets\Effects\Terran\MiraHorner_Raven_Coop_Target_Impact\MiraHorner_Raven_Coop_Target_Impact.m3"/>
+    </CModel>
+    <CModel id="MechExplosiveImmortalityExplosion" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\MiraHorner_NapalmBomb_Coop_Explosion\MiraHorner_NapalmBomb_Coop_Explosion.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <ScaleMax value="4.000000,4.000000,4.000000"/>
+        <ScaleMin value="4.000000,4.000000,4.000000"/>
+    </CModel>
+    <CModel id="LaynaNikaraMedic" parent="Unit" Race="Terran">
+        <Model value="Assets\COOP\Tychus\Units\Medic_Heavens_COOP\Medic_Heavens_COOP.m3"/>
+        <Lighting value="MengskMedic"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid03"/>
+        <Radius value="0.375000"/>
+        <SelectionRadius value="0.375000"/>
+        <ShadowRadius value="0.375000"/>
+        <SquibTypeDefault value="Flesh"/>
+        <TechPurchaseCamera value="TechPurchaseInfantry"/>
+        <UnitGlossaryCamera value="Star2CameraMid03"/>
+    </CModel>
+    <CModel id="LaynaNikaraDeathRagdollMedic" parent="UnitDeathRagdoll" Race="Terran">
+        <Model value="Assets\COOP\Tychus\Units\Medic_Heavens_COOP_DeathRagdoll\Medic_Heavens_COOP_DeathRagdoll.m3"/>
+    </CModel>
+    <CModel id="LaynaNikaraDeathMedic" parent="UnitDeath" Race="Terran">
+        <Model value="Assets\COOP\Tychus\Units\Medic_Heavens_COOP_Death\Medic_Heavens_COOP_Death.m3"/>
+        <LowQualityModel value="TerranBloodDeathLow"/>
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="PortraitLaynaNikaraMedic" parent="FXAPortrait" Race="Terran">
+        <Model value="Assets\COOP\Tychus\Portraits\Medic_Heavens_COOP_Portrait\Medic_Heavens_COOP_Portrait.m3"/>
+        <FacialController value="LocalizedData\Facial\MedicPortrait.fxa"/>
+        <Image value="Assets\Textures\medic_heavens_coop_portrait_static.dds"/>
+        <Lighting value="MedicPortrait"/>
+    </CModel>
+    <CModel id="Nomad" parent="Unit" Race="Terran">
+        <RequiredAnims value="Assets\Units\Terran\MULE_SwarmAnims\MULE_SwarmAnims.m3a"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraMid05"/>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
+        <SelectionRadius value="0.588100"/>
+        <ShadowRadius value="0.588100"/>
+        <SquibTypeDefault value="Metal"/>
+        <TechPurchaseCamera value="Star2CameraMid05"/>
+        <UnitGlossaryCamera value="Star2CameraMid05"/>
+    </CModel>
+    <CModel id="NomadDeath" parent="UnitDeath" Race="Terran">
+        <LowQualityModel value="TerranSmallUnitDeathLow"/>
+        <Occlusion value="Show"/>
+    </CModel>
+    <CModel id="ShipSolariteExposureImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Protoss\SOA_Reconstruction_Beam\SOA_Reconstruction_Beam.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Priority value="24"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="ShipSolariteExposurePersistent" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\SOA_Reconstruction_Beam_Impact\SOA_Reconstruction_Beam_Impact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+    </CModel>
+    <CModel id="MedicCorrosiveSprayAttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Zerg\Infested_Stukov_Missile_Impact\Infested_Stukov_Missile_Impact.m3"/>
+        <Lighting value="StukovBossBlastAttackImpact"/>
+        <ScaleMax value="0.200000,0.200000,0.200000"/>
+        <ScaleMin value="0.200000,0.200000,0.200000"/>
+    </CModel>
+    <CModel id="MedicCorrosiveSprayAttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Zerg\Infested_stukov_Missile_Launch\Infested_stukov_Missile_Launch.m3"/>
+        <Lighting value="StukovBossBlastAttackLaunch"/>
+        <ScaleMax value="0.200000,0.200000,0.200000"/>
+        <ScaleMin value="0.200000,0.200000,0.200000"/>
+    </CModel>
+    <CModel id="MedicCorrosiveSprayMissile" parent="MissileFX">
+        <Model value="Assets\Effects\Zerg\CorruptedMissile\CorruptedMissile.m3"/>
+        <ScaleMax value="2.000000,2.000000,2.000000"/>
+        <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="SwannVespeneDrone_Beam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Terran\SwannVespeneDrone_Beam\SwannVespeneDrone_Beam.m3"/>
+    </CModel>
+    <CModel id="RestorativeBurst" parent="RaceImpactFX" Race="Terran">
+        <Model value="Assets\Effects\Protoss\SuppressionTower_SuppressionBeam_Impact_Ground\SuppressionTower_SuppressionBeam_Impact_Ground.m3"/>
+        <ScaleMax value="3.000000,3.000000,1.000000"/>
+        <ScaleMin value="3.000000,3.000000,1.000000"/>
     </CModel>
     <CModel id="WizardReanimated" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Neutral\Reanimator_Resurrect_Coop\Reanimator_Resurrect_Coop.m3"/>
@@ -406,7 +504,7 @@
         <Flags index="Download" value="1"/>
         <Flags index="FOW" value="1"/>
         <Flags index="IgnoreAspectRatioScale" value="0"/>
-        <Image value=""/>
+        <Image value="Assets\Textures\supplicantportrait_static.dds"/>
         <Lighting value="Supplicant"/>
         <PausedParticleSystemBehavior value="Automatic"/>
         <Priority value="32"/>
@@ -481,13 +579,13 @@
         <ShadowRadius value="2.000000"/>
         <VariationCount value="3"/>
     </CModel>
-    <CModel id="WreckedBattlecruiser2" parent="Doodad">
+    <CModel id="CRPGCrashedBattlecruiser" parent="Doodad">
         <Model value="Assets\Doodads\WreckedBattlecruiser\WreckedBattlecruiser.m3"/>
-        <Lighting value="WreckedBattlecruiser"/>
-        <SelectionRadius value="2.000000"/>
         <EditorCategories value="Race:Terran"/>
+        <Lighting value="WreckedBattlecruiser"/>
         <Radius value="1.750000"/>
         <SelectionLayer value="2"/>
+        <SelectionRadius value="2.000000"/>
         <ShadowRadius value="2.000000"/>
     </CModel>
     <CModel id="Hunterling" parent="ZerglingBase">

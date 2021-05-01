@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CAbilMorph default="1" id="DefaultAbilityLevelUpMorph">
         <Name value="Abil/Name/LevelUp"/>
@@ -18,6 +18,596 @@
         </InfoArray>
         <AutoCastValidatorArray value="IsDead"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="AlienYagdraFireWave">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AlienYagdraFireWaveCreatePersistent"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <InterruptCost>
+            <Charge Link="Abil/AlienYagdraSpitFire"/>
+            <Cooldown Link="Abil/AlienYagdraSpitFire"/>
+        </InterruptCost>
+        <Range value="500"/>
+        <Marker Link="Abil/AlienYagdraSpitFire"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienYagdraFireWave"/>
+    </CAbilEffectTarget>
+    <CAbilArmMagazine id="AlienYagdraHangar">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Flags index="AutoCastOffOwnerLeave" value="0"/>
+        <Flags index="Retarget" value="1"/>
+        <Leash value="12"/>
+        <InfoArray index="Ammo1" Time="60" Count="2" CountStart="2" Distance="2" Manage="Recall" Unit="AlienAshWormBurrowed">
+            <Charge Link="Abil/##id##"/>
+            <Cooldown Link="Abil/##id##"/>
+            <Button DefaultButtonFace="Broodling" Requirements="ArmAlienAshWorm"/>
+            <Flags index="AutoBuild" value="1"/>
+            <Flags index="AutoBuildOn" value="1"/>
+            <Flags index="External" value="1"/>
+        </InfoArray>
+        <Alert value=""/>
+        <EffectArray index="Create" value="AlienAshWormDelayedUnburrowApplyBehavior"/>
+        <EffectArray index="Death" value="InterceptorFate"/>
+        <EffectArray index="Release" value="KillsToCaster"/>
+        <ExternalAngle value="-109.995"/>
+        <ExternalAngle value="109.995"/>
+    </CAbilArmMagazine>
+    <CAbilQueue id="AlienYagdraQueue">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Structures"/>
+        <QueueSize value="2"/>
+        <Flags index="Hidden" value="1"/>
+        <Flags index="Passive" value="1"/>
+    </CAbilQueue>
+    <CAbilMorph id="AlienAshWormUnburrow">
+        <AbilSetId value="BrwU"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BurrowUp">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <ActorKey value="BurrowUp"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <InfoArray Unit="AlienAshWorm" RandomDelayMax="0.1">
+            <SectionArray index="Abils">
+                <DurationArray index="Duration" value="3"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Duration" value="3"/>
+            </SectionArray>
+        </InfoArray>
+        <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden"/>
+        <AutoCastValidatorArray value="TargetNotChangeling"/>
+        <AutoCastRange value="2"/>
+        <AutoCastCountMin value="1"/>
+    </CAbilMorph>
+    <CAbilResearch id="CRPGAbilityUpgrades">
+        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
+        <InfoArray index="Research1" Upgrade="CRPGBasicAbilityUpgrade">
+            <Resource index="Minerals" value="1000"/>
+            <Button DefaultButtonFace="ArmoryBasicAbilityUpgrade" Requirements="CRPGAbilityUpgradeBasic"/>
+        </InfoArray>
+        <InfoArray index="Research2">
+            <Resource index="Minerals" value="1000"/>
+            <Button DefaultButtonFace="ArmoryAdvancedAbilityUpgrade"/>
+        </InfoArray>
+        <InfoArray index="Research3">
+            <Resource index="Minerals" value="1000"/>
+            <Button DefaultButtonFace="ArmoryUltimateAbilityUpgrade"/>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilLearn id="CRPGLearnAbility">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Learn1" Abil="CRPGLearnAbilityDummy">
+            <Button DefaultButtonFace="CRPGLearnAbilityQ">
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+        <InfoArray index="Learn2" Abil="CRPGLearnAbilityDummy">
+            <Button DefaultButtonFace="CRPGLearnAbilityDummy">
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+        <InfoArray index="Learn3" Abil="CRPGLearnAbilityDummy">
+            <Button DefaultButtonFace="CRPGLearnAbilityDummy">
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+        <InfoArray index="Learn4" Abil="CRPGPassive1Dummy">
+            <Button DefaultButtonFace="CRPGLearnAbilityDummy">
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+        <InfoArray index="Learn5" Abil="CRPGPassive2Dummy">
+            <Button DefaultButtonFace="CRPGLearnAbilityDummy">
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
+        </InfoArray>
+        <PointsPerLevel value="1"/>
+        <Flags index="HideOnMaxLevel" value="1"/>
+        <Flags index="HideSubmenuOnLearnedAll" value="1"/>
+    </CAbilLearn>
+    <CAbilEffectInstant id="CRPGLearnAbilityDummy">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Cost/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="CRPGPassive1Dummy">
+        <Levels value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="CRPGPassive2Dummy">
+        <Levels value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="CrashedBattlecruiserRecruitGhost">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Cost>
+            <Resource index="Minerals" value="250"/>
+            <Charge Link="Abil/CrashedBattlecruiserTrainMarineInternal"/>
+            <Cooldown Link="Abil/CrashedBattlecruiserTrainMarineInternal"/>
+        </Cost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <ProducedUnitArray value="CRPGMarine"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGRecruitGhost"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="FollowerConditionalOrderOrder">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="FollowerConditionalOrderSwitch"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Move"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="CrashedBattlecruiserConstructOutpost">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CrashedBattlecruiserOutpostCreateUnit"/>
+        <Cost>
+            <Resource index="Minerals" value="1000"/>
+            <Charge Link="Abil/CrashedBattlecruiserDefensiveFortificaitonTargetBuild"/>
+            <Cooldown Link="Abil/CrashedBattlecruiserDefensiveFortificaitonTargetBuild"/>
+        </Cost>
+        <Placeholder value="CRPGOutpost"/>
+        <TargetFilters value="Structure;Player,Ally,Enemy,Hidden"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <AINotifyEffect value="CrashedBattlecruiserDefensiveFortificaitonTargetBuild"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CrashedBattlecruiserConstructOutpost"/>
+        <PlaceUnit value="CRPGOutpost"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="DefensiveTurretHellstormMissilePods">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="DefensiveTurretHailstormMissilePodsCreatePersistent"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost>
+            <Charge TimeUse="10"/>
+        </Cost>
+        <TargetFilters value="Air,Massive,Visible;Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="12"/>
+        <Arc value="360"/>
+        <AutoCastFilters value="-;Player,Ally,Neutral"/>
+        <AutoCastRange value="12"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="DefensiveTurretHellstormMissilePod"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="DesignateBossLock">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="BossLockCreatePersistent"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <TargetFilters value="Heroic,Visible;Self,Ally,Neutral,Enemy,Dead,Hidden"/>
+        <Range value="25"/>
+        <Arc value="360"/>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
+        <AutoCastRange value="25"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BossLock" Requirements="BossLock"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="MedicIrradiate">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Effect index="0" value="MedicIrradiateSet"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Charge Link="Abil/Irradiate"/>
+            <Cooldown Link="Abil/Irradiate"/>
+        </Cost>
+        <TargetFilters value="-;Structure,RawResource,HarvestableResource,Item,Dead,Hidden,Invulnerable"/>
+        <Range value="9"/>
+        <Arc value="360"/>
+        <CancelableArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <AINotifyEffect value=""/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MedicIrradiate"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="MedicMedivacHealingBeam">
+        <Alignment value="Positive"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="MedicHealingBeamCreatePersistent"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Flags index="PassengerAcquirePassengers" value="1"/>
+        <TargetFilters value="Visible;Self,Enemy,Air,Structure,Missile,UnderConstruction,Dead,Hidden,Invulnerable"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSAlliancePassive"/>
+            <SortArray value="TSDistance"/>
+            <SortArray value="TSLifeFraction"/>
+        </TargetSorts>
+        <Range value="6"/>
+        <SmartValidatorArray value="healSmartTargetFilters"/>
+        <SmartValidatorArray value="NotWarpingIn"/>
+        <SmartValidatorArray value="DisableMedicHealing"/>
+        <AutoCastFilters value="Visible;Neutral,Enemy"/>
+        <AutoCastRange value="6"/>
+        <AutoCastValidatorArray value="NotWarpingIn"/>
+        <AutoCastValidatorArray value="DisableMedicHealing"/>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <DefaultError value="RequiresHealTarget"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MedicHealingBeam"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <AcquireAttackers value="1"/>
+        <Arc value="360"/>
+    </CAbilEffectTarget>
+    <CAbilMorph id="MedicLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoArray index="0" Unit="CRPGMedicLevel2"/>
+    </CAbilMorph>
+    <CAbilEffectInstant id="AlienStalk">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AlienStalkApplyBehavior"/>
+        <Flags index="Transient" value="1"/>
+        <Flags index="TransientPreferred" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Charge Link=""/>
+            <Cooldown Link=""/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienStalk"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="AlienRapidRegeneration">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AlienRapidRegenerationApplyBehavior"/>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Charge Link=""/>
+            <Cooldown Link=""/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienRapidRegeneration"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="MedicCancelHealingBeam">
+        <Alignment value="Positive"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="MedicHealingBeamRemoveBehaviorCaster"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Cancel" Requirements="MedicChannelingHealingBeam"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="MedicMedivac">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="MedicMedivacCreateUnit"/>
+        <Cost>
+            <Vital index="Energy" value="125"/>
+            <Cooldown TimeUse="120"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MedicMedivac"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="MedicMedivacAfterburners">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="MedicMedivacAfterburnersApplyBehavior"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Charge Link="Abil/MedivacSpeedBoost"/>
+            <Cooldown Link="Abil/MedivacSpeedBoost" TimeUse="20"/>
+        </Cost>
+        <AINotifyEffect value="MedicMedivacAfterburnersApplyBehavior"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MedivacSpeedBoost">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="Follow">
+        <OrderArray index="0" DisplayType="Move" Model="Assets\UI\Cursors\WayPointMove_Void\WayPointMove_Void.m3"/>
+        <OrderArray>
+            <DisplayType value="Move"/>
+            <Color value="255,35,125,255"/>
+            <Model value="Assets\UI\Cursors\WayPointConfirm_Void\WayPointConfirm_Void.m3"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
+        <Effect index="0" value="FollowCreatePersistent"/>
+        <Flags index="Smart" value="1"/>
+        <TargetFilters value="Heroic,Visible;Ally,Neutral,Enemy,Structure,Stasis"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Follow"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+    </CAbilEffectTarget>
+    <CAbilMorphPlacement id="OutpostLand" parent="TerranBuildingLand" unit="CommandCenter">
+        <Name value="Abil/Name/OutpostLand"/>
+        <InfoArray index="0" Unit="CommandCenter" CollideRange="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorphPlacement>
+    <CAbilMorph id="OutpostLiftOff" parent="TerranBuildingLiftOff" unit="CommandCenterFlying">
+        <Name value="Abil/Name/OutpostLiftOff"/>
+    </CAbilMorph>
+    <CAbilTrain id="OutpostTrain">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <InfoArray index="Train1" Time="17">
+            <Button DefaultButtonFace="SCV" State="Restricted">
+                <Flags index="ToSelection" value="1"/>
+            </Button>
+            <Unit value="SCV"/>
+        </InfoArray>
+        <Alert value="TrainWorkerComplete"/>
+    </CAbilTrain>
+    <CAbilEffectTarget id="CrashedBattlecruiserDefensiveFortificaiton">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CrashedBattlecruiserDefensiveFortificationCreateUnit"/>
+        <Cost>
+            <Resource index="Minerals" value="600"/>
+            <Charge Link="Abil/CrashedBattlecruiserDefensiveFortificaitonTargetBuild"/>
+            <Cooldown Link="Abil/DefensiveStructureTargetBuild" Location="Unit" TimeUse="10"/>
+        </Cost>
+        <Placeholder value="CRPGDefensiveFortification"/>
+        <TargetFilters value="Structure;Player,Ally,Enemy,Hidden"/>
+        <Range value="20"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CrashedBattlecruiserBuildDefensiveFortification"/>
+        <PlaceUnit value="CRPGDefensiveFortification"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="CrashedBattlecruiserRecruitMarine">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Cost>
+            <Resource index="Minerals" value="250"/>
+            <Charge Link="Abil/CrashedBattlecruiserTrainMarineInternal"/>
+            <Cooldown Link="Abil/CrashedBattlecruiserTrainMarineInternal"/>
+        </Cost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <ProducedUnitArray value="CRPGMarine"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGRecruitMarine"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="CrashedBattlecruiserNomadRepair">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CrashedBattlecruiserNomadRepairCreateUnit"/>
+        <Cost>
+            <Resource index="Minerals" value="100"/>
+        </Cost>
+        <TargetFilters value="Structure,Visible;Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CrashedBattlecruiserNomadRepair" Requirements="CRPGLT5Nomads"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="CrashedBattlecruiserDefensiveWall">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CrashedBattlecruiserDefensiveWallCreateUnit"/>
+        <Cost>
+            <Resource index="Minerals" value="200"/>
+            <Charge Link="Abil/CrashedBattlecruiserDefensiveWallTargetBuild"/>
+            <Cooldown Link="Abil/DefensiveStructureTargetBuild" Location="Unit" TimeUse="10"/>
+        </Cost>
+        <Placeholder value="CRPGDefensiveWall"/>
+        <TargetFilters value="Structure;Player,Ally,Enemy,Hidden"/>
+        <Range value="20"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CrashedBattlecruiserBuildDefensiveWall"/>
+        <PlaceUnit value="CRPGDefensiveWall"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="CrashedBattlecruiserDefensiveTurret">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CrashedBattlecruiserDefensiveTurretCreateUnit"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Resource index="Minerals" value="400"/>
+            <Charge Link="Abil/CrashedBattlecruiserDefensiveTurretTargetBuild"/>
+            <Cooldown Link="Abil/DefensiveStructureTargetBuild" Location="Unit" TimeUse="10"/>
+        </Cost>
+        <Placeholder value="CRPGDefensiveTurret"/>
+        <TargetFilters value="Structure;Player,Ally,Enemy,Hidden"/>
+        <Range value="20"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CrashedBattlecruiserBuildDefensiveTurret"/>
+        <PlaceUnit value="CRPGDefensiveTurret"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="CrashedBattlecruiserRecruitMarauder">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CrashedBattlecruiserRecruitMarauderCreateUnit"/>
+        <Cost>
+            <Resource index="Minerals" value="500"/>
+            <Charge Link="Abil/CrashedBattlecruiserTrainMarauderInternal"/>
+            <Cooldown Link="Abil/CrashedBattlecruiserTrainMarauderInternal"/>
+        </Cost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <ProducedUnitArray value="CRPGMarauder"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGRecruitMarauder"/>
+    </CAbilEffectTarget>
+    <CAbilTransport id="DefensiveFortificationLoadUnload">
+        <AbilSetId value="ULdS"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Load" DefaultButtonFace="BunkerLoad"/>
+        <CmdButtonArray index="UnloadAll" DefaultButtonFace="BunkerUnloadAll">
+            <Flags index="IgnoreUser" value="1"/>
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="UnloadAt">
+            <Flags index="Hidden" value="1"/>
+            <Flags index="IgnoreUser" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="UnloadUnit">
+            <Flags index="Hidden" value="1"/>
+            <Flags index="IgnoreUser" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="LoadAll">
+            <Flags index="Hidden" value="1"/>
+        </CmdButtonArray>
+        <Range value="0"/>
+        <MaxCargoCount value="4"/>
+        <MaxCargoSize value="2"/>
+        <TotalCargoSpace value="4"/>
+        <LoadCargoBehavior value="DefensiveFortificationRangeBonus"/>
+        <TargetFilters value="Biological,Visible;Neutral,Enemy,Heroic,Dead,Hidden"/>
+        <LoadValidatorArray value="RequiresTerran"/>
+        <LoadValidatorArray value="NotWidowMineTarget"/>
+        <LoadValidatorArray value="IsNotHellionTank"/>
+    </CAbilTransport>
+    <CAbilEffectTarget id="CrashedBattlecruiserMedicalFacilities">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CrashedBattlecruiserMedicalFacilitiesSet"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Flags index="TransportAcquirePassengers" value="1"/>
+        <TargetFilters value="Visible;Self,Ally,Neutral,Enemy,Structure,Missile,Dead,Hidden,Invulnerable"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSAlliancePassive"/>
+            <SortArray value="TSLifeFraction"/>
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
+        <Range value="5"/>
+        <Arc value="360"/>
+        <SmartValidatorArray value="healSmartTargetFilters"/>
+        <SmartValidatorArray value="NotWarpingIn"/>
+        <AutoCastFilters value="-;Neutral,Enemy"/>
+        <AutoCastRange value="5"/>
+        <AutoCastValidatorArray value="NotWarpingIn"/>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <DefaultError value="RequiresHealTarget"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Heal"/>
+        <AcquireAttackers value="1"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="AlienRapidTransfusion">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <TargetMessage value="Abil/TargetMessage/HealTargetMessage"/>
+        <Effect index="0" value="AlienRapidTransfusionApplyBehavior"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge Link="Abil/QueenBurstHeal"/>
+            <Cooldown Link="Abil/QueenBurstHeal" Location="Unit" TimeUse="3"/>
+        </Cost>
+        <TargetFilters value="Biological,Visible;Self,Enemy,Missile,Uncommandable,UnderConstruction,Dead,Hidden,Invulnerable"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSAlliancePassive"/>
+            <SortArray value="TSLifeFraction"/>
+            <SortArray value="TSDistance"/>
+        </TargetSorts>
+        <Range value="4"/>
+        <Arc value="14.9963"/>
+        <SmartValidatorArray value="healSmartTargetFilters"/>
+        <SmartValidatorArray value="NotWarpingIn"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="Visible;Neutral,Enemy,Missile,Stasis,Dead,Invulnerable"/>
+        <AutoCastRange value="6"/>
+        <AutoCastValidatorArray value="healCasterMinEnergy"/>
+        <AutoCastValidatorArray value="NotWarpingIn"/>
+        <AutoCastValidatorArray value="NotTimedLifeUnitAndNotLarva"/>
+        <AutoCastValidatorArray value="UnitOrSpineOrSpore"/>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <AINotifyEffect value="AlienRapidTransfusionHeal"/>
+        <DefaultError value="RequiresHealTarget"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="QueenBurstHeal"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="AlienCorrosiveBile">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AlienCorrosiveBileSetLaunch"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Charge Link="Abil/RavagerCorrosiveBile"/>
+            <Cooldown Link="Abil/RavagerCorrosiveBile"/>
+        </Cost>
+        <Range value="9"/>
+        <CursorEffect value="AlienCorrosiveBileSearchAreaCursorDummy"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienCorrosiveBile"/>
+    </CAbilEffectTarget>
+    <CAbilEffectInstant id="OutpostTrainSCV">
+        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirm_Void\WayPointConfirm_Void.m3"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="OutpostTrainSCVCreateUnit"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SCV"/>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="SwarmerSwarm">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="SwarmerSwarmBeaconCreateUnit"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Cost>
+            <Charge Link="Abil/ReleaseInterceptors"/>
+            <Cooldown Link="Abil/ReleaseInterceptors" TimeUse="20"/>
+        </Cost>
+        <Range value="15"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <AINotifyEffect value="ReleaseInterceptors"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SwarmerSwarm" Requirements="SwarmerSwarm"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="ShipSolariteExposure">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ShipSolariteExposureSearchArea"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Charge Link="Abil/OracleRevelation"/>
+            <Cooldown Link="Abil/OracleRevelation" TimeUse="2.5"/>
+        </Cost>
+        <Range value="9"/>
+        <Arc value="360"/>
+        <CastOutroTime value="0.5"/>
+        <CursorEffect value="OracleRevelationSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ShipSolariteExposure"/>
+    </CAbilEffectTarget>
+    <CAbilArmMagazine id="ShooterHeavyBulletsArmMagazine">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Launch value="ReleaseAtSource"/>
+        <InfoArray index="Ammo1" Count="10" Unit="ShooterAvailableHeavyBullet">
+            <Vital index="Energy" value="50"/>
+            <Charge Link="Abil/##id##"/>
+            <Cooldown Link="Abil/##id##"/>
+            <Button DefaultButtonFace="ShooterHeavyBullets"/>
+        </InfoArray>
+        <EffectArray index="Create" value="ShooterHeavyBulletsApplyBehavior"/>
+    </CAbilArmMagazine>
+    <CAbilMorph id="ShooterLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoArray index="0" Unit="CRPGShooterLevel2"/>
+    </CAbilMorph>
+    <CAbilMorph id="ShooterLevelUpMorphLevel2" parent="ShooterLevelUpMorphLevel1">
+        <InfoArray index="0" Unit="CRPGShooterLevel3"/>
+    </CAbilMorph>
+    <CAbilMorph id="ShooterLevelUpMorphLevel3" parent="ShooterLevelUpMorphLevel2">
+        <InfoArray index="0" Unit="CRPGShooterLevel4"/>
+    </CAbilMorph>
+    <CAbilMorph id="ShooterLevelUpMorphLevel4" parent="ShooterLevelUpMorphLevel3">
+        <InfoArray index="0" Unit="CRPGShooterLevel5"/>
+    </CAbilMorph>
+    <CAbilEffectTarget id="RandomizeHero">
+        <Effect index="0" value="BeaconRandomizeHeroDummy"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <TargetFilters value="Ground,Heroic,Worker,Invulnerable;Player,Ally,Enemy"/>
+        <Range value="1.2"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BeaconMove"/>
+    </CAbilEffectTarget>
     <CAbilEffectInstant id="FighterAstralWind">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="FighterAstralWindSet"/>
@@ -44,11 +634,36 @@
         <AINotifyEffect value="FighterLightningDashCreatePersistent"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="FighterLightningDash"/>
     </CAbilEffectTarget>
+    <CAbilEffectTarget id="NomadRepair">
+        <Alignment value="Positive"/>
+        <AbilSetId value="Repair"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOffOwnerLeave" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Flags index="PassengerAcquirePassengers" value="1"/>
+        <TargetFilters value="Mechanical,Visible;Self,Enemy,Missile,Stasis,UnderConstruction,Dead,Hidden,Invulnerable"/>
+        <RangeSlop value="100"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="Structure,Visible;Neutral,Enemy"/>
+        <AutoCastRange value="25"/>
+        <InheritAttackPriorityArray index="Prep" value="1"/>
+        <InheritAttackPriorityArray index="Cast" value="1"/>
+        <InheritAttackPriorityArray index="Channel" value="1"/>
+        <DefaultError value="RequiresRepairTarget"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Repair">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <Range value="2"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="ShipVortex">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="ShipVortexCreatePersistent"/>
         <Cost>
-            <Vital index="Energy" value="75"/>
+            <Vital index="Energy" value="125"/>
             <Charge Link="Abil/ArtanisVortex"/>
             <Cooldown Link="ArtanisVortex"/>
         </Cost>
@@ -99,42 +714,6 @@
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="MechRepair" parent="Repair">
-        <Name value="Abil/Name/MechRepair"/>
-        <Effect index="0" value="MechRepair"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Repair2"/>
-    </CAbilEffectTarget>
-    <CAbilEffectInstant id="ShipStasisWardActivate">
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Effect index="0" value="StasisWardStasisTrapSet"/>
-        <Flags index="AutoCast" value="1"/>
-        <Flags index="AutoCastOn" value="1"/>
-        <Flags index="ReExecutable" value="1"/>
-        <Cost>
-            <Charge Link="Abil/OracleStasisTrapActivate"/>
-            <Cooldown Link="Abil/OracleStasisTrapActivate" TimeUse="0.5"/>
-        </Cost>
-        <Arc value="360"/>
-        <AutoCastRange value="3"/>
-        <AutoCastValidatorArray value="ActivateStasisWardTargetInRange"/>
-        <PrepTime value="0"/>
-        <AINotifyEffect value="StasisWardStasisTrapSearchArea"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="ActivateStasisWard"/>
-    </CAbilEffectInstant>
-    <CAbilBuild id="ShipBuildStasisWard">
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <FlagArray index="RequireFacing" value="1"/>
-        <InfoArray index="Build1" Unit="ShipStasisWard" Time="5">
-            <Vital index="Energy" value="50"/>
-            <Button DefaultButtonFace="ShipStasisWard">
-                <Flags index="ShowInGlossary" value="1"/>
-            </Button>
-        </InfoArray>
-        <Range value="5"/>
-        <EffectArray index="Start" value="OracleStasisTrapBuildBeamOn"/>
-        <EffectArray index="Finish" value="OracleStasisTrapBuildBeamOff"/>
-        <EffectArray index="Cancel" value="OracleStasisTrapBuildBeamOff"/>
-    </CAbilBuild>
     <CAbilEffectTarget id="PickupHunterPlasma">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="PickupHunterPlasmaSet"/>
@@ -145,23 +724,105 @@
         <Range value="1"/>
         <Arc value="360"/>
         <AutoCastFilters value="Ground;Ally,Neutral,Enemy,Structure,Missile,Destructible,Stasis,Dead,Hidden,Benign"/>
-        <AutoCastRange value="1"/>
-        <AutoCastValidatorArray value="HunterPlasmaChargeValidator"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
     </CAbilEffectTarget>
-    <CAbilArmMagazine id="SwarmerHangar" parent="CarrierHangar">
-        <Name value="Abil/Name/SwarmerHangar"/>
-        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
-        <Leash value="500"/>
-        <InfoArray index="Ammo1" Time="4" CountStart="1" Manage="Ignore" Unit="SwarmerSwarmerEggSpawn">
-            <Button DefaultButtonFace="SwarmerSpawm" Requirements="SwarmerMaxSwarmerUltimate"/>
-            <Flags index="External" value="1"/>
-            <Flags index="LeashRetarget" value="0"/>
+    <CAbilMorph id="DefensiveWallLower">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Lower"/>
+        <InfoArray Unit="CRPGDefensiveWallLowered" CollideRange="0">
+            <SectionArray index="Abils">
+                <EffectArray index="Start" value="SupplyDepotMorphingApplyBehavior"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Collide">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
         </InfoArray>
-        <EffectArray index="Create" value=""/>
-        <EffectArray index="Death" value=""/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <AutoCastFilters value="Ground,Visible;Neutral,Enemy,Structure,Dead,Hidden"/>
+        <AutoCastRange value="3"/>
+        <AutoCastCountMin value="1"/>
+    </CAbilMorph>
+    <CAbilMorph id="DefensiveWallRaise">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Raise"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="MoveBlockers" value="1"/>
+        <InfoArray Unit="CRPGDefensiveWall" CollideRange="0">
+            <SectionArray index="Abils">
+                <EffectArray index="Start" value="SupplyDepotMorphingApplyBehavior"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+        </InfoArray>
+        <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Dead,Hidden"/>
+        <AutoCastValidatorArray value="NoNearbyAlliedGroundUnits"/>
+        <AutoCastRange value="2"/>
+        <AutoCastCountMin value="1"/>
+    </CAbilMorph>
+    <CAbilBehavior id="ShooterScatterShot">
+        <OrderArray index="0">
+            <DisplayType value="Confirm"/>
+            <Color value="255,0,255,0"/>
+            <Model value="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
+            <LineTexture value="Assets\Textures\WayPointLine.dds"/>
+        </OrderArray>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="On" DefaultButtonFace="ShooterScatterShot"/>
+        <CmdButtonArray index="Off" DefaultButtonFace="ShooterDisableScatterShot"/>
+        <Flags index="Toggle" value="1"/>
+        <BehaviorArray value="ShooterScatterShot"/>
+    </CAbilBehavior>
+    <CAbilEffectInstant id="ShooterStimpack">
+        <AbilSetId value="Stimpack"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoTooltipPriority value="1"/>
+        <Effect index="0" value="ShooterStimpackApplyBehavior"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Life" value="25"/>
+            <Vital index="Energy" value="25"/>
+            <Charge Link="Abil/Stimpack"/>
+            <Cooldown Link="Abil/Stimpack"/>
+        </Cost>
+        <AINotifyEffect value="ShooterStimpackApplyBehavior"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ShooterStimpack">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilArmMagazine id="SwarmerHangar">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <InfoArray index="Ammo1" Time="3" CountStart="8" Manage="Ignore" Unit="SwarmerSwarmerSpawn">
+            <Vital index="Energy" value="20"/>
+            <Charge Location="Unit"/>
+            <Cooldown TimeUse="0.01"/>
+            <Button DefaultButtonFace="SwarmerIncubate" Requirements="SwarmerMaxSwarmerSpawn">
+                <Flags index="ToSelection" value="1"/>
+            </Button>
+            <Flags index="AutoBuild" value="1"/>
+            <Flags index="AutoBuildOn" value="1"/>
+            <Flags index="LeashRetarget" value="1"/>
+        </InfoArray>
+        <Alert value="TrainComplete"/>
         <EffectArray index="Launch" value="SwarmerSpawnUltimateInitialSet"/>
-        <ExternalAngle value="180"/>
+        <MaxCount value="8"/>
     </CAbilArmMagazine>
     <CAbilMerge id="SwarmerMergeLevel2">
         <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
@@ -269,7 +930,7 @@
         </CmdButtonArray>
     </CAbilEffectTarget>
     <CAbilMorph id="AlienMetamorphosisMorph">
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="AlienMetamorphosis"/>
         <ActorKey value="AeroLevelUpMorphLevel1"/>
         <Flags index="BestUnit" value="1"/>
@@ -283,25 +944,147 @@
         <Flags index="RallyReset" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
-        <Cost>
-            <Cooldown TimeStart="5"/>
-        </Cost>
-        <InfoArray Unit="CRPGAlienLevel1" RandomDelayMin="5" RandomDelayMax="5"/>
+        <InfoArray Unit="CRPGAlienEgg"/>
     </CAbilMorph>
     <CAbilMorph id="AlienHarvesterFormMorph" parent="AlienMetamorphosisMorph">
         <Name value="Abil/Name/AlienHarvesterFormMorph"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="AlienHarvesterForm"/>
-        <InfoArray index="0" Unit="CRPGAlienHeroDrone" RandomDelayMin="5" RandomDelayMax="5"/>
+        <InfoArray index="0" Unit="CRPGAlienHarvester">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="5"/>
+                <EffectArray index="Start" value="AlienGeneticAdaptationSwitch"/>
+                <EffectArray index="Finish" value="AlienGeneticsHarvesterSet"/>
+            </SectionArray>
+        </InfoArray>
     </CAbilMorph>
-    <CAbilMorph id="AlienLeaperFormMorph" parent="AlienMetamorphosisMorph">
-        <Name value="Abil/Name/AlienLeaperFormMorph"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="AlienLeaperForm"/>
-        <InfoArray index="0" Unit="CRPGAlienHeroHunterling" RandomDelayMin="5" RandomDelayMax="5"/>
+    <CAbilMorph id="AlienStalkerForm" parent="AlienMetamorphosisMorph">
+        <Name value="Abil/Name/AlienStalkerForm"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienStalkerForm" Requirements="GELevel2"/>
+        <InfoArray index="0" Unit="CRPGAlienStalker">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="5"/>
+                <EffectArray index="Start" value="AlienGeneticAdaptationSwitch"/>
+                <EffectArray index="Finish" value="AlienGeneticsStalkerSet"/>
+            </SectionArray>
+        </InfoArray>
     </CAbilMorph>
     <CAbilMorph id="AlienAssaultFormMorph" parent="AlienMetamorphosisMorph">
         <Name value="Abil/Name/AlienAssaultFormMorph"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="AlienAssaultForm"/>
-        <InfoArray index="0" Unit="CRPGAlienHeroHydralisk" RandomDelayMin="5" RandomDelayMax="5"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienAssaultForm" Requirements="GELevel3"/>
+        <InfoArray index="0" Unit="CRPGAlienAssault">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="5"/>
+                <EffectArray index="Start" value="AlienGeneticAdaptationSwitch"/>
+                <EffectArray index="Finish" value="AlienGeneticsAssaultSet"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="AlienBruiserFormMorph" parent="AlienMetamorphosisMorph">
+        <Name value="Abil/Name/AlienBruiserFormMorph"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienBruiserForm" Requirements="GELevel3"/>
+        <InfoArray index="0" Unit="CRPGAlienBruiser">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="5"/>
+                <EffectArray index="Start" value="AlienGeneticAdaptationSwitch"/>
+                <EffectArray index="Finish" value="AlienGeneticsBruiserSet"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="AlienSiegeFormMorph" parent="AlienMetamorphosisMorph">
+        <Name value="Abil/Name/AlienSiegeFormMorph"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienSiegeForm" Requirements="GELevel4"/>
+        <InfoArray index="0" Unit="CRPGAlienSiege">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="5"/>
+                <EffectArray index="Start" value="AlienGeneticAdaptationSwitch"/>
+                <EffectArray index="Finish" value="AlienGeneticsSiegeSet"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="AlienSupportFormMorph" parent="AlienMetamorphosisMorph">
+        <Name value="Abil/Name/AlienSupportFormMorph"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienSupportForm" Requirements="GELevel5"/>
+        <InfoArray index="0" Unit="CRPGAlienSupport">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="5"/>
+                <EffectArray index="Start" value="AlienGeneticAdaptationSwitch"/>
+                <EffectArray index="Finish" value="AlienGeneticsSupportSet"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="AlienTankFormMorph" parent="AlienMetamorphosisMorph">
+        <Name value="Abil/Name/AlienTankFormMorph"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienTankForm" Requirements="GELevel5"/>
+        <InfoArray index="0" Unit="CRPGAlienTank">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="5"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="5"/>
+                <EffectArray index="Start" value="AlienGeneticAdaptationSwitch"/>
+                <EffectArray index="Finish" value="AlienGeneticsTankSet"/>
+            </SectionArray>
+        </InfoArray>
     </CAbilMorph>
     <CAbilEffectTarget id="BeaconGiveHero">
         <Effect index="0" value="BeaconGiveHeroSet"/>
@@ -314,8 +1097,8 @@
     </CAbilEffectTarget>
     <CAbilEffectInstant id="CRPGUpgradeEnergy">
         <Cost>
-            <Resource index="Minerals" value="100"/>
-            <Charge CountMax="255" CountUse="-1"/>
+            <Resource index="Minerals" value="200"/>
+            <Charge CountMax="100" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeEnergy" Requirements="CRPGInRangeofArmory"/>
     </CAbilEffectInstant>
@@ -354,6 +1137,128 @@
         <ProducedUnitArray value="CRPGSwarmerLevel1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SwarmerSplit" Requirements="SwarmerMaxSwarmer"/>
     </CAbilEffectInstant>
+    <CAbilBuild id="NomadBuild">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <FlagArray index="Cancelable" value="0"/>
+        <InfoArray index="Build1" Unit="CRPGDefensiveWall" Time="20">
+            <Button DefaultButtonFace="CrashedBattlecruiserBuildDefensiveWall" State="Suppressed"/>
+        </InfoArray>
+        <InfoArray index="Build2" Unit="CRPGDefensiveTurret" Time="20">
+            <Button DefaultButtonFace="CrashedBattlecruiserBuildDefensiveTurret" State="Suppressed"/>
+        </InfoArray>
+        <InfoArray index="Build3" Unit="CRPGDefensiveFortification" Time="20">
+            <Button DefaultButtonFace="CrashedBattlecruiserBuildDefensiveFortification" State="Suppressed"/>
+        </InfoArray>
+        <InfoArray index="Build4" Unit="CRPGOutpost" Time="30">
+            <Button DefaultButtonFace="CrashedBattlecruiserConstructOutpost" State="Suppressed"/>
+        </InfoArray>
+        <Range value="2"/>
+        <EffectArray index="Finish" value="Suicide"/>
+        <EffectArray index="Cancel" value="Suicide"/>
+    </CAbilBuild>
+    <CAbilMorph id="MechImmortalityProtocol">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MechImmortalityProtocol"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="FastBuild" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="ShowProgress" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <RefundFraction>
+            <Resource index="Minerals" value="0"/>
+            <Resource index="Vespene" value="0"/>
+            <Resource index="Terrazine" value="0"/>
+            <Resource index="Custom" value="0"/>
+        </RefundFraction>
+        <InfoArray Score="1" Unit="CRPGMechLevel5">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="20"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="20"/>
+            </SectionArray>
+            <SectionArray index="Collide">
+                <DurationArray index="Delay" value="20"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="20"/>
+            </SectionArray>
+        </InfoArray>
+        <Alert value="RebornComplete"/>
+        <AutoCastCountMax value="4294967295"/>
+        <ValidatorArray value="MechNotSelfRepairing"/>
+    </CAbilMorph>
+    <CAbilMorph id="MechExplosiveImmortality">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MechExplosiveImmortality"/>
+        <ActorKey value="ThorWreckage"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <Cost>
+            <Cooldown TimeUse="120"/>
+        </Cost>
+        <InfoArray Unit="MechWreckage">
+            <SectionArray index="Stats">
+                <EffectArray index="Finish" value="MechExplosiveImmortalitySet"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilEffectInstant id="MedicRestorativeBurst">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="MedicRestorativeBurstSearchArea"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Cooldown TimeUse="20"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MedicRestorativeBurst">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilEffectTarget id="UltraliskBurrowCharge2">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="BurrowChargeSwitch2"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="RangeUsePathing" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Flags index="Smart" value="1"/>
+        <Cost>
+            <Charge Link="Abil/UltraliskBurrowCharge"/>
+            <Cooldown Link="UltraliskBurrowCharge" Location="Unit" TimeUse="10"/>
+        </Cost>
+        <Range value="9"/>
+        <Arc value="360"/>
+        <SmartValidatorArray value="TargetIsEnemy"/>
+        <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AutoCastRange value="9"/>
+        <AutoCastValidatorArray value="CasterNotHoldingPosition"/>
+        <AutoCastValidatorArray value="UltraliskHasntRecentlyAttacked"/>
+        <AutoCastValidatorArray value="TargetNotHarmless"/>
+        <AutoCastValidatorArray value="UltraliskBurrowChargeRangeFinder"/>
+        <AutoCastValidatorArray value="BurrowChargeMinimumRange"/>
+        <CastIntroTime value="0.5"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <CursorEffect value="BurrowChargeTargetSearch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UltraliskBurrowCharge" Requirements="HaveHotSUltraliskBurrowCharge"/>
+    </CAbilEffectTarget>
+    <CAbilEffectInstant id="UltraliskWeaponCooldown2">
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Charge Link="Abil/UltraliskWeaponCooldown"/>
+            <Cooldown Link="Abil/UltraliskWeaponCooldown" Location="Unit" TimeUse="1"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UltraliskWeaponCooldown"/>
+    </CAbilEffectInstant>
+    <CAbilMorph id="OutpostDefensiveOutpostMorph" parent="UpgradeToPlanetaryFortress">
+        <Name value="Abil/Name/OutpostDefensiveOutpostMorph"/>
+    </CAbilMorph>
     <CAbilEffectTarget id="WizardPsionicOrb">
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Effect index="0" value="WizardPsionicOrbInitialCreatePersistent"/>
@@ -448,7 +1353,7 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Cost>
             <Vital index="Energy" value="75"/>
-            <Cooldown Operation="Max" TimeUse="8"/>
+            <Cooldown Operation="Max" TimeUse="10"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="FighterRapidStrikes"/>
         <Flags index="Transient" value="1"/>
@@ -463,7 +1368,11 @@
         </Cost>
         <TargetFilters value="Visible;Self,Player,Ally,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
         <Range value="7"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfest" Requirements="InfestedHasNoInfestationSporeVictim"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfest" Requirements="InfestedHasNoInfestationSporeVictim">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+        <Levels value="1"/>
     </CAbilEffectTarget>
     <CAbilTransport id="InfestedBunkerTransport" parent="BunkerTransport">
         <Name value="Abil/Name/InfestedBunkerTransport"/>
@@ -480,7 +1389,10 @@
         <Effect index="0" value="InfestedAberrateSet"/>
         <Range value="6"/>
         <CursorEffect value="InfestedAberrateSearchAreaDetectCivilians"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedAberrate"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedAberrate">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
         <Cost>
             <Vital index="Energy" value="75"/>
@@ -495,6 +1407,7 @@
         <CancelableArray index="Channel" value="1"/>
         <CancelableArray index="Finish" value="1"/>
         <CancelableArray index="Bail" value="1"/>
+        <Levels value="1"/>
     </CAbilEffectTarget>
     <CAbilMorph id="InfestedLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -516,8 +1429,6 @@
         <Flags index="Transient" value="1"/>
         <Cost>
             <Vital index="Energy" value="25"/>
-            <Charge Link="Abil/InfestedTerrans"/>
-            <Cooldown Link="Abil/InfestedTerrans"/>
         </Cost>
         <CastIntroTime value="0"/>
         <CastOutroTime value="0"/>
@@ -527,7 +1438,11 @@
         <UninterruptibleArray index="Finish" value="1"/>
         <ProducedUnitArray value="InfestedInfestedCivilian"/>
         <ProducedUnitArray value="InfestedInfestedMarine"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfestedEgg" Requirements="InfestedMaxInfestedUnits"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfestedEgg" Requirements="InfestedMaxInfestedUnits">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+        <Levels value="1"/>
     </CAbilEffectInstant>
     <CAbilMorph id="InfestedMorphToInfestedMarine" parent="MorphToInfestedTerran">
         <Name value="Abil/Name/InfestedMorphToInfestedMarine"/>
@@ -545,7 +1460,7 @@
         <InfoTooltipPriority value="1"/>
         <Effect index="0" value="MechBarrageCreatePersistent"/>
         <Cost>
-            <Vital index="Energy" value="150"/>
+            <Vital index="Energy" value="75"/>
             <Charge Link="Abil/330mmBarrageCannons"/>
             <Cooldown Link="Abil/330mmBarrageCannons"/>
         </Cost>
@@ -568,7 +1483,8 @@
     <CAbilEffectInstant id="AeroDefensiveMatrix">
         <AbilSetId value="dmatrix"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Effect index="0" value="AeroDefensiveMatrixSet"/>
+        <Levels value="1"/>
+        <Effect index="0" value="AeroDefensiveMatrix@Set"/>
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="RequireTargetVision" value="0"/>
@@ -580,11 +1496,14 @@
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="AeroDefensiveMatrix" State="Restricted">
             <Flags index="ToSelection" value="1"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="AeroTacticalJump">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <Effect index="0" value="AeroTacticalJumpCreatePrecursor"/>
+        <Levels value="1"/>
+        <Effect index="0" value="AeroTacticalJump@CU"/>
         <Flags index="AllowMovement" value="1"/>
         <Flags index="BestUnit" value="0"/>
         <Flags index="NoDeceleration" value="1"/>
@@ -598,6 +1517,7 @@
             <Charge Link="Abil/Hyperjump"/>
             <Cooldown Link="Abil/Hyperjump"/>
         </InterruptCost>
+        <TargetFilters value="Visible;-"/>
         <Range value="500"/>
         <CastIntroTime value="0"/>
         <CastOutroTime value="2"/>
@@ -605,7 +1525,10 @@
         <UninterruptibleArray index="Channel" value="1"/>
         <AINotifyEffect value="Hyperjump"/>
         <ProgressButtonArray index="Channel" value="Hyperjump"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="AeroTacticalJump"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AeroTacticalJump">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="MechCalldownMech">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -681,15 +1604,15 @@
     </CAbilArmMagazine>
     <CAbilEffectInstant id="CRPGUpgradeArmor">
         <Cost>
-            <Resource index="Minerals" value="100"/>
-            <Charge CountMax="255" CountUse="-1"/>
+            <Resource index="Minerals" value="200"/>
+            <Charge CountMax="100" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeArmor" Requirements="CRPGInRangeofArmory"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="CRPGUpgradeDamage">
         <Cost>
-            <Resource index="Minerals" value="100"/>
-            <Charge CountMax="255" CountUse="-1"/>
+            <Resource index="Minerals" value="200"/>
+            <Charge CountMax="100" CountUse="-1"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeDamage" Requirements="CRPGInRangeofArmory"/>
     </CAbilEffectInstant>
@@ -703,20 +1626,26 @@
         <AutoCastValidatorArray value="IsDead"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="CRPGLevelUp" Requirements="CRPGIsAppropriateLevel"/>
     </CAbilEffectInstant>
-    <!--Level Up Abilities-->
-    <CAbilMorph id="AeroLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
-        <InfoArray index="0" Unit="CRPGAeroLevel2"/>
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+    <CAbilMorph id="MedicLevelUpMorphLevel2" parent="MedicLevelUpMorphLevel1">
+        <InfoArray index="0" Unit="CRPGMedicLevel3"/>
     </CAbilMorph>
-    <CAbilMorph id="AeroLevelUpMorphLevel2" parent="AeroLevelUpMorphLevel1">
-        <InfoArray index="0" Unit="CRPGAeroLevel3"/>
+    <CAbilMorph id="MedicLevelUpMorphLevel3" parent="MedicLevelUpMorphLevel2">
+        <InfoArray index="0" Unit="CRPGMedicLevel4"/>
     </CAbilMorph>
-    <CAbilMorph id="AeroLevelUpMorphLevel3" parent="AeroLevelUpMorphLevel2">
-        <InfoArray index="0" Unit="CRPGAeroLevel4"/>
+    <CAbilMorph id="MedicLevelUpMorphLevel4" parent="MedicLevelUpMorphLevel3">
+        <InfoArray index="0" Unit="CRPGMedicLevel5"/>
     </CAbilMorph>
-    <CAbilMorph id="AeroLevelUpMorphLevel4" parent="AeroLevelUpMorphLevel3">
-        <InfoArray index="0" Unit="CRPGAeroLevel5"/>
-    </CAbilMorph>
+    <CAbilEffectInstant id="AlienLevelUp" parent="LevelUpDummy">
+        <Name value="Abil/Name/AlienLevelUp"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="CRPGLevelUpSet"/>
+        <Cost index="0">
+            <Cooldown TimeStart="5" TimeUse="5"/>
+        </Cost>
+        <AutoCastFilters value="-;-"/>
+        <AutoCastValidatorArray index="0" value=""/>
+        <AINotifyEffect value="AlienLevelUp"/>
+    </CAbilEffectInstant>
     <CAbilMorph id="MechLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
         <InfoArray index="0" Unit="CRPGMechLevel2"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -760,18 +1689,10 @@
         <Flags index="NoDeceleration" value="1"/>
         <Cost>
             <Vital index="Energy" value="25"/>
-            <Charge Link="Abil/CorsairMPDisruptionWeb"/>
-            <Cooldown Link="Abil/CorsairMPDisruptionWeb"/>
         </Cost>
-        <InterruptCost>
-            <Charge Link="Abil/ShipDisruptionWeb"/>
-            <Cooldown Link="Abil/ShipDisruptionWeb"/>
-        </InterruptCost>
         <Range value="9"/>
         <Arc value="360"/>
-        <Marker Link="Abil/ShipDisruptionWeb"/>
         <CursorEffect value="CorsairMPDisruptionWebSearch"/>
-        <AINotifyEffect value="ShipDisruptionWeb"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ShipDisruptionWeb"/>
     </CAbilEffectTarget>
     <CAbilMorph id="SniperLevelUpMorphLevel1" parent="DefaultAbilityLevelUpMorph">
@@ -931,14 +1852,6 @@
         <Flags index="Transient" value="1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="VehicleCancel" Requirements="VehicleLockedOn"/>
     </CAbilEffectInstant>
-    <CAbilEffectInstant id="MechEmergencyEvac">
-        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <Effect index="0" value="MechEmergencyEvacApplyBehavior"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MechEmergencyEvac"/>
-        <Cost>
-            <Cooldown TimeStart="60"/>
-        </Cost>
-    </CAbilEffectInstant>
     <CAbilEffectInstant id="VehicleOverdrive">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="VehicleOverdriveApplyBehavior"/>
@@ -986,6 +1899,7 @@
         <Effect index="0" value="SniperSniperRoundDamage"/>
         <CastIntroTime index="0" value="1.5"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="SniperSnipe"/>
+        <TargetFilters index="0" value="Biological,Visible;Self,Player,Ally,Structure,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="SniperSniperRoundEnhanced" parent="SniperSnipe">
         <CastIntroTime index="0" value="0.5"/>
@@ -993,7 +1907,8 @@
     <CAbilEffectTarget id="AeroYamatoCannon">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Effect index="0" value="AeroYamatoCannonLaunchMissile"/>
+        <Levels value="1"/>
+        <Effect index="0" value="AeroYamatoCannon@LM"/>
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <Cost>
@@ -1004,6 +1919,7 @@
             <Charge Link="Abil/Yamato"/>
             <Cooldown Link="Abil/Yamato"/>
         </InterruptCost>
+        <TargetFilters value="Visible;Self,Player,Ally,Stasis,Dead,Invulnerable"/>
         <Range value="10"/>
         <RangeSlop value="10"/>
         <PrepTime value="3"/>
@@ -1014,7 +1930,10 @@
         <UninterruptibleArray index="Finish" value="1"/>
         <AINotifyEffect value="Yamato"/>
         <ProgressButtonArray index="Prep" value="AeroYamatoCannon"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="AeroYamatoCannon"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AeroYamatoCannon">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
     </CAbilEffectTarget>
     <CAbilMorph id="ScarabMineUnburrow">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -1082,6 +2001,28 @@
         <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Worker,Missile,Stasis,Dead,Hidden,Invulnerable,Benign"/>
         <AutoCastRange value="2"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="AlienYagdraSpitFire">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="AlienYagdraSpitFireCreatePersistent"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Range value="32"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienYagdraSpitFire"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="AlienFireBreath">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="YagdraFirebreath2"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Range value="40"/>
+        <AINotifyEffect value="YagdraFirebreath2"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AlienYagdraFirebreath"/>
+    </CAbilEffectTarget>
+    <CAbilAttack id="attack">
+        <SupportedFilters value="-;Self,Ally,Outer"/>
+    </CAbilAttack>
     <CAbilAttack id="AttackFriendly" parent="attack">
         <Name value="Abil/Name/AttackFriendly"/>
         <TargetMessage value="Abil/TargetMessage/AttackFriendly"/>
@@ -1109,7 +2050,7 @@
     <CAbilEffectTarget id="WizardReanimate">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Effect index="0" value="InfestedAberrateSet2"/>
+        <Effect index="0" value="WizardReanimateSearchArea"/>
         <Cost>
             <Vital index="Energy" value="125"/>
             <Cooldown TimeUse="15"/>
@@ -1118,4 +2059,51 @@
         <CursorEffect value="WizardReanimateSearchArea"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="WizardReanimate"/>
     </CAbilEffectTarget>
+    <CAbilEffectTarget id="MedicHealingBeam">
+        <Alignment value="Positive"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="MedicHealingBeamCreatePersistent"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="NoDeceleration" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Flags index="PassengerAcquirePassengers" value="1"/>
+        <TargetFilters value="Visible;Self,Enemy,Structure,Missile,UnderConstruction,Dead,Hidden,Invulnerable"/>
+        <TargetSorts RequestCount="1">
+            <SortArray value="TSAlliancePassive"/>
+            <SortArray value="TSDistance"/>
+            <SortArray value="TSLifeFraction"/>
+        </TargetSorts>
+        <Range value="6"/>
+        <SmartValidatorArray value="healSmartTargetFilters"/>
+        <SmartValidatorArray value="NotWarpingIn"/>
+        <SmartValidatorArray value="DisableMedicHealing"/>
+        <AutoCastAcquireLevel value="Defensive"/>
+        <AutoCastFilters value="Visible;Neutral,Enemy"/>
+        <AutoCastRange value="6"/>
+        <AutoCastValidatorArray value="healCasterMinEnergy"/>
+        <AutoCastValidatorArray value="NotWarpingIn"/>
+        <AutoCastValidatorArray value="DisableMedicHealing"/>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <DefaultError value="RequiresHealTarget"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MedicHealingBeam" Requirements="MedicNotExceedingHealingBeamTargets"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <AcquireAttackers value="1"/>
+    </CAbilEffectTarget>
+    <CAbilMove id="MoveStupid">
+        <FleeRange value="5"/>
+        <FleeTime value="5"/>
+        <FollowRangeSlop value="1"/>
+        <FollowAcquireRange value="6"/>
+        <MinPatrolDistance value="1"/>
+        <MoveSmartPriority value="0"/>
+    </CAbilMove>
+    <CAbilAttack id="AttackStupid">
+        <TargetMessage value="Abil/TargetMessage/AttackStupid"/>
+        <SmartPriority value="0"/>
+        <SupportedFilters value="-;Self,Ally,Outer"/>
+        <MinAttackSpeedMultiplier value="0.25"/>
+        <MaxAttackSpeedMultiplier value="128"/>
+    </CAbilAttack>
 </Catalog>

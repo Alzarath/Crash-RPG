@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CDataCollectionAbil id="AeroDefensiveMatrix">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,AeroDefensiveMatrix"/>
+        <DataRecord Entry="Behavior,AeroDefensiveMatrix"/>
+        <DataRecord Entry="Behavior,AeroDefensiveMatrix@Dummy"/>
+        <DataRecord Entry="Button,AeroDefensiveMatrix"/>
+        <DataRecord Entry="Actor,AeroDefensiveMatrix@SoundBirth"/>
+        <DataRecord Entry="Actor,AeroDefensiveMatrix@SoundDeath"/>
+        <DataRecord Entry="Actor,AeroDefensiveMatrix@Model"/>
+        <DataRecord Entry="Effect,AeroDefensiveMatrix@AB"/>
+        <DataRecord Entry="Effect,AeroDefensiveMatrix@ABDummy"/>
+        <DataRecord Entry="Effect,AeroDefensiveMatrix@MU"/>
+        <DataRecord Entry="Effect,AeroDefensiveMatrix@Set"/>
+        <DataRecord Entry="Effect,AeroDefensiveMatrix@RBDummy"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="AeroFireSuppressionSystem">
+        <EditorCategories value="DataGroup:Buff,Race:Terran"/>
+        <DataRecord Entry="Actor,AeroFireSuppressionSystem"/>
+        <DataRecord Entry="Behavior,AeroFireSuppressionSystem"/>
+        <DataRecord Entry="Button,AeroFireSuppressionSystem"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="AeroLaserBattery">
+        <EditorCategories value="DataGroup:Weapon,Race:Terran"/>
+        <DataRecord Entry="Unit,AeroLaserBattery@WeaponATS"/>
+        <DataRecord Entry="Weapon,AeroLaserBattery@ATA"/>
+        <DataRecord Entry="Actor,AeroLaserBattery@MissileATA"/>
+        <DataRecord Entry="Actor,AeroLaserBattery@MissileATS"/>
+        <DataRecord Entry="Unit,AeroLaserBattery@WeaponATA"/>
+        <DataRecord Entry="Weapon,AeroLaserBattery@ATS"/>
+        <DataRecord Entry="Actor,AeroLaserBattery@AttackATA"/>
+        <DataRecord Entry="Actor,AeroLaserBattery@AttackATS"/>
+        <DataRecord Entry="Effect,AeroLaserBattery@LMATA"/>
+        <DataRecord Entry="Effect,AeroLaserBattery@DamageATA"/>
+        <DataRecord Entry="Effect,AeroLaserBattery@LMATS"/>
+        <DataRecord Entry="Effect,AeroLaserBattery@DamageATS"/>
+        <DataRecord Entry="Model,AeroLaserBattery@Missile"/>
+        <DataRecord Entry="Mover,AeroLaserBattery@Mover"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="AeroLaserArmaments">
+        <EditorCategories value="DataGroup:Buff,Race:Terran"/>
+        <DataRecord Entry="Behavior,AeroLaserArmaments"/>
+        <DataRecord Entry="Button,AeroLaserArmaments"/>
+        <DataRecord Entry="Actor,AeroLaserArmaments@Missile"/>
+        <DataRecord Entry="Actor,AeroLaserArmaments@Attack"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@LM"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@Damage"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@SA"/>
+        <DataRecord Entry="Unit,AeroLaserArmaments@Weapon"/>
+        <DataRecord Entry="Model,AeroLaserArmaments@Missile"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="AeroTacticalJump">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,AeroTacticalJump"/>
+        <DataRecord Entry="Button,AeroTacticalJump"/>
+        <DataRecord Entry="Actor,AeroTacticalJump@SoundTeleportOut"/>
+        <DataRecord Entry="Actor,AeroTacticalJump@SoundTeleportIn"/>
+        <DataRecord Entry="Actor,AeroTacticalJump@SoundWireframe"/>
+        <DataRecord Entry="Behavior,AeroTacticalJump"/>
+        <DataRecord Entry="Behavior,AeroTacticalJump@SuppressCollision"/>
+        <DataRecord Entry="Behavior,AeroTacticalJump@TeleportIn"/>
+        <DataRecord Entry="Behavior,AeroTacticalJump@TeleportOut"/>
+        <DataRecord Entry="Effect,AeroTacticalJump@SetTeleport"/>
+        <DataRecord Entry="Effect,AeroTacticalJump@CU"/>
+        <DataRecord Entry="Effect,AeroTacticalJump@ABTeleportIn"/>
+        <DataRecord Entry="Effect,AeroTacticalJump@ABTeleportOut"/>
+        <DataRecord Entry="Effect,AeroTacticalJump@SetTeleportOut"/>
+        <DataRecord Entry="Effect,AeroTacticalJump@Teleport"/>
+        <DataRecord Entry="Effect,AeroTacticalJump@ABTarget"/>
+        <DataRecord Entry="Effect,AeroTacticalJump@ABCaster"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="AeroYamatoCannon">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,AeroYamatoCannon"/>
+        <DataRecord Entry="Button,AeroYamatoCannon"/>
+        <DataRecord Entry="Actor,AeroYamatoCannon@Attack"/>
+        <DataRecord Entry="Actor,AeroYamatoCannon@Force"/>
+        <DataRecord Entry="Actor,AeroYamatoCannon@Missile"/>
+        <DataRecord Entry="Actor,AeroYamatoCannon@ModelCharge"/>
+        <DataRecord Entry="Actor,AeroYamatoCannon@ModelImpact"/>
+        <DataRecord Entry="Actor,AeroYamatoCannon@Range"/>
+        <DataRecord Entry="Actor,AeroYamatoCannon@SoundCharge"/>
+        <DataRecord Entry="Effect,AeroYamatoCannon@Damage"/>
+        <DataRecord Entry="Effect,AeroYamatoCannon@LM"/>
+        <DataRecord Entry="Unit,AeroYamatoCannon@Weapon"/>
+    </CDataCollectionAbil>
+    <CDataCollectionUnit id="CRPGAero">
+        <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Hero"/>
+        <DataRecord Entry="Unit,CRPGAero"/>
+        <DataRecord Entry="Actor,CRPGAero@Level2"/>
+        <DataRecord Entry="Actor,CRPGAero@Level3"/>
+        <DataRecord Entry="Actor,CRPGAero@Level4"/>
+        <DataRecord Entry="Actor,CRPGAero@Level5"/>
+        <DataRecord Entry="Actor,CRPGAero@Level5"/>
+    </CDataCollectionUnit>
+</Catalog>

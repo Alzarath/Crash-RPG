@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAttachMethodFilter id="AMFilterWeapon09">
+        <Keys Keyword="Weapon" Index="9"/>
+    </CAttachMethodFilter>
     <CAttachMethodPattern id="AMPatternHunterScatterCannon">
         <Keyword value="Weapon"/>
         <Base value="::RollingIndex"/>

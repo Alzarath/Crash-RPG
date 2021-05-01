@@ -1,32 +1,58 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Preload>
+<Asset path="assets\textures\btn-upgrade-terran-infantryarmorlevel0.dds" Type="Image"/>
+<Asset path="assets\textures\crashed-battlecruiser-dialog-background.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlenet_loading_player_raceicon_random.dds" Type="Image"/>
+<Asset path="assets\textures\border-transportslot-filled.dds" Type="Image"/>
+<Asset path="assets\textures\ui_ingame_lotv_progressbarfill.dds" Type="Image"/>
+<Asset path="assets\textures\ui_ingame_lotv_progressbarfill_terr.dds" Type="Image"/>
+<Asset path="assets\textures\battlecruiserportrait_static.dds" Type="Image"/>
 <Actor id="SYSTEM_ActorConfig"/>
-<Actor id="DOM_GroundTrims" Variations="8"/>
-<Behavior id="Invulnerable"/>
-<Behavior id="CRPGHeroVeterancy"/>
+<Actor id="Aiur_Zerg_Horn" Variations="2"/>
+<Actor id="Aiur_Zerg_Ribs" Variations="0"/>
+<Actor id="DOM_GroundTrims" Variations="0,1,8"/>
+<Actor id="Elsecaro_Zerg_Damage_Splat" Variations="1,3,4,5"/>
+<Actor id="Korhal_ConstructionCranes" Variations="0,2,3,5"/>
+<Actor id="MoebiusLab_StasisTube" Variations="2"/>
+<Actor id="XelNaga_GroundPlates_TheVoid" Variations="15"/>
+<Actor id="Decal" Variations="0,1"/>
+<Actor id="KorhalBuildingWrecked" Variations="0,2,4"/>
+<Actor id="KorhalBuildingWreckedSmall" Variations="0,1,3,5,8,9"/>
+<Actor id="MarSaraTunnel"/>
+<Actor id="MonoTrackHorizontal"/>
+<Actor id="MonoTrackVertical"/>
+<Actor id="MonoTrackDiagonalULDR"/>
+<Actor id="MonoTrackBendRight45_90"/>
+<Actor id="MonoTrackBendLeft45_180"/>
+<Actor id="SignsConstruction" Variations="5,8,9,12"/>
+<Actor id="ColonistHutHalfBuilt" Variations="0,1,2"/>
+<Actor id="InfestedHomeSmall" Variations="1"/>
+<Actor id="SpacePlatformRadarZerged" Variations="0"/>
+<Actor id="SpacePlatformSignLargeZerged"/>
+<Actor id="TruckFlatbedConstruction"/>
+<Model id="AdjutantPortrait"/>
 <Model id="BattlecruiserPortrait"/>
 <Model id="BriefingUnitSelectLarge"/>
 <Model id="BriefingUnitSelectSmall"/>
 <Sound id="NydusWorm_Unload" Variations="0"/>
 <Sound id="Dialogue_Transmission5Seconds" Variations="0"/>
 <Sound id="Event_Lab02_AlarmIncomingAttack" Variations="0"/>
-<Terrain id="ShakurasTemple"/>
-<Unit id="SupplyDepot"/>
+<Terrain id="CharEx2"/>
+<Unit id="Baneling"/>
+<Unit id="PointDefenseDrone"/>
 <Unit id="MissileTurret"/>
-<Unit id="Bunker"/>
+<Unit id="AutoTurret"/>
 <Unit id="Hatchery"/>
 <Unit id="Extractor"/>
 <Unit id="SpawningPool"/>
-<Unit id="EvolutionChamber"/>
 <Unit id="HydraliskDen"/>
+<Unit id="Spire"/>
 <Unit id="UltraliskCavern"/>
 <Unit id="InfestationPit"/>
 <Unit id="NydusNetwork"/>
-<Unit id="RoachWarren"/>
 <Unit id="SpineCrawler"/>
 <Unit id="SporeCrawler"/>
 <Unit id="Lair"/>
-<Unit id="Hive"/>
 <Unit id="GreaterSpire"/>
 <Unit id="Drone"/>
 <Unit id="Zergling"/>
@@ -35,20 +61,49 @@
 <Unit id="Mutalisk"/>
 <Unit id="Ultralisk"/>
 <Unit id="Roach"/>
+<Unit id="Corruptor"/>
+<Unit id="BroodLord"/>
+<Unit id="BanelingBurrowed"/>
 <Unit id="HydraliskBurrowed"/>
 <Unit id="RoachBurrowed"/>
 <Unit id="ZerglingBurrowed"/>
+<Unit id="RedstoneLavaCritter"/>
 <Unit id="Queen"/>
+<Unit id="CreepTumorBurrowed"/>
 <Unit id="NydusCanal"/>
+<Unit id="LurkerMPBurrowed"/>
+<Unit id="LurkerMP"/>
+<Unit id="SwarmHostMP"/>
 <Unit id="MineralField" Variations="0,1,2,3,4,5,6,7,8,9"/>
 <Unit id="GuardianMP"/>
 <Unit id="DevourerMP"/>
+<Unit id="PerditionTurret"/>
+<Unit id="InfestedAbomination"/>
 <Unit id="BattlecruiserHelios"/>
 <Unit id="Scourge"/>
+<Unit id="Leviathan"/>
+<Unit id="HotSSwarmlingBurrowed"/>
+<Unit id="HotSRaptorBurrowed"/>
+<Unit id="MengskMarine"/>
+<Unit id="MengskMarauder"/>
+<Unit id="MengskReaper"/>
+<Unit id="MengskFirebat"/>
+<Unit id="MengskMedic"/>
+<Unit id="MengskHellion"/>
+<Unit id="MengskThor"/>
 <Unit id="CreepTumorUsed"/>
+<Unit id="MoebiusLabDoorsWideLeft"/>
+<Unit id="Yagdra"/>
+<Unit id="AshWorm"/>
 <Unit id="SunkenColony"/>
-<Unit id="Beacon_Terranmedium"/>
+<Unit id="CRPGMarine"/>
+<Unit id="CRPGDefensiveFortification"/>
+<Unit id="CRPGDefensiveWall"/>
+<Unit id="CRPGDefensiveTurret"/>
+<Unit id="CRPGBuildableLocationDefensiveFortification"/>
 <Unit id="CRPGArmory"/>
 <Unit id="CRPGCrashedBattlecruiser"/>
-<Unit id="CRPGCivilian"/>
+<Unit id="CRPGBuildableLocationDefensiveWall"/>
+<Unit id="CRPGBuildableLocationDefensiveTurret"/>
+<Unit id="CRPGCrashedBattlecruiserPlayer"/>
 </Preload>
