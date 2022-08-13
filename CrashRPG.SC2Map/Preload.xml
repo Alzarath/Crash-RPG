@@ -1,55 +1,324 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Preload>
+<Asset path="assets\textures\btn-upgrade-terran-infantryarmorlevel0.dds" Type="Image"/>
+<Asset path="assets\textures\crashed-battlecruiser-dialog-background.dds" Type="Image"/>
+<Asset path="assets\textures\ui_battlenet_loading_player_raceicon_random.dds" Type="Image"/>
+<Asset path="assets\textures\border-transportslot-filled.dds" Type="Image"/>
+<Asset path="assets\textures\ui_ingame_lotv_progressbarfill.dds" Type="Image"/>
+<Asset path="assets\textures\ui_ingame_lotv_progressbarfill_terr.dds" Type="Image"/>
+<Asset path="assets\textures\battlecruiserportrait_static.dds" Type="Image"/>
 <Actor id="SYSTEM_ActorConfig"/>
-<Actor id="DOM_GroundTrims" Variations="8"/>
-<Behavior id="Invulnerable"/>
-<Behavior id="CRPGHeroVeterancy"/>
+<Actor id="AcidFalls" Variations="1"/>
+<Actor id="AcidSplash"/>
+<Actor id="AiurFoliage_Ex2" Variations="0,1,2,3,4,5"/>
+<Actor id="Aiur_Cliff_Waterfall" Variations="0,1"/>
+<Actor id="Aiur_Puddle" Variations="0,1,2,3"/>
+<Actor id="Aiur_Rock_Cliff" Variations="0,1,2"/>
+<Actor id="Aiur_Rock_Cliff_Jungle" Variations="0,1,4"/>
+<Actor id="Aiur_Trees_Log" Variations="0,1"/>
+<Actor id="Aiur_Trees_Log_Small" Variations="2"/>
+<Actor id="Aiur_Trees_Regular" Variations="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"/>
+<Actor id="Aiur_Trees_Regular_Grouped" Variations="0,1,2,3,4,5"/>
+<Actor id="Aiur_Vines_Cliff" Variations="1,3,4"/>
+<Actor id="Aiur_Void_Seeker_Crashed"/>
+<Actor id="Aiur_Zerg_NydusNest"/>
+<Actor id="BattleStation_Buildings" Variations="3"/>
+<Actor id="BattleStation_CliffTower" Variations="0"/>
+<Actor id="BattleStation_MechBridgeDestroyed"/>
+<Actor id="BattleStation_RefuelingStation" Variations="2"/>
+<Actor id="BirdDriftSeekerZerus"/>
+<Actor id="Blast_Craters" Variations="0,1,2,3"/>
+<Actor id="Blast_Craters_Big" Variations="4"/>
+<Actor id="BubbleAcid"/>
+<Actor id="CompoundMansion_Trims" Variations="8"/>
+<Actor id="CompoundSewers_Water_Effects" Variations="2,3,4,5"/>
+<Actor id="DOM_Fire_Large"/>
+<Actor id="DOM_GroundTrims" Variations="7,8"/>
+<Actor id="DOM_LabFloodLight" Variations="1"/>
+<Actor id="DeadQueen"/>
+<Actor id="Decal_Baked" Variations="3"/>
+<Actor id="DefendersCity_Buildings_IndustrialDestroyed" Variations="4"/>
+<Actor id="DefendersCity_Museum_Banner"/>
+<Actor id="DefendersCity_Museum_NaturalHistory"/>
+<Actor id="DefendersCity_StreetLight" Variations="0"/>
+<Actor id="DominionLandingPad" Variations="0"/>
+<Actor id="Elsecaro_BeachPeople_Dead" Variations="0,1,4"/>
+<Actor id="Elsecaro_Bush1x1" Variations="0,1,2,3,4"/>
+<Actor id="Elsecaro_Bush2x2" Variations="0,1,2,3,4"/>
+<Actor id="Elsecaro_Bush4x4" Variations="0,1,2,3,4"/>
+<Actor id="Elsecaro_Catamaran" Variations="1,2,3,5"/>
+<Actor id="Elsecaro_Civilian_Car" Variations="4,6"/>
+<Actor id="Elsecaro_Civilian_Car_Red" Variations="6"/>
+<Actor id="Elsecaro_Colonist_Hut_Doodad" Variations="3"/>
+<Actor id="Elsecaro_Dock" Variations="1,2,3"/>
+<Actor id="Elsecaro_Dock_Hut" Variations="0,1,2"/>
+<Actor id="Elsecaro_Downtown_Building" Variations="3,5"/>
+<Actor id="Elsecaro_Downtown_Building_Destroyed" Variations="7"/>
+<Actor id="Elsecaro_Foliage" Variations="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20"/>
+<Actor id="Elsecaro_Jet_Ski" Variations="0,1"/>
+<Actor id="Elsecaro_Large_Rock" Variations="3,5"/>
+<Actor id="Elsecaro_Medium_Rock_Group" Variations="2"/>
+<Actor id="Elsecaro_Medium_Rock_NoShadow_Group" Variations="0,1,2,3"/>
+<Actor id="Elsecaro_Palmtree" Variations="0,1,2,3,4,5,6,7"/>
+<Actor id="Elsecaro_Resorts_Hotels" Variations="0,2,5"/>
+<Actor id="Elsecaro_SandDrifts" Variations="0"/>
+<Actor id="Elsecaro_SandDriftsSplat" Variations="0,1,2"/>
+<Actor id="Elsecaro_SeaShell" Variations="4"/>
+<Actor id="Elsecaro_SeaShell_Group" Variations="0,4"/>
+<Actor id="Elsecaro_SeaShell_Terrain_Splat" Variations="0"/>
+<Actor id="Elsecaro_SeaWeeds" Variations="0,1,2,3,4,5"/>
+<Actor id="Elsecaro_SeaWeeds_Group" Variations="0,1,2,3"/>
+<Actor id="Elsecaro_Sidewalks" Variations="0,1,2,3,4,6,7"/>
+<Actor id="Elsecaro_Sign_Board" Variations="1,3,15"/>
+<Actor id="Elsecaro_Small_Props_Group" Variations="1,3,5"/>
+<Actor id="Elsecaro_Small_Rock_Group" Variations="0,1,2,3"/>
+<Actor id="Elsecaro_Small_Rock_NoShadow_Group" Variations="0,1,2,3"/>
+<Actor id="Elsecaro_StoreFront" Variations="0,1,2,3,5,6,7,8,10"/>
+<Actor id="Elsecaro_StoreFront_Destroyed" Variations="3,7,9"/>
+<Actor id="Elsecaro_Waves"/>
+<Actor id="Elsecaro_Zerg_Damage_Splat" Variations="3,4"/>
+<Actor id="FishSchool"/>
+<Actor id="Fog_Aiur"/>
+<Actor id="GenericFire_Medium_Area"/>
+<Actor id="GenericFire_Medium_Long"/>
+<Actor id="GhostCorpses" Variations="1,2,3"/>
+<Actor id="HalfStructurePlates" Variations="0"/>
+<Actor id="HeavySnowTree"/>
+<Actor id="HybridLab_LabDissectionTable" Variations="0,1"/>
+<Actor id="IceBlock"/>
+<Actor id="IceBridge" Variations="0,1"/>
+<Actor id="IceBrokenGroundEdging" Variations="1"/>
+<Actor id="IceCave" Variations="1"/>
+<Actor id="IceProtossBaseArch" Variations="1,2,3"/>
+<Actor id="IceProtossReliquary"/>
+<Actor id="IceProtossSanctum"/>
+<Actor id="IceRockGiant" Variations="0,1,2,4,5,6,7,8,9,10,12,14,15,17"/>
+<Actor id="IceRockTower" Variations="0,1,2"/>
+<Actor id="IceShearedRocks" Variations="0,1,6,7"/>
+<Actor id="IceShearedRocksUpright" Variations="0,1,2,4,5,6,7"/>
+<Actor id="IceSpikes" Variations="0,1"/>
+<Actor id="IceWorldEx2_CliffGlacierMedium" Variations="0,1,3"/>
+<Actor id="IceWorldRock" Variations="0,1,2,3,4,5,6,7,8,9"/>
+<Actor id="IceWorldRockLarge" Variations="0,1,2,3,4,5,6,7"/>
+<Actor id="JarbanMinor_BloodSmear" Variations="0,1"/>
+<Actor id="KorhalBridge"/>
+<Actor id="KorhalDestroyedBuilding" Variations="2"/>
+<Actor id="Korhal_AirportTower_Destroyed" Variations="1"/>
+<Actor id="Korhal_ConstructionCranes_Destroyed" Variations="2,5"/>
+<Actor id="Korhal_GuardTower"/>
+<Actor id="Korhal_Mart_Destroyed" Variations="0,2"/>
+<Actor id="Korhal_Platform_Debris" Variations="0"/>
+<Actor id="Korhal_Platform_OilMarks" Variations="0,1,2"/>
+<Actor id="Korhal_Residential_Building" Variations="1,2"/>
+<Actor id="Korhal_Residential_Building_Destroyed" Variations="0,1"/>
+<Actor id="Korhal_SiegeTank_Destroyed"/>
+<Actor id="Korhal_Skyscrapers_Cliff_Destroyed" Variations="0,1,2,3"/>
+<Actor id="Korhal_SpacePort_Cone_Destroyed" Variations="3"/>
+<Actor id="Korhal_SpacePort_SmallPlane" Variations="1"/>
+<Actor id="Korhal_Thor_Building_Destroyed"/>
+<Actor id="MoebiusLabBrokenHornet" Variations="1"/>
+<Actor id="MoebiusLabTestingFacility"/>
+<Actor id="MoebiusLabTestingFacilityLarge"/>
+<Actor id="MoebiusLabZergChamberLarge" Variations="6"/>
+<Actor id="MoebiusLab_DissectionArm_Destroyed" Variations="0"/>
+<Actor id="MoebiusLab_DissectionTable" Variations="0"/>
+<Actor id="MoebiusLab_StasisTube" Variations="0,1,2,4,5,6,7,8"/>
+<Actor id="MoebiusLab_StasisTubeLarge" Variations="2"/>
+<Actor id="MoebiusLab_StasisTubeWall" Variations="4"/>
+<Actor id="OilPuddle" Variations="0,1,2,3,4"/>
+<Actor id="PortCity_Bench" Variations="0,1,2,3,4,5"/>
+<Actor id="PortCity_BuildingRound_Destroyed" Variations="0,1,2,4,6,7"/>
+<Actor id="PortCity_Cargo" Variations="3,13"/>
+<Actor id="PortCity_CargoBoat" Variations="0"/>
+<Actor id="PortCity_CargoDestroyed" Variations="0,2,5"/>
+<Actor id="PortCity_Fountain_Destroyed" Variations="1"/>
+<Actor id="PortCity_Garden_Plants" Variations="0,1,3,6,7,8,9,10"/>
+<Actor id="PortCity_Garden_PlantsTopiary" Variations="2,3,5,6,10,11,13"/>
+<Actor id="PortCity_IndustrialCrane" Variations="5"/>
+<Actor id="PortCity_Signage_Destroyed" Variations="1,5,6,8,10,12"/>
+<Actor id="PortCity_Stadium_Destroyed"/>
+<Actor id="PortCity_Statue" Variations="1"/>
+<Actor id="PortCity_StatueDestroyed" Variations="1"/>
+<Actor id="PortCity_StreetAlarms" Variations="3"/>
+<Actor id="PortCity_StreetAlarms_Destroyed" Variations="1"/>
+<Actor id="PortCity_StreetLight" Variations="2"/>
+<Actor id="PortCity_StreetLightPost" Variations="0,1"/>
+<Actor id="PortCity_StreetLight_Destroyed" Variations="4"/>
+<Actor id="PortCity_StreetSigns" Variations="10"/>
+<Actor id="PortCity_SubwayEntrance"/>
+<Actor id="PortCity_Trims" Variations="8,16"/>
+<Actor id="Protoss_Base_Console_Small" Variations="1,2"/>
+<Actor id="Protoss_Base_LandingDeck" Variations="1"/>
+<Actor id="Protoss_Base_RepairBay" Variations="0"/>
+<Actor id="Protoss_Base_Repair_Bot" Variations="1"/>
+<Actor id="PurificationDesert_GroundTrim_Destroyed" Variations="3,6,8,14,22"/>
+<Actor id="Purifier_Rock_Blend" Variations="0,1,2,3,4,5,6"/>
+<Actor id="Purifier_Trees_Giant" Variations="1,2"/>
+<Actor id="Purifier_Trees_Log" Variations="3"/>
+<Actor id="Purifier_Trees_Regular" Variations="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15"/>
+<Actor id="Purifier_Trees_Tall" Variations="0,1,2,3,4,5,6,7,8,9,10,11"/>
+<Actor id="RoadCornerDiagonal" Variations="1,2"/>
+<Actor id="RoadCornerStraight" Variations="1"/>
+<Actor id="RoadDestroyedEndCap" Variations="2,3"/>
+<Actor id="RoadDiagonal" Variations="1,2"/>
+<Actor id="RoadEndCap" Variations="1"/>
+<Actor id="SmokeStack_Fire_Constant_Burst_Lg"/>
+<Actor id="SmokeStack_Fire_Constant_Burst_Sm"/>
+<Actor id="SmokeStack_Fire_Constant_Lg"/>
+<Actor id="SnowBase_VentTower" Variations="0,1,2,3"/>
+<Actor id="SnowBlizzard"/>
+<Actor id="SnowDrifts" Variations="0,1,2"/>
+<Actor id="SnowDriftsLarge" Variations="0,1,2,3"/>
+<Actor id="SnowLight"/>
+<Actor id="SnowRefinery_IceRiver" Variations="2"/>
+<Actor id="SnowRefinery_Mountain"/>
+<Actor id="SnowRefinery_Ridges" Variations="0,1"/>
+<Actor id="SnowRefinery_SnowDrift_Large" Variations="1,2"/>
+<Actor id="SnowRefinery_SnowDrift_Opaque" Variations="1"/>
+<Actor id="SnowRefinery_SnowTracks" Variations="2"/>
+<Actor id="SnowRefinery_TallRock" Variations="0,2,3,5"/>
+<Actor id="SnowRefinery_Terran_Antenna" Variations="0,1"/>
+<Actor id="SnowRefinery_Terran_Barrier" Variations="0,2"/>
+<Actor id="SnowRefinery_Terran_CliffGarage" Variations="0,1,3"/>
+<Actor id="SnowRefinery_Terran_ConstructionCranes" Variations="1"/>
+<Actor id="SnowRefinery_Terran_Crates" Variations="0,2,3"/>
+<Actor id="SnowRefinery_Terran_ModularCliff_Thin" Variations="4,5"/>
+<Actor id="SnowRefinery_Terran_Pipes" Variations="0,6"/>
+<Actor id="SnowRefinery_Terran_SnowSplats" Variations="1,3"/>
+<Actor id="SnowRefinery_Terran_WindSock" Variations="0"/>
+<Actor id="SnowTreeDead" Variations="0,1,2,3,5"/>
+<Actor id="SnowTrees" Variations="0,1,2,3,4,5,6"/>
+<Actor id="Tarsonis_Ornate_Door" Variations="3"/>
+<Actor id="Tarsonis_Store_Front" Variations="1,3,4,5"/>
+<Actor id="Tarsonis_Store_Front_Props" Variations="0,1,4,6"/>
+<Actor id="Tarsonis_WoodTrim" Variations="0"/>
+<Actor id="UmojanLabAlarms"/>
+<Actor id="UmojanLabCrates" Variations="1,4"/>
+<Actor id="UmojanLabFloodLights" Variations="1"/>
+<Actor id="UmojanLabWallConsoles" Variations="0,1"/>
+<Actor id="Vespene_Crack"/>
+<Actor id="Vespene_Crack_Pick_UP"/>
+<Actor id="Vespene_Pump_Small"/>
+<Actor id="ZergCarcasses" Variations="0,1,3,4,5,6"/>
+<Actor id="ZerusGroundVines" Variations="0,1,2,3"/>
+<Actor id="ZerusLargeTree" Variations="0,1"/>
+<Actor id="ZerusLavaGroundCrack" Variations="1,2"/>
+<Actor id="ZerusLavaGroundSpire" Variations="0,1,2"/>
+<Actor id="ZerusLogBridge"/>
+<Actor id="ZerusPlant" Variations="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19"/>
+<Actor id="ZerusPlantClusterLarge" Variations="0,1,2,3,4,5"/>
+<Actor id="ZerusPlantClusterMedium" Variations="0,1,2,3,4,5,6,7"/>
+<Actor id="ZerusPlantClusterSmall" Variations="0,1,2,3,4,5,6,7"/>
+<Actor id="ZerusPlantlife" Variations="2,6,8"/>
+<Actor id="ZerusSwampPlants" Variations="0"/>
+<Actor id="ZerusSwampPlantsLarge" Variations="1"/>
+<Actor id="ZerusTallGrassCluster" Variations="0"/>
+<Actor id="ZerusWaterPlant" Variations="0,1,2,3,5,6,7,8,9,10"/>
+<Actor id="AgriaCrops" Variations="0,1,2"/>
+<Actor id="AgriaCurtain" Variations="0,1,2,3"/>
+<Actor id="AgriaFoliage" Variations="0,1,2,3,4,5"/>
+<Actor id="AgriaTree" Variations="0,1,2,3,4,5,6,7"/>
+<Actor id="AiurCurtain" Variations="0,1,2,3"/>
+<Actor id="TerranCliffGapFiller" Variations="2"/>
+<Actor id="BelShirCliffRoots" Variations="2"/>
+<Actor id="BelShirCurtain" Variations="0,1,2,3"/>
+<Actor id="BelShirTree" Variations="0,1,2,3,4,5,6,7"/>
+<Actor id="BillboardDestroyed" Variations="0,5"/>
+<Actor id="BirdHammerRay"/>
+<Actor id="BirdXenomorph"/>
+<Actor id="BloodSplats" Variations="0,1,2,3,4,5"/>
+<Actor id="BullhornLights" Variations="0"/>
+<Actor id="Bush" Variations="1,2,3,4"/>
+<Actor id="CableLight"/>
+<Actor id="CastanarDissectionTable" Variations="1"/>
+<Actor id="CastanarMonitorFloor" Variations="1,2"/>
+<Actor id="AvernusUltraliskShackled"/>
+<Actor id="AvernusUltraliskShackledEmpty"/>
+<Actor id="CharCrater" Variations="0,1,2"/>
+<Actor id="CharFlower" Variations="0,1,2"/>
+<Actor id="CharFoliage" Variations="0,1,2,3,4,5"/>
+<Actor id="CharRock" Variations="3"/>
+<Actor id="CharTree" Variations="1,2,4,7"/>
+<Actor id="CityBillboards" Variations="11,13,22"/>
+<Actor id="FanVentCliff" Variations="0"/>
+<Actor id="FireMedium"/>
+<Actor id="FishBlackFinMako" Variations="1"/>
+<Actor id="Floodlight" Variations="0,1,2"/>
+<Actor id="FogGrey"/>
+<Actor id="Garage" Variations="0"/>
+<Actor id="GasStation"/>
+<Actor id="KorhalStoreFront" Variations="0,1,2,3,4,6,7,8"/>
+<Actor id="KorhalWraithSquadronStatue"/>
+<Actor id="LandingLights" Variations="1,2,3"/>
+<Actor id="LavaSplash"/>
+<Actor id="MarSaraBridge"/>
+<Actor id="MarSaraBridgeLong" Variations="0"/>
+<Actor id="MarSaraCrack" Variations="3,4"/>
+<Actor id="MarSaraMineCart"/>
+<Actor id="PortZionTowerDestroyed" Variations="7"/>
+<Actor id="RainEmitterLarge"/>
+<Actor id="RedstoneCurtain" Variations="0,1,2,3"/>
+<Actor id="RedstoneRockSpires" Variations="0,2,3,4"/>
+<Actor id="RedstoneRockSpiresNoBase" Variations="0,1,2,3,4"/>
+<Actor id="RedstoneTree" Variations="0,1,2,3,4,5,6,7"/>
+<Actor id="RockTower" Variations="2"/>
+<Actor id="RockVolcanicGiant" Variations="0,1,2,3,5"/>
+<Actor id="RockWaterfall" Variations="2,5,6"/>
+<Actor id="RockGiant" Variations="4,13,15"/>
+<Actor id="SpacePlatformCliffBillboard" Variations="0,1"/>
+<Actor id="StoreFront2Story" Variations="0,1"/>
+<Actor id="StoreFrontNeonSigns" Variations="1,2,3"/>
+<Actor id="StoreFrontWindows" Variations="0,1,2"/>
+<Actor id="Streetlight" Variations="1"/>
+<Actor id="TyphonRock" Variations="7"/>
+<Actor id="VespeneTank" Variations="2"/>
+<Actor id="WaterTank" Variations="0,1"/>
+<Actor id="WolfStatueDoodad" Variations="1"/>
+<Actor id="WreckedCargoTruckCorpse" Variations="0,1,2"/>
+<Actor id="WreckedMule" Variations="0,1,2"/>
+<Actor id="WreckedSandbags" Variations="0,1,2"/>
+<Actor id="CargoTruckCreep" Variations="2"/>
+<Actor id="ColonistVehicleWrecked" Variations="0"/>
+<Actor id="TrucksDestroyed" Variations="1,2"/>
+<Actor id="BelShirUnderbrush" Variations="0"/>
+<Actor id="KorhalBuildingDebris" Variations="4"/>
+<Actor id="Lavafall" Variations="2"/>
+<Actor id="SpacePlatformCurtain" Variations="2,3"/>
+<Actor id="AnimalCorpse" Variations="4,5"/>
+<Actor id="CivilianCars" Variations="3"/>
+<Actor id="CliffScaffolding" Variations="0"/>
+<Actor id="ColonistHutBurntOut" Variations="4,5,6,7"/>
+<Actor id="AgriaShrub" Variations="0,1,2,3,4,5,6,7,8"/>
+<Actor id="BelShirFlowers" Variations="0,1,2,3,4,5,6,7,8,9"/>
+<Actor id="BelShirShrub" Variations="1,2,4,5,6,8"/>
+<Actor id="ColonistCorpse" Variations="2,6,10,13"/>
+<Actor id="MarineCorpse" Variations="0,1,2,3,7,8,9"/>
+<Actor id="ScientistCorpseGory" Variations="0,1,2,3,5,6"/>
+<Actor id="TerrainObjectCharNydusNestDoodad"/>
+<Actor id="TTosh01RockSpires" Variations="1"/>
+<Actor id="CastanarDissectionTableDestroyed" Variations="0,1"/>
+<Actor id="TruckTanker"/>
+<Actor id="TruckFlatbedConstruction"/>
+<Model id="AdjutantPortrait"/>
 <Model id="BattlecruiserPortrait"/>
 <Model id="BriefingUnitSelectLarge"/>
 <Model id="BriefingUnitSelectSmall"/>
 <Sound id="NydusWorm_Unload" Variations="0"/>
 <Sound id="Dialogue_Transmission5Seconds" Variations="0"/>
 <Sound id="Event_Lab02_AlarmIncomingAttack" Variations="0"/>
-<Terrain id="ShakurasTemple"/>
-<Unit id="SupplyDepot"/>
-<Unit id="MissileTurret"/>
-<Unit id="Bunker"/>
-<Unit id="Hatchery"/>
-<Unit id="Extractor"/>
-<Unit id="SpawningPool"/>
-<Unit id="EvolutionChamber"/>
-<Unit id="HydraliskDen"/>
-<Unit id="UltraliskCavern"/>
-<Unit id="InfestationPit"/>
-<Unit id="NydusNetwork"/>
-<Unit id="RoachWarren"/>
-<Unit id="SpineCrawler"/>
-<Unit id="SporeCrawler"/>
-<Unit id="Lair"/>
-<Unit id="Hive"/>
-<Unit id="GreaterSpire"/>
-<Unit id="Drone"/>
-<Unit id="Zergling"/>
-<Unit id="Overlord"/>
-<Unit id="Hydralisk"/>
-<Unit id="Mutalisk"/>
+<Terrain id="CharEx2"/>
 <Unit id="Ultralisk"/>
-<Unit id="Roach"/>
-<Unit id="HydraliskBurrowed"/>
-<Unit id="RoachBurrowed"/>
-<Unit id="ZerglingBurrowed"/>
-<Unit id="Queen"/>
 <Unit id="NydusCanal"/>
-<Unit id="MineralField" Variations="0,1,2,3,4,5,6,7,8,9"/>
-<Unit id="GuardianMP"/>
-<Unit id="DevourerMP"/>
 <Unit id="BattlecruiserHelios"/>
-<Unit id="Scourge"/>
-<Unit id="CreepTumorUsed"/>
-<Unit id="SunkenColony"/>
+<Unit id="Brutalisk"/>
+<Unit id="CRPGMarine"/>
+<Unit id="CRPGDefensiveFortification"/>
+<Unit id="CRPGDefensiveWall"/>
+<Unit id="CRPGDefensiveTurret"/>
+<Unit id="CRPGBuildableLocationDefensiveFortification"/>
 <Unit id="CRPGArmory"/>
 <Unit id="CRPGCrashedBattlecruiser"/>
-<Unit id="CRPGCivilian"/>
-<Unit id="BeaconRandomHero"/>
-<Unit id="BeaconSelectHero"/>
+<Unit id="CRPGBuildableLocationDefensiveWall"/>
+<Unit id="CRPGBuildableLocationDefensiveTurret"/>
+<Unit id="CRPGCrashedBattlecruiserPlayer"/>
 </Preload>

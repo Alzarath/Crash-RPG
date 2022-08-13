@@ -1,49 +1,771 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="AeroDefensiveMatrix@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroDefensiveMatrix"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="AeroDefensiveMatrix@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroDefensiveMatrix"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="AeroFireSuppressionSystem@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-swann-firesuppressionsystem.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-firesuppressionsystem.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroFireSuppressionSystem"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="AeroFireSuppressionSystem@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-swann-firesuppressionsystem.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-firesuppressionsystem.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroFireSuppressionSystem"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="AeroLaserArmaments@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-swann-improvedburstlaser.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-improvedburstlaser.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive2"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroLaserArmaments"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="AeroLaserArmaments@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-swann-improvedburstlaser.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-swann-improvedburstlaser.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive2"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroLaserArmaments"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="AeroTacticalJump@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroTacticalJump"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="AeroTacticalJump@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroTacticalJump"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="AeroYamatoCannon@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroYamatoCannon"/>
+        <Universal value="1"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="AeroYamatoCannon@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="AeroYamatoCannon"/>
+        <Universal value="1"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="AlienAssaultGenetics">
+        <Icon value="Assets\Textures\wireframe-zerg-hydralisk.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-zerg-hydralisk.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienBruiserGenetics">
+        <Icon value="Assets\Textures\wireframe-zerg-roach.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-zerg-roach.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienEmptyGeneticsStack1">
+        <Name value="Button/Name/AlienEmptyGeneticsStack"/>
+        <Tooltip value="Button/Tooltip/AlienEmptyGeneticsStack"/>
+        <Icon value="Assets\Textures\battlestation_number_decals_diff_01.dds"/>
+        <AlertName value="Button/Name/AlienEmptyGeneticsStack"/>
+        <AlertTooltip value="Button/Tooltip/AlienEmptyGeneticsStack"/>
+        <AlertIcon value="Assets\Textures\battlestation_number_decals_diff_01.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienEmptyGeneticsStack2">
+        <Name value="Button/Name/AlienEmptyGeneticsStack"/>
+        <Tooltip value="Button/Tooltip/AlienEmptyGeneticsStack"/>
+        <Icon value="Assets\Textures\battlestation_number_decals_diff_02.dds"/>
+        <AlertName value="Button/Name/AlienEmptyGeneticsStack"/>
+        <AlertTooltip value="Button/Tooltip/AlienEmptyGeneticsStack"/>
+        <AlertIcon value="Assets\Textures\battlestation_number_decals_diff_02.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienEmptyGeneticsStack3">
+        <Name value="Button/Name/AlienEmptyGeneticsStack"/>
+        <Tooltip value="Button/Tooltip/AlienEmptyGeneticsStack"/>
+        <Icon value="Assets\Textures\battlestation_number_decals_diff_03.dds"/>
+        <AlertName value="Button/Name/AlienEmptyGeneticsStack"/>
+        <AlertTooltip value="Button/Tooltip/AlienEmptyGeneticsStack"/>
+        <AlertIcon value="Assets\Textures\battlestation_number_decals_diff_03.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="AlienEmptyGeneticsStack2"/>
+    </CButton>
+    <CButton id="AlienEvolutionaryPrime">
+        <Icon value="Assets\Textures\btn-ability-zerg-creepspread.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-creepspread.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="AlienHarvesterGenetics"/>
+    </CButton>
+    <CButton id="AlienGestation">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-abathur-mutagenicpotential.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-abathur-mutagenicpotential.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="AlienHarvesterGenetics"/>
+    </CButton>
+    <CButton id="AlienHarvesterGenetics">
+        <Icon value="Assets\Textures\wireframe-zerg-drone.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-zerg-drone.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienGeneticAdaptation">
+        <Icon value="Assets\Textures\btn-ability-zerg-debilitatingbile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-debilitatingbile.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="AlienHarvesterGenetics"/>
+    </CButton>
+    <CButton id="AlienStalk">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienStalkerGenetics">
+        <Icon value="Assets\Textures\wireframe-zerg-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-zerg-zergling.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienSiegeGenetics">
+        <Icon value="Assets\Textures\wireframe-zerg-ravagers.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-zerg-ravagers.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienSupportGenetics">
+        <Icon value="Assets\Textures\wireframe-zerg-queen.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-zerg-queen.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienTankGenetics">
+        <Icon value="Assets\Textures\wireframe-zerg-ultralisk.dds"/>
+        <AlertIcon value="Assets\Textures\wireframe-zerg-ultralisk.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienBurrowChargeTank">
+        <Icon value="Assets\Textures\BTN-Upgrade-Zerg-BurrowCharge.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Upgrade-Zerg-BurrowCharge.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienYagdraFireWave">
+        <Icon value="Assets\Textures\btn-ability-terran-bombardmentstrike-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="AlienYagdraSpitFire"/>
+    </CButton>
+    <CButton id="CRPGAbilityUpgradeSecondary">
+        <Icon value="Assets\Textures\decal_spray_0017_01.dds"/>
+        <AlertIcon value="Assets\Textures\decal_spray_0017_01.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="CRPGAbilityUpgradePassivePrimary">
+        <Icon value="Assets\Textures\btn-number-1.dds"/>
+        <AlertIcon value="Assets\Textures\btn-number-1.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="CRPGAbilityUpgradePassiveSecondary">
+        <Icon value="Assets\Textures\btn-number-2.dds"/>
+        <AlertIcon value="Assets\Textures\btn-number-2.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="CRPGAbilityUpgradeTernary">
+        <Icon value="Assets\Textures\decal_spray_0015_01.dds"/>
+        <AlertIcon value="Assets\Textures\decal_spray_0015_01.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="BossLock">
+        <Icon value="Assets\Textures\btn-ability-terran-lockon.dds"/>
+    </CButton>
+    <CButton id="CRPGLearnAbilityQ">
+        <EditorCategories value="Race:Neutral"/>
+    </CButton>
+    <CButton id="CRPGLearnAbilityW">
+        <EditorCategories value="Race:Neutral"/>
+    </CButton>
+    <CButton id="CRPGLearnAbilityE">
+        <EditorCategories value="Race:Neutral"/>
+    </CButton>
+    <CButton id="CRPGLearnPassive1">
+        <EditorCategories value="Race:Neutral"/>
+    </CButton>
+    <CButton id="CRPGLearnPassive2">
+        <EditorCategories value="Race:Neutral"/>
+    </CButton>
+    <CButton id="CRPGRecruitMarine">
+        <Icon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="CRPGRecruitMarauder">
+        <Icon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="CRPGRecruitGhost">
+        <Icon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="DefensiveWallMorph@Lower">
+        <Icon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="Lower"/>
+    </CButton>
+    <CButton id="FighterAstralWind@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="FighterAstralWind"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
+    </CButton>
+    <CButton id="FighterRapidStrikes@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="FighterRapidStrikes"/>
+    </CButton>
+    <CButton id="MedicHealingBeam@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MedicHealingBeam"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="MedicIrradiate@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="MedicIrradiate"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="MedicOpticalFlare@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MedicOpticalFlare"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="MedicSpawnMedivac@Learn">
+        <Icon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MedicSpawnMedivac"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="MedicSpawnMedivac@Upgraded">
+        <Icon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MedicSpawnMedivac"/>
+    </CButton>
+    <CButton id="MedivacHealingBeam">
+        <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MedicHealingBeam"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="MedivacAfterburners">
+        <Icon value="Assets\Textures\BTN-Upgrade-Terran-MedivacEmergencyThrusters.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Upgrade-Terran-MedivacEmergencyThrusters.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <HotkeyAlias value="MedivacSpeedBoost"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="CRPGMedivacTransport@Load" parent="MedivacLoad">
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="CRPGMedivacTransport@UnloadAll" parent="MedivacUnloadAll">
+        <DefaultButtonLayout Row="2" Column="3"/>
+    </CButton>
+    <CButton id="DefensiveWallMorph@Raise">
+        <Icon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="Raise"/>
+    </CButton>
+    <CButton id="SniperBetterEquipment@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperBetterEquipment"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="MedicHealingBeam@Cancel" parent="Cancel">
+        <DefaultButtonLayout Row="2" Column="4"/>
+    </CButton>
+    <CButton id="SniperNuclearStrike@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperNuclearStrike"/>
+        <HidesForSimpleText value="0"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="SniperNuclearStrike@Cancel" parent="Cancel">
+        <DefaultButtonLayout Row="2" Column="4"/>
+    </CButton>
+    <CButton id="DefensiveTurretHellstormMissilePods">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-hellstormbatteries.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="HellstormMissileBatteries"/>
+    </CButton>
+    <CButton id="FighterAstralWind@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="FighterAstralWind"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
+    </CButton>
+    <CButton id="FighterLightningDash@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="FighterLightningDash"/>
+        <DefaultButtonLayout Row="2"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
+    </CButton>
+    <CButton id="FighterLightningDash@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="FighterLightningDash"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
+    </CButton>
+    <CButton id="FighterRapidStrikes@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="FighterRapidStrikes"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="FighterResurgence@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="FighterResurgence"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+        <Hotkey value="Button/Hotkey/FighterResurgence"/>
+    </CButton>
+    <CButton id="FighterViolentCharge@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="FighterViolentCharge"/>
+        <DefaultButtonLayout Row="1"/>
+        <Hotkey value="Button/Hotkey/FighterViolentCharge"/>
+    </CButton>
+    <CButton id="HunterDisruptorVolley@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterDisruptorVolley"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="HunterPlasmaDiffusion@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterPlasmaDiffusion"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+        <Hotkey value="Button/Hotkey/HunterPlasmaDiffusion@Upgraded"/>
+    </CButton>
+    <CButton id="HunterPlasmaDiffusion@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterPlasmaDiffusion"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="HunterPsionicProjection@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterPsionicProjection"/>
+        <DefaultButtonLayout Row="1"/>
+        <Hotkey value="Button/Hotkey/HunterPsionicProjection@Upgraded"/>
+    </CButton>
+    <CButton id="HunterPsionicProjection@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterPsionicProjection"/>
+    </CButton>
+    <CButton id="HunterScarabMine@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterScarabMine"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="HunterScarabMine@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterScarabMine"/>
+    </CButton>
+    <CButton id="HunterShadowTransfer@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterShadowTransfer"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="InfestedAberrate@Learn">
+        <Icon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedAbomination"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="InfestedCausticWeapons@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedCausticWeapons"/>
+    </CButton>
+    <CButton id="InfestedHardenedEquipment@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive2"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedHardenedEquipment"/>
+    </CButton>
+    <CButton id="InfestedInfestationSpore@Learn">
+        <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="NeuralParasite"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="InfestedInfestedEggs@Learn">
+        <Icon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedInfestedEggs"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="InfestedInfestedEggs@Upgraded">
+        <Icon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedInfestedEggs"/>
+    </CButton>
+    <CButton id="SandbagCover">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-combatshield-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-techupgrade-terran-combatshield-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ShadowBlink">
+        <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="InfestedHardenedEquipment@Armor">
+        <Icon value="Assets\Textures\btn-ability-zerg-stukov-debuff-scv.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-stukov-debuff-scv.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="InfestedHardenedEquipment"/>
+    </CButton>
+    <CButton id="InfestedHardenedEquipment@Weapons">
+        <Icon value="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="InfestedHardenedEquipment"/>
+    </CButton>
+    <CButton id="MedicIrradiate">
+        <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="MechImmortalityProtocol">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="ImmortalityProtocol"/>
+    </CButton>
+    <CButton id="MedicHealingBeam">
+        <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="MedicSpawnMedivac">
+        <Icon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="MedicOpticalFlare">
+        <Icon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="MedicRestoration">
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="MedicSelfixArmor">
+        <Icon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="CRPGDefensiveFortification">
+        <Icon value="Assets\Textures\btn-building-terran-bunker.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-bunker.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
     <CButton id="FighterAstralWind">
         <Icon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
     </CButton>
     <CButton id="FighterLightningDash">
         <Icon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
+    </CButton>
+    <CButton id="CrashedBattlecruiserConstructOutpost">
+        <Tooltip value="Button/Tooltip/CRPGOutpost"/>
+        <Icon value="Assets\Textures\btn-building-terran-commandcenter.dds"/>
+        <AlertTooltip value="Button/Tooltip/CRPGOutpost"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-commandcenter.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="CRPGDefensiveTurret">
+        <Icon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="CrashedBattlecruiserNomadRepair">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-automatedselfrepair.dds"/>
+        <AlertIcon value="Assets\Textures\btn-techupgrade-terran-automatedselfrepair.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="AlienRapidTransfusion">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="AlienCorrosiveBile">
+        <Icon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-corrosivebile.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="Follow">
+        <Icon value="Assets\Textures\btn-command-move.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-move.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="Move"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Follow"/>
+    </CButton>
+    <CButton id="ShooterChaingun@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterChaingun"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="ShooterChaingun@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterChaingun"/>
+    </CButton>
+    <CButton id="ShooterGravityGrenade@Learn">
+        <Icon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterGravityGrenade"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="ShooterGravityGrenade@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterGravityGrenade"/>
+    </CButton>
+    <CButton id="ShooterOverkill">
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="ShooterOverkill@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterOverkill"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="ShooterOverkill@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterOverkill"/>
+    </CButton>
+    <CButton id="ShooterSandbags">
+        <Icon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="ShooterSandbags@Learn">
+        <Icon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterSandbags"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="ShooterSandbags@Upgraded">
+        <Icon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterSandbags"/>
+    </CButton>
+    <CButton id="ShooterStimpack@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterStimpack"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="ShooterStimpack@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterStimpack"/>
+    </CButton>
+    <CButton id="SniperPersonalCloaking@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperPersonalCloaking@On"/>
+        <HotkeySet value="Cloak"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="SniperSniperRound@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperSniperRound"/>
+        <HidesForSimpleText value="0"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="SniperToxicMunitions@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperToxicMunitions"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="SniperToxicMunitions@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
+        <Hotkey value="Button/Hotkey/SniperToxicMunitions@Learn"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperToxicMunitions"/>
+    </CButton>
+    <CButton id="SwarmerIncubate">
+        <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
+        <EditorCategories value="Race:PrimalZerg"/>
+        <HotkeyAlias value="SwarmerSpawm"/>
+    </CButton>
+    <CButton id="SwarmerSwarm">
+        <Icon value="Assets\Textures\btn-ability-terran-unloadall.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-unloadall.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <TintRacially value="1"/>
+    </CButton>
+    <CButton id="ShipSolariteExposure">
+        <Icon value="Assets\Textures\btn-upgrade-karax-reconstructionbeamextratarget.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-karax-reconstructionbeamextratarget.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="AlienRapidRegeneration">
+        <Icon value="Assets\Textures\BTN-ability-zerg-rapidregeneration-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-ability-zerg-rapidregeneration-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="ShipPurifierTurrets">
         <Icon value="Assets\Textures\btn-ability-protoss-purify.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-    </CButton>
-    <CButton id="ShipStasisWardStasis">
-        <Icon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="HunterPlasmaDiffusion">
         <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+        <Hotkey value="Button/Hotkey/HunterPlasmaDiffusion@Upgraded"/>
     </CButton>
-    <CButton id="Interceptor2">
-        <Icon value="Assets\Textures\btn-unit-protoss-interceptor.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-protoss-interceptor.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-    </CButton>
-    <CButton id="ShipStasisWard">
-        <Icon value="Assets\Textures\btn-ability-protoss-oracle-stasisward.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-oracle-stasisward.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-    </CButton>
-    <CButton id="ShipStasisWardPermanentlyCloaked">
-        <Icon value="Assets\Textures\btn-upgrade-vorazun-stasiswardpermanentlycloaked.dds"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-vorazun-stasiswardpermanentlycloaked.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-        <HotkeyAlias value="PermanentlyCloakedObserver"/>
-    </CButton>
-    <CButton id="Repair2">
-        <Icon value="Assets\Textures\btn-ability-terran-repair.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-repair.dds"/>
+    <CButton id="CRPGDefensiveWall">
+        <Icon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <TintRacially value="1"/>
-        <Universal value="1"/>
+    </CButton>
+    <CButton id="ShooterLuckyShot">
+        <Icon value="Assets\Textures\btn-ability-terran-lucky-shot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-lucky-shot.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="ShooterDisableScatterShot">
+        <Icon value="Assets\Textures\btn-ability-terran-haleoflead.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-haleoflead.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ShooterScatterShot"/>
+    </CButton>
+    <CButton id="ShooterStimpack">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="ShooterChaingun">
+        <Icon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="ShooterScatterShot">
+        <Icon value="Assets\Textures\btn-upgrade-terran-explosiveshrapnelshells.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-explosiveshrapnelshells.dds"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="SwarmerMergeSelected">
         <Tooltip value="Button/Tooltip/SwarmerMerge"/>
@@ -65,11 +787,14 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
         <EditorCategories value="Race:PrimalZerg"/>
         <Universal value="1"/>
+        <Tooltip value="Button/Tooltip/SwarmerMerge"/>
+        <AlertTooltip value="Button/Tooltip/SwarmerMerge"/>
     </CButton>
     <CButton id="HunterShadowTransfer">
         <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="AlienEvolution">
         <EditorCategories value="Race:Zerg"/>
@@ -99,9 +824,9 @@
         <AlertIcon value="Assets\Textures\btn-unit-zerg-roach.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="AlienLeaperForm">
-        <Icon value="Assets\Textures\btn-unit-zerg-brutalisk.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-brutalisk.dds"/>
+    <CButton id="AlienStalkerForm">
+        <Icon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-zergling.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="AlienSiegeForm">
@@ -117,7 +842,10 @@
     <CButton id="AlienMetamorphosis">
         <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
         <EditorCategories value="Race:Zerg"/>
-        <HotkeyAlias value="BlightbringerCreateEggs"/>
+    </CButton>
+    <CButton id="HunterShadowTransfer@Free" parent="HunterShadowTransfer">
+        <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer-free.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer-free.dds"/>
     </CButton>
     <CButton id="SwarmerSplit">
         <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
@@ -128,6 +856,24 @@
         <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
         <EditorCategories value="Race:PrimalZerg"/>
+    </CButton>
+    <CButton id="MedicRestorativeBurst">
+        <Icon value="Assets\Textures\btn-ability-tychus-medic-restorativeburst.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-tychus-medic-restorativeburst.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HidesForSimpleText value="0"/>
+    </CButton>
+    <CButton id="CRPGAbilityUpgradePrimary">
+        <Icon value="Assets\Textures\decal_spray_0016_01.dds"/>
+        <AlertIcon value="Assets\Textures\decal_spray_0016_01.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="ShooterGravityGrenade">
+        <Icon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="UpgradeEnergy">
         <Tooltip value="Button/Tooltip/CRPGEnergyAttribute"/>
@@ -183,37 +929,30 @@
         <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton id="HunterDisruptorVolley@Free" parent="HunterDisruptorVolley">
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles-free.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles-free.dds"/>
     </CButton>
     <CButton id="HunterPsionicProjection">
-        <Icon value="Assets\Textures\btn-ability-protoss-psionicprojection.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionicprojection.dds"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
         <EditorCategories value="Race:Protoss"/>
-    </CButton>
-    <CButton id="HunterScatterCannon">
-        <Icon value="Assets\Textures\btn-ability-terran-haywiremissile.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-haywiremissile.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-        <HotkeyAlias value="ImmortalTaldarimScatterCannon"/>
-    </CButton>
-    <CButton id="MechCalldownMech">
-        <Icon value="Assets\Textures\btn-ability-terran-calldownsupport.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-calldownsupport.dds"/>
-        <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="1"/>
+        <Hotkey value="Button/Hotkey/HunterPsionicProjection@Upgraded"/>
     </CButton>
     <CButton id="FighterResurgence">
         <Icon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <EditorCategories value="Race:Protoss"/>
-    </CButton>
-    <CButton id="FighterPsiBlades">
-        <Icon value="Assets\Textures\btn-ability-protoss-psi-blades.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-psi-blades.dds"/>
-        <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
     <CButton id="FighterRapidStrikes">
         <Icon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="CRPGHoldFire">
         <Icon value="Assets\Textures\BTN-Ability-Terran-HoldFire.dds"/>
@@ -224,17 +963,18 @@
         <HidesForSimpleText value="0"/>
     </CButton>
     <CButton id="InfestedAberrate">
-        <Icon value="Assets\Textures\btn-unit-zerg-corruptedmass.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-zerg-corruptedmass.dds"/>
+        <Icon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedAbomination"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="InfestedEmpathicRepercussion">
         <Icon value="Assets\Textures\btn-ability-zerg-corruption-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zerg-corruption-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="InfestedEmpathicRepercussionDouble">
+    <CButton id="InfestedEmpathicRepercussion@Double">
         <Icon value="Assets\Textures\btn-ability-zerg-corruption-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zerg-corruption-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
@@ -243,18 +983,20 @@
     <CButton id="InfestedHardenedEquipment">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive2"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="InfestedInfestedEgg">
+    <CButton id="InfestedInfestedEggs">
         <Icon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
         <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2"/>
     </CButton>
     <CButton id="InfestedCausticWeapons">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
         <EditorCategories value="Race:Zerg"/>
-        <HotkeyAlias value="InfestedInfestedEgg"/>
     </CButton>
     <CButton id="InfestedInfestedSupplies">
         <Icon value="Assets\Textures\btn-ability-kerrigan-improvedoverlords.dds"/>
@@ -272,39 +1014,47 @@
         <Icon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="AeroTacticalJump">
         <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
     <CButton id="AeroFireSuppressionSystem">
         <Icon value="Assets\Textures\btn-upgrade-swann-firesuppressionsystem.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-firesuppressionsystem.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="1"/>
     </CButton>
     <CButton id="AeroLaserArmaments">
         <Icon value="Assets\Textures\btn-upgrade-swann-improvedburstlaser.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-improvedburstlaser.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive2"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
     <CButton id="MechShockBlast">
         <Icon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="InfestedInfest">
+    <CButton id="InfestedInfestationSpore">
         <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="NeuralParasite"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
-    <CButton id="SniperCloakOn">
+    <CButton id="SniperPersonalCloaking@On">
         <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeySet value="Cloak"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
-    <CButton id="MechEmergencyEvac">
+    <CButton id="MechExplosiveImmortality">
         <Icon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <EditorCategories value="Race:Terran"/>
@@ -318,6 +1068,11 @@
         <Icon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton id="HunterScarabMine@Free" parent="HunterScarabMine">
+        <Icon value="Assets\Textures\btn-ability-protoss-scarabshot-free.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-scarabshot-free.dds"/>
     </CButton>
     <CButton id="VehicleUnsiege">
         <Icon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
@@ -379,22 +1134,27 @@
         <AlertIcon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HidesForSimpleText value="0"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
-    <CButton id="SniperEnhancedOptics">
+    <CButton id="SniperBetterEquipment">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="1"/>
     </CButton>
     <CButton id="SniperToxicMunitions">
         <Icon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+        <Hotkey value="Button/Hotkey/SniperToxicMunitions@Learn"/>
     </CButton>
-    <CButton id="SniperSnipe">
+    <CButton id="SniperSniperRound">
         <Icon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HidesForSimpleText value="0"/>
+        <DefaultButtonLayout Row="2"/>
     </CButton>
     <CButton id="UpgradeDamage">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
@@ -410,31 +1170,29 @@
         <Tooltip value="Button/Tooltip/CRPGArmorAttribute"/>
         <AlertTooltip value="Button/Tooltip/CRPGArmorAttribute"/>
     </CButton>
-    <CButton id="SniperCloakOff">
+    <CButton id="SniperPersonalCloaking@Off">
         <Icon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="SniperCloakOn"/>
+        <HotkeyAlias value="SniperPersonalCloaking@On"/>
         <HotkeySet value="Cloak"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="AeroYamatoCannon">
         <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <Universal value="1"/>
+        <DefaultButtonLayout Row="2"/>
     </CButton>
-    <CButton id="FighterShadowCharge">
-        <Icon value="Assets\Textures\BTN-Ability-Protoss-ShadowCharge.dds"/>
-        <AlertIcon value="Assets\Textures\BTN-Ability-Protoss-ShadowCharge.dds"/>
+    <CButton id="FighterViolentCharge">
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
         <EditorCategories value="Race:Protoss"/>
+        <DefaultButtonLayout Row="1"/>
     </CButton>
     <CButton id="AssassinShadowFury">
         <Icon value="Assets\Textures\BTN-Ability-Protoss-ShadowFury.dds"/>
-        <EditorCategories value="Race:Protoss"/>
-    </CButton>
-    <CButton id="HunterShadowBlink">
-        <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="CRPGWeaponsFree">
@@ -444,5 +1202,13 @@
         <TintRacially value="1"/>
         <HotkeySet value="HoldFire"/>
         <HidesForSimpleText value="0"/>
+    </CButton>
+    <CButton id="AlienYagdraSpitFire">
+        <Icon value="Assets\Textures\btn-ability-terran-bombardmentstrike-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="AlienYagdraFirebreath">
+        <Icon value="Assets\Textures\btn-tips-walloffire.dds"/>
+        <EditorCategories value="Race:Zerg"/>
     </CButton>
 </Catalog>

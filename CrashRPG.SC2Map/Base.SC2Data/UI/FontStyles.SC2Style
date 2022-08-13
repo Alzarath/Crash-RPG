@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StyleFile>
+    <Constant name="ColorActiveAbilityInfo" val="66CC66"/>
+    <Constant name="ColorPassiveAbilityInfo" val="6666CC"/>
+    <Constant name="ColorEnergyInfo" val="9628dc"/>
+    <Constant name="ColorTimeInfo" val="FFFFFF"/>
+</StyleFile>

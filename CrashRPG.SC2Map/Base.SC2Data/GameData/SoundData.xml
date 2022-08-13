@@ -1,5 +1,126 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CSound id="AeroLaserBattery@Impact" parent="Terran_ExplosionSmall">
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Prevent"/>
+        <DupeMuteCount value="6"/>
+        <Volume value="-7.000000,-7.000000"/>
+    </CSound>
+    <CSound id="AeroLaserBattery@Launch" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_AttackLaunch2.wav"/>
+        <DupeDestroyCount value="12"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="12"/>
+        <Volume value="-2.000000,-2.000000"/>
+    </CSound>
+    <CSound id="Ghost_NukeExplode2" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Explosion_Metal_Impact_DebrisFly_01.wav"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Spread value="180.000000"/>
+    </CSound>
+    <CSound id="Horner_Death" parent="Death">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\HighTemplar\HighTemplar_Death0.wav"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\HighTemplar\HighTemplar_Death1.wav"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\HighTemplar\HighTemplar_Death2.wav"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\HighTemplar\HighTemplar_Death3.wav"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\HighTemplar\HighTemplar_Death4.wav"/>
+    </CSound>
+    <CSound id="Hyperion_Death_Fixed" parent="Hyperion_Death">
+        <AssetArray index="0" File="LocalizedData\Sounds\VO\zUnit_HeroHyperion_Horner_023.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="Mech_AttackLaunchLevel1" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch4.wav"/>
+        <DupeDestroyCount value="8"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="3"/>
+        <DupePrioritization value="Oldest"/>
+        <Pitch value="3.000000,5.000000"/>
+        <Volume value="-10.610000,-9.610000"/>
+    </CSound>
+    <CSound id="DefensiveTurretHellstormMissilePods@Impact" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall5.wav"/>
+        <Pitch value="8.000000,14.000000"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
+    <CSound id="DefensiveTurretHellstormMissilePods@Launch" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_MissilePodsLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_MissilePodsLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_MissilePodsLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_MissilePodsLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_MissilePodsLaunch4.wav"/>
+        <Category value="Spell"/>
+        <DupeDestroyCount value="10"/>
+        <DupeMaximumMethod value="Replace"/>
+        <OverlapTimeDelta value="500"/>
+        <Pitch value="-2.000000,2.000000"/>
+        <Volume value="-10.000000,-8.500000"/>
+    </CSound>
+    <CSound id="Tychus_Medic_HealMatrix_AOE" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_04.wav" FacialGroup=""/>
+        <Flags index="VariationFallback" value="0"/>
+        <Pitch value="-2.000000,-1.000000"/>
+        <Spread value="30.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Tychus_Medic_HealMatrix_End" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Off_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Off_02.wav" FacialGroup=""/>
+        <Flags index="VariationFallback" value="0"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Spread value="15.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="Tychus_Medic_HealMatrix_Start" parent="Spell">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Start_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Start_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Start_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_Start_04.wav" FacialGroup=""/>
+        <Flags index="VariationFallback" value="0"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Spread value="20.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="WizardAgonizingBlastImpact" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackImpact3.wav"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-2.500000,-2.500000"/>
+    </CSound>
+    <CSound id="WizardAgonizingBlastLaunch" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Karass\Karass_AttackLaunch3.wav"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-4.000000,-4.000000"/>
+    </CSound>
     <CSound id="Talis_Attack" parent="ProtossAck_Void">
         <AssetArray TemplateParam="Adept_Attack00" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack00.ogg"/>
         <AssetArray TemplateParam="Adept_Attack01" File="LocalizedData\Sounds\VO\Protoss\Talis_Attack01.ogg"/>
@@ -68,47 +189,15 @@
         <Flags index="NeedsTTS" value="1"/>
         <Volume value="-4.000000,-4.000000"/>
     </CSound>
-    <CSound id="AeroYamatoGunChargeUp" parent="Spell">
-        <EditorCategories value="Race:Terran"/>
-        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_YamatoAttackCharge0.wav" Pitch="6.000000,6.000000"/>
-        <DupeDestroyCount value="8"/>
-        <DupeMaximumMethod value="Replace"/>
-        <DupeMuteCount value="8"/>
-        <Volume value="-0.920000,-0.920000"/>
-    </CSound>
-    <CSound id="AeroYamatoGunattackImpact" parent="Terran_ExplosionMedium">
-        <AssetArray index="0" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="1" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="2" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="3" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="4" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="5" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="6" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="7" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="8" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="1.000000,7.000000"/>
-        <AssetArray index="9" File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="1.000000,7.000000"/>
-        <DupeDestroyCount value="8"/>
-        <DupeMuteCount value="8"/>
-        <Pitch value="0.000000,0.000000"/>
-        <Volume value="0.000000,0.000000"/>
-    </CSound>
-    <CSound id="AeroYamatoGunAttackLaunch" parent="Spell">
-        <EditorCategories value="Race:Terran"/>
-        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_YamatoAttackLaunch0.wav" Pitch="4.000000,4.000000"/>
-        <DupeDestroyCount value="8"/>
-        <DupeMaximumMethod value="Replace"/>
-        <DupeMuteCount value="8"/>
-        <Volume value="-0.920000,-0.500000"/>
-    </CSound>
-    <CSound id="FighterRapidStrikesEndSound" parent="Spell">
+    <CSound id="FighterRapidStrikes@End" parent="Spell">
         <EditorCategories value="Race:Protoss"/>
         <AssetArray File="Assets\Sounds\Protoss\Obelisk\Obelisk_ProtonChargeEnd.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="FighterRapidStrikesSound" parent="Spell">
+    <CSound id="FighterRapidStrikes@Start" parent="Spell">
         <EditorCategories value="Race:Protoss"/>
         <AssetArray File="Assets\Sounds\Protoss\Obelisk\Obelisk_ProtonChargeStart.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="FighterRapidStrikesLoopSound" parent="Spell">
+    <CSound id="FighterRapidStrikes@Loop" parent="Spell">
         <EditorCategories value="Race:Protoss"/>
         <AssetArray File="Assets\Sounds\Protoss\Obelisk\Obelisk_ProtonChargeLoop.wav" FacialGroup=""/>
         <LoopCount value="-1"/>

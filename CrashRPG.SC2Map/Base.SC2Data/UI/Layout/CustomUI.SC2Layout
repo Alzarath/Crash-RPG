@@ -5,9 +5,22 @@
         <LayerVisible val="false" Layer="2"/>
     </Frame>
 
+    <Frame type="ObjectivePanel" name="GameUI/UIContainer/ConsoleUIContainer/ObjectivePanel" file="GameUI">
+        <Anchor side="Top" relative="$parent" pos="Min" offset="180"/>
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Width val="650"/>
+        <Height val="500"/>
+    </Frame>
+
     <Frame type="UnitStatusFrame" name="CustomHeroUnitStatusFrameTemplate" template="LotV_UnitStatus/HeroUnitEnergyStatusFrameTemplate">
         <Frame type="Image" name="HeroUnitBackgroundImage">
             <Texture val="@@UI/HotS_UnitStatus_KerriganHealthFrame"/>
         </Frame>
     </Frame>
+    
+    <!-- Did this to help some guy out. Want to keep it for some reason. -->
+    <!--<Frame type="GameMessageDisplay" name="GameUI/UIContainer/FullscreenUpperContainer/ChatDisplay" file="GameUI">
+        <Height val="600"/>
+        <MaxMessages val="128"/>
+    </Frame>-->
 </Desc>

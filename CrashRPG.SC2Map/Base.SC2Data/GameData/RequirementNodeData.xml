@@ -1,25 +1,128 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CRequirementAnd id="AndCountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
-        <OperandArray value="CountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnit"/>
-        <OperandArray value="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
+    <CRequirementConst id="255">
+        <Value value="255"/>
+    </CRequirementConst>
+    <CRequirementAnd id="AndCountAbilCRPGPassive1DummyCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
+        <OperandArray value="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
+        <OperandArray value="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndCountUnitOverlordQueuedOrBetterLTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitIn815593686">
-        <OperandArray value="CountUnitOverlordQueuedOrBetter"/>
-        <OperandArray value="LTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQue3119144508"/>
+    <CRequirementAnd id="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit">
+        <OperandArray value="CountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnit"/>
+        <OperandArray value="CountAbilHunterDisruptorVolleyCompleteOnlyAtUnit"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGLevelCounterCompleteOnlyAtUnitLT3618176718CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5">
-        <OperandArray value="GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
-        <OperandArray value="LT3618176718CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5"/>
+    <CRequirementAnd id="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterScarabMineCompleteOnlyAtUnit">
+        <OperandArray value="CountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnit"/>
+        <OperandArray value="CountAbilHunterScarabMineCompleteOnlyAtUnit"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly">
-        <OperandArray value="GTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4"/>
+    <CRequirementAnd id="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnit">
+        <OperandArray value="CountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnit"/>
+        <OperandArray value="CountAbilHunterShadowTransferCompleteOnlyAtUnit"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndGT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnitLT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5">
+        <OperandArray value="GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
+        <OperandArray value="LT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4CountUnitOverlordCompleteOnly">
+        <OperandArray value="GTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4"/>
         <OperandArray value="CountUnitOverlordCompleteOnly"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndLT3608225112SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterCountUnitSwarmerSwarmerEggSpawnQueuedOrBetterMulCountUnitCRP2107868716">
-        <OperandArray value="LT3608225112SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterCountUnitSwarmerSwarmerEggSpawnQueuedOrBetterMulCountUnitCRPGSw3625105664"/>
-        <OperandArray value="GTE774336177CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2"/>
+    <CRequirementAnd id="AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838">
+        <OperandArray value="LT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8"/>
+        <OperandArray value="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndLT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPG3739910282">
+        <OperandArray value="LT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwa322226699"/>
+        <OperandArray value="Or774336177GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2"/>
+    </CRequirementAnd>
+    <CRequirementCountAbil id="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGPassive1Dummy" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit2337561442">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGPassive1Dummy" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilCRPGPassive2DummyCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGPassive2Dummy" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilCRPGPassive2DummyCompleteOnlyAtUnit2337561442">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGPassive2Dummy" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilCRPGPassive2DummyCompleteOnlyAtUnit3898301465">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGPassive2Dummy" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGUpgradeArmor" State="QueuedOrBetterAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilCrashedBattlecruiserNomadRepairQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CrashedBattlecruiserNomadRepair" State="QueuedOrBetter"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilHunterDisruptorVolleyCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="HunterDisruptorVolley" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilHunterScarabMineCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="HunterScarabMine" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilHunterShadowTransferCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="HunterShadowTransfer" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilInfestedInfestedEggsCompleteOnlyAtUnit4238922957">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="InfestedInfestedEggs" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountBehavior id="CountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienAssaultGenetics" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorAlienBruiserGeneticsCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienBruiserGenetics" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorAlienEvolutionaryPrimeCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienEvolutionaryPrime" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorAlienGeneticAdaptationCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienGeneticAdaptation" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorAlienHarvesterGeneticsCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienHarvesterGenetics" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorAlienSiegeGeneticsCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienSiegeGenetics" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorAlienStalkerGenerticsCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienStalkerGenertics" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorAlienSupportGeneticsCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienSupportGenetics" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorAlienTankGeneticsCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienTankGenetics" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorBossLockQueuedOrBetterAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="BossLock" State="QueuedOrBetterAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorCRPGActiveFollowerQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGActiveFollower" State="QueuedOrBetter"/>
+    </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGControlArmory" State="CompleteOnlyAtUnit"/>
@@ -36,41 +139,57 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGHoldFire" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGLevelCounter" State="CompleteOnlyAtUnit"/>
+        <Count Link="CRPGUnderlingLevel@Level1" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorFighterResurgence@CooldownCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="FighterResurgenceDisabled" State="CompleteOnlyAtUnit"/>
+        <Count Link="FighterResurgence@Cooldown" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="HunterPlasmaCharge" State="CompleteOnlyAtUnit"/>
+        <Count Link="HunterPlasmaDiffusion@PlasmaCharged" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorHunterPsionicProjectionCooldownCompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorHunterPsionicProjection@CooldownCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="HunterPsionicProjectionCooldown" State="CompleteOnlyAtUnit"/>
+        <Count Link="HunterPsionicProjection@Cooldown" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorInfestedAberrate@AberrationTargetCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="InfestedCausticWeapons" State="CompleteOnlyAtUnit"/>
+        <Count Link="InfestedAberrate@AberrationTarget" State="CompleteOnly"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InfestedEmpathicRepercussion" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorInfestedInfestedCivilianCountCompleteOnly">
+    <CRequirementCountBehavior id="CountBehaviorInfestedInfestationSpore@BuffCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="InfestedInfestedCivilianCount" State="CompleteOnly"/>
+        <Count Link="InfestedInfestationSpore@Buff" State="CompleteOnly"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorInfestedInfestedCompleteOnly">
+    <CRequirementCountBehavior id="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="InfestedInfested" State="CompleteOnly"/>
+        <Count Link="MedicHealingBeam@Channeling" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorShooterLuckyShotProcCompleteOnlyAtUnit2621074661">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="ShooterLuckyShotProc" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorSniperPersonalCloakingInProgressOrBetterAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="SniperPersonalCloaking" State="InProgressOrBetterAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SwarmerHeroVeterancy" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="SwarmerHeroVeterancyLevel2" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="SwarmerHeroVeterancyLevel3" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorUninfestedOverlordCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
@@ -80,6 +199,18 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="VehicleLockOnDisableAttack" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
+    <CRequirementCountUnit id="CountUnitAlienAshWormBurrowedQueuedOrBetterAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienAshWormBurrowed" State="QueuedOrBetterAtUnit"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitAlienAshWormQueuedOrBetterAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="AlienAshWorm" State="QueuedOrBetterAtUnit"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitCRPGNomadQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGNomad" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitCRPGSwarmerLevel1QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGSwarmerLevel1" State="QueuedOrBetter"/>
@@ -100,6 +231,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGSwarmerLevel4" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitCRPGSwarmerLevel5QueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGSwarmerLevel5" State="QueuedOrBetter"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitHunterPsionicProjectionQueuedOrBetterAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HunterPsionicProjection" State="QueuedOrBetterAtUnit"/>
@@ -112,13 +247,13 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InfestedInfestedCivilian" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetter">
+    <CRequirementCountUnit id="CountUnitInfestedInfestedEgg@CivilianQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="InfestedInfestedEggInfestedCivilian" State="QueuedOrBetter"/>
+        <Count Link="InfestedInfestedEgg@Civilian" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter">
+    <CRequirementCountUnit id="CountUnitInfestedInfestedEgg@MarineQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="InfestedInfestedEggInfestedMarine" State="QueuedOrBetter"/>
+        <Count Link="InfestedInfestedEgg@Marine" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitInfestedInfestedMarineQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
@@ -132,100 +267,241 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="Overlord" State="CompleteOnly"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitOverlordQueuedOrBetter">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="Overlord" State="QueuedOrBetter"/>
-    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitSwarmerSwarmerEggQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SwarmerSwarmerEgg" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
-    <CRequirementCountUnit id="CountUnitSwarmerSwarmerEggSpawnQueuedOrBetter">
+    <CRequirementCountUnit id="CountUnitSwarmerSwarmerSpawnCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="SwarmerSwarmerEggSpawn" State="QueuedOrBetter"/>
+        <Count Link="SwarmerSwarmerSpawn" State="CompleteOnlyAtUnit"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitSwarmerSwarmerSpawnQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SwarmerSwarmerSpawn" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAdvancedAbilityUpgradeCompleteOnlyAtUnit">
+    <CRequirementCountUnit id="CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <Count Link="CRPGAdvancedAbilityUpgrade" State="CompleteOnlyAtUnit"/>
-    </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGBasicAbilityUpgradeCompleteOnlyAtUnit">
+        <Count Link="SwarmerSwarmerSpawn" State="QueuedOrBetterAtUnit"/>
+    </CRequirementCountUnit>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassivePrimaryCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <Count Link="CRPGBasicAbilityUpgrade" State="CompleteOnlyAtUnit"/>
+        <Count Link="CRPGAbilityUpgradePassivePrimary" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGUltimateAbilityUpgradeCompleteOnlyAtUnit">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassivePrimaryQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
-        <Count Link="CRPGUltimateAbilityUpgrade" State="CompleteOnlyAtUnit"/>
+        <Count Link="CRPGAbilityUpgradePassivePrimary" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementGT id="GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGLevelCounterCompleteOnlyAtUnit">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassiveSecondaryCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradePassiveSecondary" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassiveSecondaryQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradePassiveSecondary" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradePrimary" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradePrimary" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimaryQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradePrimary" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeSecondaryCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradeSecondary" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeSecondaryQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradeSecondary" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradeTernary" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeTernaryQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CRPGAbilityUpgradeTernary" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementEq id="EqCountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit3">
+        <OperandArray index="0" value="CountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienBruiserGeneticsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorAlienBruiserGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienBruiserGeneticsCompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorAlienBruiserGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienBruiserGeneticsCompleteOnlyAtUnit3">
+        <OperandArray index="0" value="CountBehaviorAlienBruiserGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienHarvesterGeneticsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorAlienHarvesterGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienHarvesterGeneticsCompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorAlienHarvesterGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienHarvesterGeneticsCompleteOnlyAtUnit3">
+        <OperandArray index="0" value="CountBehaviorAlienHarvesterGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienSiegeGeneticsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorAlienSiegeGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienSiegeGeneticsCompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorAlienSiegeGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienSiegeGeneticsCompleteOnlyAtUnit3">
+        <OperandArray index="0" value="CountBehaviorAlienSiegeGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienStalkerGenerticsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorAlienStalkerGenerticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienStalkerGenerticsCompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorAlienStalkerGenerticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienStalkerGenerticsCompleteOnlyAtUnit3">
+        <OperandArray index="0" value="CountBehaviorAlienStalkerGenerticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienSupportGeneticsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorAlienSupportGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienSupportGeneticsCompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorAlienSupportGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienSupportGeneticsCompleteOnlyAtUnit3">
+        <OperandArray index="0" value="CountBehaviorAlienSupportGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienTankGeneticsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorAlienTankGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienTankGeneticsCompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorAlienTankGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementEq>
+    <CRequirementEq id="EqCountBehaviorAlienTankGeneticsCompleteOnlyAtUnit3">
+        <OperandArray index="0" value="CountBehaviorAlienTankGeneticsCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="3"/>
+    </CRequirementEq>
+    <CRequirementGT id="GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnit"/>
-        <OperandArray index="1" value="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
     </CRequirementGT>
-    <CRequirementGTE id="GTE1254047826CountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit10">
-        <OperandArray index="0" value="CountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit"/>
-        <OperandArray index="1" value="10"/>
-    </CRequirementGTE>
-    <CRequirementGTE id="GTE142027770CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5">
-        <OperandArray index="0" value="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
+    <CRequirementGTE id="GTE142027770CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5">
+        <OperandArray index="0" value="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="5"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTE1845366357CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit4">
-        <OperandArray index="0" value="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
+    <CRequirementGTE id="GTE1845366357CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit4">
+        <OperandArray index="0" value="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="4"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTE2494718353CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit3">
-        <OperandArray index="0" value="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
+    <CRequirementGTE id="GTE2494718353CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit3">
+        <OperandArray index="0" value="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="3"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTE2832794247CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit1">
-        <OperandArray index="0" value="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
+    <CRequirementGTE id="GTE2832794247CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit1">
+        <OperandArray index="0" value="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="1"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTE3553322166CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2">
         <OperandArray index="0" value="CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTE774336177CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit2">
-        <OperandArray index="0" value="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
+    <CRequirementGTE id="GTE774336177CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTE774336177CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2">
+    <CRequirementGTE id="GTECountBehaviorInfestedAberrate@AberrationTargetCompleteOnly2">
+        <OperandArray index="0" value="CountBehaviorInfestedAberrate@AberrationTargetCompleteOnly"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2">
         <OperandArray index="0" value="CountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTECountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit10">
-        <OperandArray index="0" value="CountBehaviorHunterPlasmaChargeCompleteOnlyAtUnit"/>
-        <OperandArray index="1" value="10"/>
-    </CRequirementGTE>
-    <CRequirementGTE id="GTECountBehaviorInfestedInfestedCivilianCountCompleteOnly2">
-        <OperandArray index="0" value="CountBehaviorInfestedInfestedCivilianCountCompleteOnly"/>
+    <CRequirementGTE id="GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
-        <OperandArray index="0" value="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter2"/>
+    <CRequirementGTE id="GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2">
+        <OperandArray index="0" value="CountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
-    <CRequirementGTE id="GTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4">
-        <OperandArray index="0" value="SumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter"/>
+    <CRequirementGTE id="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
+        <OperandArray index="0" value="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter2"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4">
+        <OperandArray index="0" value="SumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter"/>
         <OperandArray index="1" value="4"/>
     </CRequirementGTE>
+    <CRequirementLT id="LT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8">
+        <OperandArray index="0" value="CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit"/>
+        <OperandArray index="1" value="8"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit255">
+        <OperandArray index="0" value="CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit"/>
+        <OperandArray index="1" value="255"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwa322226699">
+        <OperandArray index="0" value="SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwarmerLevel3Qu1653712896"/>
+        <OperandArray index="1" value="8"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT2100730577CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnit5">
+        <OperandArray index="0" value="CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementLT>
     <CRequirementLT id="LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8">
         <OperandArray index="0" value="CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="8"/>
     </CRequirementLT>
-    <CRequirementLT id="LT3608225112SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterCountUnitSwarmerSwarmerEggSpawnQueuedOrBetterMulCountUnitCRPGSw3625105664">
-        <OperandArray index="0" value="SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterCountUnitSwarmerSwarmerEggSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2Q599293150"/>
+    <CRequirementLT id="LT2605192531SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5">
+        <OperandArray index="0" value="SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1">
+        <OperandArray index="0" value="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit"/>
+        <OperandArray index="1" value="SumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8">
+        <OperandArray index="0" value="CountUnitSwarmerSwarmerSpawnQueuedOrBetter"/>
         <OperandArray index="1" value="8"/>
     </CRequirementLT>
-    <CRequirementLT id="LT3618176718CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit5">
-        <OperandArray index="0" value="CountBehaviorCRPGLevelCounterCompleteOnlyAtUnit"/>
+    <CRequirementLT id="LT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5">
+        <OperandArray index="0" value="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="5"/>
+    </CRequirementLT>
+    <CRequirementLT id="LTCountBehaviorCRPGActiveFollowerQueuedOrBetter4">
+        <OperandArray index="0" value="CountBehaviorCRPGActiveFollowerQueuedOrBetter"/>
+        <OperandArray index="1" value="4"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountUnitHunterPsionicProjectionQueuedOrBetterAtUnit2">
         <OperandArray index="0" value="CountUnitHunterPsionicProjectionQueuedOrBetterAtUnit"/>
@@ -235,13 +511,9 @@
         <OperandArray index="0" value="CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementLT>
-    <CRequirementLT id="LTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQue1582461755">
-        <OperandArray index="0" value="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueue3825366595"/>
-        <OperandArray index="1" value="6"/>
-    </CRequirementLT>
-    <CRequirementLT id="LTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQue3119144508">
-        <OperandArray index="0" value="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueue3825366595"/>
-        <OperandArray index="1" value="8"/>
+    <CRequirementLT id="LTSumCountUnitAlienAshWormQueuedOrBetterAtUnitCountUnitAlienAshWormBurrowedQueuedOrBetterAtUnit2">
+        <OperandArray index="0" value="SumCountUnitAlienAshWormQueuedOrBetterAtUnitCountUnitAlienAshWormBurrowedQueuedOrBetterAtUnit"/>
+        <OperandArray index="1" value="2"/>
     </CRequirementLT>
     <CRequirementMul id="MulCountUnitCRPGSwarmerLevel2QueuedOrBetter2">
         <OperandArray value="CountUnitCRPGSwarmerLevel2QueuedOrBetter"/>
@@ -255,6 +527,10 @@
         <OperandArray value="CountUnitCRPGSwarmerLevel4QueuedOrBetter"/>
         <OperandArray value="8"/>
     </CRequirementMul>
+    <CRequirementMul id="MulCountUnitCRPGSwarmerLevel5QueuedOrBetter8">
+        <OperandArray value="CountUnitCRPGSwarmerLevel5QueuedOrBetter"/>
+        <OperandArray value="8"/>
+    </CRequirementMul>
     <CRequirementMul id="MulCountUnitInfestedInfestedBunkerQueuedOrBetter2">
         <OperandArray value="CountUnitInfestedInfestedBunkerQueuedOrBetter"/>
         <OperandArray value="2"/>
@@ -262,69 +538,117 @@
     <CRequirementNot id="Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit">
         <OperandArray index="0" value="OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit"/>
     </CRequirementNot>
+    <CRequirementNot id="Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit">
+        <OperandArray index="0" value="CountBehaviorBossLockQueuedOrBetterAtUnit"/>
+    </CRequirementNot>
     <CRequirementNot id="Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
     </CRequirementNot>
-    <CRequirementNot id="Not3697774798CountBehaviorInfestedInfestedCompleteOnly">
-        <OperandArray index="0" value="CountBehaviorInfestedInfestedCompleteOnly"/>
+    <CRequirementNot id="Not3697774798CountBehaviorInfestedInfestationSpore@BuffCompleteOnly">
+        <OperandArray index="0" value="CountBehaviorInfestedInfestationSpore@BuffCompleteOnly"/>
     </CRequirementNot>
-    <CRequirementNot id="NotAndCountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
-        <OperandArray index="0" value="AndCountBehaviorInfestedCausticWeaponsCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
-    </CRequirementNot>
-    <CRequirementNot id="NotAndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly">
-        <OperandArray index="0" value="AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter4CountUnitOverlordCompleteOnly"/>
+    <CRequirementNot id="NotAndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4CountUnitOverlordCompleteOnly">
+        <OperandArray index="0" value="AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4CountUnitOverlordCompleteOnly"/>
     </CRequirementNot>
     <CRequirementNot id="NotCountBehaviorCRPGHoldFireCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorCRPGHoldFireCompleteOnlyAtUnit"/>
     </CRequirementNot>
-    <CRequirementNot id="NotCountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit">
-        <OperandArray index="0" value="CountBehaviorFighterResurgenceDisabledCompleteOnlyAtUnit"/>
+    <CRequirementNot id="NotCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnit">
+        <OperandArray index="0" value="CountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnit"/>
     </CRequirementNot>
-    <CRequirementNot id="NotCountBehaviorHunterPsionicProjectionCooldownCompleteOnlyAtUnit">
-        <OperandArray index="0" value="CountBehaviorHunterPsionicProjectionCooldownCompleteOnlyAtUnit"/>
+    <CRequirementNot id="NotCountBehaviorHunterPsionicProjection@CooldownCompleteOnlyAtUnit">
+        <OperandArray index="0" value="CountBehaviorHunterPsionicProjection@CooldownCompleteOnlyAtUnit"/>
     </CRequirementNot>
-    <CRequirementOr id="Or1799048625LTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfes3620715993">
-        <OperandArray value="LTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQue1582461755"/>
-        <OperandArray value="AndCountUnitOverlordQueuedOrBetterLTSumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitIn815593686"/>
+    <CRequirementNot id="NotCountBehaviorSniperPersonalCloakingInProgressOrBetterAtUnit">
+        <OperandArray index="0" value="CountBehaviorSniperPersonalCloakingInProgressOrBetterAtUnit"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePassivePrimaryQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePassivePrimaryQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePassiveSecondaryQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePassiveSecondaryQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePrimaryQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePrimaryQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradeSecondaryQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradeSecondaryQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradeTernaryQueuedOrBetter">
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradeTernaryQueuedOrBetter"/>
+    </CRequirementNot>
+    <CRequirementOr id="Or2694335422CountAbilHunterScarabMineCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit">
+        <OperandArray value="CountAbilHunterScarabMineCompleteOnlyAtUnit"/>
+        <OperandArray value="CountAbilHunterShadowTransferCompleteOnlyAtUnit"/>
+        <OperandArray value="CountAbilHunterDisruptorVolleyCompleteOnlyAtUnit"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or774336177GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2">
+        <OperandArray value="GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2"/>
+        <OperandArray value="GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2"/>
+        <OperandArray value="GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2"/>
     </CRequirementOr>
     <CRequirementOr id="OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit">
         <OperandArray value="CountBehaviorUninfestedOverlordCompleteOnlyAtUnit"/>
     </CRequirementOr>
-    <CRequirementSum id="SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterCountUnitSwarmerSwarmerEggSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2Q599293150">
+    <CRequirementOr id="OrLT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838">
+        <OperandArray value="LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8"/>
+        <OperandArray value="AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838"/>
+    </CRequirementOr>
+    <CRequirementSum id="SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter">
+        <OperandArray value="CountAbilCrashedBattlecruiserNomadRepairQueuedOrBetter"/>
+        <OperandArray value="CountUnitCRPGNomadQueuedOrBetter"/>
+    </CRequirementSum>
+    <CRequirementSum id="SumCountUnitAlienAshWormQueuedOrBetterAtUnitCountUnitAlienAshWormBurrowedQueuedOrBetterAtUnit">
+        <OperandArray value="CountUnitAlienAshWormQueuedOrBetterAtUnit"/>
+        <OperandArray value="CountUnitAlienAshWormBurrowedQueuedOrBetterAtUnit"/>
+    </CRequirementSum>
+    <CRequirementSum id="SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwarmerLevel3Qu1653712896">
         <OperandArray value="CountUnitCRPGSwarmerLevel1QueuedOrBetter"/>
         <OperandArray value="CountUnitSwarmerSwarmerEggQueuedOrBetter"/>
         <OperandArray value="CountUnitSwarmerSwarmerSpawnQueuedOrBetter"/>
-        <OperandArray value="CountUnitSwarmerSwarmerEggSpawnQueuedOrBetter"/>
         <OperandArray value="MulCountUnitCRPGSwarmerLevel2QueuedOrBetter2"/>
         <OperandArray value="MulCountUnitCRPGSwarmerLevel3QueuedOrBetter4"/>
         <OperandArray value="MulCountUnitCRPGSwarmerLevel4QueuedOrBetter8"/>
+        <OperandArray value="MulCountUnitCRPGSwarmerLevel5QueuedOrBetter8"/>
     </CRequirementSum>
-    <CRequirementSum id="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter2">
+    <CRequirementSum id="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter2">
         <OperandArray value="CountUnitInfestedInfestedCivilianQueuedOrBetter"/>
-        <OperandArray value="CountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetter"/>
+        <OperandArray value="CountUnitInfestedInfestedEgg@CivilianQueuedOrBetter"/>
         <OperandArray value="MulCountUnitInfestedInfestedBunkerQueuedOrBetter2"/>
     </CRequirementSum>
-    <CRequirementSum id="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueue3825366595">
-        <OperandArray value="CountUnitInfestedInfestedCivilianQueuedOrBetter"/>
+    <CRequirementSum id="SumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter">
         <OperandArray value="CountUnitInfestedInfestedMarineQueuedOrBetter"/>
-        <OperandArray value="CountUnitInfestedInfestedEggInfestedCivilianQueuedOrBetter"/>
-        <OperandArray value="CountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter"/>
-        <OperandArray value="MulCountUnitInfestedInfestedBunkerQueuedOrBetter2"/>
+        <OperandArray value="CountUnitInfestedInfestedEgg@MarineQueuedOrBetter"/>
     </CRequirementSum>
-    <CRequirementSum id="SumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter">
-        <OperandArray value="CountUnitInfestedInfestedMarineQueuedOrBetter"/>
-        <OperandArray value="CountUnitInfestedInfestedEggInfestedMarineQueuedOrBetter"/>
+    <CRequirementSum id="SumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1">
+        <OperandArray value="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly"/>
+        <OperandArray value="1"/>
     </CRequirementSum>
+    <CRequirementCountUnit id="UnitQueen2QueuedOrBetter">
+        <Count Link="CRPGAlienSupport"/>
+    </CRequirementCountUnit>
     <CRequirementCountUpgrade id="UpgradeHydralisk2CompleteOnly">
-        <Count Link="CRPGAlienHeroHydralisk"/>
+        <Count Link="CRPGAlienAssault"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="UpgradeHydralisk2QueuedOrBetter">
-        <Count Link="CRPGAlienHeroHydralisk"/>
+        <Count Link="CRPGAlienAssault"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeRoach2CompleteOnly">
+        <Count Link="CRPGAlienBruiser"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeRoach2QueuedOrBetter">
+        <Count Link="CRPGAlienBruiser"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeUltralisk2CompleteOnly">
+        <Count Link="CRPGAlienTank"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="UpgradeUltralisk2QueuedOrBetter">
+        <Count Link="CRPGAlienTank"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="UpgradeZergling2CompleteOnly">
-        <Count Link="CRPGAlienHeroHunterling"/>
+        <Count Link="CRPGAlienStalker"/>
     </CRequirementCountUpgrade>
     <CRequirementCountUpgrade id="UpgradeZergling2QueuedOrBetter">
-        <Count Link="CRPGAlienHeroHunterling"/>
+        <Count Link="CRPGAlienStalker"/>
     </CRequirementCountUpgrade>
 </Catalog>

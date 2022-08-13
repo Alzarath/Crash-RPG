@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CWater id="Char">
+        <State index="0" Height="7.100000" Color="0.819608,0.294118,0.086275,0.300000" UvRate="-0.000000,-0.001000,0.000000,0.000000"/>
+    </CWater>
+</Catalog>

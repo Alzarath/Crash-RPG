@@ -1,0 +1,4 @@
+UI/ResourceIcon4=Assets\Textures\icon-time-protoss.dds
+UI/ResourceIcon4_Prot=Assets\Textures\icon-time-protoss.dds
+UI/ResourceIcon4_Terr=Assets\Textures\icon-time-terran.dds
+UI/ResourceIcon4_Zerg=Assets\Textures\icon-time-zerg.dds

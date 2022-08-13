@@ -1,12 +1,105 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CUpgrade id="CRPGUltimateAbilityUpgrade">
+    <CUpgrade id="CRPGAbilityUpgradePassivePrimary">
+        <Icon value="Assets\Textures\btn-number-1.dds"/>
+        <EffectArray Reference="Abil,HunterPsionicProjection,MaxCount" Value="1"/>
+        <EffectArray Reference="Abil,HunterPsionicProjection@Dummy,Cost[0].Charge.CountMax" Value="1"/>
+        <EffectArray Reference="Behavior,ShooterChaingun@Buff,Duration" Value="3.000000"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="CRPGHunter"/>
+        <AffectedUnitArray value="CRPGShooter"/>
     </CUpgrade>
-    <CUpgrade id="CRPGBasicAbilityUpgrade">
+    <CUpgrade id="CRPGAbilityUpgradePassiveSecondary">
+        <Icon value="Assets\Textures\btn-number-2.dds"/>
+        <EffectArray Operation="Set" Reference="Abil,ShooterStimpack@Dummy,Cost[0].Cooldown.TimeUse" Value="0.000000"/>
+        <EffectArray Operation="Set" Reference="Button,ShooterStimpack,AlertTooltip" Value="Button/Tooltip/ShooterStimpack@Upgraded"/>
+        <EffectArray Operation="Set" Reference="Button,ShooterStimpack,Tooltip" Value="Button/Tooltip/ShooterStimpack@Upgraded"/>
+        <EffectArray Reference="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax" Value="15"/>
+        <EffectArray Operation="Set" Reference="Effect,AeroLaserArmaments@Set,EffectArray[1]" Value="AeroLaserArmaments@LMUpgraded"/>
+        <EffectArray Reference="Effect,AeroLaserArmaments@SA,AreaArray[0].Radius" Value="2"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="CRPGAero"/>
+        <AffectedUnitArray value="CRPGHunter"/>
+        <AffectedUnitArray value="CRPGShooter"/>
+        <AffectedUnitArray value="CRPGSniper"/>
     </CUpgrade>
-    <CUpgrade id="CRPGAdvancedAbilityUpgrade">
+    <CUpgrade id="CRPGStatAttackRate">
+        <EffectArray Reference="Weapon,AeroLaserBattery,RateMultiplier" Value="0.05"/>
+        <EffectArray Reference="Weapon,AeroLaserbatteryATS,RateMultiplier" Value="0.05"/>
+        <EffectArray Reference="Weapon,FighterPsiBlades,RateMultiplier" Value="0.05"/>
+        <EffectArray Reference="Weapon,FighterSolariteReaper,RateMultiplier" Value="0.05"/>
+        <EffectArray Reference="Weapon,HunterDisruptorVolleyFour,RateMultiplier" Value="0.05"/>
+        <EffectArray Reference="Weapon,HunterPurifierGlaiveCannon,RateMultiplier" Value="0.05"/>
+        <EffectArray Reference="Weapon,HunterPurifierGlaiveCannon,RateMultiplier" Value="0.05"/>
+        <EffectArray Reference="Weapon,MechFusionCutter,RateMultiplier" Value="0.05"/>
+        <EffectArray Operation="Set" Reference="Weapon,MechGatlingCannon,RateMultiplier" Value="0.05"/>
+        <EditorCategories value="Race:Neutral,UpgradeType:AttackBonus"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGAbilityUpgradeTernary">
+        <Icon value="Assets\Textures\decal_spray_0015_01.dds"/>
+        <EffectArray Reference="Behavior,SandbagCover@InCover,Modification.RangedWeaponRange" Value="1"/>
+        <EffectArray Operation="Set" Reference="Behavior,SandbagCover,DamageResponse.Chance" Value="1"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="CRPGAero"/>
+        <AffectedUnitArray value="CRPGFighter"/>
+        <AffectedUnitArray value="CRPGMedic"/>
+        <AffectedUnitArray value="CRPGShooter"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGAbilityUpgradePrimary">
+        <Icon value="Assets\Textures\decal_spray_0016_01.dds"/>
+        <EffectArray Operation="Set" Reference="Abil,AeroYamatoCannon,PrepTime[0]" Value="0.000000"/>
+        <EffectArray Reference="Abil,HunterScarabMine,Cost[0].Charge.CountMax" Value="2"/>
+        <EffectArray Reference="Effect,HunterScarabMine@CP,PeriodCount" Value="2"/>
+        <EffectArray Operation="Set" Reference="Effect,FighterLightningDash@CPStorm,Chance" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse" Value="4.000000"/>
+        <EffectArray Reference="Effect,AeroYamatoCannon@Damage,AreaArray[0].Radius" Value="1.5"/>
+        <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="CRPGAero"/>
+        <AffectedUnitArray value="CRPGFighter"/>
+        <AffectedUnitArray value="CRPGHunter"/>
+        <AffectedUnitArray value="CRPGInfested"/>
+        <AffectedUnitArray value="CRPGShooter"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGAbilityUpgradeSecondary">
+        <Icon value="Assets\Textures\decal_spray_0017_01.dds"/>
+        <EffectArray Operation="AddBaseMultiply" Reference="Effect,ShooterGravityGrenade@SA,AreaArray[0].Radius" Value="0.5"/>
+        <EffectArray Reference="Behavior,ShooterGravityGrenade@KnockIn,Duration" Value="0.250000"/>
+        <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="CRPGAero"/>
+        <AffectedUnitArray value="CRPGShooter"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGU238Shells">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-u238rounds.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="100"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Weapon,MarineC14GaussRifle,Range" Value="1"/>
+        <EffectArray Reference="Weapon,MarineC14GaussRifle,MinScanRange" Value="1"/>
+        <EditorCategories value="Race:Terran,UpgradeType:AttackBonus"/>
+        <AffectedUnitArray value="CRPGMarine"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGConcussiveShells">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="100"/>
+        <ScoreResult value="BuildOrder"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="Marauder"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGCombatShield" parent="Research">
+        <Flags index="TechTreeCheat" value="1"/>
+        <InfoTooltipPriority value="2"/>
+        <Icon value="Assets\Textures\btn-techupgrade-terran-combatshield-color.dds"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <EffectArray Reference="Unit,CRPGMarine,LifeMax" Value="20"/>
+        <EffectArray Reference="Unit,CRPGMarine,LifeStart" Value="20"/>
+        <EffectArray Operation="Set" Reference="Actor,CRPGMarine,Wireframe.Image[0]" Value="Assets\Textures\wireframe-terran-marine-shield.dds"/>
+        <EffectArray Operation="Set" Reference="Actor,CRPGMarine,GroupIcon.Image[0]" Value="Assets\Textures\wireframe-terran-marine-shield.dds"/>
+        <EditorCategories value="Race:Terran,UpgradeType:Talents"/>
+        <AffectedUnitArray value="CRPGMarine"/>
     </CUpgrade>
 </Catalog>

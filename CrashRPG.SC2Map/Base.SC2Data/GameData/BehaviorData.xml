@@ -1,14 +1,819 @@
-<?xml version="1.0" encoding="us-ascii"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CBehaviorVeterancy default="1" id="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGHeroVeterancy"/>
+        <Tooltip value="Behavior/Tooltip/CRPGHeroVeterancy"/>
+        <Cost>
+            <Charge Link="Behavior/CRPGHeroVeterancy"/>
+            <Cooldown Link="Behavior/CRPGHeroVeterancy"/>
+        </Cost>
+        <Flags index="CombineNumericModifications" value="0"/>
+        <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
+        <XPFraction index="Kills" value="20"/>
+        <SharedXPRadius index="Kills" value="20"/>
+        <SharedXPFraction index="Kills" value="0.25"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="12500"/>
+        <VeterancyLevelArray MinVeterancyXP="15000"/>
+        <VeterancyLevelArray MinVeterancyXP="15000"/>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="AeroFireSuppressionSystem@Upgraded">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
+        <DisableValidatorArray value="CRPGAbilityUpgradePassivePrimary@Upgraded"/>
+        <DisableValidatorArray value="NotDeadOrConstruction"/>
+        <DisableValidatorArray value="AeroFireSuppressionSystem@MinimumHeal"/>
+        <DisableValidatorArray value="NotFullLife"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroTacticalJump@Speed">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-mengsk-viking-speed.dds"/>
+        <BehaviorCategories index="Fast" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <MaxStackCount value="20"/>
+        <Duration value="4"/>
+        <Modification AccelerationBonus="50">
+            <AdditiveMoveSpeedFactor value="0.2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FighterAstralWind@Self">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Duration value="5"/>
+        <ExpireEffect value="FighterAstralWind@HealSelfMinor"/>
+    </CBehaviorBuff>
+    <CBehaviorVeterancy id="CRPGSniper@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGSniper@Veterancy"/>
+    </CBehaviorVeterancy>
+    <CBehaviorVeterancy id="CRPGHunter@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGHunter@Veterancy"/>
+    </CBehaviorVeterancy>
+    <CBehaviorVeterancy id="CRPGFighter@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGFighter@Veterancy"/>
+    </CBehaviorVeterancy>
+    <CBehaviorVeterancy id="CRPGAero@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGAero@Veterancy"/>
+    </CBehaviorVeterancy>
+    <CBehaviorVeterancy id="CRPGMedic@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGMedic@Veterancy"/>
+    </CBehaviorVeterancy>
+    <CBehaviorVeterancy id="CRPGShooter@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGShooter@Veterancy"/>
+    </CBehaviorVeterancy>
+    <CBehaviorVeterancy id="CRPGInfested@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGInfested@Veterancy"/>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="CrashedBCMedicalFacilities@LifeRegen">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <DisableValidatorArray value="NotFullLife"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="100">
+                <AccumulatorArray value="CrashedBCMedicalFacilities@HealingDistributionMultiplier"/>
+            </VitalRegenArray>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CrashedBCMedicalFacilities@ShieldRegen">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <DisableValidatorArray value="TargetLifeFull"/>
+        <DisableValidatorArray value="ShieldsNotFull"/>
+        <Modification>
+            <VitalRegenArray index="Shields" value="100">
+                <AccumulatorArray value="CrashedBCMedicalFacilities@HealingDistributionMultiplier"/>
+            </VitalRegenArray>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorUnitTracker id="CrashedBCMedicalFacilities@UT">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorUnitTracker>
+    <CBehaviorUnitTracker id="CRPGCasterTracker">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <MaxTrackedUnits value="1"/>
+        <UnitAddedAtMaxRule value="ReplaceOldest"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorUnitTracker>
+    <CBehaviorBuff id="CRPGMedivacTransport@HealingBeam">
+        <Tooltip value="Behavior/Tooltip/MedicHealingBeam"/>
+        <InfoIcon value="Assets\Textures\btn-techupgrade-terran-combatshield.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="10"/>
+        </Modification>
+        <DamageResponse ModifyFraction="0.8">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FighterAstralWind">
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Duration value="5"/>
+        <ExpireEffect value="FighterAstralWind@HealMinor"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FighterRapidStrikes@PreRefresh">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="FighterRapidStrikes@Buffed"/>
+        <Duration value="7"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedInfestationSpore@LifeIncrease">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="InfestedInfestationSpore@IsInfested"/>
+        <Modification>
+            <VitalMaxAdditiveMultiplierArray index="Life" value="0.0832"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedInfestationSpore@LifeDecrease">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="InfestedInfestationSpore@IsInfested"/>
+        <Modification>
+            <VitalMaxAdditiveMultiplierArray index="Life" value="-0.0832"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShadePsionicInterference@Aura">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Period value="0.2"/>
+        <PeriodicEffect value="ShadePsionicInterference@SA"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShadePsionicInterference@Debuff">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <DamageResponse Handled="ShadePsionicInterference@Damage">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroLaserArmaments@TargetCooldown">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <MaxStackCount value="50"/>
+        <MaxStackCountPerCaster value="1"/>
+        <Duration value="0.5"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienBruiserGenetics">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <Modification>
+            <VitalMaxAdditiveMultiplierArray index="Life" value="0.25"/>
+            <VitalRegenMultiplier index="Life" value="0.5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienEvolutionaryPrime">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="GELevel4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienGeneticAdaptation">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="GELevel2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienGestation">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGLTLevel5Veterancy"/>
+        <Period value="0.125"/>
+        <PeriodicEffect value="CRPGAddExperience1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienHealthBonusLevel3">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="GELevel3"/>
+        <Modification>
+            <VitalMaxArray index="Life" value="20"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienHealthBonusLevel5">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="GELevel5"/>
+        <Modification>
+            <VitalMaxArray index="Life" value="20"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienRapidRegeneration">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-rapidregeneration-color.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="120"/>
+        <Modification>
+            <VitalRegenMultiplier index="Life" value="3"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienStalkerGenertics">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <Modification>
+            <AdditiveMoveSpeedFactor value="0.2"/>
+            <AdditiveAttackSpeedFactor value="0.1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienAssaultGenetics">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <Modification>
+            <AdditiveAttackSpeedFactor value="0.2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienStalking">
+        <InfoIcon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
+        <Modification>
+            <StateFlags index="Cloak" value="1"/>
+            <StateFlags index="Passive" value="1"/>
+            <AdditiveMoveSpeedFactor value="0.2"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienSupportGenetics">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <Modification>
+            <VitalRegenMultiplier index="Life" value="0.5"/>
+            <VitalRegenMultiplier index="Energy" value="0.5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienHarvesterGenetics">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <Modification>
+            <AdditiveMoveSpeedFactor value="0.1"/>
+            <VitalDamageLeechArray index="Life">
+                <KindArray index="Melee" value="0.25"/>
+                <KindArray index="Ranged" value="0.25"/>
+                <KindArray index="Splash" value="0.25"/>
+            </VitalDamageLeechArray>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienTankGenetics">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <Modification>
+            <VitalMaxAdditiveMultiplierArray index="Life" value="0.5"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienSiegeGenetics">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxStackCount value="3"/>
+        <Modification>
+            <DamageTotalMultiplier index="Spell" value="0.25"/>
+            <DamageTotalMultiplier index="Melee" value="0.25"/>
+            <DamageTotalMultiplier index="Ranged" value="0.25"/>
+            <DamageTotalMultiplier index="Splash" value="0.25"/>
+            <DamageTotalMultiplier index="NoProc" value="0.25"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="BeaconTempGiven">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Player Value="Target"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BossLock">
+        <InfoIcon value="EditorData\Images\SourceControl\Lock.tga"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DamageResponse Evade="1" ModifyFraction="0" ModifyMinimumDamage="1">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGActiveFollower">
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorAttribute id="CRPGDamageAttributeUnit"/>
+    <CBehaviorAttribute id="CRPGEnergyAttributeUnit">
+        <Modification>
+            <VitalRegenMultiplier index="Energy" value="0.125"/>
+        </Modification>
+    </CBehaviorAttribute>
+    <CBehaviorBuff id="CRPGFollowerTarget">
+        <MaxStackCount value="4"/>
+    </CBehaviorBuff>
+    <CBehaviorWander id="CRPGFollowerWander">
+        <Leash value="1"/>
+        <Range value="3"/>
+        <Delay value="3.5"/>
+    </CBehaviorWander>
+    <CBehaviorVeterancy id="CRPGFollowerVeterancy">
+        <InfoFlags index="Hidden" value="1"/>
+        <Flags index="CombineNumericModifications" value="0"/>
+        <ShareFilters index="Kills" value="Heroic;Ally,Neutral,Enemy,Hallucination"/>
+        <XPFraction index="Kills" value="20"/>
+        <SharedXPRadius index="Kills" value="20"/>
+        <SharedXPFraction index="Kills" value="1"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="10000"/>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="DefensiveFortificationTransport@RangeBonus">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Modification WeaponRange="1">
+            <AbilLinkEnableArray value="Stimpack"/>
+            <AbilLinkEnableArray value="heal"/>
+            <AbilLinkEnableArray value="stop"/>
+            <AbilLinkEnableArray value="HoldFire"/>
+            <WeaponDisableArray value="FusionCutter"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BurrowChargeMPKnockback2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="0.8"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="BurrowCharging2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Modification MoveSpeedBonus="2">
+            <ModifyFlags index="OrdersUninterruptible" value="1"/>
+            <StateFlags index="Bury" value="1"/>
+            <StateFlags index="Cloak" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <WeaponDisableArray value="KaiserBlades"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGDebuffImmunity">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-frenzy.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGEnergySuicide">
+        <RemoveValidatorArray value="hasEnergy"/>
+        <FinalEffect value="KillCaster"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGStunImmunity">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-frenzy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGCrowdControlImmunity">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-frenzy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGSlowImmunity">
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-frenzy.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FighterViolentCharge@Immunity">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-behavior-incapacitated.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="8"/>
+    </CBehaviorBuff>
+    <CBehaviorUnitTracker id="InfestedAberrate@UT">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <MaxTrackedUnits value="2"/>
+    </CBehaviorUnitTracker>
+    <CBehaviorBuff id="AlienRapidTransfusion">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
+        <Duration value="2.43"/>
+        <Period value="0.5"/>
+        <PeriodCount value="4"/>
+        <InitialEffect value="AlienRapidTransfusionHeal"/>
+        <PeriodicEffect value="AlienRapidTransfusionHeal"/>
+        <RemoveValidatorArray value="TargetLifeFull"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGInvulnerable">
+        <InfoFlags index="Hidden" value="1"/>
+        <BehaviorCategories index="Permanent" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicIrradiate">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="30"/>
+        <Period value="1"/>
+        <PeriodicEffect value="MedicIrradiate@SA"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicHealingBeam@Channeling">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicHealingBeam">
+        <InfoIcon value="Assets\Textures\btn-techupgrade-terran-combatshield.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <MaxStackCountPerCaster value="1"/>
+        <DamageResponse ModifyFraction="0.8">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedivacHealingBeam@Aura">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="MedivacHealingBeam@SA"/>
+        <DamageResponse ModifyFraction="0.8">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicSpawnMedivac@Precursor">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="3"/>
+        <FinalEffect value="MedicSpawnMedivac@ABTimedLife"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicSpawnMedivac@TimedLife" parent="TimedLife">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="60"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicOpticalFlare">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Period value="0.125"/>
+        <PeriodicEffect value="MedicOpticalFlare@SA"/>
+        <Modification SightBonus="1" Detect="10"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicOpticalFlare@Blind">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-blindingcloud.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="0.25"/>
+        <Modification SightBonus="-2" RangedWeaponRange="-2">
+            <BehaviorCategoriesDisable index="User14" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicProcyonTwinHealBeamGauntlet">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicSelfixArmor">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DamageResponse Handled="MedicSelfixArmorApplyBehavior">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicSelfixArmorRestoring" parent="MedicHealingBeam">
+        <Name value="Behavior/Name/MedicSelfixArmorRestoring"/>
+        <MaxStackCount value="1"/>
+        <MaxStackCountPerCaster value="0"/>
+        <Duration value="2"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="MedicSelfixArmorHeal"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedivacAfterburners">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-jotunboosters.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <Duration value="8"/>
+        <Modification MoveSpeedMultiplier="1.7" AccelerationBonus="500" DecelerationBonus="500"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AlienAshWormDelayedUnburrow">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="3"/>
+        <ExpireEffect value="AlienAshWormDelayedUnburrowIssueOrder"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterGravityGrenade@KnockIn">
+        <Name value="Behavior/Name/VortexBehavior"/>
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="0.5"/>
+        <Period value="0.0625"/>
+        <InitialEffect value="ShooterGravityGrenade@AF"/>
+        <RefreshEffect value="ShooterGravityGrenade@AF"/>
+        <PeriodicEffect value="ShooterGravityGrenade@AF"/>
+        <Modification MoveSpeedMinimum="2">
+            <StateFlags index="Stun" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+        </Modification>
+        <Replace value="FarthestDistance"/>
+        <ReplaceLocation Effect="ShooterGravityGrenade@LM" Value="TargetPoint"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterChaingun">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
+        <DamageResponse Handled="ShooterChaingun@AB" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterChaingun@Buff">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-experiencedplasmagun.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <MaxStackCount value="6"/>
+        <Duration value="2"/>
+        <Modification>
+            <AdditiveAttackSpeedFactor value="0.125"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterOverkill@RemainingDuration">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterOverkill@Cooldown">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="1">
+            <AccumulatorArray value="ShooterOverkill@Recharge"/>
+        </Duration>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SandbagCover">
+        <Alignment value="Positive"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="60"/>
+        <Period value="0.5"/>
+        <PeriodicEffect value="SandbagCover@SA"/>
+        <ExpireEffect value="TimedLifeFate"/>
+        <DamageResponse ModifyFraction="0.5">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Kind index="NoProc" value="0"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterOverkill@Channeling">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <BuffFlags index="Channeled" value="1"/>
+        <Duration value="4"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="ShooterOverkill@SetPeriodic"/>
+        <FinalEffect value="ShooterOverkill@SetRefund"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterOverkill@CancelDelay">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <Modification>
+            <StateFlags index="Stun" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterStimpack@ControllerOffensive">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DamageResponse Handled="ShooterStimpack@Switch" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterStimpack@ControllerDefensive" parent="ShooterStimpack@ControllerOffensive">
+        <DamageResponse Location="Defender"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterStimpack@Cooldown">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="CRPGAbilityUpgradePassiveSecondary@NotUpgraded"/>
+        <Duration value="30"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SniperToxicMunitions@Cooldown">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="30"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="AeroTacticalJump@Slow">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
+        <BehaviorCategories index="Slow" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <MaxStackCount value="20"/>
+        <Duration value="4"/>
+        <Modification>
+            <AdditiveMoveSpeedFactor value="-0.05"/>
+            <AdditiveAttackSpeedFactor value="-0.05"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorVeterancy id="SwarmerHeroVeterancyLevel2">
+        <Cost>
+            <Charge Link="Behavior/SwarmerHeroVeterancy"/>
+            <Cooldown Link="Behavior/SwarmerHeroVeterancy"/>
+        </Cost>
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Flags index="CombineNumericModifications" value="0"/>
+        <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
+        <XPFraction index="Kills" value="20"/>
+        <SharedXPRadius index="Kills" value="20"/>
+        <SharedXPFraction index="Kills" value="0.25"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+    </CBehaviorVeterancy>
+    <CBehaviorVeterancy id="SwarmerHeroVeterancyLevel3">
+        <Cost>
+            <Charge Link="Behavior/SwarmerHeroVeterancy"/>
+            <Cooldown Link="Behavior/SwarmerHeroVeterancy"/>
+        </Cost>
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Flags index="CombineNumericModifications" value="0"/>
+        <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
+        <XPFraction index="Kills" value="20"/>
+        <SharedXPRadius index="Kills" value="20"/>
+        <SharedXPFraction index="Kills" value="0.25"/>
+        <VeterancyLevelArray/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+        <VeterancyLevelArray MinVeterancyXP="7500"/>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="SwarmerSwarmSwarmBeacon">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <MaxStackCount value="65535"/>
+        <FinalEffect value="SwarmerSwarmKillBeacon"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwarmerSwarmTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="60"/>
+        <Period value="0.5"/>
+        <InitialEffect value="SwarmerSwarmApplyBehaviorBeacon"/>
+        <PeriodicEffect value="SwarmerSwarmSetLeash"/>
+        <FinalEffect value="SwarmerSwarmRemoveBehaviorBeacon"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwarmerSwarmTimedLifeRelease" parent="TimedLife">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Enemy" value="1"/>
+        <Duration value="60"/>
+        <InitialEffect value="SwarmerSwarmApplyBehaviorBeacon"/>
+        <FinalEffect value="SwarmerSwarmRemoveBehaviorBeacon"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwarmerSwarmTimedLifeWarning">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Duration value="50"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwarmerSwarmWanderDelay">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="SwarmerSwarmDestinationNotReached"/>
+        <FinalEffect value="SwarmerSwarmCreatePersistentPatrol"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShipSolariteExposure">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-status-detector.dds"/>
+        <RemoveValidatorArray value="NotOracleStasisTrapped"/>
+        <RemoveValidatorArray value="NoPurificationNova"/>
+        <Duration value="60"/>
+        <Period value="1"/>
+        <PeriodicEffect value="ShipSolariteExposureDamage"/>
+        <FinalEffect value="ShipSolariteExposureDestroyPersistent"/>
+        <ExpireEffect value="ShipSolariteExposureDestroyPersistent"/>
+        <Modification>
+            <ModifyFlags index="Reveal" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicRestorativeBurst">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-tychus-medic-restorativeburst.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="10"/>
+        <Period value="1"/>
+        <PeriodicEffect value="MedicRestorativeBurstHealTick"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwarmerSwarmWanderDelayRelease">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="SwarmerSwarmDestinationNotReached"/>
+        <FinalEffect value="SwarmerReleaseCreatePersistentPatrol2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SandbagCover@InCover">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-protoss-alarak-rangeincrease.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="0.625"/>
+        <DamageResponse ModifyFraction="0.5">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Melee" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Kind index="NoProc" value="0"/>
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="VehicleRunOver">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="0.1875"/>
+        <InitialEffect value="VehicleOverdriveRunOverDamage"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="WizardKillsToCaster">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <KillCredit Effect="WizardConfusionSet" Value="Caster"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterLuckyShot">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <MaxStackCount value="4"/>
+        <DamageResponse Handled="ShooterLuckyShotSwitch" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterLuckyShotProc">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <FinalEffect value="ShooterLuckyShotChargesApplyBehavior"/>
+        <Modification>
+            <DamageDealtScaled index="Ranged" value="12"/>
+        </Modification>
+        <DamageResponse Handled="ShooterLuckyShotProcRemoveBehavior" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterScatterShot">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoIcon value="Assets\Textures\btn-upgrade-terran-explosiveshrapnelshells.dds"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterStimpack">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-stimpack.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="20"/>
+        <Modification>
+            <AdditiveMoveSpeedFactor value="0.25"/>
+            <AdditiveAttackSpeedFactor value="0.25"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ShooterStimpack@Permanent" parent="ShooterStimpack">
+        <Duration value="0"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SwarmerTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:PrimalZerg,AbilityorEffectType:Units"/>
+        <Duration value="60"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="DefensiveFortificationShrikeTurret">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <Modification>
+            <WeaponEnableArray value="DefensiveFortificationShrikeTurret@Weapon"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SniperPersonalCloaking">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-cloak.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="CanSpendEnergy"/>
+        <RemoveValidatorArray value="hasEnergy"/>
+        <Modification>
+            <StateFlags index="Cloak" value="1"/>
+            <VitalRegenArray index="Energy" value="-1.4765"/>
+            <BehaviorLinkDisableArray value="CRPGEnergyAttribute"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SniperPersonalCloakingFree">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-cloak.dds"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Modification>
+            <StateFlags index="Cloak" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UltraliskBurrowChargeHold2">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="1.5"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="UltraliskBurrowChargeStun2">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\BTN-Upgrade-Zerg-BurrowCharge.dds"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <Modification>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Stun" value="1"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="WizardConfusionEnabler">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="FighterStunnedLightningDash">
+    <CBehaviorBuff id="FighterLightningDash@Stunned">
         <InfoIcon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
         <BehaviorCategories index="Stun" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -25,45 +830,48 @@
         <Duration value="2"/>
         <Modification MoveSpeedMultiplier="0.8" AttackSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterPlasmaCanisterFate" parent="TimedLife">
+    <CBehaviorBuff id="HunterPlasmaDiffusion@Timedlife" parent="TimedLife">
         <InfoIcon value="Assets\Textures\btn-ability-zerg-explode.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="30"/>
+        <DeathType value="Timeout"/>
         <KillCredit Value="Unknown"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterPlasmaDiffusionSubunit">
+    <CBehaviorBuff id="HunterPlasmaDiffusion@SubUnit">
         <Cost>
             <Charge Link="Behavior/HunterPlasmaDiffusion"/>
             <Cooldown Link="Behavior/HunterPlasmaDiffusion"/>
         </Cost>
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
-        <DisableValidatorArray value="HunterCasterHasPlasmaDiffusion"/>
-        <DamageResponse Chance="1" Handled="HunterPlasmaDiffusionApplyBehavior" Location="Attacker"/>
+        <DisableValidatorArray value="HunterPlasmaDiffusion@CasterHasPlasmaDiffusion"/>
+        <DamageResponse Handled="HunterPlasmaDiffusion@AB" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterPlasmaSeared">
+    <CBehaviorBuff id="HunterPlasmaDiffusion@PlasmaSeared">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\wireframe-general-pickupplasmarounds.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Duration value="5"/>
-        <DamageResponse Chance="1" Fatal="1" Handled="HunterPlasmaDiffusionCreateUnit"/>
+        <DamageResponse Fatal="1" Handled="HunterPlasmaDiffusion@CU">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterPlasmaCharge">
-        <Cost>
-            <Cooldown TimeStart="10" TimeUse="10"/>
-        </Cost>
+    <CBehaviorBuff id="HunterPlasmaDiffusion@PlasmaCharged">
+        <BehaviorFlags index="Permanent" value="1"/>
+        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
-        <MaxStackCount value="10"/>
-        <RefreshEffect value="HunterPlasmaChargeReduceCooldown"/>
+        <DisableValidatorArray value="HunterPlasmaDiffusion@CasterChargedCombined"/>
+        <DisableValidatorArray value="HunterPlasmaDiffusion@CasterHasPlasmaDiffusion"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HunterPlasmaDiffusion">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
-        <DamageResponse Chance="1" Handled="HunterPlasmaDiffusionApplyBehavior" Location="Attacker"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedInfestedEggTimedLife2" parent="TimedLife">
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <ExpireEffect value="InfestedInfestedCivilianIssueOrder"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DamageResponse Handled="HunterPlasmaDiffusion@AB" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGVeterancySuppressor">
         <InfoFlags index="Hidden" value="1"/>
@@ -75,7 +883,10 @@
     <CBehaviorBuff id="ShipPurifierTurrets">
         <Alignment value="Positive"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <DamageResponse Chance="1" Handled="ShipPurifierTurretsApplySlowBehavior" Location="Attacker"/>
+        <DamageResponse Handled="ShipPurifierTurretsApplySlowBehavior" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShipCloakingFieldCaster">
         <Alignment value="Positive"/>
@@ -88,81 +899,34 @@
         <Modification>
             <StateFlags index="Cloak" value="1"/>
         </Modification>
-        <DamageResponse Chance="1" Handled="ShipCloakingFieldCasterCombatApplyBehavior" Location="Attacker"/>
+        <DamageResponse Handled="ShipCloakingFieldCasterCombatApplyBehavior" Location="Attacker">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Kind index="NoProc" value="0"/>
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShipInCombatCloakingField">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="5"/>
-        <DamageResponse Chance="1" Handled="ShipCloakingFieldCombatApplyBehavior" Location="Attacker">
-            <Cost>
-                <Charge Link="Behavior/ShipCloakingField"/>
-                <Cooldown Link="Behavior/ShipCloakingField"/>
-            </Cost>
+        <DamageResponse Handled="ShipCloakingFieldCombatApplyBehavior" Location="Attacker">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Kind index="NoProc" value="0"/>
+            <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShipInCombatCasterCloakingField">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="5"/>
-        <DamageResponse Chance="1" Handled="ShipCloakingFieldCombatApplyBehavior" Location="Attacker"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="ShipStasisWardStasisCaster">
-        <InfoFlags index="Hidden" value="1"/>
-        <InfoIcon value="Assets\Textures\btn-unit-protoss-stasisward.dds"/>
-        <EditorCategories value="AbilityorEffectType:Units"/>
-        <Modification>
-            <StateFlags index="Invulnerable" value="1"/>
-            <StateFlags index="Stun" value="1"/>
-            <StateFlags index="SuppressAttack" value="1"/>
-            <StateFlags index="SuppressCloak" value="1"/>
-            <StateFlags index="SuppressCollision" value="1"/>
-            <StateFlags index="SuppressDetection" value="1"/>
-            <StateFlags index="SuppressPassenger" value="1"/>
-            <StateFlags index="SuppressLifeRegen" value="1"/>
-            <StateFlags index="SuppressShieldsRegen" value="1"/>
-            <StateFlags index="SuppressEnergyRegen" value="1"/>
-            <StateFlags index="Uncommandable" value="1"/>
-            <StateFlags index="Unselectable" value="1"/>
-            <StateFlags index="Unstoppable" value="1"/>
-            <StateFlags index="Untargetable" value="1"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="ShipStasisWardCloak">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="IsNotConstructing"/>
-        <Modification>
-            <StateFlags index="Cloak" value="1"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="ShipStasisWardStasisTarget">
-        <Alignment value="Negative"/>
-        <InfoIcon value="Assets\Textures\btn-ability-protoss-stasistrap.dds"/>
-        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
-        <DisplayDuration index="Self" value="1"/>
-        <DisplayDuration index="Ally" value="1"/>
-        <DisplayDuration index="Neutral" value="1"/>
-        <DisplayDuration index="Enemy" value="1"/>
-        <Duration value="30"/>
-        <Modification>
-            <ModifyFlags index="DisableAbils" value="1"/>
-            <ModifyFlags index="SuppressMoving" value="1"/>
-            <ModifyFlags index="SuppressTurning" value="1"/>
-            <StateFlags index="Invulnerable" value="1"/>
-            <StateFlags index="Stasis" value="1"/>
-            <StateFlags index="Stun" value="1"/>
-            <StateFlags index="SuppressAttack" value="1"/>
-            <StateFlags index="SuppressCloak" value="1"/>
-            <StateFlags index="SuppressDetection" value="1"/>
-            <StateFlags index="SuppressPassenger" value="1"/>
-            <StateFlags index="SuppressLifeRegen" value="1"/>
-            <StateFlags index="SuppressShieldsRegen" value="1"/>
-            <StateFlags index="SuppressEnergyRegen" value="1"/>
-            <AbilLinkEnableArray value="move"/>
-            <AbilLinkEnableArray value="stop"/>
-            <RateMultiplierArray index="Cooldown" value="0.001"/>
-        </Modification>
+        <DamageResponse Handled="ShipCloakingFieldCasterCombatApplyBehavior" Location="Attacker">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Kind index="NoProc" value="0"/>
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="SwarmerPrecursorSwarmer">
         <InfoFlags index="Hidden" value="1"/>
@@ -199,7 +963,7 @@
         <Modification>
             <WeaponEnableArray value="HunterDisruptorVolleyFour"/>
             <WeaponDisableArray value="HunterPurifierGlaiveCannon"/>
-            <WeaponDisableArray value="PurifierGlaiveCannonPurifier"/>
+            <WeaponDisableArray value="HunterPurifierGlaiveCannon"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="HunterShadowTransfer">
@@ -213,9 +977,9 @@
             <StateFlags index="SuppressPassenger" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterShadowTransferCaster">
+    <CBehaviorBuff id="HunterShadowTransfer@Caster">
         <Alignment value="Positive"/>
-        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <DisplayDuration index="Self" value="1"/>
         <DisplayDuration index="Ally" value="1"/>
@@ -224,14 +988,14 @@
         <DisableValidatorArray value="NotBeingAbducted"/>
         <DisableValidatorArray value="KD8CasterKnockingBack"/>
         <Duration value="8.0625"/>
-        <FinalEffect value="HunterShadowTransferCancelRemoveBehavior"/>
-        <ExpireEffect value="HunterShadowTransferCancelRemoveBehavior"/>
+        <FinalEffect value="HunterShadowTransfer@RBCancelTarget"/>
+        <ExpireEffect value="HunterShadowTransfer@RBCancelTarget"/>
         <Modification>
             <StateFlags index="Cloak" value="1"/>
             <StateFlags index="SuppressPassenger" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterShadowTransferTimer">
+    <CBehaviorBuff id="HunterShadowTransfer@Timer">
         <Alignment value="Positive"/>
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
@@ -242,32 +1006,34 @@
         <DisableValidatorArray value="CasterNotAbducted"/>
         <DisableValidatorArray value="KD8CasterKnockingBack"/>
         <RemoveValidatorArray value="CasterNotDead"/>
-        <RemoveValidatorArray value="CasterIsNotShadowTransferring"/>
         <Duration value="8"/>
-        <FinalEffect value="HunterShadowTransferCancelSet"/>
-        <ExpireEffect value="HunterShadowTransferTeleportSet"/>
+        <FinalEffect value="HunterShadowTransfer@SetCancel"/>
+        <ExpireEffect value="HunterShadowTransfer@SetTeleport"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AlienParasiticHarvest">
         <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
-        <DamageResponse Chance="1" Handled="AlienParasiticHarvestApplyBehavior" Location="Attacker"/>
+        <DamageResponse Handled="AlienParasiticHarvestApplyBehavior" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AlienParasiticHarvest2">
         <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
-        <MaxStackCount value="250"/>
+        <MaxStackCount value="10"/>
         <Duration value="60"/>
-        <DamageResponse Chance="1" Fatal="1" Handled="AlienParasiticHarvestSwitch"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="AlienSpeedBuff">
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DamageResponse Fatal="1" Handled="AlienParasiticHarvestSwitch">
+            <Chance value="1"/>
+        </DamageResponse>
+        <InfoIcon value="Assets\Textures\btn-doodad-minerals.dds"/>
     </CBehaviorBuff>
     <CBehaviorAttribute id="CRPGArmorAttributeUnit">
-        <MinPoints value="-2"/>
-        <Modification LifeArmorBonus="0.125" ShieldArmorBonus="0.125"/>
+        <Modification ShieldArmorBonus="0.5">
+            <LifeArmorBonus value="0.5"/>
+        </Modification>
     </CBehaviorAttribute>
     <CBehaviorAttribute id="CRPGEnergyAttribute">
-        <MinPoints value="-2"/>
         <Modification>
-            <VitalRegenMultiplier index="Energy" value="0.1"/>
+            <VitalRegenMultiplier index="Energy" value="0.25"/>
         </Modification>
     </CBehaviorAttribute>
     <CBehaviorBuff id="CRPGRecentlyAttacked">
@@ -280,8 +1046,10 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGShieldDelayController">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGHasMedicalFacilitiesShield"/>
-        <DamageResponse Chance="1" Handled="CRPGRecentlyDamagedApplyBehavior"/>
+        <DisableValidatorArray value="CrashedBCMedicalFacilities@RegeneratingShields"/>
+        <DamageResponse Handled="CRPGRecentlyDamagedApplyBehavior">
+            <Chance value="1"/>
+        </DamageResponse>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CarryHarvestMineralsMinerals">
@@ -306,7 +1074,7 @@
         <Duration value="0.125"/>
         <InitialEffect value="ShipVortexForce"/>
         <RefreshEffect value="ShipVortexForce"/>
-        <ExpireEffect value="VortexExit2"/>
+        <ExpireEffect value="ShipVortexApplyBehaviorExit"/>
         <Modification MoveSpeedMinimum="2">
             <ModifyFlags index="DisableAbils" value="1"/>
             <ModifyFlags index="Detected" value="1"/>
@@ -336,10 +1104,45 @@
         <Replace value="FarthestDistance"/>
         <ReplaceLocation Effect="VortexCreatePersistentInitial" Value="TargetPoint"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="ShipVortexEnemy" parent="VortexBehavior">
+    <CBehaviorBuff id="ShipVortexEnemy">
+        <Name value="Behavior/Name/VortexBehavior"/>
+        <Tooltip value="Behavior/Tooltip/VortexBehavior"/>
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-blackhole.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="0.125"/>
         <InitialEffect value="ShipVortexForce"/>
         <RefreshEffect value="ShipVortexForce"/>
-        <ExpireEffect value="VortexExit2"/>
+        <ExpireEffect value="ShipVortexApplyBehaviorExit"/>
+        <Modification MoveSpeedMinimum="2">
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <ModifyFlags index="DisableWeapons" value="1"/>
+            <ModifyFlags index="Detected" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stasis" value="1"/>
+            <StateFlags index="SuppressAttack" value="1"/>
+            <StateFlags index="SuppressCloak" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <StateFlags index="SuppressDetection" value="1"/>
+            <StateFlags index="SuppressPassenger" value="1"/>
+            <StateFlags index="SuppressLifeRegen" value="1"/>
+            <StateFlags index="SuppressShieldsRegen" value="1"/>
+            <StateFlags index="SuppressEnergyRegen" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+            <StateFlags index="Unselectable" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+            <AbilClassEnableArray index="CAbilMorph" value="1"/>
+            <AbilLinkEnableArray value="BroodLordQueue2"/>
+            <AbilLinkEnableArray value="BroodLordHangar"/>
+            <AbilLinkDisableArray value="MorphToOverseer"/>
+            <AbilLinkDisableArray value="MorphToBroodLord"/>
+            <BehaviorClassDisableArray index="CBehaviorPowerSource" value="1"/>
+            <BehaviorLinkEnableArray value="ReaperJump"/>
+            <BehaviorLinkDisableArray value="CloakField"/>
+            <BehaviorLinkDisableArray value="AreaDenialTank"/>
+        </Modification>
+        <Replace value="FarthestDistance"/>
+        <ReplaceLocation Effect="VortexCreatePersistentInitial" Value="TargetPoint"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShipVortexExit">
         <Alignment value="Negative"/>
@@ -394,12 +1197,19 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <TimeScaleSource Value="Global"/>
         <Duration value="15"/>
-        <DamageResponse>
+        <DamageResponse Fatal="1" Handled="WizardReanimateSetReanimating" ModifyFraction="0">
             <Chance value="1"/>
-            <Fatal value="1"/>
-            <Handled value="WizardReanimateSetReanimating"/>
-            <ModifyFraction value="0"/>
         </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FighterLightningDash@Storm">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-psistorm.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <TimeScaleSource Value="Global"/>
+        <Duration value="0.6665"/>
+        <Period value="0.571"/>
+        <InitialEffect value="FighterLightningDash@DamageStormInitial"/>
+        <PeriodicEffect value="FighterLightningDash@DamageStorm"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="WizardReanimated">
         <Alignment value="Negative"/>
@@ -412,6 +1222,16 @@
         <Duration value="60"/>
         <ExpireEffect value="Suicide"/>
         <Player Value="Caster"/>
+        <Modification>
+            <AbilClassDisableArray index="CAbilBuild" value="1"/>
+            <AbilClassDisableArray index="CAbilHarvest" value="1"/>
+            <AbilClassDisableArray index="CAbilMerge" value="1"/>
+            <AbilClassDisableArray index="CAbilMergeable" value="1"/>
+            <AbilClassDisableArray index="CAbilMorph" value="1"/>
+            <AbilClassDisableArray index="CAbilMorphPlacement" value="1"/>
+            <AbilClassDisableArray index="CAbilTrain" value="1"/>
+            <AbilClassDisableArray index="CAbilWarpTrain" value="1"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="WizardPsionicStormRestore">
         <Alignment value="Positive"/>
@@ -517,13 +1337,18 @@
         </Modification>
         <RemoveValidatorArray value="ShipCloakingFieldSourceOutOfCombat"/>
         <BuffFlags index="RefreshStack" value="1"/>
-        <DamageResponse Chance="1" Handled="ShipCloakingFieldCombatApplyBehavior" Location="Attacker"/>
+        <DamageResponse Handled="ShipCloakingFieldCombatApplyBehavior" Location="Attacker">
+            <Kind index="Spell" value="0"/>
+            <Kind index="Splash" value="0"/>
+            <Kind index="NoProc" value="0"/>
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="DevourerMPAcidSpores">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-zerg-acidspores.dds"/>
         <MaxStackCount value="10"/>
-        <Modification AttackSpeedMultiplier="0.935"/>
+        <Modification AttackSpeedMultiplier="0.9333"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShipGuardianShellAura">
         <InfoFlags index="Hidden" value="1"/>
@@ -547,11 +1372,8 @@
         <InfoIcon value="Assets\Textures\btn-shield-protoss-plasmashields.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <RemoveValidatorArray value="ShipNotRecentlyProtected2"/>
-        <DamageResponse>
+        <DamageResponse Fatal="1" Handled="ShipGuardianShellApplyProtectedBehavior" ModifyFraction="0">
             <Chance value="1"/>
-            <Fatal value="1"/>
-            <Handled value="ShipGuardianShellApplyProtectedBehavior"/>
-            <ModifyFraction value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShipRecentlyProtectedGuardianShell">
@@ -585,16 +1407,7 @@
             <AbilClassDisableArray index="CAbilAttack" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="CrashedBattlecruiserMedicalFacilitiesShields">
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="TargetLifeFull"/>
-        <Duration value="2"/>
-        <Modification>
-            <VitalRegenArray index="Shields" value="100"/>
-        </Modification>
-        <InfoFlags index="Hidden" value="1"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="HunterCloaked">
+    <CBehaviorBuff id="ShadowBlink@Cloaked">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -637,34 +1450,12 @@
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
-        <DamageResponse>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DamageResponse Fatal="1" Handled="FighterResurgence@Set" ModifyFraction="0">
             <Chance value="1"/>
-            <Fatal value="1"/>
-            <Handled value="FighterResurgenceSet"/>
-            <ModifyFraction value="0"/>
         </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="FighterResurgenceDisabled">
-        <Alignment value="Negative"/>
-        <InfoFlags index="Hidden" value="1"/>
-        <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="300"/>
-        <Modification>
-            <BehaviorLinkDisableArray value="FighterResurgence"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="FighterInvulnerableResurgence">
-        <Alignment value="Positive"/>
-        <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <DisplayDuration index="Self" value="1"/>
-        <Duration value="3"/>
-        <Period value="3"/>
-        <PeriodicEffect value="FighterResurgenceExplodeSet"/>
-        <DamageResponse Chance="1" ModifyFraction="0" ModifyMinimumDamage="1"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="FighterResurgenceReviveSupressed">
+    <CBehaviorBuff id="FighterResurgence@Cooldown">
         <Alignment value="Negative"/>
         <Cost>
             <Cooldown TimeStart="300"/>
@@ -673,8 +1464,23 @@
         <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="300"/>
+        <Modification>
+            <BehaviorLinkDisableArray value="FighterResurgence"/>
+        </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="FighterStunnedResurgence">
+    <CBehaviorBuff id="FighterResurgence@Invulnerable">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <Duration value="3"/>
+        <Period value="3"/>
+        <PeriodicEffect value="FighterResurgence@SetExplode"/>
+        <DamageResponse ModifyFraction="0" ModifyMinimumDamage="1">
+            <Chance value="1"/>
+        </DamageResponse>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="FighterResurgence@Stunned">
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-behavior-incapacitated.dds"/>
         <BehaviorCategories index="Stun" value="1"/>
@@ -689,170 +1495,148 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="1.25"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="CrashedBattlecruiserMedicalFacilitiesAura">
-        <InfoIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Period value="1"/>
-        <PeriodicEffect value="CrashedBattlecruiserMedicalFacilitiesSearchArea"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="HunterPsionicProjectionBase">
+    <CBehaviorBuff id="HunterPsionicProjection">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
-        <DisableValidatorArray value="HunterPsionicProjectionMax"/>
-        <Period value="0.25"/>
-        <PeriodicEffect value="HunterPsionicProjectionApplyCooldownBehavior"/>
+        <DisableValidatorArray value="HunterPsionicProjection@NotCoolingDown"/>
+        <DisableValidatorArray value="HunterPsionicProjection@NotMax"/>
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="HunterPsionicProjection@ABCooldown"/>
         <Modification>
             <AbilLinkDisableArray value="Queue2"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterPsionicProjectionCooldown">
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="3.0625"/>
-        <Cost>
-            <Cooldown TimeStart="3"/>
-        </Cost>
+    <CBehaviorBuff id="HunterPsionicProjection@Cooldown">
         <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <RemoveValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
-        <InitialEffect value="HunterPsionicProjectionStart"/>
-        <FinalEffect value="HunterPsionicProjectionCancel"/>
-        <Modification>
-            <AbilLinkEnableArray value="Queue2"/>
-        </Modification>
+        <Duration value="3"/>
+        <InitialEffect value="HunterPsionicProjection@SetInitial"/>
+        <FinalEffect value="HunterPsionicProjection@SetFinal"/>
+        <ExpireEffect value="HunterPsionicProjection@SetExpire"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="HunterSlowScarabMine">
+    <CBehaviorBuff id="ScarabMineExplode@Slowed">
         <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
+        <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="4"/>
         <Modification MoveSpeedMultiplier="0.6"/>
-        <Alignment value="Negative"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedBunkerEnableGaussRifle1">
+    <CBehaviorBuff id="InfestedBunkerInfestedGaussRifle@EnableSlot1">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGCargoGTE1"/>
+        <DisableValidatorArray value="CargoGE1"/>
         <Modification>
-            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle1"/>
+            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedBunkerEnableGaussRifle2">
+    <CBehaviorBuff id="InfestedBunkerInfestedGaussRifle@EnableSlot2">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGCargoLT2"/>
+        <DisableValidatorArray value="CargoGE2"/>
         <Modification>
-            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle2"/>
+            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle@Slot2"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedBunkerEnableGaussRifle3">
+    <CBehaviorBuff id="InfestedBunkerInfestedGaussRifle@EnableSlot3">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGCargoLT3"/>
+        <DisableValidatorArray value="CargoGE3"/>
         <Modification>
-            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle3"/>
+            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle@Slot3"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedBunkerEnableGaussRifle4">
+    <CBehaviorBuff id="InfestedBunkerInfestedGaussRifle@EnableSlot4">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGCargoGE4"/>
+        <DisableValidatorArray value="CargoGE4"/>
         <Modification>
-            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle4"/>
+            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle@Slot4"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedBunkerEnableGaussRifle5">
+    <CBehaviorBuff id="InfestedBunkerInfestedGaussRifle@EnableSlot5">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGCargoGE5"/>
+        <DisableValidatorArray value="CargoGE5"/>
         <Modification>
-            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle5"/>
+            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle@Slot5"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedBunkerEnableGaussRifle6">
+    <CBehaviorBuff id="InfestedBunkerInfestedGaussRifle@EnableSlot6">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGCargoGE6"/>
+        <DisableValidatorArray value="CargoGE6"/>
         <Modification>
-            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle6"/>
+            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle@Slot6"/>
         </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedCausticWeapons">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedEmpathicRepercussion">
+        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="InfestedEmpathicRepercussion@InRange"/>
         <MaxStackCount value="2"/>
-        <DamageResponse Chance="1" Fatal="1" Handled="InfestedEmpathicRepercussionLaunchMissile"/>
-        <InfoFlags index="Hidden" value="1"/>
-        <DisableValidatorArray value="InfestedInRange"/>
+        <DamageResponse Fatal="1" Handled="InfestedEmpathicRepercussion@LM">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedExcessSummons">
-        <InfoFlags index="Hidden" value="1"/>
+    <CBehaviorBuff id="InfestedInfestedEggs@TimedLifeExcessSummons" parent="TimedLife">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisplayDuration index="Self" value="1"/>
-        <DisableValidatorArray value="InfestedHasOverlord"/>
-        <Duration value="20"/>
-        <FinalEffect value="KillTargetDeathNormal"/>
+        <Duration value="45"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedHardenedEquipmentCaster">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedHardenedEquipmentOffensive">
+    <CBehaviorBuff id="InfestedHardenedEquipment@Offensive">
+        <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DisableValidatorArray value="InfestedEmpathicRepercussion@InRange"/>
         <Modification>
-            <DamageDealtFraction index="Melee" value="0.2"/>
-            <DamageDealtFraction index="Ranged" value="0.2"/>
-            <DamageDealtFraction index="Splash" value="0.2"/>
+            <DamageDealtUnscaled index="Ranged" value="1"/>
         </Modification>
-        <DisableValidatorArray value="InfestedInRange"/>
-        <Alignment value="Positive"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedHardenedEquipmentDefensive">
+    <CBehaviorBuff id="InfestedHardenedEquipment@Defensive">
+        <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DamageResponse Chance="1" ModifyFraction="0.8"/>
-        <DisableValidatorArray value="InfestedInRange"/>
-        <Alignment value="Positive"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DisableValidatorArray value="InfestedEmpathicRepercussion@InRange"/>
+        <DamageResponse ModifyFraction="0.8">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="FighterShadowCharging">
+    <CBehaviorBuff id="FighterViolentCharge@Charging">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-charge.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <RemoveValidatorArray value="ChargeMinDistance"/>
         <BuffFlags index="Channeling" value="1"/>
         <Duration value="3.5"/>
-        <FinalEffect value="FighterShadowChargeSearchArea"/>
+        <FinalEffect value="FighterViolentCharge@SA"/>
         <Modification MoveSpeedMultiplier="6.8">
-            <StateFlags index="Cloak" value="1"/>
             <StateFlags index="SuppressCollision" value="1"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterRapidStrikes">
+        <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="8"/>
-        <Modification AttackSpeedMultiplier="2"/>
-        <Alignment value="Positive"/>
+        <DisplayDuration index="Self" value="1"/>
+        <Duration value="10"/>
+        <Modification>
+            <AdditiveAttackSpeedFactor value="1"/>
+        </Modification>
+        <DamageResponse Handled="FighterRapidStrikes@ABRefresh" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedInRange">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <Duration value="0.5"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedInRangeAura">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <PeriodicEffect value="InfestedInRangeSearchArea"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedUnstable">
+    <CBehaviorBuff id="InfestedEmpathicRepercussion@Unstable">
+        <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="InfestedNotInRange"/>
-        <Modification MoveSpeedMultiplier="0.5" AttackSpeedMultiplier="0.5"/>
-        <Alignment value="Negative"/>
+        <DisableValidatorArray value="InfestedEmpathicRepercussion@OutOfRange"/>
+        <Modification MoveSpeedBonus="-1" AttackSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KillsToTarget">
         <InfoFlags index="Hidden" value="1"/>
@@ -880,18 +1664,10 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Modification Food="6"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedInfestedCivilianCount">
+    <CBehaviorBuff id="InfestedAberrate@AberrationTarget">
+        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Duration value="1"/>
-        <InfoFlags index="Hidden" value="1"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedInfestedTerranTrackingBuff">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedInfestedEggTimedLife" parent="TimedLife">
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <ExpireEffect value="InfestedInfestedCivilianIssueOrder"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MechBarrage">
         <Alignment value="Negative"/>
@@ -912,35 +1688,35 @@
         <Duration value="1"/>
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="CRPGExperienceTrickle">
-        <RemoveValidatorArray value="GELevel2Veterancy"/>
-        <PeriodicEffect value="CRPGAddExperience1"/>
+    <CBehaviorBuff id="AeroDefensiveMatrix@InitialShields">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Modification>
+            <VitalMaxArray index="Shields" value="200"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="AeroDefensiveMatrix">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-defensivematrix.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <DisplayDuration index="Self" value="1"/>
-        <DisplayDuration index="Ally" value="1"/>
         <RemoveValidatorArray value="hasShields"/>
-        <Duration value="20"/>
         <Modification>
-            <VitalMaxArray index="Shields" value="200"/>
+            <VitalMaxArray index="Shields" value="100"/>
         </Modification>
         <DamageResponse ModifyMinimumDamage="1"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="AeroDefensiveMatrixDummy">
+    <CBehaviorBuff id="AeroDefensiveMatrix@TemporaryShields" parent="AeroDefensiveMatrix">
         <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Modification>
-            <VitalMaxArray index="Shields" value="200"/>
-        </Modification>
+        <Duration value="20"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <ExpireEffect value="AeroDefensiveMatrix@RB"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="AeroTacticalJumpTeleport">
+    <CBehaviorBuff id="AeroTacticalJump@Teleport">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="0.8"/>
-        <ExpireEffect value="AeroTacticalJumpTeleportInApplyBehavior"/>
+        <ExpireEffect value="AeroTacticalJump@ABTeleportIn"/>
         <Modification>
             <StateFlags index="Invulnerable" value="1"/>
             <StateFlags index="Stasis" value="1"/>
@@ -949,7 +1725,7 @@
             <StateFlags index="Untargetable" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="AeroTacticalJumpTeleportIn">
+    <CBehaviorBuff id="AeroTacticalJump@TeleportIn">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="0.6"/>
@@ -961,12 +1737,13 @@
             <StateFlags index="SuppressCloak" value="1"/>
             <StateFlags index="Untargetable" value="1"/>
         </Modification>
+        <ExpireEffect value="AeroTacticalJump@SetSpeed"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="AeroTacticalJumpTeleportOut">
+    <CBehaviorBuff id="AeroTacticalJump@TeleportOut">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="0.6"/>
-        <ExpireEffect value="AeroTacticalJumpTeleportSet"/>
+        <ExpireEffect value="AeroTacticalJump@SetTeleport"/>
         <Modification>
             <ModifyFlags index="SuppressMoving" value="1"/>
             <ModifyFlags index="SuppressTurning" value="1"/>
@@ -976,7 +1753,7 @@
             <StateFlags index="Untargetable" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="AeroTacticalJumpTeleportOutTargetSuppressCollision">
+    <CBehaviorBuff id="AeroTacticalJump@TeleportOutTargetSuppressCollision">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="0.0625"/>
@@ -995,7 +1772,8 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="NotDeadOrConstruction"/>
-        <DisableValidatorArray value="LifeLTHalf"/>
+        <DisableValidatorArray value="AeroFireSuppressionSystem@MaximumHeal"/>
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
         <Modification>
             <VitalRegenArray index="Life" value="4"/>
         </Modification>
@@ -1003,23 +1781,9 @@
     <CBehaviorBuff id="AeroLaserArmaments">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <Period value="0.8"/>
-        <PeriodicEffect value="AeroLaserArmamentsSearchArea"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="MechCalldown">
-        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <Duration value="4"/>
-        <FinalEffect value="MechCalldownMechSuicideSet"/>
-        <Modification>
-            <AbilClassDisableArray index="CAbilAttack" value="1"/>
-            <AbilClassDisableArray index="CAbilBuild" value="1"/>
-            <AbilClassDisableArray index="CAbilEffectInstant" value="1"/>
-            <AbilClassDisableArray index="CAbilEffectTarget" value="1"/>
-            <AbilClassDisableArray index="CAbilHarvest" value="1"/>
-            <AbilClassDisableArray index="CAbilMorph" value="1"/>
-            <AbilClassDisableArray index="CAbilMove" value="1"/>
-        </Modification>
-        <InfoFlags index="Hidden" value="1"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <Period value="0.75"/>
+        <PeriodicEffect value="AeroLaserArmaments@CP"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MechShocking">
         <Alignment value="Negative"/>
@@ -1034,27 +1798,12 @@
     <CBehaviorBuff id="CRPGBaseAttributes">
         <InfoFlags index="Hidden" value="1"/>
         <Modification>
-            <AttributeChangeArray Attribute="CRPGArmorAttribute" Points="-2"/>
-            <AttributeChangeArray Attribute="CRPGArmorAttributeUnit" Points="-2"/>
-            <AttributeChangeArray Attribute="CRPGDamageAttribute" Points="-2"/>
-            <AttributeChangeArray Attribute="CRPGEnergyAttribute" Points="-2"/>
+            <AttributeChangeArray Attribute="CRPGArmorAttribute"/>
+            <AttributeChangeArray Attribute="CRPGArmorAttributeUnit"/>
+            <AttributeChangeArray Attribute="CRPGDamageAttribute"/>
+            <AttributeChangeArray Attribute="CRPGDamageAttributeUnit"/>
+            <AttributeChangeArray Attribute="CRPGEnergyAttribute"/>
         </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="MechEjecting">
-        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <Duration value="2"/>
-        <InitialEffect value="MechEmergencyEvacLaunchMissile"/>
-        <FinalEffect value="MechEmergencyEvacSuicideSet"/>
-        <Modification>
-            <AbilClassDisableArray index="CAbilAttack" value="1"/>
-            <AbilClassDisableArray index="CAbilBuild" value="1"/>
-            <AbilClassDisableArray index="CAbilEffectInstant" value="1"/>
-            <AbilClassDisableArray index="CAbilEffectTarget" value="1"/>
-            <AbilClassDisableArray index="CAbilHarvest" value="1"/>
-            <AbilClassDisableArray index="CAbilMorph" value="1"/>
-            <AbilClassDisableArray index="CAbilMove" value="1"/>
-        </Modification>
-        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MechPointDefenseLaser">
         <InfoFlags index="Hidden" value="1"/>
@@ -1068,7 +1817,7 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="2"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedInfested">
+    <CBehaviorBuff id="InfestedInfestationSpore@Buff">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -1105,16 +1854,6 @@
             <StateFlags index="SuppressRadar" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="CrashedBattlecruiserMedicalFacilities">
-        <InfoIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Duration value="2"/>
-        <Modification>
-            <VitalRegenArray index="Life" value="100"/>
-            <VitalRegenArray index="Energy" value="0.125"/>
-        </Modification>
-        <Alignment value="Positive"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="VehicleGraduatingRange">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
@@ -1129,7 +1868,9 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <MaxStackCount value="65535"/>
         <MaxStackCountPerCaster value="1"/>
-        <DamageResponse Chance="1" Fatal="1" Handled="VehicleLockOnTurretClear"/>
+        <DamageResponse Fatal="1" Handled="VehicleLockOnTurretClear">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="VehicleLockOnDisableAttack">
         <InfoFlags index="Hidden" value="1"/>
@@ -1151,7 +1892,11 @@
         <DisplayDuration index="Self" value="1"/>
         <DisplayDuration index="Ally" value="1"/>
         <Duration value="8"/>
-        <Modification MoveSpeedBonus="1.25" AccelerationMultiplier="1.5" DecelerationMultiplier="1.5"/>
+        <Period value="0.0625"/>
+        <PeriodicEffect value="VehicleOverdriveRunOverSearchArea"/>
+        <Modification MoveSpeedBonus="1.25" AccelerationMultiplier="1.5" DecelerationMultiplier="1.5">
+            <StateFlags index="SuppressCollision" value="1"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="VehicleRangeIncrease">
         <InfoFlags index="Hidden" value="1"/>
@@ -1164,93 +1909,106 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
     </CBehaviorBuff>
-    <CBehaviorAttribute id="CRPGDamageAttribute">
-        <MinPoints value="-2"/>
-        <Modification HealDealtAdditiveMultiplier="0.0625">
-            <DamageDealtFraction index="Spell" value="0.0625"/>
-            <DamageDealtFraction index="Melee" value="0.0625"/>
-            <DamageDealtFraction index="Ranged" value="0.0625"/>
-            <DamageDealtFraction index="Splash" value="0.0625"/>
+    <CBehaviorAttribute id="CRPGDamageAttribute"/>
+    <CBehaviorAttribute id="CRPGArmorAttribute">
+        <Modification ShieldArmorBonus="1">
+            <LifeArmorBonus value="1"/>
         </Modification>
     </CBehaviorAttribute>
-    <CBehaviorAttribute id="CRPGArmorAttribute">
-        <MinPoints value="-2"/>
-        <Modification LifeArmorBonus="0.25" ShieldArmorBonus="0.25"/>
-    </CBehaviorAttribute>
-    <CBehaviorBuff id="CRPGLevelCounter">
+    <CBehaviorBuff id="CRPGUnderlingLevel@Level1">
+        <Name value="Behavior/Name/CRPGUnderlingLevel"/>
         <InfoFlags index="Hidden" value="1"/>
-        <MaxStackCount value="7"/>
+        <DisableValidatorArray value="CasterGELevel1"/>
         <Modification>
-            <AttributeChangeArray Attribute="CRPGArmorAttribute" Points="2"/>
-            <AttributeChangeArray Attribute="CRPGArmorAttributeUnit" Points="2"/>
-            <AttributeChangeArray Attribute="CRPGDamageAttribute" Points="2"/>
-            <AttributeChangeArray Attribute="CRPGEnergyAttribute" Points="2"/>
+            <AttributeChangeArray Attribute="CRPGArmorAttribute" Points="1"/>
+            <AttributeChangeArray Attribute="CRPGArmorAttributeUnit" Points="1"/>
+            <AttributeChangeArray Attribute="CRPGDamageAttribute" Points="1"/>
+            <AttributeChangeArray Attribute="CRPGDamageAttributeUnit" Points="1"/>
+            <AttributeChangeArray Attribute="CRPGEnergyAttribute" Points="1"/>
+            <AttributeChangeArray Attribute="CRPGEnergyAttributeUnit" Points="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="SniperDeadlyToxinDamage">
+    <CBehaviorBuff id="CRPGUnderlingLevel@Level2" parent="CRPGUnderlingLevel@Level1">
+        <DisableValidatorArray index="0" value="CasterGELevel2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGUnderlingLevel@Level3" parent="CRPGUnderlingLevel@Level1">
+        <DisableValidatorArray index="0" value="CasterGELevel3"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGUnderlingLevel@Level4" parent="CRPGUnderlingLevel@Level1">
+        <DisableValidatorArray index="0" value="CasterGELevel4"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CRPGUnderlingLevel@Level5" parent="CRPGUnderlingLevel@Level1">
+        <DisableValidatorArray index="0" value="CasterGELevel5"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="SniperToxicMunitions@Buff">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-zerg-poisonnova.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Duration value="60"/>
-        <Period value="0.05"/>
-        <PeriodCount value="40"/>
-        <PeriodicEffect value="SniperDeadlyToxinDamage"/>
+        <Duration value="2"/>
+        <Period value="0.125"/>
+        <PeriodicEffect value="SniperToxicMunitions@Damage"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="SniperToxicMunitions@Switch"/>
+        </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="SniperDeadlyToxinApply">
+    <CBehaviorBuff id="SniperToxicMunitions">
         <Alignment value="Positive"/>
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <DamageResponse Chance="1" Handled="SniperDeadlyToxinApplyBehavior" Location="Attacker"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DamageResponse Handled="SniperToxicMunitions@Set" Location="Attacker">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="SniperEnhancedOptics">
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+    <CBehaviorBuff id="SniperBetterEquipment">
         <InfoFlags index="Hidden" value="1"/>
-        <Modification SightBonus="2"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
+        <Modification SightBonus="2">
+            <WeaponArray Link="SniperC20ACanisterRifle"/>
+            <WeaponDisableArray value="SniperC10CanisterRifle"/>
+        </Modification>
     </CBehaviorBuff>
-    <CBehaviorVeterancy id="CRPGHeroVeterancy">
-        <Flags index="CombineNumericModifications" value="0"/>
-        <ShareFilters index="Kills" value="-;Neutral,Enemy,Hallucination"/>
-        <XPFraction index="Kills" value="20"/>
-        <SharedXPRadius index="Kills" value="20"/>
-        <SharedXPFraction index="Kills" value="0.25"/>
-        <VeterancyLevelArray/>
-        <VeterancyLevelArray MinVeterancyXP="7500"/>
-        <VeterancyLevelArray MinVeterancyXP="12500"/>
-        <VeterancyLevelArray MinVeterancyXP="15000"/>
-        <VeterancyLevelArray MinVeterancyXP="15000"/>
-    </CBehaviorVeterancy>
     <CBehaviorBuff id="CRPGHoldFire">
         <InfoIcon value="Assets\Textures\btn-ability-terran-holdfire.dds"/>
+        <RemoveValidatorArray value="CasterNotAttacking"/>
         <Duration value="0.07"/>
         <ExpireEffect value="CRPGHoldFireB"/>
         <Modification>
             <StateFlags index="Passive" value="1"/>
+            <WeaponEnableArray value="CRPGDummyWeapon"/>
+            <WeaponDisableArray value="ShipPurifierBeam"/>
+            <WeaponDisableArray value="ShipPurifierCannon"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ScarabMineBurrow@BurrowTimeout">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+        <ExpireEffect value="ScarabMineBurrow@IO"/>
+        <Modification>
             <AbilClassDisableArray index="CAbilAttack" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="ScarabMineInitialBurrow">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="5"/>
-        <InitialEffect value="HunterScarabMineBurrowOrder"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="FighterSlowShadowCharge">
+    <CBehaviorBuff id="FighterViolentCharge@Slow">
+        <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="2.5"/>
+        <Duration value="2"/>
         <Modification MoveSpeedMultiplier="0.5" AttackSpeedMultiplier="0.5"/>
-        <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
+        <FinalEffect value="FighterViolentCharge@ABImmunity"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="FighterStunnedShadowCharge">
+    <CBehaviorBuff id="FighterViolentCharge@Stunned">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-behavior-incapacitated.dds"/>
         <BehaviorCategories index="Stun" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="2.5"/>
+        <Duration value="2"/>
         <Modification>
             <StateFlags index="Stun" value="1"/>
         </Modification>
+        <FinalEffect value="FighterViolentCharge@ABImmunity"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterShadowFuryTarget">
         <InfoFlags index="Hidden" value="1"/>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAccumulatorArithmetic id="AeroDefensiveMatrix@TickBeforeEnd">
+        <Parameters value="-0.0625">
+            <AccumulatorArray value="AeroDefensiveMatrix@BehaviorDuration"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="AeroDefensiveMatrix@BehaviorDuration">
+        <Behavior value="AeroDefensiveMatrix@TemporaryShields"/>
+        <Type value="DurationTotal"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="CrashedBCMedicalFacilities@HealingDistributionMultiplier">
+        <Parameters value="1"/>
+        <Parameters value="0">
+            <AccumulatorArray value="CrashedBCMedicalFacilities@UnitsHealingMax"/>
+        </Parameters>
+        <Operation value="Divide"/>
+        <ApplicationRule value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorTrackedUnitCount id="CrashedBCMedicalFacilities@UnitsHealing">
+        <TrackingBehavior value="CrashedBCMedicalFacilities@UT"/>
+    </CAccumulatorTrackedUnitCount>
+    <CAccumulatorArithmetic id="CrashedBCMedicalFacilities@UnitsHealingMax">
+        <Parameters value="1"/>
+        <Parameters value="0">
+            <AccumulatorArray value="CrashedBCMedicalFacilities@UnitsHealing"/>
+        </Parameters>
+        <Operation value="Maximum"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="DamageAccumulatedValue">
+        <Parameters value="0">
+            <AccumulatorArray value="HeroDamagePoints"/>
+            <AccumulatorArray value="UnitDamagePoints"/>
+        </Parameters>
+        <ApplicationRule value="AdditiveMultiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorAttributePoints id="HeroDamagePoints">
+        <Attribute value="CRPGDamageAttribute"/>
+        <Scale value="0.125"/>
+    </CAccumulatorAttributePoints>
+    <CAccumulatorArithmetic id="InfestedInfestationSpore@OverLifeDifference">
+        <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="MaxLife"/>
+        </Parameters>
+        <Parameters value="200"/>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="InfestedInfestationSpore@OverLifeApplicator">
+        <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="InfestedInfestationSpore@OverLifeDifference"/>
+        </Parameters>
+        <Parameters value="5"/>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="InfestedInfestationSpore@UnderLifeDifference">
+        <MinAccumulation value="0"/>
+        <Parameters value="200"/>
+        <Parameters value="0">
+            <AccumulatorArray value="MaxLife"/>
+        </Parameters>
+        <Operation value="Subtract"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="InfestedInfestationSpore@UnderLifeApplicator">
+        <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="InfestedInfestationSpore@UnderLifeDifference"/>
+        </Parameters>
+        <Parameters value="5"/>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorVitals id="MaxLife">
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorArithmetic id="ShooterChaingun@AdditiveAttackSpeedMultiplier">
+        <Parameters value="1">
+            <AccumulatorArray value="ShooterChaingun@StackMultiplier"/>
+        </Parameters>
+        <Operation value="Maximum"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="ShooterOverkill@RemainingDuration">
+        <Behavior value="ShooterOverkill@RemainingDuration"/>
+        <Type value="DurationRemaining"/>
+        <UnitSource Value="Source"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="ShooterOverkill@RemainingDurationMultiplier">
+        <Parameters value="0">
+            <AccumulatorArray value="ShooterOverkill@RemainingDuration"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ShooterOverkill@TotalDuration"/>
+        </Parameters>
+        <ApplicationRule value="Multiply"/>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="ShooterOverkill@TotalDuration">
+        <Behavior value="ShooterOverkill@RemainingDuration"/>
+        <Type value="DurationTotal"/>
+        <MinAccumulation value="1"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="ShooterStimpack@StackMultiplier">
+        <Parameters value="0">
+            <AccumulatorArray value="ShooterStimpack@StackAddition"/>
+        </Parameters>
+        <Parameters value="0.25"/>
+        <Operation value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="ShooterChaingun@Stacks">
+        <Behavior value="ShooterChaingun@Buff"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="ShooterChaingun@StackMultiplier">
+        <Parameters value="0">
+            <AccumulatorArray value="ShooterChaingun@Stacks"/>
+        </Parameters>
+        <Parameters value="0.125"/>
+        <Operation value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="ShooterStimpack@Stacks">
+        <Behavior value="ShooterStimpack"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorArithmetic id="ShooterOverkill@Recharge">
+        <ApplicationRule value="Multiply"/>
+        <Parameters value="1"/>
+        <Parameters value="1">
+            <AccumulatorArray value="ShooterChaingun@StackMultiplier"/>
+            <AccumulatorArray value="ShooterStimpack@StackMultiplier"/>
+        </Parameters>
+        <Operation value="Divide"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="ShooterStimpack@StackAddition">
+        <Parameters value="0">
+            <AccumulatorArray value="ShooterStimpack@Stacks"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="ShooterStimpack@StacksPermanent"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorBehavior id="ShooterStimpack@StacksPermanent">
+        <Behavior value="ShooterStimpack@Permanent"/>
+    </CAccumulatorBehavior>
+    <CAccumulatorAttributePoints id="UnitDamagePoints">
+        <Attribute value="CRPGDamageAttributeUnit"/>
+        <Scale value="0.0625"/>
+    </CAccumulatorAttributePoints>
+</Catalog>
