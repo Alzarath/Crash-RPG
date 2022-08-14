@@ -3699,6 +3699,8 @@
         <AbilArray Link="FighterRapidStrikes"/>
         <AbilArray Link="FighterAstralWind"/>
         <AbilArray Link="FighterViolentCharge"/>
+        <AbilArray Link="FighterViolentCharge@Dummy"/>
+        <AbilArray Link="FighterResurgence@Dummy"/>
         <WeaponArray Link="FighterPsiBlades"/>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.375"/>
@@ -3726,19 +3728,18 @@
         </LearnInfoArray>
         <BehaviorArray Link="FighterResurgence"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5" Face="FighterViolentCharge" Type="Passive" Requirements="CRPGPassive1LearnedShow" Row="1" Column="0"/>
+            <LayoutButtons index="5">
+                <Face value="FighterViolentCharge"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="FighterViolentCharge@Dummy,Execute"/>
+                <Requirements value="CRPGPassive1LearnedShow"/>
+                <Row value="1"/>
+                <Column value="0"/>
+            </LayoutButtons>
             <LayoutButtons index="6">
                 <Face value="FighterResurgence"/>
-                <Type value="Passive"/>
-                <Behavior value="FighterResurgence@Cooldown"/>
-                <Requirements value="FighterResurgence@OnCooldown"/>
-                <Row value="1"/>
-                <Column value="1"/>
-            </LayoutButtons>
-            <LayoutButtons>
-                <Face value="FighterResurgence"/>
-                <Type value="Passive"/>
-                <Behavior value="FighterResurgence"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="FighterResurgence@Dummy,Execute"/>
                 <Requirements value="CRPGPassive2LearnedShow"/>
                 <Row value="1"/>
                 <Column value="1"/>
@@ -5173,14 +5174,14 @@
         <GlossaryWeakArray value="Baneling"/>
         <LearnInfoArray index="Learn1" Abil="InfestedInfestedEggs"/>
         <LearnInfoArray index="Learn2" Abil="InfestedAberrate">
-            <Button Requirements="InfestedInfestedEggLearned"/>
+            <Button Requirements="InfestedInfestedEgg@Learned"/>
         </LearnInfoArray>
         <LearnInfoArray index="Learn3" Abil="InfestedInfestationSpore"/>
         <LearnInfoArray index="Learn4" Abil="CRPGPassive1Dummy">
-            <Button Requirements="InfestedInfestedEggLearned"/>
+            <Button Requirements="InfestedInfestedEgg@Learned"/>
         </LearnInfoArray>
         <LearnInfoArray index="Learn5" Abil="CRPGPassive2Dummy">
-            <Button Requirements="InfestedInfestedEggLearned"/>
+            <Button Requirements="InfestedInfestedEgg@Learned"/>
         </LearnInfoArray>
     </CUnitHero>
 </Catalog>

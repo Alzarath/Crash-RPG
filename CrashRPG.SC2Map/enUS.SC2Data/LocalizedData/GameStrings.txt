@@ -56,14 +56,16 @@ Abil/Name/DesignateBossLock=Designate Boss Lock
 Abil/Name/FighterAstralWind=Astral Wind
 Abil/Name/FighterLightningDash=Lightning Dash
 Abil/Name/FighterRapidStrikes=Rapid Strikes
+Abil/Name/FighterResurgence@Dummy=Resurgence
 Abil/Name/FighterViolentCharge=Violent Charge
+Abil/Name/FighterViolentCharge@Dummy=Violent Charge
 Abil/Name/Follow=Follow
 Abil/Name/FollowerConditionalOrderOrder=Conditional Order
 Abil/Name/HunterDisruptorVolley=Disruptor Volley
 Abil/Name/HunterDisruptorVolley@Free=Disruptor Volley
 Abil/Name/HunterPlasmaDiffusion@PlasmaCharge=Plasma Charge
 Abil/Name/HunterPsionicProjection=Psionic Projection
-Abil/Name/HunterPsionicProjection@Dummy=Dummy Ability
+Abil/Name/HunterPsionicProjection@Dummy=Psionic Projection
 Abil/Name/HunterScarabMine=Scarab Mine
 Abil/Name/HunterScarabMine@Free=Scarab Mine
 Abil/Name/HunterShadowTransfer=Shadow Transfer
@@ -114,7 +116,7 @@ Abil/Name/ShooterOverkill=Overkill
 Abil/Name/ShooterSandbags=Sandbags
 Abil/Name/ShooterScatterShot=Scatter-Shot
 Abil/Name/ShooterStimpack=Stimpack
-Abil/Name/ShooterStimpack@Dummy=Dummy Ability
+Abil/Name/ShooterStimpack@Dummy=Stickpack
 Abil/Name/SniperBetterEquipment=Better Equipment
 Abil/Name/SniperLevelUpMorphLevel2=Level Up
 Abil/Name/SniperLevelUpMorphLevel3=Level Up
@@ -456,8 +458,10 @@ Button/Name/FighterRapidStrikes@Learn=Learn Rapid Strikes
 Button/Name/FighterRapidStrikes@Upgraded=Upgraded Rapid Strikes
 Button/Name/FighterResurgence=Resurgence
 Button/Name/FighterResurgence@Learn=Learn Resurgence
+Button/Name/FighterResurgence@Upgraded=Upgraded Resurgence
 Button/Name/FighterViolentCharge=Violent Charge
 Button/Name/FighterViolentCharge@Learn=Learn Violent Charge
+Button/Name/FighterViolentCharge@Upgraded=Upgraded Violent Charge
 Button/Name/Follow=Follow
 Button/Name/HunterDisruptorVolley=Disruptor Volley
 Button/Name/HunterDisruptorVolley@Free2=Disruptor Volley
@@ -488,6 +492,7 @@ Button/Name/InfestedHardenedEquipment@Learn=Learn Hardened Equipment
 Button/Name/InfestedHardenedEquipment@Weapons=Hardened Weapons
 Button/Name/InfestedInfestationSpore=Infestation Spore
 Button/Name/InfestedInfestationSpore@Learn=Learn Infestation Spore
+Button/Name/InfestedInfestationSpore@Upgraded=Upgraded Infestation Spore
 Button/Name/InfestedInfestedEggs=Infested Eggs
 Button/Name/InfestedInfestedEggs@Learn=Learn Infested Eggs
 Button/Name/InfestedInfestedEggs@Upgraded=Upgraded Infested Eggs
@@ -572,17 +577,17 @@ Button/Name/WizardPsionicOrb=Psionic Orb
 Button/Name/WizardPsionicStorm=Psionic Storm
 Button/Name/WizardReanimate=Reanimate
 Button/Tooltip/AeroDefensiveMatrix=Surrounds the hero with a shield that can absorb <d ref="Behavior,AeroDefensiveMatrix,Modification.VitalMaxArray[Shields] + Behavior,AeroDefensiveMatrix@TemporaryShields,Modification.VitalMaxArray[Shields]"/> damage.
-Button/Tooltip/AeroDefensiveMatrix@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,AeroDefensiveMatrix,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,AeroDefensiveMatrix,Cost[0].Cooldown.TimeUse"/><n/><n/>Surrounds the hero with a shield that can absorb <d ref="Behavior,AeroDefensiveMatrix,Modification.VitalMaxArray[Shields] + Behavior,AeroDefensiveMatrix@TemporaryShields,Modification.VitalMaxArray[Shields] "/> damage.
-Button/Tooltip/AeroDefensiveMatrix@Upgraded=Defensive Matrix can retain up to <d ref="Behavior,AeroDefensiveMatrix,Modification.VitalMaxArray[Shields]"/> of its remaining shields after it expires.
+Button/Tooltip/AeroDefensiveMatrix@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,AeroDefensiveMatrix,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,AeroDefensiveMatrix,Cost[0].Cooldown.TimeUse"/><n/><n/>Surrounds the hero with a shield that can absorb <d ref="Behavior,AeroDefensiveMatrix,Modification.VitalMaxArray[Shields] + Behavior,AeroDefensiveMatrix@TemporaryShields,Modification.VitalMaxArray[Shields]"/> damage.
+Button/Tooltip/AeroDefensiveMatrix@Upgraded=Defensive Matrix can retain up to <d stringref="Behavior,AeroDefensiveMatrix,Modification.VitalMaxArray[Shields]"/> of its remaining shields after it expires.
 Button/Tooltip/AeroFireSuppressionSystem=Automatically repairs up to <d ref="Unit,CRPGAero,LifeMax * Validator,AeroFireSuppressionSystem@MaximumHeal,Value"/> of the caster's maximum life at <d ref="Behavior,AeroFireSuppressionSystem,Modification.VitalRegenArray[Life]"/> life per second.
 Button/Tooltip/AeroFireSuppressionSystem@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Automatically repairs up to <d ref="Unit,CRPGAero,LifeMax * Validator,AeroFireSuppressionSystem@MaximumHeal,Value"/> of the caster's maximum life at <d ref="Behavior,AeroFireSuppressionSystem,Modification.VitalRegenArray[Life]"/> life per second.
-Button/Tooltip/AeroFireSuppressionSystem@Upgraded=Fire Suppression System repairs at half effectiveness beyond half of the caster's maximum life.
+Button/Tooltip/AeroFireSuppressionSystem@Upgraded=Fire Suppression System continues to repair at half effectiveness beyond half of the caster's maximum life.
 Button/Tooltip/AeroLaserArmaments=Automatically fire Laser Batteries that deal <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,AeroLaserArmaments@Damage,Amount$" precision="2"/></c> damage to enemies below the hero.
 Button/Tooltip/AeroLaserArmaments@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Behavior,AeroLaserArmaments,Period" precision="2"/><n/><n/>Automatically fire Laser Batteries that deal <d ref="Effect,AeroLaserArmaments@Damage,Amount" precision="2"/></c> damage to enemies below the hero.
-Button/Tooltip/AeroLaserArmaments@Upgraded=Laser Armaments home in on enemies and have +<d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary:Effect,AeroLaserArmaments@SA,AreaArray[0].Radius$"/> range.
+Button/Tooltip/AeroLaserArmaments@Upgraded=Laser Armaments has homing and +<d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary:Effect,AeroLaserArmaments@SA,AreaArray[0].Radius$"/> range.
 Button/Tooltip/AeroTacticalJump=After <d ref="Behavior,AeroTacticalJump@TeleportOut,Duration + Behavior,AeroTacticalJump@Teleport,Duration + Behavior,AeroTacticalJump@TeleportIn,Duration" precision="1"/> seconds, warps to the target location. Invulnerable while warping.<n/><n/><c val="#ColorAttackInfo">Does not require vision.</c>
 Button/Tooltip/AeroTacticalJump@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,AeroTacticalJump,Cost[0].Vital[Energy]"/><n/><n/>Warps to the target location.
-Button/Tooltip/AeroTacticalJump@Upgraded=Tactical Jump can be cast anywhere and applies a decaying attack and movement speed slow to enemies in a large area around the caster upon departure. Applies a decaying movement speed increase to the caster on arrival.
+Button/Tooltip/AeroTacticalJump@Upgraded=Tactical Jump can be cast anywhere and applies a decaying attack and movement speed slow to enemies in a large area around the caster upon departure. Tactical Jump additionally applies a decaying movement speed increase to the caster on arrival.
 Button/Tooltip/AeroYamatoCannon=Blasts a target with a devastating plasma cannon, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,AeroYamatoCannon@Damage,Amount$)"/></c> damage.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/AeroYamatoCannon@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,AeroYamatoCannon,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,AeroYamatoCannon,Cost[0].Cooldown.TimeUse"/><n/><n/>Blasts a target for <d ref="Effect,AeroYamatoCannon@Damage,Amount"/> damage.
 Button/Tooltip/AeroYamatoCannon@Upgraded=Yamato Cannon fires instantly and deals damage in an area.
@@ -696,20 +701,24 @@ Button/Tooltip/DefensiveTurretHellstormMissilePods=Channel a flurry of missiles 
 Button/Tooltip/DefensiveWallMorph@Lower=Lowers the structure, allowing ground units to move across it.
 Button/Tooltip/DefensiveWallMorph@Raise=Raises the structure, preventing ground units from moving across it.
 Button/Tooltip/DevourerMP=Anti-air support unit. Attacks reduce attack speed and armor.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c>
-Button/Tooltip/FighterAstralWind=Heals all nearby friendly units for <d ref="Effect,FighterAstralWind@Heal,VitalArray[Life].Change"/> life and <d ref="Effect,FighterAstralWind@Heal,VitalArray[Shields].Change"/> shields.
+Button/Tooltip/FighterAstralWind=Heals the caster for <d ref="Effect,FighterAstralWind@HealSelf,VitalArray[Life].Change"/> life and <d ref="Effect,FighterAstralWind@HealSelf,VitalArray[Shields].Change"/> shields and nearby friendly units for <d ref="Effect,FighterAstralWind@Heal,VitalArray[Life].Change"/> life and <d ref="Effect,FighterAstralWind@Heal,VitalArray[Shields].Change"/> shields.
 Button/Tooltip/FighterAstralWind@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,FighterAstralWind,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,FighterAstralWind,Cost[0].Cooldown.TimeUse"/><n/><n/>Heals self for <d ref="Effect,FighterAstralWind@HealSelf,VitalArray[Life].Change"/> life and <d ref="Effect,FighterAstralWind@HealSelf,VitalArray[Shields].Change"/> shield and nearby friendly units for <d ref="Effect,FighterAstralWind@Heal,VitalArray[Life].Change"/> life and <d ref="Effect,FighterAstralWind@Heal,VitalArray[Shields].Change"/> shields.
 Button/Tooltip/FighterAstralWind@Upgraded=Astral Wind heals affected units again for half as much after <d time="[d ref='Behavior,FighterAstralWind,Duration'/]"/>.
 Button/Tooltip/FighterLightningDash=Charge toward a locaiton, unleashing a blast of energy that deals <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,FighterLightningDash@Damage,Amount$"/></c> damage to nearby enemies and stunning them for <d ref="Behavior,FighterLightningDash@Stunned,Duration" precision="1"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/FighterLightningDash@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,FighterLightningDash,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,FighterLightningDash,Cost[0].Cooldown.TimeUse"/><n/><n/>Charge toward a locaiton, dealing <d ref="Effect,FighterLightningDash@Damage,Amount"/> damage to nearby enemies and stunning them for <d ref="Behavior,FighterLightningDash@Stunned,Duration" precision="1"/> seconds.
+Button/Tooltip/FighterLightningDash@PostUpgrade=Charge toward a locaiton, unleashing a blast of energy that deals <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,FighterLightningDash@Damage,Amount$"/></c> damage to nearby enemies and stunning them for <d ref="Behavior,FighterLightningDash@Stunned,Duration" precision="1"/> seconds. Deals an additional <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,FighterLightningDash@DamageStormInitial,Amount$ + ($AccumulatedValue:Effect,FighterLightningDash@DamageStorm,Amount$ * Effect,FighterLightningDash@CPStorm,PeriodCount)"/></c> damage in the area over <d time="[d ref='Effect,FighterLightningDash@CPStorm,PeriodicPeriodArray[0] * (1 + Effect,FighterLightningDash@CPStorm,PeriodCount)'/]"/>.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/FighterLightningDash@Upgraded=Lightning Dash creates a small Psionic Storm at the impact point, dealing <d ref="Effect,FighterLightningDash@DamageStormInitial,Amount + (Effect,FighterLightningDash@DamageStorm,Amount * Effect,FighterLightningDash@CPStorm,PeriodCount)"/> damage over <d time="[d ref='Effect,FighterLightningDash@CPStorm,PeriodicPeriodArray[0] * (1 + Effect,FighterLightningDash@CPStorm,PeriodCount)'/]"/>.
 Button/Tooltip/FighterRapidStrikes=Gain <d ref="100 * Behavior,FighterRapidStrikes,Modification.AdditiveAttackSpeedFactor"/>% bonus attack speed for <d time="[d ref='Behavior,FighterRapidStrikes,Duration'/]"/>.
 Button/Tooltip/FighterRapidStrikes@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,FighterRapidStrikes,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,FighterRapidStrikes,Cost[0].Cooldown.TimeUse"/><n/><n/>Gain <d ref="100 * Behavior,FighterRapidStrikes,Modification.AdditiveAttackSpeedFactor"/>% attack speed for <d ref="Behavior,FighterRapidStrikes,Duration"/> seconds.
 Button/Tooltip/FighterRapidStrikes@Upgraded=Rapid Strikes' duration is refreshed to <d time="[d ref='Effect,FighterRapidStrikes@ABRefresh,Duration'/]"/> when the caster attacks a unit.
-Button/Tooltip/FighterResurgence=Grants invulnerability for <d ref="Behavior,FighterResurgence@Invulnerable,Duration"/> seconds upon taking lethal damage, preventing death and replenishing Shields and Life. Releases a large blast of energy that knocks back and deals <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,FighterResurgence@Damage,Amount$"/></c> damage to all nearby enemies.<n/><n/>This effect can only occur once every <d ref="Behavior,FighterResurgence@Cooldown,Duration"/> seconds.
-Button/Tooltip/FighterResurgence@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Behavior,FighterResurgence@Cooldown,Duration"/><n/><n/>Prevent death and replenish Shields and Life. Releases a large blast of energy that knocks back and deals <d ref="Effect,FighterResurgence@Damage,Amount"/> damage.
+Button/Tooltip/FighterResurgence=Grants invulnerability for <d ref="Behavior,FighterResurgence@Invulnerable,Duration"/> seconds upon taking lethal damage, preventing death and replenishing Shields and Life.<n/><n/>This effect can only occur once every <d ref="Behavior,FighterResurgence@Cooldown,Duration"/> seconds.
+Button/Tooltip/FighterResurgence@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Behavior,FighterResurgence@Cooldown,Duration"/><n/><n/>Prevent death and replenish Shields and Life.
+Button/Tooltip/FighterResurgence@PostUpgrade=Grants invulnerability for <d ref="Behavior,FighterResurgence@Invulnerable,Duration"/> seconds upon taking lethal damage, preventing death and replenishing Shields and Life. Releases a large blast of energy that knocks back and deals <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,FighterResurgence@Damage,Amount$"/></c> damage to all nearby enemies.<n/><n/>This effect can only occur once every <d ref="Behavior,FighterResurgence@Cooldown,Duration"/> seconds.
+Button/Tooltip/FighterResurgence@Upgraded=Resurgence detonates on revival, dealing <d ref="Effect,FighterResurgence@Damage,Amount"/> damage to nearby enemies.
 Button/Tooltip/FighterShadowCharge=Charges at enemies, increasing movement speed and stunning nearby ground units for <d ref="Behavior,FighterShadowCharge@Stunned,Duration"/> seconds on impact.<n/><n/>Massive, Heroic, and Unstoppable units' movement and attack speed are instead slowed by <d ref="100 * Behavior,FighterShadowCharge@Slow,Modification.MoveSpeedMultiplier"/>% for the duration.<n/><n/>Enemies can't be stunned or slowed by this for <d ref="Behavior,FighterShadowCharge@Immunity,Duration"/> seconds after it wears off.
 Button/Tooltip/FighterViolentCharge=Charges at enemies, increasing movement speed and stunning nearby ground units for <d ref="Behavior,FighterViolentCharge@Stunned,Duration"/> seconds on impact.<n/><n/>Massive, Heroic, and Unstoppable units' movement and attack speed are instead slowed by <d ref="100 * Behavior,FighterViolentCharge@Slow,Modification.MoveSpeedMultiplier"/>% for the duration.<n/><n/>Enemies can't be stunned or slowed by this for <d ref="Behavior,FighterViolentCharge@Immunity,Duration"/> seconds after it wears off.
 Button/Tooltip/FighterViolentCharge@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Charges at enemies, stunning nearby ground units for <d ref="Behavior,FighterViolentCharge@Stunned,Duration"/> seconds on impact.
+Button/Tooltip/FighterViolentCharge@Upgraded=Violent Charge's enemy immunity period is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,FighterViolentCharge@Immunity,Duration$'/]"/> and its range is increased by <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Validator,FighterViolentCharge@MaxDistance,Range$"/>.
 Button/Tooltip/Follow=Orders the selected unit to become a follower of a heroic unit. Each hero may only have <d ref="Behavior,CRPGFollowerTarget,MaxStackCount"/> follower(s).
 Button/Tooltip/GuardianMP=Long range siege unit.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/HunterDisruptorVolley=The next attack target has a volley of <d ref="Effect,HunterDisruptorVolley@CP,PeriodCount"/> long-range projectiles that each deal <c val="#ColorAttackInfo"><d ref="Effect,HunterDisruptorVolley@Damage,Amount"/></c> damage fired at them. Each Psionic Orb fires <d ref="Effect,HunterDisruptorVolley@CPPsionicProjection,PeriodCount"/> additional projectiles.
@@ -742,6 +751,7 @@ Button/Tooltip/InfestedHardenedEquipment@Learn=<s val="@@StandardTooltipHeaderSu
 Button/Tooltip/InfestedHardenedEquipment@Weapons=Deals +<d ref="Behavior,InfestedHardenedEquipment@Offensive,Modification.DamageDealtUnscaled[Ranged]"/> ranged damage.
 Button/Tooltip/InfestedInfestationSpore=Permanently take control of a unit.
 Button/Tooltip/InfestedInfestationSpore@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedInfestationSpore,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,InfestedInfestationSpore,Cost[0].Cooldown.TimeUse"/><n/><n/>Permanently take control of a unit.
+Button/Tooltip/InfestedInfestationSpore@Upgraded=Infestation Spore can infest an additional unit.
 Button/Tooltip/InfestedInfestedBunker=Infested Bunkers deal moderate damage and house Infested Marines.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/InfestedInfestedCivilian=Melee attacker.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/InfestedInfestedEgg@Civilian=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
@@ -781,7 +791,7 @@ Button/Tooltip/ShipSolariteExposure=Causes enemy units and structures within the
 Button/Tooltip/ShipVortex=Creates a gravity Vortex that stuns ground and air units in the target area. Units within the Vortex are invulnerable to all damage and effects. Lasts for <d time="20"/>.
 Button/Tooltip/ShooterChaingun=Increase the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% every time they attack, stacking up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
 Button/Tooltip/ShooterChaingun@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Attacking increases the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%.
-Button/Tooltip/ShooterChaingun@Upgraded=Chaingun decays <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,ShooterChaingun@Buff,Duration$'/]"/> later.
+Button/Tooltip/ShooterChaingun@Upgraded=Chaingun lasts up to an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
 Button/Tooltip/ShooterDisableScatterShot=Returns the caster's projectiles to normal.
 Button/Tooltip/ShooterGravityGrenade=Tosses a grenade that explodes, hitting ground units for <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ShooterGravityGrenade@Damage,Amount$"/></c> damage in a small radius. Stuns units hit and pulls them toward the center over <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds.
 Button/Tooltip/ShooterGravityGrenade@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Cooldown.TimeUse"/><n/><n/>Tosses a grenade that deals <d ref="Effect,ShooterGravityGrenade@Damage,Amount"/> damage and stuns ground units for <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds in a small area.
@@ -810,7 +820,7 @@ Button/Tooltip/SniperSniperRound=A careful shot, dealing <c val="#ColorAttackInf
 Button/Tooltip/SniperSniperRound@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,SniperSniperRound,Cost[0].Vital[Energy]"/><n/><n/>Deal <d ref="Effect,SniperSniperRound@Damage,Amount"/> (<d ref="Effect,SniperSniperRound@DamageBiological,Amount"/> vs. Biological) damage. Double vs Psionic.
 Button/Tooltip/SniperToxicMunitions=This unit's projectiles are coated in a deadly toxin that deals <c val="#ColorAttackInfo"><d ref="Behavior,SniperToxicMunitions@Buff,Duration / Behavior,SniperToxicMunitions@Buff,Period * $AccumulatedValue:Effect,SniperToxicMunitions@Damage,Amount$"/></c> damage over <d time="[d ref='Behavior,SniperToxicMunitions@Buff,Duration'/]"/> to any enemy damaged by it for the first time. Can not be re-applied to the same unit for <d time="[d ref='Behavior,SniperToxicMunitions@Cooldown,Duration'/]"/>.
 Button/Tooltip/SniperToxicMunitions@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Damage deals an additional <d ref="Behavior,SniperToxicMunitions@Buff,Duration / Behavior,SniperToxicMunitions@Buff,Period * Effect,SniperToxicMunitions@Damage,Amount"/> damage over <d time="[d ref='Behavior,SniperToxicMunitions@Buff,Duration'/]"/> once per target.
-Button/Tooltip/SniperToxicMunitions@Upgraded=Toxic Munitions spreads to nearby units if a target dies with it.
+Button/Tooltip/SniperToxicMunitions@Upgraded=Toxic Munitions spreads to nearby units if a unit dies with it.
 Button/Tooltip/SwarmerEvolve=Evolves into Swarmer's ultimate form.
 Button/Tooltip/SwarmerIncubate=Spawns a Swarmer inside the caster, waiting to be released.
 Button/Tooltip/SwarmerMerge=Sacrifices 2 Swarmers to evolve into a stronger variant.
@@ -1539,10 +1549,11 @@ Effect/Name/FighterResurgence@ABSuppressed=Apply Behavior
 Effect/Name/FighterResurgence@CP=Create Persistent
 Effect/Name/FighterResurgence@Damage=Damage
 Effect/Name/FighterResurgence@Heal=Heal
+Effect/Name/FighterResurgence@MUCooldown=Modify Unit
 Effect/Name/FighterResurgence@SA=Search Area
 Effect/Name/FighterResurgence@Set=Set
-Effect/Name/FighterResurgence@SetExplode=Set
 Effect/Name/FighterResurgence@SetImpact=Set
+Effect/Name/FighterResurgence@SetTrigger=Set
 Effect/Name/FighterSolariteReaperCleaveSet=Solarite Reaper
 Effect/Name/FighterSolariteReaperCreatePersistent=Solarite Reaper
 Effect/Name/FighterSolariteReaperDamage=Solarite Reaper
@@ -2359,10 +2370,10 @@ RequirementNode/Tooltip/LT2605192531SumCountAbilCrashedBattlecruiserNomadRepairQ
 RequirementNode/Tooltip/LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1=Healing Beam Target Limit
 RequirementNode/Tooltip/LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8=Less than 8 Swarmers
 RequirementNode/Tooltip/LT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5=Not maximum level
+RequirementNode/Tooltip/LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly=Not Max Infested Victims
 RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=Not Infested
 RequirementNode/Tooltip/Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit=Already Linked
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
-RequirementNode/Tooltip/Not3697774798CountBehaviorInfestedInfestationSpore@BuffCompleteOnly=No Infestation Spore Victim
 RequirementNode/Tooltip/Or2694335422CountAbilHunterScarabMineCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit=Any Active Ability
 RequirementNode/Tooltip/Or774336177GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2=Level 2
 SimpleDisplay/Follow=<IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/> <s val="@@@SimpleCommandRow">to Move</s>

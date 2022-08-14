@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilEffectInstant id="FighterResurgence@Dummy">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Cost>
+            <Cooldown TimeUse="240"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FighterResurgence">
+            <Flags index="IgnoreUser" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="FighterViolentCharge@Dummy">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Cost/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FighterViolentCharge">
+            <Flags index="IgnoreUser" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="HunterPsionicProjection@Dummy">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Levels value="1"/>
@@ -1495,7 +1511,7 @@
         </Cost>
         <TargetFilters value="Visible;Self,Player,Ally,Neutral,Structure,Heroic,Stasis,Invulnerable"/>
         <Range value="7"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfestationSpore" Requirements="InfestedInfestationSpore@NoVictim">
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedInfestationSpore" Requirements="InfestedInfestationSpore@NotMaxVictims">
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>

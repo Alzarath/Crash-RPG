@@ -5,6 +5,9 @@
         <EffectArray Reference="Abil,HunterPsionicProjection,MaxCount" Value="1"/>
         <EffectArray Reference="Abil,HunterPsionicProjection@Dummy,Cost[0].Charge.CountMax" Value="1"/>
         <EffectArray Reference="Behavior,ShooterChaingun@Buff,Duration" Value="3.000000"/>
+        <EffectArray Reference="Validator,FighterViolentCharge@MaxDistance,Range" Value="1"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,FighterViolentCharge@Immunity,Duration" Value="2.000000"/>
+        <EffectArray Reference="Actor,FighterViolentCharge@Range,Range" Value="1.000000"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGHunter"/>
         <AffectedUnitArray value="CRPGShooter"/>
@@ -17,6 +20,8 @@
         <EffectArray Reference="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax" Value="15"/>
         <EffectArray Operation="Set" Reference="Effect,AeroLaserArmaments@Set,EffectArray[1]" Value="AeroLaserArmaments@LMUpgraded"/>
         <EffectArray Reference="Effect,AeroLaserArmaments@SA,AreaArray[0].Radius" Value="2"/>
+        <EffectArray Operation="Set" Reference="Button,FighterResurgence,AlertTooltip" Value="Button/Tooltip/FighterResurgence@PostUpgrade"/>
+        <EffectArray Operation="Set" Reference="Button,FighterResurgence,Tooltip" Value="Button/Tooltip/FighterResurgence@PostUpgrade"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
         <AffectedUnitArray value="CRPGHunter"/>
@@ -53,6 +58,8 @@
         <EffectArray Operation="Set" Reference="Effect,FighterLightningDash@CPStorm,Chance" Value="1"/>
         <EffectArray Operation="Subtract" Reference="Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse" Value="4.000000"/>
         <EffectArray Reference="Effect,AeroYamatoCannon@Damage,AreaArray[0].Radius" Value="1.5"/>
+        <EffectArray Operation="Set" Reference="Button,FighterLightningDash,AlertTooltip" Value="Button/Tooltip/FighterLightningDash@PostUpgrade"/>
+        <EffectArray Operation="Set" Reference="Button,FighterLightningDash,Tooltip" Value="Button/Tooltip/FighterLightningDash@PostUpgrade"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
         <AffectedUnitArray value="CRPGFighter"/>

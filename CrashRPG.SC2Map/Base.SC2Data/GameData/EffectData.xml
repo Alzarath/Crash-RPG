@@ -150,6 +150,14 @@
         <Flags index="UseDuration" value="1"/>
         <Duration value="3"/>
     </CEffectApplyBehavior>
+    <CEffectModifyUnit id="FighterResurgence@MUCooldown">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Source"/>
+        <Cost Abil="FighterResurgence@Dummy,Execute" CooldownOperation="Set">
+            <Player Value="Source"/>
+            <Fraction Cooldown="1"/>
+        </Cost>
+    </CEffectModifyUnit>
     <CEffectApplyBehavior id="InfestedInfestationSpore@ABLifeIncrease">
         <EditorCategories value="Race:Zerg"/>
         <Behavior value="InfestedInfestationSpore@LifeIncrease"/>
@@ -4085,19 +4093,13 @@
         <EffectArray value="UnitKnockbackBy5"/>
         <EffectArray value="FighterResurgence@CP"/>
     </CEffectSet>
-    <CEffectSet id="FighterResurgence@SetExplode">
+    <CEffectSet id="FighterResurgence@SetTrigger">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="FighterResurgence@Heal"/>
         <EffectArray value="FighterResurgence@SA"/>
     </CEffectSet>
     <CEffectModifyUnit id="FighterResurgence@Heal">
         <EditorCategories value="Race:Protoss"/>
-        <Cost Abil="ArtanisLightningDash,Execute" CooldownOperation="Set">
-            <Player Value="Source"/>
-        </Cost>
-        <Cost Abil="ArtanisAstralWind,Execute" CooldownOperation="Set">
-            <Player Value="Source"/>
-        </Cost>
         <VitalArray index="Life">
             <ChangeFraction value="1"/>
         </VitalArray>
@@ -4114,6 +4116,7 @@
         <EditorCategories value="Race:Protoss"/>
         <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="3" Effect="FighterResurgence@SetImpact"/>
+        <ValidatorArray value="CRPGAbilityUpgradePassiveSecondary@Upgraded"/>
     </CEffectEnumArea>
     <CEffectSet id="FighterResurgence@Set">
         <EditorCategories value="Race:Protoss"/>
@@ -4121,6 +4124,7 @@
         <EffectArray value="FighterResurgence@ABCooldown"/>
         <EffectArray value="FighterResurgence@ABStun"/>
         <EffectArray value="FighterResurgence@ABSuppressed"/>
+        <EffectArray value="FighterResurgence@MUCooldown"/>
     </CEffectSet>
     <CEffectApplyBehavior id="FighterResurgence@ABStun">
         <EditorCategories value="Race:Protoss"/>
@@ -4682,7 +4686,7 @@
         <PeriodicPeriodArray value="0.28"/>
     </CEffectCreatePersistent>
     <CEffectApplyBehavior id="FighterViolentCharge@AB">
-        <ValidatorArray index="0" value="ChargeMaxDistance"/>
+        <ValidatorArray index="0" value="FighterViolentCharge@MaxDistance"/>
         <ValidatorArray value="FighterViolentCharge@CanBeAffected"/>
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>

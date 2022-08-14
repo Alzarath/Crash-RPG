@@ -215,6 +215,20 @@
         <CombineArray value="CasterIsNotLevel0"/>
         <CombineArray value="CasterIsNotLevel1"/>
     </CValidatorCombine>
+    <CValidatorLocationCompareRange id="FighterViolentCharge@MaxDistance">
+        <ResultFailed value="TargetIsOutOfRange"/>
+        <WhichLocation Value="SourceUnit"/>
+        <Compare value="LT"/>
+        <Range value="4"/>
+        <Pathing value="1"/>
+        <Value Value="TargetUnit"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorUnitCompareOrderTargetRange id="FighterViolentCharge@MinDistance">
+        <ResultFailed value="TargetIsTooClose"/>
+        <Compare value="GT"/>
+        <AbilLink value="attack"/>
+        <Value value="0.1"/>
+    </CValidatorUnitCompareOrderTargetRange>
     <CValidatorLocationCompareRange id="CrashedBCMedicalFacilities@InRange">
         <WhichLocation Value="TargetUnit"/>
         <Compare value="LE"/>

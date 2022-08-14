@@ -110,8 +110,11 @@ Abil/EditorSuffix/CRPGLearnAbilityDummy=(Dummy)
 Abil/EditorSuffix/CRPGPassive1Dummy=(Dummy)
 Abil/EditorSuffix/CRPGPassive2Dummy=(Dummy)
 Abil/EditorSuffix/CrashedBattlecruiserTrainMarineExternal=(External)
+Abil/EditorSuffix/FighterResurgence@Dummy=(Dummy)
+Abil/EditorSuffix/FighterViolentCharge@Dummy=(Dummy)
 Abil/EditorSuffix/HunterDisruptorVolley@Free=(Free)
 Abil/EditorSuffix/HunterLevelUpMorphLevel42=(Morph) (Level 3)
+Abil/EditorSuffix/HunterPsionicProjection@Dummy=(Dummy)
 Abil/EditorSuffix/HunterScarabMine@Free=(Free)
 Abil/EditorSuffix/HunterShadowTransfer@Free=(Free)
 Abil/EditorSuffix/MedicHealingBeamMedivac=(Medivac)
@@ -119,6 +122,7 @@ Abil/EditorSuffix/MedicTransportMedivac=(Medivac)
 Abil/EditorSuffix/MoveStupid=(Stupid)
 Abil/EditorSuffix/OutpostDefensiveOutpostMorph=(Morph)
 Abil/EditorSuffix/ShipDisruptionWebNoAim=(No Aim)
+Abil/EditorSuffix/ShooterStimpack@Dummy=(Dummy)
 Abil/EditorSuffix/SniperLevelUp12=(Level 1 -> Level 2)
 Abil/EditorSuffix/SniperLevelUpMorphLevel=(Morph) (Level 1)
 Abil/EditorSuffix/SniperLevelUpMorphLevel12=(Morph) (Level 1)
@@ -560,7 +564,7 @@ Actor/EditorSuffix/FighterRapidStrikes@ModelImpact=(Impact)
 Actor/EditorSuffix/FighterRapidStrikes@SoundEnd=(End)
 Actor/EditorSuffix/FighterRapidStrikes@SoundLoop=(Loop)
 Actor/EditorSuffix/FighterRapidStrikes@SoundStart=(Start)
-Actor/EditorSuffix/FighterResurgence@ModelCharge=(Charge)
+Actor/EditorSuffix/FighterResurgence@ModelExplode=(Explode)
 Actor/EditorSuffix/FighterResurgence@SoundCharge=(Charge)
 Actor/EditorSuffix/FighterResurgence@SoundExplode=(Explode)
 Actor/EditorSuffix/FighterShadowChargeImpact=(Impact)
@@ -1006,12 +1010,12 @@ Actor/Name/FighterRapidStrikes@SoundEnd=Sound
 Actor/Name/FighterRapidStrikes@SoundLoop=Sound
 Actor/Name/FighterRapidStrikes@SoundStart=Sound
 Actor/Name/FighterResurgence@Corpse=Corpse
-Actor/Name/FighterResurgence@ModelCharge=Model
+Actor/Name/FighterResurgence@ModelExplode=Model
+Actor/Name/FighterResurgence@Range=Range
 Actor/Name/FighterResurgence@SoundCharge=Sound
 Actor/Name/FighterResurgence@SoundExplode=Sound
 Actor/Name/FighterShadowChargeImpact=Shadow Charge
 Actor/Name/FighterShadowChargeStunLaunchSound=Shadow Charge
-Actor/Name/FighterViolentCharge@CursorSplat=Cursor Splat
 Actor/Name/FighterViolentCharge@ModelSlow=Model
 Actor/Name/FighterViolentCharge@ModelStun=Model
 Actor/Name/FighterViolentCharge@Range=Range
@@ -2600,8 +2604,9 @@ Effect/EditorSuffix/FighterResurgence@ABCooldown=(Cooldown)
 Effect/EditorSuffix/FighterResurgence@ABInvulnerable=(Invulnerable)
 Effect/EditorSuffix/FighterResurgence@ABStun=(Stun)
 Effect/EditorSuffix/FighterResurgence@ABSuppressed=(Suppressed)
-Effect/EditorSuffix/FighterResurgence@SetExplode=(Explode)
+Effect/EditorSuffix/FighterResurgence@MUCooldown=(Cooldown)
 Effect/EditorSuffix/FighterResurgence@SetImpact=(Impact)
+Effect/EditorSuffix/FighterResurgence@SetTrigger=(Trigger)
 Effect/EditorSuffix/FighterSolariteReaperCleaveSet=(Cleave Set)
 Effect/EditorSuffix/FighterSolariteReaperCreatePersistent=(Create Persistent)
 Effect/EditorSuffix/FighterSolariteReaperDamage=(Damage)
@@ -3212,11 +3217,8 @@ Requirement/EditorPrefix/HunterHasActiveAbility=Hunter -
 Requirement/EditorPrefix/HunterMaxPlasmaCharge=Hunter -
 Requirement/EditorPrefix/HunterPsionicProjectionUnavailable=Hunter -
 Requirement/EditorPrefix/InRangeofArmory=Crash RPG -
-Requirement/EditorPrefix/InfestedInfestedEggLearned=Infested -
-Requirement/EditorPrefix/InfestedMaxInfestedMarines=Infested -
 Requirement/EditorPrefix/InfestedNotUninfested=Infested -
 Requirement/EditorPrefix/InfestedTargeted2InfestedCivilian=Infested -
-Requirement/EditorPrefix/InfestedTargetedGE2InfestedCivilian=Infested -
 Requirement/EditorPrefix/IsInRange=Crash RPG -
 Requirement/EditorPrefix/MechArmPointDefenseDrone=Mech -
 Requirement/EditorPrefix/ShooterLuckyShotAvailable=Shooter -
@@ -3350,12 +3352,10 @@ Requirement/Name/HunterPsionicProjectionUnavailable=Psionic Projection Unavailab
 Requirement/Name/HunterScarabMine@FreeUse=Free Use
 Requirement/Name/HunterShadowTransfer@FreeUse=Free Use
 Requirement/Name/InfestedEmpathicRepercussion=Empathic Repercussion
-Requirement/Name/InfestedInfestationSpore@NoVictim=No Victim
+Requirement/Name/InfestedInfestationSpore@NotMaxVictims=Not Max Victims
+Requirement/Name/InfestedInfestedEgg@Learned=Learned
 Requirement/Name/InfestedInfestedEgg@ShouldProduceInfestedMarine=Should Produce Infested Marine
-Requirement/Name/InfestedInfestedEggLearned=Infested Egg Learned
-Requirement/Name/InfestedMaxInfestedMarines=Max Infested Marines
 Requirement/Name/InfestedNotUninfested=Not Uninfested
-Requirement/Name/InfestedTargetedGE2InfestedCivilian=Targeted GE 2 Infested Civilian
 Requirement/Name/LTLevel5Veterancy=LT Level 5
 Requirement/Name/MechArmPointDefenseDrone=Arm Point Defense Drone
 Requirement/Name/MedicHealingBeam@Channeling=Channeling
@@ -3376,7 +3376,6 @@ RequirementNode/Name/AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedComplete
 RequirementNode/Name/AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterScarabMineCompleteOnlyAtUnit=CountBehavior(HunterPlasmaDiffusion@PlasmaCharged,CompleteOnlyAtUnit) && CountAbil(HunterScarabMine,CompleteOnlyAtUnit)
 RequirementNode/Name/AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnit=CountBehavior(HunterPlasmaDiffusion@PlasmaCharged,CompleteOnlyAtUnit) && CountAbil(HunterShadowTransfer,CompleteOnlyAtUnit)
 RequirementNode/Name/AndGT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnitLT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5=CountBehavior(CRPGHeroVeterancy,CompleteOnlyAtUnit) > {Correct Level}CountBehavior(CRPGUnderlingLevel@Level1,CompleteOnlyAtUnit) && CountBehavior(CRPGUnderlingLevel@Level1,CompleteOnlyAtUnit) < {Not maximum level}5
-RequirementNode/Name/AndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4CountUnitOverlordCompleteOnly=(CountUnit(InfestedInfestedMarine,QueuedOrBetter) + CountUnit(InfestedInfestedEgg@Marine,QueuedOrBetter)) >= 4 && CountUnit(Overlord,CompleteOnly)
 RequirementNode/Name/AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838=CountUnit(SwarmerSwarmerSpawn,QueuedOrBetterAtUnit) < {Less than 8 incubating Swarmers}8 && CountUpgrade(CRPGAbilityUpgradePrimary,CompleteOnly){Basic Ability Upgrade}
 RequirementNode/Name/AndLT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetter255CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714=CountAbil(CRPGUpgradeArmor,QueuedOrBetter) < {Armor Upgrades Available}255 && CountBehavior(CRPGControlArmory,CompleteOnlyAtUnit){Nearby hero}
 RequirementNode/Name/AndLT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit255CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714=CountAbil(CRPGUpgradeArmor,QueuedOrBetterAtUnit) < {Armor Upgrades Available}255 && CountBehavior(CRPGControlArmory,CompleteOnlyAtUnit){Nearby hero}
@@ -3414,7 +3413,6 @@ RequirementNode/Name/CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit=Co
 RequirementNode/Name/CountBehaviorFighterResurgence@CooldownCompleteOnlyAtUnit=CountBehavior(FighterResurgence@Cooldown,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnit=CountBehavior(HunterPlasmaDiffusion@PlasmaCharged,CompleteOnlyAtUnit)
 RequirementNode/Name/CountBehaviorHunterPsionicProjection@CooldownCompleteOnlyAtUnit=CountBehavior(HunterPsionicProjection@Cooldown,CompleteOnlyAtUnit)
-RequirementNode/Name/CountBehaviorInfestedAberrate@AberrationTargetCompleteOnly=CountBehavior(InfestedAberrate@AberrationTarget,CompleteOnly)
 RequirementNode/Name/CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055=CountBehavior(InfestedEmpathicRepercussion,CompleteOnlyAtUnit){Near summoner}
 RequirementNode/Name/CountBehaviorInfestedInfestationSpore@BuffCompleteOnly=CountBehavior(InfestedInfestationSpore@Buff,CompleteOnly)
 RequirementNode/Name/CountBehaviorInfestedInfestedCivilianCountQueuedOrBetter=CountBehavior(InfestedInfestedCivilianCount,QueuedOrBetter)
@@ -3440,10 +3438,7 @@ RequirementNode/Name/CountUnitHunterPsionicProjectionQueuedOrBetterAtUnit=CountU
 RequirementNode/Name/CountUnitInfestedInfestedBunkerQueuedOrBetter=CountUnit(InfestedInfestedBunker,QueuedOrBetter)
 RequirementNode/Name/CountUnitInfestedInfestedCivilianQueuedOrBetter=CountUnit(InfestedInfestedCivilian,QueuedOrBetter)
 RequirementNode/Name/CountUnitInfestedInfestedEgg@CivilianQueuedOrBetter=CountUnit(InfestedInfestedEgg@Civilian,QueuedOrBetter)
-RequirementNode/Name/CountUnitInfestedInfestedEgg@MarineQueuedOrBetter=CountUnit(InfestedInfestedEgg@Marine,QueuedOrBetter)
-RequirementNode/Name/CountUnitInfestedInfestedMarineQueuedOrBetter=CountUnit(InfestedInfestedMarine,QueuedOrBetter)
 RequirementNode/Name/CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit=CountUnit(MechPointDefenseDrone,QueuedOrBetterAtUnit)
-RequirementNode/Name/CountUnitOverlordCompleteOnly=CountUnit(Overlord,CompleteOnly)
 RequirementNode/Name/CountUnitSwarmerSwarmerEggQueuedOrBetter=CountUnit(SwarmerSwarmerEgg,QueuedOrBetter)
 RequirementNode/Name/CountUnitSwarmerSwarmerSpawnCompleteOnlyAtUnit=CountUnit(SwarmerSwarmerSpawn,CompleteOnlyAtUnit)
 RequirementNode/Name/CountUnitSwarmerSwarmerSpawnQueuedOrBetter=CountUnit(SwarmerSwarmerSpawn,QueuedOrBetter)
@@ -3489,13 +3484,11 @@ RequirementNode/Name/GTE3553322166CountBehaviorSwarmerHeroVeterancyCompleteOnlyA
 RequirementNode/Name/GTE774336177CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit2=CountBehavior(CRPGUnderlingLevel@Level1,CompleteOnlyAtUnit) >= {Level 2}2
 RequirementNode/Name/GTE774336177OrCountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnitCountBehaviorSwarmerEggAnimationCompleteOnlyAtUnitCountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2=(CountBehavior(SwarmerHeroVeterancy,CompleteOnlyAtUnit) || CountBehavior(SwarmerEggAnimation,CompleteOnlyAtUnit) || CountBehavior(SwarmerHeroVeterancyLevel3,CompleteOnlyAtUnit)) >= {Level 2}2
 RequirementNode/Name/GTECountAbilHunterPlasmaDiffusion@PlasmaChargeCompleteOnlyAtUnit10=CountAbil(HunterPlasmaDiffusion@PlasmaCharge,CompleteOnlyAtUnit) >= 10
-RequirementNode/Name/GTECountBehaviorInfestedAberrate@AberrationTargetCompleteOnly2=CountBehavior(InfestedAberrate@AberrationTarget,CompleteOnly) >= 2
 RequirementNode/Name/GTECountBehaviorInfestedInfestedCivilianCountQueuedOrBetter2=CountBehavior(InfestedInfestedCivilianCount,QueuedOrBetter) >= 2
 RequirementNode/Name/GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2=CountBehavior(SwarmerHeroVeterancy,CompleteOnlyAtUnit) >= 2
 RequirementNode/Name/GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2=CountBehavior(SwarmerHeroVeterancyLevel2,CompleteOnlyAtUnit) >= 2
 RequirementNode/Name/GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2=CountBehavior(SwarmerHeroVeterancyLevel3,CompleteOnlyAtUnit) >= 2
 RequirementNode/Name/GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22=(CountUnit(InfestedInfestedCivilian,QueuedOrBetter) + CountUnit(InfestedInfestedEgg@Civilian,QueuedOrBetter) + (CountUnit(InfestedInfestedBunker,QueuedOrBetter) * 2)) >= 2
-RequirementNode/Name/GTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4=(CountUnit(InfestedInfestedMarine,QueuedOrBetter) + CountUnit(InfestedInfestedEgg@Marine,QueuedOrBetter)) >= 4
 RequirementNode/Name/LT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8=CountUnit(SwarmerSwarmerSpawn,QueuedOrBetterAtUnit) < {Less than 8 incubating Swarmers}8
 RequirementNode/Name/LT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetter255=CountAbil(CRPGUpgradeArmor,QueuedOrBetter) < {Armor Upgrades Available}255
 RequirementNode/Name/LT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit255=CountAbil(CRPGUpgradeArmor,QueuedOrBetterAtUnit) < {Armor Upgrades Available}255
@@ -3506,6 +3499,7 @@ RequirementNode/Name/LT2605192531SumCountAbilCrashedBattlecruiserNomadRepairQueu
 RequirementNode/Name/LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1=CountBehavior(MedicHealingBeam@Channeling,CompleteOnlyAtUnit) < {Healing Beam Target Limit}(CountUpgrade(CRPGAbilityUpgradePrimary,CompleteOnly) + 1)
 RequirementNode/Name/LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8=CountUnit(SwarmerSwarmerSpawn,QueuedOrBetter) < {Less than 8 Swarmers}8
 RequirementNode/Name/LT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5=CountBehavior(CRPGUnderlingLevel@Level1,CompleteOnlyAtUnit) < {Not maximum level}5
+RequirementNode/Name/LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly=CountBehavior(InfestedInfestationSpore@Buff,CompleteOnly) < {Not Max Infested Victims}(1 + CountUpgrade(CRPGAbilityUpgradeTernary,CompleteOnly))
 RequirementNode/Name/LTCountBehaviorCRPGActiveFollowerQueuedOrBetter4=CountBehavior(CRPGActiveFollower,QueuedOrBetter) < 4
 RequirementNode/Name/LTCountUnitHunterPsionicProjectionQueuedOrBetterAtUnit2=CountUnit(HunterPsionicProjection,QueuedOrBetterAtUnit) < 2
 RequirementNode/Name/LTCountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2=CountUnit(MechPointDefenseDrone,QueuedOrBetterAtUnit) < 2
@@ -3518,8 +3512,6 @@ RequirementNode/Name/MulCountUnitInfestedInfestedBunkerQueuedOrBetter2=CountUnit
 RequirementNode/Name/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=!{Not Infested}(CountBehavior(UninfestedOverlord,CompleteOnlyAtUnit) || ())
 RequirementNode/Name/Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit=!{Already Linked}CountBehavior(BossLock,QueuedOrBetterAtUnit)
 RequirementNode/Name/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=!{Not Locked On}CountBehavior(VehicleLockOnDisableAttack,CompleteOnlyAtUnit)
-RequirementNode/Name/Not3697774798CountBehaviorInfestedInfestationSpore@BuffCompleteOnly=!{No Infestation Spore Victim}CountBehavior(InfestedInfestationSpore@Buff,CompleteOnly)
-RequirementNode/Name/NotAndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4CountUnitOverlordCompleteOnly=!((CountUnit(InfestedInfestedMarine,QueuedOrBetter) + CountUnit(InfestedInfestedEgg@Marine,QueuedOrBetter)) >= 4 && CountUnit(Overlord,CompleteOnly))
 RequirementNode/Name/NotCountBehaviorCRPGHoldFireCompleteOnlyAtUnit=!CountBehavior(CRPGHoldFire,CompleteOnlyAtUnit)
 RequirementNode/Name/NotCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnit=!CountBehavior(HunterPlasmaDiffusion@PlasmaCharged,CompleteOnlyAtUnit)
 RequirementNode/Name/NotCountBehaviorHunterPsionicProjection@CooldownCompleteOnlyAtUnit=!CountBehavior(HunterPsionicProjection@Cooldown,CompleteOnlyAtUnit)
@@ -3536,11 +3528,11 @@ RequirementNode/Name/OrCountBehaviorSniperPersonalCloakingInProgressOrBetterAtUn
 RequirementNode/Name/OrCountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnitCountBehaviorSwarmerEggAnimationCompleteOnlyAtUnitCountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit=CountBehavior(SwarmerHeroVeterancy,CompleteOnlyAtUnit) || CountBehavior(SwarmerEggAnimation,CompleteOnlyAtUnit) || CountBehavior(SwarmerHeroVeterancyLevel3,CompleteOnlyAtUnit)
 RequirementNode/Name/OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=CountBehavior(UninfestedOverlord,CompleteOnlyAtUnit) || ()
 RequirementNode/Name/OrLT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838=CountUnit(SwarmerSwarmerSpawn,QueuedOrBetter) < {Less than 8 Swarmers}8 || (CountUnit(SwarmerSwarmerSpawn,QueuedOrBetterAtUnit) < {Less than 8 incubating Swarmers}8 && CountUpgrade(CRPGAbilityUpgradePrimary,CompleteOnly){Basic Ability Upgrade})
+RequirementNode/Name/Sum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly=1 + CountUpgrade(CRPGAbilityUpgradeTernary,CompleteOnly)
 RequirementNode/Name/SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter=CountAbil(CrashedBattlecruiserNomadRepair,QueuedOrBetter) + CountUnit(CRPGNomad,QueuedOrBetter)
 RequirementNode/Name/SumCountUnitAlienAshWormQueuedOrBetterAtUnitCountUnitAlienAshWormBurrowedQueuedOrBetterAtUnit=CountUnit(AlienAshWorm,QueuedOrBetterAtUnit) + CountUnit(AlienAshWormBurrowed,QueuedOrBetterAtUnit)
 RequirementNode/Name/SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwarmerLevel3Qu1653712896=CountUnit(CRPGSwarmerLevel1,QueuedOrBetter) + CountUnit(SwarmerSwarmerEgg,QueuedOrBetter) + CountUnit(SwarmerSwarmerSpawn,QueuedOrBetter) + (CountUnit(CRPGSwarmerLevel2,QueuedOrBetter) * 2) + (CountUnit(CRPGSwarmerLevel3,QueuedOrBetter) * 4) + (CountUnit(CRPGSwarmerLevel4,QueuedOrBetter) * 8) + (CountUnit(CRPGSwarmerLevel5,QueuedOrBetter) * 8)
 RequirementNode/Name/SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter2=CountUnit(InfestedInfestedCivilian,QueuedOrBetter) + CountUnit(InfestedInfestedEgg@Civilian,QueuedOrBetter) + (CountUnit(InfestedInfestedBunker,QueuedOrBetter) * 2)
-RequirementNode/Name/SumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter=CountUnit(InfestedInfestedMarine,QueuedOrBetter) + CountUnit(InfestedInfestedEgg@Marine,QueuedOrBetter)
 RequirementNode/Name/SumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1=CountUpgrade(CRPGAbilityUpgradePrimary,CompleteOnly) + 1
 Sound/EditorPrefix/MechShockBlastFire=Mech -
 Sound/EditorPrefix/WizardAgonizingBlastImpact=Wizard -
@@ -4025,6 +4017,8 @@ Validator/Name/FighterRapidStrikes@Buffed=Has Rapid Strikes
 Validator/Name/FighterRapidStrikes@NoPreRefresh=No Pre-Refresh
 Validator/Name/FighterTargetsInAreaShadowFury=Targets In Area
 Validator/Name/FighterViolentCharge@CanBeAffected=Can Be Affected
+Validator/Name/FighterViolentCharge@MaxDistance=Max Distance
+Validator/Name/FighterViolentCharge@MinDistance=Min Distance
 Validator/Name/FighterViolentCharge@NotImmune=Not Immune
 Validator/Name/FighterViolentCharge@NotSlowed=Not Slowed
 Validator/Name/FighterViolentCharge@NotStunned=Not Stunned

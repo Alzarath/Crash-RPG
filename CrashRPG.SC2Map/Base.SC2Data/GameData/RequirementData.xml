@@ -215,7 +215,7 @@
         <NodeArray index="Use" Link="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnit"/>
         <NodeArray index="Show" Link="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnit"/>
     </CRequirement>
-    <CRequirement id="InfestedInfestedEggLearned">
+    <CRequirement id="InfestedInfestedEgg@Learned">
         <EditorCategories value="Race:Neutral"/>
         <NodeArray index="Use" Link="CountAbilInfestedInfestedEggsCompleteOnlyAtUnit4238922957"/>
     </CRequirement>
@@ -284,21 +284,13 @@
         <EditorCategories value="Race:Zerg"/>
         <NodeArray index="Use" Link="AndCountAbilCRPGPassive1DummyCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
     </CRequirement>
-    <CRequirement id="InfestedMaxInfestedMarines">
-        <EditorCategories value="Race:Zerg"/>
-        <NodeArray index="Use" Link="NotAndGTESumCountUnitInfestedInfestedMarineQueuedOrBetterCountUnitInfestedInfestedEgg@MarineQueuedOrBetter4CountUnitOverlordCompleteOnly"/>
-    </CRequirement>
-    <CRequirement id="InfestedTargetedGE2InfestedCivilian">
-        <EditorCategories value="Race:Zerg"/>
-        <NodeArray index="Use" Link="GTECountBehaviorInfestedAberrate@AberrationTargetCompleteOnly2"/>
-    </CRequirement>
     <CRequirement id="InfestedNotUninfested">
         <EditorCategories value="Race:Zerg"/>
         <NodeArray index="Show" Link="Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit"/>
     </CRequirement>
-    <CRequirement id="InfestedInfestationSpore@NoVictim">
+    <CRequirement id="InfestedInfestationSpore@NotMaxVictims">
         <EditorCategories value="Race:Zerg"/>
-        <NodeArray index="Use" Link="Not3697774798CountBehaviorInfestedInfestationSpore@BuffCompleteOnly"/>
+        <NodeArray index="Use" Link="LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
     </CRequirement>
     <CRequirement id="MechArmPointDefenseDrone">
         <EditorCategories value="Race:Terran"/>

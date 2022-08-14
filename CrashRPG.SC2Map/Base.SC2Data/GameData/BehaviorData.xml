@@ -1458,12 +1458,12 @@
     <CBehaviorBuff id="FighterResurgence@Cooldown">
         <Alignment value="Negative"/>
         <Cost>
-            <Cooldown TimeStart="300"/>
+            <Cooldown TimeStart="240"/>
         </Cost>
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Duration value="300"/>
+        <Duration value="240"/>
         <Modification>
             <BehaviorLinkDisableArray value="FighterResurgence"/>
         </Modification>
@@ -1475,7 +1475,7 @@
         <DisplayDuration index="Self" value="1"/>
         <Duration value="3"/>
         <Period value="3"/>
-        <PeriodicEffect value="FighterResurgence@SetExplode"/>
+        <PeriodicEffect value="FighterResurgence@SetTrigger"/>
         <DamageResponse ModifyFraction="0" ModifyMinimumDamage="1">
             <Chance value="1"/>
         </DamageResponse>
@@ -1610,7 +1610,7 @@
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-protoss-charge.dds"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <RemoveValidatorArray value="ChargeMinDistance"/>
+        <RemoveValidatorArray value="FighterViolentCharge@MinDistance"/>
         <BuffFlags index="Channeling" value="1"/>
         <Duration value="3.5"/>
         <FinalEffect value="FighterViolentCharge@SA"/>

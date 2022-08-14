@@ -55,6 +55,12 @@
         <HostSiteOps Ops="SOpAttachOriginStationary"/>
         <Sound value="Medivac_Unload"/>
     </CActorSound>
+    <CActorRange id="FighterResurgence@Range">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="Abil.FighterResurgence@Dummy.ButtonHoverOn; ValidateUnit CRPGAbilityUpgradePassiveSecondary@Upgraded" Send="Create"/>
+        <On Terms="Abil.FighterResurgence@Dummy.ButtonHoverOff" Send="Destroy"/>
+        <Range value="3.000000"/>
+    </CActorRange>
     <CActorAction id="MedicHealingBeam@Attack" parent="GenericAttackBase">
         <On Terms="Effect.MedicHealingBeam@CP.Start; At Effect" Send="Create"/>
         <On Terms="Effect.MedicHealingBeam@Dummy.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
@@ -6492,10 +6498,6 @@
         <On Terms="Behavior.FighterRapidStrikes.Off" Send="Create"/>
         <Sound value="FighterRapidStrikes@End"/>
     </CActorSound>
-    <CActorSplat id="FighterViolentCharge@CursorSplat" parent="ProtossCursorSplat" abil="FighterViolentCharge">
-        <Model value="PsiStormCursorSplat"/>
-        <Scale value="2.000000"/>
-    </CActorSplat>
     <CActorSound id="FighterRapidStrikes@SoundStart" parent="SoundOneShot">
         <On Terms="Abil.FighterRapidStrikes.SourceFinishStart" Send="Create"/>
         <Sound value="FighterRapidStrikes@Start"/>
@@ -6507,8 +6509,8 @@
     <CActorSplat id="AssassinShadowFuryCursorSplat" parent="ProtossCursorSplat" abil="AssassinShadowFury">
         <Model value="PsiStormCursorSplat"/>
     </CActorSplat>
-    <CActorModel id="FighterResurgence@ModelCharge" parent="ModelAnimationStyleOneShotNoOrphan">
-        <On Terms="Behavior.FighterResurgence@Stunned.Off" Send="Create"/>
+    <CActorModel id="FighterResurgence@ModelExplode" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.FighterResurgence@SA.Start" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary SOp2DRotation"/>
         <Model value="ArtanisResurgenceChargeModel"/>
@@ -6519,7 +6521,7 @@
         <Sound value="Artanis_ResurgenceCharge"/>
     </CActorSound>
     <CActorSound id="FighterResurgence@SoundExplode" parent="SoundContinuous">
-        <On Terms="Behavior.FighterResurgence@Stunned.Off" Send="Create"/>
+        <On Terms="Effect.FighterResurgence@SA.Start" Send="Create"/>
         <Sound value="Artanis_ResurgenceExplode"/>
     </CActorSound>
     <CActorSound id="FighterViolentCharge@Sound" parent="SoundContinuous">
@@ -6551,10 +6553,10 @@
             <Volume value="0.000000,0.000000"/>
         </Layers>
     </CActorSound>
-    <CActorRange id="FighterViolentCharge@Range" parent="RangeAbil" abil="FighterViolentCharge">
+    <CActorRange id="FighterViolentCharge@Range" parent="RangeAbil" abil="FighterViolentCharge@Dummy">
         <Range value="4.000000"/>
-        <Icon value="Assets\Textures\RadarIcon2.dds"/>
         <IconArcLength value="3.250000"/>
+        <Abil Link=""/>
     </CActorRange>
     <CActorModel id="FighterViolentCharge@ModelSlow" parent="ModelAnimationStyleContinuous">
         <Terms value="Cap 1"/>
