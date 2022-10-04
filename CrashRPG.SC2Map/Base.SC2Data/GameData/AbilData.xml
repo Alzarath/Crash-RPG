@@ -20,8 +20,13 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Levels value="1"/>
         <Cost>
-            <Charge CountMax="2" CountUse="1"/>
-            <Cooldown TimeUse="3"/>
+            <Charge>
+                <CountMax value="2"/>
+                <CountStart value="2"/>
+                <CountUse value="1"/>
+                <Link value="Abil/HunterPsionicProjection"/>
+            </Charge>
+            <Cooldown Link="Abil/HunterPsionicProjection" TimeUse="3"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="HunterPsionicProjection" Requirements="CRPGPassive1LearnedShowUse">
             <Flags index="IgnoreUser" value="1"/>
@@ -79,7 +84,7 @@
     </CAbilEffectInstant>
     <CAbilEffectInstant id="HunterShadowTransfer@Cancel">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Effect index="0" value="HunterShadowTransfer@RBShadeCancel"/>
+        <Effect index="0" value="HunterShadowTransfer@SetCancel"/>
         <Flags index="Transient" value="1"/>
         <Cost/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Cancel"/>
@@ -1671,17 +1676,15 @@
     <CAbilArmMagazine id="HunterPsionicProjection">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
-        <Flags index="Retarget" value="1"/>
         <Flags index="Transient" value="1"/>
         <Leash value="0"/>
         <InfoArray index="Ammo1" Manage="Recall" Unit="HunterPsionicProjection">
-            <Charge Link="Abil/##id##"/>
-            <Cooldown Link="Abil/##id##"/>
+            <Charge Link="Abil/HunterPsionicProjection"/>
+            <Cooldown Link="Abil/HunterPsionicProjection"/>
             <Button DefaultButtonFace="HunterPsionicProjection"/>
             <Flags index="External" value="1"/>
         </InfoArray>
         <EffectArray index="Create" value="HunterPsionicProjection@SetCreate"/>
-        <EffectArray index="Death" value="InterceptorFate"/>
         <EffectArray index="Release" value="KillsToCaster"/>
         <ExternalAngle value="270"/>
         <ExternalAngle value="90"/>

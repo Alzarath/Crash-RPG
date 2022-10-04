@@ -65,6 +65,43 @@
         <BehaviorLink value="CRPGCasterTracker"/>
         <TrackerUnit Value="Target"/>
     </CEffectAddTrackedUnit>
+    <CEffectTransferBehavior id="CRPGUnderlingLevel@TBLevel1">
+        <Name value="Effect/Name/CRPGUnderlingLevel@TB"/>
+        <LaunchUnit Value="Caster"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="CRPGUnderlingLevel@Level1"/>
+    </CEffectTransferBehavior>
+    <CEffectSet id="CRPGUnderlingLevel@SetTransfer">
+        <EffectArray value="CRPGUnderlingLevel@TBLevel1"/>
+        <EffectArray value="CRPGUnderlingLevel@TBLevel2"/>
+        <EffectArray value="CRPGUnderlingLevel@TBLevel3"/>
+        <EffectArray value="CRPGUnderlingLevel@TBLevel4"/>
+        <EffectArray value="CRPGUnderlingLevel@TBLevel5"/>
+    </CEffectSet>
+    <CEffectTransferBehavior id="CRPGUnderlingLevel@TBLevel2">
+        <Name value="Effect/Name/CRPGUnderlingLevel@TB"/>
+        <LaunchUnit Value="Caster"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="CRPGUnderlingLevel@Level2"/>
+    </CEffectTransferBehavior>
+    <CEffectTransferBehavior id="CRPGUnderlingLevel@TBLevel3">
+        <Name value="Effect/Name/CRPGUnderlingLevel@TB"/>
+        <LaunchUnit Value="Caster"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="CRPGUnderlingLevel@Level3"/>
+    </CEffectTransferBehavior>
+    <CEffectTransferBehavior id="CRPGUnderlingLevel@TBLevel4">
+        <Name value="Effect/Name/CRPGUnderlingLevel@TB"/>
+        <LaunchUnit Value="Caster"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="CRPGUnderlingLevel@Level4"/>
+    </CEffectTransferBehavior>
+    <CEffectTransferBehavior id="CRPGUnderlingLevel@TBLevel5">
+        <Name value="Effect/Name/CRPGUnderlingLevel@TB"/>
+        <LaunchUnit Value="Caster"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="CRPGUnderlingLevel@Level5"/>
+    </CEffectTransferBehavior>
     <CEffectApplyBehavior id="CrashedBCMedicalFacilities@ABLifeRegen">
         <EditorCategories value="Race:Terran"/>
         <Behavior value="CrashedBCMedicalFacilities@LifeRegen"/>
@@ -158,6 +195,55 @@
             <Fraction Cooldown="1"/>
         </Cost>
     </CEffectModifyUnit>
+    <CEffectApplyBehavior id="RevenantTimedLife@AB">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="RevenantTimedLife"/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="HunterShadowTransfer@CURevenant">
+        <ValidatorArray value="CRPGAbilityUpgradeSecondary@Upgraded"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="CasterPoint"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="Placement" value="0"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="HunterShadowTransfer@SetCreateRevenantTeleport"/>
+        <SpawnUnit value="HunterRevenant"/>
+        <SpawnRange value="1"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="HunterShadowTransfer@CURevenantCancel">
+        <ValidatorArray value="CRPGAbilityUpgradeSecondary@Upgraded"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="CasterPoint"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="Placement" value="0"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="HunterShadowTransfer@SetCreateRevenantCancel"/>
+        <SpawnUnit value="HunterRevenant"/>
+        <SpawnRange value="1"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="HunterShadowTransfer@SetCreateRevenantTeleport">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="RevenantTimedLife@AB"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+        <EffectArray value="TransferKillsToCaster"/>
+    </CEffectSet>
+    <CEffectSet id="HunterShadowTransfer@SetCancel">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterShadowTransfer@CURevenantCancel"/>
+        <EffectArray value="HunterShadowTransfer@RBShadeCancel"/>
+    </CEffectSet>
+    <CEffectSet id="HunterShadowTransfer@SetCreateRevenantCancel">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="RevenantTimedLife@AB"/>
+        <EffectArray value="CRPGUnderlingLevel@SetTransfer"/>
+        <EffectArray value="TransferKillsToCasterToTarget"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="InfestedInfestationSpore@ABLifeIncrease">
         <EditorCategories value="Race:Zerg"/>
         <Behavior value="InfestedInfestationSpore@LifeIncrease"/>
@@ -197,7 +283,7 @@
         <SearchFilters value="Visible;Self,Enemy,Air,Structure,Missile,UnderConstruction,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="6" Effect="MedicHealingBeam@CP"/>
     </CEffectEnumArea>
-    <CEffectSet id="PsionicProjectionDisruptorVolley@SetDestroyPsionicProjection">
+    <CEffectSet id="PsionicProjectionDisruptorVolley@SetDestroy">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="PsionicProjectionDisruptorVolley@ETU"/>
         <EffectArray value="HunterDisruptorVolley@Kill"/>
@@ -214,7 +300,7 @@
         <Behavior value="CRPGCasterTracker"/>
     </CEffectApplyBehavior>
     <CEffectEnumTrackedUnits id="PsionicProjectionDisruptorVolley@ETU" parent="CRPGCasterTracker@ETU">
-        <TrackerUnit Effect="PsionicProjectionDisruptorVolley@CPPsionicProjection" Value="Target"/>
+        <TrackerUnit Effect="PsionicProjectionDisruptorVolley@CP" Value="Target"/>
         <Effect value="HunterPsionicProjection@MUUseCharge"/>
     </CEffectEnumTrackedUnits>
     <CEffectSet id="HunterProjectionBeam@SetDestroy">
@@ -302,7 +388,7 @@
         <EditorCategories value="Race:Terran"/>
         <WhichLocation Value="TargetPoint"/>
         <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
-        <SpawnEffect value="CRPGUnderlingLevel@Set"/>
+        <SpawnEffect value="CRPGUnderlingLevel@SetApply"/>
         <SpawnUnit value="ShooterSandbags"/>
     </CEffectCreateUnit>
     <CEffectModifyUnit id="ShooterStimpack@MU">
@@ -315,7 +401,7 @@
     </CEffectModifyUnit>
     <CEffectModifyUnit id="HunterPsionicProjection@MUUseCharge">
         <EditorCategories value="Race:Protoss"/>
-        <Cost Abil="HunterPsionicProjection@Dummy,Execute" ChargeCountUse="1">
+        <Cost Abil="HunterPsionicProjection@Dummy,Execute" ChargeCountUse="-1">
             <Player Value="Target"/>
         </Cost>
     </CEffectModifyUnit>
@@ -332,21 +418,21 @@
         <ImpactUnit Value="Caster"/>
         <Cost Abil="HunterPsionicProjection@Dummy,Execute" CooldownOperation="Multiply"/>
     </CEffectModifyUnit>
-    <CEffectModifyUnit id="HunterPsionicProjection@MUAddCharge">
+    <CEffectModifyUnit id="HunterPsionicProjection@MUSubtractCharge">
         <EditorCategories value="Race:Protoss"/>
         <ImpactUnit Value="Source"/>
-        <Cost Abil="HunterPsionicProjection@Dummy,Execute" ChargeCountUse="-1">
+        <Cost Abil="HunterPsionicProjection@Dummy,Execute" ChargeCountUse="1">
             <Player Value="Source"/>
         </Cost>
     </CEffectModifyUnit>
     <CEffectSet id="HunterPsionicProjection@SetExpire">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterPsionicProjection@IOStart"/>
-        <EffectArray value="HunterPsionicProjection@MUAddCharge"/>
+        <EffectArray value="HunterPsionicProjection@MUSubtractCharge"/>
     </CEffectSet>
     <CEffectSet id="HunterPsionicProjection@SetCreate">
         <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="CRPGUnderlingLevel@Set"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="CRPGCasterTracker@AB"/>
         <EffectArray value="CRPGCasterTracker@ATUCasterToTarget"/>
     </CEffectSet>
@@ -937,7 +1023,7 @@
         <EffectArray value="CRPGFollowerRemoveBehaviorFollowerTarget"/>
         <EffectArray value="CRPGFollowerRemoveBehaviorFollower"/>
     </CEffectSet>
-    <CEffectSet id="CRPGUnderlingLevel@Set">
+    <CEffectSet id="CRPGUnderlingLevel@SetApply">
         <EffectArray value="CRPGUnderlingLevel@ABLevel2"/>
         <EffectArray value="CRPGUnderlingLevel@ABLevel3"/>
         <EffectArray value="CRPGUnderlingLevel@ABLevel4"/>
@@ -1451,8 +1537,7 @@
         <PeriodCount value="1"/>
         <PeriodicEffectArray value="HunterScarabMine@CU"/>
         <PeriodicOffsetArray value="0,0,0"/>
-        <PeriodicOffsetArray value="-1,0.25,0"/>
-        <PeriodicOffsetArray value="1,0.25,0"/>
+        <PeriodicOffsetArray value="-0.5,0,0"/>
         <PeriodicPeriodArray value="0"/>
     </CEffectCreatePersistent>
     <CEffectDamage id="HydraliskMelee">
@@ -1682,9 +1767,9 @@
         <EditorCategories value="Race:Terran"/>
         <ImpactUnit Value="Caster"/>
         <VitalArray index="Energy">
-            <Change value="-0.3125"/>
+            <Change value="-0.625"/>
         </VitalArray>
-        <XP value="0.625"/>
+        <XP value="1.25"/>
     </CEffectModifyUnit>
     <CEffectModifyUnit id="InfestedMendingSaliva@MUExperience">
         <EditorCategories value="Race:Zerg"/>
@@ -1728,7 +1813,7 @@
     </CEffectModifyUnit>
     <CEffectSet id="MedicSpawnMedivac@Set">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray value="CRPGUnderlingLevel@Set"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="MedicSpawnMedivac@MURaise"/>
         <EffectArray value="MedicSpawnMedivac@IO"/>
         <EffectArray value="MedicSpawnMedivac@MULower"/>
@@ -1738,10 +1823,10 @@
         <EditorCategories value="Race:Terran"/>
         <Behavior value="MedicOpticalFlare@Blind"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="MedicSelfixArmorApplyBehavior">
+    <CEffectApplyBehavior id="MedicSelfixArmor@AB">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Source"/>
-        <Behavior value="MedicSelfixArmorRestoring"/>
+        <Behavior value="MedicSelfixArmor@Restoring"/>
     </CEffectApplyBehavior>
     <CEffectCreatePersistent id="MedicHealingBeam@CP">
         <ValidatorArray value="MedicHealingBeam@CasterNotChannelingAtTarget"/>
@@ -1751,10 +1836,10 @@
         <InitialEffect value="MedicHealingBeam@SetAB"/>
         <FinalEffect value="MedicHealingBeam@SetRB"/>
         <PeriodicValidator value="MedicHealingBeam@CanChannel"/>
-        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.125"/>
         <PeriodicEffectArray value="MedicHealingBeam@SwitchHeal"/>
     </CEffectCreatePersistent>
-    <CEffectModifyUnit id="MedicSelfixArmorHeal">
+    <CEffectModifyUnit id="MedicSelfixArmor@MUHeal">
         <ValidatorArray value="noMarkers"/>
         <ValidatorArray value="NotWarpingIn"/>
         <ValidatorArray value="HiddenCompareAB"/>
@@ -2369,8 +2454,9 @@
         <ImpactEffect value="ShooterGravityGrenade@SA"/>
         <AmmoUnit value="ShooterGravityGrenade@Weapon"/>
     </CEffectLaunchMissile>
-    <CEffectTransferBehavior id="TransferKillsToSource">
+    <CEffectTransferBehavior id="TransferKillsToCasterToTarget">
         <LaunchUnit Value="Source"/>
+        <ImpactUnit Value="Target"/>
         <Behavior value="KillsToCaster"/>
     </CEffectTransferBehavior>
     <CEffectDamage id="TwinIbiksCannon2" parent="DU_WEAP">
@@ -2661,7 +2747,7 @@
     <CEffectSet id="HunterScarabMine@SetCreate">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterPlasmaDiffusion@ABSubUnit"/>
-        <EffectArray value="CRPGTransferKillsAttributes"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="HunterScarabMine@IOMove"/>
         <EffectArray value="HunterScarabMine@IOBurrow"/>
         <TargetLocationType value="Point"/>
@@ -2926,7 +3012,7 @@
         <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
         <CreateFlags index="TechComplete" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
-        <SpawnEffect value="HunterShadowTransfer@SetSpawn"/>
+        <SpawnEffect value="HunterShadowTransfer@SetCreate"/>
         <SpawnUnit value="HunterShade"/>
         <SpawnRange value="1"/>
     </CEffectCreateUnit>
@@ -2978,22 +3064,25 @@
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="HunterShadowTransfer"/>
     </CEffectApplyBehavior>
-    <CEffectSet id="HunterShadowTransfer@SetSpawn">
+    <CEffectSet id="HunterShadowTransfer@SetCreate">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterShadowTransfer@ABTarget"/>
         <EffectArray value="HunterShadowTransfer@ABTimer"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="HunterShadowTransfer@IOSpawn"/>
+        <EffectArray value="KillsToCaster"/>
     </CEffectSet>
     <CEffectTeleport id="HunterShadowTransfer@Teleport">
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
         <MinDistance value="0"/>
-        <TargetLocation Effect="HunterShadowTransfer@SetTeleport" Value="TargetPoint"/>
+        <TargetLocation Value="TargetPoint"/>
     </CEffectTeleport>
     <CEffectSet id="HunterShadowTransfer@SetTeleport">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterShadowTransfer@SetRemoveDisables"/>
         <EffectArray value="HunterShadowTransfer@MUSelection"/>
+        <EffectArray value="HunterShadowTransfer@CURevenant"/>
         <EffectArray value="HunterShadowTransfer@Kill"/>
         <EffectArray value="HunterShadowTransfer@Teleport"/>
         <EffectArray value="HunterShadowTransfer@MUOrderQueue"/>
@@ -3108,7 +3197,7 @@
         <WhichUnit Effect="HunterShadowTransfer@ABTimer" Value="Caster"/>
         <BehaviorLink value="NeuralParasite"/>
     </CEffectRemoveBehavior>
-    <CEffectSet id="HunterShadowTransfer@SetCancel">
+    <CEffectSet id="HunterShadowTransfer@SetFinal">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterShadowTransfer@RBCancelCaster"/>
         <EffectArray value="HunterShadowTransfer@Kill"/>
@@ -3138,7 +3227,7 @@
     <CEffectSet id="SwarmerSpawnUltimateInitialSet">
         <EditorCategories value="Race:PrimalZerg"/>
         <EffectArray value="KillsToCaster"/>
-        <EffectArray value="CRPGUnderlingLevel@Set"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="SwarmerSpawnUltimateApplySuppressorBehavior"/>
     </CEffectSet>
     <CEffectApplyBehavior id="SwarmerSpawnUltimateApplySuppressorBehavior">
@@ -3701,17 +3790,12 @@
         <Duration value="2"/>
     </CEffectApplyBehavior>
     <CEffectSet id="CRPGLevelUpSet">
-        <EffectArray value="CRPGUnderlingLevel@ABLevel1"/>
         <EffectArray value="CRPGLevelUpDummyVisuals"/>
     </CEffectSet>
     <CEffectApplyBehavior id="CRPGRecentlyDamagedApplyBehavior">
         <WhichUnit Value="Caster"/>
         <Behavior value="CRPGRecentlyAttacked"/>
     </CEffectApplyBehavior>
-    <CEffectSet id="CRPGTransferKillsAttributes">
-        <EffectArray value="CRPGTransferAttributes"/>
-        <EffectArray value="KillsToCaster"/>
-    </CEffectSet>
     <CEffectApplyBehavior id="ShipShieldEmitterApplyBehavior">
         <ValidatorArray index="0" value="SourceNotHidden"/>
         <EditorCategories value="Race:Protoss"/>
@@ -3764,11 +3848,11 @@
         <EffectArray value="ShipDisruptionWebApplyBehavior"/>
         <EffectArray value="ShipDisruptionWebIterateTransport"/>
     </CEffectSet>
-    <CEffectLaunchMissile id="PsionicProjectionDisruptorVolley@LMPsionicProjection">
+    <CEffectLaunchMissile id="PsionicProjectionDisruptorVolley@LM">
         <ValidatorArray index="0" value="HunterDisruptorVolleyLaunchMissileTargetFilters"/>
         <EditorCategories value="Race:Protoss"/>
         <Marker Link="Effect/HunterDisruptorVolleyLaunchMissile"/>
-        <LaunchLocation Effect="PsionicProjectionDisruptorVolley@CPPsionicProjection" Value="TargetUnit"/>
+        <LaunchLocation Effect="PsionicProjectionDisruptorVolley@CP" Value="TargetUnit"/>
         <ImpactLocation Effect="HunterDisruptorVolley@IM"/>
         <ImpactEffect value="HunterDisruptorVolley@Damage"/>
         <AmmoUnit value="HunterDisruptorVolley@Weapon"/>
@@ -3780,7 +3864,7 @@
     </CEffectLaunchMissile>
     <CEffectDamage id="HunterDisruptorVolley@Kill">
         <EditorCategories value="Race:Protoss"/>
-        <ImpactLocation Effect="PsionicProjectionDisruptorVolley@CPPsionicProjection" Value="TargetUnit"/>
+        <ImpactLocation Effect="PsionicProjectionDisruptorVolley@CP" Value="TargetUnit"/>
         <Flags index="Kill" value="1"/>
         <Flags index="NoKillCredit" value="1"/>
     </CEffectDamage>
@@ -3788,7 +3872,7 @@
         <EditorCategories value="Race:Zerg"/>
         <WhichLocation Value="TargetUnit"/>
         <FinalEffect value="HunterDisruptorVolley@RB"/>
-        <PeriodCount value="4"/>
+        <PeriodCount value="3"/>
         <PeriodicEffectArray value="HunterDisruptorVolley@LM"/>
         <PeriodicPeriodArray value="0.2"/>
     </CEffectCreatePersistent>
@@ -3834,7 +3918,7 @@
     <CEffectEnumMagazine id="HunterDisruptorVolley@IM">
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
-        <EffectExternal value="PsionicProjectionDisruptorVolley@CPPsionicProjection"/>
+        <EffectExternal value="PsionicProjectionDisruptorVolley@CP"/>
     </CEffectEnumMagazine>
     <CEffectIssueOrder id="HunterPsionicProjection@IOStart">
         <EditorCategories value="Race:Protoss"/>
@@ -3867,12 +3951,12 @@
         <Movers Link="VoidThrasherMissileMover4" IfRangeLTE="70"/>
         <Movers Link="VoidThrasherMissileMover5" IfRangeLTE="500"/>
     </CEffectLaunchMissile>
-    <CEffectCreatePersistent id="PsionicProjectionDisruptorVolley@CPPsionicProjection">
+    <CEffectCreatePersistent id="PsionicProjectionDisruptorVolley@CP">
         <EditorCategories value="Race:Protoss"/>
-        <ExpireEffect value="PsionicProjectionDisruptorVolley@SetDestroyPsionicProjection"/>
+        <ExpireEffect value="PsionicProjectionDisruptorVolley@SetDestroy"/>
         <FinalEffect value="HunterDisruptorVolley@RB"/>
-        <PeriodCount value="2"/>
-        <PeriodicEffectArray value="PsionicProjectionDisruptorVolley@LMPsionicProjection"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="PsionicProjectionDisruptorVolley@LM"/>
         <PeriodicPeriodArray value="0.4"/>
     </CEffectCreatePersistent>
     <CEffectApplyBehavior id="ShadowBlink@AB">
@@ -4182,10 +4266,10 @@
     <CEffectSet id="InfestedAberrate@SetCreate">
         <EditorCategories value="Race:Zerg"/>
         <EffectArray value="KillsToCaster"/>
-        <EffectArray value="CRPGUnderlingLevel@Set"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="InfestedHardenedEquipment@ABDefensive"/>
         <EffectArray value="InfestedHardenedEquipment@ABOffensive"/>
-        <EffectArray value="InfestedEmpathicRepercussion@AB"/>
+        <EffectArray value="InfestedEmpathicRepercussion@Set"/>
         <EffectArray value="InfestedEmpathicRepercussion@AB"/>
     </CEffectSet>
     <CEffectCreateUnit id="InfestedAberrate@CU">
@@ -4253,7 +4337,7 @@
         <EffectArray value="InfestedInfestationSpore@AB"/>
         <EffectArray value="InfestedInfestationSpore@RBOverlord"/>
         <EffectArray value="CRPGGiveAttributes"/>
-        <EffectArray value="CRPGUnderlingLevel@Set"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="InfestedInfestationSpore@MU"/>
         <EffectArray value="KillsToCaster"/>
     </CEffectSet>
@@ -4292,7 +4376,7 @@
         <EditorCategories value="Race:Zerg"/>
         <EffectArray value="KillsToCaster"/>
         <EffectArray value="InfestedInfestedEggs@LMMarine"/>
-        <EffectArray value="CRPGUnderlingLevel@Set"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="InfestedHardenedEquipment@ABOffensive"/>
         <EffectArray value="InfestedEmpathicRepercussion@Set"/>
         <EffectArray value="MakePrecursor"/>
@@ -4306,13 +4390,6 @@
         <AmmoUnit value="InfestedInfestedEggs@Weapon"/>
         <Movers Link="InfestedTerransWeapon"/>
     </CEffectLaunchMissile>
-    <CEffectSwitch id="CRPGTransferAttributes">
-        <EditorCategories value="Race:Zerg"/>
-        <CaseArray Validator="CRPGCasterGELevel2" Effect="CRPGUnderlingLevel@ABLevel1" FallThrough="1"/>
-        <CaseArray Validator="CRPGCasterGELevel3" Effect="CRPGUnderlingLevel@ABLevel1" FallThrough="1"/>
-        <CaseArray Validator="CRPGCasterGELevel4" Effect="CRPGUnderlingLevel@ABLevel1" FallThrough="1"/>
-        <CaseArray Validator="CRPGCasterGELevel5" Effect="CRPGUnderlingLevel@ABLevel1"/>
-    </CEffectSwitch>
     <CEffectSet id="InfestedInfestedEggs@SetInitialMarineOverflow" parent="InfestedInfestedEggs@SetInitialMarine">
         <Name value="Effect/Name/InfestedInfestedEggs@SetInitialMarineOverflow"/>
         <EffectArray value="InfestedInfestedEggs@ABExcess"/>
@@ -4376,7 +4453,7 @@
         <EditorCategories value="Race:Zerg"/>
         <EffectArray value="KillsToCaster"/>
         <EffectArray value="InfestedInfestedEggs@LMCivilian"/>
-        <EffectArray value="CRPGUnderlingLevel@Set"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="InfestedHardenedEquipment@ABDefensive"/>
         <EffectArray value="InfestedEmpathicRepercussion@Set"/>
         <EffectArray value="MakePrecursor"/>
@@ -5253,7 +5330,7 @@
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="ReanimateModifyUnit"/>
         <EffectArray value="WizardReanimateApplyBehaviorReanimated"/>
-        <EffectArray value="CRPGUnderlingLevel@Set"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="CRPGGiveAttributes"/>
     </CEffectSet>
     <CEffectSet id="WizardReanimateSet">
@@ -5422,7 +5499,7 @@
     </CEffectCreatePersistent>
     <CEffectModifyUnit id="MedicHealingBeam@MUTarget">
         <VitalArray index="Life">
-            <Change value="0.625"/>
+            <Change value="1.25"/>
         </VitalArray>
     </CEffectModifyUnit>
 </Catalog>

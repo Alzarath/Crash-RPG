@@ -267,7 +267,7 @@
         <DataRecord Entry="Effect,CRPGUnderlingLevel@ABLevel3"/>
         <DataRecord Entry="Effect,CRPGUnderlingLevel@ABLevel4"/>
         <DataRecord Entry="Effect,CRPGUnderlingLevel@ABLevel5"/>
-        <DataRecord Entry="Effect,CRPGUnderlingLevel@Set"/>
+        <DataRecord Entry="Effect,CRPGUnderlingLevel@SetApply"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="CrashedBCMedicalFacilities">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
@@ -321,6 +321,11 @@
         <DataRecord Entry="Abil,DefensiveWallMorph@Lower"/>
         <DataRecord Entry="Abil,DefensiveWallMorph@Raise"/>
     </CDataCollectionAbil>
+    <CDataCollectionUnit id="HunterRevenant">
+        <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,HunterRevenant"/>
+        <DataRecord Entry="Unit,HunterRevenant"/>
+    </CDataCollectionUnit>
     <CDataCollectionAbil id="MedicCorrosiveSpray">
         <EditorCategories value="DataGroup:Weapon,Race:Terran,ObjectType:Projectile"/>
         <DataRecord Entry="Actor,MedicCorrosiveSpray@Attack"/>
@@ -385,6 +390,16 @@
         <DataRecord Entry="Effect,MedicOpticalFlare@AB"/>
         <DataRecord Entry="Effect,MedicOpticalFlare@SA"/>
     </CDataCollectionAbil>
+    <CDataCollectionAbil id="MedicSelfixArmor">
+        <EditorCategories value="DataGroup:Buff,Race:Terran"/>
+        <DataRecord Entry="Behavior,MedicSelfixArmor"/>
+        <DataRecord Entry="Behavior,MedicSelfixArmor@Restoring"/>
+        <DataRecord Entry="Button,MedicSelfixArmor"/>
+        <DataRecord Entry="Button,MedicSelfixArmor@Learn"/>
+        <DataRecord Entry="Button,MedicSelfixArmor@Upgraded"/>
+        <DataRecord Entry="Effect,MedicSelfixArmor@AB"/>
+        <DataRecord Entry="Effect,MedicSelfixArmor@MUHeal"/>
+    </CDataCollectionAbil>
     <CDataCollectionAbil id="MedicSpawnMedivac">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
         <DataRecord Entry="Abil,MedicSpawnMedivac"/>
@@ -416,8 +431,13 @@
     <CDataCollectionAbil id="PsionicProjectionDisruptorVolley">
         <EditorCategories value="DataGroup:Weapon,Race:Protoss"/>
         <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@ETU"/>
-        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@SetDestroyPsionicProjection"/>
-        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@CPPsionicProjection"/>
+        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@SetDestroy"/>
+        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@CP"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="RevenantTimedLife">
+        <EditorCategories value="DataGroup:Buff,Race:Protoss"/>
+        <DataRecord Entry="Behavior,RevenantTimedLife"/>
+        <DataRecord Entry="Effect,RevenantTimedLife@AB"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="SandbagCover">
         <EditorCategories value="DataGroup:Buff,Race:Terran"/>
@@ -618,9 +638,9 @@
         <DataRecord Entry="Effect,HunterDisruptorVolley@CP"/>
         <DataRecord Entry="Effect,HunterDisruptorVolley@IM"/>
         <DataRecord Entry="Effect,HunterDisruptorVolley@Damage"/>
-        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@CPPsionicProjection"/>
+        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@CP"/>
         <DataRecord Entry="Effect,HunterDisruptorVolley@Kill"/>
-        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@LMPsionicProjection"/>
+        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@LM"/>
         <DataRecord Entry="Requirement,HunterDisruptorVolley@FreeUse"/>
         <DataRecord Entry="Unit,HunterDisruptorVolley@Weapon"/>
         <DataRecord Entry="Validator,HunterDisruptorVolley@Ready"/>
@@ -664,7 +684,7 @@
         <DataRecord Entry="Effect,HunterPsionicProjection@IOStart"/>
         <DataRecord Entry="Unit,HunterPsionicProjection"/>
         <DataRecord Entry="Validator,HunterPsionicProjection@NotCoolingDown"/>
-        <DataRecord Entry="Validator,HunterPsionicProjection@NotMax"/>
+        <DataRecord Entry="Validator,HunterPsionicProjection@ChargesRemaining"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="HunterPurifierGlaiveCannon">
         <EditorCategories value="DataGroup:Weapon,Race:Protoss,ObjectType:Projectile"/>
@@ -744,7 +764,7 @@
         <DataRecord Entry="Behavior,HunterShadowTransfer@UnitTracker"/>
         <DataRecord Entry="Button,HunterShadowTransfer"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@ABHeroRadar"/>
-        <DataRecord Entry="Effect,HunterShadowTransfer@SetCancel"/>
+        <DataRecord Entry="Effect,HunterShadowTransfer@SetFinal"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@SetFree"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@SetInitial"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@Teleport"/>
@@ -762,7 +782,7 @@
         <DataRecord Entry="Effect,HunterShadowTransfer@RBHeroRadar"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@ABTimer"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@IOSpawn"/>
-        <DataRecord Entry="Effect,HunterShadowTransfer@SetSpawn"/>
+        <DataRecord Entry="Effect,HunterShadowTransfer@SetCreate"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@MUOrderQueue"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@MUSelection"/>
         <DataRecord Entry="Effect,HunterShadowTransfer@ABCaster"/>

@@ -250,6 +250,18 @@
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="FighterViolentCharge"/>
     </CButton>
+    <CButton id="HunterDisruptorVolley@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterDisruptorVolley"/>
+    </CButton>
+    <CButton id="HunterShadowTransfer@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="HunterShadowTransfer"/>
+    </CButton>
     <CButton id="InfestedInfestationSpore@Upgraded">
         <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
@@ -262,6 +274,12 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="MedicHealingBeam"/>
     </CButton>
+    <CButton id="MedicHealingBeam@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MedicHealingBeam"/>
+    </CButton>
     <CButton id="MedicIrradiate@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
@@ -269,11 +287,34 @@
         <TintRacially value="1"/>
         <HotkeyAlias value="MedicIrradiate"/>
     </CButton>
+    <CButton id="MedicOpticalFlare@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MedicOpticalFlare"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
     <CButton id="MedicOpticalFlare@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="MedicOpticalFlare"/>
+    </CButton>
+    <CButton id="MedicSelfixArmor@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="MedicSelfixArmor"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="MedicSelfixArmor@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="MedicSelfixArmor"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
     <CButton id="MedicSpawnMedivac@Learn">
         <Icon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
@@ -402,7 +443,6 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="HunterPsionicProjection"/>
-        <Hotkey value="Button/Hotkey/HunterPsionicProjection@Upgraded"/>
     </CButton>
     <CButton id="HunterPsionicProjection@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>

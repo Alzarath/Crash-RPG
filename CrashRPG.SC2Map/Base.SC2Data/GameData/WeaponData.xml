@@ -420,17 +420,6 @@
         <LegacyOptions index="Uninterruptible" value="1"/>
         <UninterruptibleDuration value="0.8"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="PsionicProjectionProjectionBeam@Weapon">
-        <EditorCategories value="Race:Protoss"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <DisplayEffect value="PsionicProjectionProjectionBeam@Damage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="6"/>
-        <TeleportResetRange value="0"/>
-        <Period value="5"/>
-        <Effect value="PsionicProjectionProjectionBeam@CP"/>
-        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
-    </CWeaponLegacy>
     <CWeaponLegacy id="AeroLaserBattery">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>

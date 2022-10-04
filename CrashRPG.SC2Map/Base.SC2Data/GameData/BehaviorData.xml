@@ -122,6 +122,11 @@
         <RemoveValidatorArray value="FighterRapidStrikes@Buffed"/>
         <Duration value="7"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="RevenantTimedLife" parent="TimedLife">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="8"/>
+        <DurationRandomMax value="0"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InfestedInfestationSpore@LifeIncrease">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <RemoveValidatorArray value="InfestedInfestationSpore@IsInfested"/>
@@ -155,7 +160,7 @@
     <CBehaviorBuff id="AeroLaserArmaments@TargetCooldown">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <MaxStackCount value="50"/>
+        <MaxStackCount value="32"/>
         <MaxStackCountPerCaster value="1"/>
         <Duration value="0.5"/>
     </CBehaviorBuff>
@@ -172,25 +177,25 @@
         <BehaviorFlags index="Permanent" value="1"/>
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="GELevel4"/>
+        <DisableValidatorArray value="CRPGUnderlingLevel@HasLevel4"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AlienGeneticAdaptation">
         <BehaviorFlags index="Permanent" value="1"/>
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="GELevel2"/>
+        <DisableValidatorArray value="CRPGUnderlingLevel@HasLevel2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AlienGestation">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGLTLevel5Veterancy"/>
+        <DisableValidatorArray value="LTLevel5"/>
         <Period value="0.125"/>
         <PeriodicEffect value="CRPGAddExperience1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AlienHealthBonusLevel3">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="GELevel3"/>
+        <DisableValidatorArray value="CRPGUnderlingLevel@HasLevel3"/>
         <Modification>
             <VitalMaxArray index="Life" value="20"/>
         </Modification>
@@ -198,7 +203,7 @@
     <CBehaviorBuff id="AlienHealthBonusLevel5">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="GELevel5"/>
+        <DisableValidatorArray value="CRPGUnderlingLevel@HasLevel5"/>
         <Modification>
             <VitalMaxArray index="Life" value="20"/>
         </Modification>
@@ -446,7 +451,10 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Period value="0.125"/>
         <PeriodicEffect value="MedicOpticalFlare@SA"/>
-        <Modification SightBonus="1" Detect="10"/>
+        <Modification SightBonus="1">
+            <StateFlags index="SuppressUnitUseLineOfSight" value="1"/>
+        </Modification>
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MedicOpticalFlare@Blind">
         <Alignment value="Negative"/>
@@ -454,7 +462,7 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="0.25"/>
         <Modification SightBonus="-2" RangedWeaponRange="-2">
-            <BehaviorCategoriesDisable index="User14" value="1"/>
+            <StateFlags index="SuppressDetection" value="1"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="MedicProcyonTwinHealBeamGauntlet">
@@ -464,17 +472,18 @@
     <CBehaviorBuff id="MedicSelfixArmor">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <DamageResponse Handled="MedicSelfixArmorApplyBehavior">
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
+        <DamageResponse Handled="MedicSelfixArmor@AB">
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicSelfixArmorRestoring" parent="MedicHealingBeam">
-        <Name value="Behavior/Name/MedicSelfixArmorRestoring"/>
+    <CBehaviorBuff id="MedicSelfixArmor@Restoring" parent="MedicHealingBeam">
+        <Name value="Behavior/Name/MedicSelfixArmor@Restoring"/>
         <MaxStackCount value="1"/>
         <MaxStackCountPerCaster value="0"/>
         <Duration value="2"/>
         <Period value="0.25"/>
-        <PeriodicEffect value="MedicSelfixArmorHeal"/>
+        <PeriodicEffect value="MedicSelfixArmor@MUHeal"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MedivacAfterburners">
         <Alignment value="Positive"/>
@@ -1007,7 +1016,7 @@
         <DisableValidatorArray value="KD8CasterKnockingBack"/>
         <RemoveValidatorArray value="CasterNotDead"/>
         <Duration value="8"/>
-        <FinalEffect value="HunterShadowTransfer@SetCancel"/>
+        <FinalEffect value="HunterShadowTransfer@SetFinal"/>
         <ExpireEffect value="HunterShadowTransfer@SetTeleport"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AlienParasiticHarvest">
@@ -1498,10 +1507,10 @@
     <CBehaviorBuff id="HunterPsionicProjection">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
-        <DisableValidatorArray value="HunterPsionicProjection@NotCoolingDown"/>
-        <DisableValidatorArray value="HunterPsionicProjection@NotMax"/>
         <DisableValidatorArray value="CRPGPassive1Learned"/>
+        <DisableValidatorArray value="HunterPsionicProjection@NotCoolingDown"/>
+        <DisableValidatorArray value="HunterPsionicProjection@CanCharge"/>
+        <DisableValidatorArray value="CasterNotFiringOrAnimatingWeapon"/>
         <Period value="0.0625"/>
         <PeriodicEffect value="HunterPsionicProjection@ABCooldown"/>
         <Modification>
@@ -1585,6 +1594,7 @@
     <CBehaviorBuff id="InfestedInfestedEggs@TimedLifeExcessSummons" parent="TimedLife">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Duration value="45"/>
+        <DisableValidatorArray value="InfestedInfestedEggs@NotEgg"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedHardenedEquipment@Offensive">
         <Alignment value="Positive"/>
