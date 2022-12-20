@@ -34,7 +34,9 @@
         <SelectionRadius value="0.125000"/>
         <VariationCount value="3"/>
     </CModel>
-    <CModel id="DOM_GhostFemale" parent="GhostAlternateBase"/>
+    <CModel id="DOM_GhostFemale" parent="GhostAlternateBase">
+        <RequiredAnims index="0" value="Assets\Units\Terran\GhostFemale_RequiredAnims\GhostFemale_RequiredAnims.m3a"/>
+    </CModel>
     <CModel id="DOM_GhostFemale_Portrait" parent="GhostAlternatePortraitBase">
         <Image value="Assets\Textures\dom_ghostalternateportrait_static.dds"/>
     </CModel>

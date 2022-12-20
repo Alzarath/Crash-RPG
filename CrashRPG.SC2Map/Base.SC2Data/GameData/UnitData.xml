@@ -4902,6 +4902,18 @@
         <SeparationRadius value="1.25"/>
         <MinimapRadius value="1.25"/>
         <Mass value="0.6"/>
+        <AbilArray Link="AeroLaserArmaments@Dummy"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="6">
+                <Face value="AeroLaserArmaments"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="AeroLaserArmaments@Dummy,Execute"/>
+                <Behavior value="AeroLaserArmaments"/>
+                <Requirements value="CRPGPassive2LearnedShow"/>
+                <Row value="1"/>
+                <Column value="1"/>
+            </LayoutButtons>
+        </CardLayouts>
     </CUnitHero>
     <CUnitHero id="CRPGInfested" parent="CRPGHero" abil1="InfestedInfestedEggs" abil2="InfestedAberrate" abil3="InfestedInfestationSpore" psv1="InfestedCausticWeapons" psv2="InfestedHardenedEquipment">
         <Race value="Zerg"/>

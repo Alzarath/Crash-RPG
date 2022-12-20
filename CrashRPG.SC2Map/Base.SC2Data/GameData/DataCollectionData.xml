@@ -40,15 +40,26 @@
     </CDataCollectionAbil>
     <CDataCollectionAbil id="AeroLaserArmaments">
         <EditorCategories value="DataGroup:Buff,Race:Terran"/>
-        <DataRecord Entry="Behavior,AeroLaserArmaments"/>
-        <DataRecord Entry="Button,AeroLaserArmaments"/>
+        <DataRecord Entry="Abil,AeroLaserArmaments@Dummy"/>
         <DataRecord Entry="Actor,AeroLaserArmaments@Missile"/>
         <DataRecord Entry="Actor,AeroLaserArmaments@Attack"/>
+        <DataRecord Entry="Actor,AeroLaserArmaments@Range"/>
+        <DataRecord Entry="Behavior,AeroLaserArmaments@TargetCooldown"/>
+        <DataRecord Entry="Behavior,AeroLaserArmaments"/>
+        <DataRecord Entry="Button,AeroLaserArmaments@Learn"/>
+        <DataRecord Entry="Button,AeroLaserArmaments"/>
+        <DataRecord Entry="Button,AeroLaserArmaments@Upgraded"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@CP"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@LMUpgraded"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@SAImpact"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@SA"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@Set"/>
+        <DataRecord Entry="Effect,AeroLaserArmaments@AB"/>
         <DataRecord Entry="Effect,AeroLaserArmaments@LM"/>
         <DataRecord Entry="Effect,AeroLaserArmaments@Damage"/>
-        <DataRecord Entry="Effect,AeroLaserArmaments@SA"/>
         <DataRecord Entry="Unit,AeroLaserArmaments@Weapon"/>
-        <DataRecord Entry="Model,AeroLaserArmaments@Missile"/>
+        <DataRecord Entry="Validator,AeroLaserArmaments@NotRecentlyTargeted"/>
+        <TechInfoAbil value="AeroLaserArmaments@Dummy"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="AeroTacticalJump">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
@@ -268,7 +279,7 @@
         <DataRecord Entry="Actor,CRPGSniper@Level3"/>
         <DataRecord Entry="Actor,CRPGSniper@Level4"/>
         <DataRecord Entry="Actor,CRPGSniper@Level5"/>
-        <DataRecord Entry="Actor,CRPGSniper@SoundDeathLevel1234"/>
+        <DataRecord Entry="Actor,CRPGSniper@SoundDeathLevel124"/>
         <DataRecord Entry="Behavior,CRPGSniper@Veterancy"/>
         <DataRecord Entry="Unit,CRPGSniper"/>
     </CDataCollectionUnit>

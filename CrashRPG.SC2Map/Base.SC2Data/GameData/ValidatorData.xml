@@ -17,6 +17,7 @@
     <CValidatorCombine id="AeroTacticalJump@VisionRequirements">
         <CombineArray value="HasVisionOfTarget"/>
         <CombineArray value="CRPGAbilityUpgradeTernary@Upgraded"/>
+        <ResultFailed value="CantSeeBuildLocation"/>
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="AlienHasGeneticAdaptation">
         <Value value="1"/>

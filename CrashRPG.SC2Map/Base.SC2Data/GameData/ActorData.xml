@@ -39,6 +39,15 @@
             </Visuals>
         </TerrainSquibs>
     </CActorMissile>
+    <CActorSound id="CRPGSniper@SoundDeathLevel3" parent="SoundOneShot">
+        <On Terms="UnitDeath.CRPGSniper; ValidateUnit CasterIsLevel3" Send="Create"/>
+        <Sound value="Ghost_Death"/>
+    </CActorSound>
+    <CActorSound id="CRPGSniper@SoundDeathLevel5" parent="SoundOneShot">
+        <On Terms="UnitDeath.CRPGSniper; ValidateUnit CasterIsLevel5" Send="Create"/>
+        <Sound value="Nova_Death"/>
+    </CActorSound>
+    <CActorRange id="AeroLaserArmaments@Range" parent="RangeAbil" abil="AeroLaserArmaments@Dummy"/>
     <CActorSimple id="MechExplosiveImmortality@Tinter">
         <Aliases value="_AngryTinter"/>
         <On Terms="Behavior.MechExplosiveImmortality@Rebuilding.On" Send="Create"/>
@@ -3549,7 +3558,7 @@
         <AnimBlendTime value="-0.800000"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="GhostDominion"/>
-        <DeathArray index="Normal" ModelLink="GhostAlternateDeath" SoundLink="Ghost_Explode"/>
+        <DeathArray index="Normal" ModelLink="GhostDeath" SoundLink="Ghost_Explode"/>
         <DeathArray index="Disintegrate" ModelLink="GhostDeathAcid" SoundLink="Uni_DeathFXAcid"/>
         <DeathArray index="Eviscerate" SoundLink="Uni_DeathFXEviscerate"/>
         <DeathArray index="Fire" ModelLink="GhostDeathFire" SoundLink="Uni_DeathFXFire"/>
@@ -3596,26 +3605,26 @@
             <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSmall"/>
         </TerrainSquibs>
         <WalkAnimMoveSpeed value="2.25"/>
-        <AbilSoundArray AbilCmd="SniperPersonalCloaking,On" Sound="GhostAlternate_CloakOnVO"/>
-        <AbilSoundArray AbilCmd="EMP,Execute" Sound="GhostAlternate_EmpVO"/>
-        <AbilSoundArray AbilCmd="SniperNuclearStrike,Execute" Sound="GhostAlternate_NuclearStrikeVO"/>
+        <AbilSoundArray AbilCmd="SniperPersonalCloaking,On" Sound="Ghost_CloakOnVO"/>
+        <AbilSoundArray AbilCmd="EMP,Execute" Sound="Ghost_EmpVO"/>
+        <AbilSoundArray AbilCmd="SniperNuclearStrike,Execute" Sound="Ghost_NuclearStrikeVO"/>
         <BarOffset value="50"/>
         <BarWidth value="42"/>
         <GroupIcon>
-            <Image value="Assets\Textures\wireframe-ghostfemale.dds"/>
+            <Image value="Assets\Textures\wireframe-terran-ghost.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\btn-unit-terran-dom-femaleghost.dds"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <SelectAbilCmd value="EMP,Execute"/>
-        <SoundArray index="Ready" value="GhostAlternate_Ready"/>
-        <SoundArray index="Help" value="GhostAlternate_Help"/>
-        <SoundArray index="What" value="GhostAlternate_What"/>
-        <SoundArray index="Yes" value="GhostAlternate_Yes"/>
-        <SoundArray index="Attack" value="GhostAlternate_Attack"/>
-        <SoundArray index="Pissed" value="GhostAlternate_Pissed"/>
+        <SoundArray index="Ready" value="Ghost_Ready"/>
+        <SoundArray index="Help" value="Ghost_Help"/>
+        <SoundArray index="What" value="Ghost_What"/>
+        <SoundArray index="Yes" value="Ghost_Yes"/>
+        <SoundArray index="Attack" value="Ghost_Attack"/>
+        <SoundArray index="Pissed" value="Ghost_Pissed"/>
         <UnitIcon value="Assets\Textures\btn-unit-terran-dom-femaleghost.dds"/>
         <Wireframe>
-            <Image value="Assets\Textures\wireframe-ghostfemale.dds"/>
+            <Image value="Assets\Textures\wireframe-terran-ghost.dds"/>
         </Wireframe>
     </CActorUnit>
     <CActorUnit id="CRPGSniper@Level4" parent="GenericUnitHeroLeveled" unitName="CRPGSniper" level="4">
@@ -8681,10 +8690,9 @@
     <CActorBeamSimple id="SniperSniperRound@Beam" parent="GenericAttackBeam">
         <Model value="GhostSnipeAttackBeam"/>
     </CActorBeamSimple>
-    <CActorSound id="CRPGSniper@SoundDeathLevel1234" parent="SoundOneShot">
+    <CActorSound id="CRPGSniper@SoundDeathLevel124" parent="SoundOneShot">
         <On Terms="UnitDeath.CRPGSniper; ValidateUnit CasterIsLevel1" Send="Create"/>
         <On Terms="UnitDeath.CRPGSniper; ValidateUnit CasterIsLevel2" Send="Create"/>
-        <On Terms="UnitDeath.CRPGSniper; ValidateUnit CasterIsLevel3" Send="Create"/>
         <On Terms="UnitDeath.CRPGSniper; ValidateUnit CasterIsLevel4" Send="Create"/>
         <Sound value="GhostAlternate_Death"/>
     </CActorSound>

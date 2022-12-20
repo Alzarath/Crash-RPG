@@ -1,4 +1,5 @@
 ﻿Abil/Name/AeroDefensiveMatrix=Defensive Matrix
+Abil/Name/AeroLaserArmaments@Dummy=Laser Armaments
 Abil/Name/AeroTacticalJump=Tactical Jump
 Abil/Name/AeroYamatoCannon=Yamato Cannon
 Abil/Name/AlienAshWormUnburrow=Unburrow
@@ -612,10 +613,10 @@ Button/Tooltip/AeroFireSuppressionSystem@Upgraded=Fire Suppression System contin
 Button/Tooltip/AeroLaserArmaments=Automatically fire Laser Batteries that deal <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,AeroLaserArmaments@Damage,Amount$" precision="2"/></c> damage to enemies below the hero.
 Button/Tooltip/AeroLaserArmaments@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Behavior,AeroLaserArmaments,Period" precision="2"/><n/><n/>Automatically fire Laser Batteries that deal <d ref="Effect,AeroLaserArmaments@Damage,Amount" precision="2"/></c> damage to enemies below the hero.
 Button/Tooltip/AeroLaserArmaments@Upgraded=Laser Armaments has +<d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary:Effect,AeroLaserArmaments@SA,AreaArray[0].Radius$"/> range and homing.
-Button/Tooltip/AeroTacticalJump=After <d ref="Behavior,AeroTacticalJump@TeleportOut,Duration + Behavior,AeroTacticalJump@Teleport,Duration + Behavior,AeroTacticalJump@TeleportIn,Duration" precision="1"/> seconds, warps to the target location. Invulnerable while warping.<n/><n/><c val="#ColorAttackInfo">Does not require vision.</c>
+Button/Tooltip/AeroTacticalJump=After <d ref="Behavior,AeroTacticalJump@TeleportOut,Duration + Behavior,AeroTacticalJump@Teleport,Duration + Behavior,AeroTacticalJump@TeleportIn,Duration" precision="1"/> seconds, warps to the target location. Invulnerable while warping.
 Button/Tooltip/AeroTacticalJump@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,AeroTacticalJump,Cost[0].Vital[Energy]"/><n/><n/>Warps to the target location.
-Button/Tooltip/AeroTacticalJump@Upgraded=Tactical Jump can be cast anywhere and applies a decaying attack and movement speed slow to enemies in a large area around the caster upon departure. Tactical Jump additionally applies a decaying movement speed increase to the caster on arrival.
-Button/Tooltip/AeroYamatoCannon=Blasts a target with a devastating plasma cannon, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,AeroYamatoCannon@Damage,Amount$)"/></c> damage.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/AeroTacticalJump@Upgraded=Tactical Jump can be cast anywhere, slows nearby enemy units on departure, and increases the caster's speed on arrival.
+Button/Tooltip/AeroYamatoCannon=Blasts a target with a devastating plasma cannon, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,AeroYamatoCannon@Damage,Amount$)"/></c> damage.
 Button/Tooltip/AeroYamatoCannon@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,AeroYamatoCannon,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,AeroYamatoCannon,Cost[0].Cooldown.TimeUse"/><n/><n/>Blasts a target for <d ref="Effect,AeroYamatoCannon@Damage,Amount"/> damage.
 Button/Tooltip/AeroYamatoCannon@Upgraded=Yamato Cannon fires instantly and deals damage in an area.
 Button/Tooltip/AlienAshWorm=Gigantic worm species native to Ignus. Tunnels through the terrain to attack unsuspecting prey.
@@ -769,6 +770,7 @@ Button/Tooltip/HunterShadowTransfer=Cloak for up to <d ref="Behavior,HunterShado
 Button/Tooltip/HunterShadowTransfer@Free=Cloak for up to <d ref="Behavior,HunterShadowTransfer@Timer,Duration"/> seconds and project an invulnerable Shade that can move but cannot attack. Teleports to the Shade after the duration.<n/><n/>Can be cancelled after activation.
 Button/Tooltip/HunterShadowTransfer@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,HunterShadowTransfer,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,HunterShadowTransfer,Cost[0].Cooldown.TimeUse"/><n/><n/>Cloak for up to <d ref="Behavior,HunterShadowTransfer@Timer,Duration"/> seconds and project a Shade that the caster then teleports to.
 Button/Tooltip/HunterShadowTransfer@Upgraded=Shadow Transfer spawns an uncontrollable Revenant that attacks for the caster when cancelled or activated.
+Button/Tooltip/IgnoresArmor=<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/InfestedAberrate=Merges two Infested Civilians into a more powerful monstrosity.
 Button/Tooltip/InfestedAberrate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedAberrate,Cost[0].Vital[Energy]"/><n/><n/>Merges two Infested Civilians into a more powerful monstrosity.
 Button/Tooltip/InfestedAberrate@Upgraded=NYI
@@ -795,11 +797,11 @@ Button/Tooltip/InfestedInfestedEggs@Upgraded=Infested Eggs can spawn Infested Te
 Button/Tooltip/InfestedInfestedMarine=Ranged attacker.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfestedInfestedSupplies=This supply-giving unit is infested, allowing up to two additional Infested Terran to be summoned.
 Button/Tooltip/LockedNydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<n/><n/><c val="ffff8a">Enables:</c><n/>- Greater Nydus Worm
-Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrage@CP,PeriodCount * $AccumulatedValue:Effect,MechBarrage@Damage,Amount$" precision="3"/></c> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrage@CP,PeriodCount * $AccumulatedValue:Effect,MechBarrage@Damage,Amount$" precision="3"/></c> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
 Button/Tooltip/MechBarrage@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechBarrage,Cost[0].Vital[Energy]"/><n/><n/>Deals <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@Damage,Amount"/> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
 Button/Tooltip/MechBarrage@Upgraded=NYI
 Button/Tooltip/MechBarrage@Upgraded@Upgraded=NYI
-Button/Tooltip/MechExplosiveImmortality=The caster self-destructs, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechExplosiveImmortality@Damage,Amount$"/></c> damage in a massive area around it while disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/>.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/MechExplosiveImmortality=The caster self-destructs, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechExplosiveImmortality@Damage,Amount$"/></c> damage in a massive area around it while disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/>.
 Button/Tooltip/MechExplosiveImmortality@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechExplosiveImmortality,Cost[0].Cooldown.TimeUse"/><n/><n/>Self-destruct, disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/> and dealing <d ref="Effect,MechExplosiveImmortality@Damage,Amount"/> damage to nearby enemies.
 Button/Tooltip/MechExplosiveImmortality@Upgraded=NYI
 Button/Tooltip/MechExplosiveImmortality@Upgraded@Upgraded=NYI
@@ -811,7 +813,7 @@ Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles. 
 Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that can each use automated defensive lasers every <d ref="Behavior,PointDefenseDroneLaser@CooldownAntiMissile,Duration"/> seconds to intercept enemy projectiles or repair friendly mechanical units by <d ref="Effect,PointDefenseDroneLaser@MURepair,VitalArray[Life].ChangeFraction * 100"/>%.
 Button/Tooltip/MechPointDefenseDrones@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>A pair of Point Defense Drones destroy enemy projectiles and repair friendly mechanical units.
 Button/Tooltip/MechPointDefenseDrones@Upgraded=Point Defense Drones use separate cooldowns for their repair and anti-missile lasers.
-Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShockBlast@Damaging,PeriodCount * $AccumulatedValue:Effect,MechShockBlast@Damage,Amount$"/></c> damage to nearby enemies over <d ref="Behavior,MechShockBlast@Stunned,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShockBlast@Damaging,PeriodCount * $AccumulatedValue:Effect,MechShockBlast@Damage,Amount$"/></c> damage to nearby enemies over <d ref="Behavior,MechShockBlast@Stunned,Duration"/> seconds.
 Button/Tooltip/MechShockBlast@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Cooldown.TimeUse"/><n/><n/>Stun and deal <d ref="Behavior,MechShockBlast@Damaging,PeriodCount * Effect,MechShockBlast@Damage,Amount"/> damage to nearby enemies.
 Button/Tooltip/MechShockBlast@Upgraded=NYI
 Button/Tooltip/MechShockBlast@Upgraded@Upgraded=NYI
@@ -832,6 +834,7 @@ Button/Tooltip/MedicSpawnMedivac@Learn=<s val="@@StandardTooltipHeaderSub">Activ
 Button/Tooltip/MedicSpawnMedivac@Upgraded=Medivac gains the Afterburners ability and the ability to transport units.
 Button/Tooltip/MedivacAfterburners=Increases the Medivac's movement speed by <d ref="100 * (Behavior,MedivacAfterburners,Modification.MoveSpeedMultiplier - 1)"/>% for <d time="[d ref='Behavior,MedivacAfterburners,Duration'/]"/>.
 Button/Tooltip/MedivacHealingBeam=Applies Healing Beam to nearby allies, granting <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and healing them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedicHealingBeam@CH,RechargeVitalRate"/> life per second.</c>
+Button/Tooltip/NoVisionRequired=<n/><n/><c val="#ColorAttackInfo">Does not require vision.</c>
 Button/Tooltip/PsiStorm=Creates a storm of psionic energy that lasts <d time="4"/>, causing up to 80 damage to all units in the target area.
 Button/Tooltip/SandbagCover=Nearby allied ground units take <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage from ranged attacks.
 Button/Tooltip/ShipCloakingField=Cloaks self and friendly nearby units. Dealing damage will un-cloak the attacker.

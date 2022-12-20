@@ -16,6 +16,14 @@
             <Flags index="IgnoreUser" value="1"/>
         </CmdButtonArray>
     </CAbilEffectInstant>
+    <CAbilEffectInstant id="AeroLaserArmaments@Dummy">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Cost/>
+        <Range value="4"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="AeroLaserArmaments">
+            <Flags index="IgnoreUser" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="HunterPsionicProjection@Dummy">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Levels value="1"/>
@@ -2032,6 +2040,7 @@
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
+        <CursorEffect value="AeroYamatoCannon@Damage"/>
     </CAbilEffectTarget>
     <CAbilMorph id="ScarabMineUnburrow">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
