@@ -3765,8 +3765,8 @@
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <AbilArray index="4" Link="FighterViolentCharge@Dummy"/>
-        <AbilArray index="5" Link="FighterResurgence@Dummy"/>
+        <AbilArray Link="FighterViolentCharge@Dummy"/>
+        <AbilArray Link="FighterResurgence@Dummy"/>
         <AbilArray Link="FighterViolentCharge"/>
         <WeaponArray Link="FighterPsiBlades"/>
         <CardLayouts index="0">
@@ -3818,8 +3818,8 @@
         <LateralAcceleration value="46"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <AbilArray index="4" Link="HunterPsionicProjection@Dummy"/>
-        <AbilArray index="5" Link="HunterPlasmaDiffusion@PlasmaCharge"/>
+        <AbilArray Link="HunterPsionicProjection@Dummy"/>
+        <AbilArray Link="HunterPlasmaDiffusion@PlasmaCharge"/>
         <AbilArray Link="HunterPsionicProjection"/>
         <AbilArray Link="HunterScarabMine@Free"/>
         <AbilArray Link="HunterShadowTransfer@Free"/>
@@ -3919,7 +3919,7 @@
         <LateralAcceleration value="46"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <AbilArray index="4" Link="MechPointDefenseDrones"/>
+        <AbilArray Link="MechPointDefenseDrones"/>
         <WeaponArray Link="MechAutocannon"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
@@ -4194,8 +4194,8 @@
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <AbilArray index="4" Link="SniperBetterEquipment"/>
-        <AbilArray index="5" Link="SniperToxicMunitions"/>
+        <AbilArray Link="SniperBetterEquipment"/>
+        <AbilArray Link="SniperToxicMunitions"/>
         <WeaponArray Link="SniperC10CanisterRifle"/>
         <CardLayouts index="0">
             <LayoutButtons index="6">
