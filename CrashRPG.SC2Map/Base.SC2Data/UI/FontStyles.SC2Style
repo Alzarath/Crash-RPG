@@ -4,4 +4,5 @@
     <Constant name="ColorPassiveAbilityInfo" val="6666CC"/>
     <Constant name="ColorEnergyInfo" val="9628dc"/>
     <Constant name="ColorTimeInfo" val="FFFFFF"/>
+    <Constant name="ColorUpgradedInfo" val="FF0090"/>
 </StyleFile>

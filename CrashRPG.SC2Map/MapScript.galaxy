@@ -1063,6 +1063,7 @@ bool gt_VariableInitializaiton_Func (bool testConds, bool runActions) {
     gv_hero[gv_hERO_FIGHTER].lv_unitType = "CRPGFighter";
     gv_hero[gv_hERO_HUNTER].lv_unitType = "CRPGHunter";
     gv_hero[gv_hERO_INFESTED].lv_unitType = "CRPGInfested";
+    gv_hero[gv_hERO_MECH].lv_unitType = "CRPGMech";
     gv_hero[gv_hERO_MEDIC].lv_unitType = "CRPGMedic";
     gv_hero[gv_hERO_SHOOTER].lv_unitType = "CRPGShooter";
     gv_hero[gv_hERO_SNIPER].lv_unitType = "CRPGSniper";

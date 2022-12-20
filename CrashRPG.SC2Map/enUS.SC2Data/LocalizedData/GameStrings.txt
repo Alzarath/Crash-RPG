@@ -271,7 +271,6 @@ Behavior/Name/MedicRestorativeBurst=Restorative Burst
 Behavior/Name/MedicSelfixArmor@Restoring=Selfix Armor
 Behavior/Name/MedicSpawnMedivac@Precursor=Precursor
 Behavior/Name/MedivacAfterburners=Afterburners Active
-Behavior/Name/SandbagCover=Cover
 Behavior/Name/SandbagCover@InCover=In Cover
 Behavior/Name/ScarabMineExplode@Slowed=Slowed
 Behavior/Name/ShadePsionicInterference@Aura=Psionic Interference
@@ -295,7 +294,6 @@ Behavior/Name/ShooterStimpack@Permanent=Stimpack
 Behavior/Name/SniperPersonalCloaking=Personal Cloaking
 Behavior/Name/SniperPersonalCloakingFree=Personal Cloaking
 Behavior/Name/SniperToxicMunitions@Buff=Deadly Toxin
-Behavior/Name/SniperToxicMunitions@Cooldown=Cooldown
 Behavior/Name/SwarmerHeroVeterancy=Hero Veterancy
 Behavior/Name/SwarmerHeroVeterancyLevel2=Hero Veterancy
 Behavior/Name/SwarmerHeroVeterancyLevel3=Hero Veterancy
@@ -368,7 +366,7 @@ Behavior/Tooltip/ShooterStimpack=This unit moves and attacks more quickly while 
 Behavior/Tooltip/ShooterStimpack@Permanent=This unit moves and attacks more quickly while under the effects of Stimpack.
 Behavior/Tooltip/SniperPersonalCloaking=This unit is cloaked and will only be revealed by detectors or effects.
 Behavior/Tooltip/SniperPersonalCloakingFree=This unit is cloaked and will only be revealed by detectors or effects.
-Behavior/Tooltip/SniperToxicMunitions@Buff=Target is taking damage over time.
+Behavior/Tooltip/SniperToxicMunitions@Buff=This unit is taking damage over time.
 Behavior/Tooltip/UltraliskBurrowChargeStun2=This unit is stunned.
 Behavior/Tooltip/VehicleLockOnTarget=This unit has been targeted by a Lock On ability.
 Behavior/Tooltip/VehicleOverdrive=This unit's movement speed is increased by 70%.
@@ -664,7 +662,7 @@ Button/Tooltip/CRPGDefensiveFortification=Defensive structure. <n/>Infantry figh
 Button/Tooltip/CRPGDefensiveTurret=Defensive structure.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c><n/><c val="FFE303">Detector</c>
 Button/Tooltip/CRPGDefensiveWall=Defensive structure. Can be lowered to allow units to walk over it.
 Button/Tooltip/CRPGEnergyAttribute=Increases units' base energy regeneration by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttribute,Modification.VitalRegenMultiplier[Energy] * 100"/>%</c>.
-Button/Tooltip/CRPGFighter=Aggressive melee warrior. Uses gap-closers and powerful weapons.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Lightning Dash</c><n/><c val="#ColorActiveAbilityInfo">Rapid Strikes</c><n/><c val="#ColorActiveAbilityInfo">Astral Wind</c><n/><c val="#ColorPassiveAbilityInfo">Violent Charge</c><n/><c val="#ColorPassiveAbilityInfo">Resurgence</c><n/><n/><c val="#ColorAttackInfo">Can attack ground units</c>
+Button/Tooltip/CRPGFighter=Aggressive melee warrior. Uses gap-closers and powerful weapons.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Lightning Dash</c><n/><c val="#ColorActiveAbilityInfo">Rapid Strikes</c><n/><c val="#ColorActiveAbilityInfo">Astral Wind</c><n/><c val="#ColorPassiveAbilityInfo">Violent Charge</c><n/><c val="#ColorPassiveAbilityInfo">Resurgence</c><n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGFortress=Defensive stronghold. <n/>Used to receive gathered resources. <n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/CRPGGhost=Sniper. Can use Snipe, EMP Round, and be upgraded to use Cloak. Can call down Tactical Nukes built at the Ghost Academy.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGHoldFire=Orders selected units to withdraw their weapons and avoid engaging enemies, unless given a direct command. Units holding fire will flee if attacked.
@@ -676,8 +674,8 @@ Button/Tooltip/CRPGInfested=Supportive summoner. Uses Infested Terran to attack<
 Button/Tooltip/CRPGLevelUp=Levels up the hero to the next available level, granting it additional abilties.
 Button/Tooltip/CRPGMarauder=Anti-armor infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGMarine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/CRPGMech=Durable machine. Uses destructive area and defensive abilities.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Barrage</c><n/><c val="#ColorActiveAbilityInfo">Shock Blast</c><n/><c val="#ColorActiveAbilityInfo">Explosive Immortality</c><n/><c val="#ColorPassiveAbilityInfo">Point Defense Drones</c><n/><c val="#ColorPassiveAbilityInfo">Multi-Lock Targeting System</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units</c>
-Button/Tooltip/CRPGMedic=Support trooper. Heals nearby units.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Healing Beam</c><n/><c val="#ColorActiveAbilityInfo">Irradiate</c><n/><c val="#ColorActiveAbilityInfo">Medivac</c><n/><c val="#ColorPassiveAbilityInfo">Optical Flare</c><n/><c val="#ColorPassiveAbilityInfo">Selfix Armor</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units</c>
+Button/Tooltip/CRPGMech=Durable machine. Uses destructive area and defensive abilities.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Barrage</c><n/><c val="#ColorActiveAbilityInfo">Shock Blast</c><n/><c val="#ColorActiveAbilityInfo">Explosive Immortality</c><n/><c val="#ColorPassiveAbilityInfo">Point Defense Drones</c><n/><c val="#ColorPassiveAbilityInfo">Multi-Lock Targeting System</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGMedic=Support trooper. Heals nearby units.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Healing Beam</c><n/><c val="#ColorActiveAbilityInfo">Irradiate</c><n/><c val="#ColorActiveAbilityInfo">Medivac</c><n/><c val="#ColorPassiveAbilityInfo">Optical Flare</c><n/><c val="#ColorPassiveAbilityInfo">Selfix Armor</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGMedicLevel2=Support trooper. Heals nearby biological units.
 Button/Tooltip/CRPGMedicLevel22=Support trooper. Heals nearby biological units.
 Button/Tooltip/CRPGMedicLevel32=Support trooper. Heals nearby biological units.
@@ -694,7 +692,7 @@ Button/Tooltip/CRPGRecruitMarine=Purchases a Marine's contract to perform an act
 Button/Tooltip/CRPGShip=Agile flyer. Uses supportive abillities to improve himself and allies in combat.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Disruption Web</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Cloaking Field</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Stasis Ward</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Purifier Turrets</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Vortex</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShipLevel4=Mobile flying caster. Can use Photon Overcharge, Mass Recall, and Time Warp abilities. Can upgrade into the Mothership.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGShipLevel5=Ultimate Protoss vessel. Can use Photon Overcharge, Mass Recall, and Time Warp abilities. Cloaks nearby friendly units and structures.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
-Button/Tooltip/CRPGShooter=Quick-firing attacker. Dishes out large amounts of auto-attack damage.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Overkill</c><n/><c val="#ColorActiveAbilityInfo">Gravity Grenade</c><n/><c val="#ColorActiveAbilityInfo">Sandbags</c><n/><c val="#ColorPassiveAbilityInfo">Chaingun</c><n/><c val="#ColorPassiveAbilityInfo">Stim Pack</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units</c>
+Button/Tooltip/CRPGShooter=Quick-firing attacker. Dishes out large amounts of auto-attack damage.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Overkill</c><n/><c val="#ColorActiveAbilityInfo">Gravity Grenade</c><n/><c val="#ColorActiveAbilityInfo">Sandbags</c><n/><c val="#ColorPassiveAbilityInfo">Chaingun</c><n/><c val="#ColorPassiveAbilityInfo">Stim Pack</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShooterLevel1=Infiltration unit. Can use Ultrasonic Pulse and Cloak. Can also call down Tactical Nukes built at the Ghost Academy.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShooterLevel2=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShooterLevel3=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
@@ -818,7 +816,7 @@ Button/Tooltip/ShipSolariteExposure=Causes enemy units and structures within the
 Button/Tooltip/ShipVortex=Creates a gravity Vortex that stuns ground and air units in the target area. Units within the Vortex are invulnerable to all damage and effects. Lasts for <d time="20"/>.
 Button/Tooltip/ShooterChaingun=Increase the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% every time they attack, stacking up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
 Button/Tooltip/ShooterChaingun@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Attacking increases the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%.
-Button/Tooltip/ShooterChaingun@Upgraded=Chaingun lasts up to an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
+Button/Tooltip/ShooterChaingun@Upgraded=Chaingun lasts an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
 Button/Tooltip/ShooterDisableScatterShot=Returns the caster's projectiles to normal.
 Button/Tooltip/ShooterGravityGrenade=Tosses a grenade that explodes, hitting ground units for <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ShooterGravityGrenade@Damage,Amount$"/></c> damage in a small radius. Stuns units hit and pulls them toward the center over <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds.
 Button/Tooltip/ShooterGravityGrenade@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Cooldown.TimeUse"/><n/><n/>Tosses a grenade that deals <d ref="Effect,ShooterGravityGrenade@Damage,Amount"/> damage and stuns ground units for <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds in a small area.
@@ -826,13 +824,14 @@ Button/Tooltip/ShooterGravityGrenade@Upgraded=Gravity Grenade has a <d ref="100 
 Button/Tooltip/ShooterLuckyShot=Every fourth attack, increase the caster's base damage by <d ref="Behavior,ShooterLuckyShotProc,Modification.DamageDealtScaled[Ranged] / Effect,ShooterGaussRifleDamage,Amount * 100"/>%.
 Button/Tooltip/ShooterOverkill=The caster repeatedly attacks, dealing damage to all units in a cone in front of them for <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>. Moving cancels the effect.
 Button/Tooltip/ShooterOverkill@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterOverkill,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse"/><n/><n/>Fires the caster's weapon in a cone over <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>.
-Button/Tooltip/ShooterOverkill@Upgraded=Overkill's cooldown is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse$'/]"/>. A percentage of its energy cost is refunded when it's interrupted, depending on how long it channeled.
+Button/Tooltip/ShooterOverkill@Upgraded=Overkill's cooldown is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse$'/]"/>. A percentage of its energy cost is refunded when interrupted based on channel time.
 Button/Tooltip/ShooterSandbags=Places a sandbag that has the same attack priority as a combat hero. Allied ground units near a Sandbag take <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage from ranged attacks. Sandbags are structures that last <d time="[d ref='Behavior,SandbagCover,Duration'/]"/>.
 Button/Tooltip/ShooterSandbags@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterSandbags,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterSandbags,Cost[0].Charge.TimeUse"/><n/><n/>Places a sandbag that distracts enemies and grants <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage reduction from ranged attacks for <d time="[d ref='Behavior,SandbagCover,Duration'/]"/>.
 Button/Tooltip/ShooterSandbags@Upgraded=Sandbags are affected by their own ranged damage reduction and additionally grant +1 range to nearby allies.
 Button/Tooltip/ShooterScatterShot=The caster's projectiles explode, randomly dealing an additional <d> damage to up to <d> units in an area around the attack target. May affect the initial attack target.<n/><n/><c val="f078ff">Costs <d ref="Effect,ShooterScatterShotModifyUnit,VitalArray[Energy].Change * (-1)"/> energy per shot.</c>
-Button/Tooltip/ShooterStimpack=Upon entering combat, the unit is injected with powerful stimulants that increase attack and movement speeds by <d ref="Behavior,ShooterStimpack,Modification.AdditiveAttackSpeedFactor * 100"/>% for <d ref="Behavior,ShooterStimpack,Duration"/> seconds.
+Button/Tooltip/ShooterStimpack=Upon entering combat, the unit is injected with powerful stimulants that increase attack and movement speeds by <d ref="Behavior,ShooterStimpack,Modification.AdditiveAttackSpeedFactor * 100"/>%.
 Button/Tooltip/ShooterStimpack@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterStimpack@Dummy,Cost[0].Cooldown.TimeUse"/><n/><n/>Enterting combat increases attack and movement speeds by <d ref="Behavior,ShooterStimpack,Modification.AdditiveAttackSpeedFactor * 100"/>% for <d ref="Behavior,ShooterStimpack,Duration"/> seconds.
+Button/Tooltip/ShooterStimpack@Unupgraded= Lasts <d ref="Behavior,ShooterStimpack,Duration"/> seconds.
 Button/Tooltip/ShooterStimpack@Upgraded=Stimpack lasts forever and grants <d ref="Behavior,ShooterStimpack@Permanent,Modification.VitalRegenArray[Life]"/> life regeneration.
 Button/Tooltip/SniperBetterEquipment=Weapon range is increased by <d ref="Weapon,SniperC20ACanisterRifle,Range - Weapon,SniperC10CanisterRifle,Range"/> and sight range is increased by <d ref="Behavior,SniperBetterEquipment,Modification.SightBonus"/>.
 Button/Tooltip/SniperBetterEquipment@Learn=Increases weapon range by <d ref="Weapon,SniperC20ACanisterRifle,Range - Weapon,SniperC10CanisterRifle,Range"/> and sight range by <d ref="Behavior,SniperBetterEquipment,Modification.SightBonus"/>.
@@ -856,6 +855,7 @@ Button/Tooltip/SwarmerSplit=Splits the unit into two eggs, resetting its experie
 Button/Tooltip/SwarmerSwarm=The caster launches all Swarmers at the target point with a <d ref="Behavior,SwarmerSwarmTimedLife,Duration"/> second timed life. Swarmers remain at the area until they expire.
 Button/Tooltip/SwarmerSwarmerEgg=Spawns a Swarmer.
 Button/Tooltip/SwarmerSwarmerEggSpawn=Spawns a Swarmer.
+Button/Tooltip/UpgradePrefix=<n/><n/><c val="#ColorUpgradedInfo">Upgraded:</c> 
 Button/Tooltip/VehicleAutomaticServos=The Vehicle's turret can fire while moving.
 Button/Tooltip/VehicleCancel=Cancels the current Lock On, and allows you to select a new target.
 Button/Tooltip/VehicleGraduatingRange=Increases the unit's range by 6 over 12 seconds while it remains immobile.
@@ -2489,7 +2489,6 @@ Unit/Name/CRPGInfested=Infested
 Unit/Name/CRPGMarauder=Marauder
 Unit/Name/CRPGMarine=Marine
 Unit/Name/CRPGMech=Mech
-Unit/Name/CRPGMech@Level1=Hellbat
 Unit/Name/CRPGMedic=Medic
 Unit/Name/CRPGMedicLevel1=Medic
 Unit/Name/CRPGMedicLevel2=Medic

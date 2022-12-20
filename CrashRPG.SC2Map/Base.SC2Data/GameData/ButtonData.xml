@@ -547,6 +547,8 @@
         <Icon value="Assets\Textures\btn-techupgrade-terran-combatshield-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-techupgrade-terran-combatshield-color.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/ShooterSandbags@Upgraded"/>
     </CButton>
     <CButton id="ShadowBlink">
         <Icon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
@@ -688,6 +690,8 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/ShooterOverkill@Upgraded"/>
     </CButton>
     <CButton id="ShooterOverkill@Learn">
         <Icon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
@@ -707,6 +711,8 @@
         <AlertIcon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="2"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/ShooterSandbags@Upgraded"/>
     </CButton>
     <CButton id="ShooterSandbags@Learn">
         <Icon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
@@ -817,12 +823,17 @@
         <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="1" Column="1"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@NotUpgraded" Text="Button/Tooltip/ShooterStimpack@Unupgraded"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/ShooterStimpack@Upgraded"/>
     </CButton>
     <CButton id="ShooterChaingun">
         <Icon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="1"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/ShooterChaingun@Upgraded"/>
     </CButton>
     <CButton id="ShooterScatterShot">
         <Icon value="Assets\Textures\btn-upgrade-terran-explosiveshrapnelshells.dds"/>
@@ -936,6 +947,8 @@
         <AlertIcon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="2" Column="1"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/ShooterGravityGrenade@Upgraded"/>
     </CButton>
     <CButton id="UpgradeEnergy">
         <Tooltip value="Button/Tooltip/CRPGEnergyAttribute"/>

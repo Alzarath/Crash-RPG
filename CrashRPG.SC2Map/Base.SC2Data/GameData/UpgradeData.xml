@@ -18,8 +18,6 @@
     <CUpgrade id="CRPGAbilityUpgradePassiveSecondary">
         <Icon value="Assets\Textures\btn-number-2.dds"/>
         <EffectArray Operation="Set" Reference="Abil,ShooterStimpack@Dummy,Cost[0].Cooldown.TimeUse" Value="0.000000"/>
-        <EffectArray Operation="Set" Reference="Button,ShooterStimpack,AlertTooltip" Value="Button/Tooltip/ShooterStimpack@Upgraded"/>
-        <EffectArray Operation="Set" Reference="Button,ShooterStimpack,Tooltip" Value="Button/Tooltip/ShooterStimpack@Upgraded"/>
         <EffectArray Reference="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax" Value="15"/>
         <EffectArray Operation="Set" Reference="Effect,AeroLaserArmaments@Set,EffectArray[1]" Value="AeroLaserArmaments@LMUpgraded"/>
         <EffectArray Reference="Effect,AeroLaserArmaments@SA,AreaArray[0].Radius" Value="2"/>

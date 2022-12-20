@@ -142,17 +142,15 @@
     </CDataCollectionUpgrade>
     <CDataCollectionUnit id="CRPGAero">
         <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Hero"/>
-        <DataRecord Entry="Unit,CRPGAero"/>
-        <DataRecord Entry="Actor,CRPGAero@Level2"/>
-        <DataRecord Entry="Actor,CRPGAero@Level3"/>
-        <DataRecord Entry="Actor,CRPGAero@Level4"/>
-        <DataRecord Entry="Actor,CRPGAero@Level5"/>
-        <DataRecord Entry="Actor,CRPGAero@Level5"/>
         <DataRecord Entry="Actor,CRPGAero"/>
-        <DataRecord Entry="Actor,CRPGAero@Level3"/>
-        <DataRecord Entry="Actor,CRPGAero@Level5"/>
-        <DataRecord Entry="Actor,CRPGAero@Level4"/>
+        <DataRecord Entry="Actor,CRPGAero@SoundDeathLevel5"/>
+        <DataRecord Entry="Actor,CRPGAero@SoundDeathLevel1234"/>
         <DataRecord Entry="Actor,CRPGAero@Level2"/>
+        <DataRecord Entry="Actor,CRPGAero@Level3"/>
+        <DataRecord Entry="Actor,CRPGAero@Level4"/>
+        <DataRecord Entry="Actor,CRPGAero@Level5"/>
+        <DataRecord Entry="Behavior,CRPGAero@Veterancy"/>
+        <DataRecord Entry="Unit,CRPGAero"/>
     </CDataCollectionUnit>
     <CDataCollectionAbil id="CRPGCasterTracker">
         <EditorCategories value="DataGroup:Buff,Race:Neutral"/>
@@ -203,8 +201,9 @@
         <DataRecord Entry="Actor,CRPGHunter@Level3"/>
         <DataRecord Entry="Actor,CRPGHunter@Level4"/>
         <DataRecord Entry="Actor,CRPGHunter@Level5"/>
-        <DataRecord Entry="Actor,CRPGHunter@SoundDeathLevel2345"/>
         <DataRecord Entry="Actor,CRPGHunter@SoundDeathLevel1"/>
+        <DataRecord Entry="Actor,CRPGHunter@SoundDeathLevel2345"/>
+        <DataRecord Entry="Behavior,CRPGHunter@Veterancy"/>
         <DataRecord Entry="Unit,CRPGHunter"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGInfested">
@@ -215,10 +214,14 @@
         <DataRecord Entry="Actor,CRPGInfested@Level4"/>
         <DataRecord Entry="Actor,CRPGInfested@Level5"/>
         <DataRecord Entry="Unit,CRPGInfested"/>
+        <DataRecord Entry="Actor,CRPGInfested@SoundDeathLevel14"/>
+        <DataRecord Entry="Actor,CRPGInfested@SoundDeathLevel25"/>
+        <DataRecord Entry="Actor,CRPGInfested@SoundDeathLevel3"/>
+        <DataRecord Entry="Behavior,CRPGInfested@Veterancy"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGMech">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Hero"/>
-        <DataRecord Entry="Actor,CRPGMech@Level1"/>
+        <DataRecord Entry="Actor,CRPGMech"/>
         <DataRecord Entry="Actor,CRPGMech@Level2"/>
         <DataRecord Entry="Actor,CRPGMech@Level3"/>
         <DataRecord Entry="Actor,CRPGMech@Level4"/>
@@ -250,21 +253,23 @@
     </CDataCollectionAbil>
     <CDataCollectionUnit id="CRPGShooter">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Hero"/>
-        <DataRecord Entry="Actor,CRPGShooter@Level2"/>
         <DataRecord Entry="Actor,CRPGShooter"/>
+        <DataRecord Entry="Actor,CRPGShooter@Level2"/>
         <DataRecord Entry="Actor,CRPGShooter@Level3"/>
         <DataRecord Entry="Actor,CRPGShooter@Level4"/>
         <DataRecord Entry="Actor,CRPGShooter@Level5"/>
+        <DataRecord Entry="Behavior,CRPGShooter@Veterancy"/>
         <DataRecord Entry="Unit,CRPGShooter"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGSniper">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Hero"/>
+        <DataRecord Entry="Actor,CRPGSniper"/>
         <DataRecord Entry="Actor,CRPGSniper@Level2"/>
         <DataRecord Entry="Actor,CRPGSniper@Level3"/>
-        <DataRecord Entry="Actor,CRPGSniper@Level5"/>
         <DataRecord Entry="Actor,CRPGSniper@Level4"/>
         <DataRecord Entry="Actor,CRPGSniper@Level5"/>
         <DataRecord Entry="Actor,CRPGSniper@SoundDeathLevel1234"/>
+        <DataRecord Entry="Behavior,CRPGSniper@Veterancy"/>
         <DataRecord Entry="Unit,CRPGSniper"/>
     </CDataCollectionUnit>
     <CDataCollectionAbil id="CRPGUnderlingLevel">

@@ -1679,9 +1679,9 @@
         <Variable Type="Variable" Id="B16D2746"/>
     </Element>
     <Element Type="FunctionCall" Id="4E6D7EAD">
-        <Disabled/>
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000136"/>
         <Parameter Type="Param" Id="2E807E15"/>
+        <Parameter Type="Param" Id="C2D8EEAC"/>
     </Element>
     <Element Type="Param" Id="2E807E15">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="00000219"/>
@@ -1694,6 +1694,12 @@
     </Element>
     <Element Type="Param" Id="F7BE37CD">
         <Variable Type="Variable" Id="1DC6BCFD"/>
+    </Element>
+    <Element Type="Param" Id="C2D8EEAC">
+        <ParameterDef Type="ParamDef" Library="Ntve" Id="00000220"/>
+        <Value>CRPGMech</Value>
+        <ValueType Type="gamelink"/>
+        <ValueGameType Type="Unit"/>
     </Element>
     <Element Type="FunctionCall" Id="260FA1C4">
         <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000136"/>

@@ -583,6 +583,9 @@
             <Kind index="Splash" value="0"/>
             <Kind index="NoProc" value="0"/>
         </DamageResponse>
+        <InfoFlags index="Hidden" value="1"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShooterOverkill@Channeling">
         <InfoFlags index="Hidden" value="1"/>
@@ -622,6 +625,7 @@
     <CBehaviorBuff id="SniperToxicMunitions@Cooldown">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="30"/>
+        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="AeroTacticalJump@Slow">
         <Alignment value="Negative"/>

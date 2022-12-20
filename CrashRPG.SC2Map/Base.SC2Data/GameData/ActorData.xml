@@ -323,7 +323,7 @@
         <PlacementModel value="ColonistSandbagsLarge"/>
         <PlacementSound value="Terran_BuildingPlacementSmall"/>
         <PortraitModel value="StaticPortrait"/>
-        <BarOffset value="130"/>
+        <BarOffset value="70"/>
         <GroupIcon>
             <Image value="Assets\Textures\Wireframe-Terran-SensorTower.dds"/>
         </GroupIcon>
@@ -2185,7 +2185,7 @@
         <On Terms="UnitDeath.CRPGInfested; ValidateUnit CasterIsLevel5" Send="Create"/>
         <Sound value="Infestor_Death"/>
     </CActorSound>
-    <CActorUnit id="CRPGMech@Level1" parent="GenericUnitHeroBase" unitName="CRPGMech" level="1">
+    <CActorUnit id="CRPGMech" parent="GenericUnitHeroBase" unitName="CRPGMech" level="1">
         <Aliases value="_UnitMedium"/>
         <Macros value="UnloadDropAnim"/>
         <Macros value="TerrainSquibAnimations"/>
@@ -2243,7 +2243,6 @@
             <Image value="Assets\Textures\Wireframe-Terran-HellionTankEx1.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\btn-unit-terran-hellionbattlemode.dds"/>
-        <HighlightTooltip value="Unit/Name/CRPGMech@Level1"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
         <SoundArray index="Ready" value="HellionTank_Ready"/>
         <SoundArray index="Help" value="HellionTank_Help"/>

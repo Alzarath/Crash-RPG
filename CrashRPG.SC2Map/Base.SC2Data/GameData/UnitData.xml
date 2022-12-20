@@ -3722,7 +3722,7 @@
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
     </CUnitHero>
-    <CUnitHero id="CRPGMedic" parent="CRPGHero">
+    <CUnitHero id="CRPGMedic" parent="CRPGHero" abil1="MedicHealingBeam" abil2="MedicIrradiate" abil3="MedicSpawnMedivac" psv1="MedicOpticalFlare" psv2="MedicSelfixArmor">
         <Race value="Terr"/>
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Light" value="1"/>
@@ -3732,39 +3732,7 @@
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
-        <AbilArray index="6" Link="MedicHealingBeam"/>
-        <AbilArray index="7" Link="MedicIrradiate"/>
-        <AbilArray index="8" Link="MedicSpawnMedivac"/>
         <WeaponArray Link="MedicCorrosiveSpray"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="MedicOpticalFlare"/>
-                <Type value="Passive"/>
-                <Behavior value="MedicOpticalFlare"/>
-                <Requirements value="CRPGPassive1LearnedShow"/>
-                <Row value="1"/>
-                <Column value="0"/>
-            </LayoutButtons>
-            <LayoutButtons index="6">
-                <Face value="MedicSelfixArmor"/>
-                <Type value="Passive"/>
-                <Behavior value="MedicSelfixArmor"/>
-                <Requirements value="CRPGPassive2LearnedShow"/>
-                <Row value="1"/>
-                <Column value="1"/>
-            </LayoutButtons>
-        </CardLayouts>
-        <CardLayouts index="1" CardId="Lrn1">
-            <LayoutButtons index="0" Face="MedicHealingBeam@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn1" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="MedicIrradiate@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn2" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="MedicSpawnMedivac@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn3" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="MedicOpticalFlare@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn4" Row="1" Column="0"/>
-            <LayoutButtons index="4" Face="MedicSelfixArmor@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn5" Row="1" Column="1"/>
-            <LayoutButtons index="5" Face="MedicHealingBeam@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePrimary@UpgradedUse" Row="0" Column="0"/>
-            <LayoutButtons index="7" Face="MedicSpawnMedivac@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradeTernary@UpgradedUse" Row="0" Column="2"/>
-            <LayoutButtons index="8" Face="MedicOpticalFlare@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePassivePrimary@UpgradedUse" Row="1" Column="0"/>
-            <LayoutButtons index="9" Face="MedicSelfixArmor@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePassiveSecondary@UpgradedUse" Row="1" Column="1"/>
-        </CardLayouts>
         <Radius value="0.375"/>
         <InnerRadius value="0.375"/>
         <CargoSize value="2"/>
@@ -3773,31 +3741,18 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
-        <LearnInfoArray index="Learn1" Abil="MedicHealingBeam">
-            <Button DefaultButtonFace="MedicHealingBeam"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn2" Abil="MedicIrradiate">
-            <Button DefaultButtonFace="MedicIrradiate"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn3" Abil="MedicSpawnMedivac">
-            <Button DefaultButtonFace="MedicSpawnMedivac"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn4">
-            <Button DefaultButtonFace="MedicOpticalFlare"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn5">
-            <Button DefaultButtonFace="MedicSelfixArmor"/>
-        </LearnInfoArray>
         <Collide index="Land2" value="1"/>
         <Collide index="Land9" value="1"/>
         <Collide index="Land11" value="1"/>
         <Collide index="Land16" value="1"/>
-        <BehaviorArray index="6" Link="MedicOpticalFlare"/>
-        <BehaviorArray index="7" Link="MedicSelfixArmor"/>
     </CUnitHero>
-    <CUnitHero id="CRPGFighter" parent="CRPGHero">
+    <CUnitHero id="CRPGFighter" parent="CRPGHero" abil1="FighterLightningDash" abil2="FighterRapidStrikes" abil3="FighterAstralWind" psv1="FighterViolentCharge" psv2="FighterResurgence">
         <Race value="Prot"/>
         <PlaneArray index="Ground" value="1"/>
+        <Collide index="Land2" value="1"/>
+        <Collide index="Land9" value="1"/>
+        <Collide index="Land11" value="1"/>
+        <Collide index="Land16" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
         <LifeStart value="200"/>
@@ -3805,17 +3760,35 @@
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
         <ShieldsStart value="100"/>
         <ShieldsMax value="100"/>
+        <ShieldRegenRate value="2"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <AbilArray Link="FighterLightningDash"/>
-        <AbilArray Link="FighterRapidStrikes"/>
-        <AbilArray Link="FighterAstralWind"/>
+        <AbilArray index="4" Link="FighterViolentCharge@Dummy"/>
+        <AbilArray index="5" Link="FighterResurgence@Dummy"/>
         <AbilArray Link="FighterViolentCharge"/>
-        <AbilArray Link="FighterViolentCharge@Dummy"/>
-        <AbilArray Link="FighterResurgence@Dummy"/>
         <WeaponArray Link="FighterPsiBlades"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5">
+                <Face value="FighterViolentCharge"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="FighterViolentCharge@Dummy,Execute"/>
+                <Behavior value="FighterViolentCharge"/>
+                <Requirements value="CRPGPassive1LearnedShow"/>
+                <Row value="1"/>
+                <Column value="0"/>
+            </LayoutButtons>
+            <LayoutButtons index="6">
+                <Face value="FighterResurgence"/>
+                <Type value="AbilCmd"/>
+                <AbilCmd value="FighterResurgence@Dummy,Execute"/>
+                <Behavior value="FighterResurgence"/>
+                <Requirements value="CRPGPassive2LearnedShow"/>
+                <Row value="1"/>
+                <Column value="1"/>
+            </LayoutButtons>
+        </CardLayouts>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.375"/>
         <CargoSize value="2"/>
@@ -3825,59 +3798,6 @@
             <ChanceArray index="Idle" value="70"/>
             <ChanceArray index="Turn" value="10"/>
         </Fidget>
-        <LearnInfoArray index="Learn1" Abil="FighterLightningDash">
-            <Button DefaultButtonFace="FighterLightningDash"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn2" Abil="FighterRapidStrikes">
-            <Button DefaultButtonFace="FighterRapidStrikes"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn3" Abil="FighterAstralWind">
-            <Button DefaultButtonFace="FighterAstralWind"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn4">
-            <Button DefaultButtonFace="FighterViolentCharge"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn5">
-            <Button DefaultButtonFace="FighterResurgence"/>
-        </LearnInfoArray>
-        <BehaviorArray Link="FighterResurgence"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="FighterViolentCharge"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="FighterViolentCharge@Dummy,Execute"/>
-                <Behavior value=""/>
-                <Requirements value="CRPGPassive1LearnedShow"/>
-                <Row value="1"/>
-                <Column value="0"/>
-            </LayoutButtons>
-            <LayoutButtons index="6">
-                <Face value="FighterResurgence"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="FighterResurgence@Dummy,Execute"/>
-                <Behavior value=""/>
-                <Requirements value="CRPGPassive2LearnedShow"/>
-                <Row value="1"/>
-                <Column value="1"/>
-            </LayoutButtons>
-        </CardLayouts>
-        <CardLayouts index="1" CardId="Lrn1">
-            <LayoutButtons index="0" Face="FighterLightningDash@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn1" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="FighterRapidStrikes@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn2" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="FighterAstralWind@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn3" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="FighterViolentCharge@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn4" Row="1" Column="0"/>
-            <LayoutButtons index="4" Face="FighterResurgence@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn5" Row="1" Column="1"/>
-            <LayoutButtons index="5" Face="FighterLightningDash@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePrimary@UpgradedUse" Row="0" Column="0"/>
-            <LayoutButtons index="6" Face="FighterRapidStrikes@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradeSecondary@UpgradedUse" Row="0" Column="1"/>
-            <LayoutButtons index="7" Face="FighterAstralWind@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradeTernary@UpgradedUse" Row="0" Column="2"/>
-            <LayoutButtons index="8" Face="FighterViolentCharge@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePassivePrimary@UpgradedUse" Row="1" Column="0"/>
-            <LayoutButtons index="9" Face="FighterResurgence@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePassiveSecondary@UpgradedUse" Row="1" Column="1"/>
-        </CardLayouts>
-        <Collide index="Land2" value="1"/>
-        <Collide index="Land9" value="1"/>
-        <Collide index="Land11" value="1"/>
-        <Collide index="Land16" value="1"/>
-        <ShieldRegenRate value="2"/>
     </CUnitHero>
     <CUnitHero id="CRPGHunter" parent="CRPGHero" abil1="HunterScarabMine" abil2="HunterShadowTransfer" abil3="HunterDisruptorVolley" psv1="HunterPsionicProjection" psv2="HunterPlasmaDiffusion">
         <Race value="Prot"/>
@@ -3893,19 +3813,18 @@
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
         <ShieldsStart value="160"/>
         <ShieldsMax value="160"/>
+        <ShieldRegenRate value="2"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
+        <AbilArray index="4" Link="HunterPsionicProjection@Dummy"/>
+        <AbilArray index="5" Link="HunterPlasmaDiffusion@PlasmaCharge"/>
+        <AbilArray Link="HunterPsionicProjection"/>
         <AbilArray Link="HunterScarabMine@Free"/>
         <AbilArray Link="HunterShadowTransfer@Free"/>
         <AbilArray Link="HunterDisruptorVolley@Free"/>
-        <AbilArray Link="HunterPsionicProjection"/>
-        <AbilArray Link="HunterPsionicProjection@Dummy"/>
-        <AbilArray Link="HunterPlasmaDiffusion@PlasmaCharge"/>
-        <BehaviorArray Link="HunterPlasmaDiffusion"/>
         <BehaviorArray Link="HunterPlasmaDiffusion@PlasmaCharged"/>
-        <BehaviorArray Link="HunterPsionicProjection"/>
         <WeaponArray Link="HunterPurifierGlaiveCannon"/>
         <WeaponArray Link="HunterDisruptorVolleyFour"/>
         <CardLayouts index="0">
@@ -3931,7 +3850,6 @@
         <LearnInfoArray index="Learn5">
             <Button Requirements="HunterHasActiveAbility"/>
         </LearnInfoArray>
-        <ShieldRegenRate value="2"/>
     </CUnitHero>
     <CUnit id="HunterShade">
         <Race value="Prot"/>
@@ -3987,7 +3905,7 @@
         <RankDisplay value="Never"/>
         <MinimapRadius value="0.375"/>
     </CUnit>
-    <CUnitHero id="CRPGMech" parent="CRPGHero">
+    <CUnitHero id="CRPGMech" parent="CRPGHero" abil1="MechBarrage" abil2="MechShockBlast" abil3="MechExplosiveImmortality" psv1="MechPointDefenseDrones" psv2="MechMultiLockTargetingSystem">
         <Race value="Terr"/>
         <PlaneArray index="Ground" value="1"/>
         <Collide index="Land2" value="1"/>
@@ -4002,15 +3920,12 @@
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
         <AbilArray index="4" Link="MechPointDefenseDrones"/>
-        <AbilArray index="6" Link="MechBarrage"/>
-        <AbilArray index="7" Link="MechShockBlast"/>
-        <AbilArray index="8" Link="MechExplosiveImmortality"/>
         <WeaponArray Link="MechAutocannon"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="MechMultiLockTargetingSystem"/>
                 <Type value="Passive"/>
-                <Behavior value=""/>
+                <Behavior value="MechPointDefenseDrones"/>
                 <Requirements value="CRPGPassive2LearnedShow"/>
                 <Row value="1"/>
                 <Column value="1"/>
@@ -4018,7 +3933,7 @@
             <LayoutButtons index="6">
                 <Face value="CRPGLevelUp"/>
                 <Type value="Submenu"/>
-                <Behavior value=""/>
+                <Behavior value="MechMultiLockTargetingSystem"/>
                 <Requirements value=""/>
                 <SubmenuAbilState value="CRPGLearnAbility"/>
                 <SubmenuCardId value="Lrn1"/>
@@ -4029,13 +3944,6 @@
             </LayoutButtons>
             <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
-        <CardLayouts index="1" CardId="Lrn1">
-            <LayoutButtons index="0" Face="MechBarrage@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn1" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="MechShockBlast@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn2" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="MechExplosiveImmortality@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn3" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="MechPointDefenseDrones@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn4" Row="1" Column="0"/>
-            <LayoutButtons index="4" Face="MechMultiLockTargetingSystem@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn5" Row="1" Column="1"/>
-        </CardLayouts>
         <Radius value="0.625"/>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.5"/>
@@ -4045,21 +3953,6 @@
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Ultralisk"/>
         <GlossaryAlias value="CRPGMech"/>
-        <LearnInfoArray index="Learn1" Abil="MechBarrage">
-            <Button DefaultButtonFace="MechBarrage"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn2" Abil="MechShockBlast">
-            <Button DefaultButtonFace="MechShockBlast"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn3" Abil="MechExplosiveImmortality">
-            <Button DefaultButtonFace="MechExplosiveImmortality"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn4" Abil="MechPointDefenseDrones">
-            <Button DefaultButtonFace="MechPointDefenseDrones"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn5">
-            <Button DefaultButtonFace="MechMultiLockTargetingSystem"/>
-        </LearnInfoArray>
     </CUnitHero>
     <CUnitHero id="CRPGShipLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGShip"/>
@@ -4246,7 +4139,7 @@
         <MinimapRadius value="0.5"/>
         <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
     </CUnitHero>
-    <CUnitHero id="CRPGShooter" parent="CRPGHero">
+    <CUnitHero id="CRPGShooter" parent="CRPGHero" abil1="ShooterOverkill" abil2="ShooterGravityGrenade" abil3="ShooterSandbags" psv1="ShooterChaingun" psv2="ShooterStimpack">
         <Race value="Terr"/>
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Light" value="1"/>
@@ -4259,26 +4152,14 @@
         <StationaryTurningRate value="719.2968"/>
         <TurningRate value="719.2968"/>
         <AbilArray Link="ShooterStimpack@Dummy"/>
-        <AbilArray Link="ShooterOverkill"/>
-        <AbilArray Link="ShooterGravityGrenade"/>
-        <AbilArray Link="ShooterSandbags"/>
-        <BehaviorArray Link="ShooterChaingun"/>
-        <BehaviorArray Link="ShooterStimpack@ControllerDefensive"/>
+        <BehaviorArray index="7" Link="ShooterStimpack@ControllerDefensive"/>
         <BehaviorArray Link="ShooterStimpack@ControllerOffensive"/>
         <WeaponArray Link="ShooterGaussRifle"/>
         <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="ShooterChaingun"/>
-                <Type value="Passive"/>
-                <Behavior value="ShooterChaingun"/>
-                <Requirements value="CRPGPassive1LearnedShow"/>
-                <Row value="1"/>
-                <Column value="0"/>
-            </LayoutButtons>
             <LayoutButtons index="6">
                 <Face value="CRPGLevelUp"/>
                 <Type value="Submenu"/>
-                <Behavior value=""/>
+                <Behavior value="ShooterStimpack"/>
                 <Requirements value=""/>
                 <SubmenuAbilState value="CRPGLearnAbility"/>
                 <SubmenuCardId value="Lrn1"/>
@@ -4289,18 +4170,6 @@
             </LayoutButtons>
             <LayoutButtons index="7" removed="1"/>
         </CardLayouts>
-        <CardLayouts index="1" CardId="Lrn1">
-            <LayoutButtons index="0" Face="ShooterOverkill@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn1" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="ShooterGravityGrenade@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn2" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="ShooterSandbags@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn3" Row="0" Column="2"/>
-            <LayoutButtons index="3" Face="ShooterChaingun@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn4" Row="1" Column="0"/>
-            <LayoutButtons index="4" Face="ShooterStimpack@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn5" Row="1" Column="1"/>
-            <LayoutButtons index="5" Face="ShooterOverkill@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePrimary@UpgradedUse" Row="0" Column="0"/>
-            <LayoutButtons index="6" Face="ShooterGravityGrenade@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradeSecondary@UpgradedUse" Row="0" Column="1"/>
-            <LayoutButtons index="7" Face="ShooterSandbags@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradeTernary@UpgradedUse" Row="0" Column="2"/>
-            <LayoutButtons index="8" Face="ShooterChaingun@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePassivePrimary@UpgradedUse" Row="1" Column="0"/>
-            <LayoutButtons index="9" Face="ShooterStimpack@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePassiveSecondary@UpgradedUse" Row="1" Column="1"/>
-        </CardLayouts>
         <CargoSize value="2"/>
         <EquipmentArray Weapon="ShooterGaussRifle@Equipment"/>
         <Fidget>
@@ -4308,27 +4177,12 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
-        <LearnInfoArray index="Learn1" Abil="ShooterOverkill">
-            <Button DefaultButtonFace="ShooterOverkill"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn2" Abil="ShooterGravityGrenade">
-            <Button DefaultButtonFace="ShooterGravityGrenade"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn3" Abil="ShooterSandbags">
-            <Button DefaultButtonFace="ShooterSandbags"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn4">
-            <Button DefaultButtonFace="ShooterChaingun"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn5">
-            <Button DefaultButtonFace="ShooterStimpack"/>
-        </LearnInfoArray>
         <Collide index="Land2" value="1"/>
         <Collide index="Land9" value="1"/>
         <Collide index="Land11" value="1"/>
         <Collide index="Land16" value="1"/>
     </CUnitHero>
-    <CUnitHero id="CRPGSniper" parent="CRPGHero">
+    <CUnitHero id="CRPGSniper" parent="CRPGHero" abil1="SniperSniperRound" abil2="SniperPersonalCloaking" abil3="SniperNuclearStrike" psv1="SniperBetterEquipment" psv2="SniperToxicMunitions">
         <Race value="Terr"/>
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Biological" value="1"/>
@@ -4340,17 +4194,14 @@
         <LateralAcceleration value="46.0625"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <AbilArray Link="SniperBetterEquipment"/>
-        <AbilArray Link="SniperToxicMunitions"/>
-        <AbilArray Link="SniperSniperRound"/>
-        <AbilArray Link="SniperPersonalCloaking"/>
-        <AbilArray Link="SniperNuclearStrike"/>
+        <AbilArray index="4" Link="SniperBetterEquipment"/>
+        <AbilArray index="5" Link="SniperToxicMunitions"/>
         <WeaponArray Link="SniperC10CanisterRifle"/>
         <CardLayouts index="0">
             <LayoutButtons index="6">
                 <Face value="CRPGLevelUp"/>
                 <Type value="Submenu"/>
-                <Behavior value=""/>
+                <Behavior value="SniperToxicMunitions"/>
                 <Requirements value=""/>
                 <SubmenuAbilState value="CRPGLearnAbility"/>
                 <SubmenuCardId value="Lrn1"/>
@@ -4371,12 +4222,7 @@
             </LayoutButtons>
         </CardLayouts>
         <CardLayouts index="1" CardId="Lrn1">
-            <LayoutButtons index="0" Face="SniperSniperRound@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn1" Row="0" Column="0"/>
-            <LayoutButtons index="1" Face="SniperPersonalCloaking@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn2" Row="0" Column="1"/>
-            <LayoutButtons index="2" Face="SniperNuclearStrike@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn3" Row="0" Column="2"/>
             <LayoutButtons index="3" Face="SniperBetterEquipment" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn4" Row="1" Column="0"/>
-            <LayoutButtons index="4" Face="SniperToxicMunitions@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn5" Row="1" Column="1"/>
-            <LayoutButtons index="9" Face="SniperToxicMunitions@Upgraded" Type="Passive" Requirements="CRPGAbilityUpgradePassiveSecondary@UpgradedUse" Row="1" Column="1"/>
         </CardLayouts>
         <Radius value="0.375"/>
         <SeparationRadius value="0.375"/>
@@ -4391,21 +4237,6 @@
             <ChanceArray index="Idle" value="33"/>
             <ChanceArray index="Turn" value="33"/>
         </Fidget>
-        <LearnInfoArray index="Learn1" Abil="SniperSniperRound">
-            <Button DefaultButtonFace="SniperSniperRound"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn2" Abil="SniperPersonalCloaking">
-            <Button DefaultButtonFace="SniperPersonalCloaking@On"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn3" Abil="SniperNuclearStrike">
-            <Button DefaultButtonFace="SniperNuclearStrike"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn4">
-            <Button DefaultButtonFace="SniperBetterEquipment"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn5">
-            <Button DefaultButtonFace="SniperToxicMunitions"/>
-        </LearnInfoArray>
         <Collide index="Land2" value="1"/>
         <Collide index="Land9" value="1"/>
         <Collide index="Land11" value="1"/>
@@ -5087,30 +4918,12 @@
         <Acceleration value="1"/>
         <Height value="3.75"/>
         <VisionHeight value="4"/>
-        <AbilArray Link="AeroYamatoCannon"/>
-        <AbilArray Link="AeroDefensiveMatrix"/>
-        <AbilArray Link="AeroTacticalJump"/>
         <BehaviorArray Link="AeroFireSuppressionSystem@Upgraded"/>
         <WeaponArray Link="AeroLaserBattery"/>
         <Radius value="1.25"/>
         <SeparationRadius value="1.25"/>
         <MinimapRadius value="1.25"/>
         <Mass value="0.6"/>
-        <LearnInfoArray index="Learn1">
-            <Button DefaultButtonFace="AeroYamatoCannon"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn2">
-            <Button DefaultButtonFace="AeroDefensiveMatrix"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn3">
-            <Button DefaultButtonFace="AeroTacticalJump"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn4">
-            <Button DefaultButtonFace="AeroFireSuppressionSystem"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn5">
-            <Button DefaultButtonFace="AeroLaserArmaments"/>
-        </LearnInfoArray>
     </CUnitHero>
     <CUnitHero id="CRPGInfested" parent="CRPGHero" abil1="InfestedInfestedEggs" abil2="InfestedAberrate" abil3="InfestedInfestationSpore" psv1="InfestedCausticWeapons" psv2="InfestedHardenedEquipment">
         <Race value="Zerg"/>
