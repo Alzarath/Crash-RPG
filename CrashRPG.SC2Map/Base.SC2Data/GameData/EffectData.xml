@@ -237,6 +237,16 @@
         <EditorCategories value="Race:Terran"/>
         <Behavior value="MechExplosiveImmortality@Rebuilding"/>
     </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="PointDefenseDroneLaser@ABCooldownRepair">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="PointDefenseDroneLaser@CooldownRepair"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="PointDefenseDroneLaser@SetCooldowns">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="PointDefenseDroneLaser@ABCooldownAntiMissile"/>
+        <EffectArray value="PointDefenseDroneLaser@ABCooldownRepair"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="RevenantTimedLife@AB">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="RevenantTimedLife"/>
@@ -2862,13 +2872,14 @@
         <SearchFilters value="Mechanical,Visible;Self,Neutral,Enemy,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="8" Effect="PointDefenseDroneLaser@SetRepair"/>
         <MaxCount value="1"/>
+        <ValidatorArray value="PointDefenseDroneLaser@NotOnCooldownRepair"/>
     </CEffectEnumArea>
     <CEffectSet id="PointDefenseDroneLaser@SetRepair">
         <ValidatorArray value="noMarkers"/>
         <ValidatorArray value="LifeLTE98"/>
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="PointDefenseDroneLaser@MURepair"/>
-        <EffectArray value="PointDefenseDroneLaser@ABCooldown"/>
+        <EffectArray value="PointDefenseDroneLaser@SetCooldowns"/>
     </CEffectSet>
     <CEffectLaunchMissile id="ShipPurifierCannonLaunchMissile">
         <EditorCategories value="Race:Protoss"/>
@@ -2984,7 +2995,6 @@
     <CEffectCreatePersistent id="PointDefenseDroneLaser@CP">
         <EditorCategories value="Race:Terran"/>
         <PeriodCount value="2"/>
-        <PeriodicValidator value="PointDefenseDroneLaser@NotOnCooldown"/>
         <PeriodicEffectArray value="PointDefenseDroneLaser@SAAntiMissile"/>
         <PeriodicEffectArray value="PointDefenseDroneLaser@SARepair"/>
         <PeriodicPeriodArray value="0"/>
@@ -4859,10 +4869,10 @@
         <Amount value="50"/>
         <Death value="Blast"/>
     </CEffectDamage>
-    <CEffectApplyBehavior id="PointDefenseDroneLaser@ABCooldown">
+    <CEffectApplyBehavior id="PointDefenseDroneLaser@ABCooldownAntiMissile">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Caster"/>
-        <Behavior value="PointDefenseDroneLaser@Cooldown"/>
+        <Behavior value="PointDefenseDroneLaser@CooldownAntiMissile"/>
     </CEffectApplyBehavior>
     <CEffectModifyUnit id="PointDefenseDroneLaser@MUAntiMissile">
         <EditorCategories value="Race:Terran"/>
@@ -4877,13 +4887,14 @@
         <ValidatorArray value="MissileIsActive"/>
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="PointDefenseDroneLaser@MUAntiMissile"/>
-        <EffectArray value="PointDefenseDroneLaser@ABCooldown"/>
+        <EffectArray value="PointDefenseDroneLaser@SetCooldowns"/>
     </CEffectSet>
     <CEffectEnumArea id="PointDefenseDroneLaser@SAAntiMissile">
         <EditorCategories value="Race:Terran"/>
         <SearchFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="8" Effect="PointDefenseDroneLaser@SetAntiMissile"/>
         <MaxCount value="1"/>
+        <ValidatorArray value="PointDefenseDroneLaser@NotOnCooldownAntiMissile"/>
     </CEffectEnumArea>
     <CEffectSet id="VehicleCrucioShockCannonSet">
         <EditorCategories value="Race:Terran"/>

@@ -11,6 +11,8 @@
         <EffectArray Operation="Set" Reference="Behavior,MedicOpticalFlare,Modification.Detect" Value="10"/>
         <EffectArray Reference="Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange" Value="-1"/>
         <EffectArray Reference="Behavior,MedicOpticalFlare@Blind,Modification.SightBonus" Value="-2"/>
+        <EffectArray Operation="Set" Reference="Effect,PointDefenseDroneLaser@SetAntiMissile,EffectArray[1]" Value="PointDefenseDroneLaser@ABCooldownAntiMissile"/>
+        <EffectArray Operation="Set" Reference="Effect,PointDefenseDroneLaser@SetRepair,EffectArray[1]" Value="PointDefenseDroneLaser@ABCooldownRepair"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGHunter"/>
         <AffectedUnitArray value="CRPGShooter"/>

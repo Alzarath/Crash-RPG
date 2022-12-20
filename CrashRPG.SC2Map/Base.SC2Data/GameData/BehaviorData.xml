@@ -143,6 +143,11 @@
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
         <Duration value="10"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="PointDefenseDroneLaser@CooldownRepair">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="RevenantTimedLife" parent="TimedLife">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="8"/>
@@ -1843,11 +1848,10 @@
     <CBehaviorBuff id="PointDefenseDroneLaser@Active">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <DisableValidatorArray value="PointDefenseDroneLaser@NotOnCooldown"/>
-        <Period value="0.125"/>
+        <Period value="0.0625"/>
         <PeriodicEffect value="PointDefenseDroneLaser@CP"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="PointDefenseDroneLaser@Cooldown">
+    <CBehaviorBuff id="PointDefenseDroneLaser@CooldownAntiMissile">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="2"/>

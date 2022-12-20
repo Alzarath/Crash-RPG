@@ -375,6 +375,11 @@
         <DataRecord Entry="Effect,MechExplosiveImmortality@Damage"/>
         <DataRecord Entry="Model,MechExplosiveImmortality@Explosion"/>
     </CDataCollectionAbil>
+    <CDataCollectionUnit id="MechPointDefenseDrone">
+        <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,MechPointDefenseDrone"/>
+        <DataRecord Entry="Unit,MechPointDefenseDrone"/>
+    </CDataCollectionUnit>
     <CDataCollectionAbil id="MechPointDefenseDrones">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
         <DataRecord Entry="Abil,MechPointDefenseDrones"/>
@@ -517,9 +522,9 @@
         <DataRecord Entry="Actor,PointDefenseDroneLaser@SoundLaunchRepair"/>
         <DataRecord Entry="Actor,PointDefenseDroneLaser@BeamAntiMissileBak"/>
         <DataRecord Entry="Actor,PointDefenseDroneLaser@AttackAntiMissile"/>
-        <DataRecord Entry="Behavior,PointDefenseDroneLaser@Cooldown"/>
+        <DataRecord Entry="Behavior,PointDefenseDroneLaser@CooldownAntiMissile"/>
         <DataRecord Entry="Behavior,PointDefenseDroneLaser@Active"/>
-        <DataRecord Entry="Effect,PointDefenseDroneLaser@ABCooldown"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@ABCooldownAntiMissile"/>
         <DataRecord Entry="Effect,PointDefenseDroneLaser@CP"/>
         <DataRecord Entry="Effect,PointDefenseDroneLaser@SAAntiMissile"/>
         <DataRecord Entry="Effect,PointDefenseDroneLaser@SARepair"/>
@@ -527,7 +532,7 @@
         <DataRecord Entry="Effect,PointDefenseDroneLaser@MUAntiMissile"/>
         <DataRecord Entry="Effect,PointDefenseDroneLaser@SetAntiMissile"/>
         <DataRecord Entry="Effect,PointDefenseDroneLaser@SetRepair"/>
-        <DataRecord Entry="Validator,PointDefenseDroneLaser@NotOnCooldown"/>
+        <DataRecord Entry="Validator,PointDefenseDroneLaser@NotOnCooldownAntiMissile"/>
         <DataRecord Entry="Validator,PointDefenseDroneLaser@UnitFilter"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="PsionicProjectionDisruptorVolley">

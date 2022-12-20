@@ -3920,30 +3920,8 @@
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
         <AbilArray Link="MechPointDefenseDrones"/>
+        <AbilArray Link="HangarQueue5"/>
         <WeaponArray Link="MechAutocannon"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="MechMultiLockTargetingSystem"/>
-                <Type value="Passive"/>
-                <Behavior value="MechPointDefenseDrones"/>
-                <Requirements value="CRPGPassive2LearnedShow"/>
-                <Row value="1"/>
-                <Column value="1"/>
-            </LayoutButtons>
-            <LayoutButtons index="6">
-                <Face value="CRPGLevelUp"/>
-                <Type value="Submenu"/>
-                <Behavior value="MechMultiLockTargetingSystem"/>
-                <Requirements value=""/>
-                <SubmenuAbilState value="CRPGLearnAbility"/>
-                <SubmenuCardId value="Lrn1"/>
-                <SubmenuIsSticky value="1"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons index="7" removed="1"/>
-        </CardLayouts>
         <Radius value="0.625"/>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.5"/>

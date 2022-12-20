@@ -457,6 +457,10 @@
         <CombineArray value="TargetLifeFull"/>
         <CombineArray value="MedicHealingBeam@EnergyNeedsNotMet"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="PointDefenseDroneLaser@NotOnCooldownRepair">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="PointDefenseDroneLaser@CooldownAntiMissile"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareField id="SourceIsNotAirUnit">
         <WhichUnit Value="Source"/>
         <Field value="PlaneArray[1]"/>
@@ -855,8 +859,9 @@
         <WhichUnit Effect="VehicleLockOnFireSet"/>
         <Filters value="-;Dead"/>
     </CValidatorUnitFilters>
-    <CValidatorUnitCompareBehaviorCount id="PointDefenseDroneLaser@NotOnCooldown">
-        <Behavior value="PointDefenseDroneLaser@Cooldown"/>
+    <CValidatorUnitCompareBehaviorCount id="PointDefenseDroneLaser@NotOnCooldownAntiMissile">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="PointDefenseDroneLaser@CooldownAntiMissile"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="VehicleRangeEQ07">
         <Value value="1"/>

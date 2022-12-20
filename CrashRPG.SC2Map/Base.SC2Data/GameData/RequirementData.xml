@@ -295,7 +295,8 @@
     <CRequirement id="MechPointDefenseDrones@Arm">
         <EditorCategories value="Race:Terran"/>
         <CanBeSuppressed index="Use" value="0"/>
-        <NodeArray index="Use" Link="LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2"/>
+        <NodeArray index="Use" Link="AndLT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="GELevel2">
         <NodeArray index="Show" Link="GTE774336177CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit2"/>

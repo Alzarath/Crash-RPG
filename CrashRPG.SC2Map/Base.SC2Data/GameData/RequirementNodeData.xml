@@ -31,6 +31,11 @@
         <OperandArray value="LT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwa322226699"/>
         <OperandArray value="Or774336177GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2"/>
     </CRequirementAnd>
+    <CRequirementAnd id="AndLT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2CountAbilCRPGPassive1DummyCompleteOnlyAtUnit">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2"/>
+        <OperandArray value="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
+    </CRequirementAnd>
     <CRequirementCountAbil id="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGPassive1Dummy" State="CompleteOnlyAtUnit"/>

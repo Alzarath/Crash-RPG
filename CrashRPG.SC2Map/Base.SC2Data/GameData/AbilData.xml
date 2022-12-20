@@ -1592,7 +1592,6 @@
         <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <InfoTooltipPriority value="1"/>
-        <Levels value="1"/>
         <Effect index="0" value="MechBarrage@CP"/>
         <Cost>
             <Vital index="Energy" value="75"/>
@@ -1711,16 +1710,11 @@
     </CAbilEffectInstant>
     <CAbilArmMagazine id="MechPointDefenseDrones">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Flags index="AutoCastOffOwnerLeave" value="0"/>
-        <Leash value="0"/>
-        <InfoArray index="Ammo1" Time="10" CountStart="2" Manage="Recall" Unit="MechPointDefenseDrone">
+        <Leash value="1"/>
+        <InfoArray index="Ammo1" Manage="Recall" Unit="MechPointDefenseDrone">
             <Charge Link="Abil/##id##"/>
             <Cooldown Link="Abil/##id##"/>
-            <Button DefaultButtonFace="MechPointDefenseDrones" Requirements="MechPointDefenseDrones@Arm">
-                <Flags index="IgnoreUser" value="1"/>
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
+            <Button DefaultButtonFace="MechPointDefenseDrones" Requirements="MechPointDefenseDrones@Arm"/>
             <Flags index="AutoBuild" value="1"/>
             <Flags index="AutoBuildOn" value="1"/>
             <Flags index="External" value="1"/>
@@ -1728,6 +1722,8 @@
         <Alert value=""/>
         <ExternalAngle value="-149.9853"/>
         <ExternalAngle value="149.9853"/>
+        <Flags index="AutoCastOffOwnerLeave" value="0"/>
+        <MaxCount value="2"/>
     </CAbilArmMagazine>
     <CAbilEffectInstant id="CRPGUpgradeArmor">
         <Cost>

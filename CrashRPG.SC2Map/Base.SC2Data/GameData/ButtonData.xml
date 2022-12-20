@@ -287,11 +287,38 @@
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="HunterShadowTransfer"/>
     </CButton>
+    <CButton id="InfestedAberrate@Upgraded">
+        <Icon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedAberrate"/>
+    </CButton>
+    <CButton id="InfestedCausticWeapons@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedCausticWeapons"/>
+    </CButton>
+    <CButton id="InfestedHardenedEquipment@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
+        <Hotkey value="Button/Hotkey/CRPGPassive2"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedHardenedEquipment"/>
+    </CButton>
     <CButton id="InfestedInfestationSpore@Upgraded">
         <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedInfestationSpore"/>
+    </CButton>
+    <CButton id="MechBarrage@Upgraded">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <Hotkey value="Button/Hotkey/MechShockBlast@Upgraded"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="250mmStrikeCannons"/>
     </CButton>
     <CButton id="MechBarrage@Learn">
         <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
@@ -300,11 +327,25 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="250mmStrikeCannons"/>
     </CButton>
+    <CButton id="MechExplosiveImmortality@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
+        <Hotkey value="Button/Hotkey/MechShockBlast@Upgraded"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MechExplosiveImmortality"/>
+    </CButton>
     <CButton id="MechExplosiveImmortality@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="MechExplosiveImmortality"/>
+    </CButton>
+    <CButton id="MechMultiLockTargetingSystem@Upgraded">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
+        <AlertIcon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="MechMultiLockTargetingSystem"/>
     </CButton>
     <CButton id="MechMultiLockTargetingSystem@Learn">
         <Icon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
@@ -323,6 +364,14 @@
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
         <HotkeyAlias value="MechPointDefenseDrones"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <Hotkey value="Button/Hotkey/MechShockBlast@Upgraded"/>
+    </CButton>
+    <CButton id="MechShockBlast@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MechShockBlast"/>
     </CButton>
     <CButton id="MechShockBlast@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
@@ -417,6 +466,12 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="Raise"/>
     </CButton>
+    <CButton id="SniperBetterEquipment@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperBetterEquipment"/>
+    </CButton>
     <CButton id="SniperBetterEquipment@Learn">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
@@ -426,6 +481,12 @@
     </CButton>
     <CButton id="MedicHealingBeam@Cancel" parent="Cancel">
         <DefaultButtonLayout Row="2" Column="4"/>
+    </CButton>
+    <CButton id="SniperNuclearStrike@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperNuclearStrike"/>
     </CButton>
     <CButton id="SniperNuclearStrike@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
@@ -539,14 +600,12 @@
     <CButton id="InfestedCausticWeapons@Learn">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
-        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedCausticWeapons"/>
     </CButton>
     <CButton id="InfestedHardenedEquipment@Learn">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
-        <Hotkey value="Button/Hotkey/CRPGPassive2"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedHardenedEquipment"/>
     </CButton>
@@ -765,6 +824,20 @@
         <HotkeyAlias value="SniperPersonalCloaking@On"/>
         <HotkeySet value="Cloak"/>
         <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="SniperPersonalCloaking@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperPersonalCloaking@On"/>
+        <HotkeySet value="Cloak"/>
+    </CButton>
+    <CButton id="SniperSniperRound@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="SniperSniperRound"/>
+        <HidesForSimpleText value="0"/>
     </CButton>
     <CButton id="SniperSniperRound@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
@@ -1055,11 +1128,10 @@
         <HotkeySet value="HoldFire"/>
         <HidesForSimpleText value="0"/>
     </CButton>
-    <CButton id="InfestedAberrate">
+    <CButton id="InfestedAberrate" parent="ActiveSecondaryButton">
         <Icon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
         <EditorCategories value="Race:Zerg"/>
-        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="InfestedEmpathicRepercussion">
         <Icon value="Assets\Textures\btn-ability-zerg-corruption-color.dds"/>
@@ -1072,19 +1144,18 @@
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedEmpathicRepercussion"/>
     </CButton>
-    <CButton id="InfestedHardenedEquipment">
+    <CButton id="InfestedHardenedEquipment" parent="PassiveSecondaryButton">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
         <Hotkey value="Button/Hotkey/CRPGPassive2"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="InfestedInfestedEggs">
+    <CButton id="InfestedInfestedEggs" parent="ActivePrimaryButton">
         <Icon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
         <EditorCategories value="Race:Zerg"/>
-        <DefaultButtonLayout Row="2"/>
     </CButton>
-    <CButton id="InfestedCausticWeapons">
+    <CButton id="InfestedCausticWeapons" parent="PassivePrimaryButton">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
         <Hotkey value="Button/Hotkey/CRPGPassive1"/>
@@ -1095,13 +1166,12 @@
         <AlertIcon value="Assets\Textures\btn-ability-kerrigan-improvedoverlords.dds"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
-    <CButton id="MechBarrage">
+    <CButton id="MechBarrage" parent="ActivePrimaryButton">
         <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
         <Hotkey value="Button/Hotkey/250mmStrikeCannons"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="250mmStrikeCannons"/>
-        <DefaultButtonLayout Row="2"/>
     </CButton>
     <CButton id="AeroDefensiveMatrix" parent="ActiveSecondaryButton">
         <Icon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
@@ -1128,35 +1198,32 @@
         <EditorCategories value="Race:Terran"/>
         <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
-    <CButton id="MechShockBlast">
+    <CButton id="MechShockBlast" parent="ActiveSecondaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
-    <CButton id="InfestedInfestationSpore">
+    <CButton id="InfestedInfestationSpore" parent="ActiveTernaryButton">
         <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
-        <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
-    <CButton id="SniperPersonalCloaking@On">
+    <CButton id="SniperPersonalCloaking@On" parent="ActiveSecondaryButton">
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/SniperPersonalCloaking@Upgraded"/>
         <Icon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-cloak-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeySet value="Cloak"/>
-        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
-    <CButton id="MechExplosiveImmortality">
+    <CButton id="MechExplosiveImmortality" parent="ActiveTernaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
-    <CButton id="MechPointDefenseDrones">
+    <CButton id="MechPointDefenseDrones" parent="PassivePrimaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
-        <DefaultButtonLayout Row="1"/>
     </CButton>
     <CButton id="HunterScarabMine">
         <Icon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
@@ -1218,38 +1285,34 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-healingmastery.dds"/>
         <EditorCategories value="Race:Neutral"/>
     </CButton>
-    <CButton id="MechMultiLockTargetingSystem">
+    <CButton id="MechMultiLockTargetingSystem" parent="PassiveSecondaryButton">
         <Icon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
+        <AlertIcon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
-        <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
-    <CButton id="SniperNuclearStrike">
+    <CButton id="SniperNuclearStrike" parent="ActiveTernaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HidesForSimpleText value="0"/>
-        <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
-    <CButton id="SniperBetterEquipment">
+    <CButton id="SniperBetterEquipment" parent="PassivePrimaryButton">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="1"/>
     </CButton>
-    <CButton id="SniperToxicMunitions">
+    <CButton id="SniperToxicMunitions" parent="PassiveSecondaryButton">
         <Icon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
-        <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="1" Column="1"/>
         <Hotkey value="Button/Hotkey/SniperToxicMunitions@Learn"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="SniperSniperRound">
+    <CButton id="SniperSniperRound" parent="ActivePrimaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-snipe-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HidesForSimpleText value="0"/>
-        <DefaultButtonLayout Row="2"/>
     </CButton>
     <CButton id="UpgradeDamage">
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
@@ -1265,13 +1328,14 @@
         <Tooltip value="Button/Tooltip/CRPGArmorAttribute"/>
         <AlertTooltip value="Button/Tooltip/CRPGArmorAttribute"/>
     </CButton>
-    <CButton id="SniperPersonalCloaking@Off">
+    <CButton id="SniperPersonalCloaking@Off" parent="ActiveSecondaryButton">
+        <TooltipAppender index="0" removed="1"/>
+        <TooltipAppender index="1" removed="1"/>
         <Icon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Terran-Decloak-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="SniperPersonalCloaking@On"/>
         <HotkeySet value="Cloak"/>
-        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="AeroYamatoCannon">
         <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>

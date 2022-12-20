@@ -489,13 +489,16 @@ Button/Name/HunterShadowTransfer@Learn=Learn Shadow Transfer
 Button/Name/HunterShadowTransfer@Upgraded=Upgraded Shadow Transfer
 Button/Name/InfestedAberrate=Aberrate
 Button/Name/InfestedAberrate@Learn=Learn Aberrate
+Button/Name/InfestedAberrate@Upgraded=Upgraded Aberrate
 Button/Name/InfestedCausticWeapons=Caustic Weapons
 Button/Name/InfestedCausticWeapons@Learn=Learn Caustic Weapons
+Button/Name/InfestedCausticWeapons@Upgraded=Upgraded Caustic Weapons
 Button/Name/InfestedEmpathicRepercussion=Empathic Repercussion
 Button/Name/InfestedEmpathicRepercussion@Double=Empathic Repercussion
 Button/Name/InfestedHardenedEquipment=Hardened Equipment
 Button/Name/InfestedHardenedEquipment@Armor=Hardened Armor
 Button/Name/InfestedHardenedEquipment@Learn=Learn Hardened Equipment
+Button/Name/InfestedHardenedEquipment@Upgraded=Upgraded Hardened Equipment
 Button/Name/InfestedHardenedEquipment@Weapons=Hardened Weapons
 Button/Name/InfestedInfestationSpore=Infestation Spore
 Button/Name/InfestedInfestationSpore@Learn=Learn Infestation Spore
@@ -506,15 +509,19 @@ Button/Name/InfestedInfestedEggs@Upgraded=Upgraded Infested Eggs
 Button/Name/InfestedInfestedSupplies=Infested Supplies
 Button/Name/MechBarrage=Barrage
 Button/Name/MechBarrage@Learn=Learn Barrage
+Button/Name/MechBarrage@Upgraded=Upgraded Barrage
 Button/Name/MechExplosiveImmortality=Explosive Immortality
 Button/Name/MechExplosiveImmortality@Learn=Learn Explosive Immortality
+Button/Name/MechExplosiveImmortality@Upgraded=Upgraded Explosive Immortality
 Button/Name/MechMultiLockTargetingSystem=Multi-Lock Targeting System
 Button/Name/MechMultiLockTargetingSystem@Learn=Learn Multi-Lock Targeting System
+Button/Name/MechMultiLockTargetingSystem@Upgraded=Upgraded Multi-Lock Targeting System
 Button/Name/MechPointDefenseDrones=Point Defense Drones
 Button/Name/MechPointDefenseDrones@Learn=Learn Point Defense Drones
 Button/Name/MechPointDefenseDrones@Upgraded=Upgraded Point Defense Drones
 Button/Name/MechShockBlast=Shock Blast
 Button/Name/MechShockBlast@Learn=Learn Shock Blast
+Button/Name/MechShockBlast@Upgraded=Upgraded Shock Blast
 Button/Name/MedicHealingBeam=Healing Beam
 Button/Name/MedicHealingBeam@Learn=Learn Healing Beam
 Button/Name/MedicHealingBeam@Upgraded=Upgraded Healing Beam
@@ -560,13 +567,17 @@ Button/Name/ShooterStimpack@Learn=Learn Stimpack
 Button/Name/ShooterStimpack@Upgraded=Upgraded Stimpack
 Button/Name/SniperBetterEquipment=Better Equipment
 Button/Name/SniperBetterEquipment@Learn=Learn Better Equipment
+Button/Name/SniperBetterEquipment@Upgraded=Upgraded Better Equipment
 Button/Name/SniperNuclearStrike=Nuclear Strike
 Button/Name/SniperNuclearStrike@Learn=Learn Nuclear Strike
+Button/Name/SniperNuclearStrike@Upgraded=Upgraded Nuclear Strike
 Button/Name/SniperPersonalCloaking@Learn=Learn Personal Cloaking
 Button/Name/SniperPersonalCloaking@Off=Decloak
 Button/Name/SniperPersonalCloaking@On=Cloak
+Button/Name/SniperPersonalCloaking@Upgraded=Upgraded Cloak
 Button/Name/SniperSniperRound=Sniper Round
 Button/Name/SniperSniperRound@Learn=Learn Sniper Round
+Button/Name/SniperSniperRound@Upgraded=Upgraded Sniper Round
 Button/Name/SniperToxicMunitions=Toxic Munitions
 Button/Name/SniperToxicMunitions@Learn=Learn Toxic Munitions
 Button/Name/SniperToxicMunitions@Upgraded=Upgraded Toxic Munitions
@@ -760,13 +771,16 @@ Button/Tooltip/HunterShadowTransfer@Learn=<s val="@@StandardTooltipHeaderSub">Ac
 Button/Tooltip/HunterShadowTransfer@Upgraded=Shadow Transfer spawns an uncontrollable Revenant that attacks for the caster when cancelled or activated.
 Button/Tooltip/InfestedAberrate=Merges two Infested Civilians into a more powerful monstrosity.
 Button/Tooltip/InfestedAberrate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedAberrate,Cost[0].Vital[Energy]"/><n/><n/>Merges two Infested Civilians into a more powerful monstrosity.
+Button/Tooltip/InfestedAberrate@Upgraded=NYI
 Button/Tooltip/InfestedCausticWeapons=Infested Terran after the first two spawn with Gauss Rifles.
 Button/Tooltip/InfestedCausticWeapons@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Infested Terran after the first two spawn with Gauss Rifles.
+Button/Tooltip/InfestedCausticWeapons@Upgraded=NYI
 Button/Tooltip/InfestedEmpathicRepercussion=Must remain near the summoner or it has reduced movement and attack speed.<n/><n/>On death, if it's in range, the summoner takes <d ref="-1 * Effect,InfestedEmpathicRepercussion@MU,VitalArray[Life].Change"/> damage and recovers <d ref="Effect,InfestedEmpathicRepercussion@MU,VitalArray[Energy].Change"/> energy.
 Button/Tooltip/InfestedEmpathicRepercussion@Double=Must remain near the summoner or it has reduced movement and attack speed.<n/><n/>On death, if it's in range, the summoner takes <d ref="-2 * Effect,InfestedEmpathicRepercussion@MU,VitalArray[Life].Change"/> damage and recovers <d ref="2 * Effect,InfestedEmpathicRepercussion@MU,VitalArray[Energy].Change"/> energy.
 Button/Tooltip/InfestedHardenedEquipment=Infested units deal +<d ref="Behavior,InfestedHardenedEquipment@Offensive,Modification.DamageDealtUnscaled[Ranged]"/> ranged damage. Infested Civilians and Bunkers take <d ref="(1 - Behavior,InfestedHardenedEquipment@Defensive,DamageResponse.ModifyFraction) * 100"/>% reduced damage.
 Button/Tooltip/InfestedHardenedEquipment@Armor=Takes <d ref="(1 - Behavior,InfestedHardenedEquipment@Defensive,DamageResponse.ModifyFraction) * 100"/>% reduced damage.
 Button/Tooltip/InfestedHardenedEquipment@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Infested units deal +<d ref="Behavior,InfestedHardenedEquipment@Offensive,Modification.DamageDealtUnscaled[Ranged]"/> ranged damage. Infested Civilians and Bunkers take <d ref="(1 - Behavior,InfestedHardenedEquipment@Defensive,DamageResponse.ModifyFraction) * 100"/>% reduced damage.
+Button/Tooltip/InfestedHardenedEquipment@Upgraded=NYI
 Button/Tooltip/InfestedHardenedEquipment@Weapons=Deals +<d ref="Behavior,InfestedHardenedEquipment@Offensive,Modification.DamageDealtUnscaled[Ranged]"/> ranged damage.
 Button/Tooltip/InfestedInfestationSpore=Permanently take control of a unit.
 Button/Tooltip/InfestedInfestationSpore@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedInfestationSpore,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,InfestedInfestationSpore,Cost[0].Cooldown.TimeUse"/><n/><n/>Permanently take control of a unit.
@@ -783,16 +797,24 @@ Button/Tooltip/InfestedInfestedSupplies=This supply-giving unit is infested, all
 Button/Tooltip/LockedNydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<n/><n/><c val="ffff8a">Enables:</c><n/>- Greater Nydus Worm
 Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrage@CP,PeriodCount * $AccumulatedValue:Effect,MechBarrage@Damage,Amount$" precision="3"/></c> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/MechBarrage@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechBarrage,Cost[0].Vital[Energy]"/><n/><n/>Deals <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@Damage,Amount"/> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
+Button/Tooltip/MechBarrage@Upgraded=NYI
+Button/Tooltip/MechBarrage@Upgraded@Upgraded=NYI
 Button/Tooltip/MechExplosiveImmortality=The caster self-destructs, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechExplosiveImmortality@Damage,Amount$"/></c> damage in a massive area around it while disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/>.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/MechExplosiveImmortality@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechExplosiveImmortality,Cost[0].Cooldown.TimeUse"/><n/><n/>Self-destruct, disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/> and dealing <d ref="Effect,MechExplosiveImmortality@Damage,Amount"/> damage to nearby enemies.
+Button/Tooltip/MechExplosiveImmortality@Upgraded=NYI
+Button/Tooltip/MechExplosiveImmortality@Upgraded@Upgraded=NYI
 Button/Tooltip/MechMultiLockTargetingSystem=The hero can target ground and air units simultaneously.
 Button/Tooltip/MechMultiLockTargetingSystem@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>The hero can target ground and air units simultaneously.
+Button/Tooltip/MechMultiLockTargetingSystem@Upgraded=NYI
+Button/Tooltip/MechMultiLockTargetingSystem@Upgraded@Upgraded=NYI
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
-Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that can each use automated defensive lasers every <d ref="Behavior,PointDefenseDroneLaser@Cooldown,Duration"/> seconds to intercept enemy projectiles or repair friendly mechanical units by <d ref="Effect,PointDefenseDroneLaser@MURepair,VitalArray[Life].ChangeFraction * 100"/>%.
+Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that can each use automated defensive lasers every <d ref="Behavior,PointDefenseDroneLaser@CooldownAntiMissile,Duration"/> seconds to intercept enemy projectiles or repair friendly mechanical units by <d ref="Effect,PointDefenseDroneLaser@MURepair,VitalArray[Life].ChangeFraction * 100"/>%.
 Button/Tooltip/MechPointDefenseDrones@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>A pair of Point Defense Drones destroy enemy projectiles and repair friendly mechanical units.
-Button/Tooltip/MechPointDefenseDrones@Upgraded=TODO
+Button/Tooltip/MechPointDefenseDrones@Upgraded=Point Defense Drones use separate cooldowns for their repair and anti-missile lasers.
 Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShockBlast@Damaging,PeriodCount * $AccumulatedValue:Effect,MechShockBlast@Damage,Amount$"/></c> damage to nearby enemies over <d ref="Behavior,MechShockBlast@Stunned,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/MechShockBlast@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Cooldown.TimeUse"/><n/><n/>Stun and deal <d ref="Behavior,MechShockBlast@Damaging,PeriodCount * Effect,MechShockBlast@Damage,Amount"/> damage to nearby enemies.
+Button/Tooltip/MechShockBlast@Upgraded=NYI
+Button/Tooltip/MechShockBlast@Upgraded@Upgraded=NYI
 Button/Tooltip/MedicHealingBeam=Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCaster,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.</c>
 Button/Tooltip/MedicHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><n/>Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them for <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCaster,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.
 Button/Tooltip/MedicHealingBeam@Upgraded=Healing Beam's healing rate is increased by <d ref="-100 * ([d stringref='Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>%.
@@ -838,15 +860,22 @@ Button/Tooltip/ShooterStimpack@Unupgraded= Lasts <d ref="Behavior,ShooterStimpac
 Button/Tooltip/ShooterStimpack@Upgraded=Stimpack lasts forever and grants <d ref="Behavior,ShooterStimpack@Permanent,Modification.VitalRegenArray[Life]"/> life regeneration.
 Button/Tooltip/SniperBetterEquipment=Weapon range is increased by <d ref="Weapon,SniperC20ACanisterRifle,Range - Weapon,SniperC10CanisterRifle,Range"/> and sight range is increased by <d ref="Behavior,SniperBetterEquipment,Modification.SightBonus"/>.
 Button/Tooltip/SniperBetterEquipment@Learn=Increases weapon range by <d ref="Weapon,SniperC20ACanisterRifle,Range - Weapon,SniperC10CanisterRifle,Range"/> and sight range by <d ref="Behavior,SniperBetterEquipment,Modification.SightBonus"/>.
+Button/Tooltip/SniperBetterEquipment@Upgraded=NYI
+Button/Tooltip/SniperBetterEquipment@Upgraded@Upgraded=NYI
 Button/Tooltip/SniperLevel5=Can use Snipe, Personal Cloaking, and Nuclear Strike.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/SniperNuclearStrike=Calls down a Nuclear Strike at a target location. The nuke takes <d time="[d ref='Effect,SniperNuclearStrike@CPChannel,InitialDelay + Effect,SniperNuclearStrike@CPChannel,ExpireDelay + Effect,SniperNuclearStrike@CPImpact,InitialDelay'/]"/> seconds to land and deals up to <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperNuclearStrike@Damage,Amount$"/></c> (<c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperNuclearStrike@Damage,Amount$ * (1 + Effect,SniperNuclearStrike@Damage,AttributeFactor[Structure])"/></c> vs. Structure) damage to enemies in a large radius.
 Button/Tooltip/SniperNuclearStrike@Cancel=Drops the current order without performing it, and allows you to select a different order.
 Button/Tooltip/SniperNuclearStrike@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,SniperNuclearStrike,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,SniperNuclearStrike,Cost[0].Cooldown.TimeUse"/><n/><n/>Calls down a nuke that deals <d ref="Effect,SniperNuclearStrike@Damage,Amount"/> (<d ref="Effect,SniperNuclearStrike@Damage,Amount * (1 + Effect,SniperNuclearStrike@Damage,AttributeFactor[Structure])"/></c> vs. Structure) damage after <d time="[d ref='Effect,SniperNuclearStrike@CPChannel,InitialDelay + Effect,SniperNuclearStrike@CPChannel,ExpireDelay + Effect,SniperNuclearStrike@CPImpact,InitialDelay'/]"/> .
+Button/Tooltip/SniperNuclearStrike@Upgraded=NYI
+Button/Tooltip/SniperNuclearStrike@Upgraded@Upgraded=NYI
 Button/Tooltip/SniperPersonalCloaking@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,SniperPersonalCloaking,Cost[0].Vital[Energy]"/> +<d ref="-1 * (Unit,CRPGSniper,EnergyRegenRate + Behavior,SniperPersonalCloaking,Modification.VitalRegenArray[Energy])" precision="1"/> per second<n/><n/>Cloaks the hero, preventing enemy units from seeing or attacking it.
 Button/Tooltip/SniperPersonalCloaking@Off=Decloaks the selected unit, making it visible to enemies.
 Button/Tooltip/SniperPersonalCloaking@On=Cloaks the hero, preventing enemy units from seeing or attacking it. A cloaked unit will only be revealed by detectors or effects.<n/><n/><c val="f078ff">Reduces energy regeneration by <d ref="-1 * Behavior,GhostCloak,Modification.VitalRegenArray[2]" precision="1"/> per second.</c>
+Button/Tooltip/SniperPersonalCloaking@Upgraded=NYI
 Button/Tooltip/SniperSniperRound=A careful shot, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperSniperRound@Damage,Amount$"/></c> (<c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperSniperRound@DamageBiological,Amount$"/></c> vs. Biological) damage. Damage is doubled against Psionic units.
 Button/Tooltip/SniperSniperRound@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,SniperSniperRound,Cost[0].Vital[Energy]"/><n/><n/>Deal <d ref="Effect,SniperSniperRound@Damage,Amount"/> (<d ref="Effect,SniperSniperRound@DamageBiological,Amount"/> vs. Biological) damage. Double vs Psionic.
+Button/Tooltip/SniperSniperRound@Upgraded=NYI
+Button/Tooltip/SniperSniperRound@Upgraded@Upgraded=NYI
 Button/Tooltip/SniperToxicMunitions=This unit's projectiles are coated in a deadly toxin that deals <c val="#ColorAttackInfo"><d ref="Behavior,SniperToxicMunitions@Buff,Duration / Behavior,SniperToxicMunitions@Buff,Period * $AccumulatedValue:Effect,SniperToxicMunitions@Damage,Amount$"/></c> damage over <d time="[d ref='Behavior,SniperToxicMunitions@Buff,Duration'/]"/> to any enemy damaged by it for the first time. Can not be re-applied to the same unit for <d time="[d ref='Behavior,SniperToxicMunitions@Cooldown,Duration'/]"/>.
 Button/Tooltip/SniperToxicMunitions@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Damage deals an additional <d ref="Behavior,SniperToxicMunitions@Buff,Duration / Behavior,SniperToxicMunitions@Buff,Period * Effect,SniperToxicMunitions@Damage,Amount"/> damage over <d time="[d ref='Behavior,SniperToxicMunitions@Buff,Duration'/]"/> once per target.
 Button/Tooltip/SniperToxicMunitions@Upgraded=Toxic Munitions spreads to nearby units if a unit dies with it.
@@ -948,6 +977,7 @@ DataCollection/Name/InfestedMarineInfestedGaussRifle=Infested Gauss Rifle
 DataCollection/Name/InfestedMendingSaliva=Mending Saliva
 DataCollection/Name/MechBarrage=Barrage
 DataCollection/Name/MechExplosiveImmortality=Explosive Immortality
+DataCollection/Name/MechPointDefenseDrone=Point Defense Drone
 DataCollection/Name/MechPointDefenseDrones=Point Defense Drones
 DataCollection/Name/MechShockBlast=Shock Blast
 DataCollection/Name/MedicCorrosiveSpray=Corrosive Spray
@@ -1827,13 +1857,15 @@ Effect/Name/OutpostTrainSCVModifyPlayer=Train SCV
 Effect/Name/PlasmaCanisterCharge@MUAddCharge=Modify Unit
 Effect/Name/PlasmaCanisterCharge@MURemoveCharges=Modify Unit
 Effect/Name/PlasmaCanisterCharge@Set=Set
-Effect/Name/PointDefenseDroneLaser@ABCooldown=Apply Behavior
+Effect/Name/PointDefenseDroneLaser@ABCooldownAntiMissile=Apply Behavior
+Effect/Name/PointDefenseDroneLaser@ABCooldownRepair=Apply Behavior
 Effect/Name/PointDefenseDroneLaser@CP=Create Persistent
 Effect/Name/PointDefenseDroneLaser@MUAntiMissile=Modify Unit
 Effect/Name/PointDefenseDroneLaser@MURepair=Modify Unit
 Effect/Name/PointDefenseDroneLaser@SAAntiMissile=Search Area
 Effect/Name/PointDefenseDroneLaser@SARepair=Search Area
 Effect/Name/PointDefenseDroneLaser@SetAntiMissile=Set
+Effect/Name/PointDefenseDroneLaser@SetCooldowns=Set
 Effect/Name/PointDefenseDroneLaser@SetRepair=Set
 Effect/Name/PsionicProjectionDisruptorVolley@CP=Create Persistent
 Effect/Name/PsionicProjectionDisruptorVolley@ETU=Enum Caster
