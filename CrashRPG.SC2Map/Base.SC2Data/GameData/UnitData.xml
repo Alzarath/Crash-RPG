@@ -2061,7 +2061,7 @@
         <VisionHeight value="1"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="move"/>
-        <BehaviorArray Link="MechPointDefenseLaser"/>
+        <BehaviorArray Link="PointDefenseDroneLaser@Active"/>
         <Radius value="0.3125"/>
         <SeparationRadius value="0.6"/>
         <MinimapRadius value="0.6"/>
@@ -3732,9 +3732,9 @@
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
-        <AbilArray Link="MedicHealingBeam"/>
-        <AbilArray Link="MedicIrradiate"/>
-        <AbilArray Link="MedicSpawnMedivac"/>
+        <AbilArray index="6" Link="MedicHealingBeam"/>
+        <AbilArray index="7" Link="MedicIrradiate"/>
+        <AbilArray index="8" Link="MedicSpawnMedivac"/>
         <WeaponArray Link="MedicCorrosiveSpray"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
@@ -3792,8 +3792,8 @@
         <Collide index="Land9" value="1"/>
         <Collide index="Land11" value="1"/>
         <Collide index="Land16" value="1"/>
-        <BehaviorArray Link="MedicOpticalFlare"/>
-        <BehaviorArray Link="MedicSelfixArmor"/>
+        <BehaviorArray index="6" Link="MedicOpticalFlare"/>
+        <BehaviorArray index="7" Link="MedicSelfixArmor"/>
     </CUnitHero>
     <CUnitHero id="CRPGFighter" parent="CRPGHero">
         <Race value="Prot"/>
@@ -3987,11 +3987,11 @@
         <RankDisplay value="Never"/>
         <MinimapRadius value="0.375"/>
     </CUnit>
-    <CUnitHero id="CRPGMechLevel1" parent="CRPGHero">
-        <Name value="Unit/Name/CRPGMech"/>
-        <Description value="Button/Tooltip/CRPGMech"/>
+    <CUnitHero id="CRPGMech" parent="CRPGHero">
         <Race value="Terr"/>
         <PlaneArray index="Ground" value="1"/>
+        <Collide index="Land2" value="1"/>
+        <Collide index="Land16" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
         <LifeStart value="400"/>
@@ -4001,172 +4001,65 @@
         <LateralAcceleration value="46"/>
         <StationaryTurningRate value="999.8437"/>
         <TurningRate value="999.8437"/>
-        <AbilArray index="3" Link="MechLevelUpMorphLevel1"/>
-        <AbilArray Link="MechBarrage"/>
+        <AbilArray index="4" Link="MechPointDefenseDrones"/>
+        <AbilArray index="6" Link="MechBarrage"/>
+        <AbilArray index="7" Link="MechShockBlast"/>
+        <AbilArray index="8" Link="MechExplosiveImmortality"/>
         <WeaponArray Link="MechAutocannon"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="MechLevelUpMorphLevel1,Execute"/>
+                <Face value="MechMultiLockTargetingSystem"/>
+                <Type value="Passive"/>
                 <Behavior value=""/>
-                <Requirements value="CRPGPassive1LearnedUse"/>
+                <Requirements value="CRPGPassive2LearnedShow"/>
+                <Row value="1"/>
+                <Column value="1"/>
+            </LayoutButtons>
+            <LayoutButtons index="6">
+                <Face value="CRPGLevelUp"/>
+                <Type value="Submenu"/>
+                <Behavior value=""/>
+                <Requirements value=""/>
                 <SubmenuAbilState value="CRPGLearnAbility"/>
                 <SubmenuCardId value="Lrn1"/>
+                <SubmenuIsSticky value="1"/>
                 <ShowInGlossary value="0"/>
                 <Row value="1"/>
                 <Column value="4"/>
             </LayoutButtons>
-            <LayoutButtons Face="MechBarrage" Type="AbilCmd" AbilCmd="MechBarrage,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="MechBarrage,Cancel" Row="2" Column="4"/>
+            <LayoutButtons index="7" removed="1"/>
+        </CardLayouts>
+        <CardLayouts index="1" CardId="Lrn1">
+            <LayoutButtons index="0" Face="MechBarrage@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn1" Row="0" Column="0"/>
+            <LayoutButtons index="1" Face="MechShockBlast@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn2" Row="0" Column="1"/>
+            <LayoutButtons index="2" Face="MechExplosiveImmortality@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn3" Row="0" Column="2"/>
+            <LayoutButtons index="3" Face="MechPointDefenseDrones@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn4" Row="1" Column="0"/>
+            <LayoutButtons index="4" Face="MechMultiLockTargetingSystem@Learn" Type="AbilCmd" AbilCmd="CRPGLearnAbility,Learn5" Row="1" Column="1"/>
         </CardLayouts>
         <Radius value="0.625"/>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.5"/>
-        <CargoSize value="2"/>
+        <CargoSize value="4"/>
         <MinimapRadius value="0.375"/>
         <GlossaryCategory value=""/>
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Ultralisk"/>
-    </CUnitHero>
-    <CUnitHero id="CRPGMechLevel2" parent="CRPGMechLevel1">
-        <DeathRevealRadius value="3"/>
-        <LateralAcceleration value="0"/>
-        <TurningRate value="720"/>
-        <AbilArray index="3" Link="MechLevelUpMorphLevel2"/>
-        <AbilArray Link="MechPointDefenseDrones"/>
-        <WeaponArray index="0" Link="MechGatlingCannon"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="MechLevelUpMorphLevel2,Execute"/>
-                <Behavior value=""/>
-                <Requirements value="CRPGPassive1LearnedUse"/>
-                <SubmenuAbilState value="CRPGLearnAbility"/>
-                <SubmenuCardId value="Lrn1"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons Face="MechPointDefenseDrones" Type="Passive" Row="1" Column="0"/>
-        </CardLayouts>
-        <Radius value="0.75"/>
-        <SeparationRadius value="0.75"/>
-        <MinimapRadius value="0.75"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="15"/>
-            <ChanceArray index="Idle" value="55"/>
-            <ChanceArray index="Turn" value="30"/>
-        </Fidget>
-        <InnerRadius value="0.375"/>
-    </CUnitHero>
-    <CUnitHero id="CRPGMechLevel3" parent="CRPGMechLevel2">
-        <LifeStart value="500"/>
-        <LifeMax value="500"/>
-        <LateralAcceleration value="46.0625"/>
-        <StationaryTurningRate value="720"/>
-        <TurningRate value="360"/>
-        <AbilArray index="3" Link="MechLevelUpMorphLevel3"/>
-        <AbilArray Link="MechShockBlast"/>
-        <WeaponArray index="0" Link="MechMeleeWarHound"/>
-        <WeaponArray Link="MechRailgun"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="MechLevelUpMorphLevel3,Execute"/>
-                <Behavior value=""/>
-                <Requirements value="CRPGPassive1LearnedUse"/>
-                <SubmenuAbilState value="CRPGLearnAbility"/>
-                <SubmenuCardId value="Lrn1"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons Face="MechShockBlast" Type="AbilCmd" AbilCmd="MechShockBlast,Execute" Row="2" Column="1"/>
-        </CardLayouts>
-        <Radius value="0.8125"/>
-        <SeparationRadius value="0.625"/>
-        <InnerRadius value="0.5"/>
-        <MinimapRadius value="1"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="0"/>
-            <ChanceArray index="Idle" value="100"/>
-            <ChanceArray index="Turn" value="0"/>
-        </Fidget>
-        <TauntDuration index="Dance" value="5"/>
-    </CUnitHero>
-    <CUnitHero id="CRPGMechLevel4" parent="CRPGMechLevel3">
-        <LateralAcceleration value="115.1875"/>
-        <StationaryTurningRate value="999.8437"/>
-        <TurningRate value="999.8437"/>
-        <AbilArray index="3" Link="MechLevelUpMorphLevel4"/>
-        <WeaponArray index="0" Link="MechHellfireMissilePack" Turret="Goliath"/>
-        <WeaponArray index="1" Link="MechTwinAutocannons" Turret="Goliath"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="MechLevelUpMorphLevel4,Execute"/>
-                <Behavior value=""/>
-                <Requirements value="CRPGPassive1LearnedUse"/>
-                <SubmenuAbilState value="CRPGLearnAbility"/>
-                <SubmenuCardId value="Lrn1"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons Face="MechMultiLockTargetingSystem" Type="Passive" Row="1" Column="1"/>
-        </CardLayouts>
-        <Radius value="0.6875"/>
-        <SeparationRadius value="0.65"/>
-        <InnerRadius value="0"/>
-        <MinimapRadius value="0.65"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="33"/>
-            <ChanceArray index="Idle" value="33"/>
-            <ChanceArray index="Turn" value="33"/>
-        </Fidget>
-        <TauntDuration index="Dance" value="0"/>
-    </CUnitHero>
-    <CUnitHero id="CRPGMechLevel5" parent="CRPGMechLevel4">
-        <LifeStart value="600"/>
-        <LifeMax value="600"/>
-        <LateralAcceleration value="46.0625"/>
-        <StationaryTurningRate value="720"/>
-        <TurningRate value="360"/>
-        <WeaponArray index="0" Link="MechThorsHammer" Turret=""/>
-        <WeaponArray index="1" Link="MechJavelinMissileLaunchers" Turret=""/>
-        <CardLayouts index="0">
-            <LayoutButtons index="5">
-                <Face value="CRPGLevelUp"/>
-                <Type value="AbilCmd"/>
-                <AbilCmd value="LevelUpDummy,Execute"/>
-                <Behavior value=""/>
-                <Requirements value="CRPGPassive1LearnedUse"/>
-                <SubmenuAbilState value="CRPGLearnAbility"/>
-                <SubmenuCardId value="Lrn1"/>
-                <ShowInGlossary value="0"/>
-                <Row value="1"/>
-                <Column value="4"/>
-            </LayoutButtons>
-            <LayoutButtons Face="MechExplosiveImmortality" Type="AbilCmd" AbilCmd="MechExplosiveImmortality,Execute" Row="2" Column="2"/>
-        </CardLayouts>
-        <Radius value="1"/>
-        <SeparationRadius value="1"/>
-        <InnerRadius value="1"/>
-        <MinimapRadius value="1"/>
-        <Fidget>
-            <ChanceArray index="Anim" value="10"/>
-            <ChanceArray index="Idle" value="90"/>
-            <ChanceArray index="Turn" value="0"/>
-        </Fidget>
-        <TauntDuration index="Cheer" value="5"/>
-        <TauntDuration index="Dance" value="5"/>
-        <AbilArray index="3" Link="LevelUpDummy"/>
-        <AbilArray Link="MechExplosiveImmortality"/>
-        <GlossaryCategory value="Unit/Category/CrashRPGHeroes"/>
+        <GlossaryAlias value="CRPGMech"/>
+        <LearnInfoArray index="Learn1" Abil="MechBarrage">
+            <Button DefaultButtonFace="MechBarrage"/>
+        </LearnInfoArray>
+        <LearnInfoArray index="Learn2" Abil="MechShockBlast">
+            <Button DefaultButtonFace="MechShockBlast"/>
+        </LearnInfoArray>
+        <LearnInfoArray index="Learn3" Abil="MechExplosiveImmortality">
+            <Button DefaultButtonFace="MechExplosiveImmortality"/>
+        </LearnInfoArray>
+        <LearnInfoArray index="Learn4" Abil="MechPointDefenseDrones">
+            <Button DefaultButtonFace="MechPointDefenseDrones"/>
+        </LearnInfoArray>
+        <LearnInfoArray index="Learn5">
+            <Button DefaultButtonFace="MechMultiLockTargetingSystem"/>
+        </LearnInfoArray>
     </CUnitHero>
     <CUnitHero id="CRPGShipLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGShip"/>

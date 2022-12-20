@@ -71,7 +71,7 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="HunterShadowTransfer" State="CompleteOnlyAtUnit"/>
     </CRequirementCountAbil>
-    <CRequirementCountAbil id="CountAbilInfestedInfestedEggsCompleteOnlyAtUnit4238922957">
+    <CRequirementCountAbil id="CountAbilInfestedInfestedEggsCompleteOnlyAtUnit1009639534">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InfestedInfestedEggs" State="CompleteOnlyAtUnit"/>
     </CRequirementCountAbil>
@@ -157,7 +157,6 @@
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorInfestedInfestationSpore@BuffCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="InfestedInfestationSpore@Buff" State="CompleteOnly"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit">
@@ -464,6 +463,10 @@
         <OperandArray index="0" value="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="SumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1"/>
     </CRequirementLT>
+    <CRequirementLT id="LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2">
+        <OperandArray index="0" value="CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit"/>
+        <OperandArray index="1" value="2"/>
+    </CRequirementLT>
     <CRequirementLT id="LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8">
         <OperandArray index="0" value="CountUnitSwarmerSwarmerSpawnQueuedOrBetter"/>
         <OperandArray index="1" value="8"/>
@@ -482,10 +485,6 @@
     </CRequirementLT>
     <CRequirementLT id="LTCountUnitHunterPsionicProjectionQueuedOrBetterAtUnit2">
         <OperandArray index="0" value="CountUnitHunterPsionicProjectionQueuedOrBetterAtUnit"/>
-        <OperandArray index="1" value="2"/>
-    </CRequirementLT>
-    <CRequirementLT id="LTCountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2">
-        <OperandArray index="0" value="CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="2"/>
     </CRequirementLT>
     <CRequirementLT id="LTSumCountUnitAlienAshWormQueuedOrBetterAtUnitCountUnitAlienAshWormBurrowedQueuedOrBetterAtUnit2">
@@ -566,7 +565,6 @@
         <OperandArray value="AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838"/>
     </CRequirementOr>
     <CRequirementSum id="Sum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="1"/>
         <OperandArray value="CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
     </CRequirementSum>

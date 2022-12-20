@@ -1296,7 +1296,7 @@
             <Resource index="Terrazine" value="0"/>
             <Resource index="Custom" value="0"/>
         </RefundFraction>
-        <InfoArray Score="1" Unit="CRPGMechLevel5">
+        <InfoArray Score="1" Unit="CRPGMech">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="20"/>
             </SectionArray>
@@ -1314,22 +1314,18 @@
         <AutoCastCountMax value="4294967295"/>
         <ValidatorArray value="MechNotSelfRepairing"/>
     </CAbilMorph>
-    <CAbilMorph id="MechExplosiveImmortality">
+    <CAbilEffectInstant id="MechExplosiveImmortality">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MechExplosiveImmortality"/>
-        <ActorKey value="ThorWreckage"/>
-        <Flags index="IgnoreFacing" value="1"/>
-        <Flags index="IgnoreUnitCost" value="1"/>
-        <Flags index="SuppressMovement" value="1"/>
+        <Levels value="1"/>
+        <Effect index="0" value="MechExplosiveImmortality@Set"/>
         <Cost>
             <Cooldown TimeUse="120"/>
         </Cost>
-        <InfoArray Unit="MechWreckage">
-            <SectionArray index="Stats">
-                <EffectArray index="Finish" value="MechExplosiveImmortalitySet"/>
-            </SectionArray>
-        </InfoArray>
-    </CAbilMorph>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MechExplosiveImmortality">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="MedicRestorativeBurst">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="MedicRestorativeBurstSearchArea"/>
@@ -1596,7 +1592,8 @@
         <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <InfoTooltipPriority value="1"/>
-        <Effect index="0" value="MechBarrageCreatePersistent"/>
+        <Levels value="1"/>
+        <Effect index="0" value="MechBarrage@CP"/>
         <Cost>
             <Vital index="Energy" value="75"/>
             <Charge Link="Abil/330mmBarrageCannons"/>
@@ -1613,9 +1610,12 @@
         <UninterruptibleArray index="Cast" value="1"/>
         <UninterruptibleArray index="Channel" value="1"/>
         <UninterruptibleArray index="Finish" value="1"/>
-        <CursorEffect value="330mmBarrageCannonsDamage"/>
-        <AINotifyEffect value="MechBarrageApplyBehavior"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MechBarrage"/>
+        <CursorEffect value="MechBarrage@Damage"/>
+        <AINotifyEffect value="MechBarrage@AB"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MechBarrage">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
         <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="AeroDefensiveMatrix">
@@ -1694,26 +1694,33 @@
     <CAbilEffectInstant id="MechShockBlast">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Effect index="0" value="MechShockBlastCreatePersistent"/>
+        <Levels value="1"/>
+        <Effect index="0" value="MechShockBlast@CP"/>
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MechShockBlast">
-            <Flags index="ToSelection" value="1"/>
-        </CmdButtonArray>
         <Cost>
             <Vital index="Energy" value="50"/>
             <Cooldown TimeUse="20"/>
         </Cost>
+        <CursorEffect value="MechShockBlast@SA"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MechShockBlast">
+            <Flags index="ToSelection" value="1"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
     </CAbilEffectInstant>
     <CAbilArmMagazine id="MechPointDefenseDrones">
-        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
         <Leash value="0"/>
         <InfoArray index="Ammo1" Time="10" CountStart="2" Manage="Recall" Unit="MechPointDefenseDrone">
             <Charge Link="Abil/##id##"/>
             <Cooldown Link="Abil/##id##"/>
-            <Button DefaultButtonFace="MechPointDefenseDrones" Requirements="MechArmPointDefenseDrone"/>
+            <Button DefaultButtonFace="MechPointDefenseDrones" Requirements="MechPointDefenseDrones@Arm">
+                <Flags index="IgnoreUser" value="1"/>
+                <Flags index="UseDefaultButton" value="1"/>
+                <Flags index="CreateDefaultButton" value="1"/>
+            </Button>
             <Flags index="AutoBuild" value="1"/>
             <Flags index="AutoBuildOn" value="1"/>
             <Flags index="External" value="1"/>

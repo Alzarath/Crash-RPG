@@ -108,13 +108,12 @@
             <Time value="8.666000"/>
             <Payload value="FireSuppressionBots_Whizzby"/>
         </Events>
-        <Lighting value="FireSuppressionBots"/>
     </CModel>
     <CModel id="InfestedInfestedCivilian" parent="InfestedCivilian">
         <ScaleMax value="1.000000,1.000000,1.000000"/>
         <ScaleMin value="1.000000,1.000000,1.000000"/>
     </CModel>
-    <CModel id="MechExplosiveImmortalityExplosion" parent="OneShotSpellFX">
+    <CModel id="MechExplosiveImmortality@Explosion" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Terran\MiraHorner_NapalmBomb_Coop_Explosion\MiraHorner_NapalmBomb_Coop_Explosion.m3"/>
         <EditorCategories value="Race:Terran"/>
         <ScaleMax value="4.000000,4.000000,4.000000"/>
@@ -222,6 +221,81 @@
         <Model value="Assets\Effects\Protoss\SuppressionTower_SuppressionBeam_Impact_Ground\SuppressionTower_SuppressionBeam_Impact_Ground.m3"/>
         <ScaleMax value="3.000000,3.000000,1.000000"/>
         <ScaleMin value="3.000000,3.000000,1.000000"/>
+    </CModel>
+    <CModel id="ThorSmall" parent="ThorBase">
+        <Model value="Assets\Units\Terran\ThorEx1\ThorEx1.m3"/>
+        <Lighting value="Thor"/>
+        <ScaleMax value="0.250000,0.250000,0.250000"/>
+    </CModel>
+    <CModel id="ThorlessWreckage" parent="PersistentSpellFX" Prefix="Units\" Race="Terran">
+        <Model value="Assets\Effects\Terran\ThorlessWreckage\ThorlessWreckage.m3"/>
+        <AttachProps Id="Ref_Center">
+            <Keys index="Turret" value="0"/>
+        </AttachProps>
+        <EditorCategories value="Race:Terran"/>
+        <Events>
+            <Anim value="Birth"/>
+            <Name value="ThorImmortalityProtocolBirth"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Thor_ImmortalityProtocolBirth"/>
+        </Events>
+        <Events>
+            <Anim value="Death"/>
+            <Name value="ThorImmortalityProtocolDeath"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Thor_ImmortalityProtocolDeath"/>
+        </Events>
+        <Events>
+            <Anim value="Stand"/>
+            <Name value="Thor_ImmortalityProtocolWeld"/>
+            <Type value="Sound"/>
+            <Time value="0.600000"/>
+            <Payload value="Thor_ImmortalityProtocolWeld"/>
+        </Events>
+        <Events>
+            <Anim value="Stand"/>
+            <Name value="Thor_ImmortalityProtocolWeld"/>
+            <Type value="Sound"/>
+            <Time value="1.933000"/>
+            <Payload value="Thor_ImmortalityProtocolWeld"/>
+        </Events>
+        <Events>
+            <Anim value="Stand"/>
+            <Name value="Thor_ImmortalityProtocolWeld"/>
+            <Type value="Sound"/>
+            <Time value="3.100000"/>
+            <Payload value="Thor_ImmortalityProtocolWeld"/>
+        </Events>
+        <Events>
+            <Anim value="Stand"/>
+            <Name value="Thor_ImmortalityProtocolWeld"/>
+            <Type value="Sound"/>
+            <Time value="4.433000"/>
+            <Payload value="Thor_ImmortalityProtocolWeld"/>
+        </Events>
+        <Events>
+            <Anim value="Stand"/>
+            <Name value="Thor_ImmortalityProtocolWeld"/>
+            <Type value="Sound"/>
+            <Time value="5.733000"/>
+            <Payload value="Thor_ImmortalityProtocolWeld"/>
+        </Events>
+        <Events>
+            <Anim value="Stand"/>
+            <Name value="Thor_ImmortalityProtocolWeld"/>
+            <Type value="Sound"/>
+            <Time value="6.933000"/>
+            <Payload value="Thor_ImmortalityProtocolWeld"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <Priority value="32"/>
+        <Radius value="0.800000"/>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
+        <SelectionRadius value="1.845700"/>
+        <ShadowRadius value="1.230700"/>
     </CModel>
     <CModel id="Ultralisk_SpeedUpgrade" parent="PersistentSpellFX" Race="Zerg">
         <Model value="Assets\Effects\Zerg\Ultralisk_SpeedUpgrade\Ultralisk_SpeedUpgrade.m3"/>
@@ -564,13 +638,13 @@
     <CModel id="BattlecruiserBlackOps" parent="Battlecruiser" Race="Neutral">
         <Model value="Assets\Units\Terran\BattleCruiser_BlackOps_Ex3\BattleCruiser_BlackOps_Ex3.m3"/>
     </CModel>
-    <CModel id="MechShockBlastImpactModel" parent="ImpactFX">
+    <CModel id="MechShockBlast@ImpactModel" parent="ImpactFX">
         <Model value="Assets\Effects\Terran\HyperionEMPImpact\HyperionEMPImpact.m3"/>
         <EditorCategories value="Race:Terran"/>
         <ScaleMax value="0.400000,0.400000,0.400000"/>
         <ScaleMin value="0.400000,0.400000,0.400000"/>
     </CModel>
-    <CModel id="MechShockBlastModel" parent="OneShotSpellFX">
+    <CModel id="MechShockBlast@Model" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Terran\HyperionEMP\HyperionEMP.m3"/>
         <EditorCategories value="Race:Terran"/>
     </CModel>

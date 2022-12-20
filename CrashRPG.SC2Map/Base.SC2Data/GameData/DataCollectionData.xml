@@ -225,6 +225,7 @@
         <DataRecord Entry="Actor,CRPGMedic@SoundDeath1234"/>
         <DataRecord Entry="Actor,CRPGMedic@Level5"/>
         <DataRecord Entry="Unit,CRPGMedic"/>
+        <DataRecord Entry="Behavior,CRPGMedic@Veterancy"/>
     </CDataCollectionUnit>
     <CDataCollectionAbil id="CRPGMedivacTransport">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
@@ -326,6 +327,66 @@
         <DataRecord Entry="Actor,HunterRevenant"/>
         <DataRecord Entry="Unit,HunterRevenant"/>
     </CDataCollectionUnit>
+    <CDataCollectionAbil id="MechBarrage">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,MechBarrage"/>
+        <DataRecord Entry="Actor,MechBarrage@CursorSplat"/>
+        <DataRecord Entry="Actor,MechBarrage@ModelImpact"/>
+        <DataRecord Entry="Actor,MechBarrage@SoundCast"/>
+        <DataRecord Entry="Actor,MechBarrage@Range"/>
+        <DataRecord Entry="Actor,MechBarrage@SoundImpact"/>
+        <DataRecord Entry="Actor,MechBarrage@SoundFinish"/>
+        <DataRecord Entry="Behavior,MechBarrage@Stunned"/>
+        <DataRecord Entry="Button,MechBarrage"/>
+        <DataRecord Entry="Button,MechBarrage@Learn"/>
+        <DataRecord Entry="Effect,MechBarrage@Damage"/>
+        <DataRecord Entry="Effect,MechBarrage@CP"/>
+        <DataRecord Entry="Effect,MechBarrage@AB"/>
+        <DataRecord Entry="Effect,MechBarrage@SA"/>
+        <DataRecord Entry="Effect,MechBarrage@SetImpact"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="MechExplosiveImmortality">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,MechExplosiveImmortality"/>
+        <DataRecord Entry="Actor,MechExplosiveImmortality@ModelExplosion"/>
+        <DataRecord Entry="Actor,MechExplosiveImmortality@Model"/>
+        <DataRecord Entry="Actor,MechExplosiveImmortality@Tinter"/>
+        <DataRecord Entry="Behavior,MechExplosiveImmortality@Rebuilding"/>
+        <DataRecord Entry="Button,MechExplosiveImmortality"/>
+        <DataRecord Entry="Button,MechExplosiveImmortality@Learn"/>
+        <DataRecord Entry="Effect,MechExplosiveImmortality@Set"/>
+        <DataRecord Entry="Effect,MechExplosiveImmortality@AB"/>
+        <DataRecord Entry="Effect,MechExplosiveImmortality@Damage"/>
+        <DataRecord Entry="Model,MechExplosiveImmortality@Explosion"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="MechPointDefenseDrones">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,MechPointDefenseDrones"/>
+        <DataRecord Entry="Button,MechPointDefenseDrones"/>
+        <DataRecord Entry="Button,MechPointDefenseDrones@Learn"/>
+        <DataRecord Entry="Button,MechPointDefenseDrones@Upgraded"/>
+        <DataRecord Entry="Requirement,MechPointDefenseDrones@Arm"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="MechShockBlast">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,MechShockBlast"/>
+        <DataRecord Entry="Actor,MechShockBlast@Range"/>
+        <DataRecord Entry="Actor,MechShockBlast@SoundLaunch"/>
+        <DataRecord Entry="Actor,MechShockBlast@Model"/>
+        <DataRecord Entry="Actor,MechShockBlast@ModelImpact"/>
+        <DataRecord Entry="Behavior,MechShockBlast@Stunned"/>
+        <DataRecord Entry="Behavior,MechShockBlast@Damaging"/>
+        <DataRecord Entry="Button,MechShockBlast"/>
+        <DataRecord Entry="Button,MechShockBlast@Learn"/>
+        <DataRecord Entry="Effect,MechShockBlast@CP"/>
+        <DataRecord Entry="Effect,MechShockBlast@Damage"/>
+        <DataRecord Entry="Effect,MechShockBlast@ABStun"/>
+        <DataRecord Entry="Effect,MechShockBlast@ABDamage"/>
+        <DataRecord Entry="Effect,MechShockBlast@SA"/>
+        <DataRecord Entry="Effect,MechShockBlast@SetSearch"/>
+        <DataRecord Entry="Model,MechShockBlast@Model"/>
+        <DataRecord Entry="Model,MechShockBlast@ImpactModel"/>
+    </CDataCollectionAbil>
     <CDataCollectionAbil id="MedicCorrosiveSpray">
         <EditorCategories value="DataGroup:Weapon,Race:Terran,ObjectType:Projectile"/>
         <DataRecord Entry="Actor,MedicCorrosiveSpray@Attack"/>
@@ -427,6 +488,31 @@
         <DataRecord Entry="Behavior,MedivacHealingBeam@Aura"/>
         <DataRecord Entry="Button,MedivacHealingBeam"/>
         <DataRecord Entry="Effect,MedivacHealingBeam@SA"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="PointDefenseDroneLaser">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@BeamAntiMissile"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@ModelImpactAntiMissile"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@SoundImpactAntiMissile"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@SoundLaunchAntiMissile"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@AttackRepair"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@BeamRepair"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@SoundImpactRepair"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@SoundLaunchRepair"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@BeamAntiMissileBak"/>
+        <DataRecord Entry="Actor,PointDefenseDroneLaser@AttackAntiMissile"/>
+        <DataRecord Entry="Behavior,PointDefenseDroneLaser@Cooldown"/>
+        <DataRecord Entry="Behavior,PointDefenseDroneLaser@Active"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@ABCooldown"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@CP"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@SAAntiMissile"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@SARepair"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@MURepair"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@MUAntiMissile"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@SetAntiMissile"/>
+        <DataRecord Entry="Effect,PointDefenseDroneLaser@SetRepair"/>
+        <DataRecord Entry="Validator,PointDefenseDroneLaser@NotOnCooldown"/>
+        <DataRecord Entry="Validator,PointDefenseDroneLaser@UnitFilter"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="PsionicProjectionDisruptorVolley">
         <EditorCategories value="DataGroup:Weapon,Race:Protoss"/>

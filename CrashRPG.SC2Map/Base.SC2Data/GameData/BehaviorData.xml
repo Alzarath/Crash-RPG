@@ -41,6 +41,9 @@
             <AdditiveMoveSpeedFactor value="0.2"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorVeterancy id="CRPGMech@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGMech@Veterancy"/>
+    </CBehaviorVeterancy>
     <CBehaviorBuff id="FighterAstralWind@Self">
         <InfoIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
@@ -121,6 +124,24 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <RemoveValidatorArray value="FighterRapidStrikes@Buffed"/>
         <Duration value="7"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ImpalerTarget">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="2"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MechExplosiveImmortality@Rebuilding">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stun" value="1"/>
+        </Modification>
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
+        <Duration value="10"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="RevenantTimedLife" parent="TimedLife">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -1679,7 +1700,7 @@
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Duration value="1"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MechBarrage">
+    <CBehaviorBuff id="MechBarrage@Stunned">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-bombardmentstrike.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -1795,7 +1816,7 @@
         <Period value="0.75"/>
         <PeriodicEffect value="AeroLaserArmaments@CP"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MechShocking">
+    <CBehaviorBuff id="MechShockBlast@Damaging">
         <Alignment value="Negative"/>
         <InfoFlags index="Hidden" value="1"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-ultrasonicpulse.dds"/>
@@ -1803,7 +1824,7 @@
         <Duration value="2"/>
         <Period value="0.125"/>
         <PeriodCount value="12"/>
-        <PeriodicEffect value="MechShockBlastDamage"/>
+        <PeriodicEffect value="MechShockBlast@Damage"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGBaseAttributes">
         <InfoFlags index="Hidden" value="1"/>
@@ -1815,14 +1836,14 @@
             <AttributeChangeArray Attribute="CRPGEnergyAttribute"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MechPointDefenseLaser">
+    <CBehaviorBuff id="PointDefenseDroneLaser@Active">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <DisableValidatorArray value="MechPointDefenseNotOnCooldown"/>
+        <DisableValidatorArray value="PointDefenseDroneLaser@NotOnCooldown"/>
         <Period value="0.125"/>
-        <PeriodicEffect value="PointDefenseLaserCreatePersistent"/>
+        <PeriodicEffect value="PointDefenseDroneLaser@CP"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MechPointDefenseCooldown">
+    <CBehaviorBuff id="PointDefenseDroneLaser@Cooldown">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="2"/>
@@ -1847,7 +1868,7 @@
             <AbilLinkDisableArray value="Clone"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MechShocked">
+    <CBehaviorBuff id="MechShockBlast@Stunned">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-ultrasonicpulse.dds"/>
         <BehaviorCategories index="Stun" value="1"/>

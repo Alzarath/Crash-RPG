@@ -231,6 +231,7 @@ Behavior/Name/CRPGFollowerTarget=Follower Target
 Behavior/Name/CRPGHoldFire=Hold Fire
 Behavior/Name/CRPGHunter@Veterancy=Veterancy
 Behavior/Name/CRPGInfested@Veterancy=Veterancy
+Behavior/Name/CRPGMech@Veterancy=Veterancy
 Behavior/Name/CRPGMedic@Veterancy=Veterancy
 Behavior/Name/CRPGMedivacTransport@HealingBeam=Healing Beam
 Behavior/Name/CRPGMineralReward=Mineral Reward
@@ -251,6 +252,7 @@ Behavior/Name/FighterViolentCharge@Slow=Slow
 Behavior/Name/FighterViolentCharge@Stunned=Stunned
 Behavior/Name/HunterPlasmaDiffusion@PlasmaSeared=Plasma Seared
 Behavior/Name/HunterShadowTransfer@Caster=Shadow Transfer
+Behavior/Name/ImpalerTarget=Primal Lurker Target
 Behavior/Name/InfestedBunkerEnableGaussRifle13=Enable Gauss Rifle 3
 Behavior/Name/InfestedBunkerEnableGaussRifle14=Enable Gauss Rifle 4
 Behavior/Name/InfestedEmpathicRepercussion@Unstable=Unstable
@@ -259,8 +261,9 @@ Behavior/Name/InfestedHardenedEquipment@Offensive=Hardened Equipment
 Behavior/Name/InfestedInfestationSpore@Buff=Infested
 Behavior/Name/InfestedInfestationSpore@LifeDecrease=Life Decrease
 Behavior/Name/InfestedInfestationSpore@LifeIncrease=Life Increase
-Behavior/Name/MechBarrage=Barrage
-Behavior/Name/MechShocked=Shocked
+Behavior/Name/MechBarrage@Stunned=Barrage
+Behavior/Name/MechExplosiveImmortality@Rebuilding=Rebuilding
+Behavior/Name/MechShockBlast@Stunned=Shocked
 Behavior/Name/MedicHealingBeam=Healing Beam
 Behavior/Name/MedicIrradiate=Irradiated
 Behavior/Name/MedicOpticalFlare@Blind=Blind
@@ -341,7 +344,8 @@ Behavior/Tooltip/InfestedHardenedEquipment@Offensive=This unit deals increased d
 Behavior/Tooltip/InfestedInfestationSpore@Buff=This unit is being controlled by an Infested.
 Behavior/Tooltip/InfestedInfestationSpore@LifeDecrease=
 Behavior/Tooltip/InfestedInfestationSpore@LifeIncrease=
-Behavior/Tooltip/MechBarrage=Target is currently stunned and unable to use any abilities.
+Behavior/Tooltip/MechBarrage@Stunned=Target is currently stunned and unable to use any abilities.
+Behavior/Tooltip/MechExplosiveImmortality@Rebuilding=This unit is disabled and invulnerable while it rebuilds.
 Behavior/Tooltip/MedicHealingBeam=This unit is taking reduced damage and healed over time.
 Behavior/Tooltip/MedicIrradiate=Irradiated unit. All Biological units in or near the radiation field will take damage.
 Behavior/Tooltip/MedivacAfterburners=This unit's movement speed is increased by 70%.
@@ -500,11 +504,17 @@ Button/Name/InfestedInfestedEggs@Learn=Learn Infested Eggs
 Button/Name/InfestedInfestedEggs@Upgraded=Upgraded Infested Eggs
 Button/Name/InfestedInfestedSupplies=Infested Supplies
 Button/Name/MechBarrage=Barrage
+Button/Name/MechBarrage@Learn=Learn Barrage
 Button/Name/MechExplosiveImmortality=Explosive Immortality
+Button/Name/MechExplosiveImmortality@Learn=Learn Explosive Immortality
 Button/Name/MechImmortalityProtocol=Immortality Protocol
 Button/Name/MechMultiLockTargetingSystem=Multi-Lock Targeting System
+Button/Name/MechMultiLockTargetingSystem@Learn=Learn Multi-Lock Targeting System
 Button/Name/MechPointDefenseDrones=Point Defense Drones
+Button/Name/MechPointDefenseDrones@Learn=Learn Point Defense Drones
+Button/Name/MechPointDefenseDrones@Upgraded=Upgraded Point Defense Drones
 Button/Name/MechShockBlast=Shock Blast
+Button/Name/MechShockBlast@Learn=Learn Shock Blast
 Button/Name/MedicHealingBeam=Healing Beam
 Button/Name/MedicHealingBeam@Learn=Learn Healing Beam
 Button/Name/MedicHealingBeam@Upgraded=Upgraded Healing Beam
@@ -771,13 +781,19 @@ Button/Tooltip/InfestedInfestedEggs@Upgraded=Infested Eggs can spawn Infested Te
 Button/Tooltip/InfestedInfestedMarine=Ranged attacker.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfestedInfestedSupplies=This supply-giving unit is infested, allowing up to two additional Infested Terran to be summoned.
 Button/Tooltip/LockedNydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<n/><n/><c val="ffff8a">Enables:</c><n/>- Greater Nydus Worm
-Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageDamage,Amount"/></c> damage over <d ref="Effect,MechBarrageCreatePersistent,PeriodCount * Effect,MechBarrageCreatePersistent,PeriodicPeriodArray[0]"/> seconds in a large area.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c><n/>
-Button/Tooltip/MechExplosiveImmortality=The Mech self-destructs, dealing <c val="#ColorAttackInfo"><d ref="Effect,MechExplosiveImmortalityDamage,Amount"/></c> damage in a large area around it and destroying the mech, leaving wreckage. The Mech will repair itself after <d ref="Abil,MechImmortalityProtocol,InfoArray[0].SectionArray[Abils].DurationArray[Delay]"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrage@CP,PeriodCount * $AccumulatedValue:Effect,MechBarrage@Damage,Amount$" precision="3"/></c> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/MechBarrage@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechBarrage,Cost[0].Vital[Energy]"/><n/><n/>Deals <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@Damage,Amount"/> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
+Button/Tooltip/MechExplosiveImmortality=The caster self-destructs, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechExplosiveImmortality@Damage,Amount$"/></c> damage in a massive area around it while disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/>.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/MechExplosiveImmortality@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechExplosiveImmortality,Cost[0].Cooldown.TimeUse"/><n/><n/>Self-destruct, disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/> and dealing <d ref="Effect,MechExplosiveImmortality@Damage,Amount"/> damage to nearby enemies.
 Button/Tooltip/MechImmortalityProtocol=Allows a detonated Mech to be rebuilt in the field.
 Button/Tooltip/MechMultiLockTargetingSystem=The hero can target ground and air units simultaneously.
+Button/Tooltip/MechMultiLockTargetingSystem@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>The hero can target ground and air units simultaneously.
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
-Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that can each use automated defensive lasers to intercept enemy projectiles or repair friendly mechanical units by <d ref="Effect,MechPointDefenseLaserRepair,VitalArray[Life].ChangeFraction * 100"/>% every <d ref="Behavior,MechPointDefenseCooldown,Duration"/> seconds.
-Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShocking,PeriodCount * Effect,MechShockBlastDamage,Amount"/></c> damage to nearby enemies over <d ref="Behavior,MechShocked,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that can each use automated defensive lasers every <d ref="Behavior,PointDefenseDroneLaser@Cooldown,Duration"/> seconds to intercept enemy projectiles or repair friendly mechanical units by <d ref="Effect,PointDefenseDroneLaser@MURepair,VitalArray[Life].ChangeFraction * 100"/>%.
+Button/Tooltip/MechPointDefenseDrones@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>A pair of Point Defense Drones destroy enemy projectiles and repair friendly mechanical units.
+Button/Tooltip/MechPointDefenseDrones@Upgraded=TODO
+Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and dealing up to <c val="#ColorAttackInfo"><d ref="Behavior,MechShockBlast@Damaging,PeriodCount * $AccumulatedValue:Effect,MechShockBlast@Damage,Amount$"/></c> damage to nearby enemies over <d ref="Behavior,MechShockBlast@Stunned,Duration"/> seconds.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/MechShockBlast@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Cooldown.TimeUse"/><n/><n/>Stun and deal <d ref="Behavior,MechShockBlast@Damaging,PeriodCount * Effect,MechShockBlast@Damage,Amount"/> damage to nearby enemies.
 Button/Tooltip/MedicHealingBeam=Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCaster,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.</c>
 Button/Tooltip/MedicHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><n/>Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them for <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCaster,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.
 Button/Tooltip/MedicHealingBeam@Upgraded=Increases Healing Beam's healing rate by <d ref="-100 * ([d stringref='Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>%.
@@ -928,6 +944,10 @@ DataCollection/Name/InfestedInfestedEggs=Infested Eggs
 DataCollection/Name/InfestedInfestedMarine=Infested Marine
 DataCollection/Name/InfestedMarineInfestedGaussRifle=Infested Gauss Rifle
 DataCollection/Name/InfestedMendingSaliva=Mending Saliva
+DataCollection/Name/MechBarrage=Barrage
+DataCollection/Name/MechExplosiveImmortality=Explosive Immortality
+DataCollection/Name/MechPointDefenseDrones=Point Defense Drones
+DataCollection/Name/MechShockBlast=Shock Blast
 DataCollection/Name/MedicCorrosiveSpray=Corrosive Spray
 DataCollection/Name/MedicHealingBeam=Healing Beam
 DataCollection/Name/MedicIrradiate=Irradiate
@@ -938,6 +958,7 @@ DataCollection/Name/MedicSpawnMedivac=Spawn Medivac
 DataCollection/Name/MedivacAfterburners=Afterburners
 DataCollection/Name/MedivacHealingBeam=Healing Beam
 DataCollection/Name/PlasmaCanisterCharge=Charge
+DataCollection/Name/PointDefenseDroneLaser=Laser
 DataCollection/Name/PsionicProjectionDisruptorVolley=Disruptor Volley
 DataCollection/Name/PsionicProjectionProjectionBeam=Projection Beam
 DataCollection/Name/RevenantTimedLife=Timed Life
@@ -1662,6 +1683,10 @@ Effect/Name/HunterShadowTransfer@SetInitial=Set
 Effect/Name/HunterShadowTransfer@SetRemoveDisables=Set
 Effect/Name/HunterShadowTransfer@SetTeleport=Set
 Effect/Name/HunterShadowTransfer@Teleport=Teleport
+Effect/Name/ImpalerAB=Primal Lurker AB
+Effect/Name/ImpalerCP=Primal Lurker CP
+Effect/Name/ImpalerLMSet=Primal Lurker LM Set
+Effect/Name/ImpalerSA=Primal Lurker SA
 Effect/Name/InfestedAberrate@ATU=Track Unit
 Effect/Name/InfestedAberrate@CPDelayedRefund=Create Persistent
 Effect/Name/InfestedAberrate@CU=Create Unit
@@ -1722,19 +1747,20 @@ Effect/Name/MarauderPunisherGrenades@Damage=Damage
 Effect/Name/MarauderPunisherGrenades@LM=Launch Missile
 Effect/Name/MarineC14GaussRifleDamage=C-14 Gauss Rifle
 Effect/Name/MechAutocannonDamage=Autocannon
-Effect/Name/MechBarrageApplyBehavior=Barrage
-Effect/Name/MechBarrageCreatePersistent=Barrage
-Effect/Name/MechBarrageDamage=Barrage
-Effect/Name/MechBarrageSearchArea=Barrage
-Effect/Name/MechBarrageSet=Barrage
+Effect/Name/MechBarrage@AB=Apply Behavior
+Effect/Name/MechBarrage@CP=Create Persistent
+Effect/Name/MechBarrage@Damage=Damage
+Effect/Name/MechBarrage@SA=Search Area
+Effect/Name/MechBarrage@SetImpact=Set
 Effect/Name/MechCalldownMech=Calldown Mech
 Effect/Name/MechCalldownMechCreateUnitLevel1=Calldown Mech
 Effect/Name/MechCalldownMechCreateUnitLevel3=Calldown Mech
 Effect/Name/MechCalldownMechCreateUnitLevel4=Calldown Mech
 Effect/Name/MechCalldownMechCreateUnitLevel5=Calldown Mech
 Effect/Name/MechCalldownMechSuicideSet=Calldown Mech
-Effect/Name/MechExplosiveImmortalityDamage=Explosive Immortality
-Effect/Name/MechExplosiveImmortalitySet=Explosive Immortality
+Effect/Name/MechExplosiveImmortality@AB=Apply Behavior
+Effect/Name/MechExplosiveImmortality@Damage=Damage
+Effect/Name/MechExplosiveImmortality@Set=Set
 Effect/Name/MechFusionCutterDamage=Fusion Cutter
 Effect/Name/MechGatlingCannonDamage=Gatling Cannon
 Effect/Name/MechHellfireMissilePackCreatePersistent=Hellfire Missile Pack
@@ -1743,21 +1769,14 @@ Effect/Name/MechHellfireMissilePackLaunchMissile=Hellfire Missile Pack
 Effect/Name/MechJavelinMissileLaunchersDamage=Javelin Missile Launchers
 Effect/Name/MechJavelinMissileLaunchersLaunchMissile=Javelin Missile Launchers
 Effect/Name/MechMeleeDamage=Melee
-Effect/Name/MechPointDefenseLaserApplyBehavior=Point Defense Laser
-Effect/Name/MechPointDefenseLaserDamage=Point Defense Laser
-Effect/Name/MechPointDefenseLaserDamageSearch=Point Defense Laser
-Effect/Name/MechPointDefenseLaserDamageSet=Point Defense Laser
-Effect/Name/MechPointDefenseLaserRepair=Point Defense Laser
-Effect/Name/MechPointDefenseLaserRepairSearch=Point Defense Laser
-Effect/Name/MechPointDefenseLaserRepairSet=Point Defense Laser
 Effect/Name/MechRailgunDamage=Railgun
 Effect/Name/MechRailgunLaunchMissile=Railgun
-Effect/Name/MechShockBlastApplyBehaviorShocked=Shock Blast
-Effect/Name/MechShockBlastApplyBehaviorShocking=Shock Blast
-Effect/Name/MechShockBlastCreatePersistent=Shock Blast
-Effect/Name/MechShockBlastDamage=Shock Blast
-Effect/Name/MechShockBlastSearchArea=Shock Blast
-Effect/Name/MechShockBlastSet=Shock Blast
+Effect/Name/MechShockBlast@ABDamage=Apply Behavior
+Effect/Name/MechShockBlast@ABStun=Apply Behavior
+Effect/Name/MechShockBlast@CP=Create Persistent
+Effect/Name/MechShockBlast@Damage=Damage
+Effect/Name/MechShockBlast@SA=Search Area
+Effect/Name/MechShockBlast@SetSearch=Set
 Effect/Name/MechThorsHammerCreatePersistent=Thor's Hammer
 Effect/Name/MechThorsHammerDamage=Thor's Hammer
 Effect/Name/MechThorsHammerDamageDummy=Thor's Hammer
@@ -1806,7 +1825,14 @@ Effect/Name/OutpostTrainSCVModifyPlayer=Train SCV
 Effect/Name/PlasmaCanisterCharge@MUAddCharge=Modify Unit
 Effect/Name/PlasmaCanisterCharge@MURemoveCharges=Modify Unit
 Effect/Name/PlasmaCanisterCharge@Set=Set
-Effect/Name/PointDefenseLaserCreatePersistent=Point Defense Laser
+Effect/Name/PointDefenseDroneLaser@ABCooldown=Apply Behavior
+Effect/Name/PointDefenseDroneLaser@CP=Create Persistent
+Effect/Name/PointDefenseDroneLaser@MUAntiMissile=Modify Unit
+Effect/Name/PointDefenseDroneLaser@MURepair=Modify Unit
+Effect/Name/PointDefenseDroneLaser@SAAntiMissile=Search Area
+Effect/Name/PointDefenseDroneLaser@SARepair=Search Area
+Effect/Name/PointDefenseDroneLaser@SetAntiMissile=Set
+Effect/Name/PointDefenseDroneLaser@SetRepair=Set
 Effect/Name/PsionicProjectionDisruptorVolley@CP=Create Persistent
 Effect/Name/PsionicProjectionDisruptorVolley@ETU=Enum Caster
 Effect/Name/PsionicProjectionDisruptorVolley@LM=Launch Missile
@@ -2369,7 +2395,7 @@ Param/Value/FF711E04=Welcome to the tutorial. This will run like a normal game, 
 RequirementNode/Tooltip/CountAbilCRPGPassive1DummyCompleteOnlyAtUnit2337561442=Passive learned
 RequirementNode/Tooltip/CountAbilCRPGPassive2DummyCompleteOnlyAtUnit2337561442=Passive learned
 RequirementNode/Tooltip/CountAbilCRPGPassive2DummyCompleteOnlyAtUnit3898301465=Learned Passive
-RequirementNode/Tooltip/CountAbilInfestedInfestedEggsCompleteOnlyAtUnit4238922957=Infested Egg learned
+RequirementNode/Tooltip/CountAbilInfestedInfestedEggsCompleteOnlyAtUnit1009639534=Learned Infested Eggs
 RequirementNode/Tooltip/CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714=Nearby hero
 RequirementNode/Tooltip/CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428=Near Crashed Battlecruiser
 RequirementNode/Tooltip/CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055=Near summoner
@@ -2390,6 +2416,7 @@ RequirementNode/Tooltip/LT2100730577CountBehaviorCRPGHeroVeterancyCompleteOnlyAt
 RequirementNode/Tooltip/LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8=Carrier must have fewer than 8 Interceptors
 RequirementNode/Tooltip/LT2605192531SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5=Fewer than 4 Nomads
 RequirementNode/Tooltip/LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1=Healing Beam Target Limit
+RequirementNode/Tooltip/LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2=<2 Point Defense Drones
 RequirementNode/Tooltip/LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8=Less than 8 Swarmers
 RequirementNode/Tooltip/LT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5=Not maximum level
 RequirementNode/Tooltip/LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly=Not Max Infested Victims
@@ -2523,7 +2550,6 @@ Unit/Name/MechHellfireMissileWeapon=Hellfire Missile
 Unit/Name/MechJavelinMissileWeapon=Javelin Missile
 Unit/Name/MechPointDefenseDrone=Point Defense Drone
 Unit/Name/MechRailgunWeapon=Railgun
-Unit/Name/MechWreckage=Mech Wreckage
 Unit/Name/MedicCorrosiveSpray@Weapon=Weapon
 Unit/Name/MedicMedivac=Medivac
 Unit/Name/Mutalisk=Alien

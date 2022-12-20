@@ -4,4 +4,9 @@
         <WhichUnit Value="Target"/>
         <Behavior value="FighterShadowFuryTarget"/>
     </CTargetSortBehaviorCount>
+    <CTargetSortBehaviorCount id="TSVoidDarkTemplarShadowFuryTargeted2">
+        <WhichUnit Value="Target"/>
+        <Descending value="1"/>
+        <Behavior value="ImpalerTarget"/>
+    </CTargetSortBehaviorCount>
 </Catalog>

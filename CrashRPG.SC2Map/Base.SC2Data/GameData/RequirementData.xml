@@ -217,7 +217,7 @@
     </CRequirement>
     <CRequirement id="InfestedInfestedEgg@Learned">
         <EditorCategories value="Race:Neutral"/>
-        <NodeArray index="Use" Link="CountAbilInfestedInfestedEggsCompleteOnlyAtUnit4238922957"/>
+        <NodeArray index="Use" Link="CountAbilInfestedInfestedEggsCompleteOnlyAtUnit1009639534"/>
     </CRequirement>
     <CRequirement id="CRPGPassive2LearnedUse">
         <EditorCategories value="Race:Neutral"/>
@@ -292,10 +292,10 @@
         <EditorCategories value="Race:Zerg"/>
         <NodeArray index="Use" Link="LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="MechArmPointDefenseDrone">
+    <CRequirement id="MechPointDefenseDrones@Arm">
         <EditorCategories value="Race:Terran"/>
         <CanBeSuppressed index="Use" value="0"/>
-        <NodeArray index="Use" Link="LTCountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2"/>
+        <NodeArray index="Use" Link="LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2"/>
     </CRequirement>
     <CRequirement id="GELevel2">
         <NodeArray index="Show" Link="GTE774336177CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit2"/>

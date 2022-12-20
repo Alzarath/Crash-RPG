@@ -268,6 +268,43 @@
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedInfestationSpore"/>
     </CButton>
+    <CButton id="MechBarrage@Learn">
+        <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
+        <Hotkey value="Button/Hotkey/250mmStrikeCannons"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="250mmStrikeCannons"/>
+    </CButton>
+    <CButton id="MechExplosiveImmortality@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MechExplosiveImmortality"/>
+    </CButton>
+    <CButton id="MechMultiLockTargetingSystem@Learn">
+        <Icon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="MechMultiLockTargetingSystem"/>
+    </CButton>
+    <CButton id="MechPointDefenseDrones@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="MechPointDefenseDrones"/>
+    </CButton>
+    <CButton id="MechPointDefenseDrones@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="MechPointDefenseDrones"/>
+    </CButton>
+    <CButton id="MechShockBlast@Learn">
+        <Icon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MechShockBlast"/>
+    </CButton>
     <CButton id="MedicHealingBeam@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
@@ -1039,6 +1076,7 @@
         <Hotkey value="Button/Hotkey/250mmStrikeCannons"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="250mmStrikeCannons"/>
+        <DefaultButtonLayout Row="2"/>
     </CButton>
     <CButton id="AeroDefensiveMatrix">
         <Icon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
@@ -1070,6 +1108,7 @@
         <Icon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="InfestedInfestationSpore">
         <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
@@ -1087,11 +1126,13 @@
         <Icon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
     <CButton id="MechPointDefenseDrones">
         <Icon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
+        <DefaultButtonLayout Row="1"/>
     </CButton>
     <CButton id="HunterScarabMine">
         <Icon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
@@ -1157,6 +1198,7 @@
         <Icon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
     <CButton id="SniperNuclearStrike">
         <Icon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
