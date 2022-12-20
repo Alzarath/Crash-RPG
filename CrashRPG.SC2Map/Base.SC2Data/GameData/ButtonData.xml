@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton default="1" id="ActivePrimaryButton">
+        <TooltipAppender Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+        <DefaultButtonLayout Row="2"/>
+    </CButton>
+    <CButton default="1" id="ActiveSecondaryButton">
+        <TooltipAppender Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton default="1" id="ActiveTernaryButton">
+        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+        <DefaultButtonLayout Row="2" Column="2"/>
+    </CButton>
+    <CButton default="1" id="PassivePrimaryButton">
+        <TooltipAppender Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton default="1" id="PassiveSecondaryButton">
+        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
     <CButton id="AeroDefensiveMatrix@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
@@ -576,33 +601,29 @@
         <TintRacially value="1"/>
         <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
-    <CButton id="MedicHealingBeam">
+    <CButton id="MedicHealingBeam" parent="ActivePrimaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="2"/>
     </CButton>
-    <CButton id="MedicSpawnMedivac">
+    <CButton id="MedicSpawnMedivac" parent="ActiveTernaryButton">
         <Icon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
-    <CButton id="MedicOpticalFlare">
+    <CButton id="MedicOpticalFlare" parent="PassivePrimaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="1"/>
     </CButton>
     <CButton id="MedicRestoration">
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="MedicSelfixArmor">
+    <CButton id="MedicSelfixArmor" parent="PassiveSecondaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
-        <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
     <CButton id="CRPGDefensiveFortification">
         <Icon value="Assets\Textures\btn-building-terran-bunker.dds"/>
@@ -706,13 +727,10 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="ShooterOverkill"/>
     </CButton>
-    <CButton id="ShooterSandbags">
+    <CButton id="ShooterSandbags" parent="ActiveTernaryButton">
         <Icon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="2" Column="2"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/ShooterSandbags@Upgraded"/>
     </CButton>
     <CButton id="ShooterSandbags@Learn">
         <Icon value="Assets\Textures\btn-unit-neutral-sandbags.dds"/>
@@ -1085,11 +1103,10 @@
         <HotkeyAlias value="250mmStrikeCannons"/>
         <DefaultButtonLayout Row="2"/>
     </CButton>
-    <CButton id="AeroDefensiveMatrix">
+    <CButton id="AeroDefensiveMatrix" parent="ActiveSecondaryButton">
         <Icon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-defensivematrix.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
     <CButton id="AeroTacticalJump">
         <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
