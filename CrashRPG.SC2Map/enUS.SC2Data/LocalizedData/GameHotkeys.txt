@@ -89,7 +89,6 @@ Button/Hotkey/InfestedInfestedEggs@Learn=Q
 Button/Hotkey/InfestedInfestedEggs@Upgraded=
 Button/Hotkey/MechExplosiveImmortality=E
 Button/Hotkey/MechExplosiveImmortality@Learn=E
-Button/Hotkey/MechImmortalityProtocol=I
 Button/Hotkey/MechMultiLockTargetingSystem@Learn=S
 Button/Hotkey/MechPointDefenseDrones@Learn=A
 Button/Hotkey/MechPointDefenseDrones@Upgraded=A

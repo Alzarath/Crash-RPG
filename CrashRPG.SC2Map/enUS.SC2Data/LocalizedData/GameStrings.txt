@@ -507,7 +507,6 @@ Button/Name/MechBarrage=Barrage
 Button/Name/MechBarrage@Learn=Learn Barrage
 Button/Name/MechExplosiveImmortality=Explosive Immortality
 Button/Name/MechExplosiveImmortality@Learn=Learn Explosive Immortality
-Button/Name/MechImmortalityProtocol=Immortality Protocol
 Button/Name/MechMultiLockTargetingSystem=Multi-Lock Targeting System
 Button/Name/MechMultiLockTargetingSystem@Learn=Learn Multi-Lock Targeting System
 Button/Name/MechPointDefenseDrones=Point Defense Drones
@@ -677,7 +676,7 @@ Button/Tooltip/CRPGInfested=Supportive summoner. Uses Infested Terran to attack<
 Button/Tooltip/CRPGLevelUp=Levels up the hero to the next available level, granting it additional abilties.
 Button/Tooltip/CRPGMarauder=Anti-armor infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGMarine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/CRPGMech=Tough machine. Uses defensive and area of effect abilities.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Barrage</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Point Defense Drone</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Shock Blast</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Multi-Lock Targeting System</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Explosive Immortality</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGMech=Durable machine. Uses destructive area and defensive abilities.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Barrage</c><n/><c val="#ColorActiveAbilityInfo">Shock Blast</c><n/><c val="#ColorActiveAbilityInfo">Explosive Immortality</c><n/><c val="#ColorPassiveAbilityInfo">Point Defense Drones</c><n/><c val="#ColorPassiveAbilityInfo">Multi-Lock Targeting System</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units</c>
 Button/Tooltip/CRPGMedic=Support trooper. Heals nearby units.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Healing Beam</c><n/><c val="#ColorActiveAbilityInfo">Irradiate</c><n/><c val="#ColorActiveAbilityInfo">Medivac</c><n/><c val="#ColorPassiveAbilityInfo">Optical Flare</c><n/><c val="#ColorPassiveAbilityInfo">Selfix Armor</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units</c>
 Button/Tooltip/CRPGMedicLevel2=Support trooper. Heals nearby biological units.
 Button/Tooltip/CRPGMedicLevel22=Support trooper. Heals nearby biological units.
@@ -785,7 +784,6 @@ Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBa
 Button/Tooltip/MechBarrage@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechBarrage,Cost[0].Vital[Energy]"/><n/><n/>Deals <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@Damage,Amount"/> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
 Button/Tooltip/MechExplosiveImmortality=The caster self-destructs, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechExplosiveImmortality@Damage,Amount$"/></c> damage in a massive area around it while disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/>.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
 Button/Tooltip/MechExplosiveImmortality@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechExplosiveImmortality,Cost[0].Cooldown.TimeUse"/><n/><n/>Self-destruct, disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/> and dealing <d ref="Effect,MechExplosiveImmortality@Damage,Amount"/> damage to nearby enemies.
-Button/Tooltip/MechImmortalityProtocol=Allows a detonated Mech to be rebuilt in the field.
 Button/Tooltip/MechMultiLockTargetingSystem=The hero can target ground and air units simultaneously.
 Button/Tooltip/MechMultiLockTargetingSystem@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>The hero can target ground and air units simultaneously.
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
@@ -900,6 +898,7 @@ DataCollection/Name/CRPGDefensiveWall=Defensive Wall
 DataCollection/Name/CRPGFighter=Fighter
 DataCollection/Name/CRPGHunter=Hunter
 DataCollection/Name/CRPGInfested=Infested
+DataCollection/Name/CRPGMech=Mech
 DataCollection/Name/CRPGMedic=Medic
 DataCollection/Name/CRPGMedivacTransport=Transport
 DataCollection/Name/CRPGShooter=Shooter
@@ -2490,7 +2489,7 @@ Unit/Name/CRPGInfested=Infested
 Unit/Name/CRPGMarauder=Marauder
 Unit/Name/CRPGMarine=Marine
 Unit/Name/CRPGMech=Mech
-Unit/Name/CRPGMechLevel1=Hellbat
+Unit/Name/CRPGMech@Level1=Hellbat
 Unit/Name/CRPGMedic=Medic
 Unit/Name/CRPGMedicLevel1=Medic
 Unit/Name/CRPGMedicLevel2=Medic

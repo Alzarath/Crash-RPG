@@ -467,12 +467,6 @@
         <Field value="PlaneArray[0]"/>
         <Value value="1"/>
     </CValidatorUnitCompareField>
-    <CValidatorUnitOrderQueue id="MechNotSelfRepairing">
-        <AbilLink value="MechImmortalityProtocol"/>
-        <Find value="0"/>
-        <Queued value="1"/>
-        <Target Value="CasterUnit"/>
-    </CValidatorUnitOrderQueue>
     <CValidatorUnitCompareBehaviorCount id="Following">
         <WhichUnit Value="Source"/>
         <Compare value="GT"/>
@@ -777,7 +771,7 @@
     <CValidatorUnitType id="InfestedIsInfestedMarine">
         <Value value="InfestedInfestedMarine"/>
     </CValidatorUnitType>
-    <CValidatorUnitCompareBehaviorCount id="MechNotShocking">
+    <CValidatorUnitCompareBehaviorCount id="MechShockBlast@NotTakingDamage">
         <Behavior value="MechShockBlast@Damaging"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="ShipCloakingFieldOutOfCombat">

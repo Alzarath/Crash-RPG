@@ -4745,7 +4745,7 @@
         <AreaArray Radius="1" RadiusBonus="0.3" Effect="MechShockBlast@SetSearch"/>
     </CEffectEnumArea>
     <CEffectSet id="MechShockBlast@SetSearch">
-        <ValidatorArray value="MechNotShocking"/>
+        <ValidatorArray value="MechShockBlast@NotTakingDamage"/>
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="MechShockBlast@ABStun"/>
         <EffectArray value="MechShockBlast@ABDamage"/>

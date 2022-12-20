@@ -2185,7 +2185,7 @@
         <On Terms="UnitDeath.CRPGInfested; ValidateUnit CasterIsLevel5" Send="Create"/>
         <Sound value="Infestor_Death"/>
     </CActorSound>
-    <CActorUnit id="CRPGMechLevel1" parent="GenericUnitHeroBase" unitName="CRPGMech" level="1">
+    <CActorUnit id="CRPGMech@Level1" parent="GenericUnitHeroBase" unitName="CRPGMech" level="1">
         <Aliases value="_UnitMedium"/>
         <Macros value="UnloadDropAnim"/>
         <Macros value="TerrainSquibAnimations"/>
@@ -2243,6 +2243,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-HellionTankEx1.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\btn-unit-terran-hellionbattlemode.dds"/>
+        <HighlightTooltip value="Unit/Name/CRPGMech@Level1"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
         <SoundArray index="Ready" value="HellionTank_Ready"/>
         <SoundArray index="Help" value="HellionTank_Help"/>
@@ -2255,9 +2256,8 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Terran-HellionTankEx1.dds"/>
         </Wireframe>
-        <HighlightTooltip value="Unit/Name/CRPGMechLevel1"/>
     </CActorUnit>
-    <CActorUnit id="CRPGMechLevel2" parent="GenericUnitHeroLeveled" unitName="CRPGMech" level="2">
+    <CActorUnit id="CRPGMech@Level2" parent="GenericUnitHeroLeveled" unitName="CRPGMech" level="2">
         <Aliases value="_UnitMedium"/>
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
@@ -2344,7 +2344,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-Viking-Assault.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGMechLevel3" parent="GenericUnitHeroLeveled" unitName="CRPGMech" level="3">
+    <CActorUnit id="CRPGMech@Level3" parent="GenericUnitHeroLeveled" unitName="CRPGMech" level="3">
         <Aliases value="_UnitLarge"/>
         <Macros value="UnloadDropAnim"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
@@ -2430,7 +2430,7 @@
             <Image value="Assets\Textures\Wireframe-terran-warhound.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGMechLevel4" parent="GenericUnitHeroLeveled" unitName="CRPGMech" level="4">
+    <CActorUnit id="CRPGMech@Level4" parent="GenericUnitHeroLeveled" unitName="CRPGMech" level="4">
         <Aliases value="_UnitLarge"/>
         <Macros value="UnloadDropAnim"/>
         <Macros value="TerrainSquibAnimations"/>
@@ -2496,7 +2496,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-goliath.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGMechLevel5" parent="GenericUnitHeroLeveled" unitName="CRPGMech" level="5">
+    <CActorUnit id="CRPGMech@Level5" parent="GenericUnitHeroLeveled" unitName="CRPGMech" level="5">
         <Aliases value="_UnitHuge"/>
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
@@ -2561,6 +2561,7 @@
             <VoiceLink value="ShadowUnit_DeathVox"/>
             <Name value="Shadow"/>
         </DeathCustoms>
+        <DeathActorModelLow value="UnitDeathModel"/>
         <PlacementModel value="ThorSmall"/>
         <PortraitModel value="ThorPortrait"/>
         <StandAnimTurnTime value="5"/>
@@ -2603,7 +2604,6 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Terran-Thor.dds"/>
         </Wireframe>
-        <DeathActorModelLow value="UnitDeathModel"/>
     </CActorUnit>
     <CActorUnit id="CRPGMedic" parent="GenericUnitHeroBase" unitName="CRPGMedic" level="1">
         <Aliases value="_UnitSmall"/>
@@ -8723,8 +8723,8 @@
         <HostImpact Subject="_Missile" Actor="Find"/>
         <HostImpactSiteOps Ops="SOpAttachCenter"/>
     </CActorBeamSimple>
-    <CActorSound id="MechDeathLevel3" parent="SoundOneShot">
-        <On Terms="UnitDeath.CRPGMechLevel3; PassChance 25.000000" Send="Create"/>
+    <CActorSound id="CRPGMech@SoundDeath3" parent="SoundOneShot">
+        <On Terms="UnitDeath.CRPGMech; ValidateUnit CasterIsLevel3" Send="Create"/>
         <Sound value="WarHound_Death"/>
     </CActorSound>
     <CActorAction id="VehicleFragmentationGrenadeAttack" parent="GenericAttack" effectImpact="VehicleFragmentationGrenadeDamage" effectLaunch="VehicleFragmentationGrenadeMissile">

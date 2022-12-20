@@ -216,6 +216,17 @@
         <DataRecord Entry="Actor,CRPGInfested@Level5"/>
         <DataRecord Entry="Unit,CRPGInfested"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit id="CRPGMech">
+        <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Hero"/>
+        <DataRecord Entry="Actor,CRPGMech@Level1"/>
+        <DataRecord Entry="Actor,CRPGMech@Level2"/>
+        <DataRecord Entry="Actor,CRPGMech@Level3"/>
+        <DataRecord Entry="Actor,CRPGMech@Level4"/>
+        <DataRecord Entry="Actor,CRPGMech@Level5"/>
+        <DataRecord Entry="Actor,CRPGMech@SoundDeath3"/>
+        <DataRecord Entry="Behavior,CRPGMech@Veterancy"/>
+        <DataRecord Entry="Unit,CRPGMech"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGMedic">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Hero"/>
         <DataRecord Entry="Actor,CRPGMedic"/>
