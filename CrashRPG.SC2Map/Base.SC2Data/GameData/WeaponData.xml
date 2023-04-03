@@ -87,6 +87,7 @@
         <DamagePoint value="0.05"/>
         <Backswing value="0.75"/>
         <Effect value="MarineC14GaussRifleDamage"/>
+        <AllowedMovement value="Moving"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="DefensiveTurretLongboltMissile">
         <EditorCategories value="Race:Terran"/>

@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CButton default="1" id="ActivePrimaryButton">
-        <TooltipAppender Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+    <CButton default="1" id="CButtonUpgradeable">
+        <?token id="upgradeValidator" type="CValidatorLink"?>
+        <TooltipAppender Validator="##upgradeValidator##" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender Validator="##upgradeValidator##" Text="Button/Tooltip/##id##@Upgraded"/>
+    </CButton>
+    <CButton default="1" id="ActivePrimaryButton" parent="CButtonUpgradeable">
+        <?token id="upgradeValidator" type="CValidatorLink" value="CRPGAbilityUpgradePrimary@Upgraded"?>
+        <TooltipAppender index="0" Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
         <DefaultButtonLayout Row="2"/>
     </CButton>
-    <CButton default="1" id="ActiveSecondaryButton">
-        <TooltipAppender Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+    <CButton default="1" id="ActiveSecondaryButton" parent="CButtonUpgradeable">
+        <?token id="upgradeValidator" type="CValidatorLink" value="CRPGAbilityUpgradeSecondary@Upgraded"?>
+        <TooltipAppender index="0" Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
         <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
-    <CButton default="1" id="ActiveTernaryButton">
-        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+    <CButton default="1" id="ActiveTernaryButton" parent="CButtonUpgradeable">
+        <?token id="upgradeValidator" type="CValidatorLink" value="CRPGAbilityUpgradeTernary@Upgraded"?>
+        <TooltipAppender index="0" Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
         <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
-    <CButton default="1" id="PassivePrimaryButton">
-        <TooltipAppender Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+    <CButton default="1" id="PassivePrimaryButton" parent="CButtonUpgradeable">
+        <?token id="upgradeValidator" type="CValidatorLink" value="CRPGAbilityUpgradePassivePrimary@Upgraded"?>
+        <TooltipAppender index="0" Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
         <DefaultButtonLayout Row="1"/>
     </CButton>
-    <CButton default="1" id="PassiveSecondaryButton">
-        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
+    <CButton default="1" id="PassiveSecondaryButton" parent="CButtonUpgradeable">
+        <?token id="upgradeValidator" type="CValidatorLink" value="CRPGAbilityUpgradePassiveSecondary@Upgraded"?>
+        <TooltipAppender index="0" Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/##id##@Upgraded"/>
         <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
     <CButton id="AeroDefensiveMatrix@Upgraded">
@@ -764,13 +774,10 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="ShooterGravityGrenade"/>
     </CButton>
-    <CButton id="ShooterOverkill">
+    <CButton id="ShooterOverkill" parent="ActivePrimaryButton">
         <Icon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="2"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePrimary@Upgraded" Text="Button/Tooltip/ShooterOverkill@Upgraded"/>
     </CButton>
     <CButton id="ShooterOverkill@Learn">
         <Icon value="Assets\Textures\btn-upgrade-terran-nova-shotgunaoe.dds"/>
@@ -908,22 +915,17 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="ShooterScatterShot"/>
     </CButton>
-    <CButton id="ShooterStimpack">
+    <CButton id="ShooterStimpack" parent="PassiveSecondaryButton">
+        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@NotUpgraded" Text="Button/Tooltip/ShooterStimpack@Unupgraded"/>
         <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="1" Column="1"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@NotUpgraded" Text="Button/Tooltip/ShooterStimpack@Unupgraded"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Text="Button/Tooltip/ShooterStimpack@Upgraded"/>
     </CButton>
-    <CButton id="ShooterChaingun">
+    <CButton id="ShooterChaingun" parent="PassivePrimaryButton">
         <Icon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-tychus-attackspeed.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="1"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradePassivePrimary@Upgraded" Text="Button/Tooltip/ShooterChaingun@Upgraded"/>
+        <ChargeText value="Button/ChargeText/ShooterChaingun"/>
     </CButton>
     <CButton id="ShooterScatterShot">
         <Icon value="Assets\Textures\btn-upgrade-terran-explosiveshrapnelshells.dds"/>
@@ -1031,14 +1033,6 @@
         <AlertIcon value="Assets\Textures\decal_spray_0016_01.dds"/>
         <EditorCategories value="Race:Neutral"/>
         <DefaultButtonLayout Row="2"/>
-    </CButton>
-    <CButton id="ShooterGravityGrenade">
-        <Icon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
-        <EditorCategories value="Race:Terran"/>
-        <DefaultButtonLayout Row="2" Column="1"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/UpgradePrefix"/>
-        <TooltipAppender Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/ShooterGravityGrenade@Upgraded"/>
     </CButton>
     <CButton id="UpgradeEnergy">
         <Tooltip value="Button/Tooltip/CRPGEnergyAttribute"/>
@@ -1368,5 +1362,10 @@
     <CButton id="AlienYagdraFirebreath">
         <Icon value="Assets\Textures\btn-tips-walloffire.dds"/>
         <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="ShooterGravityGrenade" parent="ActiveSecondaryButton" upgradeValidator="">
+        <Icon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-tychus-tychus-shreddergrenade.dds"/>
+        <EditorCategories value="Race:Terran"/>
     </CButton>
 </Catalog>

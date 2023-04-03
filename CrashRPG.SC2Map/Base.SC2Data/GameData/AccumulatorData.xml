@@ -104,7 +104,9 @@
         <Parameters value="0">
             <AccumulatorArray value="ShooterStimpack@StackAddition"/>
         </Parameters>
-        <Parameters value="0.25"/>
+        <Parameters value="0">
+            <AccumulatorArray value="ShooterStimpack@Value"/>
+        </Parameters>
         <Operation value="Multiply"/>
     </CAccumulatorArithmetic>
     <CAccumulatorBehavior id="ShooterChaingun@Stacks">
@@ -114,7 +116,9 @@
         <Parameters value="0">
             <AccumulatorArray value="ShooterChaingun@Stacks"/>
         </Parameters>
-        <Parameters value="0.125"/>
+        <Parameters value="0">
+            <AccumulatorArray value="ShooterChaingun@Value"/>
+        </Parameters>
         <Operation value="Multiply"/>
     </CAccumulatorArithmetic>
     <CAccumulatorBehavior id="ShooterStimpack@Stacks">
@@ -140,6 +144,12 @@
     <CAccumulatorBehavior id="ShooterStimpack@StacksPermanent">
         <Behavior value="ShooterStimpack@Permanent"/>
     </CAccumulatorBehavior>
+    <CAccumulatorConstant id="ShooterStimpack@Value">
+        <Amount value="0.25"/>
+    </CAccumulatorConstant>
+    <CAccumulatorConstant id="ShooterChaingun@Value">
+        <Amount value="0.125"/>
+    </CAccumulatorConstant>
     <CAccumulatorAttributePoints id="UnitDamagePoints">
         <Attribute value="CRPGDamageAttributeUnit"/>
         <Scale value="0.0625"/>

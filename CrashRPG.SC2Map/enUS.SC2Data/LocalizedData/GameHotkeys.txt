@@ -26,6 +26,7 @@ Button/Hotkey/AlienYagdraFirebreath=B
 Button/Hotkey/AlienYagdraSpitFire=F
 Button/Hotkey/AssassinShadowFury=E
 Button/Hotkey/BossLock=B
+Button/Hotkey/CButtonUpgradeable=A
 Button/Hotkey/CRPGAbilityUpgradePassivePrimary=A
 Button/Hotkey/CRPGAbilityUpgradePassiveSecondary=S
 Button/Hotkey/CRPGAbilityUpgradePrimary=Z

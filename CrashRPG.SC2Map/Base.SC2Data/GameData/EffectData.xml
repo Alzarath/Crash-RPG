@@ -370,6 +370,12 @@
         <ImpactEffect value="AeroLaserArmaments@SAImpact"/>
         <AmmoUnit value="AeroLaserArmaments@Weapon"/>
     </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="ShooterChaingun@ABValidated">
+        <ValidatorArray index="0" value="CRPGPassive1Learned"/>
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="ShooterChaingun@Buff"/>
+    </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ShooterOverkill@AB">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Caster"/>
@@ -1997,6 +2003,7 @@
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="ShooterGaussRifle@ABCooldownTracker"/>
         <EffectArray value="ShooterOverkill@SA"/>
+        <EffectArray value="ShooterChaingun@ABValidated"/>
     </CEffectSet>
     <CEffectEnumArea id="ShooterOverkill@SA">
         <EditorCategories value="Race:Terran"/>

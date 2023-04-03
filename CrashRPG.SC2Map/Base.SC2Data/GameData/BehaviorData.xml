@@ -560,7 +560,9 @@
         <MaxStackCount value="6"/>
         <Duration value="2"/>
         <Modification>
-            <AdditiveAttackSpeedFactor value="0.125"/>
+            <AdditiveAttackSpeedFactor value="0">
+                <AccumulatorArray value="ShooterChaingun@Value"/>
+            </AdditiveAttackSpeedFactor>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShooterOverkill@RemainingDuration">
@@ -791,8 +793,12 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="20"/>
         <Modification>
-            <AdditiveMoveSpeedFactor value="0.25"/>
-            <AdditiveAttackSpeedFactor value="0.25"/>
+            <AdditiveMoveSpeedFactor value="0">
+                <AccumulatorArray value="ShooterStimpack@Value"/>
+            </AdditiveMoveSpeedFactor>
+            <AdditiveAttackSpeedFactor value="0">
+                <AccumulatorArray value="ShooterStimpack@Value"/>
+            </AdditiveAttackSpeedFactor>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShooterStimpack@Permanent" parent="ShooterStimpack">

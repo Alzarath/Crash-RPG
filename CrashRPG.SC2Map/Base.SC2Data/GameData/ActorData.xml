@@ -6558,7 +6558,6 @@
     <CActorSound id="FighterRapidStrikes@SoundLoop" parent="SoundContinuous">
         <On Terms="Behavior.FighterRapidStrikes.On" Send="Create"/>
         <On Terms="Behavior.FighterRapidStrikes.Off" Send="Destroy"/>
-        <Host Subject="BattlecruiserYamatoAttackChargeModel"/>
         <Sound value="FighterRapidStrikes@Loop"/>
     </CActorSound>
     <CActorRange id="AeroYamatoCannon@Range" parent="RangeAbil" abil="AeroYamatoCannon">

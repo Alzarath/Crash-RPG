@@ -378,6 +378,7 @@ Behavior/Tooltip/WizardPsionicStorm=Target is under the effects of Psionic Storm
 Behavior/Tooltip/WizardPsionicStormRestore=Target is under the effects of Psionic Storm and will restore shields while in this area of effect.
 Behavior/Tooltip/WizardReanimated=Target is serving a new master.
 Behavior/Tooltip/WizardReanimating=Target is resurrecting.
+Button/ChargeText/ShooterChaingun=<d ref="100 * $BehaviorStackCount:ShooterChaingun@Buff$ * Accumulator,ShooterChaingun@Value,Amount"/>%
 Button/Name/ActiveSecondaryButton=ActiveSecondaryButton
 Button/Name/ActiveTernaryButton=ActiveTernaryButton
 Button/Name/ActiveTernaryButton2=ActiveTernaryButton Copy
@@ -427,6 +428,7 @@ Button/Name/AlienYagdraFirebreath=Fire Breath
 Button/Name/AlienYagdraSpitFire=Spit Fire
 Button/Name/AssassinShadowFury=Shadow Fury
 Button/Name/BossLock=Boss Lock
+Button/Name/CButtonUpgradeable=CButtonUpgradeable
 Button/Name/CRPGAbilityUpgradePassivePrimary=Primary Passive Upgrade
 Button/Name/CRPGAbilityUpgradePassiveSecondary=Secondary Passive Upgrade
 Button/Name/CRPGAbilityUpgradePrimary=Primary Ability Upgrade
@@ -653,6 +655,8 @@ Button/Tooltip/AlienYagdraFirebreath=Channels a cone of acid. Will turn to chase
 Button/Tooltip/AlienYagdraSpitFire=Yagdra spits acid at the target location after 2 seconds.
 Button/Tooltip/AssassinShadowFury=Become invisible and unrevealable, jumping between <d ref="Behavior,FighterShadowFuryController,PeriodCount+1"/> targets, slashing at each <d ref="Effect,FighterShadowFuryAttackCreatePersistent,PeriodCount"/> (<d ref="Effect,FighterShadowFuryAttackRapidCreatePersistent2,PeriodCount"/> while Rapid Strikes is active) times.
 Button/Tooltip/BossLock=Locks onto a heroic unit, preventing this unit from being damaged while it exists.
+Button/Tooltip/CButtonUpgradeable=Increase the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% every time they attack, stacking up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
+Button/Tooltip/CButtonUpgradeable@Upgraded=Chaingun lasts an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
 Button/Tooltip/CRPGAbilityUpgradePassivePrimary=Upgrades your heroes' first passive ability.
 Button/Tooltip/CRPGAbilityUpgradePassiveSecondary=Upgrades your heroes' second passive ability.
 Button/Tooltip/CRPGAbilityUpgradePrimary=Upgrades your heroes' basic active ability.
@@ -842,23 +846,23 @@ Button/Tooltip/ShipDisruptionWeb=Creates a web of energy on the ground that prev
 Button/Tooltip/ShipPurifierTurrets=The unit may move while firing its weapon. Its attacks slow enemies.
 Button/Tooltip/ShipSolariteExposure=Causes enemy units and structures within the target area to grant vision for <d ref="Behavior,ShipSolariteExposure,Duration"/> seconds. Deals <c val="#ColorAttackInfo"><d ref="Effect,ShipSolariteExposureDamage,Amount"/></c> damage per second and reveals cloaked or burrowed units and structures.
 Button/Tooltip/ShipVortex=Creates a gravity Vortex that stuns ground and air units in the target area. Units within the Vortex are invulnerable to all damage and effects. Lasts for <d time="20"/>.
-Button/Tooltip/ShooterChaingun=Increase the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% every time they attack, stacking up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
-Button/Tooltip/ShooterChaingun@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Attacking increases the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%.
+Button/Tooltip/ShooterChaingun=Increase the hero's attack speed by <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$" precision="1"/>% every time they attack, stacking up to <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$ * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
+Button/Tooltip/ShooterChaingun@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Attacking increases the hero's attack speed by <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$" precision="1"/>% up to <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$ * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%.
 Button/Tooltip/ShooterChaingun@Upgraded=Chaingun lasts an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
 Button/Tooltip/ShooterDisableScatterShot=Returns the caster's projectiles to normal.
 Button/Tooltip/ShooterGravityGrenade=Tosses a grenade that explodes, hitting ground units for <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ShooterGravityGrenade@Damage,Amount$"/></c> damage in a small radius. Stuns units hit and pulls them toward the center over <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds.
 Button/Tooltip/ShooterGravityGrenade@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Cooldown.TimeUse"/><n/><n/>Tosses a grenade that deals <d ref="Effect,ShooterGravityGrenade@Damage,Amount"/> damage and stuns ground units for <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds in a small area.
 Button/Tooltip/ShooterGravityGrenade@Upgraded=Gravity Grenade has a <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradeSecondary:Effect,ShooterGravityGrenade@SA,AreaArray[0].Radius$"/>% larger radius and stuns for <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeSecondary:Behavior,ShooterGravityGrenade@KnockIn,Duration$" precision="2"/> seconds longer.
 Button/Tooltip/ShooterLuckyShot=Every fourth attack, increase the caster's base damage by <d ref="Behavior,ShooterLuckyShotProc,Modification.DamageDealtScaled[Ranged] / Effect,ShooterGaussRifleDamage,Amount * 100"/>%.
-Button/Tooltip/ShooterOverkill=The caster repeatedly attacks, dealing damage to all units in a cone in front of them for <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>. Moving cancels the effect.
+Button/Tooltip/ShooterOverkill=Attacks all enemy units in a cone in front of the caster over <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>. Moving cancels the effect.
 Button/Tooltip/ShooterOverkill@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterOverkill,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse"/><n/><n/>Fires the caster's weapon in a cone over <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>.
 Button/Tooltip/ShooterOverkill@Upgraded=Overkill's cooldown is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse$'/]"/>. A percentage of its energy cost is refunded when interrupted based on channel time.
 Button/Tooltip/ShooterSandbags=Places a sandbag that has the same attack priority as a combat hero. Allied ground units near a Sandbag take <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage from ranged attacks. Sandbags are structures that last <d time="[d ref='Behavior,SandbagCover,Duration'/]"/>.
 Button/Tooltip/ShooterSandbags@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterSandbags,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterSandbags,Cost[0].Charge.TimeUse"/><n/><n/>Places a sandbag that distracts enemies and grants <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage reduction from ranged attacks for <d time="[d ref='Behavior,SandbagCover,Duration'/]"/>.
 Button/Tooltip/ShooterSandbags@Upgraded=Sandbags are affected by their own ranged damage reduction and additionally grant +1 range to nearby allies.
 Button/Tooltip/ShooterScatterShot=The caster's projectiles explode, randomly dealing an additional <d> damage to up to <d> units in an area around the attack target. May affect the initial attack target.<n/><n/><c val="f078ff">Costs <d ref="Effect,ShooterScatterShotModifyUnit,VitalArray[Energy].Change * (-1)"/> energy per shot.</c>
-Button/Tooltip/ShooterStimpack=Upon entering combat, the unit is injected with powerful stimulants that increase attack and movement speeds by <d ref="Behavior,ShooterStimpack,Modification.AdditiveAttackSpeedFactor * 100"/>%.
-Button/Tooltip/ShooterStimpack@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterStimpack@Dummy,Cost[0].Cooldown.TimeUse"/><n/><n/>Enterting combat increases attack and movement speeds by <d ref="Behavior,ShooterStimpack,Modification.AdditiveAttackSpeedFactor * 100"/>% for <d ref="Behavior,ShooterStimpack,Duration"/> seconds.
+Button/Tooltip/ShooterStimpack=Upon entering combat, the unit is injected with powerful stimulants that increase attack and movement speeds by <d ref="$AccumulatedValue:Behavior,ShooterStimpack,Modification.AdditiveAttackSpeedFactor$ * 100"/>%.
+Button/Tooltip/ShooterStimpack@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterStimpack@Dummy,Cost[0].Cooldown.TimeUse"/><n/><n/>Enterting combat increases attack and movement speeds by <d ref="$AccumulatedValue:Behavior,ShooterStimpack,Modification.AdditiveAttackSpeedFactor$ * 100"/>% for <d ref="Behavior,ShooterStimpack,Duration"/> seconds.
 Button/Tooltip/ShooterStimpack@Unupgraded= Lasts <d ref="Behavior,ShooterStimpack,Duration"/> seconds.
 Button/Tooltip/ShooterStimpack@Upgraded=Stimpack lasts forever and grants <d ref="Behavior,ShooterStimpack@Permanent,Modification.VitalRegenArray[Life]"/> life regeneration.
 Button/Tooltip/SniperBetterEquipment=Weapon range is increased by <d ref="Weapon,SniperC20ACanisterRifle,Range - Weapon,SniperC10CanisterRifle,Range"/> and sight range is increased by <d ref="Behavior,SniperBetterEquipment,Modification.SightBonus"/>.
@@ -1952,6 +1956,7 @@ Effect/Name/ShipWarpspaceCannonDamage=Warpspace Cannon
 Effect/Name/ShipWarpspaceCannonLaunchMissile=Warpspace Cannon
 Effect/Name/ShooterAGR14GaussRifle=AGR-14 Gauss Rifle
 Effect/Name/ShooterChaingun@AB=Apply Behavior
+Effect/Name/ShooterChaingun@ABValidated=Apply Behavior
 Effect/Name/ShooterGaussRifle@ABCooldownTracker=Apply Behavior
 Effect/Name/ShooterGaussRifle@Damage=Damage
 Effect/Name/ShooterGaussRifle@Set=Set

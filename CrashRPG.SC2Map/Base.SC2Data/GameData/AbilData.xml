@@ -1944,7 +1944,7 @@
         <Effect index="0" value="SniperNuclearStrike@CPChannel"/>
         <Cost>
             <Vital index="Energy" value="200"/>
-            <Cooldown TimeUse="60"/>
+            <Cooldown TimeUse="150"/>
         </Cost>
         <Range value="12"/>
         <FinishTime value="0"/>
