@@ -7615,7 +7615,10 @@
         <Range value="6.000000"/>
         <Icon value="Assets\Textures\RadarIcon2.dds"/>
     </CActorRange>
-    <CActorRange id="MechShockBlast@Range" parent="RangeAbil" abil="MechShockBlast"/>
+    <CActorRange id="MechShockBlast@Range" parent="RangeAbilHover" abil="MechShockBlast">
+        <Abil Link=""/>
+        <Range value="5.200000"/>
+    </CActorRange>
     <CActorBeamSimple id="VehicleLockOnTrackingBeam" parent="BeamSimpleAnimationStyleContinuous">
         <On Terms="Effect.VehicleLockOnTurretClear.Start; At Caster" Send="AnimBracketStop BSD"/>
         <On Terms="ActorCreation" Send="Create VehicleLockOnTrackingRange"/>
