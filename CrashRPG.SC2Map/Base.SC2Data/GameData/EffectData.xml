@@ -237,7 +237,9 @@
         <ValidatorArray value="CasterIsNotHidden"/>
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="15"/>
+        <Amount value="15">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
     </CEffectDamage>
     <CEffectApplyBehavior id="MechExplosiveImmortality@AB">
         <EditorCategories value="Race:Terran"/>
@@ -1813,7 +1815,9 @@
         <ValidatorArray value="CasterIsNotHidden"/>
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="15"/>
+        <Amount value="15">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
     </CEffectDamage>
     <CEffectApplyBehavior id="MedicHealingBeam@AB">
         <EditorCategories value="Race:Terran"/>
@@ -5033,7 +5037,9 @@
     </CEffectLaunchMissile>
     <CEffectDamage id="MechHellfireMissiles@Damage" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Terran"/>
-        <Amount value="10"/>
+        <Amount value="15">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
     </CEffectDamage>
     <CEffectApplyBehavior id="CRPGUnderlingLevel@ABLevel1">
         <Name value="Effect/Name/CRPGUnderlingLevel@AB"/>
