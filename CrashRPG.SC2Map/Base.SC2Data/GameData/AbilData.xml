@@ -1287,41 +1287,6 @@
         <EffectArray index="Finish" value="Suicide"/>
         <EffectArray index="Cancel" value="Suicide"/>
     </CAbilBuild>
-    <CAbilMorph id="MechImmortalityProtocol">
-        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MechImmortalityProtocol"/>
-        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
-        <Flags index="AutoCast" value="1"/>
-        <Flags index="AutoCastOn" value="1"/>
-        <Flags index="BestUnit" value="1"/>
-        <Flags index="FastBuild" value="1"/>
-        <Flags index="IgnoreFacing" value="1"/>
-        <Flags index="ShowProgress" value="1"/>
-        <Flags index="SuppressMovement" value="1"/>
-        <RefundFraction>
-            <Resource index="Minerals" value="0"/>
-            <Resource index="Vespene" value="0"/>
-            <Resource index="Terrazine" value="0"/>
-            <Resource index="Custom" value="0"/>
-        </RefundFraction>
-        <InfoArray Score="1" Unit="CRPGMech">
-            <SectionArray index="Abils">
-                <DurationArray index="Delay" value="20"/>
-            </SectionArray>
-            <SectionArray index="Actor">
-                <DurationArray index="Duration" value="20"/>
-            </SectionArray>
-            <SectionArray index="Collide">
-                <DurationArray index="Delay" value="20"/>
-            </SectionArray>
-            <SectionArray index="Stats">
-                <DurationArray index="Delay" value="20"/>
-            </SectionArray>
-        </InfoArray>
-        <Alert value="RebornComplete"/>
-        <AutoCastCountMax value="4294967295"/>
-        <ValidatorArray value="MechNotSelfRepairing"/>
-    </CAbilMorph>
     <CAbilEffectInstant id="MechExplosiveImmortality">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Levels value="1"/>
@@ -1675,11 +1640,6 @@
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
     </CAbilEffectTarget>
-    <CAbilEffectInstant id="MechCalldownMech">
-        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
-        <Effect index="0" value="MechCalldownMechApplyBehavior"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MechCalldownMech" Requirements="CRPGInRangeofCrashedBattlecruiser"/>
-    </CAbilEffectInstant>
     <CAbilArmMagazine id="HunterPsionicProjection">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Flags index="AutoCastOffOwnerLeave" value="0"/>

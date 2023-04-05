@@ -460,7 +460,7 @@
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="PointDefenseDroneLaser@NotOnCooldownRepair">
         <WhichUnit Value="Caster"/>
-        <Behavior value="PointDefenseDroneLaser@CooldownAntiMissile"/>
+        <Behavior value="PointDefenseDroneLaser@CooldownRepair"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareField id="SourceIsNotAirUnit">
         <WhichUnit Value="Source"/>

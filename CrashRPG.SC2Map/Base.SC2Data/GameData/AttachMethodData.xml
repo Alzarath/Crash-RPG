@@ -3,6 +3,10 @@
     <CAttachMethodFilter id="AMFilterWeapon09">
         <Keys Keyword="Weapon" Index="9"/>
     </CAttachMethodFilter>
+    <CAttachMethodFilter id="AMFilterWeaponSetB0">
+        <Keys Keyword="Weapon"/>
+        <Keys Keyword="SetB" Index="0"/>
+    </CAttachMethodFilter>
     <CAttachMethodPattern id="AMPatternHunterScatterCannon">
         <Keyword value="Weapon"/>
         <Base value="::RollingIndex"/>
@@ -13,21 +17,13 @@
         <Base value="::RollingIndex"/>
         <Driver value="HunterDisruptorVolleyLaunchMissile"/>
     </CAttachMethodPattern>
-    <CAttachMethodPattern id="AMPatternMechJavelinMissileLaunchers">
-        <Keyword value="Weapon"/>
-        <Driver value="MechJavelinMissileLaunchersLaunchMissile"/>
-    </CAttachMethodPattern>
     <CAttachMethodFilter id="FilterOrigin">
         <Keys Keyword="Origin"/>
     </CAttachMethodFilter>
-    <CAttachMethodPattern id="AMPatternMech">
-        <Keyword value="SetB"/>
+    <CAttachMethodPattern id="MechHellfireMissiles@Pattern">
+        <Keyword value="Weapon"/>
         <Base value="::RollingIndex"/>
         <Multiplier value="2"/>
-        <Driver value="MechHellfireMissilePackLaunchMissile"/>
-    </CAttachMethodPattern>
-    <CAttachMethodPattern id="AMPatternMechThorsHammer">
-        <Keyword value="Weapon"/>
-        <Driver value="MechThorsHammerDamage"/>
+        <Driver value="MechHellfireMissiles@LM"/>
     </CAttachMethodPattern>
 </Catalog>

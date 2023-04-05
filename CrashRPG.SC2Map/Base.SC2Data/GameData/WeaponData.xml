@@ -70,6 +70,19 @@
         <Period value="3.6"/>
         <Effect value="ImpalerCP"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="MechCannonGround">
+        <EditorCategories value="Race:Terran"/>
+        <Options index="Disabled" value="1"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
+        <DisplayEffect value="MechCannonGround@Damage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Arc value="29.9926"/>
+        <Period value="1"/>
+        <DamagePoint value="0.0625"/>
+        <Backswing value="0"/>
+        <Effect value="MechCannonGround@Damage"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="MedicCorrosiveSpray">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
@@ -144,16 +157,17 @@
         <DamagePoint value="0.2"/>
         <Effect value="AlienPlasmaDischargeSiegeLaunchMissile"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="MechAutocannon">
+    <CWeaponLegacy id="MechCannonBoth">
         <EditorCategories value="Race:Terran"/>
         <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
-        <DisplayEffect value="MechAutocannonDamage"/>
+        <DisplayEffect value="MechCannonBoth@Damage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Arc value="29.9926"/>
         <Period value="1"/>
         <Backswing value="0"/>
-        <Effect value="MechAutocannonDamage"/>
+        <Effect value="MechCannonBoth@Damage"/>
+        <DamagePoint value="0.0625"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShooterGaussRifle">
         <EditorCategories value="Race:Terran"/>
@@ -615,48 +629,21 @@
         <Effect value="VehicleEvisceratorRailGunDamage"/>
         <AllowedMovement value="Moving"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="MechHellfireMissilePack">
+    <CWeaponLegacy id="MechHellfireMissiles">
         <EditorCategories value="Race:Terran"/>
+        <Options index="Disabled" value="1"/>
         <Options index="OnlyFireWhileInAttackOrder" value="0"/>
         <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
         <Options index="LinkedCooldown" value="0"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
-        <DisplayEffect value="MechHellfireMissilePackDamage"/>
+        <DisplayEffect value="MechHellfireMissiles@Damage"/>
         <DisplayAttackCount value="2"/>
         <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="10"/>
         <Arc value="135"/>
         <Period value="1"/>
-        <Effect value="MechHellfireMissilePackCreatePersistent"/>
         <Backswing value="0"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="MechTwinAutocannons">
-        <EditorCategories value="Race:Terran"/>
-        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
-        <DisplayEffect value="MechTwinAutocannonsDamage"/>
-        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Arc value="29.9926"/>
-        <Period value="1"/>
-        <Effect value="MechTwinAutocannonsDamage"/>
-        <Backswing value="0"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="MechJavelinMissileLaunchers">
-        <EditorCategories value="Race:Terran"/>
-        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
-        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
-        <Options index="LinkedCooldown" value="0"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
-        <DisplayEffect value="MechJavelinMissileLaunchersDamage"/>
-        <DisplayAttackCount value="4"/>
-        <TargetFilters value="Air,Visible;Ground,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AcquirePrioritization value="ByAngle"/>
-        <Range value="10"/>
-        <Arc value="135"/>
-        <Period value="2"/>
-        <Backswing value="0"/>
-        <Effect value="JavelinMissileLaunchersCreatePer"/>
-        <LegacyOptions index="KeepChanneling" value="1"/>
+        <Effect value="MechHellfireMissiles@CP"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="SniperC10CanisterRifle">
         <EditorCategories value="Race:Terran"/>
@@ -674,27 +661,6 @@
         <DisplayEffect value="SniperC20ACanisterRifleDamage"/>
         <Effect value="SniperC20ACanisterRifleDamage"/>
         <Range value="8"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="MechThorsHammer">
-        <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
-        <DisplayEffect value="MechThorsHammerDamageDummy"/>
-        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AcquirePrioritization value="ByAngle"/>
-        <Period value="1"/>
-        <DamagePoint value="0.2"/>
-        <Backswing value="0"/>
-        <Effect value="MechThorsHammerCreatePersistent"/>
-        <LegacyOptions index="KeepChanneling" value="1"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="MechGatlingCannon">
-        <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
-        <DisplayEffect value="MechGatlingCannonDamage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Arc value="5.625"/>
-        <Period value="1"/>
-        <Effect value="MechGatlingCannonDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="VehicleTyphoonMissilePod">
         <EditorCategories value="Race:Terran"/>
@@ -719,15 +685,6 @@
         <Backswing value="0"/>
         <Effect value="VehicleFragmentationGrenadeMissile"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="MechRailgun">
-        <EditorCategories value="Race:Terran"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
-        <DisplayEffect value="MechRailgunDamage"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <MinScanRange value="15"/>
-        <Period value="1"/>
-        <Effect value="MechRailgunLaunchMissile"/>
-    </CWeaponLegacy>
     <CWeaponLegacy id="VehicleGaussCannon">
         <EditorCategories value="Race:Terran"/>
         <Options index="OnlyFireWhileInAttackOrder" value="0"/>
@@ -739,21 +696,6 @@
         <Period value="1.75"/>
         <Effect value="VehicleGaussCannonMissile"/>
         <AllowedMovement value="Moving"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="MechMeleeWarHound">
-        <EditorCategories value="Race:Terran"/>
-        <Options index="Hidden" value="1"/>
-        <Options index="Melee" value="1"/>
-        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
-        <DisplayEffect value="MechMeleeDamage"/>
-        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="0.5"/>
-        <Marker Link="Weapon/WarHound"/>
-        <Cost>
-            <Cooldown Link="Weapon/WarHound"/>
-        </Cost>
-        <Period value="1"/>
-        <Effect value="MechMeleeDamage"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="InfestedMendingSaliva">
         <EditorCategories value="Race:Zerg"/>

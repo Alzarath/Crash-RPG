@@ -372,6 +372,18 @@
         <DataRecord Entry="Effect,MechBarrage@SA"/>
         <DataRecord Entry="Effect,MechBarrage@SetImpact"/>
     </CDataCollectionAbil>
+    <CDataCollectionAbil id="MechCannonBoth">
+        <EditorCategories value="DataGroup:Weapon,Race:Terran"/>
+        <DataRecord Entry="Actor,MechCannonBoth@Attack"/>
+        <DataRecord Entry="Effect,MechCannonBoth@Damage"/>
+        <DataRecord Entry="Weapon,MechCannonBoth"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="MechCannonGround">
+        <EditorCategories value="DataGroup:Weapon,Race:Terran"/>
+        <DataRecord Entry="Actor,MechCannonGround@Attack"/>
+        <DataRecord Entry="Effect,MechCannonGround@Damage"/>
+        <DataRecord Entry="Weapon,MechCannonGround"/>
+    </CDataCollectionAbil>
     <CDataCollectionAbil id="MechExplosiveImmortality">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
         <DataRecord Entry="Abil,MechExplosiveImmortality"/>
@@ -385,6 +397,24 @@
         <DataRecord Entry="Effect,MechExplosiveImmortality@AB"/>
         <DataRecord Entry="Effect,MechExplosiveImmortality@Damage"/>
         <DataRecord Entry="Model,MechExplosiveImmortality@Explosion"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="MechHellfireMissiles">
+        <EditorCategories value="DataGroup:Weapon,Race:Terran,ObjectType:Projectile"/>
+        <DataRecord Entry="Actor,MechHellfireMissiles@Attack"/>
+        <DataRecord Entry="Actor,MechHellfireMissiles@Missile"/>
+        <DataRecord Entry="Effect,MechHellfireMissiles@CP"/>
+        <DataRecord Entry="Effect,MechHellfireMissiles@Damage"/>
+        <DataRecord Entry="Effect,MechHellfireMissiles@LM"/>
+        <DataRecord Entry="Unit,MechHellfireMissiles@Weapon"/>
+        <DataRecord Entry="Weapon,MechHellfireMissiles"/>
+        <DataRecord Entry="AttachMethod,MechHellfireMissiles@Pattern"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="MechMultiLockTargetingSystem">
+        <EditorCategories value="DataGroup:Buff,Race:Terran"/>
+        <DataRecord Entry="Behavior,MechMultiLockTargetingSystem"/>
+        <DataRecord Entry="Button,MechMultiLockTargetingSystem@Upgraded"/>
+        <DataRecord Entry="Button,MechMultiLockTargetingSystem"/>
+        <DataRecord Entry="Button,MechMultiLockTargetingSystem@Learn"/>
     </CDataCollectionAbil>
     <CDataCollectionUnit id="MechPointDefenseDrone">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Unit"/>

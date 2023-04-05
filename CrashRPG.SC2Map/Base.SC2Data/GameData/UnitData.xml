@@ -2070,12 +2070,6 @@
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
     </CUnit>
-    <CUnit id="MechCivilianEjectionWeapon" parent="TychusEjectMissile">
-        <Name value="Unit/Name/MechCivilianEjectionWeapon"/>
-        <Mover value="SlowMissile"/>
-        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
-        <FlagArray index="Unselectable" value="1"/>
-    </CUnit>
     <CUnit id="HunterScarabMine">
         <DeathRevealRadius value="3"/>
         <Race value="Prot"/>
@@ -2178,19 +2172,9 @@
         <Mover value="CycloneMissileLeft"/>
         <EditorCategories value="ObjectFamily:Melee,ObjectType:Projectile"/>
     </CUnit>
-    <CUnit id="MechHellfireMissileWeapon" parent="MISSILE">
+    <CUnit id="MechHellfireMissiles@Weapon" parent="MISSILE">
         <Race value="Terr"/>
         <Mover value="GoliathMissile"/>
-        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
-    </CUnit>
-    <CUnit id="MechJavelinMissileWeapon" parent="MISSILE">
-        <Race value="Terr"/>
-        <Mover value="ThorAA"/>
-        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
-    </CUnit>
-    <CUnit id="MechRailgunWeapon" parent="MISSILE">
-        <Race value="Terr"/>
-        <Mover value="WarHoundWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
     <CUnit id="VehicleFragmentationGrenadeWeapon" parent="MISSILE">
@@ -3921,7 +3905,9 @@
         <TurningRate value="999.8437"/>
         <AbilArray Link="MechPointDefenseDrones"/>
         <AbilArray Link="HangarQueue5"/>
-        <WeaponArray Link="MechAutocannon"/>
+        <WeaponArray Link="MechCannonBoth"/>
+        <WeaponArray Link="MechCannonGround"/>
+        <WeaponArray Link="MechHellfireMissiles"/>
         <Radius value="0.625"/>
         <SeparationRadius value="0.375"/>
         <InnerRadius value="0.5"/>
@@ -3931,6 +3917,7 @@
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryWeakArray value="Ultralisk"/>
         <GlossaryAlias value="CRPGMech"/>
+        <EquipmentArray Weapon="MechCannonBoth"/>
     </CUnitHero>
     <CUnitHero id="CRPGShipLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGShip"/>

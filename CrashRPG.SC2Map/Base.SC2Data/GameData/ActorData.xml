@@ -48,6 +48,11 @@
         <Sound value="Nova_Death"/>
     </CActorSound>
     <CActorRange id="AeroLaserArmaments@Range" parent="RangeAbil" abil="AeroLaserArmaments@Dummy"/>
+    <CActorAction id="MechCannonGround@Attack" parent="GenericAttack" effectAttack="MechCannonGround@Damage">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMPatternRollingStripe"/>
+        <LaunchAssets Model="ThorHandGunAttackLaunch" Sound="Thor_HandGunAttackLaunch"/>
+        <ImpactMap index="None" Model="ThorHandGunAttackImpact" Sound="Thor_HandGunAttackImpact"/>
+    </CActorAction>
     <CActorSimple id="MechExplosiveImmortality@Tinter">
         <Aliases value="_AngryTinter"/>
         <On Terms="Behavior.MechExplosiveImmortality@Rebuilding.On" Send="Create"/>
@@ -2200,6 +2205,15 @@
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
+        <On index="65" Terms="WeaponStart.MechCannonBoth.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On index="66" Terms="WeaponStart.MechCannonBoth.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On index="67" Terms="WeaponStop.MechCannonBoth.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.MechCannonGround.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.MechHellfireMissiles.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.MechBarrage.SourceCastStart" Send="AnimPlay CoverA Cover,Start,A PlayForever,NonLooping"/>
         <On Terms="Abil.MechBarrage.SourceCastStop" Send="AnimClear CoverA"/>
         <On Terms="Abil.MechBarrage.SourceChannelStart" Send="AnimPlay CoverA Cover,A PlayForever"/>
@@ -2211,9 +2225,9 @@
         <On Terms="UnitPortrait.*.Configure" Target="::PortraitGameSelf" Send="AnimPlay Visor Morph,Stand PlayForever 0.000000"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Hellion_Land"/>
         <On Terms="AbilMorph.*.Start; MorphTo MechWreckage; MorphFrom CRPGMech" Send="Destroy"/>
-        <Model value="HellionTank"/>
+        <Model value="CRPGMech@ModelLevel1"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
-        <BuildModel value="HellionTank"/>
+        <BuildModel value="CRPGMech@ModelLevel1"/>
         <DeathArray index="Normal" ModelLink="HellionTankDeath" SoundLink="Hellion_Explode"/>
         <DeathCustoms ModelLink="HellionTankDeathRagdoll" Name="RagdollBasic">
             <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
@@ -2235,7 +2249,7 @@
         <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
         <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
         <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
-        <PlacementModel value="HellionTank"/>
+        <PlacementModel value="CRPGMech@ModelLevel1"/>
         <PortraitActor value="HellionPortrait"/>
         <PortraitModel value="HellionPortrait"/>
         <TerrainSquibs>
@@ -2270,24 +2284,28 @@
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
-        <Remove index="2" removed="1"/>
-        <Remove index="3" removed="1"/>
-        <Remove index="4" removed="1"/>
-        <Remove index="5" removed="1"/>
-        <On index="0" Send="Create SoundEmitter VikingAssault_Ambience"/>
+        <On index="65" Terms="WeaponStart.MechCannonBoth.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On index="66" Terms="WeaponStart.MechCannonBoth.AttackStart; AnimPlaying Birth"/>
+        <On index="67" Terms="WeaponStop.MechCannonBoth.AttackStop"/>
+        <On Terms="WeaponStart.MechCannonBoth.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.MechCannonBoth.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.MechCannonGround.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.MechHellfireMissiles.AttackStop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
-        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
-        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
-        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="ActorCreation" Send="StatusSet WeaponNext 0"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
         <On Terms="UnitPortrait.*.Configure" Target="::PortraitGameSelf" Send="AnimClear Visor 0.000000"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Viking_Land"/>
         <On Terms="Effect.MechBarrage@SetImpact.Start" Send="AnimPlay Attack Attack,Superior 0 -1.000000 -1.000000 2.000000 AsTimeScale"/>
-        <Model value="VikingAssault"/>
+        <Model value="CRPGMech@ModelLevel2"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
-        <EventDataFootprint index="0" Model="VikingAssaultFootprint"/>
-        <BuildModel value="VikingAssault"/>
+        <BuildModel value="CRPGMech@ModelLevel2"/>
         <DeathArray index="Normal" ModelLink="VikingAssaultDeath" SoundLink="Viking_Explode" VoiceLink="VikingAssaultDeathVoice"/>
         <DeathArray index="Blast" AnimProps="Death,Blast" ModelLink="VikingAssaultDeath"/>
         <DeathCustoms ModelLink="VikingAssaultDeathRagdoll" Name="RagdollBasic">
@@ -2310,7 +2328,7 @@
         <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
         <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
         <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
-        <PlacementModel value="VikingAssault"/>
+        <PlacementModel value="CRPGMech@ModelLevel2"/>
         <PortraitModel value="VikingFighterPortrait"/>
         <TerrainSquibs>
             <MovementDistance value="0.150000,0.150000"/>
@@ -2321,16 +2339,11 @@
             <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
         </TerrainSquibs>
         <WalkAnimMoveSpeed value="2.5468"/>
-        <AbilSoundArray AbilCmd="FighterMode,Execute" Sound="Viking_FighterModeVO"/>
         <BarOffset value="60"/>
         <BarWidth value="70"/>
         <GroupIcon>
             <Image value="Assets\Textures\Wireframe-Terran-Viking-Assault.dds"/>
         </GroupIcon>
-        <GroupSoundArray index="What" value="VikingAssault_GroupWhat"/>
-        <GroupSoundArray index="Yes" value="VikingAssault_GroupYes"/>
-        <GroupSoundArray index="Attack" value="VikingAssault_GroupAttack"/>
-        <GroupSoundArray index="Board" value="VikingAssault_GroupBoard"/>
         <HeroIcon value="Assets\Textures\btn-unit-terran-vikingassault.dds"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-shipplatinglevel0.dds"/>
         <SoundArray index="Birth" value="VikingAssault_Birth"/>
@@ -2358,26 +2371,30 @@
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="PhysicsDeathsVoidGround"/>
-        <Remove index="2" removed="1"/>
-        <Remove index="3" removed="1"/>
-        <Remove index="4" removed="1"/>
-        <Remove index="5" removed="1"/>
         <On index="0" Send="Create SoundEmitter WarHound_Ambience"/>
-        <On Terms="WeaponStart.MechRailgun.AttackStart" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="WeaponStop.MechRailgun.AttackStop" Send="AnimBracketStop Attack"/>
-        <On Terms="WeaponStart.MechRailgun.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart AttackSuperior Attack,Superior"/>
-        <On Terms="WeaponStart.MechRailgun.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart AttackInferior Attack,Inferior"/>
-        <On Terms="WeaponStop.MechRailgun.AttackStop" Send="AnimBracketStop AttackSuperior"/>
-        <On Terms="WeaponStop.MechRailgun.AttackStop" Send="AnimBracketStop AttackInferior"/>
-        <On Terms="WeaponStart.MechMeleeWarHound.AttackStart" Send="AnimBracketStart Spell Spell,A"/>
-        <On Terms="WeaponStop.MechMeleeWarHound.AttackStop" Send="AnimBracketStop Spell"/>
+        <On index="65" Terms="WeaponStart.MechCannonBoth.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On index="66" Terms="WeaponStart.MechCannonBoth.AttackStart; AnimPlaying Birth"/>
+        <On index="67" Terms="WeaponStop.MechCannonBoth.AttackStop"/>
+        <On Terms="WeaponStart.MechCannonBoth.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.MechCannonBoth.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.MechCannonGround.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="AnimBracketStart Cover Cover,Start Cover Cover,End"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="AnimBracketStart Attack Spell"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.MechHellfireMissiles.AttackStop" Send="TimerSet 2.500000 CoverDelay"/>
+        <On Terms="WeaponStop.MechHellfireMissiles.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="TimerExpired; TimerName CoverDelay" Send="AnimBracketStop Cover"/>
         <On Terms="Effect.MechBarrage@SetImpact.Start" Send="AnimPlay Attack Attack,Superior 0 -1.000000 -1.000000 2.000000 AsTimeScale"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Warhound_Land"/>
         <On Terms="UnitDeathCustomize; Option Model Low" Send="DeathCustomize Low"/>
-        <Model value="WarHoundMech"/>
+        <Model value="CRPGMech@ModelLevel3"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <EventDataFootprint index="0" Model="WarHoundFootprint"/>
-        <BuildModel value="WarHoundMech"/>
+        <BuildModel value="CRPGMech@ModelLevel3"/>
         <DeathArray index="Normal" ModelLink="WarHoundDeath" SoundLink="SiegeTank_Explode" VoiceLink="WarHoundDeathVoice"/>
         <DeathCustoms ModelLink="WarhoundDeathRagdoll" Name="RagdollBasic">
             <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
@@ -2407,7 +2424,7 @@
             <Name value="Shadow"/>
         </DeathCustoms>
         <DeathActorModel value="UnitDeathModelUnscaled"/>
-        <PlacementModel value="WarHoundMech"/>
+        <PlacementModel value="CRPGMech@ModelLevel3"/>
         <PortraitModel value="WarhoundPortrait"/>
         <StandAnimTurnTime value="3.33"/>
         <TerrainSquibs>
@@ -2443,21 +2460,17 @@
         <Macros value="UnloadDropAnim"/>
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
-        <Remove index="2" removed="1"/>
-        <Remove index="3" removed="1"/>
-        <Remove index="4" removed="1"/>
-        <Remove index="5" removed="1"/>
         <On Terms="WeaponStart.MechTwinAutocannons.AttackStart" Send="AnimBracketStart Attack Attack"/>
         <On Terms="WeaponStop.MechTwinAutocannons.AttackStop" Send="AnimBracketStop Attack"/>
-        <On Terms="WeaponStart.MechHellfireMissilePack.AttackStart" Send="AnimBracketStart Spell Spell"/>
-        <On Terms="WeaponStop.MechHellfireMissilePack.AttackStop" Send="AnimBracketStop Spell"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="AnimBracketStart Spell Spell"/>
+        <On Terms="WeaponStop.MechHellfireMissiles.AttackStop" Send="AnimBracketStop Spell"/>
         <On Terms="UnitBirth.CRPGMechLevel4" Send="TerrainSquibActivateGroup RippleStandard"/>
         <On Terms="Effect.MechBarrage@SetImpact.Start" Send="$Spell 0 -1.000000 -1.000000 2.000000 AsTimeScale"/>
         <On Terms="ActorCreation" Send="TextureSelectByMatch main.specular main"/>
         <On Terms="UnitBirth.Goliath" Send="TerrainSquibActivateGroup RippleStandard"/>
-        <Model value="Goliath"/>
+        <Model value="CRPGMech@ModelLevel4"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
-        <BuildModel value="Goliath"/>
+        <BuildModel value="CRPGMech@ModelLevel4"/>
         <DeathArray index="Normal" ModelLink="GoliathDeath" SoundLink="Goliath_Explode" VoiceLink="GoliathDeathVoice"/>
         <DeathCustoms>
             <ModelLink value="DeathVoidShadowMedium"/>
@@ -2466,7 +2479,7 @@
             <Name value="Shadow"/>
         </DeathCustoms>
         <DeathActorModel value="GoliathDeath"/>
-        <PlacementModel value="Goliath"/>
+        <PlacementModel value="CRPGMech@ModelLevel4"/>
         <PortraitModel value="GoliathPortrait"/>
         <StandAnimTurnTime value="4"/>
         <TerrainSquibs>
@@ -2483,13 +2496,6 @@
         <GroupIcon>
             <Image value="Assets\Textures\Wireframe-Terran-goliath.dds"/>
         </GroupIcon>
-        <GroupSoundArray index="Birth" value="Goliath_Birth"/>
-        <GroupSoundArray index="Ready" value="Goliath_Ready"/>
-        <GroupSoundArray index="Help" value="Goliath_Help"/>
-        <GroupSoundArray index="What" value="Goliath_What"/>
-        <GroupSoundArray index="Yes" value="Goliath_Yes"/>
-        <GroupSoundArray index="Attack" value="Goliath_Attack"/>
-        <GroupSoundArray index="Pissed" value="Goliath_Pissed"/>
         <HeroIcon value="Assets\Textures\btn-unit-terran-goliath.dds"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
         <SoundArray index="Ready" value="Goliath_Ready"/>
@@ -2509,21 +2515,22 @@
         <Macros value="TerrainSquibAnimations"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
-        <Remove index="2" Terms="AbilMorph.*.Finish; MorphTo Thor" Send="Create"/>
-        <Remove index="3" Terms="AbilMorph.*.Start; MorphFrom Thor" Send="Destroy"/>
-        <Remove index="4" removed="1"/>
-        <Remove index="5" removed="1"/>
-        <On index="0" Send="Create SoundEmitter Thor_Ambience"/>
-        <On index="65" Send="AnimBracketStart Attack Attack {} {} 0 4.000000 AsTimeScale"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo Thor; MorphFrom MechWreckage" Send="Create"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom Thor; MorphTo MechWreckage" Send="Destroy"/>
-        <On Terms="WeaponStart.MechJavelinMissileLaunchers.AttackStart" Send="AnimGroupApply Ready"/>
-        <On Terms="WeaponStop.MechJavelinMissileLaunchers.AttackStop" Send="AnimPlay CoverStand Cover,Stand PlayForever 0.000000"/>
-        <On Terms="WeaponStart.MechThorsHammer.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimPlay Cover Cover PlayForever"/>
-        <On Terms="WeaponStart.MechThorsHammer.AttackStart; WeaponTargetElevation LE -20.000000" Send="TimerSet 2.500000 CoverDelay"/>
-        <On Terms="WeaponStart.MechThorsHammer.AttackStart; WeaponTargetDistance LE 1.000000" Send="AnimClear Cover"/>
-        <On Terms="WeaponStart.MechThorsHammer.AttackStart" Send="AnimPlay CoverStand Cover,Stand PlayForever"/>
-        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On index="65" Terms="WeaponStart.MechCannonBoth.AttackStart" Send="AnimBracketStart Attack Attack {} {} 0 4.000000 AsTimeScale"/>
+        <On index="66" Terms="WeaponStart.MechCannonBoth.AttackStart; AnimPlaying Birth"/>
+        <On index="67" Terms="WeaponStop.MechCannonBoth.AttackStop"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStart.MechCannonGround.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.MechCannonGround.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="ActorCreation" Send="AnimPlay CoverStand Cover,Stand PlayForever 0.000000"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="TimerKill CoverDelay"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="AnimClear CoverStand"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="AnimPlay Cover Cover PlayForever"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart" Send="AnimBracketStart Attack Spell,D"/>
+        <On Terms="WeaponStart.MechHellfireMissiles.AttackStart; AnimPlaying Birth" Send="AnimClear Birth"/>
+        <On Terms="WeaponStop.MechHellfireMissiles.AttackStop" Send="TimerSet 2.500000 CoverDelay"/>
+        <On Terms="WeaponStop.MechHellfireMissiles.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="TimerExpired; TimerName CoverDelay" Send="AnimClear Cover"/>
+        <On Terms="TimerExpired; TimerName CoverDelay" Send="AnimPlay CoverStand Cover,Stand PlayForever"/>
         <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
         <On Terms="AbilTransport.MedivacTransport.CargoUnload" Send="AnimPlay Unload Spell,A 0 0.000000"/>
         <On Terms="WeaponStart.*.AttackStart; AnimPlaying Unload" Send="AnimClear Unload"/>
@@ -2537,10 +2544,10 @@
         <On Terms="Abil.MechBarrage.SourceChannelStop" Send="AnimClear Spell"/>
         <On Terms="Abil.MechBarrage.SourceFinishStart" Send="AnimPlay MorphEnd Morph,End NonLooping"/>
         <On Terms="Abil.MechBarrage.SourceFinishStop" Target="330mmBarrageCannonsMorph" Send="AnimClear MorphEnd"/>
-        <Model value="ThorSmall"/>
+        <Model value="CRPGMech@ModelLevel5"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <EventDataFootprint index="0" Actor="" Model=""/>
-        <BuildModel value="ThorSmall"/>
+        <BuildModel value="CRPGMech@ModelLevel5"/>
         <DeathArray index="Normal" ModelLink="ThorDeath" SoundLink="" VoiceLink="ThorDeathVoice"/>
         <DeathCustoms ModelLink="ThorDeathLow" Name="AntiGravTerran"/>
         <DeathCustoms ActorModel="ThorDeathRagdoll" ModelLink="ThorDeathRagdoll" Name="RagdollBasic">
@@ -2570,7 +2577,7 @@
             <Name value="Shadow"/>
         </DeathCustoms>
         <DeathActorModelLow value="UnitDeathModel"/>
-        <PlacementModel value="ThorSmall"/>
+        <PlacementModel value="CRPGMech@ModelLevel5"/>
         <PortraitModel value="ThorPortrait"/>
         <StandAnimTurnTime value="5"/>
         <StandAnimTurnTimeScaleMin value="0.850000"/>
@@ -4359,11 +4366,10 @@
         <HostSiteOps Ops="SOpAttachCenter SOpForwardNorth" HoldRotation="1"/>
         <Model value="MendBuff"/>
     </CActorModel>
-    <CActorAction id="MechAutocannonAttack" parent="GenericAttack" effectAttack="MechAutocannonDamage">
-        <LaunchAttachQuery Methods="AMFilterWeapon01"/>
-        <LaunchAssets Model="VikingAssaultAttackLaunch" Sound="Mech_AttackLaunchLevel1"/>
-        <ImpactMap index="None" Model="VikingAssaultAttackImpact"/>
-        <ImpactPhysics Name="GatlingCannonImpact" MatchKeys="Basic" Physics="VikingAssaultAttackForce"/>
+    <CActorAction id="MechCannonBoth@Attack" parent="GenericAttack" effectAttack="MechCannonBoth@Damage">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMPatternRollingStripe"/>
+        <LaunchAssets Model="ThorHandGunAttackLaunch" Sound="Thor_HandGunAttackLaunch"/>
+        <ImpactMap index="None" Model="ThorHandGunAttackImpact" Sound="Thor_HandGunAttackImpact"/>
     </CActorAction>
     <CActorSquib id="MechExplosiveImmortality@ModelExplosion">
         <On Terms="Effect.MechExplosiveImmortality@Damage.Start; At Effect" Send="Create"/>
@@ -7481,49 +7487,17 @@
         <On Terms="Effect.CRPGLevelUpDummyVisuals.Start" Send="Create"/>
         <On Terms="AnimDone" Send="Destroy"/>
     </CActorModel>
-    <CActorAction id="MechHellfireMissilePackAttack" parent="GenericAttack" effectImpact="MechHellfireMissilePackDamage" effectLaunch="MechHellfireMissilePackLaunchMissile">
-        <LaunchAttachQuery Methods="AMPatternMech"/>
+    <CActorAction id="MechHellfireMissiles@Attack" parent="GenericAttack" effectImpact="MechHellfireMissiles@Damage" effectLaunch="MechHellfireMissiles@LM">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetB0 MechHellfireMissiles@Pattern"/>
         <LaunchAssets Model="GoliathAirAttackLaunch" Sound="VikingFighter_AttackLaunch"/>
-        <Missile value="MechHellfireMissilePackMissile"/>
+        <Missile value="MechHellfireMissiles@Missile"/>
         <ImpactMap index="None" Model="GoliathAirAttackImpact" Sound="VikingFighter_AttackImpact"/>
         <ImpactMap index="Shield" Sound="GoliathAirAttackImpactShield"/>
         <ImpactPhysics Name="JavelinImpact" MatchKeys="Basic" Physics="ThorAAAttackForce"/>
     </CActorAction>
-    <CActorMissile id="MechHellfireMissilePackMissile" parent="GenericAttackMissile" unitName="MechHellfireMissileWeapon">
+    <CActorMissile id="MechHellfireMissiles@Missile" parent="GenericAttackMissile" unitName="MechHellfireMissiles@Weapon">
         <Model value="GoliathAWeapon"/>
     </CActorMissile>
-    <CActorAction id="MechTwinAutocannonsAttack" parent="GenericAttack" effectAttack="MechTwinAutocannonsDamage">
-        <LaunchAttachQuery Methods="AMFilterWeaponSetA0"/>
-        <LaunchAssets Model="GoliathGroundAttackLaunch" Sound="GoliathGroundAttackLaunch"/>
-        <Beam value="GoliathGroundAttackBeam"/>
-        <Missile value="GoliathGroundAttackMissile"/>
-        <ImpactMap index="None" Model="GoliathGroundAttackImpact"/>
-        <ImpactPhysics Name="GatlingCannonImpact" MatchKeys="Basic" Physics="VikingAssaultAttackForce"/>
-    </CActorAction>
-    <CActorUnit id="MechCivilianEjectMissile" parent="GenericUnitStandardNoAutoSoundLinks" unitName="MechCivilianEjectionWeapon">
-        <Model value="TychusEjectMissile"/>
-        <BuildModel value="TychusEjectMissile"/>
-        <DeathArray index="Normal" ModelLink="TychusEjectMissile"/>
-        <PlacementModel value="TychusEjectMissile"/>
-        <HighlightTooltip value="Unit/Name/MechCivilianEjectMissile"/>
-    </CActorUnit>
-    <CActorAction id="MechFusionCutterAttack" parent="GenericAttack" effectAttack="MechFusionCutterDamage">
-        <Beam value="SCVAttackBeam"/>
-        <Missile value="SCVAttackMissile"/>
-        <ShieldFlashType value="Header"/>
-    </CActorAction>
-    <CActorSound id="MechFusionCutterSound" parent="SoundOneShot">
-        <On Terms="WeaponStart.MechFusionCutter.AttackStart" Send="Create"/>
-        <Sound value="SCV_AttackLaunch"/>
-    </CActorSound>
-    <CActorAction id="MechThorsHammerAttack" parent="GenericAttack" effectAttack="MechThorsHammerDamage">
-        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMPatternMechThorsHammer"/>
-        <LaunchAssets Model="ThorHandGunAttackLaunch" Sound="Thor_HandGunAttackLaunch"/>
-        <Beam value="ThorAttackBeam"/>
-        <Missile value="ThorAttackMissile"/>
-        <ImpactMap index="None" Model="ThorHandGunAttackImpact"/>
-        <ImpactPhysics Name="GunImpact" MatchKeys="Basic" Physics="ThorAttackForce"/>
-    </CActorAction>
     <CActorModel id="InfestedInfestationSpore@Model" parent="ModelAddition">
         <On Terms="Behavior.InfestedInfestationSpore@Buff.On" Send="Create"/>
         <On Terms="Behavior.InfestedInfestationSpore@Buff.On" Target="::Main" Send="SetSoundSuffix _NP"/>
@@ -8698,40 +8672,6 @@
         <On Terms="UnitDeath.CRPGSniper; ValidateUnit CasterIsLevel4" Send="Create"/>
         <Sound value="GhostAlternate_Death"/>
     </CActorSound>
-    <CActorAction id="MechJavelinMissileLaunchersAttack" parent="GenericAttack" effectImpact="MechJavelinMissileLaunchersDamage" effectLaunch="MechJavelinMissileLaunchersLaunchMissile">
-        <LaunchAttachQuery Methods="AMFilterWeaponSetA1 AMPatternMechJavelinMissileLaunchers"/>
-        <LaunchAssets Model="ThorAAAttackLaunch" Sound="Thor_AntiAirAttackLaunch"/>
-        <Missile value="MechJavelinMissileLaunchersMissile"/>
-        <ImpactMap index="None" Model="ThorAAAttackImpact" Sound="Thor_AntiAirAttackImpact"/>
-        <ImpactPhysics Name="JavelinImpact" MatchKeys="Basic" Physics="ThorAAAttackForce"/>
-    </CActorAction>
-    <CActorMissile id="MechJavelinMissileLaunchersMissile" parent="GenericAttackMissile" unitName="MechJavelinMissileWeapon">
-        <Model value="ThorAAWeapon"/>
-    </CActorMissile>
-    <CActorAction id="MechRailgunAttack" parent="GenericAttack" effectImpact="MechRailgunDamage" effectLaunch="MechRailgunLaunchMissile">
-        <LaunchAssets Sound="RailGun_Launch"/>
-        <BeamScope value="Caster"/>
-        <Missile value="MechRailgunMissile"/>
-        <ImpactMap index="None" Model="WarHoundAttackImpact" Sound="RailGun_Impact"/>
-        <ImpactPhysics Name="RailgunImpact" MatchKeys="Basic" Physics="RailgunAttackDeathForce"/>
-        <ActionFlags index="LaunchForceSite" value="1"/>
-    </CActorAction>
-    <CActorMissile id="MechRailgunMissile" parent="GenericAttackMissile" unitName="MechRailgunWeapon">
-        <Model value="Invisible"/>
-    </CActorMissile>
-    <CActorBeamSimple id="MechRailgunBeam" parent="GenericAttackBeam">
-        <Inherits index="CloakEffect" value="1"/>
-        <Inherits index="Visibility" value="1"/>
-        <On Terms="Effect.MechRailgunLaunchMissile.Start; At Caster" Send="Create"/>
-        <On Terms="Effect.MechRailgunDamage.Start" Send="Create WarHoundImpactHoldingSite"/>
-        <On Terms="Effect.MechRailgunDamage.Start" Send="RefSet ::HostImpact WarHoundImpactHoldingSite"/>
-        <Host Subject="_Selectable"/>
-        <Model value="WarHoundBeam"/>
-        <HostLaunch Subject="_Selectable" Actor="Find"/>
-        <HostLaunchSiteOps Ops="SOpAttachWeapon" HoldPosition="1" HoldRotation="1"/>
-        <HostImpact Subject="_Missile" Actor="Find"/>
-        <HostImpactSiteOps Ops="SOpAttachCenter"/>
-    </CActorBeamSimple>
     <CActorSound id="CRPGMech@SoundDeath3" parent="SoundOneShot">
         <On Terms="UnitDeath.CRPGMech; ValidateUnit CasterIsLevel3" Send="Create"/>
         <Sound value="WarHound_Death"/>
@@ -8744,35 +8684,6 @@
     <CActorMissile id="VehicleFragmentationGrenadeMissile" parent="GenericAttackMissile" unitName="VehicleFragmentationGrenadeWeapon">
         <Model value="VultureWeapon"/>
     </CActorMissile>
-    <CActorAction id="MechGatlingCannonAttack" parent="GenericAttack" effectAttack="MechGatlingCannonDamage">
-        <LaunchAttachQuery Methods="AMFilterWeaponSetA0"/>
-        <LaunchAssets Model="VikingAssaultAttackLaunch" Sound="VikingAssault_AttackLaunch"/>
-        <Beam value="VikingAssaultAttackBeam"/>
-        <Missile value="VikingAssaultAttackMissile"/>
-        <ImpactMap index="None" Model="VikingAssaultAttackImpact" Sound="Viking_AssaultAttackImpact"/>
-        <ImpactPhysics Name="GatlingCannonImpact" MatchKeys="Basic" Physics="VikingAssaultAttackForce"/>
-        <DamageMap index="None" Model="VikingAssaultAttackDamage" Sound="VikingAssaultAttackDamage" ModelReaction="VikingAssaultAttackDamageReaction"/>
-        <DamageMap index="Shield" Sound="VikingAssaultAttackDamageShield" ModelReaction="VikingAssaultAttackDamageReactionShield"/>
-    </CActorAction>
-    <CActorAction id="MechMeleeAttackWarhound" parent="GenericAttack" effectAttack="MechMeleeDamage">
-        <Beam value="WarHoundMeleeAttackBeam"/>
-        <Missile value="WarHoundMeleeAttackMissile"/>
-        <ImpactMap index="None" Sound="WarHound_MeleeAttackLaunch"/>
-        <ImpactMap index="Shield" Sound="WarHoundMeleeAttackImpactShield"/>
-        <ImpactPhysics>
-            <Name value="AttackOverhead"/>
-            <MatchKeys value="Basic"/>
-            <AttackAnimProps value="00"/>
-            <Physics value="WarhoundMeleeAttackForceOverhead"/>
-        </ImpactPhysics>
-        <ImpactPhysics>
-            <Name value="AttackSwipe"/>
-            <MatchKeys value="Basic"/>
-            <AttackAnimProps value="01"/>
-            <Physics value="WarhoundMeleeAttackForceLateral"/>
-        </ImpactPhysics>
-        <ShieldFlashType value="Header"/>
-    </CActorAction>
     <CActorSound id="ScarabMineUnburrow@Sound" parent="SoundOneShot">
         <On Terms="AbilMorph.ScarabMineUnburrow.Start" Send="Create"/>
         <Sound value="SentryMonitor_TargetLock_On"/>

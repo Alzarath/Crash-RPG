@@ -143,6 +143,16 @@
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
         <Duration value="10"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="MechMultiLockTargetingSystem">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <Modification>
+            <WeaponEnableArray value="MechCannonGround"/>
+            <WeaponEnableArray value="MechHellfireMissiles"/>
+            <WeaponDisableArray value="MechCannonBoth"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="PointDefenseDroneLaser@CooldownRepair">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>

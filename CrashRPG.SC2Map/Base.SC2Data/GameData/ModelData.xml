@@ -111,6 +111,71 @@
             <Payload value="FireSuppressionBots_Whizzby"/>
         </Events>
     </CModel>
+    <CModel id="CRPGMech@ModelLevel1" parent="HellionBase">
+        <Model value="Assets\Units\Terran\HellionEx1Tank\HellionEx1Tank.m3"/>
+        <RequiredAnims index="0" removed="1"/>
+        <AttachProps index="0" Id="Ref_Weapon 01">
+            <Keys index="SetA" value="0"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Turret" value="-128"/>
+        </AttachProps>
+        <Tipability value="0.000000"/>
+        <TipabilityLength value="0.000000"/>
+        <TipabilityWidth value="0.000000"/>
+    </CModel>
+    <CModel id="CRPGMech@ModelLevel4" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Terran\Goliath\Goliath.m3"/>
+        <AttachProps Id="Ref_TurretZ">
+            <Keys index="Turret" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon">
+            <Keys index="SetA" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 01">
+            <Keys index="SetA" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 02">
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 03">
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="2"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 04">
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="4"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 05">
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="1"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 06">
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="3"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 07">
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="5"/>
+        </AttachProps>
+        <Lighting value="Goliath"/>
+        <Occlusion value="Show"/>
+        <PlanetPanelCamera value="Star2CameraHigh09"/>
+        <Radius value="0.650000"/>
+        <ScaleMax value="0.650000,0.650000,0.650000"/>
+        <ScaleMin value="0.650000,0.650000,0.650000"/>
+        <SelectionRadius value="0.999700"/>
+        <ShadowRadius value="0.999700"/>
+        <TechPurchaseCamera value="TechPurchaseGoliath"/>
+        <TextureDeclares Prefix="Goliath_">
+            <Adaptions TriggerOnSubstring="_Diffuse" Slot="main"/>
+            <Adaptions TriggerOnSubstring="_Specular" Slot="main"/>
+        </TextureDeclares>
+        <UnitGlossaryCamera value="Star2CameraHigh09"/>
+        <Variations Probability="1">
+            <TextureExpressionsForEditor Slot="main" Expression="RequireAll diffuse"/>
+        </Variations>
+    </CModel>
     <CModel id="InfestedInfestedCivilian" parent="InfestedCivilian">
         <ScaleMax value="1.000000,1.000000,1.000000"/>
         <ScaleMin value="1.000000,1.000000,1.000000"/>
@@ -224,10 +289,31 @@
         <ScaleMax value="3.000000,3.000000,1.000000"/>
         <ScaleMin value="3.000000,3.000000,1.000000"/>
     </CModel>
-    <CModel id="ThorSmall" parent="ThorBase">
+    <CModel id="CRPGMech@ModelLevel5" parent="ThorBase">
         <Model value="Assets\Units\Terran\ThorEx1\ThorEx1.m3"/>
         <Lighting value="Thor"/>
-        <ScaleMax value="0.250000,0.250000,0.250000"/>
+        <ScaleMax value="0.325000,0.325000,0.325000"/>
+        <AttachProps index="2" Id="Ref_Weapon 15">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="0"/>
+        </AttachProps>
+        <AttachProps index="3" Id="Ref_Weapon 16">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="1"/>
+        </AttachProps>
+        <AttachProps index="4" Id="Ref_Weapon 17">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="2"/>
+        </AttachProps>
+        <AttachProps index="5" Id="Ref_Weapon 18">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="3"/>
+        </AttachProps>
+        <ScaleMin value="0.325000,0.325000,0.325000"/>
     </CModel>
     <CModel id="ThorlessWreckage" parent="PersistentSpellFX" Prefix="Units\" Race="Terran">
         <Model value="Assets\Effects\Terran\ThorlessWreckage\ThorlessWreckage.m3"/>
@@ -303,6 +389,57 @@
         <Model value="Assets\Effects\Zerg\Ultralisk_SpeedUpgrade\Ultralisk_SpeedUpgrade.m3"/>
         <EditorCategories value="Race:Zerg"/>
         <Radius value="0.250000"/>
+    </CModel>
+    <CModel id="CRPGMech@ModelLevel2" parent="VikingAssaultBase">
+        <Model value="Assets\Units\Terran\VikingAssault\VikingAssault.m3"/>
+        <AttachProps index="0" Id="Ref_Weapon Left">
+            <Keys index="SetA" value="0"/>
+            <Keys index="Weapon" value="0"/>
+        </AttachProps>
+        <AttachProps index="1" Id="Ref_Weapon Right">
+            <Keys index="SetA" value="0"/>
+            <Keys index="Weapon" value="1"/>
+        </AttachProps>
+        <AttachProps index="2" Id="Ref_Weapon">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="0"/>
+        </AttachProps>
+        <AttachProps index="3" Id="Ref_Weapon 01">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="2"/>
+        </AttachProps>
+        <AttachProps index="4" Id="Ref_Weapon 02">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="4"/>
+        </AttachProps>
+        <AttachProps index="5" Id="Ref_Weapon 03">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="6"/>
+        </AttachProps>
+        <AttachProps index="6" Id="Ref_Weapon 04">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="1"/>
+        </AttachProps>
+        <AttachProps index="7" Id="Ref_Weapon 05">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="3"/>
+        </AttachProps>
+        <AttachProps index="8" Id="Ref_Weapon 06">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="5"/>
+        </AttachProps>
+        <AttachProps index="9" Id="Ref_Weapon 07">
+            <Keys index="SetA" value="-128"/>
+            <Keys index="SetB" value="0"/>
+            <Keys index="Weapon" value="7"/>
+        </AttachProps>
     </CModel>
     <CModel id="WizardReanimated" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Neutral\Reanimator_Resurrect_Coop\Reanimator_Resurrect_Coop.m3"/>
@@ -703,10 +840,21 @@
         <Priority value="32"/>
         <Quality value="1"/>
     </CModel>
-    <CModel id="WarHoundMech" parent="Unit">
+    <CModel id="CRPGMech@ModelLevel3" parent="Unit">
         <Model value="Assets\Units\Terran\MercCommander\MercCommander.m3"/>
+        <AttachProps Id="Ref_Weapon">
+            <Keys index="SetA" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 01">
+            <Keys index="SetB" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 02">
+            <Keys index="SetB" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 03">
+            <Keys index="SetB" value="0"/>
+        </AttachProps>
         <EditorCategories value="Race:Terran"/>
-        <Lighting value="WarHound"/>
         <PlanetPanelCamera value="Star2CameraHigh07"/>
         <Radius value="0.820000"/>
         <ScaleMax value="0.700000,0.700000,0.700000"/>
@@ -715,7 +863,7 @@
         <ShadowRadius value="1.000000"/>
         <UnitGlossaryCamera value="Star2CameraHigh07"/>
     </CModel>
-    <CModel id="WarHoundDeathMech" parent="UnitDeath" Race="Terran">
+    <CModel id="CRPGMech@ModelDeathLevel3" parent="UnitDeath" Race="Terran">
         <Model value="Assets\Units\Terran\MercCommanderDeath\MercCommanderDeath.m3"/>
         <LowQualityModel value="TerranLargeUnitDeathLow"/>
         <Events>
