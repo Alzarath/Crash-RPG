@@ -1799,7 +1799,6 @@
         <ResponseFlags index="Flee" value="1"/>
         <SearchFilters value="Biological;Player,Ally,Structure,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="1.5" Effect="MedicIrradiate@SetSearch"/>
-        <DebugTrace value="1"/>
     </CEffectEnumArea>
     <CEffectSet id="MedicIrradiate@Set">
         <EditorCategories value="Race:Terran"/>
@@ -2087,7 +2086,23 @@
         <EffectArray value="SniperNuclearStrike@CPChannel"/>
         <TargetLocationType value="Point"/>
     </CEffectSet>
-    <CEffectSwitch id="SniperSniperRound@Switch">
+    <CEffectCreatePersistent id="SniperSniperRound@CP">
+        <ValidatorArray value="CRPGAbilityUpgradePrimary@Upgraded"/>
+        <EditorCategories value=""/>
+        <WhichLocation Value="TargetUnit"/>
+        <OffsetVectorEndLocation Value="TargetUnit"/>
+        <PeriodCount value="1"/>
+        <PeriodicEffectArray value="SniperSniperRound@SwitchUpgraded"/>
+        <PeriodicPeriodArray value="0.25"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="SniperSniperRound@SA">
+        <EditorCategories value=""/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="Visible;Self,Player,Ally,Neutral,Structure,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="2" Effect="SniperSniperRound@SwitchImpact"/>
+        <MaxCount value="1"/>
+    </CEffectEnumArea>
+    <CEffectSwitch id="SniperSniperRound@SwitchImpact">
         <EditorCategories value="Race:Terran"/>
         <CaseArray Validator="UnitIsBiological" Effect="SniperSniperRound@DamageBiological"/>
         <CaseDefault value="SniperSniperRound@Damage"/>
@@ -2103,6 +2118,16 @@
         </Amount>
         <Death value="Silentkill"/>
     </CEffectDamage>
+    <CEffectSet id="SniperSniperRound@SetInitial">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="SniperSniperRound@SwitchImpact"/>
+        <EffectArray value="SniperSniperRound@CP"/>
+    </CEffectSet>
+    <CEffectSwitch id="SniperSniperRound@SwitchUpgraded">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="NotDead" Effect="SniperSniperRound@SwitchImpact"/>
+        <CaseDefault value="SniperSniperRound@SA"/>
+    </CEffectSwitch>
     <CEffectEnumArea id="SniperToxicMunitions@SAAir">
         <EditorCategories value="Race:Terran"/>
         <SearchFilters value="Air;Player,Ally,Missile,Dead,Hidden,Invulnerable"/>

@@ -1260,6 +1260,10 @@
         <DataRecord Entry="Actor,SniperSniperRound@Beam"/>
         <DataRecord Entry="Button,SniperSniperRound"/>
         <DataRecord Entry="Effect,SniperSniperRound@Damage"/>
+        <DataRecord Entry="Button,SniperSniperRound@Upgraded"/>
+        <DataRecord Entry="Button,SniperSniperRound@Learn"/>
+        <DataRecord Entry="Effect,SniperSniperRound@SwitchImpact"/>
+        <DataRecord Entry="Effect,SniperSniperRound@DamageBiological"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="SniperToxicMunitions">
         <EditorCategories value="DataGroup:Buff,Race:Terran"/>

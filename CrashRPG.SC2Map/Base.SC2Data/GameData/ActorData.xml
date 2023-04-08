@@ -8684,6 +8684,8 @@
         <Beam value="SniperSniperRound@Beam"/>
         <ImpactMap index="None" Model="GhostSnipeAttackImpact" Sound="Ghost_SnipeImpact"/>
         <ImpactPhysics Name="GhostSnipeImpact" MatchKeys="Basic" Physics="GhostSnipeAttackDeathForce"/>
+        <On Terms="Effect.SniperSniperRound@DamageBiological.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>
+        <On Terms="Effect.SniperSniperRound@DamageBiological.Start; At Caster" Send="Create"/>
     </CActorAction>
     <CActorBeamSimple id="SniperSniperRound@Beam" parent="GenericAttackBeam">
         <Model value="GhostSnipeAttackBeam"/>

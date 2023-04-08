@@ -1958,7 +1958,7 @@
     <CAbilEffectTarget id="SniperSniperRound">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Effect index="0" value="SniperSniperRound@Switch"/>
+        <Effect index="0" value="SniperSniperRound@SetInitial"/>
         <Cost>
             <Vital index="Energy" value="25"/>
         </Cost>
