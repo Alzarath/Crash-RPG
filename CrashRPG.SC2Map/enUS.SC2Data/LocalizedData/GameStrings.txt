@@ -265,6 +265,7 @@ Behavior/Name/MechExplosiveImmortality@Rebuilding=Rebuilding
 Behavior/Name/MechShockBlast@Stunned=Shocked
 Behavior/Name/MedicHealingBeam=Healing Beam
 Behavior/Name/MedicIrradiate=Irradiated
+Behavior/Name/MedicIrradiate@Linger=Lingering Radiation
 Behavior/Name/MedicOpticalFlare@Blind=Blind
 Behavior/Name/MedicRestorativeBurst=Restorative Burst
 Behavior/Name/MedicSelfixArmor@Restoring=Selfix Armor
@@ -345,6 +346,7 @@ Behavior/Tooltip/MechBarrage@Stunned=Target is currently stunned and unable to u
 Behavior/Tooltip/MechExplosiveImmortality@Rebuilding=This unit is disabled and invulnerable while it rebuilds.
 Behavior/Tooltip/MedicHealingBeam=This unit is taking reduced damage and healed over time.
 Behavior/Tooltip/MedicIrradiate=Irradiated unit. All Biological units in or near the radiation field will take damage.
+Behavior/Tooltip/MedicIrradiate@Linger=This unit is taking damage over time.
 Behavior/Tooltip/MedivacAfterburners=This unit's movement speed is increased by 70%.
 Behavior/Tooltip/SandbagCover@InCover=This unit takes reduced ranged attack damage.
 Behavior/Tooltip/ShadePsionicInterference@Aura=Enemies that touch this unit take increased damage.
@@ -528,6 +530,7 @@ Button/Name/MedicHealingBeam@Learn=Learn Healing Beam
 Button/Name/MedicHealingBeam@Upgraded=Upgraded Healing Beam
 Button/Name/MedicIrradiate=Irradiate
 Button/Name/MedicIrradiate@Learn=Learn Irradiate
+Button/Name/MedicIrradiate@Upgraded=Upgraded Irradiate
 Button/Name/MedicOpticalFlare=Optical Flare
 Button/Name/MedicOpticalFlare@Learn=Learn Optical Flare
 Button/Name/MedicOpticalFlare@Upgraded=Upgraded Optical Flare
@@ -809,7 +812,7 @@ Button/Tooltip/MechExplosiveImmortality@Upgraded=NYI
 Button/Tooltip/MechExplosiveImmortality@Upgraded@Upgraded=NYI
 Button/Tooltip/MechMultiLockTargetingSystem=The hero is granted an anti-air weapon that fires two projectiles every attack.
 Button/Tooltip/MechMultiLockTargetingSystem@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>The hero is granted an anti-air weapon that fires two projectiles.
-Button/Tooltip/MechMultiLockTargetingSystem@Upgraded=The hero can attack air and ground units simultaneously.
+Button/Tooltip/MechMultiLockTargetingSystem@Upgraded=The anti-air weapon can fire independently.
 Button/Tooltip/MechMultiLockTargetingSystem@Upgraded@Upgraded=NYI
 Button/Tooltip/MechPointDefenseDrone=Uses a laser to shoot down enemy missiles.  <n/>Cannot target special attacks. <n/>Times out after <d ref="Behavior,PointDefenseDroneTimedLife,Duration"/> seconds.<n/><n/><c val="f078ff">Each shot consumes 10 energy.</c>
 Button/Tooltip/MechPointDefenseDrones=Equipped with a pair of Point Defense Drones that can each use automated defensive lasers every <d ref="Behavior,PointDefenseDroneLaser@CooldownAntiMissile,Duration"/> seconds to intercept enemy projectiles or repair friendly mechanical units by <d ref="Effect,PointDefenseDroneLaser@MURepair,VitalArray[Life].ChangeFraction * 100"/>%.
@@ -824,6 +827,7 @@ Button/Tooltip/MedicHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active
 Button/Tooltip/MedicHealingBeam@Upgraded=Healing Beam's healing rate is increased by <d ref="-100 * ([d stringref='Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>%.
 Button/Tooltip/MedicIrradiate=Irradiates a target unit, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@Damage,Amount$" precision="3"/></c> damage per second for <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to enemy units near the target.
 Button/Tooltip/MedicIrradiate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MedicIrradiate,Cost[0].Vital[Energy]"/><n/><n/>Irradiates a target unit, dealing <d ref="Behavior,MedicIrradiate,Duration * Effect,MedicIrradiate@Damage,Amount"/> damage over <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to surrounding enemy units.
+Button/Tooltip/MedicIrradiate@Upgraded=Irradiate applies a damage over time effect that deals an additional <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@DamageLinger,Amount$ * (1 + Behavior,MedicIrradiate@Linger,Duration)"/></c> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/>. The primary effect also lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
 Button/Tooltip/MedicOpticalFlare=This unit has +<d ref="Behavior,MedicOpticalFlare,Modification.SightBonus"/> sight range, detection, and can see up a cliff level.<n/><n/>Enemy units that enter its vision are blinded. Blinded units can't detect, have <d ref="-Behavior,MedicOpticalFlare@Blind,Modification.SightBonus"/> reduced sight range, and ranged units have <d ref="-Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange"/> reduced attack range.
 Button/Tooltip/MedicOpticalFlare@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Gain sight range, detection, and cliff sight. Nearby enemies have reduced sight and weapon range.
 Button/Tooltip/MedicOpticalFlare@Upgraded=Optical Flare further reduces enemy sight range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,MedicOpticalFlare@Blind,Modification.SightBonus$"/>, attack range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange$"/>, and grants the caster detection.
@@ -1827,9 +1831,13 @@ Effect/Name/MedicHealingBeam@SetHeal=Set
 Effect/Name/MedicHealingBeam@SetRB=Set
 Effect/Name/MedicHealingBeam@SwitchHeal=Switch
 Effect/Name/MedicIrradiate@AB=Apply Behavior
+Effect/Name/MedicIrradiate@ABLinger=Apply Behavior
+Effect/Name/MedicIrradiate@CP=Create Persistent
 Effect/Name/MedicIrradiate@Damage=Damage
+Effect/Name/MedicIrradiate@DamageLinger=Damage
 Effect/Name/MedicIrradiate@SA=Search Area
 Effect/Name/MedicIrradiate@Set=Set
+Effect/Name/MedicIrradiate@SetSearch=Set
 Effect/Name/MedicOpticalFlare@AB=Apply Behavior
 Effect/Name/MedicOpticalFlare@SA=Search Area
 Effect/Name/MedicRestorativeBurstApplyBehavior=Restorative Burst
@@ -2654,6 +2662,7 @@ Weapon/Name/MarineC14GaussRifle=C-14 Gauss Rifle
 Weapon/Name/MechCannonBoth=Cannon
 Weapon/Name/MechCannonGround=Cannon
 Weapon/Name/MechHellfireMissiles=Hellfire Missiles
+Weapon/Name/MechHellfireMissiles@MultiLock=Hellfire Missiles
 Weapon/Name/MedicCorrosiveSpray=Corrosive Spray
 Weapon/Name/PointDefenseLaserMech=Point Defense Laser
 Weapon/Name/ScarabMineExplode=Explode

@@ -332,8 +332,6 @@
         <TargetFilters value="-;Structure,RawResource,HarvestableResource,Item,Dead,Hidden,Invulnerable"/>
         <Range value="9"/>
         <Arc value="360"/>
-        <CancelableArray index="Channel" value="1"/>
-        <UninterruptibleArray index="Channel" value="1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="MedicIrradiate">
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>

@@ -245,6 +245,29 @@
         <EditorCategories value="Race:Terran"/>
         <Behavior value="MechExplosiveImmortality@Rebuilding"/>
     </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="MedicIrradiate@ABLinger">
+        <ValidatorArray index="0" value="CRPGAbilityUpgradeSecondary@Upgraded"/>
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="MedicIrradiate@Linger"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="MedicIrradiate@CP">
+        <EditorCategories value="Race:Terran"/>
+        <PeriodCount value="10"/>
+        <PeriodicEffectArray value="MedicIrradiate@SA"/>
+        <PeriodicPeriodArray value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="MedicIrradiate@DamageLinger">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Amount value="2.5">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectSet id="MedicIrradiate@SetSearch">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="MedicIrradiate@Damage"/>
+        <EffectArray value="MedicIrradiate@ABLinger"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="PointDefenseDroneLaser@ABCooldownRepair">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Caster"/>
@@ -1761,7 +1784,6 @@
         </Amount>
     </CEffectDamage>
     <CEffectApplyBehavior id="MedicIrradiate@AB">
-        <ValidatorArray index="0" value=""/>
         <EditorCategories value="Race:Terran"/>
         <Behavior value="MedicIrradiate"/>
     </CEffectApplyBehavior>
@@ -1776,7 +1798,8 @@
         <EditorCategories value="Race:Terran"/>
         <ResponseFlags index="Flee" value="1"/>
         <SearchFilters value="Biological;Player,Ally,Structure,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="1.5" Effect="MedicIrradiate@Damage"/>
+        <AreaArray Radius="1.5" Effect="MedicIrradiate@SetSearch"/>
+        <DebugTrace value="1"/>
     </CEffectEnumArea>
     <CEffectSet id="MedicIrradiate@Set">
         <EditorCategories value="Race:Terran"/>

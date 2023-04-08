@@ -105,6 +105,7 @@ Button/Hotkey/MedicHealingBeam@Learn=Q
 Button/Hotkey/MedicHealingBeam@Upgraded=Q
 Button/Hotkey/MedicIrradiate=W
 Button/Hotkey/MedicIrradiate@Learn=W
+Button/Hotkey/MedicIrradiate@Upgraded=W
 Button/Hotkey/MedicOpticalFlare=A
 Button/Hotkey/MedicOpticalFlare@Learn=A
 Button/Hotkey/MedicOpticalFlare@Upgraded=A

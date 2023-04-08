@@ -147,11 +147,33 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DisableValidatorArray value="CRPGAbilityUpgradePassiveSecondary@NotUpgraded"/>
         <Modification>
             <WeaponEnableArray value="MechCannonGround"/>
             <WeaponEnableArray value="MechHellfireMissiles"/>
             <WeaponDisableArray value="MechCannonBoth"/>
         </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MechMultiLockTargetingSystem@Upgraded">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DisableValidatorArray value="CRPGAbilityUpgradePassiveSecondary@Upgraded"/>
+        <Modification>
+            <WeaponEnableArray value="MechCannonGround"/>
+            <WeaponEnableArray value="MechHellfireMissiles@MultiLock"/>
+            <WeaponDisableArray value="MechCannonBoth"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="MedicIrradiate@Linger">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\dissolveradial.dds"/>
+        <BehaviorCategories index="User15" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Duration value="3"/>
+        <Period value="1"/>
+        <PeriodicEffect value="MedicIrradiate@DamageLinger"/>
+        <FinalEffect value="MedicIrradiate@DamageLinger"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PointDefenseDroneLaser@CooldownRepair">
         <InfoFlags index="Hidden" value="1"/>
@@ -445,6 +467,9 @@
         <Duration value="30"/>
         <Period value="1"/>
         <PeriodicEffect value="MedicIrradiate@SA"/>
+        <Modification>
+            <DeathResponse Chance="1" Effect="MedicIrradiate@CP"/>
+        </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="MedicHealingBeam@Channeling">
         <InfoFlags index="Hidden" value="1"/>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+	<Frame type="GameUI" name="GameUI" file="GameUI">
+		<Frame type="Frame" name="UIContainer">
+			<Frame type="Frame" name="ConsoleUIContainer">
+				<Frame type="InfoPanel" name="InfoPanel">
+					<Frame type="InfoPaneHero" name="InfoPaneHero">
+
+						<Frame type="EquipmentIcon" name="ShieldIcon">
+							<Width val="32"/>
+							<Height val="32"/>
+                            <Anchor side="Top" relative="$parent" pos="Max" offset="60"/>
+                            <Anchor side="Left" relative="$parent" pos="Min" offset="10"/>
+						</Frame>
+
+						<Frame type="Label" name="ShieldLabel">
+							<Style val="@@@InfoPaneHeroArmor"/>
+							<Anchor side="Top" relative="$parent/ShieldIcon" pos="Min" offset="4"/>
+							<Anchor side="Left" relative="$parent/ShieldIcon" pos="Max" offset="10"/>
+						</Frame>
+
+					</Frame>
+				</Frame>
+			</Frame>
+		 </Frame>
+	 </Frame>
+</Desc>
