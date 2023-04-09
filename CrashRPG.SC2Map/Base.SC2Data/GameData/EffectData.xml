@@ -61,6 +61,31 @@
         <EffectArray value="AeroTacticalJump@ABSpeed"/>
         <EffectArray value="AeroTacticalJump@CPSpeedDecay"/>
     </CEffectSet>
+    <CEffectModifyPlayer id="CRPGAbilityUpgradePassivePrimary@MP">
+        <EditorCategories value=""/>
+        <WhichPlayer Value="Caster"/>
+        <Upgrades Upgrade="CRPGAbilityUpgradePassivePrimary@Upgrade" Count="1"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="CRPGAbilityUpgradePassiveSecondary@MP">
+        <EditorCategories value=""/>
+        <WhichPlayer Value="Caster"/>
+        <Upgrades Upgrade="CRPGAbilityUpgradePassiveSecondary@Upgrade" Count="1"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="CRPGAbilityUpgradePrimary@MP">
+        <EditorCategories value=""/>
+        <WhichPlayer Value="Caster"/>
+        <Upgrades Upgrade="CRPGAbilityUpgradePrimary@Upgrade" Count="1"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="CRPGAbilityUpgradeSecondary@MP">
+        <EditorCategories value=""/>
+        <WhichPlayer Value="Caster"/>
+        <Upgrades Upgrade="CRPGAbilityUpgradeSecondary@Upgrade" Count="1"/>
+    </CEffectModifyPlayer>
+    <CEffectModifyPlayer id="CRPGAbilityUpgradeTernary@MP">
+        <EditorCategories value=""/>
+        <WhichPlayer Value="Caster"/>
+        <Upgrades Upgrade="CRPGAbilityUpgradeTernary@Upgrade" Count="1"/>
+    </CEffectModifyPlayer>
     <CEffectAddTrackedUnit id="CRPGCasterTracker@ATUCasterToTarget">
         <BehaviorLink value="CRPGCasterTracker"/>
         <TrackerUnit Value="Target"/>
@@ -1125,12 +1150,13 @@
     </CEffectDamage>
     <CEffectCreateUnit id="CrashedBattlecruiserRecruitGhost">
         <ValidatorArray value="CrashedBattlecruiserCanRecruitFollower"/>
+        <ValidatorArray value="TargetIsControlControlwithCaster"/>
         <EditorCategories value="Race:Terran"/>
-        <WhichLocation Value="CasterUnit"/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="CrashedBattlecruiserRecruitGhostIssueOrder"/>
-        <SpawnUnit value="CRPGMarine"/>
+        <SpawnUnit value="CRPGGhost"/>
     </CEffectCreateUnit>
     <CEffectIssueOrder id="CrashedBattlecruiserRecruitMarineIssueOrder">
         <EditorCategories value="Race:Terran"/>
@@ -1181,8 +1207,9 @@
     </CEffectSet>
     <CEffectCreateUnit id="CrashedBattlecruiserRecruitMarauderCreateUnit">
         <ValidatorArray value="CrashedBattlecruiserCanRecruitFollower"/>
+        <ValidatorArray value="TargetIsControlControlwithCaster"/>
         <EditorCategories value="Race:Terran"/>
-        <WhichLocation Value="CasterUnitOrPoint"/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="CrashedBattlecruiserRecruitMarauderIssueOrder"/>
@@ -1235,7 +1262,7 @@
     </CEffectIssueOrder>
     <CEffectCreateUnit id="CrashedBattlecruiserNomadRepairCreateUnit">
         <EditorCategories value="Race:Terran"/>
-        <WhichLocation Value="CasterUnitOrPoint"/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="CrashedBattlecruiserNomadRepairSet"/>
@@ -1243,8 +1270,9 @@
     </CEffectCreateUnit>
     <CEffectCreateUnit id="CrashedBattlecruiserRecruitMarine">
         <ValidatorArray value="CrashedBattlecruiserCanRecruitFollower"/>
+        <ValidatorArray value="TargetIsControlControlwithCaster"/>
         <EditorCategories value="Race:Terran"/>
-        <WhichLocation Value="CasterUnit"/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="CrashedBattlecruiserRecruitMarineIssueOrder"/>
@@ -1259,11 +1287,12 @@
     <CEffectCreateUnit id="CrashedBattlecruiserBuildStructure@CUDefensiveWall">
         <ValidatorArray value="CrashedBattlecruiserIsDefensiveWallPlaceholder"/>
         <EditorCategories value="Race:Terran"/>
-        <WhichLocation Value="CasterUnitOrPoint"/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="CrashedBattlecruiserBuildStructure@IODefensiveWall"/>
         <SpawnUnit value="CRPGNomad"/>
+        <SpawnOwner Value="Caster"/>
     </CEffectCreateUnit>
     <CEffectIssueOrder id="CrashedBattlecruiserBuildStructure@IODefensiveFortification">
         <EditorCategories value="Race:Terran"/>
@@ -1275,11 +1304,12 @@
     <CEffectCreateUnit id="CrashedBattlecruiserBuildStructure@CUDefensiveTurret">
         <ValidatorArray value="CrashedBattlecruiserIsDefensiveTurretPlaceholder"/>
         <EditorCategories value="Race:Terran"/>
-        <WhichLocation Value="CasterUnitOrPoint"/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="CrashedBattlecruiserBuildStructure@IODefensiveTurret"/>
         <SpawnUnit value="CRPGNomad"/>
+        <SpawnOwner Value="Caster"/>
     </CEffectCreateUnit>
     <CEffectIssueOrder id="CrashedBattlecruiserBuildStructure@IODefensiveWall">
         <EditorCategories value="Race:Terran"/>
@@ -1409,11 +1439,12 @@
     <CEffectCreateUnit id="CrashedBattlecruiserBuildStructure@CUDefensiveFortification">
         <ValidatorArray value="CrashedBattlecruiserIsDefensiveFortification"/>
         <EditorCategories value="Race:Terran"/>
-        <WhichLocation Value="CasterUnitOrPoint"/>
+        <WhichLocation Value="SourceUnitOrPoint"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
         <SpawnEffect value="CrashedBattlecruiserBuildStructure@IODefensiveFortification"/>
         <SpawnUnit value="CRPGNomad"/>
+        <SpawnOwner Value="Caster"/>
     </CEffectCreateUnit>
     <CEffectDamage id="AlienPlasmaDischargeSiegeDamage" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Zerg"/>
@@ -3278,8 +3309,10 @@
         <XP value="50"/>
         <VeterancyBehavior value="CRPGHeroVeterancy"/>
     </CEffectModifyUnit>
-    <CEffectModifyPlayer id="CRPGUpgradeEnergy">
-        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[4].Points" Value="1"/>
+    <CEffectModifyPlayer id="ArmoryUpgradeEnergy@MP">
+        <Alert value="UpgradeComplete"/>
+        <WhichPlayer Value="Caster"/>
+        <Upgrades Upgrade="ArmoryUpgradeEnergy@Upgrade" Count="1"/>
     </CEffectModifyPlayer>
     <CEffectDamage id="AlienClawsHeroDamageZergling" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -4935,9 +4968,10 @@
         <Amount value="25"/>
         <Death value="Blast"/>
     </CEffectDamage>
-    <CEffectModifyPlayer id="CRPGUpgradeArmor">
-        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[0].Points" Value="1"/>
-        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[1].Points" Value="1"/>
+    <CEffectModifyPlayer id="ArmoryUpgradeArmor@MP">
+        <Alert value="UpgradeComplete"/>
+        <WhichPlayer Value="Caster"/>
+        <Upgrades Upgrade="ArmoryUpgradeArmor@Upgrade" Count="1"/>
     </CEffectModifyPlayer>
     <CEffectDamage id="VehicleCrucioShockCannonBlast" parent="CrucioShockCannonBlast">
         <Name value="Effect/Name/VehicleCrucioShockCannonBlast"/>
@@ -5245,9 +5279,10 @@
         </Amount>
         <Death value="Silentkill"/>
     </CEffectDamage>
-    <CEffectModifyPlayer id="CRPGUpgradeDamage">
-        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[2].Points" Value="1"/>
-        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[3].Points" Value="1"/>
+    <CEffectModifyPlayer id="ArmoryUpgradeDamage@MP">
+        <WhichPlayer Value="Caster"/>
+        <Upgrades Upgrade="ArmoryUpgradeDamage@Upgrade" Count="1"/>
+        <Alert value="UpgradeComplete"/>
     </CEffectModifyPlayer>
     <CEffectLaunchMissile id="VehicleFragmentationGrenadeMissile">
         <EditorCategories value="Race:Terran"/>

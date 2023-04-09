@@ -320,5 +320,4 @@
 <Unit id="CRPGCrashedBattlecruiser"/>
 <Unit id="CRPGBuildableLocationDefensiveWall"/>
 <Unit id="CRPGBuildableLocationDefensiveTurret"/>
-<Unit id="CRPGCrashedBattlecruiserPlayer"/>
 </Preload>

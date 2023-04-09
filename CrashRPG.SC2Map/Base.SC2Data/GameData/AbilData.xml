@@ -1,5 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilTrain id="BarracksTrain2" parent="BarracksTrain">
+        <Name value="Abil/Name/BarracksTrain2"/>
+        <TechPlayer value="CasterPlayer"/>
+        <InfoArray index="Train1">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train2">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train3">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train4">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train5">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train6">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train7">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train8">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train9">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train10">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train11">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train12">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train13">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train14">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train15">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train16">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train17">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train18">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train19">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train20">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train21">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train22">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train23">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train24">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train25">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train26">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train27">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train28">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train29">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <InfoArray index="Train30">
+            <Charge Link="Abil/BarracksTrain2"/>
+            <Cooldown Link="Abil/BarracksTrain2"/>
+        </InfoArray>
+        <AgentUnitValidator value="InventoryNotFull"/>
+    </CAbilTrain>
+    <CAbilEffectInstant id="CRPGAbilityUpgradePassivePrimary">
+        <TechPlayer value="CasterPlayer"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="CRPGAbilityUpgradePassivePrimary@MP"/>
+        <Cost>
+            <Resource index="Minerals" value="1000"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGAbilityUpgradePassivePrimary" Requirements="CRPGAbilityUpgradePassivePrimary@CanUpgrade">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="CRPGAbilityUpgradePassiveSecondary">
+        <TechPlayer value="CasterPlayer"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="CRPGAbilityUpgradePassiveSecondary@MP"/>
+        <Cost>
+            <Resource index="Minerals" value="1000"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGAbilityUpgradePassiveSecondary" Requirements="CRPGAbilityUpgradePassiveSecondary@CanUpgrade">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="CRPGAbilityUpgradePrimary">
+        <TechPlayer value="CasterPlayer"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="CRPGAbilityUpgradePrimary@MP"/>
+        <Cost>
+            <Resource index="Minerals" value="1000"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGAbilityUpgradePrimary" Requirements="CRPGAbilityUpgradePrimary@CanUpgrade">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="CRPGAbilityUpgradeSecondary">
+        <TechPlayer value="CasterPlayer"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="CRPGAbilityUpgradeSecondary@MP"/>
+        <Cost>
+            <Resource index="Minerals" value="1000"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGAbilityUpgradeSecondary" Requirements="CRPGAbilityUpgradeSecondary@CanUpgrade">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="CRPGAbilityUpgradeTernary">
+        <TechPlayer value="CasterPlayer"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="CRPGAbilityUpgradeTernary@MP"/>
+        <Cost>
+            <Resource index="Minerals" value="1000"/>
+        </Cost>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGAbilityUpgradeTernary" Requirements="CRPGAbilityUpgradeTernary@CanUpgrade">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilInteract id="CrashedBattlecruiserInteract">
+        <CmdButtonArray index="Designate" DefaultButtonFace="Designate"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="ShareControl" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Range value="5"/>
+        <TargetFilters value="Heroic;Self,Structure,Missile,Uncommandable,Buried,UnderConstruction,Dead,Hidden"/>
+        <AutoCastRange value="5"/>
+    </CAbilInteract>
     <CAbilEffectInstant id="FighterResurgence@Dummy">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Cost>
@@ -164,44 +358,6 @@
         <AutoCastRange value="2"/>
         <AutoCastCountMin value="1"/>
     </CAbilMorph>
-    <CAbilResearch id="CRPGAbilityUpgrades">
-        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointAttack_Void\WayPointAttack_Void.m3"/>
-        <InfoArray index="Research1" Upgrade="CRPGAbilityUpgradePrimary">
-            <Resource index="Minerals" value="1000"/>
-            <Button DefaultButtonFace="CRPGAbilityUpgradePrimary" Requirements="CRPGAbilityUpgradePrimary@CanUpgrade">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-        <InfoArray index="Research2" Upgrade="CRPGAbilityUpgradeSecondary">
-            <Resource index="Minerals" value="1000"/>
-            <Button DefaultButtonFace="CRPGAbilityUpgradeSecondary" Requirements="CRPGAbilityUpgradeSecondary@CanUpgrade">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-        <InfoArray index="Research3" Upgrade="CRPGAbilityUpgradeTernary">
-            <Resource index="Minerals" value="1000"/>
-            <Button DefaultButtonFace="CRPGAbilityUpgradeTernary" Requirements="CRPGAbilityUpgradeTernary@CanUpgrade">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-        <InfoArray index="Research4" Upgrade="CRPGAbilityUpgradePassivePrimary">
-            <Resource index="Minerals" value="1000"/>
-            <Button DefaultButtonFace="CRPGAbilityUpgradePassivePrimary" Requirements="CRPGAbilityUpgradePassivePrimary@CanUpgrade">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-        <InfoArray index="Research5" Upgrade="CRPGAbilityUpgradePassiveSecondary">
-            <Resource index="Minerals" value="1000"/>
-            <Button DefaultButtonFace="CRPGAbilityUpgradePassiveSecondary" Requirements="CRPGAbilityUpgradePassiveSecondary@CanUpgrade">
-                <Flags index="UseDefaultButton" value="1"/>
-                <Flags index="CreateDefaultButton" value="1"/>
-            </Button>
-        </InfoArray>
-    </CAbilResearch>
     <CAbilLearn id="CRPGLearnAbility">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <InfoArray index="Learn1" Abil="CRPGLearnAbilityDummy">
@@ -251,11 +407,12 @@
             <Charge Link="Abil/CrashedBattlecruiserTrainMarineInternal"/>
             <Cooldown Link="Abil/CrashedBattlecruiserTrainMarineInternal"/>
         </Cost>
-        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <TargetFilters value="-;Neutral,Enemy"/>
         <Range value="500"/>
         <Arc value="360"/>
         <ProducedUnitArray value="CRPGMarine"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="CRPGRecruitGhost"/>
+        <TechPlayer value="CasterPlayer"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="FollowerConditionalOrderOrder">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -460,15 +617,17 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="CRPGDefensiveFortification"/>
         <PlaceUnit value="CRPGDefensiveFortification"/>
+        <TechPlayer value="CasterPlayer"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="CrashedBattlecruiserRecruitMarine">
+        <TechPlayer value="CasterPlayer"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Cost>
             <Resource index="Minerals" value="250"/>
             <Charge Link="Abil/CrashedBattlecruiserTrainMarineInternal"/>
             <Cooldown Link="Abil/CrashedBattlecruiserTrainMarineInternal"/>
         </Cost>
-        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <TargetFilters value="-;Neutral,Enemy"/>
         <Range value="500"/>
         <Arc value="360"/>
         <ProducedUnitArray value="CRPGMarine"/>
@@ -484,6 +643,7 @@
         <Range value="500"/>
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="CrashedBattlecruiserNomadRepair" Requirements="CRPGLT5Nomads"/>
+        <TechPlayer value="CasterPlayer"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="CrashedBattlecruiserBuildStructure@DefensiveWall">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -499,6 +659,7 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="CRPGDefensiveWall"/>
         <PlaceUnit value="CRPGDefensiveWall"/>
+        <TechPlayer value="CasterPlayer"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="CrashedBattlecruiserBuildStructure@DefensiveTurret">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -515,6 +676,7 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="CRPGDefensiveTurret"/>
         <PlaceUnit value="CRPGDefensiveTurret"/>
+        <TechPlayer value="CasterPlayer"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="CrashedBattlecruiserRecruitMarauder">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -524,11 +686,12 @@
             <Charge Link="Abil/CrashedBattlecruiserTrainMarauderInternal"/>
             <Cooldown Link="Abil/CrashedBattlecruiserTrainMarauderInternal"/>
         </Cost>
-        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <TargetFilters value="-;Neutral,Enemy"/>
         <Range value="500"/>
         <Arc value="360"/>
         <ProducedUnitArray value="CRPGMarauder"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="CRPGRecruitMarauder"/>
+        <TechPlayer value="CasterPlayer"/>
     </CAbilEffectTarget>
     <CAbilTransport id="DefensiveFortificationTransport">
         <AbilSetId value="ULdS"/>
@@ -569,7 +732,7 @@
         <Flags index="ReExecutable" value="1"/>
         <Flags index="Smart" value="1"/>
         <Flags index="TransportAcquirePassengers" value="1"/>
-        <TargetFilters value="Visible;Self,Ally,Neutral,Enemy,Structure,Missile,Dead,Hidden,Invulnerable"/>
+        <TargetFilters value="Visible;Self,Neutral,Enemy,Structure,Missile,Dead,Hidden,Invulnerable"/>
         <TargetSorts RequestCount="1">
             <SortArray value="TSAlliancePassive"/>
             <SortArray value="TSLifeFraction"/>
@@ -1207,12 +1370,17 @@
         <Arc value="360"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="BeaconMove"/>
     </CAbilEffectTarget>
-    <CAbilEffectInstant id="CRPGUpgradeEnergy">
+    <CAbilEffectInstant id="ArmoryUpgradeEnergy">
+        <TechPlayer value="CasterPlayer"/>
         <Cost>
             <Resource index="Minerals" value="200"/>
-            <Charge CountMax="100" CountUse="-1"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeEnergy" Requirements="CRPGInRangeofArmory"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ArmoryUpgradeEnergy" Requirements="ArmoryUpgradeEnergy@CanResearch">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+        <Effect index="0" value="ArmoryUpgradeEnergy@MP"/>
+        <AINotifyEffect value="ArmoryUpgradeEnergy@MP"/>
     </CAbilEffectInstant>
     <CAbilHarvest id="AlienGatherDrone">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -1326,6 +1494,15 @@
         </CmdButtonArray>
         <AINotifyEffect value="ShooterGravityGrenade@SA"/>
     </CAbilEffectTarget>
+    <CAbilInteract id="CRPGInteract">
+        <CmdButtonArray index="Designate" DefaultButtonFace="Designate"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="ShareControl" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Range value="2.5"/>
+        <TargetFilters value="Heroic;Self,Structure,Missile,Uncommandable,Buried,UnderConstruction,Dead,Hidden"/>
+        <AutoCastRange value="2.5"/>
+    </CAbilInteract>
     <CAbilEffectTarget id="UltraliskBurrowCharge2">
         <Alignment value="Negative"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -1691,19 +1868,29 @@
         <Flags index="AutoCastOffOwnerLeave" value="0"/>
         <MaxCount value="2"/>
     </CAbilArmMagazine>
-    <CAbilEffectInstant id="CRPGUpgradeArmor">
+    <CAbilEffectInstant id="ArmoryUpgradeArmor">
+        <TechPlayer value="CasterPlayer"/>
         <Cost>
             <Resource index="Minerals" value="200"/>
-            <Charge CountMax="100" CountUse="-1"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeArmor" Requirements="CRPGInRangeofArmory"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ArmoryUpgradeArmor" Requirements="ArmoryUpgradeDamage@CanResearch">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+        <Effect index="0" value="ArmoryUpgradeArmor@MP"/>
+        <AINotifyEffect value="ArmoryUpgradeArmor@MP"/>
     </CAbilEffectInstant>
-    <CAbilEffectInstant id="CRPGUpgradeDamage">
+    <CAbilEffectInstant id="ArmoryUpgradeDamage">
+        <TechPlayer value="CasterPlayer"/>
         <Cost>
             <Resource index="Minerals" value="200"/>
-            <Charge CountMax="100" CountUse="-1"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="UpgradeDamage" Requirements="CRPGInRangeofArmory"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ArmoryUpgradeDamage" Requirements="ArmoryUpgradeDamage@CanResearch">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+        <Effect index="0" value="ArmoryUpgradeDamage@MP"/>
+        <AINotifyEffect value="ArmoryUpgradeDamage@MP"/>
     </CAbilEffectInstant>
     <CAbilEffectInstant id="AlienLevelUp">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -1902,7 +2089,7 @@
         <Effect index="0" value="SniperNuclearStrike@CPChannel"/>
         <Cost>
             <Vital index="Energy" value="200"/>
-            <Cooldown TimeUse="150"/>
+            <Cooldown TimeUse="60"/>
         </Cost>
         <Range value="12"/>
         <FinishTime value="0"/>

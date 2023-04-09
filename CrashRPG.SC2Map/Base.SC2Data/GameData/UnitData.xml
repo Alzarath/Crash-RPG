@@ -695,6 +695,7 @@
     <CUnit id="CRPGGhost" parent="Ghost">
         <Name value="Unit/Name/CRPGGhost"/>
         <Description value="Button/Tooltip/CRPGGhost"/>
+        <ReviveType value="CRPGGhost"/>
         <CostResource index="Minerals" value="400"/>
         <CostResource index="Vespene" value="0"/>
         <AbilArray index="1" Link="AttackStupid"/>
@@ -705,6 +706,11 @@
         <AbilArray index="6" removed="1"/>
         <AbilArray index="7" removed="1"/>
         <AbilArray index="8" removed="1"/>
+        <BehaviorArray Link="CRPGDamageAttributeUnit"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGEnergyAttribute"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
         <WeaponArray index="0" Link="GhostC10CanisterRifleCRPG"/>
         <CardLayouts index="0">
             <LayoutButtons index="0" Face="Follow" AbilCmd="Follow,Execute"/>
@@ -721,7 +727,6 @@
             <LayoutButtons index="11" removed="1"/>
             <LayoutButtons index="12" removed="1"/>
         </CardLayouts>
-        <ReviveType value="CRPGGhost"/>
         <TacticalAI value="CRPGGhost"/>
         <LeaderAlias value="CRPGGhost"/>
         <HotkeyAlias value="CRPGGhost"/>
@@ -1132,7 +1137,6 @@
         <BehaviorArray Link="CRPGEnergyAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
-        <BehaviorArray Link="CRPGFollowerVeterancy"/>
         <BehaviorArray Link="TerranBuildingBurnDown"/>
         <BehaviorArray Link="BunkerNotJumbo"/>
         <BehaviorArray Link="DefensiveFortificationShrikeTurret"/>
@@ -1197,11 +1201,15 @@
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="que5"/>
-        <AbilArray Link="CRPGUpgradeArmor"/>
-        <AbilArray Link="CRPGUpgradeDamage"/>
-        <AbilArray Link="CRPGUpgradeEnergy"/>
-        <AbilArray Link="CRPGControlArmory"/>
-        <AbilArray Link="CRPGAbilityUpgrades"/>
+        <AbilArray Link="ArmoryUpgradeArmor"/>
+        <AbilArray Link="ArmoryUpgradeDamage"/>
+        <AbilArray Link="ArmoryUpgradeEnergy"/>
+        <AbilArray Link="CRPGInteract"/>
+        <AbilArray Link="CRPGAbilityUpgradePassivePrimary"/>
+        <AbilArray Link="CRPGAbilityUpgradePassiveSecondary"/>
+        <AbilArray Link="CRPGAbilityUpgradePrimary"/>
+        <AbilArray Link="CRPGAbilityUpgradeSecondary"/>
+        <AbilArray Link="CRPGAbilityUpgradeTernary"/>
         <BehaviorArray Link="CRPGDamageAttributeUnit"/>
         <BehaviorArray Link="CRPGArmorAttributeUnit"/>
         <BehaviorArray Link="CRPGEnergyAttribute"/>
@@ -1213,9 +1221,6 @@
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
             <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
             <LayoutButtons Face="Halt" Type="AbilCmd" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
-            <LayoutButtons Face="UpgradeArmor" Type="AbilCmd" AbilCmd="CRPGUpgradeArmor,Execute" Row="0" Column="1"/>
-            <LayoutButtons Face="UpgradeDamage" Type="AbilCmd" AbilCmd="CRPGUpgradeDamage,Execute" Row="0" Column="0"/>
-            <LayoutButtons Face="UpgradeEnergy" Type="AbilCmd" AbilCmd="CRPGUpgradeEnergy,Execute" Row="0" Column="2"/>
         </CardLayouts>
         <Radius value="1.5"/>
         <SeparationRadius value="1.25"/>
@@ -1230,12 +1235,10 @@
     </CUnit>
     <CUnit id="CRPGCrashedBattlecruiser">
         <DeathRevealRadius value="3"/>
-        <ReviveType value="EngineeringBay"/>
         <Facing value="315"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
         <FlagArray index="Turnable" value="0"/>
-        <FlagArray index="Unselectable" value="1"/>
         <FlagArray index="PreventDefeat" value="1"/>
         <FlagArray index="PreventDestroy" value="1"/>
         <FlagArray index="PenaltyRevealed" value="1"/>
@@ -1267,24 +1270,25 @@
         <AttackTargetPriority value="11"/>
         <AbilArray Link="BuildInProgress"/>
         <AbilArray Link="que5"/>
-        <AbilArray Link="CRPGControlCrashedBattlecruiser"/>
+        <AbilArray Link="CrashedBattlecruiserInteract"/>
         <AbilArray Link="CrashedBattlecruiserBuildStructure@DefensiveFortificaiton"/>
         <AbilArray Link="CrashedBattlecruiserBuildStructure@DefensiveTurret"/>
         <AbilArray Link="CrashedBattlecruiserBuildStructure@DefensiveWall"/>
         <AbilArray Link="CrashedBattlecruiserNomadRepair"/>
         <AbilArray Link="CrashedBattlecruiserRecruitMarine"/>
         <AbilArray Link="CrashedBattlecruiserRecruitMarauder"/>
+        <AbilArray Link="CrashedBCMedicalFacilities"/>
         <CardLayouts>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
             <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
             <LayoutButtons Face="Halt" Type="AbilCmd" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
-            <LayoutButtons Face="CRPGDefensiveFortification" Type="AbilCmd" AbilCmd="CrashedBattlecruiserBuildStructure@DefensiveFortificaiton,255" Row="0" Column="1"/>
+            <LayoutButtons Face="CRPGDefensiveFortification" Type="AbilCmd" AbilCmd="CrashedBattlecruiserBuildStructure@DefensiveFortificaiton,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="SelectBuilder" Type="SelectBuilder" Row="1" Column="3"/>
-            <LayoutButtons Face="CRPGDefensiveWall" Type="AbilCmd" AbilCmd="CrashedBattlecruiserBuildStructure@DefensiveWall,255" Row="0" Column="0"/>
-            <LayoutButtons Face="CRPGDefensiveTurret" Type="AbilCmd" AbilCmd="CrashedBattlecruiserBuildStructure@DefensiveTurret,255" Row="0" Column="2"/>
-            <LayoutButtons Face="CrashedBattlecruiserNomadRepair" Type="AbilCmd" AbilCmd="CrashedBattlecruiserNomadRepair,255" Row="0" Column="3"/>
-            <LayoutButtons Face="CRPGRecruitMarine" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarine,255" Row="1" Column="0"/>
-            <LayoutButtons Face="CRPGRecruitMarauder" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarauder,255" Row="1" Column="1"/>
+            <LayoutButtons Face="CRPGDefensiveWall" Type="AbilCmd" AbilCmd="CrashedBattlecruiserBuildStructure@DefensiveWall,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="CRPGDefensiveTurret" Type="AbilCmd" AbilCmd="CrashedBattlecruiserBuildStructure@DefensiveTurret,Execute" Row="0" Column="2"/>
+            <LayoutButtons Face="CrashedBattlecruiserNomadRepair" Type="AbilCmd" AbilCmd="CrashedBattlecruiserNomadRepair,Execute" Row="0" Column="3"/>
+            <LayoutButtons Face="CRPGRecruitMarine" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarine,Execute" Row="1" Column="0"/>
+            <LayoutButtons Face="CRPGRecruitMarauder" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarauder,Execute" Row="1" Column="1"/>
         </CardLayouts>
         <Radius value="1.25"/>
         <SeparationRadius value="1.25"/>
@@ -1296,14 +1300,10 @@
         <SubgroupPriority value="3"/>
         <MinimapRadius value="1.25"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
-        <TacticalAI value="EngineeringBay"/>
-        <LeaderAlias value="EngineeringBay"/>
-        <SelectAlias value="EngineeringBay"/>
-        <SubgroupAlias value="EngineeringBay"/>
         <GlossaryPriority value="256"/>
         <HotkeyCategory value="Unit/Category/CrashRPGUnits"/>
-        <AIEvaluateAlias value="EngineeringBay"/>
         <BehaviorArray Link="CrashedBCMedicalFacilities@UT"/>
+        <Subtitle value="Unit/Subtitle/CRPGCrashedBattlecruiser"/>
     </CUnit>
     <CUnit id="CRPGCivilian" parent="PrisonerCivilian">
         <Name value="Unit/Name/CRPGCivilian"/>
@@ -2579,7 +2579,6 @@
         <BehaviorArray Link="CRPGEnergyAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
-        <BehaviorArray Link="CRPGFollowerVeterancy"/>
         <BehaviorArray Link="TerranBuildingBurnDown"/>
         <BehaviorArray Link="Detector11"/>
         <BehaviorArray Link="UnderConstruction"/>
@@ -2720,6 +2719,11 @@
         <AttackTargetPriority value="11"/>
         <AbilArray index="0" Link="BuildInProgress"/>
         <AbilArray index="1" Link="DefensiveWallMorph@Raise"/>
+        <BehaviorArray Link="CRPGDamageAttributeUnit"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGEnergyAttribute"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
         <BehaviorArray Link="TerranBuildingBurnDown"/>
         <CardLayouts>
             <LayoutButtons Face="DefensiveWallMorph@Raise" Type="AbilCmd" AbilCmd="DefensiveWallMorph@Raise,Execute" Row="2" Column="0"/>
@@ -2791,17 +2795,16 @@
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
         <KillXP value="10"/>
-        <BehaviorArray Link="CRPGDamageAttributeUnit"/>
-        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
-        <BehaviorArray Link="CRPGEnergyAttribute"/>
-        <BehaviorArray Link="CRPGBaseAttributes"/>
-        <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
-        <BehaviorArray Link="CRPGFollowerVeterancy"/>
         <AbilArray Link="stop"/>
         <AbilArray Link="AttackStupid"/>
         <AbilArray Link="MoveStupid"/>
         <AbilArray Link="Follow"/>
         <AbilArray Link="FollowerConditionalOrderOrder"/>
+        <BehaviorArray Link="CRPGDamageAttributeUnit"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGEnergyAttribute"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
         <WeaponArray Link="MarineC14GaussRifle"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="Passive" AbilCmd="attack,Execute" Row="0" Column="0"/>
@@ -2852,7 +2855,19 @@
         <LifeStart value="125"/>
         <LifeMax value="125"/>
         <LifeArmor value="1"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </LifeArmorFormula>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
+        <ShieldArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </ShieldArmorFormula>
         <Speed value="2.25"/>
         <LateralAcceleration value="69.125"/>
         <StationaryTurningRate value="999.8437"/>
@@ -2875,7 +2890,6 @@
         <BehaviorArray Link="CRPGEnergyAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
         <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
-        <BehaviorArray Link="CRPGFollowerVeterancy"/>
         <WeaponArray Link="MarauderPunisherGrenades"/>
         <CardLayouts>
             <LayoutButtons Face="Follow" Type="AbilCmd" AbilCmd="Follow,Execute" Row="0" Column="0"/>
@@ -2909,18 +2923,6 @@
         </Fidget>
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
-        <LifeArmorFormula>
-            <NegativeArmorMultiplier value="0"/>
-            <NegativeDamageBase value="0.94"/>
-            <PositiveArmorMultiplier value="0"/>
-            <PositiveDamageRatio value="0.06"/>
-        </LifeArmorFormula>
-        <ShieldArmorFormula>
-            <NegativeArmorMultiplier value="0"/>
-            <NegativeDamageBase value="0.94"/>
-            <PositiveArmorMultiplier value="0"/>
-            <PositiveDamageRatio value="0.06"/>
-        </ShieldArmorFormula>
     </CUnit>
     <CUnit id="CRPGNomad">
         <DeathRevealRadius value="3"/>
@@ -3905,6 +3907,7 @@
         <TurningRate value="999.8437"/>
         <AbilArray Link="MechPointDefenseDrones"/>
         <AbilArray Link="HangarQueue5"/>
+        <AbilArray Link="TestInventory"/>
         <WeaponArray Link="MechCannonBoth"/>
         <WeaponArray Link="MechCannonGround"/>
         <WeaponArray Link="MechHellfireMissiles"/>

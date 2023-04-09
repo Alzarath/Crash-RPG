@@ -390,6 +390,9 @@
         <CombineArray value="CRPGFoodUnavailable"/>
         <CombineArray value="CRPGAbilityUpgradePrimary@Upgraded"/>
     </CValidatorCombine>
+    <CValidatorUnitInventoryIsFull id="InventoryNotFull">
+        <Find value="0"/>
+    </CValidatorUnitInventoryIsFull>
     <CValidatorUnitCompareBehaviorCount id="IsCrashRPGHero">
         <Compare value="GT"/>
         <Behavior value="CRPGHeroVeterancy"/>
@@ -962,4 +965,8 @@
         <CombineArray value="CRPGAbilityUpgradePrimary@Upgraded"/>
         <CombineArray value="TargetIsAllyorPlayer"/>
     </CValidatorCombine>
+    <CValidatorUnitAlliance id="TargetIsControlControlwithCaster">
+        <ResultFailed value="MustTargetYourOwnUnits"/>
+        <Value value="Control"/>
+    </CValidatorUnitAlliance>
 </Catalog>

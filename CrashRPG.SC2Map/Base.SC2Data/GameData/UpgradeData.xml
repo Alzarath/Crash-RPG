@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CUpgrade id="CRPGAbilityUpgradePassivePrimary">
+    <CUpgrade id="ArmoryUpgradeDamage@Upgrade">
+        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[2].Points" Value="1"/>
+        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[3].Points" Value="1"/>
+        <MaxLevel value="100"/>
+    </CUpgrade>
+    <CUpgrade id="ArmoryUpgradeEnergy@Upgrade">
+        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[4].Points" Value="1"/>
+        <MaxLevel value="100"/>
+        <LeaderAlias value="ArmoryUpgradeDamage@Upgrade"/>
+    </CUpgrade>
+    <CUpgrade id="ArmoryUpgradeArmor@Upgrade">
+        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[0].Points" Value="1"/>
+        <EffectArray Reference="Behavior,CRPGBaseAttributes,Modification.AttributeChangeArray[1].Points" Value="1"/>
+        <MaxLevel value="100"/>
+        <LeaderAlias value="ArmoryUpgradeDamage@Upgrade"/>
+    </CUpgrade>
+    <CUpgrade id="CRPGAbilityUpgradePassivePrimary@Upgrade">
         <Icon value="Assets\Textures\btn-number-1.dds"/>
         <EffectArray Reference="Abil,HunterPsionicProjection,MaxCount" Value="1"/>
         <EffectArray Reference="Abil,HunterPsionicProjection@Dummy,Cost[0].Charge.CountMax" Value="1"/>
@@ -17,7 +33,7 @@
         <AffectedUnitArray value="CRPGHunter"/>
         <AffectedUnitArray value="CRPGShooter"/>
     </CUpgrade>
-    <CUpgrade id="CRPGAbilityUpgradePassiveSecondary">
+    <CUpgrade id="CRPGAbilityUpgradePassiveSecondary@Upgrade">
         <Icon value="Assets\Textures\btn-number-2.dds"/>
         <EffectArray Operation="Set" Reference="Abil,ShooterStimpack@Dummy,Cost[0].Cooldown.TimeUse" Value="0.000000"/>
         <EffectArray Reference="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax" Value="15"/>
@@ -44,7 +60,7 @@
         <EffectArray Operation="Set" Reference="Weapon,MechGatlingCannon,RateMultiplier" Value="0.05"/>
         <EditorCategories value="Race:Neutral,UpgradeType:AttackBonus"/>
     </CUpgrade>
-    <CUpgrade id="CRPGAbilityUpgradeTernary">
+    <CUpgrade id="CRPGAbilityUpgradeTernary@Upgrade">
         <Icon value="Assets\Textures\decal_spray_0015_01.dds"/>
         <EffectArray Reference="Behavior,SandbagCover@InCover,Modification.RangedWeaponRange" Value="1"/>
         <EffectArray Operation="Set" Reference="Behavior,SandbagCover,DamageResponse.Chance" Value="1"/>
@@ -56,7 +72,7 @@
         <AffectedUnitArray value="CRPGMedic"/>
         <AffectedUnitArray value="CRPGShooter"/>
     </CUpgrade>
-    <CUpgrade id="CRPGAbilityUpgradePrimary">
+    <CUpgrade id="CRPGAbilityUpgradePrimary@Upgrade">
         <Icon value="Assets\Textures\decal_spray_0016_01.dds"/>
         <EffectArray Operation="Set" Reference="Abil,AeroYamatoCannon,PrepTime[0]" Value="0.000000"/>
         <EffectArray Reference="Abil,HunterScarabMine,Cost[0].Charge.CountMax" Value="2"/>
@@ -75,7 +91,7 @@
         <AffectedUnitArray value="CRPGInfested"/>
         <AffectedUnitArray value="CRPGShooter"/>
     </CUpgrade>
-    <CUpgrade id="CRPGAbilityUpgradeSecondary">
+    <CUpgrade id="CRPGAbilityUpgradeSecondary@Upgrade">
         <Icon value="Assets\Textures\decal_spray_0017_01.dds"/>
         <EffectArray Operation="AddBaseMultiply" Reference="Effect,ShooterGravityGrenade@SA,AreaArray[0].Radius" Value="0.5"/>
         <EffectArray Reference="Behavior,ShooterGravityGrenade@KnockIn,Duration" Value="0.250000"/>

@@ -1039,12 +1039,13 @@
         <EditorCategories value="Race:Neutral"/>
         <DefaultButtonLayout Row="2"/>
     </CButton>
-    <CButton id="UpgradeEnergy">
+    <CButton id="ArmoryUpgradeEnergy">
         <Tooltip value="Button/Tooltip/CRPGEnergyAttribute"/>
         <Icon value="Assets\Textures\btn-upgrade-karax-energyregen200.dds"/>
         <AlertTooltip value="Button/Tooltip/CRPGEnergyAttribute"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-karax-energyregen200.dds"/>
         <EditorCategories value="Race:Neutral"/>
+        <DefaultButtonLayout Column="2"/>
     </CButton>
     <CButton id="ShipVortex">
         <Icon value="Assets\Textures\BTN-Ability-Protoss-Blackhole-color.dds"/>
@@ -1313,19 +1314,21 @@
         <EditorCategories value="Race:Terran"/>
         <HidesForSimpleText value="0"/>
     </CButton>
-    <CButton id="UpgradeDamage">
+    <CButton id="ArmoryUpgradeDamage">
+        <Tooltip value="Button/Tooltip/CRPGDamageAttribute"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
+        <AlertTooltip value="Button/Tooltip/CRPGDamageAttribute"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel1.dds"/>
         <EditorCategories value="Race:Neutral"/>
-        <Tooltip value="Button/Tooltip/CRPGDamageAttribute"/>
-        <AlertTooltip value="Button/Tooltip/CRPGDamageAttribute"/>
     </CButton>
-    <CButton id="UpgradeArmor">
+    <CButton id="ArmoryUpgradeArmor">
+        <Tooltip value="Button/Tooltip/CRPGArmorAttribute"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
+        <AlertTooltip value="Button/Tooltip/CRPGArmorAttribute"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <EditorCategories value="Race:Neutral"/>
-        <Tooltip value="Button/Tooltip/CRPGArmorAttribute"/>
-        <AlertTooltip value="Button/Tooltip/CRPGArmorAttribute"/>
+        <DefaultButtonLayout Column="1"/>
+        <ChargeText value="Button/ChargeText/ArmoryUpgradeArmor"/>
     </CButton>
     <CButton id="SniperPersonalCloaking@Off" parent="ActiveSecondaryButton">
         <TooltipAppender index="0" removed="1"/>

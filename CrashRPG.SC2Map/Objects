@@ -15,6 +15,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1725130603" Position="35,68,11.9965" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1219188478" Variation="6" Position="76.5617,195.0893,11.9882" Rotation="2.7763" Scale="1.0485,1.0485,1.0485" Type="IceWorldRock">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -131,6 +132,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1456015549" Position="134,46,11.9973" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1877631463" Variation="5" Position="159.5,215.5,11.9956" Rotation="2.6066" Scale="1.042,1.042,1.042" Type="AgriaFoliage">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -212,6 +214,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1714294994" Position="80,68,13.997" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="642129892" Variation="5" Position="70.7075,146.211,13.995" Rotation="5.3842" Scale="0.85,0.85,0.85" Type="SnowTrees">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -1163,6 +1166,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="826811073" Position="28,24,7.9965" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1755657508" Variation="2" Position="239,227.5,11.995" Rotation="5.9157" Scale="1,1,1" Type="Blast_Craters">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -2743,6 +2747,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1352721561" Position="156,52,11.9973" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1679198988" Variation="7" Position="182.9284,248.4948,13.9956" Rotation="0.9885" Scale="1.0898,1.0898,1.0898" Type="AgriaTree">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -3668,6 +3673,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="964772630" Position="41,47,9.996" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1323868001" Variation="3" Position="35.8522,201.8913,11.9821" Rotation="1.212" Scale="1.1442,1.1442,1.1442" Type="IceWorldRock">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -4103,6 +4109,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1855829894" Position="96,50,11.996" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="422870588" Position="33,160.5,15.9958" Rotation="1.6184" Scale="1,1,1" Type="SnowRefinery_Terran_Barrier">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -4159,6 +4166,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1036501250" Position="37,87,13.996" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1703922581" Variation="4" Position="158.86,132.7226,11.973" Rotation="2.1335" Scale="0.907,0.907,0.907" Type="Elsecaro_Bush1x1">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -6973,6 +6981,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1096573310" Position="43,115,15.996" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="674274643" Variation="8" Position="146.437,180.3664,13.9858" Scale="1,1,1" Type="Purifier_Trees_Regular">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -7475,6 +7484,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1998778313" Position="54,24,9.996" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1327673371" Variation="1" Position="44.7922,5.01,7.985" Rotation="0.5915" Scale="1,1,1" Type="ZerusLavaGroundSpire">
         <Flag Index="HeightOffset" Value="1"/>
@@ -7816,6 +7826,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1802646810" Position="44,93,15.996" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1843459292" Variation="4" Position="91.1008,65.7014,13.9968" Rotation="1.579" Scale="1,1,1" Type="ZerusPlantClusterLarge">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -8942,6 +8953,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="540899830" Position="15,76,9.9963" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1567614947" Position="82.2685,0.7954,11.9963" Scale="1,1,1" Type="Fog_Aiur">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -9281,6 +9293,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="2102876193" Position="119,27,11.9975" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1187975511" Variation="2" Position="201.5,239.5,11.9792" Rotation="5.7224" Scale="0.836,0.836,0.836" Type="LandingLights">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -10560,6 +10573,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1417949560" Position="91,11,11.9965" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1593386072" Variation="1" Position="170.7863,243.9995,13.995" Rotation="0.7851" Scale="0.9313,0.9313,0.9313" Type="AgriaCrops">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -10819,6 +10833,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1133211210" Position="64,37,11.9968" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1119316717" Variation="7" Position="178.2817,254.426,15.9956" Scale="1,1,1" Type="Purifier_Trees_Regular">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -11686,6 +11701,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="228628889" Position="25,116,15.996" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2009960153" Variation="13" Position="136,84.5,11.9936" Rotation="6.256" Scale="1.007,1.007,1.007" Type="Elsecaro_Foliage">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -11716,6 +11732,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1147640383" Position="103,30,11.9965" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1844299240" Variation="1" Position="112.5,78.5,13.996" Rotation="1.0446" Scale="1.1682,1.1682,1.1682" Type="BelShirTree">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -13265,6 +13282,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1859894847" Position="124,57,11.9973" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="126751774" Variation="13" Position="202.0383,231.8742,11.9956" Rotation="1.8977" Scale="1,1,1" Type="ColonistCorpse">
         <Flag Index="HeightOffset" Value="1"/>
@@ -13580,6 +13598,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1194045335" Position="81,17,11.9965" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2078621777" Variation="1" Position="171.5007,249.3881,16.0026" Scale="1,1,1" Type="Purifier_Trees_Regular">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -14139,6 +14158,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1146597670" Position="92,21,11.9965" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1959543452" Variation="1" Position="197,109.5,12.0043" Rotation="3.9267" Scale="1,1,1" Type="Elsecaro_Sidewalks">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -14414,6 +14434,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1172800148" Position="123,8,11.9985" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1183647169" Variation="2" Position="187.923,16.2143,8.017" Scale="1,1,1" Type="Elsecaro_SeaWeeds_Group">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -14885,6 +14906,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1136061287" Position="133,87,11.9975" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1217847046" Position="105,174,13.9953" Rotation="5.4975" Scale="0.8671,0.8671,0.8671" Type="SnowLight">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -15652,6 +15674,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="739893893" Position="38,22,7.9973" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1205797506" Position="14.5,1,11.9946" Rotation="3.1245" Scale="0.9411,0.9411,0.9411" Type="RockVolcanicGiant">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -16458,6 +16481,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1439392611" Position="35,126,15.996" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1629171084" Variation="2" Position="179.029,248.3164,13.994" Scale="1,1,1" Type="Purifier_Trees_Regular">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -17620,6 +17644,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1448640258" Position="84,38,13.9965" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1379408570" Variation="1" Position="133,194,14.0014" Rotation="0.6391" Scale="1.0341,1.0341,1.0341" Type="SnowTrees">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -19203,6 +19228,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1566060893" Position="17,8,7.9963" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1010127580" Variation="2" Position="112,74.5,12.009" Rotation="4.749" Scale="1.0288,1.0288,1.0288" Type="ZerusGroundVines">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -19825,6 +19851,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="236705507" Position="119,70,11.9975" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="482703361" Variation="3" Position="96.5,100,9.9968" Rotation="1.8125" Scale="0.9875,0.9875,0.9875" Type="ZerusPlant">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -19890,6 +19917,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="898905164" Position="110,68,11.9963" Scale="1,1,1" Type="Aiur_Zerg_NydusNest">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="540651824" Variation="3" Position="159.5,180.5,13.995" Scale="1,1,1" Type="AgriaCurtain">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -20547,7 +20575,7 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
     <ObjectPoint Id="451313038" Position="128,140,0" Scale="1,1,1" Type="Normal" Name="Armory" Color="0,0,0,0"/>
-    <ObjectPoint Id="25930053" Position="135,135,0" Scale="1,1,1" Type="Normal" Name="Crash Point" Color="0,0,0,0"/>
+    <ObjectPoint Id="25930053" Position="136,136,0" Scale="1,1,1" Type="Normal" Name="Crash Point" Color="0,0,0,0"/>
     <ObjectPoint Id="1236227694" Position="128,128,0" Scale="1,1,1" Type="Normal" Name="Crashed Battlecruiser" Color="0,0,0,0"/>
     <ObjectPoint Id="1959118540" Position="128,128,0" Scale="1,1,1" Type="StartLoc" Name="Start Location 001" Color="0,0,0,0">
         <Flag Index="ForcePlacement" Value="1"/>
@@ -20557,6 +20585,7 @@
     <ObjectUnit Id="1708121885" Position="119.5,131.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
     <ObjectUnit Id="740697964" Position="138,134,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
     <ObjectUnit Id="2012577011" Position="115,124,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="39224386" Position="128,140,0" Scale="1,1,1" UnitType="CRPGArmory" Player="13"/>
     <ObjectUnit Id="479098073" Position="136,120,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
     <ObjectUnit Id="740015191" Position="244.5,157,0" Rotation="4.5646" Scale="1,1,1" UnitType="Ultralisk"/>
     <ObjectUnit Id="834377522" Position="120,120,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>

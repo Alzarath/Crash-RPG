@@ -22,28 +22,35 @@ Abil/Name/AlienYagdraFireWave=Fire Wave
 Abil/Name/AlienYagdraHangar=Hangar
 Abil/Name/AlienYagdraQueue=Queue
 Abil/Name/AlienYagdraSpitFire=Spit Fire
+Abil/Name/ArmoryUpgradeArmor=Upgrade Armor
+Abil/Name/ArmoryUpgradeDamage=Upgrade Damage
+Abil/Name/ArmoryUpgradeEnergy=Upgrade Energy
 Abil/Name/AssassinShadowFury=Shadow Fury
 Abil/Name/AttackFriendly=Attack
 Abil/Name/AttackStupid=Attack
+Abil/Name/BarracksTrain2=Train Copy
 Abil/Name/BeaconGiveHero=Give Hero
-Abil/Name/CRPGAbilityUpgrades=Ability Upgrades
+Abil/Name/CRPGAbilityUpgradePassivePrimary=Upgrade
+Abil/Name/CRPGAbilityUpgradePassiveSecondary=Upgrade
+Abil/Name/CRPGAbilityUpgradePrimary=Upgrade
+Abil/Name/CRPGAbilityUpgradeSecondary=Upgrade
+Abil/Name/CRPGAbilityUpgradeTernary=Upgrade
 Abil/Name/CRPGControlArmory=Control Armory
 Abil/Name/CRPGControlCrashedBattlecruiser=Control Crashed Battlecruiser
 Abil/Name/CRPGHoldFire=Hold Fire
+Abil/Name/CRPGInteract=Interact
 Abil/Name/CRPGLearnAbility=Learn Ability
 Abil/Name/CRPGLearnAbilityDummy=Learn Ability
 Abil/Name/CRPGMedivacTransport=Transport
 Abil/Name/CRPGPassive1Dummy=Passive 1
 Abil/Name/CRPGPassive2Dummy=Passive 2
-Abil/Name/CRPGUpgradeArmor=Upgrade Armor
-Abil/Name/CRPGUpgradeDamage=Upgrade Damage
-Abil/Name/CRPGUpgradeEnergy=Upgrade Energy
 Abil/Name/CRPGWeaponsFree=Weapons Free
 Abil/Name/CrashedBCMedicalFacilities=Medical Facilities
 Abil/Name/CrashedBattlecruiserBuildStructure@DefensiveFortificaiton=Defensive Fortificaiton
 Abil/Name/CrashedBattlecruiserBuildStructure@DefensiveTurret=Defensive Turret
 Abil/Name/CrashedBattlecruiserBuildStructure@DefensiveWall=Defensive Wall
 Abil/Name/CrashedBattlecruiserConstructOutpost=Construct Outpost
+Abil/Name/CrashedBattlecruiserInteract=Interact
 Abil/Name/CrashedBattlecruiserNomadRepair=Nomad Repair
 Abil/Name/CrashedBattlecruiserRecruitGhost=Recruit Ghost
 Abil/Name/CrashedBattlecruiserRecruitMarauder=Recruit Marauder
@@ -378,6 +385,7 @@ Behavior/Tooltip/WizardPsionicStorm=Target is under the effects of Psionic Storm
 Behavior/Tooltip/WizardPsionicStormRestore=Target is under the effects of Psionic Storm and will restore shields while in this area of effect.
 Behavior/Tooltip/WizardReanimated=Target is serving a new master.
 Behavior/Tooltip/WizardReanimating=Target is resurrecting.
+Button/ChargeText/ArmoryUpgradeArmor=<d ref="$UpgradeCount:ArmoryUpgradeArmor@Upgrade$"/>
 Button/ChargeText/ShooterChaingun=<d ref="100 * $BehaviorStackCount:ShooterChaingun@Buff$ * Accumulator,ShooterChaingun@Value,Amount"/>%
 Button/Name/ActiveSecondaryButton=ActiveSecondaryButton
 Button/Name/ActiveTernaryButton=ActiveTernaryButton
@@ -426,6 +434,9 @@ Button/Name/AlienTankGenetics=Tank Genetics
 Button/Name/AlienYagdraFireWave=Fire Wave
 Button/Name/AlienYagdraFirebreath=Fire Breath
 Button/Name/AlienYagdraSpitFire=Spit Fire
+Button/Name/ArmoryUpgradeArmor=Upgrade Armor
+Button/Name/ArmoryUpgradeDamage=Upgrade Damage
+Button/Name/ArmoryUpgradeEnergy=Upgrade Energy
 Button/Name/AssassinShadowFury=Shadow Fury
 Button/Name/BossLock=Boss Lock
 Button/Name/CButtonUpgradeable=CButtonUpgradeable
@@ -592,9 +603,6 @@ Button/Name/SwarmerMergeTarget=Merge
 Button/Name/SwarmerSpawm=Spawn
 Button/Name/SwarmerSplit=Split
 Button/Name/SwarmerSwarm=Swarm
-Button/Name/UpgradeArmor=Upgrade Armor
-Button/Name/UpgradeDamage=Upgrade Damage
-Button/Name/UpgradeEnergy=Upgrade Energy
 Button/Name/VehicleAutomaticServos=Automatic Servos
 Button/Name/VehicleCancel=Cancel
 Button/Name/VehicleGraduatingRange=Graduating Range
@@ -615,7 +623,7 @@ Button/Tooltip/AeroFireSuppressionSystem@Learn=<s val="@@StandardTooltipHeaderSu
 Button/Tooltip/AeroFireSuppressionSystem@Upgraded=Fire Suppression System continues to repair at half effectiveness beyond half of the caster's maximum life.
 Button/Tooltip/AeroLaserArmaments=Automatically fire Laser Batteries that deal <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,AeroLaserArmaments@Damage,Amount$" precision="2"/></c> damage to enemies below the hero.
 Button/Tooltip/AeroLaserArmaments@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Behavior,AeroLaserArmaments,Period" precision="2"/><n/><n/>Automatically fire Laser Batteries that deal <d ref="Effect,AeroLaserArmaments@Damage,Amount" precision="2"/></c> damage to enemies below the hero.
-Button/Tooltip/AeroLaserArmaments@Upgraded=Laser Armaments has +<d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary:Effect,AeroLaserArmaments@SA,AreaArray[0].Radius$"/> range and homing.
+Button/Tooltip/AeroLaserArmaments@Upgraded=Laser Armaments has +<d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Effect,AeroLaserArmaments@SA,AreaArray[0].Radius$"/> range and homing.
 Button/Tooltip/AeroTacticalJump=After <d ref="Behavior,AeroTacticalJump@TeleportOut,Duration + Behavior,AeroTacticalJump@Teleport,Duration + Behavior,AeroTacticalJump@TeleportIn,Duration" precision="1"/> seconds, warps to the target location. Invulnerable while warping.
 Button/Tooltip/AeroTacticalJump@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,AeroTacticalJump,Cost[0].Vital[Energy]"/><n/><n/>Warps to the target location.
 Button/Tooltip/AeroTacticalJump@Upgraded=Tactical Jump can be cast anywhere, slows nearby enemy units on departure, and increases the caster's speed on arrival.
@@ -751,7 +759,7 @@ Button/Tooltip/FighterResurgence@Upgraded=Resurgence detonates on revival, deali
 Button/Tooltip/FighterShadowCharge=Charges at enemies, increasing movement speed and stunning nearby ground units for <d ref="Behavior,FighterShadowCharge@Stunned,Duration"/> seconds on impact.<n/><n/>Massive, Heroic, and Unstoppable units' movement and attack speed are instead slowed by <d ref="100 * Behavior,FighterShadowCharge@Slow,Modification.MoveSpeedMultiplier"/>% for the duration.<n/><n/>Enemies can't be stunned or slowed by this for <d ref="Behavior,FighterShadowCharge@Immunity,Duration"/> seconds after it wears off.
 Button/Tooltip/FighterViolentCharge=Charges at enemies, increasing movement speed and stunning nearby ground units for <d ref="Behavior,FighterViolentCharge@Stunned,Duration"/> seconds on impact.<n/><n/>Massive, Heroic, and Unstoppable units' movement and attack speed are instead slowed by <d ref="100 * Behavior,FighterViolentCharge@Slow,Modification.MoveSpeedMultiplier"/>% for the duration.<n/><n/>Enemies can't be stunned or slowed by this for <d ref="Behavior,FighterViolentCharge@Immunity,Duration"/> seconds after it wears off.
 Button/Tooltip/FighterViolentCharge@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Charges at enemies, stunning nearby ground units for <d ref="Behavior,FighterViolentCharge@Stunned,Duration"/> seconds on impact.
-Button/Tooltip/FighterViolentCharge@Upgraded=Violent Charge's enemy immunity period is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,FighterViolentCharge@Immunity,Duration$'/]"/> and its range is increased by <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Validator,FighterViolentCharge@MaxDistance,Range$"/>.
+Button/Tooltip/FighterViolentCharge@Upgraded=Violent Charge's enemy immunity period is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,FighterViolentCharge@Immunity,Duration$'/]"/> and its range is increased by <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Validator,FighterViolentCharge@MaxDistance,Range$"/>.
 Button/Tooltip/Follow=Orders the selected unit to become a follower of a heroic unit. Each hero may only have <d ref="Behavior,CRPGFollowerTarget,MaxStackCount"/> follower(s).
 Button/Tooltip/GuardianMP=Long range siege unit.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/HunterDisruptorVolley=Charges the next attack to fire a volley of <d ref="Effect,HunterDisruptorVolley@CP,PeriodCount"/> long-range projectiles that each deal <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,HunterDisruptorVolley@Damage,Amount$"/></c> damage fired at them. Each Psionic Orb fires <d ref="Effect,PsionicProjectionDisruptorVolley@CP,PeriodCount"/> additional projectiles.
@@ -760,16 +768,16 @@ Button/Tooltip/HunterDisruptorVolley@Upgraded=Disruptor Volley fires <d ref="$Up
 Button/Tooltip/HunterPlasmaCanister=Grants a charge of Plasma Diffusion.
 Button/Tooltip/HunterPlasmaDiffusion=Attacking enemies makes them drop plasma canisters on death. Picking up <d ref="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountUse"/> of them will cause the next spell cast to be free with no cooldown.
 Button/Tooltip/HunterPlasmaDiffusion@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Enemies killed drop plasma canisters. Picking up <d ref="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountUse"/> makes the next spell cast free.
-Button/Tooltip/HunterPlasmaDiffusion@Upgraded=Plasma Diffusion can store an additional <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary:Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax$"/> charges.
+Button/Tooltip/HunterPlasmaDiffusion@Upgraded=Plasma Diffusion can store an additional <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax$"/> charges.
 Button/Tooltip/HunterPsionicProjection=After not attacking for <d time="[d ref='Behavior,HunterPsionicProjection@Cooldown,Duration'/]"/>, project a psionic orb that will attack with the caster, dealing <c val="#ColorAttackInfo"><d ref="Effect,PsionicProjectionProjectionBeam@CP,PeriodCount * $AccumulatedValue:Effect,PsionicProjectionProjectionBeam@Damage,Amount$"/></c> damage over <d time="[d ref='Effect,PsionicProjectionProjectionBeam@CP,PeriodCount * Effect,PsionicProjectionProjectionBeam@CP,PeriodicPeriodArray[0]'/]"/>. Can store up to <d ref="Abil,HunterPsionicProjection,MaxCount"/>.
 Button/Tooltip/HunterPsionicProjection@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,HunterPsionicProjection@Dummy,Cost[0].Cooldown.TimeUse"/><n/><n/>Projects up to <d ref="Abil,HunterPsionicProjection,MaxCount"/> Psionic Orbs that will attack with the unit, dealing <d ref="Effect,PsionicProjectionProjectionBeam@CP,PeriodCount * Effect,PsionicProjectionProjectionBeam@Damage,Amount"/> damage over <d time="[d ref='Effect,PsionicProjectionProjectionBeam@CP,PeriodCount * Effect,PsionicProjectionProjectionBeam@CP,PeriodicPeriodArray[0]'/]"/>.
-Button/Tooltip/HunterPsionicProjection@Upgraded=Psionic Projection can store <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Abil,HunterPsionicProjection@Dummy,Cost[0].Charge.CountMax$"/> additional charge.
+Button/Tooltip/HunterPsionicProjection@Upgraded=Psionic Projection can store <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Abil,HunterPsionicProjection@Dummy,Cost[0].Charge.CountMax$"/> additional charge.
 Button/Tooltip/HunterRevenant=Projects an invulnerable Shade that can move but cannot attack. Enemies that touch the shade take <d ref="Effect,AdeptPsionicTransferDamage,Amount"/> extra damage from all sources for <d ref="Behavior,AdeptPsionicTransferDamageDebuff,Duration"/> seconds.<n/><n/>The Adept teleports to the Shade's location <d ref="Behavior,AdeptPhaseShiftTimer,Duration"/> seconds after activation.<n/><n/>Can be canceled after activation.
 Button/Tooltip/HunterScarabMine=Scarab Mines pursue enemy units that come in range, detonating for <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ScarabMineExplode@Damage,Amount$"/></c> damage and slowing nearby enemies in an area by <d ref="100 - (100 * Behavior,ScarabMineExplode@Slowed,Modification.MoveSpeedMultiplier)"/>% for <d ref="Behavior,ScarabMineExplode@Slowed,Duration"/> seconds.
 Button/Tooltip/HunterScarabMine2=Scarab Mines pursue enemy units that come in range, detonating for <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ScarabMineExplode@Damage,Amount$"/></c> damage and slowing nearby enemies in an area by <d ref="100 - (100 * Behavior,ScarabMineExplode@Slowed,Modification.MoveSpeedMultiplier)"/>% for <d ref="Behavior,ScarabMineExplode@Slowed,Duration"/> seconds.
 Button/Tooltip/HunterScarabMine@Free2=Scarab Mines pursue enemy units that come in range, detonating for <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ScarabMineExplode@Damage,Amount$"/></c> damage and slowing nearby enemies in an area by <d ref="100 - (100 * Behavior,ScarabMineExplode@Slowed,Modification.MoveSpeedMultiplier)"/>% for <d ref="Behavior,ScarabMineExplode@Slowed,Duration"/> seconds.
 Button/Tooltip/HunterScarabMine@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,HunterScarabMine,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,HunterScarabMine,Cost[0].Charge.TimeUse"/><n/><n/>Places a Scarab Mine that deals <d ref="Effect,ScarabMineExplode@Damage,Amount"/> damage and slows enemies in an area.
-Button/Tooltip/HunterScarabMine@Upgraded=Scarab Mine can store <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Abil,HunterScarabMine,Cost[0].Charge.CountMax$"/> more charges. Casting with Plasma Diffusion spawns <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Effect,HunterScarabMine@CP,PeriodCount$"/> more Scarab Mine.
+Button/Tooltip/HunterScarabMine@Upgraded=Scarab Mine can store <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Abil,HunterScarabMine,Cost[0].Charge.CountMax$"/> more charges. Casting with Plasma Diffusion spawns <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Effect,HunterScarabMine@CP,PeriodCount$"/> more Scarab Mine.
 Button/Tooltip/HunterShade=Projects an invulnerable Shade that can move but cannot attack. Enemies that touch the shade take <d ref="Effect,AdeptPsionicTransferDamage,Amount"/> extra damage from all sources for <d ref="Behavior,AdeptPsionicTransferDamageDebuff,Duration"/> seconds.<n/><n/>The Adept teleports to the Shade's location <d ref="Behavior,AdeptPhaseShiftTimer,Duration"/> seconds after activation.<n/><n/>Can be canceled after activation.
 Button/Tooltip/HunterShadowTransfer=Cloak for up to <d ref="Behavior,HunterShadowTransfer@Timer,Duration"/> seconds and project an invulnerable Shade that can move but cannot attack. Teleports to the Shade after the duration.<n/><n/>Can be cancelled after activation.
 Button/Tooltip/HunterShadowTransfer@Free=Cloak for up to <d ref="Behavior,HunterShadowTransfer@Timer,Duration"/> seconds and project an invulnerable Shade that can move but cannot attack. Teleports to the Shade after the duration.<n/><n/>Can be cancelled after activation.
@@ -824,18 +832,18 @@ Button/Tooltip/MechShockBlast@Upgraded=NYI
 Button/Tooltip/MechShockBlast@Upgraded@Upgraded=NYI
 Button/Tooltip/MedicHealingBeam=Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCaster,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.</c>
 Button/Tooltip/MedicHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><n/>Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them for <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCaster,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.
-Button/Tooltip/MedicHealingBeam@Upgraded=Healing Beam's healing rate is increased by <d ref="-100 * ([d stringref='Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>%.
+Button/Tooltip/MedicHealingBeam@Upgraded=Healing Beam's healing rate is increased by <d ref="-100 * ([d stringref='Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>%.
 Button/Tooltip/MedicIrradiate=Irradiates a target unit, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@Damage,Amount$" precision="3"/></c> damage per second for <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to enemy units near the target.
 Button/Tooltip/MedicIrradiate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MedicIrradiate,Cost[0].Vital[Energy]"/><n/><n/>Irradiates a target unit, dealing <d ref="Behavior,MedicIrradiate,Duration * Effect,MedicIrradiate@Damage,Amount"/> damage over <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to surrounding enemy units.
 Button/Tooltip/MedicIrradiate@Upgraded=Irradiate applies a damage over time effect that deals an additional <d ref="Effect,MedicIrradiate@DamageLinger,Amount * (1 + Behavior,MedicIrradiate@Linger,Duration)"/> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/>. The primary effect also lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
 Button/Tooltip/MedicIrradiate@UpgradedAccumulated=Irradiate applies a damage over time effect that deals an additional <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@DamageLinger,Amount$ * (1 + Behavior,MedicIrradiate@Linger,Duration)"/></c> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/>. The primary effect also lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
 Button/Tooltip/MedicOpticalFlare=This unit has +<d ref="Behavior,MedicOpticalFlare,Modification.SightBonus"/> sight range, detection, and can see up a cliff level.<n/><n/>Enemy units that enter its vision are blinded. Blinded units can't detect, have <d ref="-Behavior,MedicOpticalFlare@Blind,Modification.SightBonus"/> reduced sight range, and ranged units have <d ref="-Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange"/> reduced attack range.
 Button/Tooltip/MedicOpticalFlare@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Gain sight range, detection, and cliff sight. Nearby enemies have reduced sight and weapon range.
-Button/Tooltip/MedicOpticalFlare@Upgraded=Optical Flare further reduces enemy sight range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,MedicOpticalFlare@Blind,Modification.SightBonus$"/>, attack range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange$"/>, and grants the caster detection.
+Button/Tooltip/MedicOpticalFlare@Upgraded=Optical Flare further reduces enemy sight range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,MedicOpticalFlare@Blind,Modification.SightBonus$"/>, attack range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange$"/>, and grants the caster detection.
 Button/Tooltip/MedicRestorativeBurst=Instantly heals friendly units in an area around the caster for <d ref="Effect,MedicRestorativeBurstHealInitial,VitalArray[Life].Change"/> life. Regenerates an additional <d ref="Effect,MedicRestorativeBurstHealTick,VitalArray[Life].Change"/> life per second over <d ref="Behavior,MedicRestorativeBurst,Duration"/> seconds.
 Button/Tooltip/MedicSelfixArmor=When the caster takes damage, grant it <d ref="100 * (1 - Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heal it for <d ref="Behavior,MedicSelfixArmor@Restoring,Duration / Behavior,MedicSelfixArmor@Restoring,Period * Effect,MedicSelfixArmor@MUHeal,VitalArray[0].Change" Precision="3"/> life over <d time="[d ref='Behavior,MedicSelfixArmor@Restoring,Duration'/]"/>.
 Button/Tooltip/MedicSelfixArmor@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>When damaged, gain <d ref="100 * (1 - Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heal for <d ref="Behavior,MedicSelfixArmor@Restoring,Duration / Behavior,MedicSelfixArmor@Restoring,Period * Effect,MedicSelfixArmor@MUHeal,VitalArray[0].Change" Precision="3"/> life over <d time="[d ref='Behavior,MedicSelfixArmor@Restoring,Duration'/]"/>.
-Button/Tooltip/MedicSelfixArmor@Upgraded=Damage reduction of Selfix Armor increased by <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary:Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction$"/>%.
+Button/Tooltip/MedicSelfixArmor@Upgraded=Damage reduction of Selfix Armor increased by <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction$"/>%.
 Button/Tooltip/MedicSpawnMedivac=Call down a Medivac that casts Healing Beam on all nearby allies. Lasts <d time="[d ref='Behavior,MedicSpawnMedivac@TimedLife,Duration'/]"/>.
 Button/Tooltip/MedicSpawnMedivac@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MedicSpawnMedivac,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MedicSpawnMedivac,Cost[0].Cooldown.TimeUse"/><n/><n/>Calls down a Medivac that casts Healing Beam on nearby allies for <d time="[d ref='Behavior,MedicSpawnMedivac@TimedLife,Duration'/]"/>.
 Button/Tooltip/MedicSpawnMedivac@Upgraded=Medivac gains the Afterburners ability and the ability to transport units.
@@ -851,15 +859,15 @@ Button/Tooltip/ShipSolariteExposure=Causes enemy units and structures within the
 Button/Tooltip/ShipVortex=Creates a gravity Vortex that stuns ground and air units in the target area. Units within the Vortex are invulnerable to all damage and effects. Lasts for <d time="20"/>.
 Button/Tooltip/ShooterChaingun=Increase the hero's attack speed by <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$" precision="1"/>% every time they attack, stacking up to <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$ * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
 Button/Tooltip/ShooterChaingun@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Attacking increases the hero's attack speed by <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$" precision="1"/>% up to <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$ * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%.
-Button/Tooltip/ShooterChaingun@Upgraded=Chaingun lasts an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
+Button/Tooltip/ShooterChaingun@Upgraded=Chaingun lasts an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
 Button/Tooltip/ShooterDisableScatterShot=Returns the caster's projectiles to normal.
 Button/Tooltip/ShooterGravityGrenade=Tosses a grenade that explodes, hitting ground units for <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ShooterGravityGrenade@Damage,Amount$"/></c> damage in a small radius. Stuns units hit and pulls them toward the center over <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds.
 Button/Tooltip/ShooterGravityGrenade@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Cooldown.TimeUse"/><n/><n/>Tosses a grenade that deals <d ref="Effect,ShooterGravityGrenade@Damage,Amount"/> damage and stuns ground units for <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds in a small area.
-Button/Tooltip/ShooterGravityGrenade@Upgraded=Gravity Grenade has a <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradeSecondary:Effect,ShooterGravityGrenade@SA,AreaArray[0].Radius$"/>% larger radius and stuns for <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeSecondary:Behavior,ShooterGravityGrenade@KnockIn,Duration$" precision="2"/> seconds longer.
+Button/Tooltip/ShooterGravityGrenade@Upgraded=Gravity Grenade has a <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradeSecondary@Upgrade:Effect,ShooterGravityGrenade@SA,AreaArray[0].Radius$"/>% larger radius and stuns for <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeSecondary@Upgrade:Behavior,ShooterGravityGrenade@KnockIn,Duration$" precision="2"/> seconds longer.
 Button/Tooltip/ShooterLuckyShot=Every fourth attack, increase the caster's base damage by <d ref="Behavior,ShooterLuckyShotProc,Modification.DamageDealtScaled[Ranged] / Effect,ShooterGaussRifleDamage,Amount * 100"/>%.
 Button/Tooltip/ShooterOverkill=Attacks all enemy units in a cone in front of the caster over <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>. Moving cancels the effect.
 Button/Tooltip/ShooterOverkill@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterOverkill,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse"/><n/><n/>Fires the caster's weapon in a cone over <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>.
-Button/Tooltip/ShooterOverkill@Upgraded=Overkill's cooldown is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary:Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse$'/]"/>. A percentage of its energy cost is refunded when interrupted based on channel time.
+Button/Tooltip/ShooterOverkill@Upgraded=Overkill's cooldown is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse$'/]"/>. A percentage of its energy cost is refunded when interrupted based on channel time.
 Button/Tooltip/ShooterSandbags=Places a sandbag that has the same attack priority as a combat hero. Allied ground units near a Sandbag take <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage from ranged attacks. Sandbags are structures that last <d time="[d ref='Behavior,SandbagCover,Duration'/]"/>.
 Button/Tooltip/ShooterSandbags@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterSandbags,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterSandbags,Cost[0].Charge.TimeUse"/><n/><n/>Places a sandbag that distracts enemies and grants <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage reduction from ranged attacks for <d time="[d ref='Behavior,SandbagCover,Duration'/]"/>.
 Button/Tooltip/ShooterSandbags@Upgraded=Sandbags are affected by their own ranged damage reduction and additionally grant +1 range to nearby allies.
@@ -928,6 +936,9 @@ DataCollection/Name/AeroLaserArmaments=Laser Armaments
 DataCollection/Name/AeroLaserBattery=Laser Battery
 DataCollection/Name/AeroTacticalJump=Tactical Jump
 DataCollection/Name/AeroYamatoCannon=Yamato Cannon
+DataCollection/Name/ArmoryUpgradeArmor=Upgrade Armor
+DataCollection/Name/ArmoryUpgradeDamage=Upgrade Damage
+DataCollection/Name/ArmoryUpgradeEnergy=Upgrade Energy
 DataCollection/Name/CRPGAbilityUpgradePassivePrimary=Ability Upgrade
 DataCollection/Name/CRPGAbilityUpgradePassiveSecondary=Ability Upgrade
 DataCollection/Name/CRPGAbilityUpgradePrimary=Ability Upgrade
@@ -939,8 +950,11 @@ DataCollection/Name/CRPGDefensiveFortification=Defensive Fortification
 DataCollection/Name/CRPGDefensiveTurret=Defensive Turret
 DataCollection/Name/CRPGDefensiveWall=Defensive Wall
 DataCollection/Name/CRPGFighter=Fighter
+DataCollection/Name/CRPGGhost=Ghost
 DataCollection/Name/CRPGHunter=Hunter
 DataCollection/Name/CRPGInfested=Infested
+DataCollection/Name/CRPGMarauder=Marauder
+DataCollection/Name/CRPGMarine=Marine
 DataCollection/Name/CRPGMech=Mech
 DataCollection/Name/CRPGMedic=Medic
 DataCollection/Name/CRPGMedivacTransport=Transport
@@ -986,6 +1000,7 @@ DataCollection/Name/InfestedInfestedEggs=Infested Eggs
 DataCollection/Name/InfestedInfestedMarine=Infested Marine
 DataCollection/Name/InfestedMarineInfestedGaussRifle=Infested Gauss Rifle
 DataCollection/Name/InfestedMendingSaliva=Mending Saliva
+DataCollection/Name/MarauderPunisherGrenades=Punisher Grenades
 DataCollection/Name/MechBarrage=Barrage
 DataCollection/Name/MechCannonBoth=Cannon
 DataCollection/Name/MechCannonGround=Cannon
@@ -1459,6 +1474,9 @@ Effect/Name/AlienYagdraFireWaveCreatePersistent=Fire Wave
 Effect/Name/AlienYagdraFireballDamage=Fireball
 Effect/Name/AlienYagdraFireballLaunchMissile=Fireball
 Effect/Name/AlienYagdraSpitFireCreatePersistent=Spit Fire
+Effect/Name/ArmoryUpgradeArmor@MP=Modify Player
+Effect/Name/ArmoryUpgradeDamage@MP=Modify Player
+Effect/Name/ArmoryUpgradeEnergy@MP=Modify Player
 Effect/Name/AssassinShadowFuryApplyControllerBehavior=Shadow Fury
 Effect/Name/AssassinShadowFuryApplyFinalDelayBehavior=Shadow Fury
 Effect/Name/AssassinShadowFuryApplyTargetBehavior=Shadow Fury
@@ -1514,6 +1532,11 @@ Effect/Name/BurrowChargeTargetSearch2=Burrow Charge Target Search Copy
 Effect/Name/BurrowChargeTargetSearchAlly2=Burrow Charge Target Search Ally Copy
 Effect/Name/BurrowChargeTargetSet2=Burrow Charge Target Set Copy
 Effect/Name/C10CanisterRifleCRPG=C-10 Canister Rifle
+Effect/Name/CRPGAbilityUpgradePassivePrimary@MP=Modify Player
+Effect/Name/CRPGAbilityUpgradePassiveSecondary@MP=Modify Player
+Effect/Name/CRPGAbilityUpgradePrimary@MP=Modify Player
+Effect/Name/CRPGAbilityUpgradeSecondary@MP=Modify Player
+Effect/Name/CRPGAbilityUpgradeTernary@MP=Modify Player
 Effect/Name/CRPGAddExperience1=Add Experience
 Effect/Name/CRPGAddExperience10=Add Experience
 Effect/Name/CRPGAddExperience12500=Add Experience
@@ -1552,10 +1575,7 @@ Effect/Name/CRPGUnderlingLevel@ABLevel12=Apply Behavior Copy
 Effect/Name/CRPGUnderlingLevel@SetApply=Set
 Effect/Name/CRPGUnderlingLevel@SetTransfer=Set
 Effect/Name/CRPGUnderlingLevel@TB=Transfer Behavior
-Effect/Name/CRPGUpgradeArmor=Upgrade Armor
 Effect/Name/CRPGUpgradeAttackRate=Upgrade AttackRate
-Effect/Name/CRPGUpgradeDamage=Upgrade Damage
-Effect/Name/CRPGUpgradeEnergy=Upgrade Energy
 Effect/Name/CrashedBCMedicalFacilities@ABLifeRegen=Apply Behavior
 Effect/Name/CrashedBCMedicalFacilities@ABShieldRegen=Apply Behavior
 Effect/Name/CrashedBCMedicalFacilities@ATU=Add Tracked Unit
@@ -2447,11 +2467,10 @@ RequirementNode/Tooltip/CountAbilCRPGPassive1DummyCompleteOnlyAtUnit2337561442=P
 RequirementNode/Tooltip/CountAbilCRPGPassive2DummyCompleteOnlyAtUnit2337561442=Passive learned
 RequirementNode/Tooltip/CountAbilCRPGPassive2DummyCompleteOnlyAtUnit3898301465=Learned Passive
 RequirementNode/Tooltip/CountAbilInfestedInfestedEggsCompleteOnlyAtUnit1009639534=Learned Infested Eggs
-RequirementNode/Tooltip/CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714=Nearby hero
 RequirementNode/Tooltip/CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428=Near Crashed Battlecruiser
 RequirementNode/Tooltip/CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055=Near summoner
 RequirementNode/Tooltip/CountBehaviorShooterLuckyShotProcCompleteOnlyAtUnit2621074661=Attack 3 times
-RequirementNode/Tooltip/CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838=Basic Ability Upgrade
+RequirementNode/Tooltip/CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly461069838=Basic Ability Upgrade
 RequirementNode/Tooltip/GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit=Correct Level
 RequirementNode/Tooltip/GTE142027770CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5=Level 5
 RequirementNode/Tooltip/GTE1845366357CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit4=Level 4
@@ -2465,12 +2484,15 @@ RequirementNode/Tooltip/LT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetter255=A
 RequirementNode/Tooltip/LT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwa322226699=Not Max Swarmers
 RequirementNode/Tooltip/LT2100730577CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnit5=Not Max Level
 RequirementNode/Tooltip/LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8=Carrier must have fewer than 8 Interceptors
-RequirementNode/Tooltip/LT2605192531SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5=Fewer than 4 Nomads
-RequirementNode/Tooltip/LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1=Healing Beam Target Limit
+RequirementNode/Tooltip/LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1=Healing Beam Target Limit
 RequirementNode/Tooltip/LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2=<2 Point Defense Drones
 RequirementNode/Tooltip/LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8=Less than 8 Swarmers
 RequirementNode/Tooltip/LT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5=Not maximum level
-RequirementNode/Tooltip/LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly=Not Max Infested Victims
+RequirementNode/Tooltip/LT373446351SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5=Fewer than 5 Nomads
+RequirementNode/Tooltip/LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly=Not Max Infested Victims
+RequirementNode/Tooltip/LT596643247CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter100=Not Max Damage Upgrade
+RequirementNode/Tooltip/LT596643247CountUpgradeArmoryUpgradeDamage@UpgradeQueuedOrBetter100=Not Max Damage Upgrade
+RequirementNode/Tooltip/LT596643247CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100=Not Max Damage Upgrade
 RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=Not Infested
 RequirementNode/Tooltip/Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit=Already Linked
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
@@ -2615,13 +2637,17 @@ Unit/Name/VehicleGaussCannonWeapon=Gauss Cannon
 Unit/Name/VehicleTyphoonMissilePodWeapon=Typhoon Missile Pod
 Unit/Name/WeaponAlienYagdraFireball=Fireball
 Unit/ShieldArmorName/ProtossPlasmaShields=Protoss Plasma Shields
+Unit/Subtitle/CRPGCrashedBattlecruiser=<s val="@@StandardTooltipHeaderSub">Approach with a hero to recruit units and build structures</s>
 UnitKillRank/AlienAshWorm=Subterranean Monster
 UnitSubtitle/CRPGSwarmerLevel1=Raptor Strain
-Upgrade/Name/CRPGAbilityUpgradePassivePrimary=Primary Passive Upgrade
-Upgrade/Name/CRPGAbilityUpgradePassiveSecondary=Secondary Passive Upgrade
-Upgrade/Name/CRPGAbilityUpgradePrimary=Primary Ability Upgrade
-Upgrade/Name/CRPGAbilityUpgradeSecondary=Secondary Ability Upgrade
-Upgrade/Name/CRPGAbilityUpgradeTernary=Ternary Ability Upgrade
+Upgrade/Name/ArmoryUpgradeArmor@Upgrade=Armor
+Upgrade/Name/ArmoryUpgradeDamage@Upgrade=Damage
+Upgrade/Name/ArmoryUpgradeEnergy@Upgrade=Energy
+Upgrade/Name/CRPGAbilityUpgradePassivePrimary@Upgrade=Primary Passive Upgrade
+Upgrade/Name/CRPGAbilityUpgradePassiveSecondary@Upgrade=Secondary Passive Upgrade
+Upgrade/Name/CRPGAbilityUpgradePrimary@Upgrade=Primary Ability Upgrade
+Upgrade/Name/CRPGAbilityUpgradeSecondary@Upgrade=Secondary Ability Upgrade
+Upgrade/Name/CRPGAbilityUpgradeTernary@Upgrade=Ternary Ability Upgrade
 Upgrade/Name/CRPGCombatShield=Combat Shield
 Upgrade/Name/CRPGConcussiveShells=Concussive Shells
 Upgrade/Name/CRPGStatAttackRate=Attack Rate

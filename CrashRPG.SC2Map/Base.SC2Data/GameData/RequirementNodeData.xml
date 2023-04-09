@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CRequirementConst id="255">
-        <Value value="255"/>
-    </CRequirementConst>
     <CRequirementAnd id="AndCountAbilCRPGPassive1DummyCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22">
         <OperandArray value="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
         <OperandArray value="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
@@ -23,16 +20,16 @@
         <OperandArray value="GT3553322166CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnitCountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
         <OperandArray value="LT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5"/>
     </CRequirementAnd>
-    <CRequirementAnd id="AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838">
+    <CRequirementAnd id="AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly461069838">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8"/>
-        <OperandArray value="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838"/>
+        <OperandArray value="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly461069838"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPG3739910282">
         <OperandArray value="LT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwa322226699"/>
         <OperandArray value="Or774336177GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2"/>
     </CRequirementAnd>
     <CRequirementAnd id="AndLT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2CountAbilCRPGPassive1DummyCompleteOnlyAtUnit">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2"/>
         <OperandArray value="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
     </CRequirementAnd>
@@ -55,10 +52,6 @@
     <CRequirementCountAbil id="CountAbilCRPGPassive2DummyCompleteOnlyAtUnit3898301465">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGPassive2Dummy" State="CompleteOnlyAtUnit"/>
-    </CRequirementCountAbil>
-    <CRequirementCountAbil id="CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGUpgradeArmor" State="QueuedOrBetterAtUnit"/>
     </CRequirementCountAbil>
     <CRequirementCountAbil id="CountAbilCrashedBattlecruiserNomadRepairQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
@@ -123,10 +116,6 @@
     <CRequirementCountBehavior id="CountBehaviorCRPGActiveFollowerQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGActiveFollower" State="QueuedOrBetter"/>
-    </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714">
-        <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGControlArmory" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428">
         <Flags index="TechTreeCheat" value="0"/>
@@ -268,49 +257,69 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="SwarmerSwarmerSpawn" State="QueuedOrBetterAtUnit"/>
     </CRequirementCountUnit>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassivePrimaryCompleteOnly">
+    <CRequirementCountUpgrade id="CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradePassivePrimary" State="CompleteOnly"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ArmoryUpgradeArmor@Upgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassivePrimaryQueuedOrBetter">
+    <CRequirementCountUpgrade id="CountUpgradeArmoryUpgradeDamage@UpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradePassivePrimary" State="QueuedOrBetter"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ArmoryUpgradeDamage@Upgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassiveSecondaryCompleteOnly">
+    <CRequirementCountUpgrade id="CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradePassiveSecondary" State="CompleteOnly"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ArmoryUpgradeEnergy@Upgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassiveSecondaryQueuedOrBetter">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradePassiveSecondary" State="QueuedOrBetter"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradePassivePrimary@Upgrade" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradePrimary" State="CompleteOnly"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradePassivePrimary@Upgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePassiveSecondary@UpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradePrimary" State="CompleteOnly"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradePassiveSecondary@Upgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimaryQueuedOrBetter">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradePrimary" State="QueuedOrBetter"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradePrimary@Upgrade" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeSecondaryCompleteOnly">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly461069838">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradeSecondary" State="CompleteOnly"/>
+        <Count Link="CRPGAbilityUpgradePrimary@Upgrade" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeSecondaryQueuedOrBetter">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradeSecondary" State="QueuedOrBetter"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradePrimary@Upgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeSecondary@UpgradeCompleteOnly">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradeTernary" State="CompleteOnly"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradeSecondary@Upgrade" State="CompleteOnly"/>
     </CRequirementCountUpgrade>
-    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeTernaryQueuedOrBetter">
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeSecondary@UpgradeQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="CRPGAbilityUpgradeTernary" State="QueuedOrBetter"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradeSecondary@Upgrade" State="QueuedOrBetter"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradeTernary@Upgrade" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeCRPGAbilityUpgradeTernary@UpgradeQueuedOrBetter">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGAbilityUpgradeTernary@Upgrade" State="QueuedOrBetter"/>
     </CRequirementCountUpgrade>
     <CRequirementEq id="EqCountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit1">
         <OperandArray index="0" value="CountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit"/>
@@ -444,10 +453,6 @@
         <OperandArray index="0" value="CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="8"/>
     </CRequirementLT>
-    <CRequirementLT id="LT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit255">
-        <OperandArray index="0" value="CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit"/>
-        <OperandArray index="1" value="255"/>
-    </CRequirementLT>
     <CRequirementLT id="LT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwa322226699">
         <OperandArray index="0" value="SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwarmerLevel3Qu1653712896"/>
         <OperandArray index="1" value="8"/>
@@ -460,13 +465,9 @@
         <OperandArray index="0" value="CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="8"/>
     </CRequirementLT>
-    <CRequirementLT id="LT2605192531SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5">
-        <OperandArray index="0" value="SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter"/>
-        <OperandArray index="1" value="5"/>
-    </CRequirementLT>
-    <CRequirementLT id="LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1">
+    <CRequirementLT id="LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1">
         <OperandArray index="0" value="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit"/>
-        <OperandArray index="1" value="SumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1"/>
+        <OperandArray index="1" value="SumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1"/>
     </CRequirementLT>
     <CRequirementLT id="LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2">
         <OperandArray index="0" value="CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit"/>
@@ -480,9 +481,25 @@
         <OperandArray index="0" value="CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit"/>
         <OperandArray index="1" value="5"/>
     </CRequirementLT>
-    <CRequirementLT id="LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly">
+    <CRequirementLT id="LT373446351SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5">
+        <OperandArray index="0" value="SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly">
         <OperandArray index="0" value="CountBehaviorInfestedInfestationSpore@BuffCompleteOnly"/>
-        <OperandArray index="1" value="Sum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
+        <OperandArray index="1" value="Sum1CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT596643247CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter100">
+        <OperandArray index="0" value="CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter"/>
+        <OperandArray index="1" value="100"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT596643247CountUpgradeArmoryUpgradeDamage@UpgradeQueuedOrBetter100">
+        <OperandArray index="0" value="CountUpgradeArmoryUpgradeDamage@UpgradeQueuedOrBetter"/>
+        <OperandArray index="1" value="100"/>
+    </CRequirementLT>
+    <CRequirementLT id="LT596643247CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100">
+        <OperandArray index="0" value="CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter"/>
+        <OperandArray index="1" value="100"/>
     </CRequirementLT>
     <CRequirementLT id="LTCountBehaviorCRPGActiveFollowerQueuedOrBetter4">
         <OperandArray index="0" value="CountBehaviorCRPGActiveFollowerQueuedOrBetter"/>
@@ -537,20 +554,25 @@
     <CRequirementNot id="NotCountBehaviorSniperPersonalCloakingInProgressOrBetterAtUnit">
         <OperandArray index="0" value="CountBehaviorSniperPersonalCloakingInProgressOrBetterAtUnit"/>
     </CRequirementNot>
-    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePassivePrimaryQueuedOrBetter">
-        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePassivePrimaryQueuedOrBetter"/>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeQueuedOrBetter"/>
     </CRequirementNot>
-    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePassiveSecondaryQueuedOrBetter">
-        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePassiveSecondaryQueuedOrBetter"/>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePassiveSecondary@UpgradeQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePassiveSecondary@UpgradeQueuedOrBetter"/>
     </CRequirementNot>
-    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePrimaryQueuedOrBetter">
-        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePrimaryQueuedOrBetter"/>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradePrimary@UpgradeQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeQueuedOrBetter"/>
     </CRequirementNot>
-    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradeSecondaryQueuedOrBetter">
-        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradeSecondaryQueuedOrBetter"/>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradeSecondary@UpgradeQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradeSecondary@UpgradeQueuedOrBetter"/>
     </CRequirementNot>
-    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradeTernaryQueuedOrBetter">
-        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradeTernaryQueuedOrBetter"/>
+    <CRequirementNot id="NotCountUpgradeCRPGAbilityUpgradeTernary@UpgradeQueuedOrBetter">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray index="0" value="CountUpgradeCRPGAbilityUpgradeTernary@UpgradeQueuedOrBetter"/>
     </CRequirementNot>
     <CRequirementOr id="Or2694335422CountAbilHunterScarabMineCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit">
         <OperandArray value="CountAbilHunterScarabMineCompleteOnlyAtUnit"/>
@@ -565,13 +587,15 @@
     <CRequirementOr id="OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit">
         <OperandArray value="CountBehaviorUninfestedOverlordCompleteOnlyAtUnit"/>
     </CRequirementOr>
-    <CRequirementOr id="OrLT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838">
+    <CRequirementOr id="OrLT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly461069838">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8"/>
-        <OperandArray value="AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838"/>
+        <OperandArray value="AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly461069838"/>
     </CRequirementOr>
-    <CRequirementSum id="Sum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly">
+    <CRequirementSum id="Sum1CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="1"/>
-        <OperandArray value="CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
+        <OperandArray value="CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly"/>
     </CRequirementSum>
     <CRequirementSum id="SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter">
         <OperandArray value="CountAbilCrashedBattlecruiserNomadRepairQueuedOrBetter"/>
@@ -595,8 +619,9 @@
         <OperandArray value="CountUnitInfestedInfestedEgg@CivilianQueuedOrBetter"/>
         <OperandArray value="MulCountUnitInfestedInfestedBunkerQueuedOrBetter2"/>
     </CRequirementSum>
-    <CRequirementSum id="SumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1">
-        <OperandArray value="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly"/>
+    <CRequirementSum id="SumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
         <OperandArray value="1"/>
     </CRequirementSum>
     <CRequirementCountUnit id="UnitQueen2QueuedOrBetter">

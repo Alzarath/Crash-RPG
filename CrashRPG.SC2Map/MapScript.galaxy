@@ -171,6 +171,8 @@ void InitLibs () {
 //--------------------------------------------------------------------------------------------------
 // Constants
 //--------------------------------------------------------------------------------------------------
+const int gv_pLAYER_HOSTILE = 15;
+const int gv_pLAYER_NEUTRAL = 0;
 const int gv_pLAYER_ALIEN = 14;
 const int gv_hERO_COUNT = 14;
 const int gv_hERO_AERO = 1;
@@ -194,8 +196,6 @@ const int gv_hERO_JUMPER = 0;
 const int gv_hERO_PHASE_SMITH = 0;
 const int gv_pLAYER_SURVIVOR_BASE = 13;
 const int gv_pLAYER_COUNT = 16;
-const fixed gv_dAMAGE_FRACTION = 0.0625;
-const fixed gv_aRMOR_FRACTION = 0.06;
 const int gv_sIDE_MISSION_COUNT = 1;
 
 //--------------------------------------------------------------------------------------------------
@@ -1312,7 +1312,8 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
             PlayerGroupAdd(gv_survivors, lv_pickedPlayer);
             libNtve_gf_SetAlliance(lv_pickedPlayer, gv_pLAYER_ALIEN, libNtve_ge_AllianceSetting_Enemy);
             libNtve_gf_SetAlliance(lv_pickedPlayer, gv_pLAYER_SURVIVOR_BASE, libNtve_ge_AllianceSetting_AllyWithSharedVision);
-            libNtve_gf_SetAlliance(lv_pickedPlayer, 0, libNtve_ge_AllianceSetting_Neutral);
+            PlayerSetAlliance(lv_pickedPlayer, c_allianceIdSpend, gv_pLAYER_SURVIVOR_BASE, true);
+            libNtve_gf_SetAlliance(lv_pickedPlayer, gv_pLAYER_NEUTRAL, libNtve_ge_AllianceSetting_Neutral);
             autoF4AB746A_catalog = c_gameCatalogUnit;
             autoF4AB746A_i = 1;
             for ( ; autoF4AB746A_i <= CatalogEntryCount(c_gameCatalogUnit) ; autoF4AB746A_i += 1 ) {
@@ -1517,8 +1518,6 @@ bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
     unitgroup auto27B12266_g;
     int auto27B12266_u;
     unit auto27B12266_var;
-    playergroup auto46407CE2_g;
-    int auto46407CE2_var;
 
     // Conditions
     if (testConds) {
@@ -1559,15 +1558,6 @@ bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
         else if ((UnitGetType(auto27B12266_var) == "CRPGDefensiveTurret")) {
             UnitSetPropertyFixed(auto27B12266_var, c_unitPropLifePercent, RandomFixed(28.0, 30.0));
         }
-    }
-    auto46407CE2_g = gv_survivors;
-    auto46407CE2_var = -1;
-    while (true) {
-        auto46407CE2_var = PlayerGroupNextPlayer(auto46407CE2_g, auto46407CE2_var);
-        if (auto46407CE2_var < 0) { break; }
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGArmory", c_unitCreateIgnorePlacement, auto46407CE2_var, PointFromId(451313038));
-        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGCrashedBattlecruiserPlayer", c_unitCreateIgnorePlacement, auto46407CE2_var, PointFromId(1236227694));
-        gv_cBDialog[auto46407CE2_var].lv_targetUnit = UnitLastCreated();
     }
     TransmissionSendForPlayerSelect(PlayerGroupAll(), TransmissionSourceFromModel("AdjutantPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "", "Talk", SoundLink("Dialogue_Transmission5Seconds", 0), StringExternal("Param/Value/542E0D2F"), StringExternal("Param/Value/08C794E5"), 0.0, c_transmissionDurationAdd, true, c_maxPlayers, false);
     gf_SendBattlecruiserTransmission(StringExternal("Param/Value/7DAC45F4"), PlayerGroupAll(), 5.0, false);
@@ -1658,6 +1648,9 @@ bool gt_StartBattlecruiserScene_Func (bool testConds, bool runActions) {
     int lv_pickedPlayer;
 
     // Automatic Variable Declarations
+    unitgroup autoA15820B1_g;
+    int autoA15820B1_u;
+    unit autoA15820B1_var;
     playergroup auto1F78CCF2_g;
     int auto1F78CCF2_var;
 
@@ -1670,6 +1663,13 @@ bool gt_StartBattlecruiserScene_Func (bool testConds, bool runActions) {
 
     TriggerSkippableBegin(PlayerGroupAll(), (PlayerGroupCount(gv_survivors) / 2), gt_EndCinematic, true, false);
     TechTreeAbilityAllow(gv_pLAYER_SURVIVOR_BASE, AbilityCommand("DefensiveTurretHellstormMissilePods", 0), false);
+    autoA15820B1_g = UnitGroup("CRPGCrashedBattlecruiser", gv_pLAYER_SURVIVOR_BASE, RegionFromId(1), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    autoA15820B1_u = UnitGroupCount(autoA15820B1_g, c_unitCountAll);
+    for (;; autoA15820B1_u -= 1) {
+        autoA15820B1_var = UnitGroupUnitFromEnd(autoA15820B1_g, autoA15820B1_u);
+        if (autoA15820B1_var == null) { break; }
+        libNtve_gf_ShowHideUnit(autoA15820B1_var, false);
+    }
     libNtve_gf_CinematicMode(true, PlayerGroupAll(), c_transitionDurationImmediate);
     CinematicFade(false, 0.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
     auto1F78CCF2_g = gv_survivors;
@@ -1723,6 +1723,9 @@ bool gt_EndCinematic_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
     playergroup autoFABD877B_g;
     int autoFABD877B_var;
+    unitgroup auto065804BD_g;
+    int auto065804BD_u;
+    unit auto065804BD_var;
     playergroup autoA20C7F08_g;
     int autoA20C7F08_var;
 
@@ -1742,6 +1745,13 @@ bool gt_EndCinematic_Func (bool testConds, bool runActions) {
         autoFABD877B_var = PlayerGroupNextPlayer(autoFABD877B_g, autoFABD877B_var);
         if (autoFABD877B_var < 0) { break; }
         DialogSetVisible(gv_cBDialog[0].lv_dialog, PlayerGroupSingle(autoFABD877B_var), true);
+    }
+    auto065804BD_g = UnitGroup("CRPGCrashedBattlecruiser", gv_pLAYER_SURVIVOR_BASE, RegionFromId(1), UnitFilter(0, (1 << (c_targetFilterHidden - 32)), (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
+    auto065804BD_u = UnitGroupCount(auto065804BD_g, c_unitCountAll);
+    for (;; auto065804BD_u -= 1) {
+        auto065804BD_var = UnitGroupUnitFromEnd(auto065804BD_g, auto065804BD_u);
+        if (auto065804BD_var == null) { break; }
+        libNtve_gf_ShowHideUnit(auto065804BD_var, true);
     }
     autoA20C7F08_g = gv_survivors;
     autoA20C7F08_var = -1;
@@ -1890,13 +1900,13 @@ bool gt_TutorialMechanicalIntroduction_Func (bool testConds, bool runActions) {
     UISetButtonFaceHighlighted(PlayerGroupAll(), "SwarmerEvolve", false);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/CA00482D"));
     libNtve_gf_CreateModelAtPoint("BriefingUnitSelectLarge", UnitGetPosition(UnitGroupUnit(UnitGroupSearch("CRPGArmory", UnitGetOwner(gv_tutorialHero), RegionGetCenter(RegionFromId(1)), 30.0, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1)));
-    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeDamage", true);
-    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeArmor", true);
-    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeEnergy", true);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "ArmoryUpgradeDamage", true);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "ArmoryUpgradeArmor", true);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "ArmoryUpgradeEnergy", true);
     Wait(10.0, c_timeGame);
-    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeDamage", false);
-    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeArmor", false);
-    UISetButtonFaceHighlighted(PlayerGroupAll(), "UpgradeEnergy", false);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "ArmoryUpgradeDamage", false);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "ArmoryUpgradeArmor", false);
+    UISetButtonFaceHighlighted(PlayerGroupAll(), "ArmoryUpgradeEnergy", false);
     libNtve_gf_KillModel(libNtve_gf_ActorLastCreated());
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/F8985FEE"));
     libNtve_gf_CreateModelAtPoint("BriefingUnitSelectLarge", UnitGetPosition(UnitGroupUnit(UnitGroupSearch("CRPGCrashedBattlecruiserPlayer", UnitGetOwner(gv_tutorialHero), RegionGetCenter(RegionFromId(1)), 30.0, UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), 1)));

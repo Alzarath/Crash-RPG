@@ -222,6 +222,12 @@
         <Macros value="UnloadDropAnim"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStop" Send="AnimClear SpellA"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStop" Send="AnimClear SpellB"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStart" Send="AnimPlay SpellC Spell,C"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStop" Send="AnimClear SpellC"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimBaselineStop"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStop" Send="AnimClear SpellA"/>
@@ -1443,11 +1449,8 @@
         <AcceptedHostedPropTransfers index="Scale" value="0"/>
     </CActorUnit>
     <CActorUnit id="CRPGCrashedBattlecruiserDummy" parent="TerranBuilding" unitName="CRPGCrashedBattlecruiser">
-        <Model value="Invisible"/>
         <CreepHeightClass value="Medium"/>
-        <BuildModel value="Invisible"/>
         <DeathArray index="Normal" ModelLink="TerranLargeTriggeredExplosion"/>
-        <PlacementModel value="Invisible"/>
         <PlacementSound value="Terran_BuildingPlacement"/>
         <PortraitModel value="BattlecruiserPortrait"/>
         <BarOffset value="110"/>
@@ -3486,6 +3489,12 @@
         <Macros value="UnloadDropAnim"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStop" Send="AnimClear SpellA"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStop" Send="AnimClear SpellB"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStart" Send="AnimPlay SpellC Spell,C"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStop" Send="AnimClear SpellC"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimBaselineStop"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStop" Send="AnimClear SpellA"/>
@@ -3581,6 +3590,12 @@
         <Macros value="UnloadDropAnim"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStop" Send="AnimClear SpellA"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStop" Send="AnimClear SpellB"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStart" Send="AnimPlay SpellC Spell,C"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStop" Send="AnimClear SpellC"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimBaselineStop"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStop" Send="AnimClear SpellA"/>
@@ -3676,6 +3691,12 @@
         <Macros value="UnloadDropAnim"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStop" Send="AnimClear SpellA"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStop" Send="AnimClear SpellB"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStart" Send="AnimPlay SpellC Spell,C"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStop" Send="AnimClear SpellC"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimBaselineStop"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStop" Send="AnimClear SpellA"/>
@@ -3765,6 +3786,12 @@
         <Macros value="UnloadDropAnim"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceCastStop" Send="AnimClear SpellA"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStart" Send="AnimPlay SpellB Spell,B PlayForever"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceChannelStop" Send="AnimClear SpellB"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStart" Send="AnimPlay SpellC Spell,C"/>
+        <On Terms="Abil.SniperNuclearStrike.SourceFinishStop" Send="AnimClear SpellC"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimBaselineStop"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStart" Send="AnimPlay SpellA Spell,A"/>
         <On Terms="Abil.SniperSniperRound.SourceCastStop" Send="AnimClear SpellA"/>
@@ -3788,7 +3815,7 @@
         <DeathArray index="Normal" ModelLink="NovaDeath" SoundLink="Nova_Death"/>
         <PlacementModel value="GhostNova"/>
         <PortraitActor value=""/>
-        <PortraitModel value="GhostNovaPortrait"/>
+        <PortraitModel value="NovaPortrait"/>
         <TerrainSquibs>
             <GroupName value="RippleStandard"/>
             <MovementDistance value="0.150000,0.150000"/>
@@ -4156,14 +4183,14 @@
         <HostSiteOps Ops="SOpAttachHead"/>
         <Model value="BlindingCloudModelAttachment"/>
     </CActorModel>
-    <CActorUnit id="Ghost2" parent="Ghost" unitName="CRPGGhost">
+    <CActorUnit id="CRPGGhost" parent="Ghost" unitName="CRPGGhost">
         <On index="0" Terms="UnitBirth.CRPGGhost"/>
         <On index="1" Terms="UnitBirth.CRPGGhost"/>
         <On index="2" Terms="UnitRevive.CRPGGhost"/>
         <On index="3" Terms="UnitRevive.CRPGGhost"/>
         <On index="4" Terms="UnitConstruction.CRPGGhost.Start"/>
         <On index="5" Terms="UnitConstruction.CRPGGhost.Finish"/>
-        <HighlightTooltip value="Unit/Name/Ghost2"/>
+        <HighlightTooltip value="Unit/Name/CRPGGhost"/>
     </CActorUnit>
     <CActorAction id="GhostAttack2" parent="GenericAttack" effectAttack="C10CanisterRifleCRPG">
         <LaunchAssets Model="GhostAttackLaunch" Sound="Ghost_AttackLaunch"/>
@@ -7454,9 +7481,6 @@
         <HostSiteOps Ops="SOpAttachCenter SJHyperionLightningStormOffset" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorUnit id="CRPGArmory" parent="Armory" unitName="CRPGArmory">
-        <Filter index="Ally" value="1"/>
-        <Filter index="Neutral" value="1"/>
-        <Filter index="Enemy" value="1"/>
         <On index="0" Terms="UnitBirth.CRPGArmory" Send="Create SoundEmitter CRPGArmory_Ambience"/>
         <On index="1" Terms="UnitBirth.CRPGArmory"/>
         <On index="2" Terms="UnitRevive.CRPGArmory"/>
@@ -7601,7 +7625,7 @@
         <Sound value="Medivac_Unload"/>
     </CActorSound>
     <CActorRange id="CrashedBattlecruiserMedicalFacilitiesRange">
-        <On Terms="UnitCreation.CRPGCrashedBattlecruiserPlayer" Send="Create"/>
+        <On Terms="UnitCreation.CRPGCrashedBattlecruiser" Send="Create"/>
         <On Terms="ActorCreation" Send="SetTintColor 0,255,0"/>
         <Abil Link="CrashedBCMedicalFacilities"/>
     </CActorRange>

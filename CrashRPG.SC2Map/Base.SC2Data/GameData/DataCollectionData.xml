@@ -106,50 +106,101 @@
         <DataRecord Entry="Effect,AeroYamatoCannon@LM"/>
         <DataRecord Entry="Unit,AeroYamatoCannon@Weapon"/>
     </CDataCollectionAbil>
+    <CDataCollectionUpgrade id="ArmoryUpgradeArmor">
+        <EditorCategories value="DataGroup:Research,Race:Neutral"/>
+        <DataRecord Entry="Abil,ArmoryUpgradeArmor"/>
+        <DataRecord Entry="Button,ArmoryUpgradeArmor"/>
+        <DataRecord Entry="Effect,ArmoryUpgradeArmor@MP"/>
+        <DataRecord Entry="Requirement,ArmoryUpgradeArmor@CanResearch"/>
+        <DataRecord Entry="Upgrade,ArmoryUpgradeArmor@Upgrade"/>
+    </CDataCollectionUpgrade>
+    <CDataCollectionUpgrade id="ArmoryUpgradeDamage">
+        <EditorCategories value="DataGroup:Research,Race:Neutral"/>
+        <DataRecord Entry="Abil,ArmoryUpgradeDamage"/>
+        <DataRecord Entry="Button,ArmoryUpgradeDamage"/>
+        <DataRecord Entry="Effect,ArmoryUpgradeDamage@MP"/>
+        <DataRecord Entry="Requirement,ArmoryUpgradeDamage@CanResearch"/>
+        <DataRecord Entry="Upgrade,ArmoryUpgradeDamage@Upgrade"/>
+        <TechInfoUpgrade value="ArmoryUpgradeDamage@Upgrade"/>
+    </CDataCollectionUpgrade>
+    <CDataCollectionUpgrade id="ArmoryUpgradeEnergy">
+        <EditorCategories value="DataGroup:Research,Race:Neutral"/>
+        <DataRecord Entry="Abil,ArmoryUpgradeEnergy"/>
+        <DataRecord Entry="Button,ArmoryUpgradeEnergy"/>
+        <DataRecord Entry="Effect,ArmoryUpgradeEnergy@MP"/>
+        <DataRecord Entry="Requirement,ArmoryUpgradeEnergy@CanResearch"/>
+        <DataRecord Entry="Upgrade,ArmoryUpgradeEnergy@Upgrade"/>
+        <TechInfoUpgrade value="ArmoryUpgradeEnergy@Upgrade"/>
+    </CDataCollectionUpgrade>
     <CDataCollectionUpgrade id="CRPGAbilityUpgradeSecondary">
         <EditorCategories value="DataGroup:Research,Race:Neutral"/>
         <DataRecord Entry="Button,CRPGAbilityUpgradeSecondary"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradeSecondary@CanUpgrade"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradeSecondary@UpgradedUse"/>
-        <DataRecord Entry="Upgrade,CRPGAbilityUpgradeSecondary"/>
+        <DataRecord Entry="Upgrade,CRPGAbilityUpgradeSecondary@Upgrade"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradeSecondary@NotUpgraded"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradeSecondary@Upgraded"/>
+        <DataRecord Entry="Abil,CRPGAbilityUpgradeSecondary"/>
+        <DataRecord Entry="Effect,CRPGAbilityUpgradeSecondary@MP"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradeSecondary@UpgradedShowUse"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradeSecondary@UpgradedShow"/>
+        <TechInfoUpgrade value="CRPGAbilityUpgradeSecondary@Upgrade"/>
     </CDataCollectionUpgrade>
     <CDataCollectionUpgrade id="CRPGAbilityUpgradePrimary">
         <EditorCategories value="Race:Neutral,DataGroup:Research"/>
         <DataRecord Entry="Button,CRPGAbilityUpgradePrimary"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradePrimary@CanUpgrade"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradePrimary@UpgradedUse"/>
-        <DataRecord Entry="Upgrade,CRPGAbilityUpgradePrimary"/>
+        <DataRecord Entry="Upgrade,CRPGAbilityUpgradePrimary@Upgrade"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradePrimary@NotUpgraded"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradePrimary@Upgraded"/>
+        <DataRecord Entry="Abil,CRPGAbilityUpgradePrimary"/>
+        <DataRecord Entry="Effect,CRPGAbilityUpgradePrimary@MP"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradePrimary@UpgradedShow"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradePrimary@UpgradedShowUse"/>
+        <TechInfoUpgrade value="CRPGAbilityUpgradePrimary@Upgrade"/>
     </CDataCollectionUpgrade>
     <CDataCollectionUpgrade id="CRPGAbilityUpgradePassivePrimary">
         <EditorCategories value="Race:Neutral"/>
         <DataRecord Entry="Button,CRPGAbilityUpgradePassivePrimary"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradePassivePrimary@CanUpgrade"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradePassivePrimary@UpgradedUse"/>
-        <DataRecord Entry="Upgrade,CRPGAbilityUpgradePassivePrimary"/>
+        <DataRecord Entry="Upgrade,CRPGAbilityUpgradePassivePrimary@Upgrade"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradePassivePrimary@NotUpgraded"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradePassivePrimary@Upgraded"/>
+        <DataRecord Entry="Abil,CRPGAbilityUpgradePassivePrimary"/>
+        <DataRecord Entry="Effect,CRPGAbilityUpgradePassivePrimary@MP"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradePassivePrimary@UpgradedShowUse"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradePassivePrimary@UpgradedShow"/>
+        <TechInfoUpgrade value="CRPGAbilityUpgradePassivePrimary@Upgrade"/>
     </CDataCollectionUpgrade>
     <CDataCollectionUpgrade id="CRPGAbilityUpgradePassiveSecondary">
         <EditorCategories value="Race:Neutral"/>
         <DataRecord Entry="Button,CRPGAbilityUpgradePassiveSecondary"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradePassiveSecondary@CanUpgrade"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradePassiveSecondary@UpgradedShow"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradePassiveSecondary@UpgradedShowUse"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradePassiveSecondary@UpgradedUse"/>
-        <DataRecord Entry="Upgrade,CRPGAbilityUpgradePassiveSecondary"/>
-        <DataRecord Entry="Validator,CRPGAbilityUpgradePassiveSecondary@NotUpgraded"/>
+        <DataRecord Entry="Upgrade,CRPGAbilityUpgradePassiveSecondary@Upgrade"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradePassiveSecondary@Upgraded"/>
+        <DataRecord Entry="Validator,CRPGAbilityUpgradePassiveSecondary@NotUpgraded"/>
+        <DataRecord Entry="Abil,CRPGAbilityUpgradePassiveSecondary"/>
+        <DataRecord Entry="Effect,CRPGAbilityUpgradePassiveSecondary@MP"/>
+        <TechInfoUpgrade value="CRPGAbilityUpgradePassiveSecondary@Upgrade"/>
     </CDataCollectionUpgrade>
     <CDataCollectionUpgrade id="CRPGAbilityUpgradeTernary">
         <EditorCategories value="Race:Neutral,DataGroup:Research"/>
         <DataRecord Entry="Button,CRPGAbilityUpgradeTernary"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradeTernary@UpgradedUse"/>
         <DataRecord Entry="Requirement,CRPGAbilityUpgradeTernary@CanUpgrade"/>
-        <DataRecord Entry="Upgrade,CRPGAbilityUpgradeTernary"/>
+        <DataRecord Entry="Upgrade,CRPGAbilityUpgradeTernary@Upgrade"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradeTernary@Upgraded"/>
         <DataRecord Entry="Validator,CRPGAbilityUpgradeTernary@NotUpgraded"/>
+        <DataRecord Entry="Abil,CRPGAbilityUpgradeTernary"/>
+        <DataRecord Entry="Effect,CRPGAbilityUpgradeTernary@MP"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradeTernary@UpgradedShowUse"/>
+        <DataRecord Entry="Requirement,CRPGAbilityUpgradeTernary@UpgradedShow"/>
+        <TechInfoUpgrade value="CRPGAbilityUpgradeTernary@Upgrade"/>
     </CDataCollectionUpgrade>
     <CDataCollectionUnit id="CRPGAero">
         <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Hero"/>
@@ -205,6 +256,11 @@
         <DataRecord Entry="Actor,CRPGFighter@ModelDeathLevel4"/>
         <DataRecord Entry="Unit,CRPGFighter"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit id="CRPGGhost">
+        <EditorCategories value="DataGroup:Unit,ObjectType:Unit,Race:Terran"/>
+        <DataRecord Entry="Actor,CRPGGhost"/>
+        <DataRecord Entry="Unit,CRPGGhost"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGHunter">
         <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Hero"/>
         <DataRecord Entry="Actor,CRPGHunter"/>
@@ -229,6 +285,16 @@
         <DataRecord Entry="Actor,CRPGInfested@SoundDeathLevel25"/>
         <DataRecord Entry="Actor,CRPGInfested@SoundDeathLevel3"/>
         <DataRecord Entry="Behavior,CRPGInfested@Veterancy"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="CRPGMarauder">
+        <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,CRPGMarauder"/>
+        <DataRecord Entry="Unit,CRPGMarauder"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="CRPGMarine">
+        <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,CRPGMarine"/>
+        <DataRecord Entry="Unit,CRPGMarine"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGMech">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Hero"/>
@@ -354,6 +420,13 @@
         <DataRecord Entry="Actor,HunterRevenant"/>
         <DataRecord Entry="Unit,HunterRevenant"/>
     </CDataCollectionUnit>
+    <CDataCollectionAbil id="MarauderPunisherGrenades">
+        <EditorCategories value="DataGroup:Weapon,Race:Terran,ObjectType:Projectile"/>
+        <DataRecord Entry="Actor,MarauderPunisherGrenades@Attack"/>
+        <DataRecord Entry="Effect,MarauderPunisherGrenades@LM"/>
+        <DataRecord Entry="Effect,MarauderPunisherGrenades@Damage"/>
+        <DataRecord Entry="Weapon,MarauderPunisherGrenades"/>
+    </CDataCollectionAbil>
     <CDataCollectionAbil id="MechBarrage">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
         <DataRecord Entry="Abil,MechBarrage"/>

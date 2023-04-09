@@ -101,77 +101,83 @@
         <EditorCategories value="Race:Protoss,TechType:Unit"/>
         <NodeArray index="Use" Link="LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8"/>
     </CRequirement>
+    <CRequirement id="ArmoryUpgradeEnergy@CanResearch">
+        <NodeArray index="Use" Link="LT596643247CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100"/>
+    </CRequirement>
+    <CRequirement id="ArmoryUpgradeArmor@CanResearch">
+        <NodeArray index="Use" Link="LT596643247CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter100"/>
+    </CRequirement>
     <CRequirement id="BossLock">
         <NodeArray index="Use" Link="Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit"/>
     </CRequirement>
-    <CRequirement id="CRPGAbilityUpgradePassivePrimary@UpgradedShowUse">
-        <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePassivePrimaryCompleteOnly"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePassivePrimaryCompleteOnly"/>
-    </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassivePrimary@UpgradedShow">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePassivePrimaryCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="CRPGAbilityUpgradePassivePrimary@UpgradedShowUse">
+        <EditorCategories value="Race:Neutral,TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassiveSecondary@UpgradedShow">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePassiveSecondaryCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassiveSecondary@UpgradedShowUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePassiveSecondaryCompleteOnly"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePassiveSecondaryCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePrimary@UpgradedShow">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePrimary@UpgradedShowUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradeSecondary@CanUpgrade">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradeSecondaryQueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradeSecondary@UpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassiveSecondary@CanUpgrade">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradePassiveSecondaryQueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradePassiveSecondary@UpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassiveSecondary@UpgradedUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePassiveSecondaryCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassivePrimary@CanUpgrade">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradePassivePrimaryQueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassivePrimary@UpgradedUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePassivePrimaryCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePassivePrimary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradeSecondary@UpgradedShowUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradeSecondaryCompleteOnly"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradeSecondaryCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradeSecondary@UpgradeCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradeSecondary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradeSecondary@UpgradedShow">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradeSecondaryCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradeSecondary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradeTernary@CanUpgrade">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradeTernaryQueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradeTernary@UpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradeTernary@UpgradedShow">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradeTernary@UpgradedShowUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
-        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly"/>
+        <NodeArray index="Show" Link="CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGPassive1LearnedUse">
         <EditorCategories value="Race:Neutral"/>
@@ -225,19 +231,15 @@
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradeSecondary@UpgradedUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradeSecondaryCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradeSecondary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePrimary@CanUpgrade">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradePrimaryQueuedOrBetter"/>
+        <NodeArray index="Show" Link="NotCountUpgradeCRPGAbilityUpgradePrimary@UpgradeQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradeTernary@UpgradedUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
-    </CRequirement>
-    <CRequirement id="CRPGAttributesMaxed">
-        <EditorCategories value="Race:Neutral,TechType:Upgrade"/>
-        <NodeArray index="Use" Link="LT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetterAtUnit255"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGLT4Followers">
         <EditorCategories value="Race:Neutral,TechType:Unit"/>
@@ -245,21 +247,21 @@
     </CRequirement>
     <CRequirement id="CRPGLT5Nomads">
         <EditorCategories value="Race:Terran,TechType:Unit"/>
-        <NodeArray index="Use" Link="LT2605192531SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5"/>
+        <NodeArray index="Use" Link="LT373446351SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5"/>
     </CRequirement>
     <CRequirement id="FighterResurgence@OnCooldown">
         <EditorCategories value="Race:Protoss"/>
         <NodeArray index="Show" Link="CountBehaviorFighterResurgence@CooldownCompleteOnlyAtUnit"/>
     </CRequirement>
-    <CRequirement id="CRPGInRangeofArmory">
-        <NodeArray index="Use" Link="CountBehaviorCRPGControlArmoryCompleteOnlyAtUnit3841130714"/>
+    <CRequirement id="ArmoryUpgradeDamage@CanResearch">
+        <NodeArray index="Use" Link="LT596643247CountUpgradeArmoryUpgradeDamage@UpgradeQueuedOrBetter100"/>
     </CRequirement>
     <CRequirement id="CRPGInRangeofCrashedBattlecruiser">
         <NodeArray index="Use" Link="CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePrimary@UpgradedUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="HunterHasActiveAbility">
         <EditorCategories value="Race:Neutral"/>
@@ -290,7 +292,7 @@
     </CRequirement>
     <CRequirement id="InfestedInfestationSpore@NotMaxVictims">
         <EditorCategories value="Race:Zerg"/>
-        <NodeArray index="Use" Link="LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernaryCompleteOnly"/>
+        <NodeArray index="Use" Link="LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="MechPointDefenseDrones@Arm">
         <EditorCategories value="Race:Terran"/>
@@ -328,7 +330,7 @@
     </CRequirement>
     <CRequirement id="MedicHealingBeam@NotExceedingHealingBeamTargets">
         <EditorCategories value="Race:Terran"/>
-        <NodeArray index="Use" Link="LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly1"/>
+        <NodeArray index="Use" Link="LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="SwarmerSwarm">
         <EditorCategories value="Race:Zerg,TechType:Ability"/>
@@ -352,7 +354,7 @@
     </CRequirement>
     <CRequirement id="SwarmerMaxSwarmerSpawn">
         <EditorCategories value="Race:PrimalZerg"/>
-        <NodeArray index="Use" Link="OrLT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimaryCompleteOnly461069838"/>
+        <NodeArray index="Use" Link="OrLT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8AndLT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly461069838"/>
     </CRequirement>
     <CRequirement id="ShooterUseStimpack">
         <EditorCategories value="Race:Terran,TechType:Ability"/>
