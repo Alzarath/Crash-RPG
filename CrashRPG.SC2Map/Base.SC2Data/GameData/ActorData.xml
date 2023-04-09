@@ -39,9 +39,18 @@
             </Visuals>
         </TerrainSquibs>
     </CActorMissile>
+    <CActorRange id="SniperNuclearStrike@RadiusLinger">
+        <Host Subject="SniperNuclearStrike@ModelLinger"/>
+        <Range value="7.625000"/>
+        <Icon value="Assets\Textures\liberatorradius.dds"/>
+        <IconArcLength value="3.000000"/>
+        <IconTint value="255,128,255,0"/>
+    </CActorRange>
     <CActorModel id="SniperNuclearStrike@ModelLinger" parent="ModelAnimationStyleContinuous">
         <On Terms="Effect.SniperNuclearStrike@CPLinger.Start" Send="Create"/>
         <On Terms="Effect.SniperNuclearStrike@CPLinger.Stop" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="Create SniperNuclearStrike@RadiusLinger"/>
+        <On Terms="ActorDestruction" Target="SniperNuclearStrike@RadiusLinger" Send="Destroy"/>
         <Model value="Artillery_Mengsk_COOP_DirtyBomb_Impact"/>
         <Scale value="1.500000"/>
     </CActorModel>

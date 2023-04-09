@@ -2098,7 +2098,6 @@
     <CEffectEnumArea id="SniperNuclearStrike@SALinger">
         <EditorCategories value="Race:Terran"/>
         <AINotifyFlags index="HurtEnemy" value="1"/>
-        <DebugTrace value="1"/>
         <LaunchLocation Value="TargetPoint"/>
         <ImpactLocation Value="TargetPoint"/>
         <SearchFilters value="-;Player,Ally,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
