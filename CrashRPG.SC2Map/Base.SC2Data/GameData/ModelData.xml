@@ -8,6 +8,11 @@
         <Occlusion value="Show"/>
         <SquibTypeDefault value="Metal"/>
     </CModel>
+    <CModel id="Artillery_Mengsk_COOP_DirtyBomb_Impact" parent="PersistentSpellFX">
+        <Model value="Assets\COOP\Mengsk\Effects\Artillery_Mengsk_COOP_DirtyBomb_Impact\Artillery_Mengsk_COOP_DirtyBomb_Impact.m3"/>
+        <EditorCategories value="Race:Zerg"/>
+        <RadiusLoose value="4.000000"/>
+    </CModel>
     <CModel id="DiamondbackAttackBeamLow2" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Terran\DiamondbackBeam\DiamondbackBeam_Low.m3"/>
         <EditorCategories value="Race:Terran"/>

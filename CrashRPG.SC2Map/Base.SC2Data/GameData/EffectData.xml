@@ -2081,9 +2081,38 @@
         <CaseArray Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Effect="ShooterStimpack@SetUpgraded"/>
         <CaseDefault value="ShooterStimpack@Set"/>
     </CEffectSwitch>
+    <CEffectCreatePersistent id="SniperNuclearStrike@CPLinger">
+        <ValidatorArray value="CRPGAbilityUpgradeTernary@Upgraded"/>
+        <EditorCategories value="Race:Terran"/>
+        <PeriodCount value="80"/>
+        <PeriodicEffectArray value="SniperNuclearStrike@SALinger"/>
+        <PeriodicPeriodArray value="0.75"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="SniperNuclearStrike@DamageLinger">
+        <EditorCategories value="Race:Terran"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <Amount value="1.25">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectEnumArea id="SniperNuclearStrike@SALinger">
+        <EditorCategories value="Race:Terran"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <DebugTrace value="1"/>
+        <LaunchLocation Value="TargetPoint"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Player,Ally,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="8" Effect="SniperNuclearStrike@DamageLinger"/>
+    </CEffectEnumArea>
     <CEffectSet id="SniperNuclearStrike@Set">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="SniperNuclearStrike@CPChannel"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectSet id="SniperNuclearStrike@SetImpact">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="SniperNuclearStrike@Damage"/>
+        <EffectArray value="SniperNuclearStrike@CPLinger"/>
         <TargetLocationType value="Point"/>
     </CEffectSet>
     <CEffectCreatePersistent id="SniperSniperRound@CP">
@@ -5169,7 +5198,6 @@
     </CEffectDamage>
     <CEffectCreatePersistent id="SniperNuclearStrike@CPImpact">
         <EditorCategories value="Race:Terran"/>
-        <InitialDelay value="1.25"/>
         <InitialEffect value="SniperNuclearStrike@Damage"/>
         <ExpireDelay value="8.25"/>
         <RevealRadius value="8"/>
@@ -5180,7 +5208,7 @@
         <Flags index="Channeled" value="1"/>
         <InitialDelay value="1.75"/>
         <ExpireDelay value="3"/>
-        <ExpireEffect value="SniperNuclearStrike@CPImpact"/>
+        <ExpireEffect value="SniperNuclearStrike@SetImpact"/>
     </CEffectCreatePersistent>
     <CEffectDamage id="SniperC20ACanisterRifleDamage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>

@@ -672,6 +672,7 @@
         <Icon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
         <EditorCategories value="Race:Terran"/>
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/MedicIrradiate@UpgradedAccumulated"/>
     </CButton>
     <CButton id="MedicHealingBeam" parent="ActivePrimaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
@@ -1293,6 +1294,7 @@
         <AlertIcon value="Assets\Textures\btn-ability-terran-nuclearstrike-color.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HidesForSimpleText value="0"/>
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradeTernary@Upgraded" Text="Button/Tooltip/SniperNuclearStrike@UpgradedAccumulated"/>
     </CButton>
     <CButton id="SniperBetterEquipment" parent="PassivePrimaryButton">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>

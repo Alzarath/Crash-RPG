@@ -39,6 +39,12 @@
             </Visuals>
         </TerrainSquibs>
     </CActorMissile>
+    <CActorModel id="SniperNuclearStrike@ModelLinger" parent="ModelAnimationStyleContinuous">
+        <On Terms="Effect.SniperNuclearStrike@CPLinger.Start" Send="Create"/>
+        <On Terms="Effect.SniperNuclearStrike@CPLinger.Stop" Send="Destroy"/>
+        <Model value="Artillery_Mengsk_COOP_DirtyBomb_Impact"/>
+        <Scale value="1.500000"/>
+    </CActorModel>
     <CActorSound id="CRPGSniper@SoundDeathLevel3" parent="SoundOneShot">
         <On Terms="UnitDeath.CRPGSniper; ValidateUnit CasterIsLevel3" Send="Create"/>
         <Sound value="Ghost_Death"/>
