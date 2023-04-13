@@ -1328,7 +1328,6 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel1.dds"/>
         <EditorCategories value="Race:Neutral"/>
         <DefaultButtonLayout Column="1"/>
-        <ChargeText value="Button/ChargeText/ArmoryUpgradeArmor"/>
     </CButton>
     <CButton id="SniperPersonalCloaking@Off" parent="ActiveSecondaryButton">
         <TooltipAppender index="0" removed="1"/>

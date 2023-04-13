@@ -44,6 +44,29 @@
             <Borders value="0,2,2;1,0,2;2,3,2;3,1,2"/>
         </Shape>
     </CFootprint>
+    <CFootprint id="Footprint4x4IgnoreCreepContour" parent="Footprint3x3">
+        <Layers index="Check" Area="-2,-2,2,2">
+            <Sets index="0">
+                <Negative index="Creep" value="0"/>
+                <Negative index="Fogged" value="1"/>
+            </Sets>
+            <Rows index="0" value="xxxx"/>
+            <Rows index="1" value="xxxx"/>
+            <Rows index="2" value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-2,-2,2,2">
+            <Rows index="0" value="xxxx"/>
+            <Rows index="1" value="xxxx"/>
+            <Rows index="2" value="xxxx"/>
+            <Rows value="xxxx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.803"/>
+            <Offsets value="-1,-1.5;1,-1.5;-1,1.5;1,1.5;-1.5,-1;-1.5,1;1.5,-1;1.5,1"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,7,2;4,5,2;5,2,2;6,1,2;7,6,2"/>
+        </Shape>
+    </CFootprint>
     <CFootprint id="Footprint5x5">
         <Layers index="Check" Area="-2,-2,3,3">
             <Rows value="xxxxx"/>

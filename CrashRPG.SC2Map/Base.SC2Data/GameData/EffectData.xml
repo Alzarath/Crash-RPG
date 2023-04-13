@@ -22,19 +22,19 @@
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Caster"/>
         <Behavior value="AeroTacticalJump@Speed"/>
-        <Count value="16"/>
+        <Count value="32"/>
     </CEffectApplyBehavior>
     <CEffectCreatePersistent id="AeroTacticalJump@CPSpeedDecay">
         <EditorCategories value="Race:Terran"/>
         <WhichLocation Value="CasterUnit"/>
-        <PeriodCount value="16"/>
+        <PeriodCount value="32"/>
         <PeriodicEffectArray value="AeroTacticalJump@RBSpeed"/>
         <PeriodicPeriodArray value="0.25"/>
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="AeroTacticalJump@CPSlowDecay">
         <EditorCategories value="Race:Terran"/>
         <WhichLocation Value="TargetUnit"/>
-        <PeriodCount value="16"/>
+        <PeriodCount value="32"/>
         <PeriodicEffectArray value="AeroTacticalJump@RBSlow"/>
         <PeriodicPeriodArray value="0.25"/>
     </CEffectCreatePersistent>
@@ -570,7 +570,9 @@
     </CEffectIssueOrder>
     <CEffectDamage id="ShadePsionicInterference@Damage">
         <ImpactLocation Effect="AdeptPsionicTransferDamageAB" Value="TargetUnit"/>
-        <Amount value="5"/>
+        <Amount value="5">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
     </CEffectDamage>
     <CEffectApplyBehavior id="ShadePsionicInterference@AB">
         <EditorCategories value="Race:Protoss"/>
@@ -1108,7 +1110,9 @@
         <EditorCategories value="Race:Terran"/>
         <AttributeBonus index="Light" value="10"/>
         <Kind value="Ranged"/>
-        <Amount value="10"/>
+        <Amount value="10">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
     </CEffectDamage>
     <CEffectModifyUnit id="CRPGAddExperience10">
         <XP value="10"/>
@@ -1472,7 +1476,9 @@
         <ResponseFlags index="Flee" value="1"/>
         <Flags index="Notification" value="1"/>
         <Kind value="Ranged"/>
-        <Amount value="1"/>
+        <Amount value="1">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
         <AreaArray Radius="1.5" Fraction="1"/>
         <SearchFilters value="Air,Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Invulnerable,Benign,Passive"/>
     </CEffectDamage>
@@ -2227,7 +2233,7 @@
     <CEffectApplyBehavior id="AeroTacticalJump@ABSlow">
         <EditorCategories value="Race:Terran"/>
         <Behavior value="AeroTacticalJump@Slow"/>
-        <Count value="16"/>
+        <Count value="32"/>
     </CEffectApplyBehavior>
     <CEffectCreatePersistent id="AeroTacticalJump@CPSlowField">
         <ValidatorArray value="CRPGAbilityUpgradeTernary@Upgraded"/>
@@ -2752,10 +2758,12 @@
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
-    <CEffectDamage id="MarineC14GaussRifleDamage" parent="DU_WEAP">
+    <CEffectDamage id="MarineC14GaussRifle@Damage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="6"/>
+        <Amount value="6">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
     </CEffectDamage>
     <CEffectCreatePersistent id="DefensiveTurretLongboltMissile@CP">
         <EditorCategories value="Race:Terran"/>
@@ -2775,7 +2783,9 @@
     </CEffectLaunchMissile>
     <CEffectDamage id="DefensiveTurretLongboltMissile@Damage" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Terran"/>
-        <Amount value="12"/>
+        <Amount value="12">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
     </CEffectDamage>
     <CEffectCreateHealer id="NomadRepair">
         <ValidatorArray value="NotWarpingIn"/>
@@ -2803,7 +2813,9 @@
         <ArmorReduction value="1"/>
         <Flags index="Notification" value="1"/>
         <Kind value="Ranged"/>
-        <Amount value="6"/>
+        <Amount value="6">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
         <SearchFlags index="CallForHelp" value="1"/>
         <SearchFlags index="OffsetByUnitRadius" value="1"/>
     </CEffectDamage>
@@ -2812,7 +2824,9 @@
         <Marker Link="Effect/PunisherGrenadesU"/>
         <AttributeBonus index="Armored" value="10"/>
         <Kind value="Ranged"/>
-        <Amount value="10"/>
+        <Amount value="10">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
         <Death value="Blast"/>
     </CEffectDamage>
     <CEffectDamage id="ShooterAGR14GaussRifle" parent="DU_WEAP">

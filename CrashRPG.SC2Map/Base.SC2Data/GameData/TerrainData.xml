@@ -1,50 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CTerrain id="CharEx2">
-        <CliffSets index="1" value="ShakurasTempleCliff1"/>
-    </CTerrain>
-    <CTerrain id="CharMoebiusLabTransition">
-        <EditorCategories value="Climate:InteriorInstallation"/>
-        <Lighting value="MoebiusLab"/>
-        <Camera value="Installation"/>
-        <Ambience value="Ambience_Castanar"/>
+    <CTerrain id="CrashRPG2TerrainSheet1">
+        <EditorCategories value="Climate:Volcanic"/>
+        <Lighting value="CharEx2"/>
+        <LoadingScreen value="Assets\Textures\ui_nova_loading_nova04.dds"/>
+        <TextureProp value="char"/>
+        <Ambience value="Ambience_Char"/>
         <ReverbAmbient value="BetaVerb"/>
-        <BlendTextures value="CharDirtLightEx2"/>
-        <BlendTextures value="MoebiusLab2"/>
+        <BlendTextures value="RedstoneLavaCracks"/>
+        <BlendTextures value="Char2_4"/>
+        <BlendTextures value="Elsecaro3"/>
+        <BlendTextures value="Elsecaro5"/>
+        <BlendTextures value="Elsecaro6"/>
+        <BlendTextures value="BelShirDirtDarkEx2"/>
+        <BlendTextures value="MeinhoffConcrete"/>
         <BlendTextures value="MoebiusLab7"/>
         <HardTiles value="KorhalTile"/>
-        <CliffSets value="MoebiusLabCliff0"/>
-        <CliffSets value="MoebiusLabCliff1"/>
+        <HardTiles value="MarSaraTile"/>
+        <HardTiles value="MeinhoffTile"/>
+        <HardTiles value="TarsonisRail"/>
+        <CliffSets value="CharEx1Cliff0"/>
+        <CliffSets value="HybridLabInnerCliff1"/>
+        <CliffSets value="Elsecaro_Organic_Cliffs"/>
+        <CliffSets value="KorhalCityCliff0"/>
         <FogEnabled value="1"/>
-        <FogColor value="255,121,214,244"/>
-        <FogDensity value="0.100000"/>
-        <FogFalloff value="0.200000"/>
-        <FogStartingHeight value="-2.000000"/>
-        <CreepEdgeNormalMap value="Assets\Textures\CreepEdgeNormal.dds"/>
-        <CreepSettingsArray index="Low" CreepOpaqueAlphaThreshold="0.180000" CreepTranslucentMinThreshold="0.050000" CreepTranslucentPassTint="1.000000,0.850000,0.750000"/>
-        <CreepSettingsArray index="Medium">
-            <CreepOpaqueAlphaThreshold value="0.180000"/>
-            <CreepTranslucentMinThreshold value="0.050000"/>
-            <CreepTranslucentMaxThreshold value="0.150000"/>
-            <CreepTranslucentPassTint value="1.000000,0.850000,0.750000"/>
-        </CreepSettingsArray>
-        <CreepSettingsArray index="High">
-            <CreepOpaqueAlphaThreshold value="0.180000"/>
-            <CreepTranslucentMinThreshold value="0.050000"/>
-            <CreepTranslucentMaxThreshold value="0.150000"/>
-            <CreepTranslucentPassTint value="1.000000,0.850000,0.750000"/>
-        </CreepSettingsArray>
-        <CreepSettingsArray index="Ultra">
-            <CreepOpaqueAlphaThreshold value="0.180000"/>
-            <CreepTranslucentMinThreshold value="0.050000"/>
-            <CreepTranslucentMaxThreshold value="0.150000"/>
-            <CreepTranslucentPassTint value="1.000000,0.850000,0.750000"/>
-        </CreepSettingsArray>
-        <CreepSettingsArray index="Extreme">
-            <CreepOpaqueAlphaThreshold value="0.180000"/>
-            <CreepTranslucentMinThreshold value="0.050000"/>
-            <CreepTranslucentMaxThreshold value="0.150000"/>
-            <CreepTranslucentPassTint value="1.000000,0.850000,0.750000"/>
-        </CreepSettingsArray>
+        <FogColor value="255,255,54,54"/>
+        <FogDensity value="0.160000"/>
+        <FogFalloff value="0.350000"/>
+        <FogStartingHeight value="-0.900000"/>
+        <HeightMapEnabled value="1"/>
+    </CTerrain>
+    <CTerrain id="CrashRPG2TerrainSheet2">
+        <EditorCategories value="Climate:Volcanic"/>
+        <Lighting value="CharEx2"/>
+        <LoadingScreen value="Assets\Textures\ui_nova_loading_nova04.dds"/>
+        <TextureProp value="char"/>
+        <Ambience value="Ambience_Char"/>
+        <ReverbAmbient value="BetaVerb"/>
+        <BlendTextures value="BelShirDirtDarkEx2"/>
+        <BlendTextures value="MeinhoffConcrete"/>
+        <BlendTextures value="MoebiusLab7"/>
+        <BlendTextures value="AgriaCrops"/>
+        <BlendTextures value="AgriaGrassYellow"/>
+        <BlendTextures value="IceWorld4"/>
+        <BlendTextures value="IceWorld2"/>
+        <BlendTextures value="IceWorld6"/>
+        <HardTiles value="KorhalTile"/>
+        <HardTiles value="MarSaraTile"/>
+        <HardTiles value="MeinhoffTile"/>
+        <HardTiles value="TarsonisRail"/>
+        <CliffSets value="IceWorldCliff0"/>
+        <CliffSets value="HybridLabInnerCliff1"/>
+        <CliffSets value="Elsecaro_Organic_Cliffs"/>
+        <CliffSets value="KorhalCityCliff0"/>
+        <FogEnabled value="1"/>
+        <FogColor value="255,255,54,54"/>
+        <FogDensity value="0.160000"/>
+        <FogFalloff value="0.350000"/>
+        <FogStartingHeight value="-0.900000"/>
+        <HeightMapEnabled value="1"/>
     </CTerrain>
 </Catalog>

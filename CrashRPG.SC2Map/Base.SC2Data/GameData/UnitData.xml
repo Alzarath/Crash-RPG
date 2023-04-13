@@ -336,23 +336,76 @@
         <Mover value="LongboltMissileWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
-    <CUnit id="NydusCanal">
-        <KillXP value="15"/>
-        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+    <CUnit id="CRPGNydusWorm">
         <Name value="Unit/Name/Alien"/>
+        <Description value="Button/Tooltip/NydusCanal"/>
+        <DeathRevealRadius value="3"/>
+        <Facing value="29.9707"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="AIThreatGround" value="1"/>
+        <FlagArray index="AIThreatAir" value="1"/>
+        <FlagArray index="AIHighPrioTarget" value="1"/>
+        <FlagArray index="AIDefense" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <LifeArmor value="1"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="10"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="100"/>
+        <AttackTargetPriority value="11"/>
+        <KillXP value="15"/>
         <KillResource index="Minerals" value="15"/>
-        <LifeArmorFormula>
-            <NegativeArmorMultiplier value="0"/>
-            <NegativeDamageBase value="0.94"/>
-            <PositiveArmorMultiplier value="0"/>
-            <PositiveDamageRatio value="0.06"/>
-        </LifeArmorFormula>
-        <ShieldArmorFormula>
-            <NegativeArmorMultiplier value="0"/>
-            <NegativeDamageBase value="0.94"/>
-            <PositiveArmorMultiplier value="0"/>
-            <PositiveDamageRatio value="0.06"/>
-        </ShieldArmorFormula>
+        <AbilArray Link="Rally"/>
+        <AbilArray Link="BuildinProgressNydusCanal"/>
+        <AbilArray Link="NydusWormTransport"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="makeCreep4x4"/>
+        <BehaviorArray Link="NydusDetect"/>
+        <CardLayouts>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="SetRallyPoint" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons Face="Load" Type="AbilCmd" AbilCmd="NydusWormTransport,Load" Row="2" Column="0"/>
+            <LayoutButtons Face="NydusCanalUnloadAll" Type="AbilCmd" AbilCmd="NydusWormTransport,UnloadAll" Row="2" Column="1"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <Footprint value="Footprint4x4IgnoreCreepContour"/>
+        <PlacementFootprint value="Footprint4x4IgnoreCreepContour"/>
+        <ScoreMake value="200"/>
+        <ScoreKill value="200"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Melee"/>
+        <AIEvalFactor value="0.2"/>
+        <GlossaryCategory value="Unit/Category/AlienUnits"/>
+        <GlossaryPriority value="261"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
     </CUnit>
     <CUnit id="NydusNetwork">
         <KillXP value="50"/>

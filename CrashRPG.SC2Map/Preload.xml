@@ -315,6 +315,7 @@
 <Unit id="CRPGDefensiveFortification"/>
 <Unit id="CRPGDefensiveWall"/>
 <Unit id="CRPGDefensiveTurret"/>
+<Unit id="CRPGNydusWorm"/>
 <Unit id="CRPGBuildableLocationDefensiveFortification"/>
 <Unit id="CRPGArmory"/>
 <Unit id="CRPGCrashedBattlecruiser"/>

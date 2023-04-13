@@ -12,6 +12,7 @@ include "TriggerLibs/LibertyLib"
 // Library: WeaverFunctions
 //--------------------------------------------------------------------------------------------------
 // Function Declarations
+string libALZL_gf_StringWithLeadingCharacters (string lp_string, string lp_character, int lp_stringLength);
 text libALZL_gf_StringToGradientTextAtCharacter (string lp_string, color lp_startColor, color lp_endColor, int lp_characterIndex);
 text libALZL_gf_StringToGradientText (string lp_string, color lp_startColor, color lp_endColor);
 color libALZL_gf_ColorFromRace (string lp_race);
@@ -30,6 +31,35 @@ void libALZL_InitLibraries () {
 }
 
 // Functions
+string libALZL_gf_StringWithLeadingCharacters (string lp_string, string lp_character, int lp_stringLength) {
+    // Variable Declarations
+    int lv_pickedIndex;
+    string lv_returnedString;
+    int lv_index;
+
+    // Automatic Variable Declarations
+    int auto10C278D1_ae;
+    const int auto10C278D1_ai = 1;
+
+    // Variable Initialization
+    lv_returnedString = "";
+
+    // Implementation
+    if ((StringLength(lp_string) >= lp_stringLength)) {
+        return lp_string;
+    }
+
+    auto10C278D1_ae = lp_stringLength;
+    lv_pickedIndex = 1;
+    for ( ; ( (auto10C278D1_ai >= 0 && lv_pickedIndex <= auto10C278D1_ae) || (auto10C278D1_ai < 0 && lv_pickedIndex >= auto10C278D1_ae) ) ; lv_pickedIndex += auto10C278D1_ai ) {
+        lv_index = ModI((lv_pickedIndex - 1), StringLength(lp_character));
+        lv_index = (StringLength(lp_character) - lv_index);
+        lv_returnedString = (StringSub(lp_character, lv_index, lv_index) + lv_returnedString);
+    }
+    lv_returnedString = StringReplace(lv_returnedString, lp_string, (lp_stringLength - (StringLength(lp_string) - 1)), lp_stringLength);
+    return lv_returnedString;
+}
+
 text libALZL_gf_StringToGradientTextAtCharacter (string lp_string, color lp_startColor, color lp_endColor, int lp_characterIndex) {
     // Variable Declarations
     int lv_stringLength;
@@ -173,6 +203,18 @@ void InitLibs () {
 //--------------------------------------------------------------------------------------------------
 const int gv_pLAYER_HOSTILE = 15;
 const int gv_pLAYER_NEUTRAL = 0;
+const int gv_nUMBER_OF_BARRENS_POINTS = 7;
+const int gv_nUMBER_OF_BEACH_POINTS = 16;
+const int gv_nUMBER_OF_CITY_POINTS = 8;
+const int gv_nUMBER_OF_FARMLAND_POINTS = 11;
+const int gv_nUMBER_OF_FOREST_POINTS = 21;
+const int gv_nUMBER_OF_LAB_POINTS = 3;
+const int gv_nUMBER_OF_MAGMA_POINTS = 10;
+const int gv_nUMBER_OF_PORT_POINTS = 3;
+const int gv_nUMBER_OF_SNOW_POINTS = 24;
+const int gv_nUMBER_OF_WETLAND_POINTS = 4;
+const int gv_nUMBER_OF_WOODLANDS_POINTS = 9;
+const int gv_tOTAL_NUMBER_OF_NYDUS_WORM_POINTS = 116;
 const int gv_pLAYER_ALIEN = 14;
 const int gv_hERO_COUNT = 14;
 const int gv_hERO_AERO = 1;
@@ -291,6 +333,18 @@ bool gv_tutorialOn;
 int[gv_pLAYER_COUNT + 1] gv_revives;
 int gv_sharedMinerals;
 bool gv_gameEnding;
+point[gv_nUMBER_OF_BARRENS_POINTS + 1] gv_barrensPoints;
+point[gv_nUMBER_OF_FOREST_POINTS + 1] gv_beachPoints;
+point[gv_nUMBER_OF_CITY_POINTS + 1] gv_cityPoints;
+point[gv_nUMBER_OF_FARMLAND_POINTS + 1] gv_farmlandPoints;
+point[gv_nUMBER_OF_FOREST_POINTS + 1] gv_forestPoints;
+point[gv_nUMBER_OF_LAB_POINTS + 1] gv_labPoints;
+point[gv_nUMBER_OF_MAGMA_POINTS + 1] gv_magmaPoints;
+point[gv_nUMBER_OF_PORT_POINTS + 1] gv_portPoints;
+point[gv_nUMBER_OF_SNOW_POINTS + 1] gv_snowPoints;
+point[gv_nUMBER_OF_WETLAND_POINTS + 1] gv_wetlandPoints;
+point[gv_nUMBER_OF_WOODLANDS_POINTS + 1] gv_woodlandsPoints;
+point[gv_tOTAL_NUMBER_OF_NYDUS_WORM_POINTS + 1] gv_nydusWormPoints;
 int gv_attackWave;
 bool[gv_hERO_COUNT + 1] gv_heroSelected;
 playergroup gv_survivors;
@@ -405,11 +459,12 @@ point gf_GetOppositePoint (point lp_point, point lp_center);
 trigger gt_VariableInitializaiton;
 trigger gt_RevealerInitialization;
 trigger gt_TestAllHeroes;
+trigger gt_AlienInitialization;
 trigger gt_AttackWaves;
 trigger gt_AttackWaveInitial;
 trigger gt_AlienInitialTrickle;
 trigger gt_AlienTrickle;
-trigger gt_MapInitialization;
+trigger gt_SetupInitialization;
 trigger gt_CreateHeroSelection;
 trigger gt_HeroSelection;
 trigger gt_FreeHeroes;
@@ -538,7 +593,7 @@ bool auto_gf_SpawnAlienLoop_TriggerFunc (bool testConds, bool runActions) {
     // Implementation
     while ((lv_currentAlienWeight >= 1)) {
         lv_spawnedUnitType = gf_SetRandomAlien(lp_minimumWeight, MinI(lv_currentAlienWeight, lp_maximumWeight));
-        lv_spawnPoint = UnitGetPosition(UnitGroupRandomUnit(UnitGroup("NydusNetwork", gv_pLAYER_ALIEN, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive));
+        lv_spawnPoint = UnitGetPosition(UnitGroupRandomUnit(UnitGroup("CRPGNydusWorm", gv_pLAYER_ALIEN, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive));
         auto20B14021_ae = gf_GetAlienCount(lv_spawnedUnitType);
         lv_pickedNumber = 1;
         for ( ; ( (auto20B14021_ai >= 0 && lv_pickedNumber <= auto20B14021_ae) || (auto20B14021_ai < 0 && lv_pickedNumber >= auto20B14021_ae) ) ; lv_pickedNumber += auto20B14021_ai ) {
@@ -1053,10 +1108,129 @@ point gf_GetOppositePoint (point lp_point, point lp_center) {
 // Trigger: Variable Initializaiton
 //--------------------------------------------------------------------------------------------------
 bool gt_VariableInitializaiton_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_currentMax;
+    int lv_variableOffset;
+    int lv_pickedInteger;
+
     // Automatic Variable Declarations
+    int autoBB0541B6_ae;
+    const int autoBB0541B6_ai = 1;
+    int auto53064341_ae;
+    const int auto53064341_ai = 1;
+    int autoBAE42110_ae;
+    const int autoBAE42110_ai = 1;
+    int auto5948470F_ae;
+    const int auto5948470F_ai = 1;
+    int auto808503E0_ae;
+    const int auto808503E0_ai = 1;
+    int autoD31065F9_ae;
+    const int autoD31065F9_ai = 1;
+    int auto968C2AB5_ae;
+    const int auto968C2AB5_ai = 1;
+    int autoD1998640_ae;
+    const int autoD1998640_ai = 1;
+    int auto16C16412_ae;
+    const int auto16C16412_ai = 1;
+    int autoAB131252_ae;
+    const int autoAB131252_ai = 1;
+    int autoFCE13200_ae;
+    const int autoFCE13200_ai = 1;
+
+    // Variable Initialization
+    lv_currentMax = 1;
+
     // Actions
     if (!runActions) {
         return true;
+    }
+
+    lv_currentMax = gv_nUMBER_OF_BARRENS_POINTS;
+    autoBB0541B6_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (autoBB0541B6_ai >= 0 && lv_pickedInteger <= autoBB0541B6_ae) || (autoBB0541B6_ai < 0 && lv_pickedInteger >= autoBB0541B6_ae) ) ; lv_pickedInteger += autoBB0541B6_ai ) {
+        gv_barrensPoints[lv_pickedInteger] = PointFromName(("Barrens-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Barrens-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_BEACH_POINTS;
+    auto53064341_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (auto53064341_ai >= 0 && lv_pickedInteger <= auto53064341_ae) || (auto53064341_ai < 0 && lv_pickedInteger >= auto53064341_ae) ) ; lv_pickedInteger += auto53064341_ai ) {
+        gv_beachPoints[lv_pickedInteger] = PointFromName(("Beach-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Beach-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_CITY_POINTS;
+    autoBAE42110_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (autoBAE42110_ai >= 0 && lv_pickedInteger <= autoBAE42110_ae) || (autoBAE42110_ai < 0 && lv_pickedInteger >= autoBAE42110_ae) ) ; lv_pickedInteger += autoBAE42110_ai ) {
+        gv_cityPoints[lv_pickedInteger] = PointFromName(("City-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("City-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_FARMLAND_POINTS;
+    auto5948470F_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (auto5948470F_ai >= 0 && lv_pickedInteger <= auto5948470F_ae) || (auto5948470F_ai < 0 && lv_pickedInteger >= auto5948470F_ae) ) ; lv_pickedInteger += auto5948470F_ai ) {
+        gv_farmlandPoints[lv_pickedInteger] = PointFromName(("Farmland-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Farmland-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_FOREST_POINTS;
+    auto808503E0_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (auto808503E0_ai >= 0 && lv_pickedInteger <= auto808503E0_ae) || (auto808503E0_ai < 0 && lv_pickedInteger >= auto808503E0_ae) ) ; lv_pickedInteger += auto808503E0_ai ) {
+        gv_forestPoints[lv_pickedInteger] = PointFromName(("Forest-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Forest-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_LAB_POINTS;
+    autoD31065F9_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (autoD31065F9_ai >= 0 && lv_pickedInteger <= autoD31065F9_ae) || (autoD31065F9_ai < 0 && lv_pickedInteger >= autoD31065F9_ae) ) ; lv_pickedInteger += autoD31065F9_ai ) {
+        gv_labPoints[lv_pickedInteger] = PointFromName(("Lab-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Lab-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_MAGMA_POINTS;
+    auto968C2AB5_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (auto968C2AB5_ai >= 0 && lv_pickedInteger <= auto968C2AB5_ae) || (auto968C2AB5_ai < 0 && lv_pickedInteger >= auto968C2AB5_ae) ) ; lv_pickedInteger += auto968C2AB5_ai ) {
+        gv_magmaPoints[lv_pickedInteger] = PointFromName(("Magma-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Magma-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_PORT_POINTS;
+    autoD1998640_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (autoD1998640_ai >= 0 && lv_pickedInteger <= autoD1998640_ae) || (autoD1998640_ai < 0 && lv_pickedInteger >= autoD1998640_ae) ) ; lv_pickedInteger += autoD1998640_ai ) {
+        gv_portPoints[lv_pickedInteger] = PointFromName(("Port-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Port-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_SNOW_POINTS;
+    auto16C16412_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (auto16C16412_ai >= 0 && lv_pickedInteger <= auto16C16412_ae) || (auto16C16412_ai < 0 && lv_pickedInteger >= auto16C16412_ae) ) ; lv_pickedInteger += auto16C16412_ai ) {
+        gv_snowPoints[lv_pickedInteger] = PointFromName(("Snow-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Snow-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_WETLAND_POINTS;
+    autoAB131252_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (autoAB131252_ai >= 0 && lv_pickedInteger <= autoAB131252_ae) || (autoAB131252_ai < 0 && lv_pickedInteger >= autoAB131252_ae) ) ; lv_pickedInteger += autoAB131252_ai ) {
+        gv_wetlandPoints[lv_pickedInteger] = PointFromName(("Wetland-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Wetland-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+    }
+    lv_variableOffset += lv_currentMax;
+    lv_currentMax = gv_nUMBER_OF_WOODLANDS_POINTS;
+    autoFCE13200_ae = lv_currentMax;
+    lv_pickedInteger = 1;
+    for ( ; ( (autoFCE13200_ai >= 0 && lv_pickedInteger <= autoFCE13200_ae) || (autoFCE13200_ai < 0 && lv_pickedInteger >= autoFCE13200_ae) ) ; lv_pickedInteger += autoFCE13200_ai ) {
+        gv_woodlandsPoints[lv_pickedInteger] = PointFromName(("Woodlands-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
+        gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Woodlands-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
     }
 
     gv_hero[gv_hERO_AERO].lv_unitType = "CRPGAero";
@@ -1150,6 +1324,37 @@ void gt_TestAllHeroes_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: Alien Initialization
+//--------------------------------------------------------------------------------------------------
+bool gt_AlienInitialization_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_pickedInteger;
+
+    // Automatic Variable Declarations
+    const int autoACD900FC_ae = gv_tOTAL_NUMBER_OF_NYDUS_WORM_POINTS;
+    const int autoACD900FC_ai = 1;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_pickedInteger = 1;
+    for ( ; ( (autoACD900FC_ai >= 0 && lv_pickedInteger <= autoACD900FC_ae) || (autoACD900FC_ai < 0 && lv_pickedInteger >= autoACD900FC_ae) ) ; lv_pickedInteger += autoACD900FC_ai ) {
+        libNtve_gf_CreateUnitsWithDefaultFacing(1, "CRPGNydusWorm", 0, gv_pLAYER_ALIEN, gv_nydusWormPoints[lv_pickedInteger]);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void gt_AlienInitialization_Init () {
+    gt_AlienInitialization = TriggerCreate("gt_AlienInitialization_Func");
+    TriggerAddEventMapInit(gt_AlienInitialization);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Attack Waves
 //--------------------------------------------------------------------------------------------------
 bool gt_AttackWaves_Func (bool testConds, bool runActions) {
@@ -1169,12 +1374,15 @@ bool gt_AttackWaves_Func (bool testConds, bool runActions) {
     }
 
     gv_attackWave += 1;
-    lv_waveWeight = gf_AttackWaveFormula(PlayerGroupCount(gv_survivors));
-    SoundPlayForPlayer(SoundLink("Event_Lab02_AlarmIncomingAttack", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
-    Wait(1.0, c_timeGame);
-    gf_SendBattlecruiserTransmission((StringExternal("Param/Value/1236304B") + gf_GetRandomComment()), PlayerGroupAll(), 8.0, false);
-    Wait(29.0, c_timeGame);
-    gf_SpawnAlienLoop(lv_waveWeight, lv_alienWeight, TruncI(lv_minimumWeight));
+    if ((TechTreeUnitCount(gv_pLAYER_ALIEN, "CRPGNydusWorm", c_techCountCompleteOnly) > 0)) {
+        lv_waveWeight = gf_AttackWaveFormula(PlayerGroupCount(gv_survivors));
+        SoundPlayForPlayer(SoundLink("Event_Lab02_AlarmIncomingAttack", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
+        Wait(1.0, c_timeGame);
+        gf_SendBattlecruiserTransmission((StringExternal("Param/Value/1236304B") + gf_GetRandomComment()), PlayerGroupAll(), 8.0, false);
+        Wait(29.0, c_timeGame);
+        gf_SpawnAlienLoop(lv_waveWeight, lv_alienWeight, TruncI(lv_minimumWeight));
+    }
+
     return true;
 }
 
@@ -1204,12 +1412,15 @@ bool gt_AttackWaveInitial_Func (bool testConds, bool runActions) {
     }
 
     gv_attackWave += 1;
-    lv_waveWeight = gf_AttackWaveFormula(PlayerGroupCount(gv_survivors));
-    SoundPlayForPlayer(SoundLink("Event_Lab02_AlarmIncomingAttack", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
-    Wait(1.0, c_timeGame);
-    gf_SendBattlecruiserTransmission((gf_GetRandomInitialComment() + StringExternal("Param/Value/DCAA8B93")), PlayerGroupAll(), 5.0, false);
-    Wait(29.0, c_timeGame);
-    gf_SpawnAlienLoop(lv_waveWeight, lv_alienWeight, TruncI(lv_minimumWeight));
+    if ((TechTreeUnitCount(gv_pLAYER_ALIEN, "CRPGNydusWorm", c_techCountCompleteOnly) > 0)) {
+        lv_waveWeight = gf_AttackWaveFormula(PlayerGroupCount(gv_survivors));
+        SoundPlayForPlayer(SoundLink("Event_Lab02_AlarmIncomingAttack", 0), c_maxPlayers, PlayerGroupAll(), 100.0, 0.0);
+        Wait(1.0, c_timeGame);
+        gf_SendBattlecruiserTransmission((gf_GetRandomInitialComment() + StringExternal("Param/Value/DCAA8B93")), PlayerGroupAll(), 5.0, false);
+        Wait(29.0, c_timeGame);
+        gf_SpawnAlienLoop(lv_waveWeight, lv_alienWeight, TruncI(lv_minimumWeight));
+    }
+
     return true;
 }
 
@@ -1237,8 +1448,11 @@ bool gt_AlienInitialTrickle_Func (bool testConds, bool runActions) {
     }
 
     while ((lv_trickles > 0)) {
-        lv_trickleWeight = (2 * TruncI(((PlayerGroupCount(gv_survivors) * 0.5) + 1.0)));
-        gf_SpawnAlienLoop(lv_trickleWeight, 2, 1);
+        if ((TechTreeUnitCount(gv_pLAYER_ALIEN, "CRPGNydusWorm", c_techCountCompleteOnly) > 0)) {
+            lv_trickleWeight = (2 * TruncI(((PlayerGroupCount(gv_survivors) * 0.5) + 1.0)));
+            gf_SpawnAlienLoop(lv_trickleWeight, 2, 1);
+        }
+
         lv_trickles -= 1;
         Wait(5.0, c_timeGame);
     }
@@ -1268,10 +1482,13 @@ bool gt_AlienTrickle_Func (bool testConds, bool runActions) {
     }
 
     while ((gv_attackWave >= 0)) {
-        lv_alienWeight = (2 + (gv_attackWave * 2));
-        lv_trickleWeight = (lv_alienWeight * TruncI(((PlayerGroupCount(gv_survivors) * 0.5) + 1.0)));
         Wait((30 - MinI(gv_attackWave, 15)), c_timeGame);
-        gf_SpawnAlienLoop(lv_trickleWeight, lv_alienWeight, 1);
+        if ((TechTreeUnitCount(gv_pLAYER_ALIEN, "CRPGNydusWorm", c_techCountCompleteOnly) > 0)) {
+            lv_alienWeight = (2 + (gv_attackWave * 2));
+            lv_trickleWeight = (lv_alienWeight * TruncI(((PlayerGroupCount(gv_survivors) * 0.5) + 1.0)));
+            gf_SpawnAlienLoop(lv_trickleWeight, lv_alienWeight, 1);
+        }
+
     }
     return true;
 }
@@ -1283,9 +1500,9 @@ void gt_AlienTrickle_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Map Initialization
+// Trigger: Setup Initialization
 //--------------------------------------------------------------------------------------------------
-bool gt_MapInitialization_Func (bool testConds, bool runActions) {
+bool gt_SetupInitialization_Func (bool testConds, bool runActions) {
     // Variable Declarations
     string lv_unitType;
     int lv_pickedPlayer;
@@ -1364,9 +1581,9 @@ bool gt_MapInitialization_Func (bool testConds, bool runActions) {
 }
 
 //--------------------------------------------------------------------------------------------------
-void gt_MapInitialization_Init () {
-    gt_MapInitialization = TriggerCreate("gt_MapInitialization_Func");
-    TriggerAddEventMapInit(gt_MapInitialization);
+void gt_SetupInitialization_Init () {
+    gt_SetupInitialization = TriggerCreate("gt_SetupInitialization_Func");
+    TriggerAddEventMapInit(gt_SetupInitialization);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1511,6 +1728,9 @@ void gt_HeroSelection_Init () {
 // Trigger: Free Heroes
 //--------------------------------------------------------------------------------------------------
 bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_pickedInteger;
+
     // Automatic Variable Declarations
     unitgroup auto2E13DCC1_g;
     int auto2E13DCC1_u;
@@ -1518,6 +1738,8 @@ bool gt_FreeHeroes_Func (bool testConds, bool runActions) {
     unitgroup auto27B12266_g;
     int auto27B12266_u;
     unit auto27B12266_var;
+
+    // Variable Initialization
 
     // Conditions
     if (testConds) {
@@ -2537,11 +2759,12 @@ void InitTriggers () {
     gt_VariableInitializaiton_Init();
     gt_RevealerInitialization_Init();
     gt_TestAllHeroes_Init();
+    gt_AlienInitialization_Init();
     gt_AttackWaves_Init();
     gt_AttackWaveInitial_Init();
     gt_AlienInitialTrickle_Init();
     gt_AlienTrickle_Init();
-    gt_MapInitialization_Init();
+    gt_SetupInitialization_Init();
     gt_CreateHeroSelection_Init();
     gt_HeroSelection_Init();
     gt_FreeHeroes_Init();

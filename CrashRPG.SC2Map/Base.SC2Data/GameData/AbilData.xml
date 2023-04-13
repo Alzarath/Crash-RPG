@@ -1873,7 +1873,7 @@
         <Cost>
             <Resource index="Minerals" value="200"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="ArmoryUpgradeArmor" Requirements="ArmoryUpgradeDamage@CanResearch">
+        <CmdButtonArray index="Execute" DefaultButtonFace="ArmoryUpgradeArmor" Requirements="ArmoryUpgradeArmor@CanResearch">
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>

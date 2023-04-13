@@ -35,10 +35,10 @@
         <InfoIcon value="Assets\Textures\btn-ability-mengsk-viking-speed.dds"/>
         <BehaviorCategories index="Fast" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <MaxStackCount value="20"/>
-        <Duration value="4"/>
-        <Modification AccelerationBonus="50">
-            <AdditiveMoveSpeedFactor value="0.2"/>
+        <MaxStackCount value="40"/>
+        <Duration value="8"/>
+        <Modification AccelerationBonus="25">
+            <AdditiveMoveSpeedFactor value="0.1"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorVeterancy id="CRPGMech@Veterancy" parent="CRPGHeroVeterancy">
@@ -674,11 +674,11 @@
         <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
         <BehaviorCategories index="Slow" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <MaxStackCount value="20"/>
-        <Duration value="4"/>
+        <MaxStackCount value="40"/>
+        <Duration value="8"/>
         <Modification>
-            <AdditiveMoveSpeedFactor value="-0.05"/>
-            <AdditiveAttackSpeedFactor value="-0.05"/>
+            <AdditiveMoveSpeedFactor value="-0.025"/>
+            <AdditiveAttackSpeedFactor value="-0.025"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorVeterancy id="SwarmerHeroVeterancyLevel2">

@@ -427,6 +427,12 @@
         <DataRecord Entry="Effect,MarauderPunisherGrenades@Damage"/>
         <DataRecord Entry="Weapon,MarauderPunisherGrenades"/>
     </CDataCollectionAbil>
+    <CDataCollectionAbil id="MarineC14GaussRifle">
+        <EditorCategories value="DataGroup:Weapon,Race:Terran"/>
+        <DataRecord Entry="Actor,MarineC14GaussRifle@Attack"/>
+        <DataRecord Entry="Effect,MarineC14GaussRifle@Damage"/>
+        <DataRecord Entry="Weapon,MarineC14GaussRifle"/>
+    </CDataCollectionAbil>
     <CDataCollectionAbil id="MechBarrage">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
         <DataRecord Entry="Abil,MechBarrage"/>

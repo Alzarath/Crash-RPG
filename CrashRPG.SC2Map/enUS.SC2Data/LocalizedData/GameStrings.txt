@@ -685,7 +685,7 @@ Button/Tooltip/CRPGArmory=Contains damage and armor upgrades.
 Button/Tooltip/CRPGCivilian=Nobody. Only used to select a hero. What a pitiful life.
 Button/Tooltip/CRPGCrashedBattlecruiser=The remains of a downed Battlecruiser. Medical facilities miraculously continue to function.
 Button/Tooltip/CRPGCrashedBattlecruiserPlayer=The remains of a downed Battlecruiser. Medical facilities miraculously continue to function.
-Button/Tooltip/CRPGDamageAttribute=Increases units' attack and spell damage by <c val="#ColorAttackInfo"><d ref="100 * Behavior,CRPGDamageAttribute,Modification.DamageDealtFraction[0]" Precision="2"/>%</c>.
+Button/Tooltip/CRPGDamageAttribute=Increases units' attack and spell damage by <c val="#ColorAttackInfo"><d ref="100 * Accumulator,HeroDamagePoints,Scale" Precision="2"/>%</c>.
 Button/Tooltip/CRPGDefensiveFortification=Defensive structure. <n/>Infantry fights from inside. <n/><n/><c val="#ColorAttackInfo">Bonus: +1 range to units inside.</c>
 Button/Tooltip/CRPGDefensiveTurret=Defensive structure.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c><n/><c val="FFE303">Detector</c>
 Button/Tooltip/CRPGDefensiveWall=Defensive structure. Can be lowered to allow units to walk over it.
@@ -1001,6 +1001,7 @@ DataCollection/Name/InfestedInfestedMarine=Infested Marine
 DataCollection/Name/InfestedMarineInfestedGaussRifle=Infested Gauss Rifle
 DataCollection/Name/InfestedMendingSaliva=Mending Saliva
 DataCollection/Name/MarauderPunisherGrenades=Punisher Grenades
+DataCollection/Name/MarineC14GaussRifle=C-14 Gauss Rifle
 DataCollection/Name/MechBarrage=Barrage
 DataCollection/Name/MechCannonBoth=Cannon
 DataCollection/Name/MechCannonGround=Cannon
@@ -1811,7 +1812,7 @@ Effect/Name/InfestedMendingSaliva@Switch=Switch
 Effect/Name/InfestedMendingSaliva@SwitchExperience=Switch
 Effect/Name/MarauderPunisherGrenades@Damage=Damage
 Effect/Name/MarauderPunisherGrenades@LM=Launch Missile
-Effect/Name/MarineC14GaussRifleDamage=C-14 Gauss Rifle
+Effect/Name/MarineC14GaussRifle@Damage=Damage
 Effect/Name/MechBarrage@AB=Apply Behavior
 Effect/Name/MechBarrage@CP=Create Persistent
 Effect/Name/MechBarrage@Damage=Damage
@@ -2482,29 +2483,29 @@ RequirementNode/Tooltip/GTE774336177OrCountBehaviorSwarmerHeroVeterancyCompleteO
 RequirementNode/Tooltip/LT1131978026CountUnitSwarmerSwarmerSpawnQueuedOrBetterAtUnit8=Less than 8 incubating Swarmers
 RequirementNode/Tooltip/LT1505829582CountAbilCRPGUpgradeArmorQueuedOrBetter255=Armor Upgrades Available
 RequirementNode/Tooltip/LT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterCountUnitSwarmerSwarmerEggQueuedOrBetterCountUnitSwarmerSwarmerSpawnQueuedOrBetterMulCountUnitCRPGSwarmerLevel2QueuedOrBetter2MulCountUnitCRPGSwa322226699=Not Max Swarmers
+RequirementNode/Tooltip/LT187835481CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter100=Not Max Armor Upgrade
 RequirementNode/Tooltip/LT2100730577CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnit5=Not Max Level
 RequirementNode/Tooltip/LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8=Carrier must have fewer than 8 Interceptors
 RequirementNode/Tooltip/LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1=Healing Beam Target Limit
+RequirementNode/Tooltip/LT3328700988CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100=Not Max Energy Upgrade
 RequirementNode/Tooltip/LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2=<2 Point Defense Drones
 RequirementNode/Tooltip/LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8=Less than 8 Swarmers
 RequirementNode/Tooltip/LT3618176718CountBehaviorCRPGUnderlingLevel@Level1CompleteOnlyAtUnit5=Not maximum level
 RequirementNode/Tooltip/LT373446351SumCountAbilCrashedBattlecruiserNomadRepairQueuedOrBetterCountUnitCRPGNomadQueuedOrBetter5=Fewer than 5 Nomads
 RequirementNode/Tooltip/LT387787049CountBehaviorInfestedInfestationSpore@BuffCompleteOnlySum1CountUpgradeCRPGAbilityUpgradeTernary@UpgradeCompleteOnly=Not Max Infested Victims
-RequirementNode/Tooltip/LT596643247CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter100=Not Max Damage Upgrade
 RequirementNode/Tooltip/LT596643247CountUpgradeArmoryUpgradeDamage@UpgradeQueuedOrBetter100=Not Max Damage Upgrade
-RequirementNode/Tooltip/LT596643247CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100=Not Max Damage Upgrade
 RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=Not Infested
 RequirementNode/Tooltip/Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit=Already Linked
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
 RequirementNode/Tooltip/Or2694335422CountAbilHunterScarabMineCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit=Any Active Ability
 RequirementNode/Tooltip/Or774336177GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2=Level 2
 SimpleDisplay/Follow=<IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/> <s val="@@@SimpleCommandRow">to Move</s>
-Terrain/Name/CharMoebiusLabTransition=Char-Moebius Lab Transition
+Terrain/Name/CrashRPG2TerrainSheet1=Crash RPG 2 Terrain Sheet 1
+Terrain/Name/CrashRPG2TerrainSheet2=Crash RPG 2 Terrain Sheet 2
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/AlienUnits=Alien Units
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGHeroes=Crash RPG Heroes
 UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGUnits=Crash RPG Units
 UI/TeamColor10=White
-Unit/Category/AlienUnits=Alien Units
 Unit/Category/CrashRPGHeroes=Crash RPG Heroes
 Unit/Category/CrashRPGUnits=Crash RPG Units
 Unit/InfoText/AlienHarvestMinerals=Use any ground unit to collect 100 minerals.
@@ -2569,6 +2570,7 @@ Unit/Name/CRPGMedicLevel2=Medic
 Unit/Name/CRPGMedicLevel22=Medic Copy
 Unit/Name/CRPGMedicLevel3=Field Response Theta Copy
 Unit/Name/CRPGNomad=Nomad
+Unit/Name/CRPGNydusWorm=Nydus Worm
 Unit/Name/CRPGOutpost=Outpost
 Unit/Name/CRPGShip=Ship
 Unit/Name/CRPGShipLevel3=Ship

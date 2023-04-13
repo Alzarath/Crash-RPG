@@ -102,10 +102,10 @@
         <NodeArray index="Use" Link="LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8"/>
     </CRequirement>
     <CRequirement id="ArmoryUpgradeEnergy@CanResearch">
-        <NodeArray index="Use" Link="LT596643247CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100"/>
+        <NodeArray index="Use" Link="LT3328700988CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100"/>
     </CRequirement>
     <CRequirement id="ArmoryUpgradeArmor@CanResearch">
-        <NodeArray index="Use" Link="LT596643247CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter100"/>
+        <NodeArray index="Use" Link="LT187835481CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter100"/>
     </CRequirement>
     <CRequirement id="BossLock">
         <NodeArray index="Use" Link="Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit"/>
