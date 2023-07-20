@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This Data Space was built on top of the Void Campaign dependency -->
+<!-- Theoretically it should work with the Wings Campaign dependency (untested) -->
+<Catalog>
+    <CEffectIssueOrder id="BWSpiderMineBurrow@IO">
+        <EditorCategories value="Race:Terran"/>
+        <WhichUnit Value="Caster"/>
+        <Abil value="BWSpiderMineBurrow@Down"/>
+        <CmdFlags index="Preempt" value="1"/>
+    </CEffectIssueOrder>
+    <CEffectDamage id="BWSpiderMineAttack@Damage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Splash"/>
+        <KindSplash value="Splash"/>
+        <Amount value="70"/>
+        <Death value="Blast"/>
+        <AreaArray Radius="0.4687" Fraction="1"/>
+        <AreaArray Radius="0.7812" Fraction="0.5"/>
+        <AreaArray Radius="1.25" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Self,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="1"/>
+    </CEffectDamage>
+    <CEffectSet id="BWSpiderMineAttack@Set">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="BWSpiderMineAttack@Damage"/>
+        <EffectArray value="Suicide"/>
+    </CEffectSet>
+    <CAbilEffectTarget id="BWSpiderMineAttack">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <Effect index="0" value="BWSpiderMineAttack@Set"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="Chase" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <TargetFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <AutoCastFilters value="-;Player,Ally,Neutral,Benign"/>
+        <AutoCastRange value="3"/>
+        <CastIntroTime value="0.167"/>
+        <AcquirePriority value="4"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Attack"/>
+        <FollowRange value="500"/>
+    </CAbilEffectTarget>
+    <CAbilMorph id="BWSpiderMineBurrow@Up">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UnburrowTurret"/>
+        <ActorKey value="BurrowUp"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <Cost>
+            <Charge Link="Abil/SpiderMineUnburrow"/>
+            <Cooldown Link="Abil/SpiderMineUnburrow"/>
+        </Cost>
+        <InfoArray Unit="BWSpiderMine">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Duration" value="0.6"/>
+                <EffectArray index="Start" value="SpiderMineInvulnerable"/>
+            </SectionArray>
+        </InfoArray>
+        <Range value="2"/>
+        <AutoCastFilters value="Ground;Player,Ally,Neutral,Structure,Worker,Missile,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <AutoCastRange value="2"/>
+        <AutoCastCountMin value="1"/>
+    </CAbilMorph>
+    <CAbilMorph id="BWSpiderMineBurrow@Down">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="BurrowTurret"/>
+        <ActorKey value="BurrowDown"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastIdleOnly" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <Flags index="SuppressMovement" value="1"/>
+        <InfoArray Unit="BWSpiderMine@Burrowed">
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="3.5332"/>
+                <DurationArray index="Duration" value="1.067"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="3.5332"/>
+                <DurationArray index="Duration" value="1"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="4.5332"/>
+                <EffectArray index="Start" value="SpiderMineVulnerable"/>
+            </SectionArray>
+        </InfoArray>
+        <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Worker,Missile,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <AutoCastRange value="2"/>
+    </CAbilMorph>
+    <CActorAction id="BWSpiderMineAttack@Attack" parent="GenericAttack" effectAttack="BWSpiderMineAttack@Damage">
+        <ImpactMap index="None" Model="VultureSpiderMineAttackImpact" Sound="VultureSpiderMineAttackImpact"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorUnit id="BWSpiderMine" parent="GenericUnitStandard" unitName="BWSpiderMine">
+        <Aliases value="_UnitSmall"/>
+        <On Terms="UnitBirth.BWSpiderMine@Burrowed" Send="Create"/>
+        <On Terms="UnitBirth.BWSpiderMine@Burrowed" Send="AnimPlay Burrow Burrow PlayForever,NonLooping"/>
+        <On Terms="AbilMorph.*.Start; MorphTo BWSpiderMine@Burrowed" Send="AnimPlay Burrow Burrow PlayForever,NonLooping"/>
+        <On Terms="AbilMorph.*.Start; MorphTo BWSpiderMine@Burrowed" Send="AnimClear Unburrow"/>
+        <On Terms="AbilMorph.*.Start; MorphTo BWSpiderMine" Send="AnimClear Burrow"/>
+        <On Terms="AbilMorph.*.Start; MorphTo BWSpiderMine" Send="AnimPlay Unburrow Unburrow"/>
+        <On Terms="AbilMorph.BWSpiderMineBurrow@Down.Start" Send="Create VultureSpiderMineBurrowSound"/>
+        <On Terms="Abil.BWSpiderMineAttack.SourceApproachStart" Send="Create VultureSpiderMineSeekSound"/>
+        <On Terms="UnitDeathCustomize; ValidateUnit IsHallucination" Send="DeathCustomize Hallucination"/>
+        <Model value="SpiderMine"/>
+        <BuildModel value="SpiderMine"/>
+        <DeathArray index="Normal" ModelLink="SpiderMineExplosion" SoundLink="Terran_ExplosionSmall"/>
+        <DeathCustoms ModelLink="HallucinationDeath" SoundLink="Sentry_HallucinationDeathSmall" Name="Hallucination"/>
+        <PlacementModel value="SpiderMinePlacement"/>
+        <PortraitModel value="AdjutantPortrait"/>
+        <BarOffset value="10"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SpiderMine.dds"/>
+        </GroupIcon>
+        <GroupSoundArray index="Birth" value="SpiderMineBirth"/>
+        <GroupSoundArray index="Ready" value="SpiderMineReady"/>
+        <GroupSoundArray index="Help" value="SpiderMineHelp"/>
+        <GroupSoundArray index="What" value="SpiderMineWhat"/>
+        <GroupSoundArray index="Yes" value="SpiderMineYes"/>
+        <GroupSoundArray index="Attack" value="SpiderMineYes"/>
+        <GroupSoundArray index="Pissed" value="SpiderMinePissed"/>
+        <HeroIcon value="Assets\Textures\BTN-Unit-Terran-SpiderMine.dds"/>
+        <HighlightTooltip value="Unit/Name/SpiderMine"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <NameOffset value="10"/>
+        <SoundArray index="Birth" value="SpiderMineBirth"/>
+        <SoundArray index="Ready" value="SpiderMineReady"/>
+        <SoundArray index="Help" value="SpiderMineHelp"/>
+        <SoundArray index="What" value="SpiderMineWhat"/>
+        <SoundArray index="Yes" value="SpiderMineYes"/>
+        <SoundArray index="Attack" value="SpiderMineYes"/>
+        <SoundArray index="Pissed" value="SpiderMinePissed"/>
+        <SoundArray index="Movement" value="SpiderMineMovement"/>
+        <SoundArray index="Turning" value="SpiderMineTurning"/>
+        <SoundArray index="Board" value="SpiderMineBoard"/>
+        <UnitIcon value="Assets\Textures\BTN-Unit-Terran-SpiderMine.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SpiderMine.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorSound id="BWSpiderMine@SoundBirth" parent="SoundOneShot">
+        <On Terms="AbilMorph.BWSpiderMineBurrow@Up.Start" Send="Create"/>
+        <Sound value="Vulture_SpiderMinePlace"/>
+    </CActorSound>
+    <CDataCollectionUnit id="BWSpiderMine">
+        <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,BWSpiderMine"/>
+        <DataRecord Entry="Actor,BWSpiderMine@SoundBirth"/>
+        <DataRecord Entry="Unit,BWSpiderMine"/>
+        <DataRecord Entry="Unit,BWSpiderMine@Burrowed"/>
+    </CDataCollectionUnit>
+    <CDataCollectionAbil id="BWSpiderMineBurrow">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,BWSpiderMineBurrow@Up"/>
+        <DataRecord Entry="Abil,BWSpiderMineBurrow@Down"/>
+        <DataRecord Entry="Behavior,BWSpiderMineBurrow@BurrowFirst"/>
+        <DataRecord Entry="Effect,BWSpiderMineBurrow@IO"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="BWSpiderMineAttack">
+        <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,BWSpiderMineAttack"/>
+        <DataRecord Entry="Actor,BWSpiderMineAttack@Attack"/>
+        <DataRecord Entry="Effect,BWSpiderMineAttack@Damage"/>
+        <DataRecord Entry="Effect,BWSpiderMineAttack@Set"/>
+    </CDataCollectionAbil>
+    <CUnit id="BWSpiderMine">
+        <Name value="Unit/Name/SpiderMine"/>
+        <Description value="Button/Tooltip/SpiderMine"/>
+        <DeathRevealRadius value="3"/>
+        <Race value="Terr"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
+        <Speed value="9"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="2292.8906"/>
+        <Sight value="4"/>
+        <CostResource index="Minerals" value="25"/>
+        <RepairTime value="8"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="BWSpiderMineAttack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="BWSpiderMineBurrow@Down"/>
+        <BehaviorArray Link="BWSpiderMineBurrow@BurrowFirst"/>
+        <CardLayouts>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="BWSpiderMineAttack,255" Row="0" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.125"/>
+        <SeparationRadius value="0"/>
+        <SubgroupPriority value="15"/>
+        <MinimapRadius value="0.25"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+        <GlossaryCategory value="Unit/Category/TerranUnits"/>
+        <GlossaryPriority value="160"/>
+        <HotkeyCategory value="Unit/Category/TerranStory"/>
+        <KillDisplay value="Never"/>
+        <RankDisplay value="Never"/>
+    </CUnit>
+    <CUnit id="BWSpiderMine@Burrowed">
+        <Name value="Unit/Name/SpiderMine"/>
+        <Description value="Button/Tooltip/SpiderMine"/>
+        <DeathRevealRadius value="3"/>
+        <Race value="Terr"/>
+        <FlagArray index="Uncommandable" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="Cloaked" value="1"/>
+        <FlagArray index="Buried" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="2292.8906"/>
+        <Sight value="4"/>
+        <CostResource index="Minerals" value="25"/>
+        <RepairTime value="8"/>
+        <AbilArray Link="BWSpiderMineBurrow@Up"/>
+        <BehaviorArray Link="BWSpiderMineBurrow@BurrowFirst"/>
+        <Radius value="0.125"/>
+        <SeparationRadius value="0"/>
+        <SubgroupPriority value="15"/>
+        <MinimapRadius value="0.25"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+        <LeaderAlias value="BWSpiderMine"/>
+        <HotkeyAlias value="BWSpiderMine"/>
+        <SelectAlias value="BWSpiderMine"/>
+        <EquipmentArray Weapon="VultureSpiderMines"/>
+    </CUnit>
+    <CBehaviorBuff id="BWSpiderMineBurrow@BurrowFirst">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <InitialEffect value="BWSpiderMineBurrow@IO"/>
+    </CBehaviorBuff>
+</Catalog>

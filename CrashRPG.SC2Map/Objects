@@ -502,10 +502,10 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="601118627" Position="100,39.5,9.9968" Rotation="5.5776" Scale="1.0666,1.0666,1.0666" Type="BubbleAcid">
+    <ObjectDoodad Id="1021007656" Variation="5" Position="231.5,148,12.0166" Rotation="2.7587" Scale="0.9602,0.9602,0.9602" Type="AiurFoliage_Ex2">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1021007656" Variation="5" Position="231.5,148,12.0166" Rotation="2.7587" Scale="0.9602,0.9602,0.9602" Type="AiurFoliage_Ex2">
+    <ObjectDoodad Id="601118627" Position="100,39.5,9.9968" Rotation="5.5776" Scale="1.0666,1.0666,1.0666" Type="BubbleAcid">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="59614503" Variation="3" Position="161.4494,150.887,11.9956" Rotation="0.1313" Scale="0.8488,0.8488,0.8488" Type="AgriaShrub">
@@ -4655,7 +4655,7 @@
     <ObjectDoodad Id="1154864338" Variation="1" Position="32,150,14.001" Rotation="1.5786" Scale="1.1,1.1,1.1" Type="SnowTrees">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1967629057" Position="27,199,14.9255" Rotation="2.356" Scale="1,1,1" Type="Korhal_GuardTower">
+    <ObjectDoodad Id="1967629057" Position="26.5,199,14.9746" Rotation="2.356" Scale="1,1,1" Type="Korhal_GuardTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
@@ -4709,10 +4709,6 @@
     <ObjectDoodad Id="926779235" Variation="3" Position="166.9245,251.8757,15.9956" Scale="1,1,1" Type="Purifier_Trees_Regular">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1027353223" Variation="1" Position="19.5,34,7.3093" Scale="1.1518,1.1518,1.1518" Type="IceBridgeVertical" TintColor="82,39,43">
-        <Flag Index="HeightOffset" Value="1"/>
-        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1309119152" Variation="5" Position="174.4294,175.5202,13.995" Rotation="4.5632" Scale="1.027,1.027,1.027" Type="AgriaShrub">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -4859,6 +4855,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1575439877" Variation="2" Position="92.1647,123.2866,15.999" Rotation="1.4523" Scale="1.1091,1.1091,1.1091" Type="Purifier_Rock_Blend">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1788482372" Variation="22" Position="201,85.5,11.9941" Rotation="5.4975" Scale="1,1,1" Type="PurificationDesert_GroundTrim_Destroyed">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -5435,10 +5432,6 @@
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="928904875" Variation="2" Position="224,218,13.995" Rotation="0.8217" Scale="1,1,1" Type="Blast_Craters">
-        <Flag Index="HeightAbsolute" Value="1"/>
-    </ObjectDoodad>
-    <ObjectDoodad Id="1043303480" Position="55.2897,199.413,15.8442" Scale="0.8842,0.8842,0.8842" Name="43, 202" Type="IceBridgeVertical">
-        <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="804920126" Position="19.5,253.5,15.995" Rotation="6.2421" Scale="1.1601,1.1601,1.1601" Type="SnowDriftsLarge">
@@ -6089,6 +6082,9 @@
     <ObjectDoodad Id="1174918933" Variation="4" Position="145.295,235.4067,11.9873" Scale="1,1,1" Type="Purifier_Trees_Regular">
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="2102950615" Position="71.5,194.5,11.9931" Rotation="1.6564" Scale="1.0795,1.0795,1.0795" Type="BloodSplats">
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="841101874" Variation="4" Position="240.5,218,11.995" Rotation="1.5705" Scale="1,1,1" Type="KorhalStoreFront">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -8149,9 +8145,10 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="480557864" Variation="1" Position="32,11,7.536" Rotation="3.9267" Scale="1.0065,1.0065,1.0065" Type="IceBridge" TintColor="82,39,43">
+    <ObjectDoodad Id="480557864" Variation="1" Position="32,11,7.5312" Rotation="3.9267" Scale="1.0065,1.0065,1.0065" Type="IceBridge" TintColor="169,55,55">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="633747097" Variation="8" Position="147.5,35.5,11.9931" Rotation="3.22" Scale="0.9667,0.9667,0.9667" Type="Elsecaro_Foliage">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -8852,6 +8849,11 @@
     <ObjectDoodad Id="631827268" Variation="10" Position="12,222,12.0075" Rotation="4.8598" Scale="0.9963,0.9963,0.9963" Type="IceRockGiant">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
+    <ObjectDoodad Id="1459124797" Variation="1" Position="20,34,7.5314" Scale="1,1.25,1" Type="IceBridge" TintColor="169,55,55">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
+    </ObjectDoodad>
     <ObjectDoodad Id="526989730" Variation="17" Position="73.5,17,11.9965" Rotation="2.0083" Scale="1.0214,1.0214,1.0214" Type="ZerusPlant">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
@@ -9070,6 +9072,11 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1012073452" Variation="2" Position="142.5,185,16.0104" Rotation="6.05" Scale="1.1816,1.1816,1.1816" Type="SnowTrees">
         <Flag Index="HeightAbsolute" Value="1"/>
+    </ObjectDoodad>
+    <ObjectDoodad Id="2022320704" Variation="4" Position="195.492,119.8105,8.0275" Rotation="1.1997" Scale="0.7998,0.7998,0.7998" Type="RockGiant">
+        <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="231563663" Variation="2" Position="167,232,13.995" Rotation="0.7851" Scale="0.9667,0.9667,0.9667" Type="AgriaCrops">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -10152,7 +10159,7 @@
     <ObjectDoodad Id="1620566311" Variation="3" Position="139.5,249.5,16.0026" Scale="1,1,1" Type="Purifier_Trees_Regular">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="761621725" Variation="6" Position="9,215.5,19.906" Rotation="3.9267" Scale="1.25,1.25,1.25" Type="MoebiusLabZergChamberLarge">
+    <ObjectDoodad Id="761621725" Variation="6" Position="9,215,19.906" Rotation="3.9267" Scale="1.25,1.25,1.25" Type="MoebiusLabZergChamberLarge">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -11456,6 +11463,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="1036951860" Variation="5" Position="58.0803,127.628,17.9995" Rotation="0.4714" Scale="1.1091,1.1091,1.1091" Type="Purifier_Rock_Blend">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1697320948" Variation="1" Position="228.5,152.5,12.1694" Rotation="1.3615" Scale="0.9582,0.9582,0.9582" Type="AiurFoliage_Ex2">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -12790,9 +12798,10 @@
     <ObjectDoodad Id="713874639" Variation="9" Position="179.5,134,13.9956" Rotation="1.814" Scale="0.8793,0.8793,0.8793" Type="BelShirFlowers">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1960955492" Variation="2" Position="196,115,8.8002" Rotation="4.2941" Scale="0.25,0.25,0.25" Type="RockTower">
+    <ObjectDoodad Id="1960955492" Variation="2" Position="195.6555,114.4948,8.824" Rotation="2.0852" Scale="0.25,0.25,0.25" Type="RockTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1953380012" Variation="20" Position="107,90.5,11.993" Rotation="4.0131" Scale="0.9016,0.9016,0.9016" Type="Elsecaro_Foliage">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -13151,6 +13160,7 @@
     </ObjectDoodad>
     <ObjectDoodad Id="604008571" Variation="3" Position="53.5788,125.5693,17.999" Rotation="3.9624" Scale="1.169,1.169,1.169" Type="Purifier_Rock_Blend">
         <Flag Index="HeightOffset" Value="1"/>
+        <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="1594470287" Variation="1" Position="103.5,62.5,11.9956" Scale="1,1,1" Type="AiurCurtain">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -16368,7 +16378,7 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="634089355" Variation="2" Position="195,126,9.5866" Rotation="0.2185" Scale="0.25,0.25,0.25" Type="RockTower">
+    <ObjectDoodad Id="634089355" Variation="2" Position="195.5434,125.4375,9.5717" Rotation="2.1457" Scale="0.25,0.25,0.25" Type="RockTower">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
@@ -16761,8 +16771,9 @@
     <ObjectDoodad Id="2101445403" Variation="13" Position="87.5,34,11.9987" Rotation="2.2441" Scale="0.9931,0.9931,0.9931" Type="Elsecaro_Foliage">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="165140371" Variation="4" Position="191,118.5,9.9978" Rotation="4.812" Scale="1,1,1" Type="CompoundSewers_Water_Effects">
+    <ObjectDoodad Id="165140371" Variation="4" Position="191.0141,118.5153,9.9978" Rotation="4.812" Scale="1,1,1" Type="CompoundSewers_Water_Effects">
         <Flag Index="HeightAbsolute" Value="1"/>
+        <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="12817118" Variation="1" Position="244.5,250.5,16.2695" Scale="1,1,1" Type="Korhal_Skyscrapers_Cliff_Destroyed">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -16834,10 +16845,10 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1040804564" Variation="1" Position="37,32,7.7761" Rotation="3.9267" Scale="1.0065,1.0065,1.0065" Type="IceBridge" TintColor="82,39,43">
+    <ObjectDoodad Id="1040804564" Variation="1" Position="37,32,7.7712" Rotation="3.9267" Scale="1.0065,1.0065,1.0065" Type="IceBridge" TintColor="169,55,55">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2025533707" Variation="1" Position="187.5,40.5,11.997" Rotation="4.3264" Scale="1.0197,1.0197,1.0197" Type="Elsecaro_Bush2x2">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -19838,7 +19849,7 @@
     <ObjectDoodad Id="1837255949" Variation="14" Position="82.5,57,11.9973" Rotation="6.0864" Scale="0.9736,0.9736,0.9736" Type="Elsecaro_Foliage">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1463681272" Variation="2" Position="191.5,114.5,9.9978" Scale="1,1,1" Type="CompoundSewers_Water_Effects">
+    <ObjectDoodad Id="1463681272" Variation="2" Position="191.5,114,9.9978" Scale="1,1,1" Type="CompoundSewers_Water_Effects">
         <Flag Index="HeightAbsolute" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="427812338" Variation="6" Position="183.5,251.5,15.9965" Rotation="3.8981" Scale="1.1704,1.1704,1.1704" Type="AgriaTree">
@@ -20683,10 +20694,10 @@
         <Flag Index="HeightAbsolute" Value="1"/>
         <Flag Index="ForcePlacement" Value="1"/>
     </ObjectDoodad>
-    <ObjectDoodad Id="1841783873" Variation="1" Position="12.5,48,7.7763" Rotation="3.9267" Scale="1.0065,1.0065,1.0065" Type="IceBridge" TeamColor="1" TintColor="82,39,43">
+    <ObjectDoodad Id="1841783873" Variation="1" Position="13,48,7.7712" Rotation="3.9267" Scale="1.0065,1.0065,1.0065" Type="IceBridge" TeamColor="1" TintColor="169,55,55">
         <Flag Index="HeightOffset" Value="1"/>
         <Flag Index="HeightAbsolute" Value="1"/>
-        <Flag Index="ForcePlacement" Value="1"/>
+        <Flag Index="NoDoodadFootprint" Value="1"/>
     </ObjectDoodad>
     <ObjectDoodad Id="2132361000" Position="185.9677,21.6264,7.9975" Scale="1,1,1" Type="Elsecaro_SeaWeeds_Group">
         <Flag Index="HeightAbsolute" Value="1"/>
@@ -20907,123 +20918,356 @@
     <ObjectPoint Id="254927691" Position="37,87,0" Scale="1,1,1" Type="Normal" Name="Barrens-006" Color="0,0,0,0"/>
     <ObjectPoint Id="54601170" Position="70,152,0" Scale="1,1,1" Type="Normal" Name="Snow-007" Color="0,0,0,0"/>
     <ObjectPoint Id="1131268547" Position="96,50,0" Scale="1,1,1" Type="Normal" Name="Forest-014" Color="0,0,0,0"/>
-    <ObjectUnit Id="167945994" Position="120,145,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="1348747273" Position="82,177,0" Rotation="5.4487" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1758181441" Position="111.0043,164.0964,0" Rotation="5.3146" Scale="1,1,1" UnitType="RoachBurrowed" Player="14"/>
+    <ObjectUnit Id="1103305413" Position="241,76,0" Rotation="2.019" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="740697964" Position="138,134,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
     <ObjectUnit Id="1708121885" Position="119.5,131.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
     <ObjectUnit Id="1942977943" Position="136,111,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
     <ObjectUnit Id="2012577011" Position="115,124,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="39224386" Position="128,140,0" Scale="1,1,1" UnitType="CRPGArmory" Player="13"/>
     <ObjectUnit Id="479098073" Position="136,120,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
     <ObjectUnit Id="834377522" Position="120,120,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
     <ObjectUnit Id="740015191" Position="244.5,157,0" Rotation="4.5646" Scale="1,1,1" UnitType="Ultralisk"/>
-    <ObjectUnit Id="1865665174" Position="134,143,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="303995451" Position="118,122,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="1561003357" Position="150,103,0" Rotation="5.8764" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="489425320" Position="99.273,148.222,0" Rotation="5.5895" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
+    <ObjectUnit Id="9577959" Position="181,166,0" Rotation="3.6123" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="1519831163" Position="104,223.5,0" Rotation="3.8303" Scale="1,1,1" UnitType="Ultralisk"/>
     <ObjectUnit Id="1563989488" Position="16,209,0" Rotation="0.9396" Scale="1,1,1" UnitType="Ultralisk"/>
+    <ObjectUnit Id="325155815" Position="117.64,102.0341,0" Rotation="4.7067" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
     <ObjectUnit Id="373687488" Position="113,117,0" Rotation="2.6713" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
+    <ObjectUnit Id="1953768840" Position="59,69,0" Rotation="0.1491" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
     <ObjectUnit Id="114278128" Position="136.5,131.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
-    <ObjectUnit Id="704304300" Position="117,143,0" Rotation="0.0456" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
-    <ObjectUnit Id="926199907" Position="141,124,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="1381352897" Position="138,122,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="657428012" Position="73,155,0" Rotation="2.8132" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="133782222" Position="152,53,0" Rotation="1.9565" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1486867273" Position="65.5,175.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="1300970438" Position="106.0864,163.3193,0" Rotation="5.3754" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
+    <ObjectUnit Id="1268284098" Position="90,186,0" Rotation="4.705" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="693915067" Position="122,143,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="1170396622" Position="143,122,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="640316847" Position="156,156,0" Rotation="5.4885" Scale="1,1,1" UnitType="BattlecruiserHelios" Player="13"/>
-    <ObjectUnit Id="1570677994" Position="227.5,90,0" Rotation="5.0153" Scale="1,1,1" UnitType="Ultralisk"/>
     <ObjectUnit Id="1454709566" Position="124,115,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
     <ObjectUnit Id="1104379206" Position="121.5,63,0" Rotation="0.0544" Scale="1,1,1" UnitType="Ultralisk"/>
     <ObjectUnit Id="87054104" Position="36,118,0" Rotation="2.836" Scale="1,1,1" UnitType="Ultralisk"/>
+    <ObjectUnit Id="880744115" Position="66.75,193.732,0" Rotation="3.4316" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
     <ObjectUnit Id="671960856" Position="134,118,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
     <ObjectUnit Id="1542747858" Position="115,132,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
     <ObjectUnit Id="1237966241" Position="145,136,0" Rotation="5.4973" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="519488189" Position="79,71,0" Rotation="4.1877" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="74254052" Position="115.7663,173.4736,0" Rotation="2.1862" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
     <ObjectUnit Id="192682513" Position="138,134,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
     <ObjectUnit Id="886250671" Position="141,132,0" Rotation="5.4973" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="719898541" Position="72,72,0" Rotation="5.1481" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="416669767" Position="48,65,0" Rotation="2.28" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
     <ObjectUnit Id="1752973469" Position="143,134,0" Rotation="5.4973" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="719604962" Position="111,136,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
     <ObjectUnit Id="597507519" Position="136.5,131.5,0" Rotation="2.9855" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
-    <ObjectUnit Id="1355374436" Position="143,117,0" Rotation="4.6606" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
-    <ObjectUnit Id="1910764210" Position="141,124,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="784928830" Position="31,95,0" Rotation="1.0026" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
     <ObjectUnit Id="1441254538" Position="44.5,51.5,0" Rotation="5.8532" Scale="1,1,1" UnitType="Ultralisk"/>
-    <ObjectUnit Id="359588594" Position="113,134,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="1971134644" Position="49.5,160.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="1942073247" Position="97.5,169.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
     <ObjectUnit Id="391402378" Position="122,138,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
-    <ObjectUnit Id="880132183" Position="122,118,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
-    <ObjectUnit Id="1803371673" Position="141,132,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="916117517" Position="162,173,0" Rotation="2.7707" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="600910771" Position="101.1655,203.2666,0" Rotation="0.2973" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
+    <ObjectUnit Id="1964485816" Position="120,240,0" Rotation="5.8371" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="1169326608" Position="118,122,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
-    <ObjectUnit Id="1437457414" Position="131.5,136.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
+    <ObjectUnit Id="66822580" Position="148,246,0" Rotation="5.9377" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1269396836" Position="87,9,0" Rotation="2.6762" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="189279203" Position="143,122,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
     <ObjectUnit Id="1425538898" Position="138,122,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
+    <ObjectUnit Id="1666692433" Position="94.0646,201.1826,0" Rotation="0.7375" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
     <ObjectUnit Id="1060656419" Position="134,118,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
-    <ObjectUnit Id="203842818" Position="124,115,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="1821619166" Position="134,138,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
-    <ObjectUnit Id="1303656831" Position="65,152,0" Rotation="4.9106" Scale="1,1,1" UnitType="Ultralisk"/>
-    <ObjectUnit Id="1588844573" Position="15,17,0" Rotation="3.9384" Scale="1,1,1" UnitType="Brutalisk" Player="14"/>
+    <ObjectUnit Id="524982134" Position="114.9755,101.3596,0" Rotation="2.0737" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
+    <ObjectUnit Id="767515675" Position="158,113,0" Rotation="3.4516" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="865594353" Position="123,71,0" Rotation="5.0275" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1085685015" Position="80,39,0" Rotation="6.0107" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1329439006" Position="74.5197,199,0" Rotation="5.189" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1315640537" Position="100.57,144.6071,0" Rotation="5.8063" Scale="1,1,1" UnitType="RoachBurrowed" Player="14"/>
+    <ObjectUnit Id="998657903" Position="47,157,0" Rotation="2.4213" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="2016722480" Position="91,131,0" Rotation="6.2187" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1501682107" Position="92.826,200.6987,0" Rotation="1.2646" Scale="1,1,1" UnitType="Drone" Player="14"/>
     <ObjectUnit Id="642317605" Position="113,122,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="1472786979" Position="115,132,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="1092164447" Position="92.593,199.2084,0" Rotation="5.3103" Scale="1,1,1" UnitType="HotSRaptorBurrowed" Player="14"/>
+    <ObjectUnit Id="1334806207" Position="26,167,0" Rotation="6.0415" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="284410172" Position="87,60,0" Rotation="0.5476" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
     <ObjectUnit Id="1016149229" Position="136.5,124.5,0" Rotation="6.0463" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
-    <ObjectUnit Id="1311870723" Position="227.5,217,0" Rotation="4.6416" Scale="1,1,1" UnitType="Ultralisk"/>
-    <ObjectUnit Id="1912883351" Position="115,124,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="1667638149" Position="120,136,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="552312740" Position="60,37,0" Rotation="5.483" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="378944113" Position="46,187,0" Rotation="6.0053" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1381055937" Position="94.4731,202.299,0" Rotation="4.4748" Scale="1,1,1" UnitType="Drone" Player="14"/>
     <ObjectUnit Id="814112743" Position="172.5,231.5,0" Rotation="3.5263" Scale="1,1,1" UnitType="Ultralisk"/>
     <ObjectUnit Id="1722742629" Position="122,113,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="912857320" Position="132,115,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
     <ObjectUnit Id="446216794" Position="190.5,141.5,0" Rotation="4.7641" Scale="1,1,1" UnitType="Ultralisk"/>
     <ObjectUnit Id="1745637730" Position="136,145,0" Rotation="5.4973" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="543415956" Position="136,136,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
-    <ObjectUnit Id="454007880" Position="120,145,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="362043541" Position="74,51,0" Rotation="1.513" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="698076273" Position="153,107,0" Rotation="4.171" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
     <ObjectUnit Id="770151799" Position="143,134,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="2065387796" Position="35,188,0" Rotation="3.294" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="2135064692" Position="111,136,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
     <ObjectUnit Id="1818181974" Position="131.5,119.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
-    <ObjectUnit Id="445067630" Position="145,136,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
     <ObjectUnit Id="29679661" Position="132,141,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="1255698858" Position="132,141,0" Rotation="5.4973" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="1547148802" Position="122,138,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
+    <ObjectUnit Id="1784284579" Position="117,180,0" Rotation="1.0651" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1972394607" Position="78,122,0" Rotation="4.6157" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="2134751800" Position="120,120,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
-    <ObjectUnit Id="341568060" Position="131.5,136.5,0" Rotation="1.6093" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
-    <ObjectUnit Id="1793829896" Position="88,88.5,0" Rotation="3.7114" Scale="1,1,1" UnitType="Ultralisk"/>
+    <ObjectUnit Id="566482142" Position="181,87,0" Rotation="2.3242" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="534487970" Position="215,130,0" Rotation="3.6682" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="939376509" Position="190,47,0" Rotation="4.062" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1941959508" Position="94.1555,200.1933,0" Rotation="1.5395" Scale="1,1,1" UnitType="Overlord" Player="14"/>
+    <ObjectUnit Id="1557770813" Position="43,102,0" Rotation="0.7282" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="329097824" Position="217,218,0" Rotation="4.911" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1177795304" Position="152,158,0" Rotation="1.2312" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="220280980" Position="162,9,0" Rotation="1.1506" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="2139458868" Position="198,25.5,0" Rotation="1.7465" Scale="1,1,1" UnitType="Ultralisk"/>
     <ObjectUnit Id="755753727" Position="122,113,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
     <ObjectUnit Id="254967878" Position="143,139,0" Rotation="5.7487" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
     <ObjectUnit Id="1588326690" Position="28,233,0" Rotation="3.9382" Scale="1,1,1" UnitType="Brutalisk" Player="14"/>
+    <ObjectUnit Id="1099959711" Variation="9" Position="98,205.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="1946890869" Position="38,83,0" Rotation="2.2214" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1306856035" Position="57.5,175.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
     <ObjectUnit Id="1048591930" Position="119.5,131.5,0" Rotation="4.2587" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
-    <ObjectUnit Id="824798749" Position="122,118,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
-    <ObjectUnit Id="1676493035" Position="113,122,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="117792103" Position="147,88,0" Rotation="3.33" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1608208180" Position="96.7783,203.1127,0" Rotation="3.9018" Scale="1,1,1" UnitType="Drone" Player="14"/>
+    <ObjectUnit Id="72991932" Position="66,60,0" Rotation="0.9868" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1223095135" Position="89,24,0" Rotation="2.71" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="1773406614" Position="136,120,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
-    <ObjectUnit Id="725485984" Position="136.5,124.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
-    <ObjectUnit Id="971595053" Position="132,115,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="376903205" Position="124.5,136.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
+    <ObjectUnit Id="1567507037" Position="234,214,0" Rotation="3.5622" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1921442352" Position="31,84,0" Rotation="4.1928" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="203726203" Position="230,143,0" Rotation="2.616" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1107769169" Position="95.6374,111.843,0" Rotation="3.1008" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
     <ObjectUnit Id="383221501" Position="119.5,124.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
+    <ObjectUnit Id="307335716" Position="154.5,100.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="1588792669" Position="100,161,0" Rotation="2.0815" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="1440902933" Position="145,120,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="1603498620" Position="124,141,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="569465711" Position="111,120,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="351776625" Position="117,113,0" Rotation="4.061" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
-    <ObjectUnit Id="702604476" Position="118,134,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="2024428635" Position="67.8535,191.7575,0" Rotation="1.696" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1952462113" Position="93.6896,198.814,0" Rotation="5.9577" Scale="1,1,1" UnitType="Drone" Player="14"/>
+    <ObjectUnit Id="681179442" Position="148,164,0" Rotation="2.4614" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="618992928" Position="145,19,0" Rotation="4.6005" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1845345006" Position="102,215,0" Rotation="1.8642" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="478954676" Position="216,66,0" Rotation="0.3691" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="435923340" Position="189,22,0" Rotation="2.5026" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="1080615481" Position="134,138,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
-    <ObjectUnit Id="106179116" Position="136,111,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
     <ObjectUnit Id="375089449" Position="111,120,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="1961889651" Position="118,134,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
+    <ObjectUnit Id="526361388" Position="92.5,153.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
     <ObjectUnit Id="1843427438" Position="124.5,136.5,0" Rotation="2.6145" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
-    <ObjectUnit Id="1619112831" Position="134,113,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
     <ObjectUnit Id="2112950921" Position="120,111,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
-    <ObjectUnit Id="1120390077" Position="55,197.5,0" Rotation="4.8417" Scale="1,1,1" UnitType="Ultralisk"/>
-    <ObjectUnit Id="310524164" Position="122,143,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="355869443" Position="131.5,119.5,0" Rotation="4.1145" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
-    <ObjectUnit Id="669756706" Position="124.5,119.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
-    <ObjectUnit Id="1355597288" Position="139,113,0" Rotation="0.3413" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
+    <ObjectUnit Id="518314651" Position="97,230,0" Rotation="2.1953" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="621635972" Position="24,112,0" Rotation="0.3808" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="164734856" Position="182.5,53,0" Rotation="1.7824" Scale="1,1,1" UnitType="Ultralisk"/>
-    <ObjectUnit Id="1609205332" Position="134,143,0" Rotation="5.4973" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
     <ObjectUnit Id="1585059975" Position="92,29,0" Rotation="0.6586" Scale="1,1,1" UnitType="Ultralisk"/>
     <ObjectUnit Id="1076104721" Position="136,145,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
     <ObjectUnit Id="223289551" Position="145,120,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
-    <ObjectUnit Id="1122562454" Position="128,128,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGCrashedBattlecruiser" Player="13"/>
     <ObjectUnit Id="1878743799" Position="139,143,0" Rotation="0.3303" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
     <ObjectUnit Id="105724788" Position="124.5,119.5,0" Rotation="2.2666" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
+    <ObjectUnit Id="1133831337" Position="41,96,0" Rotation="3.641" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="696700823" Position="67.7846,196.1513,0" Rotation="4.4201" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1939240576" Position="76.5,192.5,0" Rotation="4.663" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="406939158" Variation="1" Position="90,201.5,0" Scale="1,1,1" UnitType="MineralField"/>
     <ObjectUnit Id="1127083550" Position="113,134,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="689321248" Position="229,97,0" Rotation="5.0593" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="1903529056" Position="134,113,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
     <ObjectUnit Id="1336976120" Position="120,111,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
     <ObjectUnit Id="182290633" Position="120,136,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
-    <ObjectUnit Id="1112750143" Position="238,242,0" Rotation="3.9382" Scale="1,1,1" UnitType="Brutalisk" Player="14"/>
-    <ObjectUnit Id="1938256442" Position="119.5,124.5,0" Rotation="0.1303" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
+    <ObjectUnit Id="1467830427" Position="96.8876,114.7763,0" Rotation="5.471" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
+    <ObjectUnit Id="1330506968" Position="84,97,0" Rotation="2.3842" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1085598683" Position="51,97,0" Rotation="2.3818" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1798713186" Position="61,179,0" Rotation="1.136" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="1107150746" Position="113,139,0" Rotation="2.786" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
+    <ObjectUnit Id="1439692472" Position="219,139,0" Rotation="0.511" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="818675351" Position="211,39,0" Rotation="0.6923" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="488314689" Position="136,136,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
-    <ObjectUnit Id="1683069726" Position="232,23,0" Rotation="3.3613" Scale="1,1,1" UnitType="Brutalisk" Player="14"/>
+    <ObjectUnit Id="1523874416" Position="14,213,0" Rotation="0.8625" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
     <ObjectUnit Id="206280979" Position="124,141,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="1074871358" Variation="9" Position="91,200.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="1087485804" Position="159.3334,158.2885,0" Rotation="5.521" Scale="1,1,1" UnitType="DevourerMP" Player="14"/>
+    <ObjectUnit Id="182870412" Position="44,71,0" Rotation="3.6711" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1570047065" Position="9,157,0" Rotation="6.0202" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="167945994" Position="120,145,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="1537638402" Position="73,206,0" Rotation="2.9821" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1816191518" Position="153.5,163.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="1610219146" Position="84,218,0" Rotation="0.6523" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="39224386" Position="128,140,0" Scale="1,1,1" UnitType="CRPGArmory" Player="13"/>
+    <ObjectUnit Id="777662056" Position="115.1811,102.4514,0" Rotation="2.124" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
+    <ObjectUnit Id="1865665174" Position="134,143,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="303995451" Position="118,122,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="1195130263" Position="129,85,0" Rotation="3.0915" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="2127405220" Position="244,39,0" Rotation="2.8605" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="704304300" Position="117,143,0" Rotation="0.0456" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
+    <ObjectUnit Id="926199907" Position="141,124,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="1750839341" Variation="6" Position="96,204.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="980783167" Position="169,66,0" Rotation="5.0793" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1584346020" Position="33,151,0" Rotation="4.7934" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1669363347" Position="119.1704,170.121,0" Rotation="0.8327" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
+    <ObjectUnit Id="1427102181" Position="190,210,0" Rotation="0.456" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1381352897" Position="138,122,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="1170396622" Position="143,122,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="640316847" Position="156,156,0" Rotation="5.4885" Scale="1,1,1" UnitType="BattlecruiserHelios" Player="13"/>
+    <ObjectUnit Id="1570677994" Position="227.5,90,0" Rotation="5.0153" Scale="1,1,1" UnitType="Ultralisk"/>
+    <ObjectUnit Id="388547866" Position="109,72,0" Rotation="1.3984" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1803324955" Position="93.5,138.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="1972945442" Position="202,196,0" Rotation="1.5285" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="870889732" Position="209,52,0" Rotation="3.4353" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1478169395" Position="119,9,0" Rotation="3.9294" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1382068719" Position="93,197,0" Rotation="1.0476" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1421735965" Position="92,49,0" Rotation="6.1992" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1336088966" Position="52,163,0" Rotation="3.3483" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1601820758" Position="159.5,108.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="498849451" Position="164,24,0" Rotation="1.4343" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="834507036" Position="74,189,0" Rotation="2.1767" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1470927146" Position="181,130,0" Rotation="5.3342" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1976260786" Position="31,127,0" Rotation="2.2878" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="69117504" Position="76,189.5,0" Rotation="4.5771" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="272277361" Position="114.1066,102.0341,0" Rotation="1.5236" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
+    <ObjectUnit Id="719604962" Position="111,136,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="1355374436" Position="143,117,0" Rotation="4.6606" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
+    <ObjectUnit Id="1910764210" Position="141,124,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="522974918" Position="105.2536,113.8532,0" Rotation="5.6257" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
+    <ObjectUnit Id="2113092219" Position="203,159,0" Rotation="3.2531" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1290204607" Position="80,21,0" Rotation="2.2961" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="359588594" Position="113,134,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="459080642" Position="96,153,0" Rotation="1.095" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1653259938" Position="24,87,0" Rotation="1.3955" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1695104248" Position="66.5,155.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="880132183" Position="122,118,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="1803371673" Position="141,132,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="92525056" Position="46,116,0" Rotation="1.4821" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="2082181532" Position="193,152,0" Rotation="3.7504" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1284987809" Position="173,31,0" Rotation="0.1347" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1437457414" Position="131.5,136.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
+    <ObjectUnit Id="1940656595" Position="106.0947,113.2934,0" Rotation="0.9904" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
+    <ObjectUnit Id="1042741616" Position="53,69,0" Rotation="6.126" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="492695513" Position="205,102,0" Rotation="2.609" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="203842818" Position="124,115,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="1821619166" Position="134,138,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="1032189605" Position="68,80,0" Rotation="6.0537" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1303656831" Position="65,152,0" Rotation="4.9106" Scale="1,1,1" UnitType="Ultralisk"/>
+    <ObjectUnit Id="1588844573" Position="15,17,0" Rotation="3.9384" Scale="1,1,1" UnitType="Brutalisk" Player="14"/>
+    <ObjectUnit Id="513501888" Position="168,128,0" Rotation="6.053" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="911925844" Position="97.5,198.5,0" Scale="1,1,1" UnitType="Hatchery" Player="14"/>
+    <ObjectUnit Id="590220509" Position="195,160,0" Rotation="4.9028" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1472786979" Position="115,132,0" Rotation="0.785" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="275029725" Position="118.4165,101.0771,0" Rotation="3.4282" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
+    <ObjectUnit Id="1311870723" Position="227.5,217,0" Rotation="4.6416" Scale="1,1,1" UnitType="Ultralisk"/>
+    <ObjectUnit Id="1451867765" Position="34.5,156.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="1287905890" Position="109.731,157.131,0" Rotation="5.0476" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
+    <ObjectUnit Id="1912883351" Position="115,124,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="1667638149" Position="120,136,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="338444242" Position="135.5654,104.4946,0" Rotation="0.2626" Scale="1,1,1" UnitType="RoachBurrowed" Player="14"/>
+    <ObjectUnit Id="838005542" Position="104,26,0" Rotation="3.8276" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="912857320" Position="132,115,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="634799665" Position="124,53,0" Rotation="2.0383" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="529638557" Position="134.5,187.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="651322847" Position="101.5,205.5,0" Rotation="5.8117" Scale="1,1,1" UnitType="HydraliskDen" Player="14"/>
+    <ObjectUnit Id="1107805319" Position="222,185,0" Rotation="2.6525" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="543415956" Position="136,136,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
+    <ObjectUnit Id="454007880" Position="120,145,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="1149138648" Position="117,171,0" Rotation="4.9953" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="537162494" Position="117.326,101.0368,0" Rotation="5.0617" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
+    <ObjectUnit Id="2132971612" Position="112.7521,105.3432,0" Rotation="0.6992" Scale="1,1,1" UnitType="RoachBurrowed" Player="14"/>
+    <ObjectUnit Id="201234779" Position="154.9924,148.4814,0" Rotation="2.212" Scale="1,1,1" UnitType="Hydralisk" Player="14"/>
+    <ObjectUnit Id="445067630" Position="145,136,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="1905330909" Position="104.5,202.5,0" Scale="1,1,1" UnitType="VespeneGeyser"/>
+    <ObjectUnit Id="1255698858" Position="132,141,0" Rotation="5.4973" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="880430577" Position="104,198,0" Rotation="5.4118" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1547148802" Position="122,138,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
+    <ObjectUnit Id="47857096" Variation="9" Position="91,198.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="341568060" Position="131.5,136.5,0" Rotation="1.6093" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
+    <ObjectUnit Id="725629005" Position="98,139,0" Rotation="3.7043" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1916750828" Position="176,135,0" Rotation="4.8845" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1793829896" Position="88,88.5,0" Rotation="3.7114" Scale="1,1,1" UnitType="Ultralisk"/>
+    <ObjectUnit Id="2064587663" Position="106.3073,114.6611,0" Rotation="1.4501" Scale="1,1,1" UnitType="HotSSwarmlingBurrowed" Player="14"/>
+    <ObjectUnit Id="768086558" Position="117.5,174.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="2137101640" Position="140.2255,100.2641,0" Rotation="4.144" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
+    <ObjectUnit Id="387947576" Position="97,193,0" Rotation="3.69" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1598794969" Position="181,246,0" Rotation="2.389" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1366643500" Position="186,15,0" Rotation="3.7292" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="964009994" Position="100.2084,135.9621,0" Rotation="0.5534" Scale="1,1,1" UnitType="HotSRaptor" Player="14"/>
+    <ObjectUnit Id="244361270" Position="112.5,182.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="824798749" Position="122,118,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
+    <ObjectUnit Id="1676493035" Position="113,122,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="639407081" Position="107.418,110.3862,0" Rotation="0.1994" Scale="1,1,1" UnitType="RoachBurrowed" Player="14"/>
+    <ObjectUnit Id="23070784" Position="130,47,0" Rotation="0.9233" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="964709540" Position="75.439,197.2495,0" Rotation="1.7392" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="1909100014" Position="22,95,0" Rotation="5.1008" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="725485984" Position="136.5,124.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
+    <ObjectUnit Id="61590606" Position="101.3937,134.2175,0" Rotation="3.5954" Scale="1,1,1" UnitType="HotSRaptor" Player="14"/>
+    <ObjectUnit Id="1414786916" Position="153,232,0" Rotation="1.257" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1134917140" Position="87,151,0" Rotation="5.7968" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="971595053" Position="132,115,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="1472335403" Position="64,172,0" Rotation="0.9467" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="376903205" Position="124.5,136.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
+    <ObjectUnit Id="1401900725" Position="199,134,0" Rotation="2.6586" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="868029954" Position="87.5,198.5,0" Scale="1,1,1" UnitType="SpawningPool" Player="14"/>
+    <ObjectUnit Id="1843957468" Variation="5" Position="91,202.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="767187267" Position="105.5,164.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="451412513" Position="162,156,0" Rotation="4.6784" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1608741225" Position="59,215,0" Rotation="5.5422" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1603498620" Position="124,141,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="569465711" Position="111,120,0" Rotation="2.3557" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="587279545" Position="108,164,0" Rotation="0.3635" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="2041861478" Position="163.5,150.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="830510645" Position="166,245,0" Rotation="3.6281" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="351776625" Position="117,113,0" Rotation="4.061" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
+    <ObjectUnit Id="702604476" Position="118,134,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGDefensiveWall" Player="13"/>
+    <ObjectUnit Id="627492121" Position="155,183,0" Rotation="2.7563" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="741910937" Position="114.2341,166.5317,0" Rotation="3.068" Scale="1,1,1" UnitType="RoachBurrowed" Player="14"/>
+    <ObjectUnit Id="2122349016" Position="235,61,0" Rotation="0.9404" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="106179116" Position="136,111,0" Rotation="3.9265" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="634362951" Position="115,27,0" Rotation="4.3425" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1961889651" Position="118,134,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveWall"/>
+    <ObjectUnit Id="656046535" Position="244,177,0" Rotation="3.1252" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1619112831" Position="134,113,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="360413836" Position="137.5214,98.7587,0" Rotation="3.4006" Scale="1,1,1" UnitType="HydraliskBurrowed" Player="14"/>
+    <ObjectUnit Id="1120390077" Position="55,197.5,0" Rotation="4.8417" Scale="1,1,1" UnitType="Ultralisk"/>
+    <ObjectUnit Id="426599516" Position="72.6367,198.8232,0" Rotation="0.3928" Scale="1,1,1" UnitType="RoachBurrowed" Player="14">
+        <Flag Index="UnitHidden" Value="1"/>
+    </ObjectUnit>
+    <ObjectUnit Id="995672752" Position="200,138,0" Rotation="2.2092" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="310524164" Position="122,143,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveTurret"/>
+    <ObjectUnit Id="355869443" Position="131.5,119.5,0" Rotation="4.1145" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
+    <ObjectUnit Id="551163850" Position="169,58,0" Rotation="2.595" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="669756706" Position="124.5,119.5,0" Scale="1,1,1" UnitType="CRPGBuildableLocationDefensiveFortification"/>
+    <ObjectUnit Id="1355597288" Position="139,113,0" Rotation="0.3413" Scale="1,1,1" UnitType="CRPGMarine" Player="13"/>
+    <ObjectUnit Id="1609205332" Position="134,143,0" Rotation="5.4973" Scale="1,1,1" UnitType="CRPGDefensiveTurret" Player="13"/>
+    <ObjectUnit Id="504176635" Variation="6" Position="93,204.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="509612470" Position="52,202,0" Rotation="3.2844" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1122562454" Position="128,128,0" Rotation="5.4975" Scale="1,1,1" UnitType="CRPGCrashedBattlecruiser" Player="13"/>
+    <ObjectUnit Id="899203138" Position="207,144,0" Rotation="5.3618" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1427858159" Position="175,177,0" Rotation="3.792" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1012754481" Position="95.7045,202.1901,0" Rotation="4.513" Scale="1,1,1" UnitType="HotSRaptorBurrowed" Player="14"/>
+    <ObjectUnit Id="1850430185" Position="178,145,0" Rotation="6.0507" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="1724307203" Position="154.6901,112.4724,0" Rotation="0.2504" Scale="1,1,1" UnitType="RoachBurrowed" Player="14"/>
+    <ObjectUnit Id="1366865919" Position="96,61,0" Rotation="3.9511" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="894192209" Position="85.5,181.5,0" Scale="1,1,1" UnitType="CreepTumorUsed" Player="14"/>
+    <ObjectUnit Id="1112750143" Position="238,242,0" Rotation="3.9382" Scale="1,1,1" UnitType="Brutalisk" Player="14"/>
+    <ObjectUnit Id="417446874" Position="137,186,0" Rotation="4.918" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1938256442" Position="119.5,124.5,0" Rotation="0.1303" Scale="1,1,1" UnitType="CRPGDefensiveFortification" Player="13"/>
+    <ObjectUnit Id="119179177" Position="87,138,0" Rotation="1.2512" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1358341598" Position="70,94,0" Rotation="3.3295" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="303346731" Position="159,148,0" Rotation="4.1513" Scale="1,1,1" UnitType="SpineCrawler" Player="14"/>
+    <ObjectUnit Id="842654364" Variation="8" Position="99,204.5,0" Scale="1,1,1" UnitType="MineralField"/>
+    <ObjectUnit Id="1683069726" Position="232,23,0" Rotation="3.3613" Scale="1,1,1" UnitType="Brutalisk" Player="14"/>
+    <ObjectUnit Id="1935175978" Position="147,219,0" Rotation="4.119" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <ObjectUnit Id="1569142241" Position="199,81,0" Rotation="0.3708" Scale="1,1,1" UnitType="SporeCrawler" Player="14"/>
+    <Group Type="ObjectUnit" Name="Flank-SnowRoaches" Id="1">
+        <GroupObject Id="69117504"/>
+        <GroupObject Id="426599516"/>
+        <GroupObject Id="696700823"/>
+        <GroupObject Id="834507036"/>
+        <GroupObject Id="880744115"/>
+        <GroupObject Id="964709540"/>
+        <GroupObject Id="1329439006"/>
+        <GroupObject Id="1939240576"/>
+        <GroupObject Id="2024428635"/>
+    </Group>
 </PlacedObjects>

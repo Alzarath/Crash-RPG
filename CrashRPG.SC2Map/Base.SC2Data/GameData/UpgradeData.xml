@@ -36,12 +36,13 @@
     <CUpgrade id="CRPGAbilityUpgradePassiveSecondary@Upgrade">
         <Icon value="Assets\Textures\btn-number-2.dds"/>
         <EffectArray Operation="Set" Reference="Abil,ShooterStimpack@Dummy,Cost[0].Cooldown.TimeUse" Value="0.000000"/>
-        <EffectArray Reference="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax" Value="15"/>
+        <EffectArray Reference="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax" Value="30"/>
         <EffectArray Operation="Set" Reference="Effect,AeroLaserArmaments@Set,EffectArray[1]" Value="AeroLaserArmaments@LMUpgraded"/>
         <EffectArray Reference="Effect,AeroLaserArmaments@SA,AreaArray[0].Radius" Value="2"/>
         <EffectArray Operation="Set" Reference="Button,FighterResurgence,AlertTooltip" Value="Button/Tooltip/FighterResurgence@PostUpgrade"/>
         <EffectArray Operation="Set" Reference="Button,FighterResurgence,Tooltip" Value="Button/Tooltip/FighterResurgence@PostUpgrade"/>
         <EffectArray Operation="Subtract" Reference="Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction" Value="0.2"/>
+        <EffectArray Reference="Abil,AeroLaserArmaments@Dummy,Range[0]" Value="2"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
         <AffectedUnitArray value="CRPGHunter"/>

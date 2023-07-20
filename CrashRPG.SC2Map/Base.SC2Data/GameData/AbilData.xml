@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilEffectTarget id="InfestedPlague">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="InfestedPlague@SA"/>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+        </Cost>
+        <Range value="8"/>
+        <PrepTime value="0.25"/>
+        <CursorEffect value="InfestedPlague@SA"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedPlague">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilMerge id="InfestedAberrate">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="SelectedUnits" DefaultButtonFace="InfestedAberrate@Merge" State="Restricted" Requirements="InfestedAberrate@CanCast">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="WithTarget" DefaultButtonFace="InfestedAberrate@MergeTarget" State="Restricted" Requirements="InfestedAberrate@CanCast"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Effect value="InfestedAberrate@Set"/>
+        <Info Unit="InfestedInfestedBunker@Uprooted" Time="1.333"/>
+    </CAbilMerge>
     <CAbilTrain id="BarracksTrain2" parent="BarracksTrain">
         <Name value="Abil/Name/BarracksTrain2"/>
         <TechPlayer value="CasterPlayer"/>
@@ -222,16 +246,21 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Levels value="1"/>
         <Cost>
-            <Charge>
-                <CountMax value="2"/>
-                <CountStart value="2"/>
-                <CountUse value="1"/>
-                <Link value="Abil/HunterPsionicProjection"/>
-            </Charge>
+            <Charge CountMax="2" CountUse="1" Link="Abil/HunterPsionicProjection"/>
             <Cooldown Link="Abil/HunterPsionicProjection" TimeUse="3"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="HunterPsionicProjection" Requirements="CRPGPassive1LearnedShowUse">
             <Flags index="IgnoreUser" value="1"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="HunterShadowTransfer@CancelCaster">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="HunterShadowTransfer@ETU"/>
+        <Flags index="Transient" value="1"/>
+        <Cost/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterShadowTransfer@Cancel2" Requirements="HunterShadowTransfer@CanCancelCaster">
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
@@ -272,6 +301,97 @@
         <TargetFilters value="Visible;Ally,Neutral,Enemy,Buried,UnderConstruction,Dead,Hidden"/>
         <LoadValidatorArray value="NotWidowMineTarget"/>
     </CAbilTransport>
+    <CAbilMorph id="InfestedAberrate@MorphToInfestedMarine">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedAberrate@Morph" Requirements="InfestedAberrate@CanCast"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <InfoArray Unit="InfestedInfestedMarine">
+            <SectionArray index="Abils">
+                <DurationArray index="Duration" value="1.333"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.333"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Duration" value="1.333"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilEffectTarget id="PlasmaCanisterChargeLarge">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="PlasmaCanisterChargeLarge@Set"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Range value="1"/>
+        <Arc value="360"/>
+        <AutoCastFilters value="Ground;Ally,Neutral,Enemy,Structure,Missile,Destructible,Stasis,Dead,Hidden,Benign"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="PlasmaCanisterChargeHuge">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="PlasmaCanisterChargeHuge@Set"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Range value="1"/>
+        <Arc value="360"/>
+        <AutoCastFilters value="Ground;Ally,Neutral,Enemy,Structure,Missile,Destructible,Stasis,Dead,Hidden,Benign"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="PlasmaCanisterChargeSmall">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="PlasmaCanisterChargeSmall@Set"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="ReExecutable" value="1"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Range value="1"/>
+        <Arc value="360"/>
+        <AutoCastFilters value="Ground;Ally,Neutral,Enemy,Structure,Missile,Destructible,Stasis,Dead,Hidden,Benign"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Pickup"/>
+    </CAbilEffectTarget>
+    <CAbilMorphPlacement id="InfestedBunkerRoot@Root" parent="TerranBuildingLand" unit="SIInfestedBunker">
+        <Name value="Abil/Name/InfestedBunkerRoot@Root"/>
+        <EditorCategories value="Race:InfestedTerran,AbilityorEffectType:MorphsandBurrows"/>
+        <InfoTooltipPriority value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedBunkerRoot@Root" Requirements="CRPGAbilityUpgradePassivePrimary@UpgradedUse"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <ActorKey value="Root"/>
+        <Flags index="RallyReset" value="0"/>
+        <Flags index="ShowProgress" value="1"/>
+        <InfoArray index="0" Unit="InfestedInfestedBunker" CollideRange="0" RandomDelayMax="0.5">
+            <SectionArray index="Abils">
+                <DurationArray index="Duration" value="3"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorphPlacement>
+    <CAbilMorph id="InfestedBunkerRoot@Uproot" parent="TerranBuildingLiftOff" unit="SIInfestedBunkerUprooted">
+        <Name value="Abil/Name/InfestedBunkerRoot@Uproot"/>
+        <AbilSetId value="Unsieged"/>
+        <EditorCategories value="Race:InfestedTerran,AbilityorEffectType:MorphsandBurrows"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedBunkerRoot@Uproot"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <ActorKey value="Uproot"/>
+        <Flags index="RallyReset" value="0"/>
+        <InfoArray index="0" Unit="InfestedInfestedBunker@Uprooted">
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="3.5"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="0"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="3.5"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
     <CAbilEffectInstant id="ShooterStimpack@Dummy">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Levels value="1"/>
@@ -286,10 +406,13 @@
     </CAbilEffectInstant>
     <CAbilEffectInstant id="HunterShadowTransfer@Cancel">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <Effect index="0" value="HunterShadowTransfer@SetCancel"/>
+        <Effect index="0" value="HunterShadowTransfer@EnumCasterCancel"/>
         <Flags index="Transient" value="1"/>
         <Cost/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="Cancel"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="HunterShadowTransfer@Cancel2">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="AlienYagdraFireWave">
         <Alignment value="Negative"/>
@@ -467,7 +590,7 @@
     <CAbilEffectInstant id="HunterPlasmaDiffusion@PlasmaCharge">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Cost>
-            <Charge CountMax="10" CountUse="10"/>
+            <Charge CountMax="20" CountUse="20"/>
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="HunterPlasmaDiffusion" Requirements="CRPGPassive2LearnedShowUse">
             <Flags index="IgnoreUser" value="1"/>
@@ -751,7 +874,6 @@
         <AINotifyEffect value="CrashedBCMedicalFacilities@CHLife"/>
         <DefaultError value="RequiresHealTarget"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="Heal"/>
-        <AcquireAttackers value="1"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="AlienRapidTransfusion">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
@@ -815,7 +937,7 @@
         <Effect index="0" value="ShooterOverkill@SetInitial"/>
         <Cost>
             <Vital index="Energy" value="60"/>
-            <Cooldown TimeUse="10"/>
+            <Cooldown TimeUse="8"/>
         </Cost>
         <Range value="500"/>
         <CursorEffect value="ShooterOverkill@SA"/>
@@ -830,7 +952,7 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Effect index="0" value="ShooterSandbags@CU"/>
         <Cost>
-            <Vital index="Energy" value="25"/>
+            <Vital index="Energy" value="50"/>
             <Charge>
                 <CountMax value="2"/>
                 <CountStart value="2"/>
@@ -1194,7 +1316,7 @@
         <Flags index="TransientPreferred" value="1"/>
         <Cost>
             <Vital index="Energy" value="75"/>
-            <Cooldown TimeUse="20"/>
+            <Cooldown TimeUse="0.0625"/>
         </Cost>
         <Range value="500"/>
         <Arc value="360"/>
@@ -1482,8 +1604,8 @@
         <Effect index="0" value="ShooterGravityGrenade@LM"/>
         <Flags index="AllowMovement" value="1"/>
         <Cost>
-            <Vital index="Energy" value="25"/>
-            <Cooldown TimeUse="5"/>
+            <Vital index="Energy" value="50"/>
+            <Cooldown TimeUse="2"/>
         </Cost>
         <Range value="7"/>
         <PrepTime value="0.361"/>
@@ -1672,9 +1794,7 @@
         <CmdButtonArray index="UnloadAll" DefaultButtonFace="BunkerUnloadAll">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
-        <CmdButtonArray index="UnloadAt">
-            <Flags index="Hidden" value="1"/>
-        </CmdButtonArray>
+        <CmdButtonArray index="UnloadAt" DefaultButtonFace="BunkerUnloadAllTarget"/>
         <CmdButtonArray index="UnloadUnit">
             <Flags index="Hidden" value="1"/>
         </CmdButtonArray>
@@ -1687,32 +1807,9 @@
         <TotalCargoSpace value="4"/>
         <TargetFilters value="Biological,Visible;Ally,Neutral,Enemy,Dead,Hidden"/>
         <LoadValidatorArray value="InfestedIsInfestedMarine"/>
+        <LoadCargoEffect value="InfestedBunkerBraced@AB"/>
+        <UnloadCargoEffect value="InfestedBunkerBraced@RB"/>
     </CAbilTransport>
-    <CAbilEffectTarget id="InfestedAberrate">
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <Levels value="1"/>
-        <Effect index="0" value="InfestedAberrate@SetInitial"/>
-        <Cost>
-            <Vital index="Energy" value="75"/>
-        </Cost>
-        <RefundFraction>
-            <VitalFraction index="Energy" value="-1"/>
-        </RefundFraction>
-        <Range value="6"/>
-        <CancelableArray index="Approach" value="1"/>
-        <CancelableArray index="Wait" value="1"/>
-        <CancelableArray index="Prep" value="1"/>
-        <CancelableArray index="Cast" value="1"/>
-        <CancelableArray index="Channel" value="1"/>
-        <CancelableArray index="Finish" value="1"/>
-        <CancelableArray index="Bail" value="1"/>
-        <CursorEffect value="InfestedAberrate@SA"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedAberrate">
-            <Flags index="UseDefaultButton" value="1"/>
-            <Flags index="CreateDefaultButton" value="1"/>
-        </CmdButtonArray>
-        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
-    </CAbilEffectTarget>
     <CAbilEffectInstant id="InfestedInfestedEggs">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Levels value="1"/>
@@ -1763,7 +1860,10 @@
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
-        <CmdButtonArray index="Cancel" DefaultButtonFace="Cancel"/>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="MechBarrage@Cancel">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="AeroDefensiveMatrix">
         <AbilSetId value="dmatrix"/>

@@ -181,6 +181,132 @@
             <TextureExpressionsForEditor Slot="main" Expression="RequireAll diffuse"/>
         </Variations>
     </CModel>
+    <CModel id="InfestedInfestedBunker@RootPlacement" parent="Unit" Race="Zerg">
+        <Model value="Assets\Units\Zerg\InfestedBunker_COOP_Placement\InfestedBunker_COOP_Placement.m3"/>
+    </CModel>
+    <CModel id="InfestedInfestedBunker@RootMorphmodel" parent="Building" Race="Terran">
+        <Model value="Assets\Units\Zerg\InfestedBunker_Coop_Birth\InfestedBunker_Coop_Birth.m3"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="InfestedBunker_UpRoot_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.011000"/>
+            <Payload value="InfestedBunker_UpRoot_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="InfestedBunker_UpRootBirth_VxFx"/>
+            <Type value="Sound"/>
+            <Time value="0.071000"/>
+            <Payload value="InfestedBunker_UpRootBirth_VxFx"/>
+        </Events>
+        <Radius value="1.250000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="InfestedInfestedBunker@UprootMorphModel" parent="Unit" Race="Zerg">
+        <Model value="Assets\Units\Zerg\InfestedBunker_Coop_Morph\InfestedBunker_Coop_Morph.m3"/>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="InfestedBunker_Morph_Birth"/>
+            <Type value="Sound"/>
+            <Time value="0.015000"/>
+            <Payload value="InfestedBunker_Morph_Birth"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="InfestedBunker_Morph_Action"/>
+            <Type value="Sound"/>
+            <Time value="1.540000"/>
+            <Payload value="InfestedBunker_Morph_Action"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="InfestedBunker_Morph_Mech_End"/>
+            <Type value="Sound"/>
+            <Time value="3.691000"/>
+            <Payload value="InfestedBunker_Morph_Mech_End"/>
+        </Events>
+        <Events>
+            <Anim value="Birth,00"/>
+            <Name value="InfestedBunker_MorphBirth_VxFx"/>
+            <Type value="Sound"/>
+            <Time value="0.015000"/>
+            <Payload value="InfestedBunker_MorphBirth_VxFx"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <Radius value="1.250000"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
+    <CModel id="InfestedInfestedBunker@RootedModel" parent="Unit" Race="Zerg">
+        <Model value="Assets\Units\Zerg\InfestedBunker_Coop_Structure\InfestedBunker_Coop_Structure.m3"/>
+        <Events>
+            <Anim value="Stand,Work,Start,00"/>
+            <Name value="InfestedBunker_Morph_Mech_Start"/>
+            <Type value="Sound"/>
+            <Time value="0.592000"/>
+            <Payload value="InfestedBunker_Morph_Mech_Start"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Work,Start,00"/>
+            <Name value="Infested_Bunker_Mech_Latch"/>
+            <Type value="Sound"/>
+            <Time value="1.521000"/>
+            <Payload value="Infested_Bunker_Mech_Latch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Work,Start,00"/>
+            <Name value="Korhal_Metal_VentDoor_SteamChuf"/>
+            <Type value="Sound"/>
+            <Time value="0.007000"/>
+            <Payload value="Korhal_Metal_VentDoor_SteamChuf"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Work,End,00"/>
+            <Name value="InfestedBunker_Morph_Mech_Start"/>
+            <Type value="Sound"/>
+            <Time value="0.164000"/>
+            <Payload value="InfestedBunker_Morph_Mech_Start"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Work,End,00"/>
+            <Name value="Infested_Bunker_Mech_Latch"/>
+            <Type value="Sound"/>
+            <Time value="0.628000"/>
+            <Payload value="Infested_Bunker_Mech_Latch"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,Work,End,00"/>
+            <Name value="Korhal_Metal_VentDoor_SteamChuf"/>
+            <Type value="Sound"/>
+            <Time value="0.164000"/>
+            <Payload value="Korhal_Metal_VentDoor_SteamChuf"/>
+        </Events>
+        <Events>
+            <Anim value="Build,D,Start,00"/>
+            <Name value="InfestedBunker_Morph_Mech_Start"/>
+            <Type value="Sound"/>
+            <Time value="1.331000"/>
+            <Payload value="InfestedBunker_Morph_Mech_Start"/>
+        </Events>
+        <Events>
+            <Anim value="Build,D,Start,00"/>
+            <Name value="Infested_Bunker_Mech_Latch"/>
+            <Type value="Sound"/>
+            <Time value="1.605000"/>
+            <Payload value="Infested_Bunker_Mech_Latch"/>
+        </Events>
+        <Occlusion value="Show"/>
+        <Radius value="1.250000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.500000"/>
+        <ShadowRadius value="1.500000"/>
+        <SquibTypeDefault value="Flesh"/>
+    </CModel>
     <CModel id="InfestedInfestedCivilian" parent="InfestedCivilian">
         <ScaleMax value="1.000000,1.000000,1.000000"/>
         <ScaleMin value="1.000000,1.000000,1.000000"/>
@@ -255,6 +381,48 @@
     </CModel>
     <CModel id="CerberusYamatoMissile" parent="YamatoWeapon">
         <Model value="Assets\Effects\Terran\CerberusYamatoMissile\CerberusYamatoMissile.m3"/>
+    </CModel>
+    <CModel id="InfestedInfestedBunker@RootMorphDeathModel" parent="ZergLargeUnitDeath">
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Zerg_ExplosionMedium"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Zerg_ExplosionMedium"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Moebius02_Reactor_Metal_Impact"/>
+            <Type value="Sound"/>
+            <Time value="0.021000"/>
+            <Payload value="Moebius02_Reactor_Metal_Impact"/>
+        </Events>
+    </CModel>
+    <CModel id="InfestedInfestedBunker@RootedDeathModel" parent="ZergLargeUnitDeath">
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Zerg_ExplosionMedium"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Zerg_ExplosionMedium"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Moebius02_Reactor_Metal_Impact"/>
+            <Type value="Sound"/>
+            <Time value="0.021000"/>
+            <Payload value="Moebius02_Reactor_Metal_Impact"/>
+        </Events>
+    </CModel>
+    <CModel id="InfestedInfestedBunker@UprootedDeathModel" parent="ZergLargeUnitDeath"/>
+    <CModel id="InfestedInfestedBunker@UprootMorphDeathModel" parent="ZergLargeUnitDeath">
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="Zerg_ExplosionMedium"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="Zerg_ExplosionMedium"/>
+        </Events>
     </CModel>
     <CModel id="ShipSolariteExposureImpact" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Protoss\SOA_Reconstruction_Beam\SOA_Reconstruction_Beam.m3"/>
@@ -756,14 +924,124 @@
     <CModel id="DevourerMP">
         <UnitGlossaryCamera value="Star2CameraLow08"/>
     </CModel>
-    <CModel id="InfestedInfestedBunker" parent="Unit" Race="Zerg">
+    <CModel id="InfestedInfestedBunker@UprootedModel" parent="Unit" Race="Zerg">
         <Model value="Assets\Units\Zerg\InfestedBunker_Coop\InfestedBunker_Coop.m3"/>
+        <AttachProps Id="Ref_Weapon">
+            <Keys index="SetA" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 01">
+            <Keys index="SetA" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 02">
+            <Keys index="SetA" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon 03">
+            <Keys index="SetA" value="0"/>
+        </AttachProps>
+        <Events>
+            <Anim value="Stand,00"/>
+            <Name value="InfestedBunker_Ronk_VxFx"/>
+            <Type value="Sound"/>
+            <Time value="0.320000"/>
+            <Payload value="InfestedBunker_Ronk_VxFx"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,01"/>
+            <Name value="InfestedBunker_Stand01_VxFx"/>
+            <Type value="Sound"/>
+            <Time value="0.013000"/>
+            <Payload value="InfestedBunker_Stand01_VxFx"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,02"/>
+            <Name value="InfestedBunker_Stand02_VxFx_A"/>
+            <Type value="Sound"/>
+            <Time value="0.011000"/>
+            <Payload value="InfestedBunker_Stand02_VxFx_A"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,02"/>
+            <Name value="InfestedBunker_Stand02_VxFx_B"/>
+            <Type value="Sound"/>
+            <Time value="0.956000"/>
+            <Payload value="InfestedBunker_Stand02_VxFx_B"/>
+        </Events>
+        <Events>
+            <Anim value="Stand,02"/>
+            <Name value="InfestedBunker_Stand02_VxFx_C"/>
+            <Type value="Sound"/>
+            <Time value="1.456000"/>
+            <Payload value="InfestedBunker_Stand02_VxFx_C"/>
+        </Events>
         <Events>
             <Anim value="Walk,00"/>
-            <Name value="FootstepSound"/>
+            <Name value="InfestedBunker_Walk_VxFx"/>
             <Type value="Sound"/>
-            <Time value="1.150000"/>
-            <Payload value="InfestedBunker_Footsteps"/>
+            <Time value="0.008000"/>
+            <Payload value="InfestedBunker_Walk_VxFx"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,00"/>
+            <Name value="InfestedBunker_Walk_Fs"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="InfestedBunker_Walk_Fs"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,00"/>
+            <Name value="InfestedBunker_Walk_Fs"/>
+            <Type value="Sound"/>
+            <Time value="0.516000"/>
+            <Payload value="InfestedBunker_Walk_Fs"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Fast,00"/>
+            <Name value="InfestedBunker_Walk_Fs"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+            <Payload value="InfestedBunker_Walk_Fs"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,Fast,00"/>
+            <Name value="InfestedBunker_Walk_Fs"/>
+            <Type value="Sound"/>
+            <Time value="0.313000"/>
+            <Payload value="InfestedBunker_Walk_Fs"/>
+        </Events>
+        <Events>
+            <Anim value="Walk,00"/>
+            <Name value="InfestedBunker_Walk_VxFx"/>
+            <Type value="Sound"/>
+            <Time value="1.197000"/>
+            <Payload value="InfestedBunker_Walk_VxFx"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="InfestedBunker_SwipeAttack_Launch"/>
+            <Type value="Sound"/>
+            <Time value="0.012000"/>
+            <Payload value="InfestedBunker_SwipeAttack_Launch"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="InfestedBunker_SwipeAttack_Impact"/>
+            <Type value="Sound"/>
+            <Time value="0.216000"/>
+            <Payload value="InfestedBunker_SwipeAttack_Impact"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="InfestedBunker_SwipeAttack_VxFx"/>
+            <Type value="Sound"/>
+            <Time value="0.035000"/>
+            <Payload value="InfestedBunker_SwipeAttack_VxFx"/>
+        </Events>
+        <Events>
+            <Anim value="Attack,02"/>
+            <Name value="InfestedBunker_Ronk_VxFx"/>
+            <Type value="Sound"/>
+            <Time value="0.867000"/>
+            <Payload value="InfestedBunker_Ronk_VxFx"/>
         </Events>
         <Radius value="1.250000"/>
         <SelectionRadius value="1.500000"/>
@@ -826,6 +1104,12 @@
     <CModel id="Supplicant" parent="Unit">
         <Model value="Assets\Units\Protoss\Supplicant\Supplicant.m3"/>
         <EditorCategories value="Race:Protoss"/>
+        <AttachProps Id="Ref_Weapon Right">
+            <Keys index="Weapon" value="0"/>
+        </AttachProps>
+        <AttachProps Id="Ref_Weapon Left">
+            <Keys index="Weapon" value="1"/>
+        </AttachProps>
     </CModel>
     <CModel id="SupplicantDeath" parent="UnitDeath">
         <Model value="Assets\Units\Protoss\Supplicant_Death\Supplicant_Death.m3"/>

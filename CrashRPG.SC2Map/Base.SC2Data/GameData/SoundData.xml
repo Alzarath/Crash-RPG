@@ -33,6 +33,139 @@
     <CSound id="Hyperion_Death_Fixed" parent="Hyperion_Death">
         <AssetArray index="0" File="LocalizedData\Sounds\VO\zUnit_HeroHyperion_Horner_023.ogg" FacialGroup=""/>
     </CSound>
+    <CSound id="InfestedBunker_MorphBirth_VxFx" parent="Combat">
+        <AssetArray File="Assets\Sounds\InfestedBunker_Morph_Birth_VxFx_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\InfestedBunker_Morph_Birth_VxFx_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_UpRoot_VxFx_01.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Volume value="-15.000000,-12.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Morph_Action" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Morph_Birth_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Morph_Birth_02.wav" FacialGroup=""/>
+        <Pitch value="-4.000000,-4.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Morph_Birth" parent="Combat">
+        <AssetArray File="Assets\Sounds\SI_InfestedBunker_Morph_Birth.wav" FacialGroup=""/>
+        <Pitch value="-6.000000,-6.000000"/>
+        <Volume value="-10.000000,-8.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Morph_Mech_End" parent="Combat">
+        <AssetArray File="Assets\Sounds\SI_InfestedBunker_Morph_MechEnd.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,-2.000000"/>
+        <Volume value="-10.000000,-8.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Morph_Mech_Start" parent="Combat">
+        <AssetArray File="Assets\Sounds\SI_InfestedBunker_Morph_MechStart.wav" FacialGroup=""/>
+        <Pitch value="-4.000000,-4.000000"/>
+        <Volume value="-19.000000,-19.000000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Ronk_VxFx" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Ronk_VxFx_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Ronk_VxFx_02.wav" FacialGroup=""/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-12.000000,-8.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Stand01_VxFx" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Stand01_VxFx_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Stand01_VxFx_02.wav" FacialGroup=""/>
+        <Chance value="10"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-12.000000,-9.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Stand02_VxFx_A" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Stand02_VxFx_A.wav" FacialGroup=""/>
+        <Chance value="12"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-12.000000,-9.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Stand02_VxFx_B" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Stand02_VxFx_B.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Ronk_VxFx_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Ronk_VxFx_02.wav" FacialGroup=""/>
+        <Chance value="8"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-12.000000,-9.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Stand02_VxFx_C" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Stand02_VxFx_C.wav" FacialGroup=""/>
+        <Chance value="8"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-12.000000,-9.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_SwipeAttack_Impact" parent="Combat">
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_05.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_06.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\SI_Bunker_Att_Impact_07.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Select value="Random"/>
+        <Volume value="-3.000000,-1.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_SwipeAttack_Launch" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attak_Launch_05.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,1.000000"/>
+        <Volume value="-4.000000,-2.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_SwipeAttack_VxFx" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Attack_VxFx_01.wav" Weight="40" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Stand02_VxFx_A.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Stand02_VxFx_B.wav" FacialGroup=""/>
+        <Chance value="30"/>
+        <Pitch value="-2.000000,1.000000"/>
+        <Select value="Random"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_UpRootBirth_VxFx" parent="Combat">
+        <AssetArray File="Assets\Sounds\InfestedBunker_Morph_Birth_VxFx_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\InfestedBunker_Morph_Birth_VxFx_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_UpRoot_VxFx_01.wav" FacialGroup=""/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-10.000000,-6.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_UpRoot_Birth" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_UpRoot_Birth_01.wav" Weight="13" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_UpRoot_Birth_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_UpRoot_Birth_03.wav" FacialGroup=""/>
+        <Pitch value="-4.000000,-2.000000"/>
+        <Volume value="-12.000000,-10.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Walk_Fs" parent="Combat">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Walk_Fs_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Walk_Fs_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Kraith_Large_Fs_4.wav" FacialGroup=""/>
+        <DupeDestroyCount value="4"/>
+        <DupeMuteCount value="4"/>
+        <Pitch value="-4.000000,-1.000000"/>
+        <Select value="Random"/>
+        <Volume value="-22.000000,-18.000000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="25.000000" Volume="-96.000000"/>
+    </CSound>
+    <CSound id="InfestedBunker_Walk_VxFx" parent="Movement">
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Walk_VxFx_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Stukov_InfestedBunker_Walk_VxFx_02.wav" FacialGroup=""/>
+        <Chance value="25"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Volume value="-15.000000,-10.000000"/>
+    </CSound>
+    <CSound id="Infested_Bunker_Mech_Latch" parent="Combat">
+        <AssetArray File="Assets\Sounds\Sabo_Drone_LatchMech_02a.wav" FacialGroup=""/>
+        <Pitch value="-12.000000,-12.000000"/>
+        <Volume value="-16.000000,-16.000000"/>
+        <VolumeRolloffPoints Distance="10.000000"/>
+        <VolumeRolloffPoints Distance="20.000000" Volume="-96.000000"/>
+    </CSound>
     <CSound id="Mech_AttackLaunchLevel1" parent="Combat">
         <EditorCategories value="Race:Terran"/>
         <AssetArray File="Assets\Sounds\Terran\Viking\Viking_AssaultAttackLaunch0.wav"/>
@@ -71,6 +204,35 @@
         <OverlapTimeDelta value="500"/>
         <Pitch value="-2.000000,2.000000"/>
         <Volume value="-10.000000,-8.500000"/>
+    </CSound>
+    <CSound id="InfestedInfestedBunker@Explosion" parent="Combat">
+        <EditorCategories value="Race:Zerg"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionMedium9.wav" FacialGroup=""/>
+        <DupeDestroyCount value="3"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="3"/>
+        <DupePrioritization value="Oldest"/>
+        <Pitch value="-2.000000,2.000000"/>
+        <Volume value="-6.000000,-6.000000"/>
     </CSound>
     <CSound id="Tychus_Medic_HealMatrix_AOE" parent="Spell">
         <EditorCategories value="Race:Terran"/>
@@ -235,11 +397,6 @@
         <Volume value="-9.000000,-9.000000"/>
     </CSound>
     <CSound id="InfestedBunker_What" parent="Voice">
-        <EditorCategories value="Race:Zerg"/>
-        <AssetArray File="Assets\Sounds\SIBunker_What01.ogg"/>
-        <Volume value="-9.000000,-9.000000"/>
-    </CSound>
-    <CSound id="InfestedBunker_What2" parent="Voice">
         <EditorCategories value="Race:Zerg"/>
         <AssetArray File="Assets\Sounds\SIBunker_What01.ogg"/>
         <Volume value="-9.000000,-9.000000"/>

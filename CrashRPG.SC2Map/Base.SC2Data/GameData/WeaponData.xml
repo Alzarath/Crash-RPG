@@ -70,6 +70,25 @@
         <Period value="3.6"/>
         <Effect value="ImpalerCP"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="InfestedBunkerInfestedGaussRifle@Dummy">
+        <Name value="Weapon/Name/InfestedMarineInfestedGaussRifle"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Disabled" value="1"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="ContinuousScan" value="1"/>
+        <Options index="LinkedCooldown" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="InfestedBunkerInfestedGaussRifle@Damage"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquirePrioritization value="ByDistanceFromTarget"/>
+        <MinScanRange value="0"/>
+        <RangeSlop value="5"/>
+        <Marker Link="Weapon/InfestedMarineInfestedGaussRifle"/>
+        <Period value="1.2"/>
+        <DamagePoint value="0.25"/>
+        <Backswing value="0"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="MechCannonGround">
         <EditorCategories value="Race:Terran"/>
         <Options index="Disabled" value="1"/>
@@ -192,6 +211,25 @@
         <Period value="1"/>
         <DamagePoint value="0.05"/>
         <Effect value="ShooterGaussRifle@Set"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ParasiteSuicide@Air">
+        <Name value="Weapon/Name/ParasiteSuicide"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-banelingspooge.dds"/>
+        <DisplayEffect value="ParasiteSuicide@Damage"/>
+        <DisplayName value="Weapon/Name/ParasiteSuicide"/>
+        <TargetFilters value="Air,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="15"/>
+        <Range value="0.25"/>
+        <Period value="0.833"/>
+        <DamagePoint value="0"/>
+        <Effect value="ParasiteSuicide@Set"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ParasiteSuicide@Ground" parent="ParasiteSuicide@Air">
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="SwarmerClawsSpawn">
         <EditorCategories value="Race:Zerg"/>
@@ -487,7 +525,6 @@
         <Range value="0.5"/>
         <Period value="2.4"/>
         <DamagePoint value="0.12"/>
-        <Backswing value="0"/>
         <Effect value="InfestedBunkerNeosteelClaw@Damage"/>
         <AllowedMovement value="Moving"/>
     </CWeaponLegacy>
@@ -709,14 +746,14 @@
         <Effect value="VehicleGaussCannonMissile"/>
         <AllowedMovement value="Moving"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="InfestedMendingSaliva">
+    <CWeaponLegacy id="InfestedAcidulousSaliva">
         <EditorCategories value="Race:Zerg"/>
-        <Icon value="Assets\Textures\btn-ability-zerg-regenaura.dds"/>
-        <DisplayEffect value="InfestedMendingSaliva@DamageDummy"/>
-        <TargetFilters value="Visible;Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayEffect value="InfestedAcidulousSaliva@Damage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
         <Period value="2"/>
-        <Effect value="InfestedMendingSaliva@LM"/>
+        <Effect value="InfestedAcidulousSaliva@LM"/>
         <AllowedMovement value="Slowing"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ScarabMineExplode">

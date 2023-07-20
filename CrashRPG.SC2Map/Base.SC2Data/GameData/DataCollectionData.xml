@@ -415,11 +415,97 @@
         <DataRecord Entry="Abil,DefensiveWallMorph@Lower"/>
         <DataRecord Entry="Abil,DefensiveWallMorph@Raise"/>
     </CDataCollectionAbil>
+    <CDataCollectionUnit id="HunterPlasmaCanister">
+        <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,HunterPlasmaCanister"/>
+        <DataRecord Entry="Unit,HunterPlasmaCanister"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="HunterPlasmaCanisterLarge">
+        <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,HunterPlasmaCanisterLarge"/>
+        <DataRecord Entry="Unit,HunterPlasmaCanisterLarge"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="HunterPlasmaCanisterHuge">
+        <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,HunterPlasmaCanisterHuge"/>
+        <DataRecord Entry="Unit,HunterPlasmaCanisterHuge"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="HunterPlasmaCanisterSmall">
+        <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,HunterPlasmaCanisterSmall"/>
+        <DataRecord Entry="Unit,HunterPlasmaCanisterSmall"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="HunterRevenant">
         <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Unit"/>
         <DataRecord Entry="Actor,HunterRevenant"/>
         <DataRecord Entry="Unit,HunterRevenant"/>
     </CDataCollectionUnit>
+    <CDataCollectionAbil id="InfestedAberrate">
+        <EditorCategories value="DataGroup:Ability,Race:Zerg,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,InfestedAberrate"/>
+        <DataRecord Entry="Abil,InfestedAberrate@MorphToInfestedMarine"/>
+        <DataRecord Entry="Actor,InfestedAberrate@BurrowedSplat"/>
+        <DataRecord Entry="Behavior,InfestedAberrate@Available"/>
+        <DataRecord Entry="Button,InfestedAberrate@Merge"/>
+        <DataRecord Entry="Button,InfestedAberrate@MergeTarget"/>
+        <DataRecord Entry="Button,InfestedAberrate@Morph"/>
+        <DataRecord Entry="Button,InfestedAberrate"/>
+        <DataRecord Entry="Button,InfestedAberrate@Learn"/>
+        <DataRecord Entry="Button,InfestedAberrate@Upgraded"/>
+        <DataRecord Entry="Effect,InfestedAberrate@Set"/>
+        <DataRecord Entry="Requirement,InfestedAberrate@CanCast"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="InfestedBunkerBraced">
+        <EditorCategories value="DataGroup:Buff,Race:Zerg"/>
+        <DataRecord Entry="Behavior,InfestedBunkerBraced@CargoBuff"/>
+        <DataRecord Entry="Button,InfestedBunkerBraced"/>
+        <DataRecord Entry="Effect,InfestedBunkerBraced@AB"/>
+        <DataRecord Entry="Effect,InfestedBunkerBraced@RB"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="InfestedBunkerRoot">
+        <EditorCategories value="DataGroup:Ability,Race:Zerg,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,InfestedBunkerRoot@Root"/>
+        <DataRecord Entry="Abil,InfestedBunkerRoot@Uproot"/>
+        <DataRecord Entry="Button,InfestedBunkerRoot@Root"/>
+        <DataRecord Entry="Button,InfestedBunkerRoot@Uproot"/>
+    </CDataCollectionAbil>
+    <CDataCollectionUnit id="InfestedParasiteAir">
+        <EditorCategories value="DataGroup:Unit,Race:Zerg,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,InfestedParasiteAir"/>
+        <DataRecord Entry="Unit,InfestedParasiteAir"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="InfestedParasiteGround">
+        <EditorCategories value="DataGroup:Unit,Race:Zerg,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,InfestedParasiteGround"/>
+        <DataRecord Entry="Unit,InfestedParasiteGround"/>
+    </CDataCollectionUnit>
+    <CDataCollectionAbil id="InfestedPlague">
+        <EditorCategories value="DataGroup:Ability,Race:Zerg,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,InfestedPlague"/>
+        <DataRecord Entry="Actor,InfestedPlague@ModelImpact"/>
+        <DataRecord Entry="Actor,InfestedPlague@CursorSplat"/>
+        <DataRecord Entry="Actor,InfestedPlague@Glaze"/>
+        <DataRecord Entry="Actor,InfestedPlague@SoundImpact"/>
+        <DataRecord Entry="Actor,InfestedPlague@Range"/>
+        <DataRecord Entry="Actor,InfestedPlague@ModelDebuffLarge"/>
+        <DataRecord Entry="Actor,InfestedPlague@ModelDebuffMedium"/>
+        <DataRecord Entry="Actor,InfestedPlague@ModelDebuffSmall"/>
+        <DataRecord Entry="Behavior,InfestedPlague@Debuff"/>
+        <DataRecord Entry="Button,InfestedPlague"/>
+        <DataRecord Entry="Button,InfestedPlague@Learn"/>
+        <DataRecord Entry="Button,InfestedPlague@Upgraded"/>
+        <DataRecord Entry="Effect,InfestedPlague@SA"/>
+        <DataRecord Entry="Effect,InfestedPlague@Damage"/>
+        <DataRecord Entry="Effect,InfestedPlague@SwitchParasite"/>
+        <DataRecord Entry="Effect,InfestedPlague@AB"/>
+        <DataRecord Entry="Effect,InfestedPlague@CUAir"/>
+        <DataRecord Entry="Effect,InfestedPlague@SetParasiteCreate"/>
+        <DataRecord Entry="Effect,InfestedPlague@CUGround"/>
+        <DataRecord Entry="Accumulator,InfestedPlague@AccumulatedDamage"/>
+        <DataRecord Entry="Accumulator,InfestedPlague@Arithmetic"/>
+        <DataRecord Entry="Accumulator,InfestedPlague@ScaledDamage"/>
+        <DataRecord Entry="Accumulator,InfestedPlague@BaseDamage"/>
+    </CDataCollectionAbil>
     <CDataCollectionAbil id="MarauderPunisherGrenades">
         <EditorCategories value="DataGroup:Weapon,Race:Terran,ObjectType:Projectile"/>
         <DataRecord Entry="Actor,MarauderPunisherGrenades@Attack"/>
@@ -629,6 +715,40 @@
         <DataRecord Entry="Behavior,MedivacHealingBeam@Aura"/>
         <DataRecord Entry="Button,MedivacHealingBeam"/>
         <DataRecord Entry="Effect,MedivacHealingBeam@SA"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="ParasiteSuicide">
+        <EditorCategories value="DataGroup:Weapon,Race:Zerg"/>
+        <DataRecord Entry="Effect,ParasiteSuicide@Damage"/>
+        <DataRecord Entry="Effect,ParasiteSuicide@Set"/>
+        <DataRecord Entry="Weapon,ParasiteSuicide@Ground"/>
+        <DataRecord Entry="Weapon,ParasiteSuicide@Air"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="PlasmaCanisterChargeLarge">
+        <EditorCategories value="DataGroup:Ability,Race:Protoss,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,PlasmaCanisterChargeLarge"/>
+        <DataRecord Entry="Actor,PlasmaCanisterChargeLarge@SoundPickup"/>
+        <DataRecord Entry="Actor,PlasmaCanisterChargeLarge@SoundTimeOut"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeLarge@Set"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeLarge@MUAddCharge"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeLarge@MURemoveCharges"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="PlasmaCanisterChargeHuge">
+        <EditorCategories value="DataGroup:Ability,Race:Protoss,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,PlasmaCanisterChargeHuge"/>
+        <DataRecord Entry="Actor,PlasmaCanisterChargeHuge@SoundPickup"/>
+        <DataRecord Entry="Actor,PlasmaCanisterChargeHuge@SoundTimeOut"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeHuge@Set"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeHuge@MUAddCharge"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeHuge@MURemoveCharges"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="PlasmaCanisterChargeSmall">
+        <EditorCategories value="DataGroup:Ability,Race:Protoss,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,PlasmaCanisterChargeSmall"/>
+        <DataRecord Entry="Actor,PlasmaCanisterChargeSmall@SoundPickup"/>
+        <DataRecord Entry="Actor,PlasmaCanisterChargeSmall@SoundTimeOut"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeSmall@Set"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeSmall@MUAddCharge"/>
+        <DataRecord Entry="Effect,PlasmaCanisterChargeSmall@MURemoveCharges"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="PointDefenseDroneLaser">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>
@@ -884,8 +1004,20 @@
         <DataRecord Entry="Effect,HunterPlasmaDiffusion@CU"/>
         <DataRecord Entry="Effect,HunterPlasmaDiffusion@ABSubUnit"/>
         <DataRecord Entry="Unit,HunterPlasmaCanister"/>
-        <DataRecord Entry="Validator,HunterPlasmaDiffusion@CasterHasPlasmaDiffusion"/>
+        <DataRecord Entry="Validator,HunterPlasmaDiffusion@CasterHasPlasmaDiffusionCombine"/>
         <DataRecord Entry="Validator,HunterPlasmaDiffusion@TargetHasPlasmaDiffusion"/>
+        <DataRecord Entry="Abil,HunterPlasmaDiffusion@PlasmaCharge"/>
+        <DataRecord Entry="Button,HunterPlasmaDiffusion@Learn"/>
+        <DataRecord Entry="Button,HunterPlasmaDiffusion@Upgraded"/>
+        <DataRecord Entry="Effect,HunterPlasmaDiffusion@ABTimedLife"/>
+        <DataRecord Entry="Effect,HunterPlasmaDiffusion@SetCreate"/>
+        <DataRecord Entry="Requirement,HunterPlasmaDiffusion@NoFreeUse"/>
+        <DataRecord Entry="Validator,HunterPlasmaDiffusion@CasterChargedCombined"/>
+        <DataRecord Entry="Validator,HunterPlasmaDiffusion@CanCharge"/>
+        <DataRecord Entry="Validator,HunterPlasmaDiffusion@CasterCharged"/>
+        <DataRecord Entry="Validator,HunterPlasmaDiffusion@CasterChargedUpgraded"/>
+        <DataRecord Entry="Validator,HunterPlasmaDiffusion@CasterNotMaxWithUpgrade"/>
+        <DataRecord Entry="Validator,HunterPlasmaDiffusion@NotMax"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="PsionicProjectionProjectionBeam">
         <EditorCategories value="DataGroup:Weapon,Race:Protoss"/>
@@ -898,6 +1030,8 @@
         <DataRecord Entry="Effect,PsionicProjectionProjectionBeam@Damage"/>
         <DataRecord Entry="Effect,PsionicProjectionProjectionBeam@Kill"/>
         <DataRecord Entry="Weapon,PsionicProjectionProjectionBeam@Weapon"/>
+        <DataRecord Entry="Effect,PsionicProjectionProjectionBeam@SetDestroy"/>
+        <DataRecord Entry="Effect,PsionicProjectionProjectionBeam@ETU"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="HunterPsionicProjection">
         <EditorCategories value="DataGroup:Buff,Race:Protoss"/>
@@ -947,11 +1081,6 @@
         <DataRecord Entry="Actor,HunterShade"/>
         <DataRecord Entry="Unit,HunterShade"/>
     </CDataCollectionUnit>
-    <CDataCollectionAbil id="InfestedCausticWeapons">
-        <EditorCategories value="DataGroup:Buff,Race:Zerg"/>
-        <DataRecord Entry="Button,InfestedCausticWeapons"/>
-        <DataRecord Entry="Button,InfestedCausticWeapons@Learn"/>
-    </CDataCollectionAbil>
     <CDataCollectionAbil id="ShadePsionicInterference">
         <EditorCategories value="DataGroup:Buff,Race:Protoss"/>
         <DataRecord Entry="Actor,ShadePsionicInterference@Model"/>
@@ -1021,22 +1150,30 @@
         <DataRecord Entry="Effect,HunterShadowTransfer@ABUnitTracker"/>
         <DataRecord Entry="Requirement,HunterShadowTransfer@FreeUse"/>
         <DataRecord Entry="Validator,HunterShadowTransfer@NotShadowTransferring"/>
-    </CDataCollectionAbil>
-    <CDataCollectionAbil id="InfestedAberrate">
-        <EditorCategories value="DataGroup:Ability,Race:Zerg,ObjectType:Spell"/>
-        <DataRecord Entry="Abil,InfestedAberrate"/>
-        <DataRecord Entry="Behavior,InfestedAberrate@AberrationTarget"/>
-        <DataRecord Entry="Button,InfestedAberrate"/>
-        <DataRecord Entry="Effect,InfestedAberrate@AB"/>
-        <DataRecord Entry="Effect,InfestedAberrate@SetCreate"/>
-        <DataRecord Entry="Effect,InfestedAberrate@SA"/>
-        <DataRecord Entry="Validator,InfestedAberrate@IsInfestedCivilian"/>
+        <DataRecord Entry="Abil,HunterShadowTransfer@Transfer"/>
+        <DataRecord Entry="Button,HunterShadowTransfer@Free"/>
+        <DataRecord Entry="Button,HunterShadowTransfer@Upgraded"/>
+        <DataRecord Entry="Button,HunterShadowTransfer@Learn"/>
+        <DataRecord Entry="Button,HunterShadowTransfer@Cancel2"/>
+        <DataRecord Entry="Effect,HunterShadowTransfer@SetCancel"/>
+        <DataRecord Entry="Effect,HunterShadowTransfer@CURevenant"/>
+        <DataRecord Entry="Effect,HunterShadowTransfer@SetCreateRevenantTeleport"/>
+        <DataRecord Entry="Effect,HunterShadowTransfer@CURevenantCancel"/>
+        <DataRecord Entry="Effect,HunterShadowTransfer@SetCreateRevenantCancel"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="InfestedBunkerInfestedGaussRifle">
         <EditorCategories value="DataGroup:Weapon,Race:Zerg"/>
         <DataRecord Entry="Actor,InfestedBunkerInfestedGaussRifle@Attack"/>
+        <DataRecord Entry="Behavior,InfestedBunkerInfestedGaussRifle@EnableSlot1"/>
+        <DataRecord Entry="Behavior,InfestedBunkerInfestedGaussRifle@EnableSlot2"/>
+        <DataRecord Entry="Behavior,InfestedBunkerInfestedGaussRifle@EnableSlot3"/>
+        <DataRecord Entry="Behavior,InfestedBunkerInfestedGaussRifle@EnableSlot4"/>
+        <DataRecord Entry="Behavior,InfestedBunkerInfestedGaussRifle@EnableSlot5"/>
+        <DataRecord Entry="Behavior,InfestedBunkerInfestedGaussRifle@EnableSlot6"/>
+        <DataRecord Entry="Effect,InfestedBunkerInfestedGaussRifle@Dummy"/>
         <DataRecord Entry="Effect,InfestedBunkerInfestedGaussRifle@Damage"/>
         <DataRecord Entry="Weapon,InfestedBunkerInfestedGaussRifle"/>
+        <DataRecord Entry="Weapon,InfestedBunkerInfestedGaussRifle@Dummy"/>
         <DataRecord Entry="Weapon,InfestedBunkerInfestedGaussRifle@Slot2"/>
         <DataRecord Entry="Weapon,InfestedBunkerInfestedGaussRifle@Slot3"/>
         <DataRecord Entry="Weapon,InfestedBunkerInfestedGaussRifle@Slot4"/>
@@ -1073,18 +1210,29 @@
     </CDataCollectionAbil>
     <CDataCollectionAbil id="InfestedEmpathicRepercussion">
         <EditorCategories value="DataGroup:Buff,Race:Zerg"/>
-        <DataRecord Entry="Actor,InfestedEmpathicRepercussion@Glaze"/>
+        <DataRecord Entry="Actor,InfestedEmpathicRepercussion@ModelSlow"/>
         <DataRecord Entry="Actor,InfestedEmpathicRepercussion@Missile"/>
+        <DataRecord Entry="Actor,InfestedEmpathicRepercussion@Glaze"/>
+        <DataRecord Entry="Actor,InfestedEmpathicRepercussion@Sound"/>
+        <DataRecord Entry="Actor,InfestedEmpathicRepercussion@Range"/>
+        <DataRecord Entry="Behavior,InfestedEmpathicRepercussion@Unstable"/>
+        <DataRecord Entry="Behavior,InfestedEmpathicRepercussion@UT"/>
         <DataRecord Entry="Behavior,InfestedEmpathicRepercussion"/>
         <DataRecord Entry="Button,InfestedEmpathicRepercussion"/>
-        <DataRecord Entry="Effect,InfestedEmpathicRepercussion@ABInRange"/>
+        <DataRecord Entry="Button,InfestedEmpathicRepercussion@Double"/>
         <DataRecord Entry="Effect,InfestedEmpathicRepercussion@LM"/>
-        <DataRecord Entry="Effect,InfestedEmpathicRepercussion@MU"/>
+        <DataRecord Entry="Effect,InfestedEmpathicRepercussion@Set"/>
+        <DataRecord Entry="Effect,InfestedEmpathicRepercussion@ABUnstable"/>
+        <DataRecord Entry="Effect,InfestedEmpathicRepercussion@TTU"/>
+        <DataRecord Entry="Effect,InfestedEmpathicRepercussion@ABUT"/>
+        <DataRecord Entry="Effect,InfestedEmpathicRepercussion@ATU"/>
         <DataRecord Entry="Effect,InfestedEmpathicRepercussion@AB"/>
+        <DataRecord Entry="Effect,InfestedEmpathicRepercussion@MU"/>
         <DataRecord Entry="Requirement,InfestedEmpathicRepercussion"/>
         <DataRecord Entry="Unit,InfestedEmpathicRepercussion@Weapon"/>
+        <DataRecord Entry="Validator,InfestedEmpathicRepercussion@NearTrackedUnit"/>
+        <DataRecord Entry="Validator,InfestedEmpathicRepercussion@NotNearTrackedUnit"/>
         <DataRecord Entry="Validator,InfestedEmpathicRepercussion@InRange"/>
-        <DataRecord Entry="Validator,InfestedEmpathicRepercussion@OutOfRange"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="InfestedHardenedEquipment">
         <EditorCategories value="DataGroup:Buff,Race:Zerg"/>
@@ -1095,29 +1243,58 @@
         <DataRecord Entry="Button,InfestedHardenedEquipment@Weapons"/>
         <DataRecord Entry="Effect,InfestedHardenedEquipment@ABDefensive"/>
         <DataRecord Entry="Effect,InfestedHardenedEquipment@ABOffensive"/>
+        <DataRecord Entry="Button,InfestedHardenedEquipment@Upgraded"/>
+        <DataRecord Entry="Button,InfestedHardenedEquipment@Learn"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="InfestedInfestationSpore">
         <EditorCategories value="DataGroup:Ability,Race:Zerg,ObjectType:Spell"/>
         <DataRecord Entry="Abil,InfestedInfestationSpore"/>
         <DataRecord Entry="Actor,InfestedInfestationSpore@Missile"/>
         <DataRecord Entry="Actor,InfestedInfestationSpore@Model"/>
-        <DataRecord Entry="Actor,InfestedInfestationSpore@SoundLaunch"/>
         <DataRecord Entry="Actor,InfestedInfestationSpore@Range"/>
+        <DataRecord Entry="Actor,InfestedInfestationSpore@SoundLaunch"/>
+        <DataRecord Entry="Behavior,InfestedInfestationSpore@LifeIncrease"/>
+        <DataRecord Entry="Behavior,InfestedInfestationSpore@LifeDecrease"/>
         <DataRecord Entry="Behavior,InfestedInfestationSpore@Buff"/>
         <DataRecord Entry="Button,InfestedInfestationSpore"/>
-        <DataRecord Entry="Effect,InfestedInfestationSpore@AB"/>
+        <DataRecord Entry="Button,InfestedInfestationSpore@Upgraded"/>
+        <DataRecord Entry="Button,InfestedInfestationSpore@Learn"/>
         <DataRecord Entry="Effect,InfestedInfestationSpore@LM"/>
+        <DataRecord Entry="Effect,InfestedInfestationSpore@ABLifeIncrease"/>
+        <DataRecord Entry="Effect,InfestedInfestationSpore@ABLifeDecrease"/>
         <DataRecord Entry="Effect,InfestedInfestationSpore@MU"/>
+        <DataRecord Entry="Effect,InfestedInfestationSpore@SetInitialize"/>
+        <DataRecord Entry="Effect,InfestedInfestationSpore@AB"/>
         <DataRecord Entry="Effect,InfestedInfestationSpore@RBOverlord"/>
-        <DataRecord Entry="Effect,InfestedInfestationSpore@Set"/>
         <DataRecord Entry="Requirement,InfestedInfestationSpore@NotMaxVictims"/>
         <DataRecord Entry="Unit,InfestedInfestationSpore@Weapon"/>
+        <DataRecord Entry="Validator,InfestedInfestationSpore@IsInfested"/>
+        <DataRecord Entry="Accumulator,InfestedInfestationSpore@UnderLifeApplicator"/>
+        <DataRecord Entry="Accumulator,InfestedInfestationSpore@OverLifeApplicator"/>
+        <DataRecord Entry="Accumulator,InfestedInfestationSpore@OverLifeDifference"/>
+        <DataRecord Entry="Accumulator,InfestedInfestationSpore@UnderLifeDifference"/>
     </CDataCollectionAbil>
     <CDataCollectionUnit id="InfestedInfestedBunker">
         <EditorCategories value="DataGroup:Unit,Race:Zerg,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,InfestedInfestedBunker@Birth"/>
         <DataRecord Entry="Actor,InfestedInfestedBunker"/>
-        <DataRecord Entry="Model,InfestedInfestedBunker"/>
+        <DataRecord Entry="Actor,InfestedInfestedBunker@MorphModelRoot"/>
+        <DataRecord Entry="Actor,InfestedInfestedBunker@MorphModelUproot"/>
+        <DataRecord Entry="Actor,InfestedInfestedBunker@Uprooted"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@RootMorphmodel"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@RootedModel"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@RootPlacement"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@UprootMorphModel"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@UprootedModel"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@RootedDeathModel"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@UprootedDeathModel"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@UprootMorphDeathModel"/>
+        <DataRecord Entry="Model,InfestedInfestedBunker@RootMorphDeathModel"/>
+        <DataRecord Entry="Sound,InfestedInfestedBunker@Explosion"/>
+        <DataRecord Entry="Unit,InfestedInfestedBunker@Uprooted"/>
         <DataRecord Entry="Unit,InfestedInfestedBunker"/>
+        <DataRecord Entry="Validator,InfestedInfestedBunker@OuterIsRootedUnit"/>
+        <TechInfoUnit value="InfestedInfestedBunker@Uprooted"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="InfestedInfestedCivilian">
         <EditorCategories value="DataGroup:Unit,Race:Zerg,ObjectType:Unit"/>
@@ -1132,30 +1309,47 @@
         <DataRecord Entry="Unit,InfestedInfestedEgg@Marine"/>
     </CDataCollectionUnit>
     <CDataCollectionAbil id="InfestedInfestedEggs">
-        <EditorCategories value=""/>
+        <EditorCategories value="DataGroup:Ability,Race:Zerg,ObjectType:Spell"/>
         <DataRecord Entry="Abil,InfestedInfestedEggs"/>
         <DataRecord Entry="Actor,InfestedInfestedEggs@SoundImpact"/>
-        <DataRecord Entry="Actor,InfestedInfestedEggs@Missile"/>
         <DataRecord Entry="Actor,InfestedInfestedEggs@Attack"/>
+        <DataRecord Entry="Actor,InfestedInfestedEggs@Missile"/>
         <DataRecord Entry="Behavior,InfestedInfestedEggs@TimedLifeExcessSummons"/>
         <DataRecord Entry="Button,InfestedInfestedEggs"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggCivilian"/>
+        <DataRecord Entry="Button,InfestedInfestedEggs@Learn"/>
+        <DataRecord Entry="Button,InfestedInfestedEggs@Upgraded"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@Switch"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SwitchTransferAttributesCivilian"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@ABAberrate"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@ABCausticWeapons"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialShared"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@ABExcess"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggMarine"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggCivilianOverflow"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialMarine"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggMarineOverflow"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialMarineOverflow"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggCivilianOverflow"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggCivilian"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SetImpactMarine"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@LMMarine"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SwitchTransferAttributesMarine"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialCivilian"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialCivilianOverflow"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialMarine"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialMarineOverflow"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@ABTimedLife"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@ABExcess"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@LMCivilian"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@LMMarine"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@Switch"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@SetImpactCivilian"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SetImpactMarine"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SwitchTransferAttributesCivilian"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SwitchTransferAttributesMarine"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@LMCivilian"/>
+        <DataRecord Entry="Requirement,InfestedInfestedEggs@Learned"/>
+        <DataRecord Entry="Requirement,InfestedInfestedEggs@ShouldProduceInfestedMarine"/>
+        <DataRecord Entry="Unit,InfestedInfestedEggs@Weapon"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@NotEgg"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@ShouldProduceInfestedMarineOverflow"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@ShouldProduceInfestedOverflow"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@IsEgg"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@IsEggCivilian"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@IsEggMarine"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@NotEggCivilian"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@NotEggMarine"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@ShouldProduceInfestedMarine"/>
+        <DataRecord Entry="Validator,InfestedInfestedEggs@IsOverflow"/>
     </CDataCollectionAbil>
     <CDataCollectionUnit id="InfestedInfestedMarine">
         <EditorCategories value="DataGroup:Unit,Race:Zerg,ObjectType:Unit"/>
@@ -1168,27 +1362,32 @@
         <DataRecord Entry="Effect,InfestedMarineInfestedGaussRifle@Damage"/>
         <DataRecord Entry="Weapon,InfestedMarineInfestedGaussRifle"/>
     </CDataCollectionAbil>
-    <CDataCollectionAbil id="InfestedMendingSaliva">
+    <CDataCollectionAbil id="InfestedAcidulousSaliva">
         <EditorCategories value="DataGroup:Weapon,Race:Zerg,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,InfestedMendingSaliva@Attack"/>
-        <DataRecord Entry="Actor,InfestedMendingSaliva@Missile"/>
-        <DataRecord Entry="Effect,InfestedMendingSaliva@Switch"/>
-        <DataRecord Entry="Effect,InfestedMendingSaliva@CH"/>
-        <DataRecord Entry="Effect,InfestedMendingSaliva@DamageDummy"/>
-        <DataRecord Entry="Effect,InfestedMendingSaliva@LM"/>
-        <DataRecord Entry="Effect,InfestedMendingSaliva@SwitchExperience"/>
-        <DataRecord Entry="Effect,InfestedMendingSaliva@MUExperience"/>
-        <DataRecord Entry="Unit,InfestedMendingSaliva@Weapon"/>
-        <DataRecord Entry="Weapon,InfestedMendingSaliva"/>
+        <DataRecord Entry="Actor,InfestedAcidulousSaliva@Attack"/>
+        <DataRecord Entry="Actor,InfestedAcidulousSaliva@Missile"/>
+        <DataRecord Entry="Effect,InfestedAcidulousSaliva@Set"/>
+        <DataRecord Entry="Effect,InfestedAcidulousSaliva@Damage"/>
+        <DataRecord Entry="Effect,InfestedAcidulousSaliva@SAGround"/>
+        <DataRecord Entry="Effect,InfestedAcidulousSaliva@DamageSplash"/>
+        <DataRecord Entry="Effect,InfestedAcidulousSaliva@Switch"/>
+        <DataRecord Entry="Effect,InfestedAcidulousSaliva@LM"/>
+        <DataRecord Entry="Unit,InfestedAcidulousSaliva@Weapon"/>
+        <DataRecord Entry="Validator,InfestedAcidulousSaliva@PrimaryandSplashTargetsSharePlane"/>
+        <DataRecord Entry="Validator,InfestedAcidulousSaliva@PrimaryTargetIsAirUnit"/>
+        <DataRecord Entry="Validator,InfestedAcidulousSaliva@PrimaryandSplashTargetsAreAirUnits"/>
+        <DataRecord Entry="Validator,InfestedAcidulousSaliva@PrimaryandSplashTargetsAreGroundUnits"/>
+        <DataRecord Entry="Validator,InfestedAcidulousSaliva@PrimaryTargetIsGroundUnit"/>
+        <DataRecord Entry="Weapon,InfestedAcidulousSaliva"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="PlasmaCanisterCharge">
         <EditorCategories value="DataGroup:Ability,Race:Protoss,ObjectType:Spell"/>
         <DataRecord Entry="Abil,PlasmaCanisterCharge"/>
         <DataRecord Entry="Actor,PlasmaCanisterCharge@SoundPickup"/>
         <DataRecord Entry="Actor,PlasmaCanisterCharge@SoundTimeOut"/>
-        <DataRecord Entry="Effect,PlasmaCanisterCharge@AB"/>
         <DataRecord Entry="Effect,PlasmaCanisterCharge@Set"/>
         <DataRecord Entry="Effect,PlasmaCanisterCharge@MUAddCharge"/>
+        <DataRecord Entry="Effect,PlasmaCanisterCharge@MURemoveCharges"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="ScarabMineBurrow">
         <EditorCategories value="DataGroup:Ability,Race:Protoss,ObjectType:Spell"/>

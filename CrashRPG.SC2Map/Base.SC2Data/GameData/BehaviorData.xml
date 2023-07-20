@@ -41,9 +41,55 @@
             <AdditiveMoveSpeedFactor value="0.1"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedPlague@Debuff">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-plague.dds"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Duration value="20"/>
+        <Period value="0.125"/>
+        <PeriodicEffect value="InfestedPlague@Damage"/>
+        <Modification>
+            <ModifyFlags index="Reveal" value="1"/>
+            <ModifyFlags index="Detected" value="1"/>
+            <DeathResponse Chance="1" Effect="InfestedPlague@SwitchParasite"/>
+        </Modification>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedBunkerBraced@CargoBuff">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Structures"/>
+        <DisableValidatorArray value="InfestedInfestedBunker@OuterIsRootedUnit"/>
+        <Modification RangedWeaponRange="2">
+            <AbilLinkEnableArray value="stop"/>
+            <BehaviorLinkDisableArray value="InfestedEmpathicRepercussion@Unstable"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorVeterancy id="CRPGMech@Veterancy" parent="CRPGHeroVeterancy">
         <Name value="Behavior/Name/CRPGMech@Veterancy"/>
     </CBehaviorVeterancy>
+    <CBehaviorBuff id="CrashedBCMedicalFacilities@Aura">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="CrashedBCMedicalFacilities@SA"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CrashedBCMedicalFacilities@LifeRegenUnaccumulated">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <DisableValidatorArray value="NotFullLife"/>
+        <Modification>
+            <VitalRegenArray index="Life" value="75"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="CrashedBCMedicalFacilities@ShieldRegenUnaccumulated">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
+        <DisableValidatorArray value="TargetLifeFull"/>
+        <DisableValidatorArray value="ShieldsNotFull"/>
+        <Modification>
+            <VitalRegenArray index="Shields" value="75"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="FighterAstralWind@Self">
         <InfoIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
@@ -76,7 +122,7 @@
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <DisableValidatorArray value="NotFullLife"/>
         <Modification>
-            <VitalRegenArray index="Life" value="100">
+            <VitalRegenArray index="Life" value="75">
                 <AccumulatorArray value="CrashedBCMedicalFacilities@HealingDistributionMultiplier"/>
             </VitalRegenArray>
         </Modification>
@@ -87,7 +133,7 @@
         <DisableValidatorArray value="TargetLifeFull"/>
         <DisableValidatorArray value="ShieldsNotFull"/>
         <Modification>
-            <VitalRegenArray index="Shields" value="100">
+            <VitalRegenArray index="Shields" value="75">
                 <AccumulatorArray value="CrashedBCMedicalFacilities@HealingDistributionMultiplier"/>
             </VitalRegenArray>
         </Modification>
@@ -125,10 +171,23 @@
         <RemoveValidatorArray value="FighterRapidStrikes@Buffed"/>
         <Duration value="7"/>
     </CBehaviorBuff>
+    <CBehaviorUnitTracker id="HunterShadowTransfer@UT">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+    </CBehaviorUnitTracker>
     <CBehaviorBuff id="ImpalerTarget">
         <EditorCategories value="AbilityorEffectType:Units"/>
         <Duration value="2"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedAberrate@Available">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
+    </CBehaviorBuff>
+    <CBehaviorUnitTracker id="InfestedEmpathicRepercussion@UT">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+    </CBehaviorUnitTracker>
     <CBehaviorBuff id="MechExplosiveImmortality@Rebuilding">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisplayDuration index="Self" value="1"/>
@@ -435,11 +494,6 @@
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Duration value="8"/>
     </CBehaviorBuff>
-    <CBehaviorUnitTracker id="InfestedAberrate@UT">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <MaxTrackedUnits value="2"/>
-    </CBehaviorUnitTracker>
     <CBehaviorBuff id="AlienRapidTransfusion">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
@@ -924,7 +978,7 @@
         </Cost>
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
-        <DisableValidatorArray value="HunterPlasmaDiffusion@CasterHasPlasmaDiffusion"/>
+        <DisableValidatorArray value="HunterPlasmaDiffusion@CasterHasPlasmaDiffusionCombine"/>
         <DamageResponse Handled="HunterPlasmaDiffusion@AB" Location="Attacker">
             <Chance value="1"/>
         </DamageResponse>
@@ -934,7 +988,7 @@
         <InfoIcon value="Assets\Textures\wireframe-general-pickupplasmarounds.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Duration value="5"/>
-        <DamageResponse Fatal="1" Handled="HunterPlasmaDiffusion@CU">
+        <DamageResponse Fatal="1" Handled="HunterPlasmaDiffusion@Switch">
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
@@ -943,7 +997,7 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <DisableValidatorArray value="HunterPlasmaDiffusion@CasterChargedCombined"/>
-        <DisableValidatorArray value="HunterPlasmaDiffusion@CasterHasPlasmaDiffusion"/>
+        <DisableValidatorArray value="HunterPlasmaDiffusion@CasterHasPlasmaDiffusionCombine"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HunterPlasmaDiffusion">
         <InfoFlags index="Hidden" value="1"/>
@@ -1041,6 +1095,8 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Modification>
+            <AbilLinkDisableArray value="HunterDisruptorVolley"/>
+            <AbilLinkDisableArray value="HunterDisruptorVolley@Free"/>
             <WeaponEnableArray value="HunterDisruptorVolleyFour"/>
             <WeaponDisableArray value="HunterPurifierGlaiveCannon"/>
             <WeaponDisableArray value="HunterPurifierGlaiveCannon"/>
@@ -1068,11 +1124,13 @@
         <DisableValidatorArray value="NotBeingAbducted"/>
         <DisableValidatorArray value="KD8CasterKnockingBack"/>
         <Duration value="8.0625"/>
-        <FinalEffect value="HunterShadowTransfer@RBCancelTarget"/>
+        <FinalEffect value="HunterShadowTransfer@SetCasterFinal"/>
         <ExpireEffect value="HunterShadowTransfer@RBCancelTarget"/>
         <Modification>
             <StateFlags index="Cloak" value="1"/>
             <StateFlags index="SuppressPassenger" value="1"/>
+            <AbilLinkDisableArray value="HunterShadowTransfer"/>
+            <AbilLinkDisableArray value="HunterShadowTransfer@Free"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="HunterShadowTransfer@Timer">
@@ -1085,6 +1143,7 @@
         <DisplayDuration index="Enemy" value="1"/>
         <DisableValidatorArray value="CasterNotAbducted"/>
         <DisableValidatorArray value="KD8CasterKnockingBack"/>
+        <RemoveValidatorArray value="HunterShadowTransfer@CasterShadowTransferring"/>
         <RemoveValidatorArray value="CasterNotDead"/>
         <Duration value="8"/>
         <FinalEffect value="HunterShadowTransfer@SetFinal"/>
@@ -1116,21 +1175,21 @@
             <VitalRegenMultiplier index="Energy" value="0.25"/>
         </Modification>
     </CBehaviorAttribute>
-    <CBehaviorBuff id="CRPGRecentlyAttacked">
+    <CBehaviorBuff id="CRPGShieldDelayController@RecentlyAttacked">
         <InfoFlags index="Hidden" value="1"/>
-        <RemoveValidatorArray value="CRPGHasMedicalFacilitiesShield"/>
+        <RemoveValidatorArray value="CrashedBCMedicalFacilities@NotRegeneratingShieldsCombine"/>
         <Duration value="10"/>
         <Modification>
             <VitalRegenMultiplier index="Shields" value="-1"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGShieldDelayController">
+        <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CrashedBCMedicalFacilities@RegeneratingShields"/>
-        <DamageResponse Handled="CRPGRecentlyDamagedApplyBehavior">
+        <DisableValidatorArray value="CrashedBCMedicalFacilities@NotRegeneratingShieldsCombine"/>
+        <DamageResponse Handled="CRPGShieldDelayController@AB">
             <Chance value="1"/>
         </DamageResponse>
-        <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CarryHarvestMineralsMinerals">
         <InfoFlags index="Hidden" value="1"/>
@@ -1587,6 +1646,7 @@
         <Modification>
             <AbilLinkDisableArray value="Queue2"/>
         </Modification>
+        <InitialEffect value="HunterPsionicProjection@MUResetCharges"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="HunterPsionicProjection@Cooldown">
         <InfoFlags index="Hidden" value="1"/>
@@ -1611,6 +1671,7 @@
         <DisableValidatorArray value="CargoGE1"/>
         <Modification>
             <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle"/>
+            <WeaponEnableArray value="InfestedBunkerInfestedGaussRifle@Dummy"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="InfestedBunkerInfestedGaussRifle@EnableSlot2">
@@ -1656,7 +1717,7 @@
     <CBehaviorBuff id="InfestedEmpathicRepercussion">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="InfestedEmpathicRepercussion@InRange"/>
+        <DisableValidatorArray value="InfestedEmpathicRepercussion@NearTrackedUnit"/>
         <MaxStackCount value="2"/>
         <DamageResponse Fatal="1" Handled="InfestedEmpathicRepercussion@LM">
             <Chance value="1"/>
@@ -1672,7 +1733,7 @@
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CRPGPassive2Learned"/>
-        <DisableValidatorArray value="InfestedEmpathicRepercussion@InRange"/>
+        <DisableValidatorArray value="InfestedEmpathicRepercussion@NearTrackedUnit"/>
         <Modification>
             <DamageDealtUnscaled index="Ranged" value="1"/>
         </Modification>
@@ -1682,7 +1743,7 @@
         <InfoIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CRPGPassive2Learned"/>
-        <DisableValidatorArray value="InfestedEmpathicRepercussion@InRange"/>
+        <DisableValidatorArray value="InfestedEmpathicRepercussion@NearTrackedUnit"/>
         <DamageResponse ModifyFraction="0.8">
             <Chance value="1"/>
         </DamageResponse>
@@ -1716,7 +1777,7 @@
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="InfestedEmpathicRepercussion@OutOfRange"/>
+        <DisableValidatorArray value="InfestedEmpathicRepercussion@NotNearTrackedUnit"/>
         <Modification MoveSpeedBonus="-1" AttackSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="KillsToTarget">
@@ -1744,11 +1805,6 @@
         <InfoIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite.dds"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Modification Food="6"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="InfestedAberrate@AberrationTarget">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
-        <Duration value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MechBarrage@Stunned">
         <Alignment value="Negative"/>

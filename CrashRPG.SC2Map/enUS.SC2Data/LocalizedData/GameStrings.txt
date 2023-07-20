@@ -78,14 +78,19 @@ Abil/Name/HunterScarabMine=Scarab Mine
 Abil/Name/HunterScarabMine@Free=Scarab Mine
 Abil/Name/HunterShadowTransfer=Shadow Transfer
 Abil/Name/HunterShadowTransfer@Cancel=Cancel
+Abil/Name/HunterShadowTransfer@CancelCaster=Cancel
 Abil/Name/HunterShadowTransfer@Free=Shadow Transfer
 Abil/Name/HunterShadowTransfer@Transfer=Transfer
-Abil/Name/InfestedAberrate=Aberrate
+Abil/Name/InfestedAberrate=Merge
+Abil/Name/InfestedAberrate@MorphToInfestedMarine=Morph To Infested Marine
+Abil/Name/InfestedBunkerRoot@Root=Root
+Abil/Name/InfestedBunkerRoot@Uproot=Uproot
 Abil/Name/InfestedBunkerTransport=Load-Unload
 Abil/Name/InfestedEggMorphToInfestedCivilian=Morph To Infested Civilian
 Abil/Name/InfestedEggMorphToInfestedMarine=Morph To Infested Marine
 Abil/Name/InfestedInfestationSpore=Infestation Spore
 Abil/Name/InfestedInfestedEggs=Infested Eggs
+Abil/Name/InfestedPlague=Plague
 Abil/Name/MechBarrage=Barrage
 Abil/Name/MechExplosiveImmortality=Explosive Immortality
 Abil/Name/MechPointDefenseDrones=Point Defense Drones
@@ -106,6 +111,9 @@ Abil/Name/OutpostLiftOff=Lift Off
 Abil/Name/OutpostTrain=Train
 Abil/Name/OutpostTrainSCV=Train SCV
 Abil/Name/PlasmaCanisterCharge=Pickup
+Abil/Name/PlasmaCanisterChargeHuge=Pickup
+Abil/Name/PlasmaCanisterChargeLarge=Pickup
+Abil/Name/PlasmaCanisterChargeSmall=Pickup
 Abil/Name/Queue2=Queue (2)
 Abil/Name/RandomizeHero=Randomize Hero
 Abil/Name/ScarabMineBurrow=Burrow
@@ -267,6 +275,7 @@ Behavior/Name/InfestedHardenedEquipment@Offensive=Hardened Equipment
 Behavior/Name/InfestedInfestationSpore@Buff=Infested
 Behavior/Name/InfestedInfestationSpore@LifeDecrease=Life Decrease
 Behavior/Name/InfestedInfestationSpore@LifeIncrease=Life Increase
+Behavior/Name/InfestedPlague@Debuff=Plagued
 Behavior/Name/MechBarrage@Stunned=Barrage
 Behavior/Name/MechExplosiveImmortality@Rebuilding=Rebuilding
 Behavior/Name/MechShockBlast@Stunned=Shocked
@@ -349,6 +358,7 @@ Behavior/Tooltip/InfestedHardenedEquipment@Offensive=This unit deals increased d
 Behavior/Tooltip/InfestedInfestationSpore@Buff=This unit is being controlled by an Infested.
 Behavior/Tooltip/InfestedInfestationSpore@LifeDecrease=
 Behavior/Tooltip/InfestedInfestationSpore@LifeIncrease=
+Behavior/Tooltip/InfestedPlague@Debuff=This unit or structure is revealed and its life is being depleted.
 Behavior/Tooltip/MechBarrage@Stunned=Target is currently stunned and unable to use any abilities.
 Behavior/Tooltip/MechExplosiveImmortality@Rebuilding=This unit is disabled and invulnerable while it rebuilds.
 Behavior/Tooltip/MedicHealingBeam=This unit is taking reduced damage and healed over time.
@@ -387,6 +397,7 @@ Behavior/Tooltip/WizardReanimated=Target is serving a new master.
 Behavior/Tooltip/WizardReanimating=Target is resurrecting.
 Button/ChargeText/ArmoryUpgradeArmor=<d ref="$UpgradeCount:ArmoryUpgradeArmor@Upgrade$"/>
 Button/ChargeText/ShooterChaingun=<d ref="100 * $BehaviorStackCount:ShooterChaingun@Buff$ * Accumulator,ShooterChaingun@Value,Amount"/>%
+Button/CooldownOverride/HunterShadowTransfer=<d ref="Effect,HunterShadowTransfer@MUCooldown,Cost[0].CooldownTimeUse"/> after channel
 Button/Name/ActiveSecondaryButton=ActiveSecondaryButton
 Button/Name/ActiveTernaryButton=ActiveTernaryButton
 Button/Name/ActiveTernaryButton2=ActiveTernaryButton Copy
@@ -439,6 +450,7 @@ Button/Name/ArmoryUpgradeDamage=Upgrade Damage
 Button/Name/ArmoryUpgradeEnergy=Upgrade Energy
 Button/Name/AssassinShadowFury=Shadow Fury
 Button/Name/BossLock=Boss Lock
+Button/Name/BunkerUnloadAll=Unload All
 Button/Name/CButtonUpgradeable=CButtonUpgradeable
 Button/Name/CRPGAbilityUpgradePassivePrimary=Primary Passive Upgrade
 Button/Name/CRPGAbilityUpgradePassiveSecondary=Secondary Passive Upgrade
@@ -502,11 +514,15 @@ Button/Name/HunterShadowTransfer@Free=Shadow Transfer
 Button/Name/HunterShadowTransfer@Learn=Learn Shadow Transfer
 Button/Name/HunterShadowTransfer@Upgraded=Upgraded Shadow Transfer
 Button/Name/InfestedAberrate=Aberrate
+Button/Name/InfestedAberrate@Active=Infested Bunker Merge
+Button/Name/InfestedAberrate@ActiveTarget=Aberrate
 Button/Name/InfestedAberrate@Learn=Learn Aberrate
+Button/Name/InfestedAberrate@Merge=Infested Bunker Merge
+Button/Name/InfestedAberrate@Morph=Morph To Infested Marine
 Button/Name/InfestedAberrate@Upgraded=Upgraded Aberrate
-Button/Name/InfestedCausticWeapons=Caustic Weapons
-Button/Name/InfestedCausticWeapons@Learn=Learn Caustic Weapons
-Button/Name/InfestedCausticWeapons@Upgraded=Upgraded Caustic Weapons
+Button/Name/InfestedBunkerBraced=Braced
+Button/Name/InfestedBunkerRoot@Root=Root
+Button/Name/InfestedBunkerRoot@Uproot=Uproot
 Button/Name/InfestedEmpathicRepercussion=Empathic Repercussion
 Button/Name/InfestedEmpathicRepercussion@Double=Empathic Repercussion
 Button/Name/InfestedHardenedEquipment=Hardened Equipment
@@ -521,7 +537,11 @@ Button/Name/InfestedInfestedEggs=Infested Eggs
 Button/Name/InfestedInfestedEggs@Learn=Learn Infested Eggs
 Button/Name/InfestedInfestedEggs@Upgraded=Upgraded Infested Eggs
 Button/Name/InfestedInfestedSupplies=Infested Supplies
+Button/Name/InfestedPlague=Plague
+Button/Name/InfestedPlague@Learn=Learn Plague
+Button/Name/InfestedPlague@Upgraded=Upgraded Plague
 Button/Name/MechBarrage=Barrage
+Button/Name/MechBarrage@Cancel=Cancel
 Button/Name/MechBarrage@Learn=Learn Barrage
 Button/Name/MechBarrage@Upgraded=Upgraded Barrage
 Button/Name/MechExplosiveImmortality=Explosive Immortality
@@ -664,6 +684,7 @@ Button/Tooltip/AlienYagdraFirebreath=Channels a cone of acid. Will turn to chase
 Button/Tooltip/AlienYagdraSpitFire=Yagdra spits acid at the target location after 2 seconds.
 Button/Tooltip/AssassinShadowFury=Become invisible and unrevealable, jumping between <d ref="Behavior,FighterShadowFuryController,PeriodCount+1"/> targets, slashing at each <d ref="Effect,FighterShadowFuryAttackCreatePersistent,PeriodCount"/> (<d ref="Effect,FighterShadowFuryAttackRapidCreatePersistent2,PeriodCount"/> while Rapid Strikes is active) times.
 Button/Tooltip/BossLock=Locks onto a heroic unit, preventing this unit from being damaged while it exists.
+Button/Tooltip/BunkerUnloadAll=Unloads all units.
 Button/Tooltip/CButtonUpgradeable=Increase the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% every time they attack, stacking up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
 Button/Tooltip/CButtonUpgradeable@Upgraded=Chaingun lasts an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
 Button/Tooltip/CRPGAbilityUpgradePassivePrimary=Upgrades your heroes' first passive ability.
@@ -698,7 +719,7 @@ Button/Tooltip/CRPGHunter=Offensive burst hero. Relies on setup and attack timin
 Button/Tooltip/CRPGHunterLevel1=Basic worker unit. Can gather resources and warp in Protoss structures.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/CRPGHunterLevel3=Ranged attack strider. Can use Blink.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/CRPGHunterLevel4=Aiur Faction<n/>Ranged assault strider. Has enhanced life and attack damage.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
-Button/Tooltip/CRPGInfested=Supportive summoner. Uses Infested Terran to attack<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Infested Eggs</c><n/><c val="#ColorActiveAbilityInfo">Aberrate</c><n/><c val="#ColorActiveAbilityInfo">Infestation Spore</c><n/><c val="#ColorPassiveAbilityInfo">Caustic Weapons</c><n/><c val="#ColorPassiveAbilityInfo">Hardened Equipment</c><n/><n/><c val="#ColorAttackInfo">Can heal ground and air units.</c>
+Button/Tooltip/CRPGInfested=Summoner. Hatches Infested units and commits war crimes.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Infested Eggs</c><n/><c val="#ColorActiveAbilityInfo">Plague</c><n/><c val="#ColorActiveAbilityInfo">Infestation Spore</c><n/><c val="#ColorPassiveAbilityInfo">Aberrate</c><n/><c val="#ColorPassiveAbilityInfo">Laser Armaments</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGLevelUp=Levels up the hero to the next available level, granting it additional abilties.
 Button/Tooltip/CRPGMarauder=Anti-armor infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGMarine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
@@ -736,7 +757,6 @@ Button/Tooltip/CRPGVehicleLevel4=Fast, high-damage hovertank. Rail Gun can fire 
 Button/Tooltip/CRPGWeaponsFree=Orders selected units to fire at will. They will engage enemy units within range and chase them as normal.
 Button/Tooltip/CRPGWizard=Powerful caster. Uses area of effect and supportive abilities to decimate its enemies and assist its allies.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Psionic Storm</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Khaydarin Amulet<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Psionic Orb<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Confusion<n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Reanimate</s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGWizardLevel3=Tal'darim Faction<n/>Potent psionic master. Can use Psionic Orb, Mind Blast, and Sacrifice.<n/><n/><c val="ffff8a">Can attack ground units.</c>
-Button/Tooltip/Cancel=Drops the current order without performing it, and allows you to select a different order.
 Button/Tooltip/CrashedBattlecruiserNomadRepair=Sends a Nomad to restore up to <d ref="Unit,CRPGNomad,EnergyStart / Effect,NomadRepair,DrainVitalCostFactor"/> life to a structure.
 Button/Tooltip/DefensiveTurretHellstormMissilePods=Channel a flurry of missiles at a massive enemy unit.
 Button/Tooltip/DefensiveWallMorph@Lower=Lowers the structure, allowing ground units to move across it.
@@ -764,9 +784,12 @@ Button/Tooltip/Follow=Orders the selected unit to become a follower of a heroic 
 Button/Tooltip/GuardianMP=Long range siege unit.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/HunterDisruptorVolley=Charges the next attack to fire a volley of <d ref="Effect,HunterDisruptorVolley@CP,PeriodCount"/> long-range projectiles that each deal <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,HunterDisruptorVolley@Damage,Amount$"/></c> damage fired at them. Each Psionic Orb fires <d ref="Effect,PsionicProjectionDisruptorVolley@CP,PeriodCount"/> additional projectiles.
 Button/Tooltip/HunterDisruptorVolley@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,HunterDisruptorVolley,Cost[0].Vital[Energy]"/><n/><n/>Fire a volley of long-range projectiles at the next attack target.
-Button/Tooltip/HunterDisruptorVolley@Upgraded=Disruptor Volley fires <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeTernary:Effect,HunterDisruptorVolley@CP,PeriodCount$"/> additional projectile from the caster and <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeTernary:Effect,PsionicProjectionDisruptorVolley@CP,PeriodCount$"/> additional projectile from each Psionic Projection.
-Button/Tooltip/HunterPlasmaCanister=Grants a charge of Plasma Diffusion.
-Button/Tooltip/HunterPlasmaDiffusion=Attacking enemies makes them drop plasma canisters on death. Picking up <d ref="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountUse"/> of them will cause the next spell cast to be free with no cooldown.
+Button/Tooltip/HunterDisruptorVolley@Upgraded=Disruptor Volley fires <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeTernary@Upgrade:Effect,HunterDisruptorVolley@CP,PeriodCount$"/> additional projectile from the caster and <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeTernary@Upgrade:Effect,PsionicProjectionDisruptorVolley@CP,PeriodCount$"/> additional projectile from each Psionic Projection.
+Button/Tooltip/HunterPlasmaCanister=Grants <d ref="-Effect,PlasmaCanisterCharge@MUAddCharge,Cost[0].ChargeCountUse"/> charges of Plasma Diffusion.
+Button/Tooltip/HunterPlasmaCanisterHuge=Grants <d ref="-Effect,PlasmaCanisterChargeLarge@MUAddCharge,Cost[0].ChargeCountUse"/> charges of Plasma Diffusion.
+Button/Tooltip/HunterPlasmaCanisterLarge=Grants <d ref="-Effect,PlasmaCanisterChargeLarge@MUAddCharge,Cost[0].ChargeCountUse"/> charges of Plasma Diffusion.
+Button/Tooltip/HunterPlasmaCanisterSmall=Grants <d ref="-Effect,PlasmaCanisterChargeSmall@MUAddCharge,Cost[0].ChargeCountUse"/> charges of Plasma Diffusion.
+Button/Tooltip/HunterPlasmaDiffusion=Attacking enemies causes them to drop a Plasma Canister on death that grants a number of stacks of Plasma Charge depending on the size of the enemy when picked up. Having <d ref="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountUse"/> stacks will cause the next spell cast to be free with no cooldown.
 Button/Tooltip/HunterPlasmaDiffusion@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Enemies killed drop plasma canisters. Picking up <d ref="Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountUse"/> makes the next spell cast free.
 Button/Tooltip/HunterPlasmaDiffusion@Upgraded=Plasma Diffusion can store an additional <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Abil,HunterPlasmaDiffusion@PlasmaCharge,Cost[0].Charge.CountMax$"/> charges.
 Button/Tooltip/HunterPsionicProjection=After not attacking for <d time="[d ref='Behavior,HunterPsionicProjection@Cooldown,Duration'/]"/>, project a psionic orb that will attack with the caster, dealing <c val="#ColorAttackInfo"><d ref="Effect,PsionicProjectionProjectionBeam@CP,PeriodCount * $AccumulatedValue:Effect,PsionicProjectionProjectionBeam@Damage,Amount$"/></c> damage over <d time="[d ref='Effect,PsionicProjectionProjectionBeam@CP,PeriodCount * Effect,PsionicProjectionProjectionBeam@CP,PeriodicPeriodArray[0]'/]"/>. Can store up to <d ref="Abil,HunterPsionicProjection,MaxCount"/>.
@@ -781,15 +804,22 @@ Button/Tooltip/HunterScarabMine@Upgraded=Scarab Mine can store <d ref="$UpgradeE
 Button/Tooltip/HunterShade=Projects an invulnerable Shade that can move but cannot attack. Enemies that touch the shade take <d ref="Effect,AdeptPsionicTransferDamage,Amount"/> extra damage from all sources for <d ref="Behavior,AdeptPsionicTransferDamageDebuff,Duration"/> seconds.<n/><n/>The Adept teleports to the Shade's location <d ref="Behavior,AdeptPhaseShiftTimer,Duration"/> seconds after activation.<n/><n/>Can be canceled after activation.
 Button/Tooltip/HunterShadowTransfer=Cloak for up to <d ref="Behavior,HunterShadowTransfer@Timer,Duration"/> seconds and project an invulnerable Shade that can move but cannot attack. Teleports to the Shade after the duration.<n/><n/>Can be cancelled after activation.
 Button/Tooltip/HunterShadowTransfer@Free=Cloak for up to <d ref="Behavior,HunterShadowTransfer@Timer,Duration"/> seconds and project an invulnerable Shade that can move but cannot attack. Teleports to the Shade after the duration.<n/><n/>Can be cancelled after activation.
-Button/Tooltip/HunterShadowTransfer@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,HunterShadowTransfer,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,HunterShadowTransfer,Cost[0].Cooldown.TimeUse"/><n/><n/>Cloak for up to <d ref="Behavior,HunterShadowTransfer@Timer,Duration"/> seconds and project a Shade that the caster then teleports to.
+Button/Tooltip/HunterShadowTransfer@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,HunterShadowTransfer,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Effect,HunterShadowTransfer@MUCooldown,Cost[0].CooldownTimeUse"/><n/><n/>Cloak for up to <d ref="Behavior,HunterShadowTransfer@Timer,Duration"/> seconds and project a Shade that the caster then teleports to.
 Button/Tooltip/HunterShadowTransfer@Upgraded=Shadow Transfer spawns an uncontrollable Revenant that attacks for the caster when cancelled or activated.
 Button/Tooltip/IgnoresArmor=<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
-Button/Tooltip/InfestedAberrate=Merges two Infested Civilians into a more powerful monstrosity.
-Button/Tooltip/InfestedAberrate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedAberrate,Cost[0].Vital[Energy]"/><n/><n/>Merges two Infested Civilians into a more powerful monstrosity.
-Button/Tooltip/InfestedAberrate@Upgraded=NYI
-Button/Tooltip/InfestedCausticWeapons=Infested Terran after the first two spawn with Gauss Rifles.
-Button/Tooltip/InfestedCausticWeapons@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Infested Terran after the first two spawn with Gauss Rifles.
-Button/Tooltip/InfestedCausticWeapons@Upgraded=NYI
+Button/Tooltip/InfestedAberrate=Infested Civilians can merge into an Infested Bunker or morph into an Infested Marine.<n/><n/>Infested Bunkers have increased life and can load Infested Marines.<n/><n/>Infested Marines sacrifice some life for a ranged attack.
+Button/Tooltip/InfestedAberrate@Active2@Upgraded=NYI
+Button/Tooltip/InfestedAberrate@ActiveTarget=Merges two Infested Civilians into a more powerful monstrosity.
+Button/Tooltip/InfestedAberrate@ActiveTarget@Upgraded=NYI
+Button/Tooltip/InfestedAberrate@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Infested Civilians can merge into an Infested Bunker or morph into an Infested Marine.
+Button/Tooltip/InfestedAberrate@Merge=Merges two Infested Civilians into an Infested Bunker, granting it increased stats and the ability to transport Infested Marines.
+Button/Tooltip/InfestedAberrate@Merge@Upgraded=NYI
+Button/Tooltip/InfestedAberrate@Morph=Morphs into an Infested Marine, reducing its life while gaining a ranged weapon.
+Button/Tooltip/InfestedAberrate@Upgraded=Infested Bunkers can root. While rooted, Infested Bunkers have significantly increased life regeneration and their occupants are granted +<d ref="Behavior,InfestedBunkerBraced@CargoBuff,Modification.RangedWeaponRange"/> range and are unaffected by Empathetic Repercussion.
+Button/Tooltip/InfestedBunkerBraced=This unit has increased life regeneration. Cargo gains increased range and is unaffected by Empathic Repercussion.
+Button/Tooltip/InfestedBunkerRoot@Root=Roots the Infested Bunker, granting it increased life regeneration.
+Button/Tooltip/InfestedBunkerRoot@Uproot=Uproots the Infested Bunker, allowing it to move, attack, and transport units. Units inside can attack while uprooted.
+Button/Tooltip/InfestedCausticWeapons@Morph@Upgraded=NYI
 Button/Tooltip/InfestedEmpathicRepercussion=Must remain near the summoner or it has reduced movement and attack speed.<n/><n/>On death, if it's in range, the summoner takes <d ref="-1 * Effect,InfestedEmpathicRepercussion@MU,VitalArray[Life].Change"/> damage and recovers <d ref="Effect,InfestedEmpathicRepercussion@MU,VitalArray[Energy].Change"/> energy.
 Button/Tooltip/InfestedEmpathicRepercussion@Double=Must remain near the summoner or it has reduced movement and attack speed.<n/><n/>On death, if it's in range, the summoner takes <d ref="-2 * Effect,InfestedEmpathicRepercussion@MU,VitalArray[Life].Change"/> damage and recovers <d ref="2 * Effect,InfestedEmpathicRepercussion@MU,VitalArray[Energy].Change"/> energy.
 Button/Tooltip/InfestedHardenedEquipment=Infested units deal +<d ref="Behavior,InfestedHardenedEquipment@Offensive,Modification.DamageDealtUnscaled[Ranged]"/> ranged damage. Infested Civilians and Bunkers take <d ref="(1 - Behavior,InfestedHardenedEquipment@Defensive,DamageResponse.ModifyFraction) * 100"/>% reduced damage.
@@ -804,13 +834,20 @@ Button/Tooltip/InfestedInfestedBunker=Infested Bunkers deal moderate damage and 
 Button/Tooltip/InfestedInfestedCivilian=Melee attacker.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/InfestedInfestedEgg@Civilian=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
 Button/Tooltip/InfestedInfestedEgg@Marine=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
-Button/Tooltip/InfestedInfestedEggs=Spawn an Infested Terran. Infested Terran last forever and hurt the caster when killed.
-Button/Tooltip/InfestedInfestedEggs@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedInfestedEggs,Cost[0].Vital[Energy]"/><n/><n/>Spawn Infested Terran.
+Button/Tooltip/InfestedInfestedEggs=Spawn an Infested Civilian. Infested Terran last forever and hurt the caster when killed.
+Button/Tooltip/InfestedInfestedEggs@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedInfestedEggs,Cost[0].Vital[Energy]"/><n/><n/>Spawn Infested Civilian.
 Button/Tooltip/InfestedInfestedEggs@Upgraded=Infested Eggs can spawn Infested Terran beyond the food limit, each lasting <d time="[d ref='Behavior,InfestedInfestedEggs@TimedLifeExcessSummons,Duration'/]"/>.
 Button/Tooltip/InfestedInfestedMarine=Ranged attacker.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/InfestedInfestedSupplies=This supply-giving unit is infested, allowing up to two additional Infested Terran to be summoned.
+Button/Tooltip/InfestedInfestedSupplies=This unit is infested, allowing control of up to two additional supply worth of Infested Terran.
+Button/Tooltip/InfestedParasiteAir=Fast suicide unit. Lasts a short duration.<n/><n/><c val="ffff8a">Can attack air units.</c>
+Button/Tooltip/InfestedParasiteGround=Fast suicide unit. Lasts a short duration.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
+Button/Tooltip/InfestedPlague=Infects enemy units and structures, dealing <c val="#ColorAttackInfo"><d ref="$RunAccumulators:InfestedPlague@ScaledDamage$*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/></c> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields. Reveals afflicted units.
+Button/Tooltip/InfestedPlague@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedPlague,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,InfestedPlague,Cost[0].Cooldown.TimeUse"/><n/><n/>Infects enemies, dealing <d ref="Accumulator,InfestedPlague@BaseDamage,Amount*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields.
+Button/Tooltip/InfestedPlague@Upgraded=Units killed with Plague spawn a suicidal Parasite.
 Button/Tooltip/LockedNydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<n/><n/><c val="ffff8a">Enables:</c><n/>- Greater Nydus Worm
 Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrage@CP,PeriodCount * $AccumulatedValue:Effect,MechBarrage@Damage,Amount$" precision="3"/></c> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
+Button/Tooltip/MechBarrage@Cancel=Drops the current order without performing it, and allows you to select a different order.
+Button/Tooltip/MechBarrage@Cancel@Upgraded=NYI
 Button/Tooltip/MechBarrage@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechBarrage,Cost[0].Vital[Energy]"/><n/><n/>Deals <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@Damage,Amount"/> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
 Button/Tooltip/MechBarrage@Upgraded=NYI
 Button/Tooltip/MechBarrage@Upgraded@Upgraded=NYI
@@ -835,8 +872,8 @@ Button/Tooltip/MedicHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active
 Button/Tooltip/MedicHealingBeam@Upgraded=Healing Beam's healing rate is increased by <d ref="-100 * ([d stringref='Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>%.
 Button/Tooltip/MedicIrradiate=Irradiates a target unit, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@Damage,Amount$" precision="3"/></c> damage per second for <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to enemy units near the target.
 Button/Tooltip/MedicIrradiate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MedicIrradiate,Cost[0].Vital[Energy]"/><n/><n/>Irradiates a target unit, dealing <d ref="Behavior,MedicIrradiate,Duration * Effect,MedicIrradiate@Damage,Amount"/> damage over <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to surrounding enemy units.
-Button/Tooltip/MedicIrradiate@Upgraded=Irradiate applies a damage over time effect that deals an additional <d ref="Effect,MedicIrradiate@DamageLinger,Amount * (1 + Behavior,MedicIrradiate@Linger,Duration)"/> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/>. The primary effect also lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
-Button/Tooltip/MedicIrradiate@UpgradedAccumulated=Irradiate applies a damage over time effect that deals an additional <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@DamageLinger,Amount$ * (1 + Behavior,MedicIrradiate@Linger,Duration)"/></c> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/>. The primary effect also lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
+Button/Tooltip/MedicIrradiate@Upgraded=Irradiate deals an additional <d ref="Effect,MedicIrradiate@DamageLinger,Amount * (1 + Behavior,MedicIrradiate@Linger,Duration)"/> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/> to any unit damaged by the primary effect. The primary effect lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
+Button/Tooltip/MedicIrradiate@UpgradedAccumulated=Irradiate deals an additional <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@DamageLinger,Amount$ * (1 + Behavior,MedicIrradiate@Linger,Duration)"/></c> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/> to enemy units damaged by the primary effect. The primary effect lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
 Button/Tooltip/MedicOpticalFlare=This unit has +<d ref="Behavior,MedicOpticalFlare,Modification.SightBonus"/> sight range, detection, and can see up a cliff level.<n/><n/>Enemy units that enter its vision are blinded. Blinded units can't detect, have <d ref="-Behavior,MedicOpticalFlare@Blind,Modification.SightBonus"/> reduced sight range, and ranged units have <d ref="-Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange"/> reduced attack range.
 Button/Tooltip/MedicOpticalFlare@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Gain sight range, detection, and cliff sight. Nearby enemies have reduced sight and weapon range.
 Button/Tooltip/MedicOpticalFlare@Upgraded=Optical Flare further reduces enemy sight range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,MedicOpticalFlare@Blind,Modification.SightBonus$"/>, attack range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange$"/>, and grants the caster detection.
@@ -975,6 +1012,10 @@ DataCollection/Name/FighterRapidStrikes=Rapid Strikes
 DataCollection/Name/FighterResurgence=Resurgence
 DataCollection/Name/FighterViolentCharge=Violent Charge
 DataCollection/Name/HunterDisruptorVolley=Disruptor Volley
+DataCollection/Name/HunterPlasmaCanister=Plasma Canister
+DataCollection/Name/HunterPlasmaCanisterHuge=Plasma Canister
+DataCollection/Name/HunterPlasmaCanisterLarge=Plasma Canister
+DataCollection/Name/HunterPlasmaCanisterSmall=Plasma Canister
 DataCollection/Name/HunterPlasmaDiffusion=Plasma Diffusion
 DataCollection/Name/HunterPsionicProjection=Psionic Projection
 DataCollection/Name/HunterPurifierGlaiveCannon=Purifier Glaive Cannon
@@ -983,10 +1024,12 @@ DataCollection/Name/HunterScarabMine=Scarab Mine
 DataCollection/Name/HunterShade=Shade
 DataCollection/Name/HunterShadowTransfer=Shadow Transfer
 DataCollection/Name/InfestedAberrate=Aberrate
+DataCollection/Name/InfestedAcidulousSaliva=Acidulous Saliva
+DataCollection/Name/InfestedBunkerBraced=Braced
 DataCollection/Name/InfestedBunkerInfestedGaussRifle=Infested Gauss Rifle
 DataCollection/Name/InfestedBunkerNeosteelClaw=Neosteel Claw
+DataCollection/Name/InfestedBunkerRoot=Root
 DataCollection/Name/InfestedBunkerTransport=Transport
-DataCollection/Name/InfestedCausticWeapons=Caustic Weapons
 DataCollection/Name/InfestedCivilianInfestedClaws=Infested Claws
 DataCollection/Name/InfestedEggMorphToInfestedCivilian=Morph To Infested Civilian
 DataCollection/Name/InfestedEggMorphToInfestedMarine=Morph To Infested Marine
@@ -999,7 +1042,9 @@ DataCollection/Name/InfestedInfestedEgg=Infested Egg
 DataCollection/Name/InfestedInfestedEggs=Infested Eggs
 DataCollection/Name/InfestedInfestedMarine=Infested Marine
 DataCollection/Name/InfestedMarineInfestedGaussRifle=Infested Gauss Rifle
-DataCollection/Name/InfestedMendingSaliva=Mending Saliva
+DataCollection/Name/InfestedParasiteAir=Parasite
+DataCollection/Name/InfestedParasiteGround=Parasite
+DataCollection/Name/InfestedPlague=Plague
 DataCollection/Name/MarauderPunisherGrenades=Punisher Grenades
 DataCollection/Name/MarineC14GaussRifle=C-14 Gauss Rifle
 DataCollection/Name/MechBarrage=Barrage
@@ -1020,7 +1065,11 @@ DataCollection/Name/MedicSelfixArmor=Selfix Armor
 DataCollection/Name/MedicSpawnMedivac=Spawn Medivac
 DataCollection/Name/MedivacAfterburners=Afterburners
 DataCollection/Name/MedivacHealingBeam=Healing Beam
+DataCollection/Name/ParasiteSuicide=Suicide
 DataCollection/Name/PlasmaCanisterCharge=Charge
+DataCollection/Name/PlasmaCanisterChargeHuge=Charge
+DataCollection/Name/PlasmaCanisterChargeLarge=Charge
+DataCollection/Name/PlasmaCanisterChargeSmall=Charge
 DataCollection/Name/PointDefenseDroneLaser=Laser
 DataCollection/Name/PsionicProjectionDisruptorVolley=Disruptor Volley
 DataCollection/Name/PsionicProjectionProjectionBeam=Projection Beam
@@ -1545,8 +1594,12 @@ Effect/Name/CRPGAddExperience15000=Add Experience
 Effect/Name/CRPGAddExperience50=Add Experience
 Effect/Name/CRPGAddExperience7500=Add Experience
 Effect/Name/CRPGCasterTracker@AB=Apply Behavior
-Effect/Name/CRPGCasterTracker@ATUCasterToTarget=Add Tracked Unit
+Effect/Name/CRPGCasterTracker@ATCTCT=Add Tracked Caster To Caster Tracker
+Effect/Name/CRPGCasterTracker@ATCTCT2=Add Tracked Casters To Caster Tracker
+Effect/Name/CRPGCasterTracker@AddCasterToCasterTracker=Add Caster To Caster Tracker
 Effect/Name/CRPGCasterTracker@ETU=Enum Tracked Units
+Effect/Name/CRPGCasterTracker@ETUATCTCT=Enum Tracked Units
+Effect/Name/CRPGCasterTracker@ETUBase=Enum Tracked Caster
 Effect/Name/CRPGControlArmoryApplyBehavior=Control Armory
 Effect/Name/CRPGControlCrashedBattlecruiserApplyBehavior=Control Crashed Battlecruiser
 Effect/Name/CRPGDummyWeapon=Dummy Weapon
@@ -1567,8 +1620,8 @@ Effect/Name/CRPGHoldFire=Hold Fire
 Effect/Name/CRPGHoldFireB=Hold Fire B
 Effect/Name/CRPGLevelUpDummyVisuals=Level Up
 Effect/Name/CRPGLevelUpSet=Level Up
-Effect/Name/CRPGRecentlyDamagedApplyBehavior=Recently Damaged
 Effect/Name/CRPGReviveModifyPlayer=Revive
+Effect/Name/CRPGShieldDelayController@AB=Apply Behavior
 Effect/Name/CRPGTransferSelectionToSource=Transfer Selection To Source
 Effect/Name/CRPGTransferSelectionToTarget=Transfer Selection To Target
 Effect/Name/CRPGUnderlingLevel@AB=Apply Behavior
@@ -1578,16 +1631,24 @@ Effect/Name/CRPGUnderlingLevel@SetTransfer=Set
 Effect/Name/CRPGUnderlingLevel@TB=Transfer Behavior
 Effect/Name/CRPGUpgradeAttackRate=Upgrade AttackRate
 Effect/Name/CrashedBCMedicalFacilities@ABLifeRegen=Apply Behavior
+Effect/Name/CrashedBCMedicalFacilities@ABLifeRegenUnaccumulated=Apply Behavior
 Effect/Name/CrashedBCMedicalFacilities@ABShieldRegen=Apply Behavior
+Effect/Name/CrashedBCMedicalFacilities@ABShieldRegenUnaccumulated=Apply Behavior
 Effect/Name/CrashedBCMedicalFacilities@ATU=Add Tracked Unit
 Effect/Name/CrashedBCMedicalFacilities@CP=Create Persistent
 Effect/Name/CrashedBCMedicalFacilities@RBLifeRegen=Remove Behavior
+Effect/Name/CrashedBCMedicalFacilities@RBLifeRegenUnaccumulated=Remove Behavior
 Effect/Name/CrashedBCMedicalFacilities@RBShieldRegen=Remove Behavior
+Effect/Name/CrashedBCMedicalFacilities@RBShieldRegenUnaccumulated=Remove Behavior
 Effect/Name/CrashedBCMedicalFacilities@RTU=Remove Tracked Unit
 Effect/Name/CrashedBCMedicalFacilities@SA=Search Area
 Effect/Name/CrashedBCMedicalFacilities@SetEnd=Set
+Effect/Name/CrashedBCMedicalFacilities@SetEndHero=Set
 Effect/Name/CrashedBCMedicalFacilities@SetInitial=Set
 Effect/Name/CrashedBCMedicalFacilities@SetStart=Set
+Effect/Name/CrashedBCMedicalFacilities@SetStartHero=Set
+Effect/Name/CrashedBCMedicalFacilities@SwitchEnd=Switch
+Effect/Name/CrashedBCMedicalFacilities@SwitchStart=Switch
 Effect/Name/CrashedBattlecruiserBuildStructure@CUDefensiveFortification=Create Unit
 Effect/Name/CrashedBattlecruiserBuildStructure@CUDefensiveTurret=Create Unit
 Effect/Name/CrashedBattlecruiserBuildStructure@CUDefensiveWall=Create Unit
@@ -1695,12 +1756,13 @@ Effect/Name/HunterPlasmaDiffusion@AB=Apply Behavior
 Effect/Name/HunterPlasmaDiffusion@ABSubUnit=Apply Behavior
 Effect/Name/HunterPlasmaDiffusion@ABTimedLife=Apply Behavior
 Effect/Name/HunterPlasmaDiffusion@CU=Create Unit
+Effect/Name/HunterPlasmaDiffusion@CUSmall=Create Unit
 Effect/Name/HunterPlasmaDiffusion@SetCreate=Set
-Effect/Name/HunterProjectionBeam@ETU=Enum Caster
-Effect/Name/HunterProjectionBeam@SetDestroy=Set
+Effect/Name/HunterPlasmaDiffusion@Switch=Switch
 Effect/Name/HunterPsionicProjection@ABCooldown=Apply Behavior
 Effect/Name/HunterPsionicProjection@IOCancel=Issue Order
 Effect/Name/HunterPsionicProjection@IOStart=Issue Order
+Effect/Name/HunterPsionicProjection@MUResetCharges=Modify Unit
 Effect/Name/HunterPsionicProjection@MUResetCooldown=Modify Unit
 Effect/Name/HunterPsionicProjection@MUStartCooldown=Modify Unit
 Effect/Name/HunterPsionicProjection@MUSubtractCharge=Modify Unit
@@ -1724,11 +1786,16 @@ Effect/Name/HunterShadowTransfer@ABCaster=Apply Behavior
 Effect/Name/HunterShadowTransfer@ABHeroRadar=Apply Behavior
 Effect/Name/HunterShadowTransfer@ABTarget=Apply Behavior
 Effect/Name/HunterShadowTransfer@ABTimer=Apply Behavior
+Effect/Name/HunterShadowTransfer@ATU=Add Tracked Unit
 Effect/Name/HunterShadowTransfer@CU=Create Unit
 Effect/Name/HunterShadowTransfer@CURevenant=Create Unit
 Effect/Name/HunterShadowTransfer@CURevenantCancel=Create Unit
+Effect/Name/HunterShadowTransfer@ETU=Enum Tracked Units
+Effect/Name/HunterShadowTransfer@EnumCasterCancel=Enum Caster
+Effect/Name/HunterShadowTransfer@IOCancel=Issue Order
 Effect/Name/HunterShadowTransfer@IOSpawn=Issue Order
 Effect/Name/HunterShadowTransfer@Kill=Kill
+Effect/Name/HunterShadowTransfer@MUCooldown=Modify Unit
 Effect/Name/HunterShadowTransfer@MUOrderQueue=Modify Unit
 Effect/Name/HunterShadowTransfer@MUSelection=Modify Unit
 Effect/Name/HunterShadowTransfer@RBCancelCaster=Remove Behavior
@@ -1741,9 +1808,10 @@ Effect/Name/HunterShadowTransfer@RBMothershipRecalled=Remove Behavior
 Effect/Name/HunterShadowTransfer@RBMothershipRecalling=Remove Behavior
 Effect/Name/HunterShadowTransfer@RBNeuralParasite=Remove Behavior
 Effect/Name/HunterShadowTransfer@RBShadeCancel=Remove Behavior
+Effect/Name/HunterShadowTransfer@RTU=Remove Tracked Unit
 Effect/Name/HunterShadowTransfer@SetCancel=Set
+Effect/Name/HunterShadowTransfer@SetCasterFinal=Set
 Effect/Name/HunterShadowTransfer@SetCreate=Set
-Effect/Name/HunterShadowTransfer@SetCreateRevenantCancel=Set
 Effect/Name/HunterShadowTransfer@SetCreateRevenantTeleport=Set
 Effect/Name/HunterShadowTransfer@SetFinal=Set
 Effect/Name/HunterShadowTransfer@SetFree=Set
@@ -1755,29 +1823,29 @@ Effect/Name/ImpalerAB=Primal Lurker AB
 Effect/Name/ImpalerCP=Primal Lurker CP
 Effect/Name/ImpalerLMSet=Primal Lurker LM Set
 Effect/Name/ImpalerSA=Primal Lurker SA
-Effect/Name/InfestedAberrate@ATU=Track Unit
-Effect/Name/InfestedAberrate@CPDelayedRefund=Create Persistent
-Effect/Name/InfestedAberrate@CU=Create Unit
-Effect/Name/InfestedAberrate@ETUFailure=Enum Tracked Units
-Effect/Name/InfestedAberrate@ETUSuccess=Enum Tracked Units
-Effect/Name/InfestedAberrate@RTU=Untrack Unit
-Effect/Name/InfestedAberrate@RefundEnergy=Refund Energy
-Effect/Name/InfestedAberrate@SA=Search Area
-Effect/Name/InfestedAberrate@SetCreate=Set
-Effect/Name/InfestedAberrate@SetFailure=Set
-Effect/Name/InfestedAberrate@SetInitial=Set
-Effect/Name/InfestedAberrate@SetSuccess=Set
-Effect/Name/InfestedAberrate@Switch=Switch
+Effect/Name/InfestedAberrate@Set=Set
+Effect/Name/InfestedAcidulousSaliva@Damage=Damage
+Effect/Name/InfestedAcidulousSaliva@DamageSplash=Damage
+Effect/Name/InfestedAcidulousSaliva@LM=Launch Missile
+Effect/Name/InfestedAcidulousSaliva@SAGround=Search Area
+Effect/Name/InfestedAcidulousSaliva@Set=Set
+Effect/Name/InfestedAcidulousSaliva@Switch=Switch
+Effect/Name/InfestedBunkerBraced@AB=Apply Behavior
+Effect/Name/InfestedBunkerBraced@RB=Remove Behavior
 Effect/Name/InfestedBunkerInfestedGaussRifle@Damage=Damage
+Effect/Name/InfestedBunkerInfestedGaussRifle@Dummy=Dummy
 Effect/Name/InfestedBunkerNeosteelClaw@Damage=Damage
 Effect/Name/InfestedCivilianInfestedClaws@Damage=Damage
 Effect/Name/InfestedEggMorphToInfestedCivilian@IO=Issue Order
 Effect/Name/InfestedEggMorphToInfestedMarine@IO=Issue Order
 Effect/Name/InfestedEmpathicRepercussion@AB=Apply Behavior
+Effect/Name/InfestedEmpathicRepercussion@ABUT=Apply Behavior
 Effect/Name/InfestedEmpathicRepercussion@ABUnstable=Apply Behavior
+Effect/Name/InfestedEmpathicRepercussion@ATU=Add Tracked Unit
 Effect/Name/InfestedEmpathicRepercussion@LM=Launch Missile
 Effect/Name/InfestedEmpathicRepercussion@MU=Modify Unit
 Effect/Name/InfestedEmpathicRepercussion@Set=Set
+Effect/Name/InfestedEmpathicRepercussion@TTU=Transfer Tracked Units
 Effect/Name/InfestedHardenedEquipment@ABDefensive=Apply Behavior
 Effect/Name/InfestedHardenedEquipment@ABOffensive=Apply Behavior
 Effect/Name/InfestedInfestationSpore@AB=Apply Behavior
@@ -1786,7 +1854,9 @@ Effect/Name/InfestedInfestationSpore@ABLifeIncrease=Apply Behavior
 Effect/Name/InfestedInfestationSpore@LM=Launch Missile
 Effect/Name/InfestedInfestationSpore@MU=Modify Unit
 Effect/Name/InfestedInfestationSpore@RBOverlord=Remove Behavior
-Effect/Name/InfestedInfestationSpore@Set=Set
+Effect/Name/InfestedInfestationSpore@SetInitialize=Set
+Effect/Name/InfestedInfestedEggs@ABAberrate=Apply Behavior
+Effect/Name/InfestedInfestedEggs@ABCausticWeapons=Apply Behavior
 Effect/Name/InfestedInfestedEggs@ABExcess=Apply Behavior
 Effect/Name/InfestedInfestedEggs@CUEggCivilian=Create Unit
 Effect/Name/InfestedInfestedEggs@CUEggCivilianOverflow=Create Unit
@@ -1800,16 +1870,18 @@ Effect/Name/InfestedInfestedEggs@SetInitialCivilian=Set
 Effect/Name/InfestedInfestedEggs@SetInitialCivilianOverflow=Set
 Effect/Name/InfestedInfestedEggs@SetInitialMarine=Set
 Effect/Name/InfestedInfestedEggs@SetInitialMarineOverflow=Set
+Effect/Name/InfestedInfestedEggs@SetInitialShared=Set
 Effect/Name/InfestedInfestedEggs@Switch=Switch
 Effect/Name/InfestedInfestedEggs@SwitchTransferAttributesCivilian=Switch
 Effect/Name/InfestedInfestedEggs@SwitchTransferAttributesMarine=Switch
 Effect/Name/InfestedMarineInfestedGaussRifle@Damage=Damage
-Effect/Name/InfestedMendingSaliva@CH=Create Healer
-Effect/Name/InfestedMendingSaliva@DamageDummy=Damage
-Effect/Name/InfestedMendingSaliva@LM=Launch Missile
-Effect/Name/InfestedMendingSaliva@MUExperience=Modify Unit
-Effect/Name/InfestedMendingSaliva@Switch=Switch
-Effect/Name/InfestedMendingSaliva@SwitchExperience=Switch
+Effect/Name/InfestedPlague@AB=Apply Behavior
+Effect/Name/InfestedPlague@CUAir=Create Unit
+Effect/Name/InfestedPlague@CUGround=Create Unit
+Effect/Name/InfestedPlague@Damage=Damage
+Effect/Name/InfestedPlague@SA=Search Area
+Effect/Name/InfestedPlague@SetParasiteCreate=Set
+Effect/Name/InfestedPlague@SwitchParasite=Switch
 Effect/Name/MarauderPunisherGrenades@Damage=Damage
 Effect/Name/MarauderPunisherGrenades@LM=Launch Missile
 Effect/Name/MarineC14GaussRifle@Damage=Damage
@@ -1883,9 +1955,20 @@ Effect/Name/NeedleSpinesDamage=Melee
 Effect/Name/NomadRepair=Repair
 Effect/Name/OutpostTrainSCVCreateUnit=Train SCV
 Effect/Name/OutpostTrainSCVModifyPlayer=Train SCV
+Effect/Name/ParasiteSuicide@Damage=Damage
+Effect/Name/ParasiteSuicide@Set=Set
 Effect/Name/PlasmaCanisterCharge@MUAddCharge=Modify Unit
 Effect/Name/PlasmaCanisterCharge@MURemoveCharges=Modify Unit
 Effect/Name/PlasmaCanisterCharge@Set=Set
+Effect/Name/PlasmaCanisterChargeHuge@MUAddCharge=Modify Unit
+Effect/Name/PlasmaCanisterChargeHuge@MURemoveCharges=Modify Unit
+Effect/Name/PlasmaCanisterChargeHuge@Set=Set
+Effect/Name/PlasmaCanisterChargeLarge@MUAddCharge=Modify Unit
+Effect/Name/PlasmaCanisterChargeLarge@MURemoveCharges=Modify Unit
+Effect/Name/PlasmaCanisterChargeLarge@Set=Set
+Effect/Name/PlasmaCanisterChargeSmall@MUAddCharge=Modify Unit
+Effect/Name/PlasmaCanisterChargeSmall@MURemoveCharges=Modify Unit
+Effect/Name/PlasmaCanisterChargeSmall@Set=Set
 Effect/Name/PointDefenseDroneLaser@ABCooldownAntiMissile=Apply Behavior
 Effect/Name/PointDefenseDroneLaser@ABCooldownRepair=Apply Behavior
 Effect/Name/PointDefenseDroneLaser@CP=Create Persistent
@@ -1902,7 +1985,9 @@ Effect/Name/PsionicProjectionDisruptorVolley@LM=Launch Missile
 Effect/Name/PsionicProjectionDisruptorVolley@SetDestroy=Set
 Effect/Name/PsionicProjectionProjectionBeam@CP=Create Persistent
 Effect/Name/PsionicProjectionProjectionBeam@Damage=Damage
+Effect/Name/PsionicProjectionProjectionBeam@ETU=Enum Caster
 Effect/Name/PsionicProjectionProjectionBeam@Kill=Kill
+Effect/Name/PsionicProjectionProjectionBeam@SetDestroy=Set
 Effect/Name/ReanimateModifyUnit=Reanimate
 Effect/Name/RevenantTimedLife@AB=Apply Behavior
 Effect/Name/RoachMeleeSet2=Roach Melee Set Copy
@@ -2225,6 +2310,8 @@ MapInfo/Player13/Name=Survivor Base
 MapInfo/Player14/Name=Aliens
 MapInfo/Player15/Name=Hostile
 MustTargetHeroOrDefensiveFortification=Must Target Hero With <4 Followers Or Defensive Fortification
+Param/Expression/8A2F9162=Player ~SourcePlayer~ treats Player ~TargetPlayer~ as:<n/>Allied: ~AlliedState~<n/>Push: ~PushableState~<n/>Spend: ~SpendState~
+Param/Expression/8D7666B2=~unitName~ (~unitTag~)
 Param/Value/00A54A75=Life: X/X
 Param/Value/0229372C=At last, we're free of this accursed place!
 Param/Value/025AEB56=Select a Hero
@@ -2280,7 +2367,7 @@ Param/Value/2BF226C0=<s val="ModLeftSize20Bold">Crashed Battlecruiser</s>
 Param/Value/2D1DD6FD= lost their hero. They may continue to watch or leave at any time.
 Param/Value/2FB1EB77=Crashed Battlecruiser
 Param/Value/31448877=It looks like the Aliens are disappointed that we survived. <s val="AlertDisplay"><c val="FF3333">Attack wave incoming!</c></s>
-Param/Value/31D50281=The Aliens are distracted by a newly developed pile of meat. It's us.
+Param/Value/31D50281=They found a new source of food.
 Param/Value/32818CA1=Retreat is always a viable option.
 Param/Value/35A6D3C4=As a survivor, you are victorious!
 Param/Value/36AD09D4=Ground defenses losing power.
@@ -2311,7 +2398,7 @@ Param/Value/53765FE9=/
 Param/Value/542E0D2F=Adjutant
 Param/Value/544FA7CC=Random
 Param/Value/54A9AF5F=This is the end of the tutorial. Feel free to continue playing or quit and join other players.
-Param/Value/578BB5FA=Shared Mineral Pool<n/><n/>Kills contribute a percentage of the received minerals to a pool. When the pool reaches its maximum, 100 minerals are distributed to each player.
+Param/Value/578BB5FA=<s val="@@@StandardTooltipHeader">Shared Mineral Pool</s><n/><n/>Kills contribute a percentage of the received minerals to a pool. When the pool reaches its maximum, 100 minerals are distributed to each player.
 Param/Value/59144C8C=No one made it...
 Param/Value/5A3530FD= lost their hero.
 Param/Value/5AFED7C3=Destroy Alien spawners <s val="SimpleCommandRow">(</s>
@@ -2348,7 +2435,7 @@ Param/Value/82986773=No one made it...
 Param/Value/831A242C=Adjutant
 Param/Value/84066029=Everyone okay? Good. We'll need to fight our way out of here.
 Param/Value/8427AE5A=The armor system works much like Warcraft 3. Units block a percentage of damage depending on how much armor they have. This has diminishing returns, gaining less reduction every upgrade.
-Param/Value/84F8E6AC=I don't think they like that we survived.
+Param/Value/84F8E6AC=They're disappointed that we survived.
 Param/Value/85EB5A08=To begin, please use your Civilian to move to a beacon and select a hero.
 Param/Value/8841B02F=is unable to be randomized a hero. They may stay and watch or leave at any time.
 Param/Value/88AFC3AF=Unfortunately you did not survive. Better luck next time!
@@ -2369,7 +2456,7 @@ Param/Value/93491C78=Crashed Battlecruiser
 Param/Value/94FAEF32= lost their hero.
 Param/Value/97E17203=Killing enemies gives experience and minerals.
 Param/Value/989CBFFD=Welcome to the tutorial. This will run like a normal game, albeit with less aggressive Aliens.
-Param/Value/9A9DC6A0=Please protect me!
+Param/Value/9A9DC6A0=I'm too young to die!
 Param/Value/9DA083F1=Crashed Battlecruiser
 Param/Value/9DF27DB0=Take as long as you want to look over the heroes. While you have a time limit to pick in a normal game, there is no rush here.
 Param/Value/9EAB35B9=Mayday! We're going down! Brace for impact!
@@ -2382,7 +2469,7 @@ Param/Value/A728E7E8=At last, we're free of this accursed place!
 Param/Value/A86EF859=Adjutant
 Param/Value/A8A4D396=Take as long as you want to look over the heroes. While you have a time limit to pick in a normal game, there is no rush here.
 Param/Value/A8CC4712=/
-Param/Value/A9C2F644=Thought it was a rescue party for a moment.
+Param/Value/A9C2F644=That's no rescue party.
 Param/Value/AA2E31F6=Mayday! We're going down! Brace for impact!
 Param/Value/ABD3DF24=Destroy Alien spawners <s val="SimpleCommandRow">(
 Param/Value/ABFFB158=Experience is used to level up your hero.
@@ -2427,9 +2514,10 @@ Param/Value/D287BDA5=Destroy Alien Nests <s val="SimpleCommandRow">(</s>
 Param/Value/D477359E=I've got a bad feeling about this.
 Param/Value/D540622B=They're coming to finish the job.
 Param/Value/D5722569=Life: X/X
-Param/Value/D6121FA2=Remaining Life<n/><n/>When destroyed, the Crashed Battlecruiser can no longer heal heroes, set up base defenses, or recruit units.
+Param/Value/D6121FA2=<s val="@@@StandardTooltipHeader">Life</s><n/><n/>When destroyed, the Crashed Battlecruiser can no longer heal heroes, set up base defenses, or recruit units.
 Param/Value/D6AE35CD=To win, complete the objectives located at the top right of your screen.
 Param/Value/D6BB8739=Battlecruiser
+Param/Value/D6D09110=Orbital comms are out. No help is coming.
 Param/Value/D7DDE917=is unable to be randomized a hero. They may stay and watch or leave at any time.
 Param/Value/D89A801B=/
 Param/Value/D8CFCC6B= took too long to select a hero and has been randomized as the 
@@ -2469,6 +2557,7 @@ RequirementNode/Tooltip/CountAbilCRPGPassive2DummyCompleteOnlyAtUnit2337561442=P
 RequirementNode/Tooltip/CountAbilCRPGPassive2DummyCompleteOnlyAtUnit3898301465=Learned Passive
 RequirementNode/Tooltip/CountAbilInfestedInfestedEggsCompleteOnlyAtUnit1009639534=Learned Infested Eggs
 RequirementNode/Tooltip/CountBehaviorCRPGControlCrashedBattlecruiserCompleteOnlyAtUnit1793525428=Near Crashed Battlecruiser
+RequirementNode/Tooltip/CountBehaviorInfestedAberrate@AvailableCompleteOnlyAtUnit2935465302=Caster has Aberrate
 RequirementNode/Tooltip/CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055=Near summoner
 RequirementNode/Tooltip/CountBehaviorShooterLuckyShotProcCompleteOnlyAtUnit2621074661=Attack 3 times
 RequirementNode/Tooltip/CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly461069838=Basic Ability Upgrade
@@ -2508,10 +2597,10 @@ UI/HelpMenuDialogTechGlossary_Control_Unit/Category/CrashRPGUnits=Crash RPG Unit
 UI/TeamColor10=White
 Unit/Category/CrashRPGHeroes=Crash RPG Heroes
 Unit/Category/CrashRPGUnits=Crash RPG Units
+Unit/Category/ZergUnits=Zerg
 Unit/InfoText/AlienHarvestMinerals=Use any ground unit to collect 100 minerals.
-Unit/LifeArmorName/ProtossArmor=Protoss Armor
-Unit/LifeArmorName/ProtossPlating=Protoss Plating
 Unit/LifeArmorName/TerranShipPlating=Terran Ship Plating
+Unit/LifeArmorName/ZergBuildingArmor=Zerg Building Armor
 Unit/LifeArmorTooltip/CRPGAeroLevel1=Damage reduction: <d ref="Unit.CRPGAeroLevel1.LifeArmor * Unit,CRPGAeroLevel1,LifeArmorFormula.PositiveDamageRatio / (1 + Unit.CRPGAeroLevel1.LifeArmor * Unit,CRPGAeroLevel1,LifeArmorFormula.PositiveDamageRatio + 1) * 100"/>
 Unit/LifeArmorTooltip/CRPGFighterLevel1=Damage reduction: <d ref="Unit.CRPGFighterLevel1.LifeArmor * Unit,CRPGFighterLevel1,LifeArmorFormula.PositiveDamageRatio / (1 + Unit.CRPGFighterLevel1.LifeArmor * Unit,CRPGFighterLevel1,LifeArmorFormula.PositiveDamageRatio + 1) * 100"/>
 Unit/LifeArmorTooltip/CrashRPGArmor=Reduces damage taken with diminishing returns
@@ -2600,21 +2689,25 @@ Unit/Name/HotSSplitterlingMedium=Alien
 Unit/Name/HotSSwarmling=Alien
 Unit/Name/HunterDisruptorVolley@Weapon=Weapon
 Unit/Name/HunterPlasmaCanister=Plasma Canister
+Unit/Name/HunterPlasmaCanisterHuge=Plasma Canister
+Unit/Name/HunterPlasmaCanisterLarge=Plasma Canister
+Unit/Name/HunterPlasmaCanisterSmall=Plasma Canister
 Unit/Name/HunterPsionicProjection=Psionic Projection
 Unit/Name/HunterPurifierGlaiveCannon@Weapon=Weapon
 Unit/Name/HunterRevenant=Revenant
 Unit/Name/HunterScarabMine=Scarab Mine
 Unit/Name/HunterShade=Shade
 Unit/Name/InfestedAbomination=Alien
+Unit/Name/InfestedAcidulousSaliva@Weapon=Weapon
+Unit/Name/InfestedBunker=Infested Bunker
 Unit/Name/InfestedEmpathicRepercussion@Weapon=Weapon
 Unit/Name/InfestedInfestationSpore@Weapon=Weapon
-Unit/Name/InfestedInfestedBunker=Infested Bunker
 Unit/Name/InfestedInfestedCivilian=Infested Civilian
-Unit/Name/InfestedInfestedEgg@Civilian=Infested Egg
-Unit/Name/InfestedInfestedEgg@Marine=Infested Egg
 Unit/Name/InfestedInfestedEggs@Weapon=Weapon
-Unit/Name/InfestedInfestedMarine=Infested Marine
-Unit/Name/InfestedMendingSaliva@Weapon=Weapon
+Unit/Name/InfestedParasiteAir=Parasite
+Unit/Name/InfestedParasiteGround=Parasite
+Unit/Name/InfestedTerranCampaign=Infested Marine
+Unit/Name/InfestedTerransEgg=Infested Swarm Egg
 Unit/Name/KerriganInfestBroodling=Alien
 Unit/Name/Leviathan=Alien
 Unit/Name/LockedNydusNetwork=Nydus Network
@@ -2638,7 +2731,7 @@ Unit/Name/VehicleFragmentationGrenadeWeapon=Fragmentation Grenade
 Unit/Name/VehicleGaussCannonWeapon=Gauss Cannon
 Unit/Name/VehicleTyphoonMissilePodWeapon=Typhoon Missile Pod
 Unit/Name/WeaponAlienYagdraFireball=Fireball
-Unit/ShieldArmorName/ProtossPlasmaShields=Protoss Plasma Shields
+Unit/ShieldArmorName/ZergWildMutation=Mutated Shell
 Unit/Subtitle/CRPGCrashedBattlecruiser=<s val="@@StandardTooltipHeaderSub">Approach with a hero to recruit units and build structures</s>
 UnitKillRank/AlienAshWorm=Subterranean Monster
 UnitSubtitle/CRPGSwarmerLevel1=Raptor Strain
@@ -2687,14 +2780,14 @@ Weapon/Name/FighterSolariteReaper=Solarite Reaper
 Weapon/Name/GhostC10CanisterRifleCRPG=C-10 Canister Rifle
 Weapon/Name/HunterDisruptorVolleyFour=Disruptor Volley
 Weapon/Name/HunterPurifierGlaiveCannon=Purifier Glaive Cannon
+Weapon/Name/InfestedAcidulousSaliva=Acidulous Saliva
 Weapon/Name/InfestedBunkerInfestedGaussRifle=Infested Gauss Rifle
-Weapon/Name/InfestedBunkerInfestedGaussRifle2=Infested Gauss Rifle
 Weapon/Name/InfestedBunkerInfestedGaussRifle3=Infested Gauss Rifle
 Weapon/Name/InfestedBunkerInfestedGaussRifle4=Infested Gauss Rifle
+Weapon/Name/InfestedBunkerInfestedGaussRifle@Dummy=Infested Gauss Rifle
 Weapon/Name/InfestedBunkerNeosteelClaw=Neosteel Claw
 Weapon/Name/InfestedCivilianInfestedClaws=Infested Claws
 Weapon/Name/InfestedMarineInfestedGaussRifle=Infested Gauss Rifle
-Weapon/Name/InfestedMendingSaliva=Mending Saliva
 Weapon/Name/MarauderPunisherGrenades=Punisher Grenades
 Weapon/Name/MarineC14GaussRifle=C-14 Gauss Rifle
 Weapon/Name/MechCannonBoth=Cannon
@@ -2702,6 +2795,7 @@ Weapon/Name/MechCannonGround=Cannon
 Weapon/Name/MechHellfireMissiles=Hellfire Missiles
 Weapon/Name/MechHellfireMissiles@MultiLock=Hellfire Missiles
 Weapon/Name/MedicCorrosiveSpray=Corrosive Spray
+Weapon/Name/ParasiteSuicide=Suicide
 Weapon/Name/PointDefenseLaserMech=Point Defense Laser
 Weapon/Name/ScarabMineExplode=Explode
 Weapon/Name/ShipNeutronFlare=Neutron Flare

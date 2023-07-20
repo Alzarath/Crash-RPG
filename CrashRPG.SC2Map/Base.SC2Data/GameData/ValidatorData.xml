@@ -211,6 +211,12 @@
         <CombineArray value="CasterNotLevel0"/>
         <CombineArray value="CasterNotLevel1"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CrashedBCMedicalFacilities@NotRegeneratingShieldsAccumulated">
+        <Behavior value="CrashedBCMedicalFacilities@ShieldRegen"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CrashedBCMedicalFacilities@NotRegeneratingShieldsUnaccumulated">
+        <Behavior value="CrashedBCMedicalFacilities@ShieldRegenUnaccumulated"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorLocationCompareRange id="FighterViolentCharge@MaxDistance">
         <ResultFailed value="TargetIsOutOfRange"/>
         <WhichLocation Value="SourceUnit"/>
@@ -230,10 +236,6 @@
         <Compare value="LE"/>
         <Range value="5"/>
     </CValidatorLocationCompareRange>
-    <CValidatorUnitCompareBehaviorCount id="CrashedBCMedicalFacilities@RegeneratingShields">
-        <Compare value="GT"/>
-        <Behavior value="CrashedBCMedicalFacilities@ShieldRegen"/>
-    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="CrashedBCMedicalFacilities@TargetChannelValidator">
         <Type value="And"/>
         <CombineArray value="CrashedBCMedicalFacilities@NeedsHealing"/>
@@ -243,11 +245,13 @@
         <Type value="And"/>
         <CombineArray value="CrashedBCMedicalFacilities@NeedsHealing"/>
         <CombineArray value="CrashedBCMedicalFacilities@NotRegeneratingLife"/>
-        <CombineArray value="CrashedBCMedicalFacilities@NotRegeneratingShields"/>
+        <CombineArray value="CrashedBCMedicalFacilities@NotRegeneratingShieldsCombine"/>
     </CValidatorCombine>
-    <CValidatorUnitCompareBehaviorCount id="CrashedBCMedicalFacilities@NotRegeneratingShields">
-        <Behavior value="CrashedBCMedicalFacilities@ShieldRegen"/>
-    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CrashedBCMedicalFacilities@NotRegeneratingShieldsCombine">
+        <Type value="And"/>
+        <CombineArray value="CrashedBCMedicalFacilities@NotRegeneratingShieldsAccumulated"/>
+        <CombineArray value="CrashedBCMedicalFacilities@NotRegeneratingShieldsUnaccumulated"/>
+    </CValidatorCombine>
     <CValidatorCombine id="CrashedBattlecruiserCanRecruitFollower">
         <Type value="And"/>
         <CombineArray value="CRPGLT4Followers"/>
@@ -314,8 +318,18 @@
         <Ability value="HunterPlasmaDiffusion@PlasmaCharge"/>
     </CValidatorUnitCompareChargeUsed>
     <CValidatorUnitCompareChargeUsed id="HunterPlasmaDiffusion@CasterChargedUpgraded" parent="HunterPlasmaDiffusion@CasterCharged">
-        <Value value="15"/>
+        <Value value="30"/>
     </CValidatorUnitCompareChargeUsed>
+    <CValidatorUnitCompareBehaviorCount id="HunterPlasmaDiffusion@CasterHasPlasmaDiffusion">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="HunterPlasmaDiffusion"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="HunterPlasmaDiffusion@CasterHasPlasmaDiffusionSubUnit">
+        <WhichUnit Effect="HunterShadowTransfer@CURevenantCancel" Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="HunterPlasmaDiffusion"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="HunterPlasmaDiffusion@CasterNotMaxWithUpgrade">
         <Type value="And"/>
         <CombineArray value="CRPGAbilityUpgradePassiveSecondary@Upgraded"/>
@@ -334,6 +348,11 @@
         <CombineArray value="HunterPsionicProjection@@UpgradeValidator"/>
         <CombineArray value="HunterPsionicProjection@ChargesRemaining"/>
     </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="HunterShadowTransfer@CasterShadowTransferring">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="HunterShadowTransfer@Caster"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorLocationCompareRange id="InRange12">
         <WhichLocation Value="TargetUnitOrPoint"/>
         <Compare value="LE"/>
@@ -354,12 +373,43 @@
         <CombineArray value="InRange12"/>
         <CombineArray value="TargetIsVisible"/>
     </CValidatorCombine>
-    <CValidatorUnitCompareBehaviorCount id="InfestedAberrate@NotOverflow">
-        <Behavior value="InfestedInfestedEggs@TimedLifeExcessSummons"/>
-    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareField id="InfestedAcidulousSaliva@PrimaryTargetIsAirUnit">
+        <WhichUnit Effect="InfestedAcidulousSaliva@SAGround"/>
+        <Field value="PlaneArray[1]"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareField>
+    <CValidatorCombine id="InfestedAcidulousSaliva@PrimaryandSplashTargetsAreAirUnits">
+        <Type value="And"/>
+        <CombineArray value="IsAirUnit"/>
+        <CombineArray value="InfestedAcidulousSaliva@PrimaryTargetIsAirUnit"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="InfestedAcidulousSaliva@PrimaryandSplashTargetsAreGroundUnits">
+        <Type value="And"/>
+        <CombineArray value="IsGroundUnit"/>
+        <CombineArray value="InfestedAcidulousSaliva@PrimaryTargetIsGroundUnit"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="InfestedAcidulousSaliva@PrimaryandSplashTargetsSharePlane">
+        <CombineArray value="InfestedAcidulousSaliva@PrimaryandSplashTargetsAreAirUnits"/>
+        <CombineArray value="InfestedAcidulousSaliva@PrimaryandSplashTargetsAreGroundUnits"/>
+    </CValidatorCombine>
+    <CValidatorCompareTrackedUnitsCount id="InfestedEmpathicRepercussion@NearTrackedUnit">
+        <Compare value="GT"/>
+        <BehaviorLink value="InfestedEmpathicRepercussion@UT"/>
+        <TrackerUnit Value="Target"/>
+        <TrackedUnitValidatorArray value="InfestedEmpathicRepercussion@InRange"/>
+    </CValidatorCompareTrackedUnitsCount>
+    <CValidatorCombine id="InfestedEmpathicRepercussion@NotNearTrackedUnit">
+        <Type value="And"/>
+        <CombineArray value="InfestedEmpathicRepercussion@NearTrackedUnit"/>
+        <Negate value="1"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="InfestedInfestationSpore@IsInfested">
         <Compare value="GT"/>
         <Behavior value="InfestedInfestationSpore@Buff"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="InfestedInfestedEggs@IsOverflow">
+        <Compare value="GT"/>
+        <Behavior value="InfestedInfestedEggs@TimedLifeExcessSummons"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="InfestedInfestedEggs@IsEgg">
         <CombineArray value="InfestedInfestedEggs@IsEggCivilian"/>
@@ -393,6 +443,10 @@
     <CValidatorUnitInventoryIsFull id="InventoryNotFull">
         <Find value="0"/>
     </CValidatorUnitInventoryIsFull>
+    <CValidatorUnitType id="InfestedInfestedBunker@OuterIsRootedUnit">
+        <WhichUnit Value="Caster"/>
+        <Value value="InfestedInfestedBunker"/>
+    </CValidatorUnitType>
     <CValidatorUnitCompareBehaviorCount id="IsCrashRPGHero">
         <Compare value="GT"/>
         <Behavior value="CRPGHeroVeterancy"/>
@@ -443,6 +497,33 @@
         <Compare value="LT"/>
         <Type value="Fraction"/>
         <Value value="0.5"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareField id="InfestedAcidulousSaliva@PrimaryTargetIsGroundUnit">
+        <WhichUnit Effect="InfestedAcidulousSaliva@SAGround"/>
+        <Field value="PlaneArray[0]"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareField>
+    <CValidatorUnitCompareField id="IsAirUnit">
+        <Field value="PlaneArray[1]"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareField>
+    <CValidatorUnitCompareVital id="SourceMaxLifeGT400">
+        <WhichUnit Value="Source"/>
+        <Compare value="GT"/>
+        <Type value="Maximum"/>
+        <Value value="400"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="SourceMaxLifeGT50">
+        <WhichUnit Value="Source"/>
+        <Compare value="GT"/>
+        <Type value="Maximum"/>
+        <Value value="50"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorUnitCompareVital id="SourceMaxLifeGT200">
+        <WhichUnit Value="Source"/>
+        <Compare value="GT"/>
+        <Type value="Maximum"/>
+        <Value value="200"/>
     </CValidatorUnitCompareVital>
     <CValidatorUnitType id="MedicHealingBeam@CasterIsMedivac">
         <WhichUnit Value="Caster"/>
@@ -604,10 +685,6 @@
         <Compare value="LT"/>
         <Value value="6"/>
     </CValidatorUnitCompareVeterancyLevel>
-    <CValidatorUnitCompareBehaviorCount id="HunterShadowTransfer@NotShadowTransferring">
-        <WhichUnit Effect="HunterShadowTransfer@CU" Value="Caster"/>
-        <Behavior value="HunterShadowTransfer@Caster"/>
-    </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="CRPGNotDrainingEnergy">
         <CombineArray value="SniperPersonalCloaking@IsCloaked"/>
         <Negate value="1"/>
@@ -725,12 +802,10 @@
         <Ability value="HunterPsionicProjection@Dummy"/>
         <Value value="2"/>
     </CValidatorUnitCompareChargeUsed>
-    <CValidatorUnitCompareBehaviorCount id="HunterPlasmaDiffusion@CasterHasPlasmaDiffusion">
-        <WhichUnit Value="Caster"/>
-        <Value value="1"/>
-        <Behavior value="HunterPlasmaDiffusion"/>
-        <Compare value="GE"/>
-    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="HunterPlasmaDiffusion@CasterHasPlasmaDiffusionCombine">
+        <CombineArray value="HunterPlasmaDiffusion@CasterHasPlasmaDiffusion"/>
+        <CombineArray value="HunterPlasmaDiffusion@CasterHasPlasmaDiffusionSubUnit"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareChargeUsed id="HunterPlasmaDiffusion@NotMax">
         <WhichUnit Value="Target"/>
         <Compare value="GT"/>
@@ -751,25 +826,14 @@
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorPlayerRequirement id="InfestedInfestedEggs@ShouldProduceInfestedMarine">
         <Find value="1"/>
-        <Value value="InfestedInfestedEgg@ShouldProduceInfestedMarine"/>
+        <Value value="InfestedInfestedEggs@ShouldProduceInfestedMarine"/>
     </CValidatorPlayerRequirement>
     <CValidatorLocationCompareRange id="InfestedEmpathicRepercussion@InRange">
         <WhichLocation Value="TargetUnit"/>
         <Compare value="LE"/>
         <Range value="12"/>
+        <Value Value="SourceUnit"/>
     </CValidatorLocationCompareRange>
-    <CValidatorCombine id="InfestedEmpathicRepercussion@OutOfRange">
-        <CombineArray value="InfestedEmpathicRepercussion@InRange"/>
-        <Negate value="1"/>
-    </CValidatorCombine>
-    <CValidatorCompareTrackedUnitsCount id="InfestedAberrate@EnoughTargets">
-        <Compare value="GE"/>
-        <Value value="2"/>
-        <BehaviorLink value="InfestedAberrate@UT"/>
-    </CValidatorCompareTrackedUnitsCount>
-    <CValidatorUnitType id="InfestedAberrate@IsInfestedCivilian">
-        <Value value="InfestedInfestedCivilian"/>
-    </CValidatorUnitType>
     <CValidatorUnitCompareBehaviorCount id="CasterGELevel2InfestedEgg">
         <WhichUnit Value="Caster"/>
         <Compare value="GE"/>
@@ -823,6 +887,11 @@
     <CValidatorUnitCompareBehaviorCount id="SniperPersonalCloaking@IsCloaked">
         <Behavior value="SniperPersonalCloaking"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitAlliance id="TargetIsControlwithSource">
+        <ResultFailed value="MustTargetYourOwnUnits"/>
+        <WithPlayer Value="Source"/>
+        <Value value="Spend"/>
+    </CValidatorUnitAlliance>
     <CValidatorUnitType id="TargetIsFighterLevel4">
         <Value value="CRPGFighterLevel4"/>
     </CValidatorUnitType>

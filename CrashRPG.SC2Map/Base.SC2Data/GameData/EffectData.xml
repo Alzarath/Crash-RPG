@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectEnumTrackedUnits default="1" id="CRPGCasterTracker@ETU">
-        <EditorCategories value="Race:Protoss"/>
+    <CEffectEnumTrackedUnits default="1" id="CRPGCasterTracker@ETUBase">
         <BehaviorLink value="CRPGCasterTracker"/>
     </CEffectEnumTrackedUnits>
     <CEffectDamage id="AcidSalivaU">
@@ -86,10 +85,21 @@
         <WhichPlayer Value="Caster"/>
         <Upgrades Upgrade="CRPGAbilityUpgradeTernary@Upgrade" Count="1"/>
     </CEffectModifyPlayer>
-    <CEffectAddTrackedUnit id="CRPGCasterTracker@ATUCasterToTarget">
+    <CEffectAddTrackedUnits id="CRPGCasterTracker@ATCTCT2">
+        <SourceBehaviorLink value="CRPGCasterTracker"/>
+        <TargetBehaviorLink value="CRPGCasterTracker"/>
+        <TargetTrackerUnit Value="Target"/>
+    </CEffectAddTrackedUnits>
+    <CEffectAddTrackedUnit id="CRPGCasterTracker@AddCasterToCasterTracker">
         <BehaviorLink value="CRPGCasterTracker"/>
         <TrackerUnit Value="Target"/>
     </CEffectAddTrackedUnit>
+    <CEffectAddTrackedUnit id="CRPGCasterTracker@ATCTCT">
+        <BehaviorLink value="CRPGCasterTracker"/>
+        <TrackerUnit Value="Target"/>
+        <TrackedUnit Effect="CRPGCasterTracker@ETUATCTCT" Value="Target"/>
+    </CEffectAddTrackedUnit>
+    <CEffectEnumTrackedUnits id="CRPGCasterTracker@ETUATCTCT" parent="CRPGCasterTracker@ETUBase"/>
     <CEffectTransferBehavior id="CRPGUnderlingLevel@TBLevel1">
         <Name value="Effect/Name/CRPGUnderlingLevel@TB"/>
         <LaunchUnit Value="Caster"/>
@@ -131,6 +141,14 @@
         <EditorCategories value="Race:Terran"/>
         <Behavior value="CrashedBCMedicalFacilities@LifeRegen"/>
     </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="CrashedBCMedicalFacilities@ABLifeRegenUnaccumulated">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="CrashedBCMedicalFacilities@LifeRegenUnaccumulated"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="CrashedBCMedicalFacilities@ABShieldRegenUnaccumulated">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="CrashedBCMedicalFacilities@ShieldRegenUnaccumulated"/>
+    </CEffectApplyBehavior>
     <CEffectRemoveBehavior id="CrashedBCMedicalFacilities@RBLifeRegen">
         <EditorCategories value="Race:Terran"/>
         <BehaviorLink value="CrashedBCMedicalFacilities@LifeRegen"/>
@@ -139,6 +157,10 @@
         <EditorCategories value="Race:Terran"/>
         <Behavior value="CrashedBCMedicalFacilities@ShieldRegen"/>
     </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="CrashedBCMedicalFacilities@RBLifeRegenUnaccumulated">
+        <EditorCategories value="Race:Terran"/>
+        <BehaviorLink value="CrashedBCMedicalFacilities@LifeRegenUnaccumulated"/>
+    </CEffectRemoveBehavior>
     <CEffectRemoveBehavior id="CrashedBCMedicalFacilities@RBShieldRegen">
         <EditorCategories value="Race:Terran"/>
         <BehaviorLink value="CrashedBCMedicalFacilities@ShieldRegen"/>
@@ -148,11 +170,20 @@
         <BehaviorLink value="CrashedBCMedicalFacilities@UT"/>
         <TrackedUnit Value="Target"/>
     </CEffectAddTrackedUnit>
+    <CEffectRemoveBehavior id="CrashedBCMedicalFacilities@RBShieldRegenUnaccumulated">
+        <EditorCategories value="Race:Terran"/>
+        <BehaviorLink value="CrashedBCMedicalFacilities@ShieldRegenUnaccumulated"/>
+    </CEffectRemoveBehavior>
     <CEffectRemoveTrackedUnit id="CrashedBCMedicalFacilities@RTU">
         <EditorCategories value="Race:Terran"/>
         <BehaviorLink value="CrashedBCMedicalFacilities@UT"/>
         <TrackedUnit Value="Target"/>
     </CEffectRemoveTrackedUnit>
+    <CEffectSet id="CrashedBCMedicalFacilities@SetEndHero">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="CrashedBCMedicalFacilities@RBLifeRegenUnaccumulated"/>
+        <EffectArray value="CrashedBCMedicalFacilities@RBShieldRegenUnaccumulated"/>
+    </CEffectSet>
     <CEffectSet id="CrashedBCMedicalFacilities@SetStart">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="CrashedBCMedicalFacilities@ATU"/>
@@ -162,9 +193,86 @@
     <CEffectSet id="CrashedBCMedicalFacilities@SetEnd">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="CrashedBCMedicalFacilities@RBLifeRegen"/>
+        <EffectArray value="CrashedBCMedicalFacilities@RBLifeRegenUnaccumulated"/>
         <EffectArray value="CrashedBCMedicalFacilities@RBShieldRegen"/>
+        <EffectArray value="CrashedBCMedicalFacilities@RBShieldRegenUnaccumulated"/>
         <EffectArray value="CrashedBCMedicalFacilities@RTU"/>
     </CEffectSet>
+    <CEffectSwitch id="CrashedBCMedicalFacilities@SwitchStart">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="IsHeroic" Effect="CrashedBCMedicalFacilities@SetStartHero"/>
+        <CaseDefault value="CrashedBCMedicalFacilities@SetStart"/>
+    </CEffectSwitch>
+    <CEffectSet id="CrashedBCMedicalFacilities@SetStartHero">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="CrashedBCMedicalFacilities@ABLifeRegenUnaccumulated"/>
+        <EffectArray value="CrashedBCMedicalFacilities@ABShieldRegenUnaccumulated"/>
+    </CEffectSet>
+    <CEffectSwitch id="CrashedBCMedicalFacilities@SwitchEnd">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="IsHeroic" Effect="CrashedBCMedicalFacilities@SetEndHero"/>
+        <CaseDefault value="CrashedBCMedicalFacilities@SetEnd"/>
+    </CEffectSwitch>
+    <CEffectSet id="InfestedAcidulousSaliva@Set">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="InfestedAcidulousSaliva@Damage"/>
+        <EffectArray value="InfestedAcidulousSaliva@SAGround"/>
+    </CEffectSet>
+    <CEffectEnumArea id="InfestedAcidulousSaliva@SAGround">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="InfestedAcidulousSaliva@DamageSplash"/>
+    </CEffectEnumArea>
+    <CEffectRemoveBehavior id="InfestedBunkerBraced@RB">
+        <EditorCategories value="Race:Zerg"/>
+        <BehaviorLink value="InfestedBunkerBraced@CargoBuff"/>
+    </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="InfestedPlague@AB">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="InfestedPlague@Debuff"/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="InfestedPlague@CUAir">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnEffect value="InfestedPlague@SetParasiteCreate"/>
+        <SpawnUnit value="InfestedParasiteAir"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="InfestedPlague@SetParasiteCreate">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="InfestedPlague@ABParasite"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+        <EffectArray value="BroodlingTimedLife"/>
+        <EffectArray value="KillsToCaster"/>
+    </CEffectSet>
+    <CEffectSwitch id="InfestedPlague@SwitchParasite">
+        <ValidatorArray value="CRPGAbilityUpgradeSecondary@Upgraded"/>
+        <EditorCategories value="Race:Zerg"/>
+        <CaseArray Validator="IsGroundUnit" Effect="InfestedPlague@CUGround"/>
+        <CaseDefault value="InfestedPlague@CUAir"/>
+    </CEffectSwitch>
+    <CEffectDamage id="InfestedPlague@Damage">
+        <ValidatorArray value="NotInvulnerable"/>
+        <ValidatorArray value="NotStasis"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Flags index="NoVitalAbsorbShields" value="1"/>
+        <Amount value="0">
+            <AccumulatorArray value="InfestedPlague@AccumulatedDamage"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectCreateUnit id="InfestedPlague@CUGround">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnEffect value="InfestedPlague@SetParasiteCreate"/>
+        <SpawnUnit value="InfestedParasiteGround"/>
+    </CEffectCreateUnit>
+    <CEffectEnumArea id="InfestedPlague@SA">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="InfestedPlague@AB"/>
+    </CEffectEnumArea>
     <CEffectApplyBehavior id="FighterAstralWind@ABSelf">
         <ValidatorArray index="0" value="CRPGAbilityUpgradeTernary@Upgraded"/>
         <EditorCategories value="Race:Protoss"/>
@@ -220,6 +328,103 @@
             <Fraction Cooldown="1"/>
         </Cost>
     </CEffectModifyUnit>
+    <CEffectSwitch id="HunterPlasmaDiffusion@Switch">
+        <EditorCategories value="Race:Protoss"/>
+        <CaseArray Validator="SourceMaxLifeGT400" Effect="HunterPlasmaDiffusion@CUHuge"/>
+        <CaseArray Validator="SourceMaxLifeGT200" Effect="HunterPlasmaDiffusion@CULarge"/>
+        <CaseArray Validator="SourceMaxLifeGT50" Effect="HunterPlasmaDiffusion@CU"/>
+        <CaseDefault value="HunterPlasmaDiffusion@CUSmall"/>
+    </CEffectSwitch>
+    <CEffectModifyUnit id="HunterPsionicProjection@MUResetCharges">
+        <EditorCategories value="Race:Protoss"/>
+        <Cost Abil="HunterPsionicProjection@Dummy,Execute">
+            <Fraction Charge="-100"/>
+        </Cost>
+    </CEffectModifyUnit>
+    <CEffectEnumTrackedUnits id="HunterShadowTransfer@EnumCasterCancel">
+        <EditorCategories value="Race:Protoss"/>
+        <BehaviorLink value="CRPGCasterTracker"/>
+        <Effect value="HunterShadowTransfer@IOCancel"/>
+    </CEffectEnumTrackedUnits>
+    <CEffectModifyUnit id="HunterShadowTransfer@MUCooldown">
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="HunterShadowTransfer,Execute" CooldownOperation="Set" CooldownTimeUse="8"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="HunterShadowTransfer@SetCasterFinal">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="HunterShadowTransfer@MUCooldown"/>
+        <EffectArray value="HunterShadowTransfer@RBCancelCaster"/>
+    </CEffectSet>
+    <CEffectSet id="InfestedAberrate@Set">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="InfestedEmpathicRepercussion@Set"/>
+        <EffectArray value="InfestedEmpathicRepercussion@ABUnstable"/>
+        <EffectArray value="InfestedEmpathicRepercussion@TTU"/>
+        <EffectArray value="CRPGUnderlingLevel@SetTransfer"/>
+        <EffectArray value="TransferKillsToCasterToTarget"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="InfestedBunkerBraced@AB">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="InfestedBunkerBraced@CargoBuff"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="InfestedEmpathicRepercussion@ABUT">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="InfestedEmpathicRepercussion@UT"/>
+    </CEffectApplyBehavior>
+    <CEffectAddTrackedUnit id="InfestedEmpathicRepercussion@ATU">
+        <EditorCategories value="Race:Zerg"/>
+        <BehaviorLink value="InfestedEmpathicRepercussion@UT"/>
+        <TrackerUnit Value="Target"/>
+    </CEffectAddTrackedUnit>
+    <CEffectAddTrackedUnits id="InfestedEmpathicRepercussion@TTU">
+        <EditorCategories value="Race:Zerg"/>
+        <SourceBehaviorLink value="InfestedEmpathicRepercussion@UT"/>
+        <TargetBehaviorLink value="InfestedEmpathicRepercussion@UT"/>
+        <TargetTrackerUnit Value="Target"/>
+    </CEffectAddTrackedUnits>
+    <CEffectApplyBehavior id="InfestedInfestedEggs@ABAberrate">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="InfestedAberrate@Available"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="InfestedInfestedEggs@ABCausticWeapons">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="InfestedCausticWeapons@Available2"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="InfestedInfestedEggs@SetInitialShared">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="KillsToCaster"/>
+        <EffectArray value="InfestedInfestedEggs@ABAberrate"/>
+        <EffectArray value="InfestedInfestedEggs@ABCausticWeapons"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+        <EffectArray value="InfestedEmpathicRepercussion@Set"/>
+        <EffectArray value="InfestedEmpathicRepercussion@ATU"/>
+        <EffectArray value="MakePrecursor"/>
+    </CEffectSet>
+    <CEffectEnumTrackedUnits id="PsionicProjectionProjectionBeam@ETU" parent="CRPGCasterTracker@ETUBase">
+        <EditorCategories value="Race:Protoss"/>
+        <DebugTrace value="1"/>
+        <TrackerUnit Effect="PsionicProjectionProjectionBeam@CP" Value="Target"/>
+        <Effect value="HunterPsionicProjection@MUUseCharge"/>
+    </CEffectEnumTrackedUnits>
+    <CEffectAddTrackedUnit id="HunterShadowTransfer@ATU">
+        <EditorCategories value="Race:Protoss"/>
+        <BehaviorLink value="HunterShadowTransfer@UT"/>
+        <TrackedUnit Value="Target"/>
+    </CEffectAddTrackedUnit>
+    <CEffectEnumTrackedUnits id="HunterShadowTransfer@ETU">
+        <EditorCategories value="Race:Protoss"/>
+        <BehaviorLink value="HunterShadowTransfer@UT"/>
+        <Effect value="HunterShadowTransfer@SetCancel"/>
+    </CEffectEnumTrackedUnits>
+    <CEffectRemoveTrackedUnit id="HunterShadowTransfer@RTU">
+        <EditorCategories value="Race:Protoss"/>
+        <BehaviorLink value="HunterShadowTransfer@UT"/>
+        <TrackedUnit Value="Target"/>
+    </CEffectRemoveTrackedUnit>
+    <CEffectIssueOrder id="HunterShadowTransfer@IOCancel">
+        <EditorCategories value="Race:Protoss"/>
+        <Abil value="HunterShadowTransfer@CancelCaster"/>
+    </CEffectIssueOrder>
     <CEffectLaunchMissile id="Impaler">
         <ValidatorArray index="0" removed="1"/>
         <ValidatorArray index="1" removed="1"/>
@@ -280,6 +485,7 @@
         <PeriodCount value="10"/>
         <PeriodicEffectArray value="MedicIrradiate@SA"/>
         <PeriodicPeriodArray value="1"/>
+        <ValidatorArray value="CRPGAbilityUpgradeSecondary@Upgraded"/>
     </CEffectCreatePersistent>
     <CEffectDamage id="MedicIrradiate@DamageLinger">
         <EditorCategories value="Race:Terran"/>
@@ -293,6 +499,69 @@
         <EffectArray value="MedicIrradiate@Damage"/>
         <EffectArray value="MedicIrradiate@ABLinger"/>
     </CEffectSet>
+    <CEffectModifyUnit id="PlasmaCanisterChargeHuge@MUAddCharge">
+        <EditorCategories value="Race:Protoss"/>
+        <Cost Abil="HunterPlasmaDiffusion@PlasmaCharge,Execute" ChargeCountUse="-4">
+            <Player Value="Target"/>
+            <Fraction Cooldown="1"/>
+        </Cost>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="PlasmaCanisterChargeHuge@MURemoveCharges">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="HunterPlasmaDiffusion@PlasmaCharge,Execute">
+            <Player Value="Caster"/>
+            <Fraction Charge="1"/>
+        </Cost>
+    </CEffectModifyUnit>
+    <CEffectSet id="PlasmaCanisterChargeHuge@Set">
+        <ValidatorArray value="HunterPlasmaDiffusion@CanCharge"/>
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="PlasmaCanisterChargeHuge@MUAddCharge"/>
+        <EffectArray value="PickupRemoveDelayDeath"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="PlasmaCanisterChargeLarge@MUAddCharge">
+        <EditorCategories value="Race:Protoss"/>
+        <Cost Abil="HunterPlasmaDiffusion@PlasmaCharge,Execute" ChargeCountUse="-3">
+            <Player Value="Target"/>
+            <Fraction Cooldown="1"/>
+        </Cost>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="PlasmaCanisterChargeLarge@MURemoveCharges">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="HunterPlasmaDiffusion@PlasmaCharge,Execute">
+            <Player Value="Caster"/>
+            <Fraction Charge="1"/>
+        </Cost>
+    </CEffectModifyUnit>
+    <CEffectSet id="PlasmaCanisterChargeLarge@Set">
+        <ValidatorArray value="HunterPlasmaDiffusion@CanCharge"/>
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="PlasmaCanisterChargeLarge@MUAddCharge"/>
+        <EffectArray value="PickupRemoveDelayDeath"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="PlasmaCanisterChargeSmall@MUAddCharge">
+        <EditorCategories value="Race:Protoss"/>
+        <Cost Abil="HunterPlasmaDiffusion@PlasmaCharge,Execute" ChargeCountUse="-1">
+            <Player Value="Target"/>
+            <Fraction Cooldown="1"/>
+        </Cost>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="PlasmaCanisterChargeSmall@MURemoveCharges">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="HunterPlasmaDiffusion@PlasmaCharge,Execute">
+            <Player Value="Caster"/>
+            <Fraction Charge="1"/>
+        </Cost>
+    </CEffectModifyUnit>
+    <CEffectSet id="PlasmaCanisterChargeSmall@Set">
+        <ValidatorArray value="HunterPlasmaDiffusion@CanCharge"/>
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="PlasmaCanisterChargeSmall@MUAddCharge"/>
+        <EffectArray value="PickupRemoveDelayDeath"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="PointDefenseDroneLaser@ABCooldownRepair">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Caster"/>
@@ -303,6 +572,11 @@
         <EffectArray value="PointDefenseDroneLaser@ABCooldownAntiMissile"/>
         <EffectArray value="PointDefenseDroneLaser@ABCooldownRepair"/>
     </CEffectSet>
+    <CEffectEnumTrackedUnits id="PsionicProjectionDisruptorVolley@ETU" parent="CRPGCasterTracker@ETUBase">
+        <TrackerUnit Effect="PsionicProjectionDisruptorVolley@CP" Value="Target"/>
+        <Effect value="HunterPsionicProjection@MUUseCharge"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CEffectEnumTrackedUnits>
     <CEffectApplyBehavior id="RevenantTimedLife@AB">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="RevenantTimedLife"/>
@@ -324,14 +598,14 @@
     <CEffectCreateUnit id="HunterShadowTransfer@CURevenantCancel">
         <ValidatorArray value="CRPGAbilityUpgradeSecondary@Upgraded"/>
         <EditorCategories value="Race:Protoss"/>
-        <WhichLocation Value="CasterPoint"/>
+        <WhichLocation Value="TargetPoint"/>
         <CreateFlags index="DropOff" value="0"/>
         <CreateFlags index="OffsetByRadius" value="0"/>
         <CreateFlags index="Placement" value="0"/>
         <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
         <CreateFlags index="TechComplete" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
-        <SpawnEffect value="HunterShadowTransfer@SetCreateRevenantCancel"/>
+        <SpawnEffect value="HunterShadowTransfer@SetCreateRevenantTeleport"/>
         <SpawnUnit value="HunterRevenant"/>
         <SpawnRange value="1"/>
     </CEffectCreateUnit>
@@ -340,17 +614,12 @@
         <EffectArray value="RevenantTimedLife@AB"/>
         <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="TransferKillsToCaster"/>
+        <EffectArray value="HunterPlasmaDiffusion@ABSubUnit"/>
     </CEffectSet>
     <CEffectSet id="HunterShadowTransfer@SetCancel">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterShadowTransfer@CURevenantCancel"/>
         <EffectArray value="HunterShadowTransfer@RBShadeCancel"/>
-    </CEffectSet>
-    <CEffectSet id="HunterShadowTransfer@SetCreateRevenantCancel">
-        <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="RevenantTimedLife@AB"/>
-        <EffectArray value="CRPGUnderlingLevel@SetTransfer"/>
-        <EffectArray value="TransferKillsToCasterToTarget"/>
     </CEffectSet>
     <CEffectApplyBehavior id="InfestedInfestationSpore@ABLifeIncrease">
         <EditorCategories value="Race:Zerg"/>
@@ -407,20 +676,11 @@
     <CEffectApplyBehavior id="CRPGCasterTracker@AB">
         <Behavior value="CRPGCasterTracker"/>
     </CEffectApplyBehavior>
-    <CEffectEnumTrackedUnits id="PsionicProjectionDisruptorVolley@ETU" parent="CRPGCasterTracker@ETU">
-        <TrackerUnit Effect="PsionicProjectionDisruptorVolley@CP" Value="Target"/>
-        <Effect value="HunterPsionicProjection@MUUseCharge"/>
-    </CEffectEnumTrackedUnits>
-    <CEffectSet id="HunterProjectionBeam@SetDestroy">
+    <CEffectSet id="PsionicProjectionProjectionBeam@SetDestroy">
         <EditorCategories value="Race:Protoss"/>
-        <EffectArray value="HunterProjectionBeam@ETU"/>
+        <EffectArray value="PsionicProjectionProjectionBeam@ETU"/>
         <EffectArray value="PsionicProjectionProjectionBeam@Kill"/>
     </CEffectSet>
-    <CEffectEnumTrackedUnits id="HunterProjectionBeam@ETU" parent="CRPGCasterTracker@ETU">
-        <DebugTrace value="1"/>
-        <TrackerUnit Effect="PsionicProjectionProjectionBeam@CP" Value="Target"/>
-        <Effect value="HunterPsionicProjection@MUUseCharge"/>
-    </CEffectEnumTrackedUnits>
     <CEffectLaunchMissile id="AeroLaserArmaments@LMUpgraded">
         <EditorCategories value="Race:Terran"/>
         <ImpactEffect value="AeroLaserArmaments@SAImpact"/>
@@ -548,7 +808,7 @@
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="CRPGCasterTracker@AB"/>
-        <EffectArray value="CRPGCasterTracker@ATUCasterToTarget"/>
+        <EffectArray value="CRPGCasterTracker@AddCasterToCasterTracker"/>
     </CEffectSet>
     <CEffectSet id="HunterPsionicProjection@SetInitial">
         <EditorCategories value="Race:Protoss"/>
@@ -586,7 +846,6 @@
     <CEffectRemoveBehavior id="HunterShadowTransfer@RBShadeCancel">
         <EditorCategories value="Race:Protoss"/>
         <BehaviorLink value="HunterShadowTransfer@Timer"/>
-        <WhichUnit Value="Caster"/>
     </CEffectRemoveBehavior>
     <CEffectCreatePersistent id="AeroLaserArmaments@CP">
         <EditorCategories value="Race:Terran"/>
@@ -1678,44 +1937,6 @@
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
-    <CEffectAddTrackedUnit id="InfestedAberrate@ATU">
-        <ValidatorArray value="InfestedAberrate@IsInfestedCivilian"/>
-        <ValidatorArray value="InfestedAberrate@NotOverflow"/>
-        <EditorCategories value="Race:Zerg"/>
-        <BehaviorLink value="InfestedAberrate@UT"/>
-        <TrackedUnit Value="Target"/>
-    </CEffectAddTrackedUnit>
-    <CEffectCreatePersistent id="InfestedAberrate@CPDelayedRefund">
-        <EditorCategories value="Race:Zerg"/>
-        <PeriodCount value="1"/>
-        <PeriodicEffectArray value="InfestedAberrate@RefundEnergy"/>
-        <PeriodicPeriodArray value="0.0625"/>
-    </CEffectCreatePersistent>
-    <CEffectEnumTrackedUnits id="InfestedAberrate@ETUSuccess">
-        <EditorCategories value="Race:Zerg"/>
-        <BehaviorLink value="InfestedAberrate@UT"/>
-        <Effect value="KillTargetDeathNormal"/>
-    </CEffectEnumTrackedUnits>
-    <CEffectEnumTrackedUnits id="InfestedAberrate@ETUFailure">
-        <EditorCategories value="Race:Zerg"/>
-        <BehaviorLink value="InfestedAberrate@UT"/>
-        <Effect value="InfestedAberrate@RTU"/>
-    </CEffectEnumTrackedUnits>
-    <CEffectRemoveTrackedUnit id="InfestedAberrate@RTU">
-        <EditorCategories value="Race:Zerg"/>
-        <BehaviorLink value="InfestedAberrate@UT"/>
-        <TrackedUnit Value="Target"/>
-    </CEffectRemoveTrackedUnit>
-    <CEffectSet id="InfestedAberrate@SetSuccess">
-        <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="InfestedAberrate@ETUSuccess"/>
-        <EffectArray value="InfestedAberrate@CU"/>
-    </CEffectSet>
-    <CEffectSet id="InfestedAberrate@SetFailure">
-        <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="InfestedAberrate@ETUFailure"/>
-        <EffectArray value="InfestedAberrate@CPDelayedRefund"/>
-    </CEffectSet>
     <CEffectDamage id="InfestedAbomination">
         <AttributeBonus index="Armored" value="0"/>
         <AttributeFactor index="Armored" value="0.5"/>
@@ -1725,6 +1946,7 @@
     </CEffectDamage>
     <CEffectSet id="InfestedEmpathicRepercussion@Set">
         <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="InfestedEmpathicRepercussion@ABUT"/>
         <EffectArray value="InfestedEmpathicRepercussion@AB"/>
         <EffectArray value="InfestedEmpathicRepercussion@ABUnstable"/>
     </CEffectSet>
@@ -1800,10 +2022,10 @@
         <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="1"/>
     </CEffectEnumArea>
-    <CEffectSwitch id="InfestedMendingSaliva@Switch">
+    <CEffectSwitch id="InfestedAcidulousSaliva@Switch">
         <EditorCategories value="Race:Zerg"/>
-        <CaseArray Validator="IsBiological" Effect="InfestedMendingSaliva@CH" FallThrough="1"/>
-        <CaseDefault value="InfestedMendingSaliva@CH"/>
+        <CaseArray Validator="IsBiological" Effect="InfestedAcidulousSaliva@CH" FallThrough="1"/>
+        <CaseDefault value="InfestedAcidulousSaliva@CH"/>
     </CEffectSwitch>
     <CEffectDamage id="LeviathanAirAttackDamage">
         <Amount value="10">
@@ -1895,16 +2117,6 @@
         </VitalArray>
         <XP value="1.25"/>
     </CEffectModifyUnit>
-    <CEffectModifyUnit id="InfestedMendingSaliva@MUExperience">
-        <EditorCategories value="Race:Zerg"/>
-        <ImpactUnit Value="Caster"/>
-        <XP value="10"/>
-    </CEffectModifyUnit>
-    <CEffectSwitch id="InfestedMendingSaliva@SwitchExperience">
-        <EditorCategories value="Race:Zerg"/>
-        <CaseArray Validator="IsHeroic" Effect="InfestedMendingSaliva@MUExperience" FallThrough="1"/>
-        <CaseDefault value="InfestedMendingSaliva@MUExperience"/>
-    </CEffectSwitch>
     <CEffectApplyBehavior id="MedicSpawnMedivac@ABPrecursor">
         <EditorCategories value="Race:Terran"/>
         <Behavior value="MedicSpawnMedivac@Precursor"/>
@@ -2073,6 +2285,7 @@
         <ImpactLocation Value="SourceUnit"/>
         <SearchFilters value="Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Arc="59.9963" Radius="5" Effect="ShooterGaussRifle@Damage"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
     <CEffectApplyBehavior id="ShooterStimpack@ABPermanent">
         <EditorCategories value="Race:Terran"/>
@@ -2256,6 +2469,17 @@
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
+    <CEffectDamage id="ParasiteSuicide@Damage">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="30">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectSet id="ParasiteSuicide@Set">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="ParasiteSuicide@Damage"/>
+        <EffectArray value="Suicide"/>
+    </CEffectSet>
     <CEffectEnumMagazine id="SwarmerReleaseIterateMagazine">
         <EditorCategories value="Race:PrimalZerg"/>
         <WhichUnit Value="Caster"/>
@@ -2712,8 +2936,8 @@
         <WhichLocation Value="TargetUnit"/>
         <OffsetVectorEndLocation Value="TargetUnit"/>
         <Flags index="PersistUntilDestroyed" value="1"/>
-        <InitialEffect value="CrashedBCMedicalFacilities@SetStart"/>
-        <FinalEffect value="CrashedBCMedicalFacilities@SetEnd"/>
+        <InitialEffect value="CrashedBCMedicalFacilities@SwitchStart"/>
+        <FinalEffect value="CrashedBCMedicalFacilities@SwitchEnd"/>
         <PeriodicValidator value="CrashedBCMedicalFacilities@TargetChannelValidator"/>
     </CEffectCreatePersistent>
     <CEffectApplyBehavior id="VehicleOverdriveRunOverdApplyBehavior">
@@ -2946,7 +3170,7 @@
     </CEffectSet>
     <CEffectModifyUnit id="PlasmaCanisterCharge@MUAddCharge">
         <EditorCategories value="Race:Protoss"/>
-        <Cost Abil="HunterPlasmaDiffusion@PlasmaCharge,Execute" ChargeCountUse="-1">
+        <Cost Abil="HunterPlasmaDiffusion@PlasmaCharge,Execute" ChargeCountUse="-2">
             <Player Value="Target"/>
             <Fraction Cooldown="1"/>
         </Cost>
@@ -2962,6 +3186,15 @@
         <SpawnOwner Value="Caster"/>
         <SpawnUnit value="HunterPlasmaCanister"/>
         <SpawnEffect value="HunterPlasmaDiffusion@SetCreate"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="HunterPlasmaDiffusion@CUHuge" parent="HunterPlasmaDiffusion@CU">
+        <SpawnUnit index="0" value="HunterPlasmaCanisterHuge"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="HunterPlasmaDiffusion@CUSmall" parent="HunterPlasmaDiffusion@CU">
+        <SpawnUnit index="0" value="HunterPlasmaCanisterSmall"/>
+    </CEffectCreateUnit>
+    <CEffectCreateUnit id="HunterPlasmaDiffusion@CULarge" parent="HunterPlasmaDiffusion@CU">
+        <SpawnUnit index="0" value="HunterPlasmaCanisterLarge"/>
     </CEffectCreateUnit>
     <CEffectEnumMagazine id="HunterPurifierGlaiveCannon@IM">
         <EditorCategories value="Race:Protoss"/>
@@ -3167,6 +3400,7 @@
         <EditorCategories value="Race:Protoss"/>
         <WhichUnit Value="Caster"/>
         <BehaviorLink value="HunterDisruptorVolley"/>
+        <Count value="1"/>
     </CEffectRemoveBehavior>
     <CEffectApplyBehavior id="HunterDisruptorVolley@AB">
         <EditorCategories value="Race:Protoss"/>
@@ -3257,6 +3491,9 @@
         <EffectArray value="HunterShadowTransfer@ABTimer"/>
         <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="HunterShadowTransfer@IOSpawn"/>
+        <EffectArray value="HunterShadowTransfer@ATU"/>
+        <EffectArray value="HunterPlasmaDiffusion@ABSubUnit"/>
+        <EffectArray value="CRPGCasterTracker@AddCasterToCasterTracker"/>
         <EffectArray value="KillsToCaster"/>
     </CEffectSet>
     <CEffectTeleport id="HunterShadowTransfer@Teleport">
@@ -3981,9 +4218,10 @@
     <CEffectSet id="CRPGLevelUpSet">
         <EffectArray value="CRPGLevelUpDummyVisuals"/>
     </CEffectSet>
-    <CEffectApplyBehavior id="CRPGRecentlyDamagedApplyBehavior">
-        <WhichUnit Value="Caster"/>
-        <Behavior value="CRPGRecentlyAttacked"/>
+    <CEffectApplyBehavior id="CRPGShieldDelayController@AB">
+        <ValidatorArray index="0" value="CrashedBCMedicalFacilities@NotRegeneratingShieldsCombine"/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="CRPGShieldDelayController@RecentlyAttacked"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="ShipShieldEmitterApplyBehavior">
         <ValidatorArray index="0" value="SourceNotHidden"/>
@@ -4079,7 +4317,7 @@
     <CEffectCreatePersistent id="PsionicProjectionProjectionBeam@CP">
         <EditorCategories value="Race:Protoss"/>
         <TimeScaleSource Value="Caster"/>
-        <ExpireEffect value="HunterProjectionBeam@SetDestroy"/>
+        <ExpireEffect value="PsionicProjectionProjectionBeam@SetDestroy"/>
         <PeriodCount value="5"/>
         <PeriodicEffectArray value="PsionicProjectionProjectionBeam@Damage"/>
         <PeriodicPeriodArray value="0.2"/>
@@ -4435,52 +4673,10 @@
     <CEffectEnumArea id="CrashedBCMedicalFacilities@SA">
         <EditorCategories value="Race:Terran"/>
         <ImpactLocation Value="SourceUnit"/>
-        <SearchFilters value="Visible;Ally,Neutral,Enemy,Structure,Stasis,Hidden,Invulnerable"/>
+        <SearchFilters value="-;Self,Neutral,Enemy,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="5" Effect="CrashedBCMedicalFacilities@CP"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
-    <CEffectSet id="InfestedAberrate@SetInitial">
-        <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="InfestedAberrate@SA"/>
-        <EffectArray value="InfestedAberrate@Switch"/>
-        <TargetLocationType value="Point"/>
-    </CEffectSet>
-    <CEffectModifyUnit id="InfestedAberrate@RefundEnergy">
-        <EditorCategories value="Race:Zerg"/>
-        <ImpactUnit Value="Source"/>
-        <VitalArray index="Energy">
-            <Change value="75"/>
-        </VitalArray>
-    </CEffectModifyUnit>
-    <CEffectSet id="InfestedAberrate@SetCreate">
-        <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="KillsToCaster"/>
-        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
-        <EffectArray value="InfestedHardenedEquipment@ABDefensive"/>
-        <EffectArray value="InfestedHardenedEquipment@ABOffensive"/>
-        <EffectArray value="InfestedEmpathicRepercussion@Set"/>
-        <EffectArray value="InfestedEmpathicRepercussion@AB"/>
-    </CEffectSet>
-    <CEffectCreateUnit id="InfestedAberrate@CU">
-        <EditorCategories value="Race:Zerg"/>
-        <WhichLocation Value="TargetUnitOrPoint"/>
-        <CreateFlags index="OffsetByRadius" value="0"/>
-        <CreateFlags index="Placement" value="0"/>
-        <SpawnEffect value="InfestedAberrate@SetCreate"/>
-        <SpawnUnit value="InfestedInfestedBunker"/>
-    </CEffectCreateUnit>
-    <CEffectEnumArea id="InfestedAberrate@SA">
-        <EditorCategories value="Race:Zerg"/>
-        <SearchFilters value="Visible;Ally,Neutral,Enemy,Structure,Missile,Buried,UnderConstruction,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="1.5" Effect="InfestedAberrate@ATU"/>
-        <SearchFlags index="SameCliff" value="1"/>
-        <MinCount value="2"/>
-    </CEffectEnumArea>
-    <CEffectSwitch id="InfestedAberrate@Switch">
-        <EditorCategories value="Race:Zerg"/>
-        <CaseArray Validator="InfestedAberrate@EnoughTargets" Effect="InfestedAberrate@SetSuccess"/>
-        <CaseDefault value="InfestedAberrate@SetFailure"/>
-    </CEffectSwitch>
     <CEffectDamage id="InfestedBunkerNeosteelClaw@Damage">
         <EditorCategories value="Race:Zerg"/>
         <ResponseFlags index="Acquire" value="1"/>
@@ -4519,7 +4715,7 @@
         <EditorCategories value="Race:Zerg"/>
         <ModifyFlags index="Owner" value="1"/>
     </CEffectModifyUnit>
-    <CEffectSet id="InfestedInfestationSpore@Set">
+    <CEffectSet id="InfestedInfestationSpore@SetInitialize">
         <ValidatorArray value="IsNotWarpingIn"/>
         <ValidatorArray value="IsNotPhaseShifted"/>
         <EditorCategories value="Race:Zerg"/>
@@ -4552,7 +4748,6 @@
     <CEffectSwitch id="InfestedInfestedEggs@Switch">
         <EditorCategories value="Race:Zerg"/>
         <CaseArray Validator="InfestedInfestedEggs@ShouldProduceInfestedMarineOverflow" Effect="InfestedInfestedEggs@CUEggMarineOverflow"/>
-        <CaseArray Validator="InfestedInfestedEggs@ShouldProduceInfestedMarine" Effect="InfestedInfestedEggs@CUEggMarine"/>
         <CaseArray Validator="InfestedInfestedEggs@ShouldProduceInfestedOverflow" Effect="InfestedInfestedEggs@CUEggCivilianOverflow"/>
         <CaseDefault value="InfestedInfestedEggs@CUEggCivilian"/>
     </CEffectSwitch>
@@ -4563,12 +4758,9 @@
     </CEffectSet>
     <CEffectSet id="InfestedInfestedEggs@SetInitialMarine">
         <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="KillsToCaster"/>
         <EffectArray value="InfestedInfestedEggs@LMMarine"/>
-        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="InfestedHardenedEquipment@ABOffensive"/>
-        <EffectArray value="InfestedEmpathicRepercussion@Set"/>
-        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="InfestedInfestedEggs@SetInitialShared"/>
     </CEffectSet>
     <CEffectLaunchMissile id="InfestedInfestedEggs@LMMarine">
         <EditorCategories value="Race:Zerg"/>
@@ -4602,7 +4794,7 @@
         <ArmorReduction value="1"/>
         <Flags index="Notification" value="1"/>
         <Kind value="Melee"/>
-        <Amount value="6">
+        <Amount value="5">
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
         <SearchFlags index="CallForHelp" value="1"/>
@@ -4611,9 +4803,15 @@
     <CEffectDamage id="InfestedMarineInfestedGaussRifle@Damage" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
         <Kind value="Ranged"/>
-        <Amount value="6">
+        <Amount value="5">
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
+    </CEffectDamage>
+    <CEffectDamage id="InfestedBunkerInfestedGaussRifle@Dummy">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Kind value="Ranged"/>
     </CEffectDamage>
     <CEffectCreateUnit id="InfestedInfestedEggs@CUEggCivilian">
         <ValidatorArray value="FoodAvailableOne"/>
@@ -4640,12 +4838,9 @@
     </CEffectSet>
     <CEffectSet id="InfestedInfestedEggs@SetInitialCivilian">
         <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="KillsToCaster"/>
         <EffectArray value="InfestedInfestedEggs@LMCivilian"/>
-        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
         <EffectArray value="InfestedHardenedEquipment@ABDefensive"/>
-        <EffectArray value="InfestedEmpathicRepercussion@Set"/>
-        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="InfestedInfestedEggs@SetInitialShared"/>
     </CEffectSet>
     <CEffectLaunchMissile id="InfestedInfestedEggs@LMCivilian">
         <EditorCategories value="Race:Zerg"/>
@@ -4758,14 +4953,6 @@
         <WhichUnit Value="Source"/>
         <Behavior value="CRPGControlArmory"/>
     </CEffectApplyBehavior>
-    <CEffectCreateHealer id="InfestedMendingSaliva@CH">
-        <EditorCategories value="Race:Zerg"/>
-        <Flags index="Channeled" value="0"/>
-        <PeriodCount value="1"/>
-        <PeriodicEffect value="InfestedMendingSaliva@SwitchExperience"/>
-        <PeriodicPeriod value="1"/>
-        <RechargeVitalRate value="10"/>
-    </CEffectCreateHealer>
     <CEffectModifyUnit id="CRPGAddExperience1">
         <XP value="1"/>
         <VeterancyBehavior value="CRPGHeroVeterancy"/>
@@ -4928,7 +5115,7 @@
         <ValidatorArray value="NotHeroic"/>
         <ValidatorArray value="NotLarva"/>
         <EditorCategories value="Race:Zerg"/>
-        <ImpactEffect value="InfestedInfestationSpore@Set"/>
+        <ImpactEffect value="InfestedInfestationSpore@SetInitialize"/>
         <AmmoUnit value="InfestedInfestationSpore@Weapon"/>
         <Movers Link="InfestorNeuralParasite" IfRangeLTE="500"/>
     </CEffectLaunchMissile>
@@ -5344,19 +5531,20 @@
         <Abil value="ScarabMineBurrow"/>
         <CmdFlags index="Preempt" value="1"/>
     </CEffectIssueOrder>
-    <CEffectDamage id="InfestedMendingSaliva@DamageDummy" parent="DU_WEAP_MISSILE">
+    <CEffectDamage id="InfestedAcidulousSaliva@Damage" parent="DU_WEAP_MISSILE">
         <EditorCategories value="Race:Zerg"/>
-        <AttributeBonus index="Biological" value="10"/>
-        <Visibility value="Visible"/>
-        <Kind value="NoProc"/>
-        <Amount value="10"/>
+        <Amount value="4">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
     </CEffectDamage>
-    <CEffectLaunchMissile id="InfestedMendingSaliva@LM">
-        <ValidatorArray index="0" value="NotFullLife"/>
-        <ValidatorArray value="NotUnderConstruction"/>
+    <CEffectDamage id="InfestedAcidulousSaliva@DamageSplash" parent="InfestedAcidulousSaliva@Damage">
+        <Name value="Effect/Name/InfestedAcidulousSaliva@DamageSplash"/>
+        <ValidatorArray value="InfestedAcidulousSaliva@PrimaryandSplashTargetsSharePlane"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="InfestedAcidulousSaliva@LM">
         <EditorCategories value="Race:Zerg"/>
-        <ImpactEffect value="InfestedMendingSaliva@Switch"/>
-        <AmmoUnit value="InfestedMendingSaliva@Weapon"/>
+        <ImpactEffect value="InfestedAcidulousSaliva@Set"/>
+        <AmmoUnit value="InfestedAcidulousSaliva@Weapon"/>
     </CEffectLaunchMissile>
     <CEffectEnumArea id="FighterViolentCharge@SA">
         <EditorCategories value="Race:Protoss"/>

@@ -73,4 +73,11 @@
             <radius value="6.0012"/>
         </shape>
     </region>
+    <region id="10">
+        <name value="Flank-SnowRoaches"/>
+        <shape type="circle">
+            <center value="72,194"/>
+            <radius value="4"/>
+        </shape>
+    </region>
 </Regions>

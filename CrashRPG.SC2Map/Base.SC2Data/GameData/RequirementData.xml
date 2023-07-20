@@ -147,7 +147,7 @@
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassiveSecondary@UpgradedUse">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly"/>
+        <NodeArray index="Use" Link="CountUpgradeCRPGAbilityUpgradePassiveSecondary@UpgradeCompleteOnly"/>
     </CRequirement>
     <CRequirement id="CRPGAbilityUpgradePassivePrimary@CanUpgrade">
         <EditorCategories value="Race:Neutral,TechType:Ability"/>
@@ -221,7 +221,14 @@
         <NodeArray index="Use" Link="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnit"/>
         <NodeArray index="Show" Link="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnit"/>
     </CRequirement>
-    <CRequirement id="InfestedInfestedEgg@Learned">
+    <CRequirement id="HunterShadowTransfer@CanCancelCaster">
+        <EditorCategories value="Race:Protoss"/>
+        <NodeArray index="Show" Link="CountBehaviorHunterShadowTransfer@CasterCompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="InfestedAberrate@CanCast">
+        <NodeArray index="Use" Link="CountBehaviorInfestedAberrate@AvailableCompleteOnlyAtUnit2935465302"/>
+    </CRequirement>
+    <CRequirement id="InfestedInfestedEggs@Learned">
         <EditorCategories value="Race:Neutral"/>
         <NodeArray index="Use" Link="CountAbilInfestedInfestedEggsCompleteOnlyAtUnit1009639534"/>
     </CRequirement>
@@ -282,9 +289,9 @@
         <EditorCategories value="Race:Zerg"/>
         <NodeArray index="Use" Link="CountBehaviorInfestedEmpathicRepercussionCompleteOnlyAtUnit2411944055"/>
     </CRequirement>
-    <CRequirement id="InfestedInfestedEgg@ShouldProduceInfestedMarine">
+    <CRequirement id="InfestedInfestedEggs@ShouldProduceInfestedMarine">
         <EditorCategories value="Race:Zerg"/>
-        <NodeArray index="Use" Link="AndCountAbilCRPGPassive1DummyCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunkerQueuedOrBetter22"/>
+        <NodeArray index="Use" Link="AndCountAbilCRPGPassive1DummyCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter22"/>
     </CRequirement>
     <CRequirement id="InfestedNotUninfested">
         <EditorCategories value="Race:Zerg"/>

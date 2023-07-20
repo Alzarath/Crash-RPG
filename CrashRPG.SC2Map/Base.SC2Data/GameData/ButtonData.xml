@@ -197,6 +197,18 @@
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="AlienYagdraSpitFire"/>
     </CButton>
+    <CButton id="BunkerUnloadAllTarget">
+        <Name value="Button/Name/BunkerUnloadAll"/>
+        <Tooltip value="Button/Tooltip/BunkerUnloadAll"/>
+        <Icon value="Assets\Textures\btn-ability-terran-unloadall.dds"/>
+        <AlertName value="Button/Name/BunkerUnloadAll"/>
+        <AlertTooltip value="Button/Tooltip/BunkerUnloadAll"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-unloadall.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <TintRacially value="1"/>
+        <HotkeyAlias value="BunkerUnloadAll"/>
+        <Universal value="1"/>
+    </CButton>
     <CButton id="CRPGAbilityUpgradeSecondary">
         <Icon value="Assets\Textures\decal_spray_0017_01.dds"/>
         <AlertIcon value="Assets\Textures\decal_spray_0017_01.dds"/>
@@ -296,18 +308,35 @@
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="HunterShadowTransfer"/>
     </CButton>
-    <CButton id="InfestedAberrate@Upgraded">
+    <CButton id="InfestedAberrate" parent="PassivePrimaryButton" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="InfestedAberrate@Merge" parent="ActiveSecondaryButton">
         <Icon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedAberrate"/>
     </CButton>
-    <CButton id="InfestedCausticWeapons@Upgraded">
+    <CButton id="InfestedAberrate@MergeTarget" parent="InfestedAberrate@Merge"/>
+    <CButton id="InfestedAberrate@Morph" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
+        <Icon value="Assets\Textures\btn-unit-zerg-infestedmarine.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-zerg-infestedmarine.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <DefaultButtonLayout Row="2" Column="1"/>
+    </CButton>
+    <CButton id="InfestedAberrate@Learn">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
-        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
         <EditorCategories value="Race:Zerg"/>
-        <HotkeyAlias value="InfestedCausticWeapons"/>
+        <HotkeyAlias value="InfestedAberrate"/>
+    </CButton>
+    <CButton id="InfestedAberrate@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedAberrate"/>
     </CButton>
     <CButton id="InfestedHardenedEquipment@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
@@ -316,11 +345,34 @@
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedHardenedEquipment"/>
     </CButton>
+    <CButton id="InfestedPlague" parent="ActiveSecondaryButton">
+        <Icon value="Assets\Textures\btn-ability-zerg-defilerplague.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-defilerplague.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="InfestedPlague@Learn">
+        <Icon value="Assets\Textures\btn-ability-zerg-defilerplague.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-defilerplague.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedPlague"/>
+    </CButton>
     <CButton id="InfestedInfestationSpore@Upgraded">
         <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
         <AlertIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedInfestationSpore"/>
+    </CButton>
+    <CButton id="InfestedPlague@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-zerg-defilerplague.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-defilerplague.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedPlague"/>
+    </CButton>
+    <CButton id="MechBarrage@Cancel" parent="Cancel" upgradeValidator="CRPGAbilityUpgradePrimary@Upgraded">
+        <DefaultButtonLayout Row="2" Column="4"/>
+    </CButton>
+    <CButton id="HunterShadowTransfer@Cancel2" parent="Cancel" upgradeValidator="CRPGAbilityUpgradePrimary@Upgraded">
+        <DefaultButtonLayout Row="2" Column="4"/>
     </CButton>
     <CButton id="MechBarrage@Upgraded">
         <Icon value="Assets\Textures\BTN-Ability-Terran-BombardmentStrike-color.dds"/>
@@ -481,6 +533,22 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="Raise"/>
     </CButton>
+    <CButton id="InfestedBunkerBraced">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-bunkerformliferegenupgraded.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-bunkerformliferegenupgraded.dds"/>
+        <EditorCategories value="Race:InfestedTerran"/>
+        <HotkeyAlias value="ResearchInfestedBunkerLifeRegen"/>
+    </CButton>
+    <CButton id="InfestedBunkerRoot@Root">
+        <Icon value="Assets\Textures\btn-ability-zerg-root-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-root-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="InfestedBunkerRoot@Uproot">
+        <Icon value="Assets\Textures\btn-ability-zerg-uproot-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-uproot-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="SniperBetterEquipment@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
@@ -568,7 +636,6 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="HunterPlasmaDiffusion"/>
-        <Hotkey value="Button/Hotkey/HunterPlasmaDiffusion@Upgraded"/>
     </CButton>
     <CButton id="HunterPlasmaDiffusion@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
@@ -605,18 +672,6 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <HotkeyAlias value="HunterShadowTransfer"/>
-    </CButton>
-    <CButton id="InfestedAberrate@Learn">
-        <Icon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
-        <EditorCategories value="Race:Zerg"/>
-        <HotkeyAlias value="InfestedAberrate"/>
-    </CButton>
-    <CButton id="InfestedCausticWeapons@Learn">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
-        <EditorCategories value="Race:Zerg"/>
-        <HotkeyAlias value="InfestedCausticWeapons"/>
     </CButton>
     <CButton id="InfestedHardenedEquipment@Learn">
         <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-unlockresearchbundle_infestedcivilianmarines_07.dds"/>
@@ -703,17 +758,17 @@
         <AlertIcon value="Assets\Textures\btn-building-terran-bunker.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="FighterAstralWind">
+    <CButton id="FighterAstralWind" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradeTernary@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2" Column="2"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
     </CButton>
-    <CButton id="FighterLightningDash">
+    <CButton id="FighterLightningDash" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradePrimary@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="2"/>
-        <AlertIcon value="Assets\Textures\btn-ability-protoss-lightningdash.dds"/>
     </CButton>
     <CButton id="CrashedBattlecruiserConstructOutpost">
         <Tooltip value="Button/Tooltip/CRPGOutpost"/>
@@ -897,12 +952,12 @@
         <Icon value="Assets\Textures\btn-ability-protoss-purify.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
-    <CButton id="HunterPlasmaDiffusion">
+    <CButton id="HunterPlasmaDiffusion" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradePassiveSecondary@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-alarak-permanentcloak.dds"/>
+        <Hotkey value="Button/Hotkey/HunterPlasmaDiffusion@Upgraded"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="1" Column="1"/>
-        <Hotkey value="Button/Hotkey/HunterPlasmaDiffusion@Upgraded"/>
     </CButton>
     <CButton id="CRPGDefensiveWall">
         <Icon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
@@ -960,7 +1015,8 @@
         <Tooltip value="Button/Tooltip/SwarmerMerge"/>
         <AlertTooltip value="Button/Tooltip/SwarmerMerge"/>
     </CButton>
-    <CButton id="HunterShadowTransfer">
+    <CButton id="HunterShadowTransfer" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
+        <TooltipCooldownOverrideText value="Button/CooldownOverride/HunterShadowTransfer"/>
         <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer.dds"/>
         <EditorCategories value="Race:Protoss"/>
@@ -1016,6 +1072,7 @@
     <CButton id="HunterShadowTransfer@Free" parent="HunterShadowTransfer">
         <Icon value="Assets\Textures\btn-ability-protoss-psionictransfer-free.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-psionictransfer-free.dds"/>
+        <TooltipCooldownOverrideText value=""/>
     </CButton>
     <CButton id="SwarmerSplit">
         <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>
@@ -1090,7 +1147,7 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-disruptionweb.dds"/>
         <EditorCategories value="Race:Protoss"/>
     </CButton>
-    <CButton id="HunterDisruptorVolley">
+    <CButton id="HunterDisruptorVolley" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradeTernary@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles.dds"/>
         <EditorCategories value="Race:Protoss"/>
@@ -1100,20 +1157,20 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles-free.dds"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-fenix-scoutchampionaoemissiles-free.dds"/>
     </CButton>
-    <CButton id="HunterPsionicProjection">
+    <CButton id="HunterPsionicProjection" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradePassivePrimary@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-psionic-projection.dds"/>
+        <Hotkey value="Button/Hotkey/HunterPsionicProjection@Upgraded"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="1"/>
-        <Hotkey value="Button/Hotkey/HunterPsionicProjection@Upgraded"/>
     </CButton>
-    <CButton id="FighterResurgence">
+    <CButton id="FighterResurgence" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradePassiveSecondary@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-resurgence.dds"/>
         <EditorCategories value="Race:Protoss"/>
         <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
-    <CButton id="FighterRapidStrikes">
+    <CButton id="FighterRapidStrikes" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-rapid-strikes.dds"/>
         <EditorCategories value="Race:Protoss"/>
@@ -1126,11 +1183,6 @@
         <TintRacially value="1"/>
         <HotkeySet value="HoldFire"/>
         <HidesForSimpleText value="0"/>
-    </CButton>
-    <CButton id="InfestedAberrate" parent="ActiveSecondaryButton">
-        <Icon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-stukov-infestedbunker.dds"/>
-        <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="InfestedEmpathicRepercussion">
         <Icon value="Assets\Textures\btn-ability-zerg-corruption-color.dds"/>
@@ -1152,12 +1204,6 @@
     <CButton id="InfestedInfestedEggs" parent="ActivePrimaryButton">
         <Icon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-zerg-infestedmarineegg.dds"/>
-        <EditorCategories value="Race:Zerg"/>
-    </CButton>
-    <CButton id="InfestedCausticWeapons" parent="PassivePrimaryButton">
-        <Icon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
-        <AlertIcon value="Assets\Textures\btn-upgrade-zerg-stukov-infestedmarinerangeupgrade.dds"/>
-        <Hotkey value="Button/Hotkey/CRPGPassive1"/>
         <EditorCategories value="Race:Zerg"/>
     </CButton>
     <CButton id="InfestedInfestedSupplies">
@@ -1204,6 +1250,7 @@
     <CButton id="InfestedInfestationSpore" parent="ActiveTernaryButton">
         <Icon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
+        <AlertIcon value="Assets\Textures\BTN-Ability-Zerg-NeuralParasite-color.dds"/>
     </CButton>
     <CButton id="SniperPersonalCloaking@On" parent="ActiveSecondaryButton">
         <TooltipAppender index="1" Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/SniperPersonalCloaking@Upgraded"/>
@@ -1224,7 +1271,7 @@
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
     </CButton>
-    <CButton id="HunterScarabMine">
+    <CButton id="HunterScarabMine" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradePrimary@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>
         <EditorCategories value="Race:Protoss"/>
@@ -1345,7 +1392,7 @@
         <EditorCategories value="Race:Terran"/>
         <Universal value="1"/>
     </CButton>
-    <CButton id="FighterViolentCharge">
+    <CButton id="FighterViolentCharge" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradePassivePrimary@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
         <EditorCategories value="Race:Protoss"/>

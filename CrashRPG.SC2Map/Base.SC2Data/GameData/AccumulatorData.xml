@@ -19,6 +19,7 @@
     </CAccumulatorArithmetic>
     <CAccumulatorTrackedUnitCount id="CrashedBCMedicalFacilities@UnitsHealing">
         <TrackingBehavior value="CrashedBCMedicalFacilities@UT"/>
+        <TrackedUnitValidatorArray value="SourceNotHeroic"/>
     </CAccumulatorTrackedUnitCount>
     <CAccumulatorArithmetic id="CrashedBCMedicalFacilities@UnitsHealingMax">
         <Parameters value="1"/>
@@ -27,6 +28,10 @@
         </Parameters>
         <Operation value="Maximum"/>
     </CAccumulatorArithmetic>
+    <CAccumulatorVitals id="SourceCurrentLife">
+        <UnitSource Value="Source"/>
+        <ModificationType value="PerUnit"/>
+    </CAccumulatorVitals>
     <CAccumulatorArithmetic id="DamageAccumulatedValue">
         <Parameters value="0">
             <AccumulatorArray value="HeroDamagePoints"/>
@@ -38,6 +43,30 @@
         <Attribute value="CRPGDamageAttribute"/>
         <Scale value="0.125"/>
     </CAccumulatorAttributePoints>
+    <CAccumulatorArithmetic id="InfestedPlague@Arithmetic">
+        <Parameters value="-1">
+            <AccumulatorArray value="CurrentLife"/>
+        </Parameters>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="InfestedPlague@ScaledDamage">
+        <Parameters value="0">
+            <AccumulatorArray value="InfestedPlague@BaseDamage"/>
+        </Parameters>
+        <Parameters value="1">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Parameters>
+        <Operation value="Multiply"/>
+    </CAccumulatorArithmetic>
+    <CAccumulatorArithmetic id="InfestedPlague@AccumulatedDamage">
+        <MinAccumulation value="0"/>
+        <Parameters value="0">
+            <AccumulatorArray value="InfestedPlague@Arithmetic"/>
+        </Parameters>
+        <Parameters value="0">
+            <AccumulatorArray value="InfestedPlague@ScaledDamage"/>
+        </Parameters>
+        <Operation value="Minimum"/>
+    </CAccumulatorArithmetic>
     <CAccumulatorArithmetic id="InfestedInfestationSpore@OverLifeDifference">
         <MinAccumulation value="0"/>
         <Parameters value="0">
@@ -70,9 +99,18 @@
         <Parameters value="5"/>
         <Operation value="Divide"/>
     </CAccumulatorArithmetic>
+    <CAccumulatorConstant id="InfestedPlague@BaseDamage">
+        <Amount value="0.9375"/>
+    </CAccumulatorConstant>
     <CAccumulatorVitals id="MaxLife">
+        <Ratio value="1"/>
         <UnitSource Value="Target"/>
         <ModificationType value="PerUnitMaxVital"/>
+    </CAccumulatorVitals>
+    <CAccumulatorVitals id="CurrentLife">
+        <UnitSource Value="Target"/>
+        <ModificationType value="PerUnit"/>
+        <Ratio value="1"/>
     </CAccumulatorVitals>
     <CAccumulatorArithmetic id="ShooterChaingun@AdditiveAttackSpeedMultiplier">
         <Parameters value="1">

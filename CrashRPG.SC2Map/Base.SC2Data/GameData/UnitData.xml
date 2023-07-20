@@ -222,6 +222,43 @@
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Campaign"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
+    <CUnitHero id="CRPGInfested" parent="CRPGHero" abil1="InfestedInfestedEggs" abil2="InfestedPlague" abil3="InfestedInfestationSpore" psv1="InfestedAberrate" psv2="InfestedHardenedEquipment">
+        <Race value="Zerg"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Land2" value="1"/>
+        <Collide index="Land9" value="1"/>
+        <Collide index="Land16" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="180"/>
+        <LifeMax value="180"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <SpeedMultiplierCreep value="1.3"/>
+        <Acceleration value="1000"/>
+        <TurningRate value="360"/>
+        <Food value="6"/>
+        <BehaviorArray Link="InfestedEmpathicRepercussion@Aura"/>
+        <BehaviorArray Link="InfestedCausticWeapons"/>
+        <BehaviorArray Link="InfestedHardenedEquipment@Caster"/>
+        <BehaviorArray Link="InfestedAberrateOld@UT"/>
+        <WeaponArray Link="InfestedAcidulousSaliva"/>
+        <Radius value="0.8125"/>
+        <SeparationRadius value="0.8125"/>
+        <InnerRadius value="0.5"/>
+        <CargoSize value="2"/>
+        <MinimapRadius value="0.8125"/>
+        <EditorCategories value="ObjectType:Hero"/>
+        <GlossaryCategory value=""/>
+        <GlossaryStrongArray value="Zergling"/>
+        <GlossaryWeakArray value="Baneling"/>
+        <LearnInfoArray index="Learn4">
+            <Button Requirements="InfestedInfestedEggs@Learned"/>
+        </LearnInfoArray>
+        <LearnInfoArray index="Learn5">
+            <Button Requirements="InfestedInfestedEggs@Learned"/>
+        </LearnInfoArray>
+    </CUnitHero>
     <CUnit id="Egg">
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="0"/>
@@ -242,10 +279,71 @@
         <Mover value="DrunkenMissile"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Campaign"/>
     </CUnit>
+    <CUnit id="HunterPlasmaCanisterLarge" parent="ITEM">
+        <Race value="Prot"/>
+        <Mob value="Campaign"/>
+        <FogVisibility value="Snapshot"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </LifeArmorFormula>
+        <ShieldArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </ShieldArmorFormula>
+        <AbilArray Link="PlasmaCanisterChargeLarge"/>
+        <MinimapRadius value="0.375"/>
+        <EditorCategories value="ObjectType:Item,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="HunterPlasmaCanisterHuge" parent="ITEM">
+        <Race value="Prot"/>
+        <Mob value="Campaign"/>
+        <FogVisibility value="Snapshot"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </LifeArmorFormula>
+        <ShieldArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </ShieldArmorFormula>
+        <AbilArray Link="PlasmaCanisterChargeHuge"/>
+        <MinimapRadius value="0.375"/>
+        <EditorCategories value="ObjectType:Item,ObjectFamily:Melee"/>
+    </CUnit>
+    <CUnit id="HunterPlasmaCanisterSmall" parent="ITEM">
+        <Race value="Prot"/>
+        <Mob value="Campaign"/>
+        <FogVisibility value="Snapshot"/>
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </LifeArmorFormula>
+        <ShieldArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </ShieldArmorFormula>
+        <AbilArray Link="PlasmaCanisterChargeSmall"/>
+        <MinimapRadius value="0.375"/>
+        <EditorCategories value="ObjectType:Item,ObjectFamily:Melee"/>
+    </CUnit>
     <CUnit id="HunterRevenant">
         <Race value="Prot"/>
         <FlagArray index="Uncommandable" value="1"/>
         <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Uncursorable" value="1"/>
         <FlagArray index="PreventDestroy" value="1"/>
         <FlagArray index="UseLineOfSight" value="1"/>
         <FlagArray index="Invulnerable" value="1"/>
@@ -274,8 +372,9 @@
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
         <AbilArray Link="Warpable"/>
-        <BehaviorArray Link="CRPGDamageAttributeUnit"/>
+        <BehaviorArray Link="CRPGDamageAttribute"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
+        <BehaviorArray Link="CRPGCasterTracker"/>
         <WeaponArray Link="HunterPurifierGlaiveCannon"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
@@ -295,6 +394,81 @@
         <HotkeyCategory value="Unit/Category/CrashRPGHeroes"/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
+    </CUnit>
+    <CUnit id="InfestedAbominationBurrowed">
+        <LifeArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </LifeArmorFormula>
+        <ShieldArmorFormula>
+            <NegativeArmorMultiplier value="0"/>
+            <NegativeDamageBase value="0.94"/>
+            <PositiveArmorMultiplier value="0"/>
+            <PositiveDamageRatio value="0.06"/>
+        </ShieldArmorFormula>
+    </CUnit>
+    <CUnit id="InfestedParasiteGround">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Summoned" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <Speed value="3.75"/>
+        <SpeedMultiplierCreep value="1.3"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46.0625"/>
+        <StationaryTurningRate value="999.8437"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="5"/>
+        <Height value="0.2"/>
+        <CostCategory value="Army"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="2"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <BehaviorArray Link="CRPGDamageAttributeUnit"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <WeaponArray Link="ParasiteSuicide@Ground"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <Radius value="0.1875"/>
+        <SeparationRadius value="0.1875"/>
+        <InnerRadius value="0.1875"/>
+        <SubgroupPriority value="14"/>
+        <MinimapRadius value="0.1875"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
+        <AIEvalFactor value="0"/>
+        <LeaderAlias value=""/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="200"/>
+        <HotkeyCategory value="Unit/Category/ZergStory"/>
+        <KillDisplay value="Never"/>
     </CUnit>
     <CUnit id="Lair">
         <KillXP value="75"/>
@@ -484,6 +658,132 @@
             <PositiveArmorMultiplier value="0"/>
             <PositiveDamageRatio value="0.06"/>
         </ShieldArmorFormula>
+    </CUnit>
+    <CUnit id="InfestedInfestedBunker">
+        <Name value="Unit/Name/InfestedBunker"/>
+        <DeathRevealRadius value="3"/>
+        <ReviveType value="InfestedInfestedBunker@Uprooted"/>
+        <Facing value="315"/>
+        <Race value="Zerg"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <Attributes index="Summoned" value="1"/>
+        <LifeStart value="300"/>
+        <LifeMax value="300"/>
+        <LifeArmor value="1"/>
+        <LifeRegenRate value="5.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergBuildingArmor"/>
+        <Sight value="11"/>
+        <Food value="-2"/>
+        <RepairTime value="20"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="StopRedirect"/>
+        <AbilArray Link="AttackRedirect"/>
+        <AbilArray Link="InfestedBunkerTransport"/>
+        <AbilArray Link="InfestedBunkerRoot@Uproot"/>
+        <AbilArray Link="Rally"/>
+        <BehaviorArray Link="CRPGDamageAttributeUnit"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <CardLayouts>
+            <LayoutButtons Face="BunkerLoad" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,Load" Row="2" Column="0"/>
+            <LayoutButtons Face="BunkerUnloadAll" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,UnloadAll" Row="2" Column="1"/>
+            <LayoutButtons Face="InfestedBunkerRoot@Uproot" Type="AbilCmd" AbilCmd="InfestedBunkerRoot@Uproot,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="InfestedEmpathicRepercussion@Double" Type="Passive" Behavior="SIInfestedBunkerAutoSpawner" Row="1" Column="0"/>
+            <LayoutButtons Face="SIInfestedBunkerSpawnInfestedMarine" Type="AbilCmd" AbilCmd="SIInfestedBunkerTrainMarine,255" Row="0" Column="0"/>
+            <LayoutButtons Face="AttackRedirect" Type="AbilCmd" AbilCmd="AttackRedirect,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="InfestedHardenedEquipment@Armor" Type="Passive" Behavior="InfestedHardenedEquipment@Defensive" Row="1" Column="1"/>
+            <LayoutButtons Face="InfestedHardenedEquipment@Weapons" Type="Passive" Behavior="InfestedHardenedEquipment@Offensive" Row="1" Column="2"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="StopRedirect,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons Face="InfestedBunkerBraced" Type="Passive" Row="1" Column="3"/>
+        </CardLayouts>
+        <Radius value="1.25"/>
+        <SeparationRadius value="1.25"/>
+        <Footprint value="Footprint3x3Contour"/>
+        <PlacementFootprint value="Footprint3x3Contour"/>
+        <SubgroupPriority value="24"/>
+        <MinimapRadius value="1.75"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:FactionInfested"/>
+        <LeaderAlias value="InfestedInfestedBunker@Uprooted"/>
+        <HotkeyAlias value="InfestedInfestedBunker@Uprooted"/>
+        <SelectAlias value="InfestedInfestedBunker@Uprooted"/>
+        <SubgroupAlias value="InfestedInfestedBunker@Uprooted"/>
+        <GlossaryCategory value="Unit/Category/CrashRPGUnits"/>
+        <HotkeyCategory value="Unit/Category/ZergUnits"/>
+        <AIEvaluateAlias value="InfestedInfestedBunker@Uprooted"/>
+    </CUnit>
+    <CUnit id="InfestedParasiteAir">
+        <DeathRevealRadius value="3"/>
+        <Race value="Zerg"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="25"/>
+        <LifeMax value="25"/>
+        <LifeRegenRate value="0.2734"/>
+        <LifeArmorName value="Unit/LifeArmorName/ZergAirArmor"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/ZergWildMutation"/>
+        <Mover value="Fly"/>
+        <Speed value="3.75"/>
+        <Acceleration value="1000"/>
+        <StationaryTurningRate value="1499.9414"/>
+        <TurningRate value="999.8437"/>
+        <Sight value="5"/>
+        <Height value="4"/>
+        <VisionHeight value="4"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="2"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="CRPGDamageAttributeUnit"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <WeaponArray Link="ParasiteSuicide@Air"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <Radius value="0.1875"/>
+        <SeparationRadius value="0.1875"/>
+        <SubgroupPriority value="14"/>
+        <MinimapRadius value="0.1875"/>
+        <EditorCategories value="ObjectFamily:Campaign,ObjectType:Unit"/>
+        <AIEvalFactor value="0"/>
+        <LeaderAlias value=""/>
+        <GlossaryCategory value="Unit/Category/ZergUnits"/>
+        <GlossaryPriority value="300"/>
+        <KillDisplay value="Never"/>
+        <RankDisplay value="Never"/>
     </CUnit>
     <CUnit id="ShooterSandbags">
         <DeathRevealRadius value="3"/>
@@ -702,7 +1002,7 @@
             <PositiveDamageRatio value="0.06"/>
         </ShieldArmorFormula>
     </CUnit>
-    <CUnit id="InfestedMendingSaliva@Weapon" parent="MISSILE">
+    <CUnit id="InfestedAcidulousSaliva@Weapon" parent="MISSILE">
         <Race value="Zerg"/>
         <Mover value="ViperAirWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
@@ -947,6 +1247,7 @@
             <PositiveArmorMultiplier value="0"/>
             <PositiveDamageRatio value="0.06"/>
         </ShieldArmorFormula>
+        <TacticalAI value="ZerglingBurrowed"/>
     </CUnit>
     <CUnit id="HotSSplitterlingMedium">
         <LifeArmorFormula>
@@ -994,24 +1295,11 @@
             <PositiveArmorMultiplier value="0"/>
             <PositiveDamageRatio value="0.06"/>
         </ShieldArmorFormula>
+        <TacticalAI value="ZerglingBurrowed"/>
     </CUnit>
     <CUnit id="InfestedAbomination">
         <PushPriority value="11"/>
         <KillResource index="Minerals" value="80"/>
-        <LifeArmorFormula>
-            <NegativeArmorMultiplier value="0"/>
-            <NegativeDamageBase value="0.94"/>
-            <PositiveArmorMultiplier value="0"/>
-            <PositiveDamageRatio value="0.06"/>
-        </LifeArmorFormula>
-        <ShieldArmorFormula>
-            <NegativeArmorMultiplier value="0"/>
-            <NegativeDamageBase value="0.94"/>
-            <PositiveArmorMultiplier value="0"/>
-            <PositiveDamageRatio value="0.06"/>
-        </ShieldArmorFormula>
-    </CUnit>
-    <CUnit id="InfestedAbominationBurrowed">
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="0"/>
             <NegativeDamageBase value="0.94"/>
@@ -1330,7 +1618,6 @@
         <AbilArray Link="CrashedBattlecruiserNomadRepair"/>
         <AbilArray Link="CrashedBattlecruiserRecruitMarine"/>
         <AbilArray Link="CrashedBattlecruiserRecruitMarauder"/>
-        <AbilArray Link="CrashedBCMedicalFacilities"/>
         <CardLayouts>
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
             <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
@@ -1356,6 +1643,7 @@
         <GlossaryPriority value="256"/>
         <HotkeyCategory value="Unit/Category/CrashRPGUnits"/>
         <BehaviorArray Link="CrashedBCMedicalFacilities@UT"/>
+        <BehaviorArray Link="CrashedBCMedicalFacilities@Aura"/>
         <Subtitle value="Unit/Subtitle/CRPGCrashedBattlecruiser"/>
     </CUnit>
     <CUnit id="CRPGCivilian" parent="PrisonerCivilian">
@@ -1810,7 +2098,9 @@
     <CUnit id="InfestedInfestationSpore@Weapon" parent="MISSILE">
         <Race value="Zerg"/>
     </CUnit>
-    <CUnit id="InfestedInfestedBunker">
+    <CUnit id="InfestedInfestedBunker@Uprooted">
+        <Name value="Unit/Name/InfestedBunker"/>
+        <Description value="Button/Tooltip/InfestedInfestedBunker"/>
         <DeathRevealRadius value="3"/>
         <Race value="Zerg"/>
         <Mob value="Multiplayer"/>
@@ -1825,6 +2115,7 @@
         <Collide index="Locust" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
         <Attributes index="Summoned" value="1"/>
         <LifeStart value="300"/>
         <LifeMax value="300"/>
@@ -1841,6 +2132,7 @@
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
         <AbilArray Link="InfestedBunkerTransport"/>
+        <AbilArray Link="InfestedBunkerRoot@Root"/>
         <BehaviorArray Link="CRPGDamageAttributeUnit"/>
         <BehaviorArray Link="CRPGArmorAttributeUnit"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
@@ -1851,6 +2143,7 @@
         <BehaviorArray Link="InfestedBunkerInfestedGaussRifle@EnableSlot5"/>
         <BehaviorArray Link="InfestedBunkerInfestedGaussRifle@EnableSlot6"/>
         <WeaponArray Link="InfestedBunkerNeosteelClaw"/>
+        <WeaponArray Link="InfestedBunkerInfestedGaussRifle@Dummy"/>
         <WeaponArray Link="InfestedBunkerInfestedGaussRifle"/>
         <WeaponArray Link="InfestedBunkerInfestedGaussRifle@Slot2"/>
         <WeaponArray Link="InfestedBunkerInfestedGaussRifle@Slot3"/>
@@ -1863,11 +2156,12 @@
             <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
             <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
-            <LayoutButtons Face="BunkerLoad" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,Load" Row="2" Column="1"/>
-            <LayoutButtons Face="BunkerUnloadAll" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,UnloadAll" Row="2" Column="2"/>
+            <LayoutButtons Face="BunkerUnloadAll" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,UnloadAt" Row="2" Column="1"/>
             <LayoutButtons Face="InfestedEmpathicRepercussion@Double" Type="Passive" Requirements="InfestedEmpathicRepercussion" Row="1" Column="0"/>
             <LayoutButtons Face="InfestedHardenedEquipment@Armor" Type="Passive" Behavior="InfestedHardenedEquipment@Defensive" Row="1" Column="1"/>
             <LayoutButtons Face="InfestedHardenedEquipment@Weapons" Type="Passive" Behavior="InfestedHardenedEquipment@Offensive" Row="1" Column="2"/>
+            <LayoutButtons Face="BunkerLoad" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,Load" Row="2" Column="0"/>
+            <LayoutButtons Face="InfestedBunkerRoot@Root" Type="AbilCmd" AbilCmd="InfestedBunkerRoot@Root,Execute" Row="2" Column="3"/>
         </CardLayouts>
         <Radius value="1"/>
         <InnerRadius value="1"/>
@@ -1942,12 +2236,14 @@
             <Charge Link="InfestedInfestedEgg/Revive"/>
             <Cooldown Link="InfestedInfestedEgg/Revive"/>
         </ReviveInfoBase>
+        <Name value="Unit/Name/InfestedTerransEgg"/>
     </CUnit>
     <CUnit id="InfestedInfestedEgg@Civilian" parent="InfestedInfestedEgg@Marine">
-        <Name value="Unit/Name/InfestedInfestedEgg@Civilian"/>
         <Description value="Button/Tooltip/InfestedInfestedEgg@Civilian"/>
         <ReviveType value="InfestedInfestedEgg@Civilian"/>
         <AbilArray index="1" Link="InfestedEggMorphToInfestedCivilian"/>
+        <AbilArray Link="InfestedAberrate@MorphToInfestedMarine"/>
+        <AbilArray Link="InfestedAberrate"/>
         <TacticalAI value="InfestedInfestedEggInfestedCivilian"/>
         <ReviveInfoBase>
             <Charge Link="InfestedInfestedEggInfestedCivilian/Revive"/>
@@ -1955,6 +2251,8 @@
         </ReviveInfoBase>
         <CardLayouts index="0">
             <LayoutButtons index="6" Face="InfestedHardenedEquipment@Armor" Type="Passive" Behavior="InfestedHardenedEquipment@Defensive" Row="1" Column="1"/>
+            <LayoutButtons Face="InfestedAberrate@Merge" Type="AbilCmd" AbilCmd="InfestedAberrate,SelectedUnits" Row="2" Column="3"/>
+            <LayoutButtons Face="InfestedCausticWeapons@Morph" Type="AbilCmd" AbilCmd="InfestedAberrate@MorphToInfestedMarine,255" Row="2" Column="2"/>
         </CardLayouts>
     </CUnit>
     <CUnit id="InfestedInfestedMarine">
@@ -2024,6 +2322,7 @@
         <HotkeyCategory value="Unit/Category/ZergUnits"/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
+        <Name value="Unit/Name/InfestedTerranCampaign"/>
     </CUnit>
     <CUnit id="InfestedInfestedCivilian">
         <DeathRevealRadius value="3"/>
@@ -2062,6 +2361,8 @@
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <AbilArray Link="move"/>
+        <AbilArray Link="InfestedAberrate@MorphToInfestedMarine"/>
+        <AbilArray Link="InfestedAberrate"/>
         <BehaviorArray Link="CRPGDamageAttributeUnit"/>
         <BehaviorArray Link="CRPGArmorAttributeUnit"/>
         <BehaviorArray Link="CRPGBaseAttributes"/>
@@ -2081,6 +2382,8 @@
                 <Column value="0"/>
             </LayoutButtons>
             <LayoutButtons Face="InfestedHardenedEquipment@Armor" Type="Passive" Behavior="InfestedHardenedEquipment@Defensive" Row="1" Column="1"/>
+            <LayoutButtons Face="InfestedAberrate@Merge" Type="AbilCmd" AbilCmd="InfestedAberrate,SelectedUnits" Row="2" Column="3"/>
+            <LayoutButtons Face="InfestedAberrate@Morph" Type="AbilCmd" AbilCmd="InfestedAberrate@MorphToInfestedMarine,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <Radius value="0.375"/>
         <InnerRadius value="0.375"/>
@@ -3847,11 +4150,11 @@
         <Collide index="Land16" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="160"/>
-        <LifeMax value="160"/>
+        <LifeStart value="120"/>
+        <LifeMax value="120"/>
         <LifeArmorName value="Unit/LifeArmorName/ProtossArmor"/>
-        <ShieldsStart value="160"/>
-        <ShieldsMax value="160"/>
+        <ShieldsStart value="120"/>
+        <ShieldsMax value="120"/>
         <ShieldRegenRate value="2"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46"/>
@@ -3863,7 +4166,9 @@
         <AbilArray Link="HunterScarabMine@Free"/>
         <AbilArray Link="HunterShadowTransfer@Free"/>
         <AbilArray Link="HunterDisruptorVolley@Free"/>
+        <AbilArray Link="HunterShadowTransfer@CancelCaster"/>
         <BehaviorArray Link="HunterPlasmaDiffusion@PlasmaCharged"/>
+        <BehaviorArray Link="HunterShadowTransfer@UT"/>
         <WeaponArray Link="HunterPurifierGlaiveCannon"/>
         <WeaponArray Link="HunterDisruptorVolleyFour"/>
         <CardLayouts index="0">
@@ -3923,6 +4228,7 @@
         <AbilArray Link="ProgressRally"/>
         <AbilArray Link="HunterShadowTransfer@Cancel"/>
         <BehaviorArray Link="ShadePsionicInterference@Aura"/>
+        <BehaviorArray Link="CRPGCasterTracker"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -3951,8 +4257,8 @@
         <Collide index="Land16" value="1"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
+        <LifeStart value="360"/>
+        <LifeMax value="360"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46"/>
@@ -4167,8 +4473,8 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
-        <LifeStart value="300"/>
-        <LifeMax value="300"/>
+        <LifeStart value="240"/>
+        <LifeMax value="240"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
@@ -4210,8 +4516,8 @@
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Biological" value="1"/>
         <Attributes index="Psionic" value="1"/>
-        <LifeStart value="180"/>
-        <LifeMax value="180"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
@@ -4959,52 +5265,5 @@
                 <Column value="1"/>
             </LayoutButtons>
         </CardLayouts>
-    </CUnitHero>
-    <CUnitHero id="CRPGInfested" parent="CRPGHero" abil1="InfestedInfestedEggs" abil2="InfestedAberrate" abil3="InfestedInfestationSpore" psv1="InfestedCausticWeapons" psv2="InfestedHardenedEquipment">
-        <Race value="Zerg"/>
-        <PlaneArray index="Ground" value="1"/>
-        <Collide index="Land2" value="1"/>
-        <Collide index="Land9" value="1"/>
-        <Collide index="Land16" value="1"/>
-        <Attributes index="Armored" value="1"/>
-        <Attributes index="Biological" value="1"/>
-        <LifeStart value="180"/>
-        <LifeMax value="180"/>
-        <LifeRegenRate value="0.2734"/>
-        <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
-        <SpeedMultiplierCreep value="1.3"/>
-        <Acceleration value="1000"/>
-        <TurningRate value="360"/>
-        <Food value="6"/>
-        <AbilArray index="1" Link="AttackFriendly"/>
-        <AbilArray Link="InfestedInfestedEggs"/>
-        <AbilArray Link="InfestedAberrate"/>
-        <AbilArray Link="InfestedInfestationSpore"/>
-        <BehaviorArray Link="InfestedEmpathicRepercussion@Aura"/>
-        <BehaviorArray Link="InfestedCausticWeapons"/>
-        <BehaviorArray Link="InfestedHardenedEquipment@Caster"/>
-        <BehaviorArray Link="InfestedAberrate@UT"/>
-        <WeaponArray Link="InfestedMendingSaliva"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="4" Face="Attack" Type="AbilCmd" AbilCmd="AttackFriendly,Execute" Row="0" Column="4"/>
-        </CardLayouts>
-        <Radius value="0.8125"/>
-        <SeparationRadius value="0.8125"/>
-        <InnerRadius value="0.5"/>
-        <CargoSize value="2"/>
-        <MinimapRadius value="0.8125"/>
-        <EditorCategories value="ObjectType:Hero"/>
-        <GlossaryCategory value=""/>
-        <GlossaryStrongArray value="Zergling"/>
-        <GlossaryWeakArray value="Baneling"/>
-        <LearnInfoArray index="Learn2">
-            <Button Requirements="InfestedInfestedEgg@Learned"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn4">
-            <Button Requirements="InfestedInfestedEgg@Learned"/>
-        </LearnInfoArray>
-        <LearnInfoArray index="Learn5">
-            <Button Requirements="InfestedInfestedEgg@Learned"/>
-        </LearnInfoArray>
     </CUnitHero>
 </Catalog>
