@@ -1259,6 +1259,7 @@ Actor/Name/UltraliskBurrowChargeCursorSplat2=Ultralisk Burrow Charge Cursor Spla
 Actor/Name/UltraliskBurrowChargeRange2=Ultralisk Burrow Charge Range Copy
 Actor/Name/UltraliskBurrowedSplat2=Ultralisk Burrowed Splat Copy
 Actor/Name/UltraliskChargeDeathForce2=Ultralisk Charge Death Force Copy
+Actor/Name/UnitDeathModelFade=UnitDeathModelFade
 Actor/Name/UnitDeathModelUnscaledForceDestroy=UnitDeathModelUnscaledForceDestroy
 Actor/Name/VehicleArcliteCannonAttack=Arclite Cannon
 Actor/Name/VehicleCrucioShockCannonAttack=Crucio Shock Cannon

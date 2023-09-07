@@ -42,6 +42,17 @@
             </Visuals>
         </TerrainSquibs>
     </CActorMissile>
+    <!--                                                                                         -->
+    <!-- Helios................................................................................. -->
+    <!--                                                                                         -->
+    <CActorUnit id="BattlecruiserHelios">
+        <DeathActorModel value="UnitDeathModelFade"/>
+        <DeathActorModelLow value="UnitDeathModelFade"/>
+    </CActorUnit>
+    <CActorUnit id="BattlecruiserHeliosMorph">
+        <DeathActorModel value="UnitDeathModelFade"/>
+        <DeathActorModelLow value="UnitDeathModelFade"/>
+    </CActorUnit>
     <CActorUnit id="InfestedInfestedBunker@Birth" parent="GenericUnitBaseMorphTransition" unitName="SiegeModeMorphModel">
         <On Terms="AbilMorph.*.Start; MorphTo InfestedInfestedBunker@Uprooted; MorphFrom InfestedInfestedCivilian" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom InfestedInfestedBunker" Send="Destroy"/>
@@ -5813,6 +5824,13 @@
         <HostSiteOps Ops="SOpShadow"/>
         <Model value="HighTemplarPsiStormModel"/>
     </CActorModel>
+    <CActorModel id="UnitDeathModelFade" parent="UnitDeathModel">
+        <On Terms="ActorCreation" Send="TimerSet 5.000000 FadeDelay"/>
+        <On Terms="TimerExpired; TimerName FadeDelay" Send="TimerSet 3.000000 FadeDuration"/>
+        <On Terms="TimerExpired; TimerName FadeDuration" Send="Destroy"/>
+        <On Terms="TimerExpired; TimerName FadeDelay" Send="SetScale 0.000500 3.000000"/>
+        <On Terms="TimerExpired; TimerName FadeDelay" Send="SetOpacity 0.000000 3.000000"/>
+    </CActorModel>
     <CActorModel id="UnitDeathModelUnscaledForceDestroy" parent="UnitDeathModelUnscaled">
         <On Terms="ActorCreation" Send="TimerSet 2.000000 DeathDelay"/>
         <On Terms="TimerExpired; TimerName DeathDelay" Send="TimerSet 1.000000 Death"/>
@@ -9371,6 +9389,10 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Zerg-yagdra.dds"/>
         </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="WreckedBattlecruiserHeliosFinal">
+        <DeathActorModel value="UnitDeathModelFade"/>
+        <DeathActorModelLow value="UnitDeathModelFade"/>
     </CActorUnit>
     <CActorModel id="YagdraBaseDeath2">
         <On Terms="UnitDeath.AlienYagdra" Send="Create"/>

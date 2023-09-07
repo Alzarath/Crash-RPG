@@ -186,7 +186,7 @@
 <Actor id="SnowRefinery_Terran_Pipes" Variations="0,6"/>
 <Actor id="SnowRefinery_Terran_SnowSplats" Variations="1,3"/>
 <Actor id="SnowRefinery_Terran_WindSock" Variations="0"/>
-<Actor id="SnowTreeDead" Variations="0,1,2,3,5"/>
+<Actor id="SnowTreeDead" Variations="0,1,2,3,4,5"/>
 <Actor id="SnowTrees" Variations="0,1,2,3,4,5,6"/>
 <Actor id="Tarsonis_Ornate_Door" Variations="3"/>
 <Actor id="Tarsonis_Store_Front" Variations="1,3,4,5"/>
@@ -317,18 +317,27 @@
 <Unit id="Drone"/>
 <Unit id="Overlord"/>
 <Unit id="Hydralisk"/>
+<Unit id="Mutalisk"/>
 <Unit id="Ultralisk"/>
 <Unit id="HydraliskBurrowed"/>
 <Unit id="RoachBurrowed"/>
+<Unit id="ZerglingBurrowed"/>
+<Unit id="QueenBurrowed"/>
 <Unit id="NydusCanal"/>
+<Unit id="LurkerMPBurrowed"/>
 <Unit id="MineralField" Variations="1,5,6,8,9"/>
 <Unit id="VespeneGeyser"/>
+<Unit id="InfestedAbomination"/>
 <Unit id="BattlecruiserHelios"/>
+<Unit id="Scourge"/>
 <Unit id="Brutalisk"/>
+<Unit id="HotSSwarmling"/>
 <Unit id="HotSRaptor"/>
+<Unit id="HotSSplitterlingBigBurrowed"/>
 <Unit id="HotSSwarmlingBurrowed"/>
 <Unit id="HotSRaptorBurrowed"/>
 <Unit id="CreepTumorUsed"/>
+<Unit id="GuardianMP"/>
 <Unit id="DevourerMP"/>
 <Unit id="CRPGMarine"/>
 <Unit id="CRPGDefensiveFortification"/>

@@ -2356,6 +2356,7 @@ Param/Value/22DECBC8=Crashed Battlecruiser
 Param/Value/24329654=As a survivor, you are victorious!
 Param/Value/250BE849= remaining)
 Param/Value/25DD31A3=Crashed Battlecruiser
+Param/Value/264D24E9=Everyone okay? Good. We'll need to fight our way out of here.
 Param/Value/26E04E8B=As a survivor, you are victorious!
 Param/Value/28FBA8DD=The armies of hell march upon us.
 Param/Value/296BC082=Crashed Battlecruiser
@@ -2384,7 +2385,7 @@ Param/Value/43147C13=No one made it...
 Param/Value/456D0485=Minerals can be used to upgrade a hero's attack, armor, and energy regeneraiton.
 Param/Value/46F49BC1=Take as long as you want to look over the heroes. While you have a time limit to pick in a normal game, there is no rush here.
 Param/Value/472C18CB=Minerals can be used to upgrade a hero's attack, armor, and energy regeneraiton.
-Param/Value/476C0BF0=To begin, please use your Civilian to move to a beacon and select a hero.
+Param/Value/476C0BF0=To begin, please select a hero from the dialog in front of you.
 Param/Value/4801575B=Crashed Battlecruiser
 Param/Value/4AB61570=Experience is used to level up your hero.
 Param/Value/4B4EE47F=They're all gone...
@@ -2404,6 +2405,7 @@ Param/Value/5A3530FD= lost their hero.
 Param/Value/5AFED7C3=Destroy Alien spawners <s val="SimpleCommandRow">(</s>
 Param/Value/5DE691E8=Crashed Battlecruiser
 Param/Value/5F6C341E=Mayday! We're going down! Brace for impact!
+Param/Value/604C7656=I'm re-routing the remaining power to the Battlecruiser's medical systems. Good luck out there.
 Param/Value/618F0B34=You seem to have an idea of what you're doing.
 Param/Value/6214737A=Unfortunately you did not survive. Better luck next time!
 Param/Value/65A97475=<s val="ModLeftSize20Bold">Crashed Battlecruiser</s>
@@ -2494,6 +2496,7 @@ Param/Value/C27C6B11=)</s>
 Param/Value/C2BC66ED=Protect the Crashed Battlecruiser
 Param/Value/C3DB4817=Experience is used to level up your hero.
 Param/Value/C50F4CC2=Armor
+Param/Value/C604D076=Select a Hero
 Param/Value/C65ED867=Select a random hero from the available heroes.
 Param/Value/C69B9AAA=Air defenses losing power.
 Param/Value/C6FB986B=Destroy Alien spawners <s val="SimpleCommandRow">(

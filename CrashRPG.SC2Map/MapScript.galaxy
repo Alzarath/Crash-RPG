@@ -457,6 +457,7 @@ int gf_GetIntegerfromStartingLevelAttribute (string lp_attributeValue);
 int gf_GetExperiencefromLevel (int lp_level);
 string gf_UnitNamePathFromHeroID (int lp_iD);
 string gf_UnitNamePathFromUnitType (string lp_unitType);
+void gf_EndCinematic ();
 void gf_AddMineralsToPool (fixed lp_amount);
 void gf_SideMNydusWorm ();
 point gf_GetOppositePoint (point lp_point, point lp_center);
@@ -1079,6 +1080,66 @@ string gf_UnitNamePathFromUnitType (string lp_unitType) {
     // Automatic Variable Declarations
     // Implementation
     return CatalogFieldValueGet(c_gameCatalogUnit, lp_unitType, "Name", c_playerAny);
+}
+
+void gf_EndCinematic () {
+    // Automatic Variable Declarations
+    playergroup autoE250C467_g;
+    int autoE250C467_var;
+    unitgroup autoDB5CFB3C_g;
+    int autoDB5CFB3C_u;
+    unit autoDB5CFB3C_var;
+    playergroup auto046EA475_g;
+    int auto046EA475_var;
+
+    // Implementation
+    if ((gv_fading == false)) {
+        CinematicFade(false, 0.5, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    }
+
+    TechTreeAbilityAllow(gv_pLAYER_SURVIVOR_BASE, AbilityCommand("DefensiveTurretHellstormMissilePods", 0), true);
+    autoE250C467_g = gv_survivors;
+    autoE250C467_var = -1;
+    while (true) {
+        autoE250C467_var = PlayerGroupNextPlayer(autoE250C467_g, autoE250C467_var);
+        if (autoE250C467_var < 0) { break; }
+        DialogSetVisible(gv_cBDialog[0].lv_dialog, PlayerGroupSingle(autoE250C467_var), true);
+    }
+    autoDB5CFB3C_g = UnitGroup("CRPGCrashedBattlecruiser", gv_pLAYER_SURVIVOR_BASE, RegionFromId(1), UnitFilter(0, (1 << (c_targetFilterHidden - 32)), (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))), 0);
+    autoDB5CFB3C_u = UnitGroupCount(autoDB5CFB3C_g, c_unitCountAll);
+    for (;; autoDB5CFB3C_u -= 1) {
+        autoDB5CFB3C_var = UnitGroupUnitFromEnd(autoDB5CFB3C_g, autoDB5CFB3C_u);
+        if (autoDB5CFB3C_var == null) { break; }
+        libNtve_gf_ShowHideUnit(autoDB5CFB3C_var, true);
+    }
+    auto046EA475_g = gv_survivors;
+    auto046EA475_var = -1;
+    while (true) {
+        auto046EA475_var = PlayerGroupNextPlayer(auto046EA475_g, auto046EA475_var);
+        if (auto046EA475_var < 0) { break; }
+        DialogSetVisible(gv_mineralPoolDialog[auto046EA475_var].lv_dialog, PlayerGroupSingle(auto046EA475_var), true);
+    }
+    libNtve_gf_RemoveDeathModelsinRegionImmediately(RegionFromId(1));
+    TriggerExecute(gt_CreateHeroSelection, true, false);
+    if ((gv_tutorialOn == false)) {
+        TimerStart(TimerCreate(), 60.0, false, c_timeGame);
+        gv_heroSelectionTimer = TimerLastStarted();
+        TimerWindowCreate(TimerLastStarted(), StringExternal("Param/Value/C604D076"), true, false);
+        gv_heroSelectionTimerWindow = TimerWindowLastCreated();
+        TimerWindowSetFormat(TimerWindowLastCreated(), StringToText("<sectotal/>"));
+        TimerWindowShowBorder(TimerWindowLastCreated(), true);
+        TimerWindowSetStyle(TimerWindowLastCreated(), c_timerWindowStyleHorizontalTitleTime, false);
+        TimerWindowShowProgressBar(TimerWindowLastCreated(), true);
+    }
+
+    libNtve_gf_CinematicMode(false, PlayerGroupAll(), c_transitionDurationDefault);
+    CinematicFade(true, 1.0, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
+    gf_SendBattlecruiserTransmission(StringExternal("Param/Value/264D24E9"), PlayerGroupAll(), 5.0, true);
+    gf_SendBattlecruiserTransmission(StringExternal("Param/Value/604C7656"), PlayerGroupAll(), 5.0, true);
+    if ((gv_tutorialOn == true)) {
+        TriggerExecute(gt_TutorialStart, true, false);
+    }
+
 }
 
 void gf_AddMineralsToPool (fixed lp_amount) {
@@ -2064,7 +2125,7 @@ bool gt_BattlecruiserCrash_Func (bool testConds, bool runActions) {
     UnitKill(EventUnit());
     gv_fading = true;
     CinematicFade(false, 2.5, c_fadeStyleNormal, Color(0.00, 0.00, 0.00), 0.0, true);
-    TriggerExecute(gt_EndCinematic, true, false);
+    gf_EndCinematic();
     return true;
 }
 

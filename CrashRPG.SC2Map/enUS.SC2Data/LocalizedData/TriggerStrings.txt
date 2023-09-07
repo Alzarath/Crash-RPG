@@ -225,6 +225,7 @@ FunctionDef/Name/EFFE009D=Create Selectable Hero 2
 FunctionDef/Name/F490E849=Set Alien Type (2)
 FunctionDef/Name/F6978118=Get Experience from Level
 FunctionDef/Name/F7D79C81=Set Alien Type (6) 2
+FunctionDef/Name/F81CC855=End Cinematic
 FunctionDef/Name/FBD953BD=Set Alien Type (15)
 FunctionDef/Name/FFA30B65=Get Alien Count 2
 FunctionDef/Name/lib_ALZL_4A8DDB70=String To Gradient Text At Character
