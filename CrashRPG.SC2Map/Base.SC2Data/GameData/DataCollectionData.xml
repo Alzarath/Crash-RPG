@@ -1484,7 +1484,7 @@
         <DataRecord Entry="Effect,ShooterOverkill@CP"/>
         <DataRecord Entry="Effect,ShooterOverkill@SA"/>
         <DataRecord Entry="Effect,ShooterOverkill@SetPeriodic"/>
-        <DataRecord Entry="Actor,ShooterOverkill@Gude"/>
+        <DataRecord Entry="Actor,ShooterOverkill@Guide"/>
         <DataRecord Entry="Actor,ShooterOverkill@SoundLaunch"/>
         <DataRecord Entry="Behavior,ShooterOverkill@Cooldown"/>
         <DataRecord Entry="Behavior,ShooterOverkill@Channeling"/>

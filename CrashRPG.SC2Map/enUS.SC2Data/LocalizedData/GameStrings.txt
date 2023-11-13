@@ -818,9 +818,9 @@ Button/Tooltip/InfestedAberrate@Active2@Upgraded=NYI
 Button/Tooltip/InfestedAberrate@ActiveTarget=Merges two Infested Civilians into a more powerful monstrosity.
 Button/Tooltip/InfestedAberrate@ActiveTarget@Upgraded=NYI
 Button/Tooltip/InfestedAberrate@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Infested Civilians can merge into an Infested Bunker or morph into an Infested Marine.
-Button/Tooltip/InfestedAberrate@Merge=Merges two Infested Civilians into an Infested Bunker, granting it increased stats and the ability to transport Infested Marines.
+Button/Tooltip/InfestedAberrate@Merge=Merges two Infested Civilians into a powerful Infested Bunker, granting it the ability to transport Infested Marines.
 Button/Tooltip/InfestedAberrate@Merge@Upgraded=NYI
-Button/Tooltip/InfestedAberrate@Morph=Morphs into an Infested Marine, reducing its life while gaining a ranged weapon.
+Button/Tooltip/InfestedAberrate@Morph=Morphs into an Infested Marine, gaining a ranged weapon at the cost of reduced maximum life.
 Button/Tooltip/InfestedAberrate@Upgraded=Infested Bunkers can root. While rooted, Infested Bunkers have significantly increased life regeneration and their occupants are granted +<d ref="Behavior,InfestedBunkerBraced@CargoBuff,Modification.RangedWeaponRange"/> range and are unaffected by Empathetic Repercussion.
 Button/Tooltip/InfestedBunkerBraced=This unit has increased life regeneration. Cargo gains increased range and is unaffected by Empathic Repercussion.
 Button/Tooltip/InfestedBunkerRoot@Root=Roots the Infested Bunker, granting it increased life regeneration.

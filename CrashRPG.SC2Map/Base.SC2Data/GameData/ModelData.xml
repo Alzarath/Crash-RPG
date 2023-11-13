@@ -558,6 +558,18 @@
         <SelectionRadius value="1.845700"/>
         <ShadowRadius value="1.230700"/>
     </CModel>
+    <CModel id="Tychus_Heavens_COOP_Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Tychus\Units\Tychus_Heavens_COOP_Death\Tychus_Heavens_COOP_Death.m3"/>
+    </CModel>
+    <CModel id="Tychus_Heavens_COOP" parent="PersistentSpellFX">
+        <Model value="Assets\COOP\Tychus\Units\Tychus_Heavens_COOP\Tychus_Heavens_COOP.m3"/>
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="AutoUnload" value="1"/>
+        <Flags index="Wait" value="1"/>
+    </CModel>
+    <CModel id="Tychus_Heavens_COOP_DeathRagdoll" parent="UnitDeath">
+        <Model value="Assets\COOP\Tychus\Units\Tychus_Heavens_COOP_DeathRagdoll\Tychus_Heavens_COOP_DeathRagdoll.m3"/>
+    </CModel>
     <CModel id="Ultralisk_SpeedUpgrade" parent="PersistentSpellFX" Race="Zerg">
         <Model value="Assets\Effects\Zerg\Ultralisk_SpeedUpgrade\Ultralisk_SpeedUpgrade.m3"/>
         <EditorCategories value="Race:Zerg"/>

@@ -859,7 +859,7 @@
         <On Terms="Effect.ShooterGaussRifle@Set.Start; At Caster" Send="Create"/>
         <Sound value="Marine_AttackLaunch"/>
     </CActorSound>
-    <CActorModel id="ShooterOverkill@Gude">
+    <CActorModel id="ShooterOverkill@Guide">
         <On Terms="Abil.ShooterOverkill.TargetOn" Send="Create"/>
         <On Terms="Abil.ShooterOverkill.TargetOff" Send="AnimBracketStop BSD"/>
         <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
@@ -3673,7 +3673,6 @@
         <Model value="Marine_Remastered"/>
         <AnimBlendTime value="-0.800000"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
-        <EventDataFootprint index="0" Model="MarineFootprint"/>
         <BuildModel value="Marine_Remastered"/>
         <DeathArray index="Normal" ModelLink="Marine_Remastered_Death" SoundLink="Marine_DeathFXBloodSpray" VoiceLink="MarineDeathVoice"/>
         <DeathArray index="Blast" ModelLink="Marine_Remastered_DeathBlast"/>
@@ -3743,6 +3742,7 @@
         <Macros value="PhysicsDeathsVoidGround"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Marine_Land"/>
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
         <Model value="Marine"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
@@ -3824,28 +3824,27 @@
         <Macros value="UnloadDropAnim"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Marine_Land"/>
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="Abil.ShooterOverkill.SourceChannelStart" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="Abil.ShooterOverkill.SourceChannelStop" Send="AnimBracketStop Attack"/>
-        <Model value="WarPig"/>
+        <Model value="Marine_Merc_Collection"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
-        <BuildModel value="WarPig"/>
-        <DeathArray index="Normal" ModelLink="KelmorianMinerDeath" SoundLink="Marine_DeathFXBloodSpray" VoiceLink="CRPGShooterLevel3DeathVoice"/>
-        <DeathArray index="Blast" ModelLink="MarineDeathBlast" SoundLink="Marine_DeathFXBlast"/>
-        <DeathArray index="Disintegrate" ModelLink="MarineDeathAcid" SoundLink="Marine_DeathFXFire"/>
+        <BuildModel value="Marine_Merc_Collection"/>
+        <DeathArray index="Normal" ModelLink="Marine_Merc_Collection_Death" SoundLink="Marine_DeathFXBloodSpray" VoiceLink="CRPGShooterLevel3DeathVoice"/>
+        <DeathArray index="Blast" ModelLink="Marine_Merc_Collection_DeathBlast" SoundLink="Marine_DeathFXBlast"/>
+        <DeathArray index="Disintegrate" ModelLink="Marine_Merc_Collection_DeathAcid" SoundLink="Marine_DeathFXFire"/>
         <DeathArray index="Eat" AnimProps="Stand" ModelLink="MarineDeathEat" SoundLink="Marine_DeathFXEat"/>
-        <DeathArray index="Eviscerate" ModelLink="MarineDeathEviscerate" SoundLink="Marine_DeathFXEviscerate"/>
-        <DeathArray index="Fire" ModelLink="MarineDeathFire" SoundLink="Marine_DeathFXFire"/>
+        <DeathArray index="Eviscerate" ModelLink="Marine_Merc_Collection_DeathEviscerate" SoundLink="Marine_DeathFXEviscerate"/>
+        <DeathArray index="Fire" ModelLink="Marine_Merc_Collection_DeathFire" SoundLink="Marine_DeathFXFire"/>
         <DeathArray index="Silentkill" SoundLink="Marine_DeathFXSilentKill"/>
         <DeathArray index="Squish" SoundLink="Marine_DeathFXBloodSpray"/>
-        <PlacementModel value="WarPig"/>
-        <PortraitModel value="MarineMercenaryPortrait"/>
+        <PlacementModel value="Marine_Merc_Collection"/>
+        <PortraitModel value="Marine_Merc_Portrait"/>
         <StandAnimTurnTime value="5"/>
         <WalkAnimMoveSpeed value="2.25"/>
         <BarOffset value="40"/>
         <BarWidth value="36"/>
         <GroupIcon>
-            <Image value="Assets\Textures\wireframe-terran-marine-mercenary.dds"/>
+            <Image value="Assets\Textures\wireframe-collection-marine-mercenary.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\BTN-Unit-Terran-MarineMercenary.dds"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
@@ -3857,17 +3856,40 @@
         <SoundArray index="Pissed" value="Marine_Pissed"/>
         <UnitIcon value="Assets\Textures\BTN-Unit-Terran-MarineMercenary.dds"/>
         <Wireframe>
-            <Image value="Assets\Textures\wireframe-terran-marine-mercenary.dds"/>
+            <Image value="Assets\Textures\wireframe-collection-marine-mercenary.dds"/>
         </Wireframe>
+        <DeathCustoms ModelLink="TerranSmallBiologicalUnitDeathLow" Name="AntiGravTerran"/>
+        <DeathCustoms ModelLink="Marine_Merc_Collection_DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdollBloodPrevent" ModelLink="MarineDeathRagdoll" Name="RagdollSpineCrawlerHurl">
+            <BodySquibs Name="None"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
     </CActorUnit>
     <CActorUnit id="CRPGShooter@Level4" parent="GenericUnitHeroLeveled" unitName="CRPGShooter" level="4">
         <Aliases value="_UnitSmall"/>
         <Macros value="UnloadDropAnim"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Marine_Land"/>
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="Abil.ShooterOverkill.SourceChannelStart" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="Abil.ShooterOverkill.SourceChannelStop" Send="AnimBracketStop Attack"/>
         <Model value="Marine_Umojan"/>
         <ModelFlags index="SuppressPlayerDecals" value="1"/>
         <BuildModel value="Marine_Umojan"/>
@@ -3897,8 +3919,6 @@
         <SoundArray index="Yes" value="Marine_Yes"/>
         <SoundArray index="Attack" value="Marine_Attack"/>
         <SoundArray index="Pissed" value="Marine_Pissed"/>
-        <UnitBorderNormalColor value="150,150,150"/>
-        <UnitBorderSubgroupColor value="255,255,255"/>
         <UnitIcon value="Assets\Textures\btn-unit-terran-marine-umojan.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\wireframe-terran-marine-mercenary.dds"/>
@@ -3908,15 +3928,14 @@
         <Aliases value="_UnitSmall"/>
         <On Terms="UnitHeightUpdate.*.Land" Send="Create Marine_Land"/>
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="Abil.ShooterOverkill.SourceChannelStart" Send="AnimBracketStart Attack Attack"/>
-        <On Terms="Abil.ShooterOverkill.SourceChannelStop" Send="AnimBracketStop Attack"/>
         <On Terms="ActorCreation" Send="TextureSelectById Decal_Campaign_Tychus_01"/>
-        <Model value="TychusChaingun"/>
+        <Model value="Tychus_Heavens_COOP"/>
         <ModelFlags index="SuppressPlayerDecals" value="1"/>
-        <BuildModel value="TychusChaingun"/>
-        <DeathArray index="Normal" ModelLink="TychusChaingun" SoundLink="Tychus_Explode"/>
-        <PlacementModel value="TychusChaingun"/>
+        <BuildModel value="Tychus_Heavens_COOP"/>
+        <DeathArray index="Normal" ModelLink="Tychus_Heavens_COOP_Death" SoundLink="Tychus_Explode"/>
+        <PlacementModel value="Tychus_Heavens_COOP"/>
         <PortraitModel value="TychusPortrait"/>
         <StandAnimTurnTime value="5"/>
         <WalkAnimMoveSpeed value="2.25"/>
@@ -3933,10 +3952,7 @@
         <SoundArray index="Yes" value="Tychus_Yes"/>
         <SoundArray index="Attack" value="Tychus_Attack"/>
         <SoundArray index="Pissed" value="Tychus_Pissed"/>
-        <UnitBorderNormalColor value="150,150,150"/>
-        <UnitBorderSubgroupColor value="255,255,255"/>
         <UnitIcon value="Assets\Textures\BTN-Unit-Terran-MarineTychus.dds"/>
-        <UnitKillRank Text="UnitKillRank/Tychus"/>
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Terran-marine-tychus.dds"/>
         </Wireframe>
