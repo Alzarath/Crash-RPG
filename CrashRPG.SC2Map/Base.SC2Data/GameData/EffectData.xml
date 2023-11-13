@@ -4302,6 +4302,7 @@
         <PeriodCount value="3"/>
         <PeriodicEffectArray value="HunterDisruptorVolley@LM"/>
         <PeriodicPeriodArray value="0.2"/>
+        <Flags index="Channeled" value="1"/>
     </CEffectCreatePersistent>
     <CEffectSet id="HunterDisruptorVolley@SetAttack">
         <EditorCategories value="Race:Protoss"/>

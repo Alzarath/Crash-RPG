@@ -54,7 +54,7 @@
         <EffectArray Reference="Weapon,AeroLaserbatteryATS,RateMultiplier" Value="0.05"/>
         <EffectArray Reference="Weapon,FighterPsiBlades,RateMultiplier" Value="0.05"/>
         <EffectArray Reference="Weapon,FighterSolariteReaper,RateMultiplier" Value="0.05"/>
-        <EffectArray Reference="Weapon,HunterDisruptorVolleyFour,RateMultiplier" Value="0.05"/>
+        <EffectArray Reference="Weapon,HunterDisruptorVolley,RateMultiplier" Value="0.05"/>
         <EffectArray Reference="Weapon,HunterPurifierGlaiveCannon,RateMultiplier" Value="0.05"/>
         <EffectArray Reference="Weapon,HunterPurifierGlaiveCannon,RateMultiplier" Value="0.05"/>
         <EffectArray Reference="Weapon,MechFusionCutter,RateMultiplier" Value="0.05"/>

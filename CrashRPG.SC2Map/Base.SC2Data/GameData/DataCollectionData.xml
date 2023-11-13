@@ -260,6 +260,7 @@
         <EditorCategories value="DataGroup:Unit,ObjectType:Unit,Race:Terran"/>
         <DataRecord Entry="Actor,CRPGGhost"/>
         <DataRecord Entry="Unit,CRPGGhost"/>
+        <DataRecord Entry="Button,CRPGGhost"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGHunter">
         <EditorCategories value="DataGroup:Unit,Race:Protoss,ObjectType:Hero"/>
@@ -290,11 +291,13 @@
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Unit"/>
         <DataRecord Entry="Actor,CRPGMarauder"/>
         <DataRecord Entry="Unit,CRPGMarauder"/>
+        <DataRecord Entry="Button,CRPGMarauder"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGMarine">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Unit"/>
         <DataRecord Entry="Actor,CRPGMarine"/>
         <DataRecord Entry="Unit,CRPGMarine"/>
+        <DataRecord Entry="Button,CRPGMarine"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="CRPGMech">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Hero"/>
@@ -975,22 +978,25 @@
         <DataRecord Entry="Abil,HunterDisruptorVolley"/>
         <DataRecord Entry="Abil,HunterDisruptorVolley@Free"/>
         <DataRecord Entry="Actor,HunterDisruptorVolley@Attack"/>
+        <DataRecord Entry="Actor,HunterDisruptorVolley@Missile"/>
         <DataRecord Entry="Behavior,HunterDisruptorVolley"/>
         <DataRecord Entry="Button,HunterDisruptorVolley"/>
+        <DataRecord Entry="Button,HunterDisruptorVolley@Free"/>
+        <DataRecord Entry="Button,HunterDisruptorVolley@Upgraded"/>
+        <DataRecord Entry="Button,HunterDisruptorVolley@Learn"/>
         <DataRecord Entry="Effect,HunterDisruptorVolley@AB"/>
         <DataRecord Entry="Effect,HunterDisruptorVolley@SetFree"/>
-        <DataRecord Entry="Effect,HunterDisruptorVolley@SetAttack"/>
+        <DataRecord Entry="Effect,HunterDisruptorVolley@Kill"/>
         <DataRecord Entry="Effect,HunterDisruptorVolley@RB"/>
-        <DataRecord Entry="Effect,HunterDisruptorVolley@LM"/>
-        <DataRecord Entry="Effect,HunterDisruptorVolley@CP"/>
         <DataRecord Entry="Effect,HunterDisruptorVolley@IM"/>
         <DataRecord Entry="Effect,HunterDisruptorVolley@Damage"/>
-        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@CP"/>
-        <DataRecord Entry="Effect,HunterDisruptorVolley@Kill"/>
-        <DataRecord Entry="Effect,PsionicProjectionDisruptorVolley@LM"/>
+        <DataRecord Entry="Effect,HunterDisruptorVolley@CP"/>
+        <DataRecord Entry="Effect,HunterDisruptorVolley@LM"/>
+        <DataRecord Entry="Effect,HunterDisruptorVolley@SetAttack"/>
         <DataRecord Entry="Requirement,HunterDisruptorVolley@FreeUse"/>
         <DataRecord Entry="Unit,HunterDisruptorVolley@Weapon"/>
         <DataRecord Entry="Validator,HunterDisruptorVolley@Ready"/>
+        <DataRecord Entry="Weapon,HunterDisruptorVolley"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="HunterPlasmaDiffusion">
         <EditorCategories value="DataGroup:Buff,Race:Protoss"/>

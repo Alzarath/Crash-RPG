@@ -1097,7 +1097,7 @@
         <Modification>
             <AbilLinkDisableArray value="HunterDisruptorVolley"/>
             <AbilLinkDisableArray value="HunterDisruptorVolley@Free"/>
-            <WeaponEnableArray value="HunterDisruptorVolleyFour"/>
+            <WeaponEnableArray value="HunterDisruptorVolley"/>
             <WeaponDisableArray value="HunterPurifierGlaiveCannon"/>
             <WeaponDisableArray value="HunterPurifierGlaiveCannon"/>
         </Modification>

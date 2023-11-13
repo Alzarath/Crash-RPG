@@ -534,7 +534,7 @@
         <Range value="500"/>
         <Arc value="360"/>
         <ProducedUnitArray value="CRPGMarine"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGRecruitGhost"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGGhost"/>
         <TechPlayer value="CasterPlayer"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="FollowerConditionalOrderOrder">
@@ -754,7 +754,7 @@
         <Range value="500"/>
         <Arc value="360"/>
         <ProducedUnitArray value="CRPGMarine"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGRecruitMarine"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGMarine"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="CrashedBattlecruiserNomadRepair">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -813,7 +813,7 @@
         <Range value="500"/>
         <Arc value="360"/>
         <ProducedUnitArray value="CRPGMarauder"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGRecruitMarauder"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="CRPGMarauder"/>
         <TechPlayer value="CasterPlayer"/>
     </CAbilEffectTarget>
     <CAbilTransport id="DefensiveFortificationTransport">

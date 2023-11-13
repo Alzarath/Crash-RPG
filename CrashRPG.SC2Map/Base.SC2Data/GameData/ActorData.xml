@@ -1899,15 +1899,6 @@
         <Wireframe>
             <Image value="Assets\Textures\wireframe-terran-battlecruiser.dds"/>
         </Wireframe>
-        <StatusBarFlags index="Shields" value="0"/>
-        <StatusBarFlags index="Life" value="0"/>
-        <StatusBarFlags index="Energy" value="0"/>
-        <StatusBarFlags index="Cargo" value="0"/>
-        <StatusBarFlags index="Progress" value="0"/>
-        <StatusBarFlags index="Duration" value="0"/>
-        <StatusBarFlags index="Magazine" value="0"/>
-        <StatusBarFlags index="Workers" value="0"/>
-        <StatusBarFlags index="Custom" value="0"/>
     </CActorUnit>
     <CActorAction id="AlienTalonsSupportMeleeAttack" parent="GenericAttack" effectAttack="AlienTalonsSupportMeleeDamage">
         <LaunchAssets Model="QueenAttackLaunch" Sound="Queen_AttackLaunch"/>
@@ -2315,7 +2306,7 @@
         <Macros value="BuildAnim"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
-        <On Terms="Abil.HunterScarabMine.SourceCastStart" Send="AnimBracketStart Spell {} Stand,Work,Start Stand,Work,End ContentPlayOnce"/>
+        <On Terms="Effect.HunterDisruptorVolley@CP.Stop" Send="AnimBracketStop Attack"/>
         <On Terms="Abil.HunterShadowTransfer.SourceCastStart" Send="AnimBracketStart Spell Stand,Work,Start Stand,Work Stand,Work,End"/>
         <On Terms="Abil.HunterShadowTransfer.SourceFinishStart" Send="AnimBracketStop Spell"/>
         <Model value="Supplicant"/>
@@ -2378,6 +2369,9 @@
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
         <Macros value="TerrainSquibAnimations"/>
+        <On Terms="Effect.HunterDisruptorVolley@CP.Stop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.HunterShadowTransfer.SourceCastStart" Send="AnimBracketStart Spell Stand,Work,Start Stand,Work Stand,Work,End"/>
+        <On Terms="Abil.HunterShadowTransfer.SourceFinishStart" Send="AnimBracketStop Spell"/>
         <Model value="AdeptKhalai"/>
         <AnimBlendTime value="0.200000"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
@@ -2447,6 +2441,9 @@
     <CActorUnit id="CRPGHunter@Level3" parent="GenericUnitHeroLeveled" unitName="CRPGHunter" level="3">
         <Aliases value="_UnitSmall"/>
         <Macros value="TerrainSquibAnimations"/>
+        <On Terms="Effect.HunterDisruptorVolley@CP.Stop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.HunterShadowTransfer.SourceCastStart" Send="AnimBracketStart Spell Stand,Work,Start Stand,Work Stand,Work,End"/>
+        <On Terms="Abil.HunterShadowTransfer.SourceFinishStart" Send="AnimBracketStop Spell"/>
         <Model value="Adept_Taldarim"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="Adept_Taldarim_WarpIn"/>
@@ -2514,6 +2511,9 @@
     <CActorUnit id="CRPGHunter@Level4" parent="GenericUnitHeroLeveled" unitName="CRPGHunter" level="4">
         <Aliases value="_UnitSmall"/>
         <Macros value="TerrainSquibAnimations"/>
+        <On Terms="Effect.HunterDisruptorVolley@CP.Stop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.HunterShadowTransfer.SourceCastStart" Send="AnimBracketStart Spell Stand,Work,Start Stand,Work Stand,Work,End"/>
+        <On Terms="Abil.HunterShadowTransfer.SourceFinishStart" Send="AnimBracketStop Spell"/>
         <Model value="Adept_CollectorEdition"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="Adept_CollectorEdition_WarpIn"/>
@@ -2580,6 +2580,9 @@
     <CActorUnit id="CRPGHunter@Level5" parent="GenericUnitHeroLeveled" unitName="CRPGHunter" level="5">
         <Aliases value="_UnitSmall"/>
         <Macros value="TerrainSquibAnimations"/>
+        <On Terms="Effect.HunterDisruptorVolley@CP.Stop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.HunterShadowTransfer.SourceCastStart" Send="AnimBracketStart Spell Stand,Work,Start Stand,Work Stand,Work,End"/>
+        <On Terms="Abil.HunterShadowTransfer.SourceFinishStart" Send="AnimBracketStop Spell"/>
         <Model value="Adept_Purifier"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="Adept_Purifier_WarpIn"/>
@@ -5014,6 +5017,18 @@
             <Volume value="-14.000000,-12.000000"/>
         </Layers>
     </CActorSound>
+    <CActorModel id="HunterDisruptorVolley@ModelAttachment" parent="ModelAddition">
+        <Macros value="GlobalLoopMacroMore"/>
+        <On Terms="UnitDeathCustomize" Send="Destroy"/>
+        <On Terms="Signal.*.DarkProtoss" Send="ModelSwap TalDarimStormSphereAttachment"/>
+        <On Terms="Behavior.HunterDisruptorVolley.On" Send="Create"/>
+        <On Terms="Behavior.HunterDisruptorVolley.Off" Send="AnimBracketStop BSD"/>
+        <On Terms="ActorCreation" Send="AnimPlay Rearm Stand,Work,Start 0 0.000000 0.000000 0.250000 AsDuration"/>
+        <On Terms="ActorCreation" Send="SetTintColor {255,64,0 5.000000}"/>
+        <HostSiteOps Ops="SOpAttachWeapon00"/>
+        <Model value="StormSphereAttachment"/>
+        <Scale value="0.375000"/>
+    </CActorModel>
     <CActorUnit id="SwarmerSwarmBeacon" parent="GenericUnitMinimal" unitName="SwarmerSwarmBeacon">
         <On Terms="ActorCreation" Send="$Stand 0 -1.000000 -1.000000 60.000000 AsDuration"/>
         <Model value="Invisible"/>
@@ -6951,7 +6966,6 @@
     </CActorTurret>
     <CActorAction id="HunterDisruptorVolley@Attack" parent="GenericAttack" effectImpact="HunterDisruptorVolley@Damage" effectLaunch="HunterDisruptorVolley@LM">
         <EditorCategories value=""/>
-        <LaunchAttachQuery Methods="AMPatternHunterDisruptorVolley"/>
         <Missile value="HunterDisruptorVolley@Missile"/>
         <ImpactMap index="None" Model="DisruptorVolleyImpact" Sound="VoidThrasherMissileImpact"/>
     </CActorAction>

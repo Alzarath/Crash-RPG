@@ -1627,8 +1627,8 @@
             <LayoutButtons Face="CRPGDefensiveWall" Type="AbilCmd" AbilCmd="CrashedBattlecruiserBuildStructure@DefensiveWall,Execute" Row="0" Column="0"/>
             <LayoutButtons Face="CRPGDefensiveTurret" Type="AbilCmd" AbilCmd="CrashedBattlecruiserBuildStructure@DefensiveTurret,Execute" Row="0" Column="2"/>
             <LayoutButtons Face="CrashedBattlecruiserNomadRepair" Type="AbilCmd" AbilCmd="CrashedBattlecruiserNomadRepair,Execute" Row="0" Column="3"/>
-            <LayoutButtons Face="CRPGRecruitMarine" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarine,Execute" Row="1" Column="0"/>
-            <LayoutButtons Face="CRPGRecruitMarauder" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarauder,Execute" Row="1" Column="1"/>
+            <LayoutButtons Face="CRPGMarine" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarine,Execute" Row="1" Column="0"/>
+            <LayoutButtons Face="CRPGMarauder" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarauder,Execute" Row="1" Column="1"/>
         </CardLayouts>
         <Radius value="1.25"/>
         <SeparationRadius value="1.25"/>
@@ -2866,11 +2866,11 @@
             <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
             <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
             <LayoutButtons Face="Halt" Type="AbilCmd" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
-            <LayoutButtons Face="CRPGRecruitMarauder" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarauder,Execute" Row="0" Column="1"/>
+            <LayoutButtons Face="CRPGMarauder" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarauder,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="SelectBuilder" Type="SelectBuilder" Row="1" Column="3"/>
             <LayoutButtons Face="CrashedBattlecruiserNomadRepair" Type="AbilCmd" AbilCmd="CrashedBattlecruiserNomadRepair,Execute" Row="0" Column="4"/>
             <LayoutButtons Face="TerranBuild" Type="Submenu" SubmenuCardId="0002" Row="2" Column="0"/>
-            <LayoutButtons Face="CRPGRecruitMarine" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarine,Execute" Row="0" Column="0"/>
+            <LayoutButtons Face="CRPGMarine" Type="AbilCmd" AbilCmd="CrashedBattlecruiserRecruitMarine,Execute" Row="0" Column="0"/>
         </CardLayouts>
         <CardLayouts CardId="0002">
             <LayoutButtons Face="CrashedBattlecruiserConstructOutpost" AbilCmd="CrashedBattlecruiserConstructOutpost,Execute" Row="0" Column="0"/>
@@ -4170,7 +4170,7 @@
         <BehaviorArray Link="HunterPlasmaDiffusion@PlasmaCharged"/>
         <BehaviorArray Link="HunterShadowTransfer@UT"/>
         <WeaponArray Link="HunterPurifierGlaiveCannon"/>
-        <WeaponArray Link="HunterDisruptorVolleyFour"/>
+        <WeaponArray Link="HunterDisruptorVolley"/>
         <CardLayouts index="0">
             <LayoutButtons index="5">
                 <Face value="CRPGLevelUp"/>

@@ -460,6 +460,7 @@ Button/Name/CRPGAbilityUpgradeTernary=Ternary Ability Upgrade
 Button/Name/CRPGDefensiveFortification=Build Defensive Fortification
 Button/Name/CRPGDefensiveTurret=Build Defensive Turret
 Button/Name/CRPGDefensiveWall=Build Defensive Wall
+Button/Name/CRPGGhost=Recruit Ghost
 Button/Name/CRPGHoldFire=Hold Fire
 Button/Name/CRPGLearnAbilityE=Learn Ability E
 Button/Name/CRPGLearnAbilityQ=Learn Ability Q
@@ -467,11 +468,10 @@ Button/Name/CRPGLearnAbilityW=Learn Ability W
 Button/Name/CRPGLearnPassive1=Learn Passive 1
 Button/Name/CRPGLearnPassive2=Learn Passive 2
 Button/Name/CRPGLevelUp=Level Up
+Button/Name/CRPGMarauder=Recruit Marauder
+Button/Name/CRPGMarine=Recruit Marine
 Button/Name/CRPGMedivacTransport@Load=Load
 Button/Name/CRPGMedivacTransport@UnloadAll=Unload All
-Button/Name/CRPGRecruitGhost=Recruit Ghost
-Button/Name/CRPGRecruitMarauder=Recruit Marauder
-Button/Name/CRPGRecruitMarine=Recruit Marine
 Button/Name/CRPGWeaponsFree=Weapons Free
 Button/Name/CrashedBattlecruiserConstructOutpost=Construct Outpost
 Button/Name/CrashedBattlecruiserNomadRepair=Nomad Repair
@@ -704,16 +704,17 @@ Button/Tooltip/CRPGAlienHeroUltralisk=Heavy assault unit. Has an area-damage cle
 Button/Tooltip/CRPGArmorAttribute=Increases units' life and shield armor.
 Button/Tooltip/CRPGArmory=Contains damage and armor upgrades.
 Button/Tooltip/CRPGCivilian=Nobody. Only used to select a hero. What a pitiful life.
+Button/Tooltip/CRPGContractActions=<n/><n/>The mercenary will perform a different action based on the target.<n/><n/><c val="#ColorAttackInfo">Defensive Fortification:</c> Enters the Defensive Fortification.<n/><c val="#ColorAttackInfo">Hero</c>: Follows the hero.
 Button/Tooltip/CRPGCrashedBattlecruiser=The remains of a downed Battlecruiser. Medical facilities miraculously continue to function.
 Button/Tooltip/CRPGCrashedBattlecruiserPlayer=The remains of a downed Battlecruiser. Medical facilities miraculously continue to function.
 Button/Tooltip/CRPGDamageAttribute=Increases units' attack and spell damage by <c val="#ColorAttackInfo"><d ref="100 * Accumulator,HeroDamagePoints,Scale" Precision="2"/>%</c>.
-Button/Tooltip/CRPGDefensiveFortification=Defensive structure. <n/>Infantry fights from inside. <n/><n/><c val="#ColorAttackInfo">Bonus: +1 range to units inside.</c>
+Button/Tooltip/CRPGDefensiveFortification=Defensive structure. Infantry fights from inside. <n/><n/><c val="#ColorAttackInfo">Bonus: +1 range to units inside.</c><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGDefensiveTurret=Defensive structure.<n/><n/><c val="#ColorAttackInfo">Can attack air units.</c><n/><c val="FFE303">Detector</c>
 Button/Tooltip/CRPGDefensiveWall=Defensive structure. Can be lowered to allow units to walk over it.
 Button/Tooltip/CRPGEnergyAttribute=Increases units' base energy regeneration by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttribute,Modification.VitalRegenMultiplier[Energy] * 100"/>%</c>.
 Button/Tooltip/CRPGFighter=Aggressive melee warrior. Uses gap-closers and powerful weapons.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Lightning Dash</c><n/><c val="#ColorActiveAbilityInfo">Rapid Strikes</c><n/><c val="#ColorActiveAbilityInfo">Astral Wind</c><n/><c val="#ColorPassiveAbilityInfo">Violent Charge</c><n/><c val="#ColorPassiveAbilityInfo">Resurgence</c><n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGFortress=Defensive stronghold. <n/>Used to receive gathered resources. <n/><n/><c val="ffff8a">Can attack ground units.</c>
-Button/Tooltip/CRPGGhost=Sniper. Can use Snipe, EMP Round, and be upgraded to use Cloak. Can call down Tactical Nukes built at the Ghost Academy.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGGhost=Anti-light infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGHoldFire=Orders selected units to withdraw their weapons and avoid engaging enemies, unless given a direct command. Units holding fire will flee if attacked.
 Button/Tooltip/CRPGHunter=Offensive burst hero. Relies on setup and attack timing to quickly deal large amounts of damage.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Scarab Mine</c><n/><c val="#ColorActiveAbilityInfo">Shadow Transfer</c><n/><c val="#ColorActiveAbilityInfo">Disruptor Volley</c><n/><c val="#ColorPassiveAbilityInfo">Psionic Projection</c><n/><c val="#ColorPassiveAbilityInfo">Plasma Diffusion</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGHunterLevel1=Basic worker unit. Can gather resources and warp in Protoss structures.<n/><n/><c val="ffff8a">Can attack ground units.</c>
@@ -735,9 +736,6 @@ Button/Tooltip/CRPGMedivacTransport@UnloadAll=Unloads all units.
 Button/Tooltip/CRPGNomad=Backbone of any mobile operations. Can build and repair structures.
 Button/Tooltip/CRPGOutpost=Primary structure. Used to receive gathered resources. Can upgrade into a Fortress.
 Button/Tooltip/CRPGOutpostFlying=Primary structure. Must land to receive resources, produce units, or use abilities.
-Button/Tooltip/CRPGRecruitGhost=Purchases a Marine's contract to perform an action depending on the target.<n/><n/><c val="#ColorAttackInfo">Defensive Fortification:</c> Enters the Defensive Fortification.<n/><c val="#ColorAttackInfo">Hero</c>: Follows the hero
-Button/Tooltip/CRPGRecruitMarauder=Purchases a Marauder's contract to perform an action depending on the target.<n/><n/><c val="#ColorAttackInfo">Defensive Fortification:</c> Enters the Defensive Fortification.<n/><c val="#ColorAttackInfo">Hero</c>: Follows the hero
-Button/Tooltip/CRPGRecruitMarine=Purchases a Marine's contract to perform an action depending on the target.<n/><n/><c val="#ColorAttackInfo">Defensive Fortification:</c> Enters the Defensive Fortification.<n/><c val="#ColorAttackInfo">Hero</c>: Follows the hero
 Button/Tooltip/CRPGShip=Agile flyer. Uses supportive abillities to improve himself and allies in combat.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Disruption Web</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Cloaking Field</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Stasis Ward</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Purifier Turrets</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Vortex</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShipLevel4=Mobile flying caster. Can use Photon Overcharge, Mass Recall, and Time Warp abilities. Can upgrade into the Mothership.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGShipLevel5=Ultimate Protoss vessel. Can use Photon Overcharge, Mass Recall, and Time Warp abilities. Cloaks nearby friendly units and structures.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
@@ -782,8 +780,8 @@ Button/Tooltip/FighterViolentCharge@Learn=<s val="@@StandardTooltipHeaderSub">Pa
 Button/Tooltip/FighterViolentCharge@Upgraded=Violent Charge's enemy immunity period is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,FighterViolentCharge@Immunity,Duration$'/]"/> and its range is increased by <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Validator,FighterViolentCharge@MaxDistance,Range$"/>.
 Button/Tooltip/Follow=Orders the selected unit to become a follower of a heroic unit. Each hero may only have <d ref="Behavior,CRPGFollowerTarget,MaxStackCount"/> follower(s).
 Button/Tooltip/GuardianMP=Long range siege unit.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/HunterDisruptorVolley=Charges the next attack to fire a volley of <d ref="Effect,HunterDisruptorVolley@CP,PeriodCount"/> long-range projectiles that each deal <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,HunterDisruptorVolley@Damage,Amount$"/></c> damage fired at them. Each Psionic Orb fires <d ref="Effect,PsionicProjectionDisruptorVolley@CP,PeriodCount"/> additional projectiles.
-Button/Tooltip/HunterDisruptorVolley@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,HunterDisruptorVolley,Cost[0].Vital[Energy]"/><n/><n/>Fire a volley of long-range projectiles at the next attack target.
+Button/Tooltip/HunterDisruptorVolley=Charges the next attack to fire a volley of <d ref="Effect,HunterDisruptorVolley@CP,PeriodCount"/> long-range projectiles that each deal <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,HunterDisruptorVolley@Damage,Amount$"/></c> damage. Psionic Orbs fire <d ref="Effect,PsionicProjectionDisruptorVolley@CP,PeriodCount"/> additional projectile(s).
+Button/Tooltip/HunterDisruptorVolley@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,HunterDisruptorVolley,Cost[0].Vital[Energy]"/><n/><n/>Fire <d ref="Effect,HunterDisruptorVolley@CP,PeriodCount"/> projectiles at the next attack target with increased range.
 Button/Tooltip/HunterDisruptorVolley@Upgraded=Disruptor Volley fires <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeTernary@Upgrade:Effect,HunterDisruptorVolley@CP,PeriodCount$"/> additional projectile from the caster and <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradeTernary@Upgrade:Effect,PsionicProjectionDisruptorVolley@CP,PeriodCount$"/> additional projectile from each Psionic Projection.
 Button/Tooltip/HunterPlasmaCanister=Grants <d ref="-Effect,PlasmaCanisterCharge@MUAddCharge,Cost[0].ChargeCountUse"/> charges of Plasma Diffusion.
 Button/Tooltip/HunterPlasmaCanisterHuge=Grants <d ref="-Effect,PlasmaCanisterChargeLarge@MUAddCharge,Cost[0].ChargeCountUse"/> charges of Plasma Diffusion.
@@ -2781,7 +2779,7 @@ Weapon/Name/DevourerMPWeapon=Corrosive Acid
 Weapon/Name/FighterPsiBlades=Psi Blades
 Weapon/Name/FighterSolariteReaper=Solarite Reaper
 Weapon/Name/GhostC10CanisterRifleCRPG=C-10 Canister Rifle
-Weapon/Name/HunterDisruptorVolleyFour=Disruptor Volley
+Weapon/Name/HunterDisruptorVolley=Disruptor Volley
 Weapon/Name/HunterPurifierGlaiveCannon=Purifier Glaive Cannon
 Weapon/Name/InfestedAcidulousSaliva=Acidulous Saliva
 Weapon/Name/InfestedBunkerInfestedGaussRifle=Infested Gauss Rifle

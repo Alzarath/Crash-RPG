@@ -251,17 +251,20 @@
     <CButton id="CRPGLearnPassive2">
         <EditorCategories value="Race:Neutral"/>
     </CButton>
-    <CButton id="CRPGRecruitMarine">
+    <CButton id="CRPGMarine">
+        <TooltipAppender Text="Button/Tooltip/CRPGContractActions"/>
         <Icon value="Assets\Textures\btn-unit-terran-marine.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="CRPGRecruitMarauder">
+    <CButton id="CRPGMarauder">
+        <TooltipAppender Text="Button/Tooltip/CRPGContractActions"/>
         <Icon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="CRPGRecruitGhost">
+    <CButton id="CRPGGhost">
+        <TooltipAppender Text="Button/Tooltip/CRPGContractActions"/>
         <Icon value="Assets\Textures\btn-unit-terran-marine.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
         <EditorCategories value="Race:Terran"/>
@@ -754,8 +757,8 @@
         <TintRacially value="1"/>
     </CButton>
     <CButton id="CRPGDefensiveFortification">
-        <Icon value="Assets\Textures\btn-building-terran-bunker.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-bunker.dds"/>
+        <Icon value="Assets\Textures\btn-building-terran-bunkershriketurret.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-bunkershriketurret.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="FighterAstralWind" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradeTernary@Upgraded">

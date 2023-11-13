@@ -478,7 +478,7 @@
     <!-- Devourer ............................................................................... -->
     <!--                                                                                         -->
     <CWeaponLegacy id="DevourerMPWeapon"/>
-    <CWeaponLegacy id="HunterDisruptorVolleyFour">
+    <CWeaponLegacy id="HunterDisruptorVolley">
         <EditorCategories value="Race:Protoss"/>
         <Options index="Disabled" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
