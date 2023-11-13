@@ -5176,7 +5176,7 @@
         <BarWidth value="85"/>
         <GlossaryAnim value="Stand,Work"/>
         <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-Bunker.dds"/>
+            <Image value="Assets\Textures\wireframe-terran-bunker-shriketurret.dds"/>
         </GroupIcon>
         <GroupSoundArray index="What" value="Bunker_GroupWhat"/>
         <GroupSoundArray index="Yes" value="Bunker_GroupYes"/>
@@ -5202,7 +5202,7 @@
         <UnitFlags index="ShowBlobShadow" value="0"/>
         <UnitIcon value="Assets\Textures\btn-building-terran-bunker.dds"/>
         <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-Bunker.dds"/>
+            <Image value="Assets\Textures\wireframe-terran-bunker-shriketurret.dds"/>
         </Wireframe>
     </CActorUnit>
     <CActorSplat id="CRPGDefensiveFortification@Splat" parent="GenericUnitSplat" unitName="CRPGDefensiveFortification">
