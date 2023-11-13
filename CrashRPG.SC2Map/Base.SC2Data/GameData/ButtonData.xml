@@ -275,6 +275,11 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="Lower"/>
     </CButton>
+    <CButton id="InfestedMendingAura" parent="PassiveSecondaryButton">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CButton>
     <CButton id="FighterAstralWind@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-astralwind.dds"/>
         <EditorCategories value="Race:Protoss"/>
@@ -368,6 +373,12 @@
     <CButton id="InfestedPlague@Upgraded">
         <Icon value="Assets\Textures\btn-ability-zerg-defilerplague.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zerg-defilerplague.dds"/>
+        <EditorCategories value="Race:Zerg"/>
+        <HotkeyAlias value="InfestedPlague"/>
+    </CButton>
+    <CButton id="InfestedMendingAura@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedPlague"/>
     </CButton>
@@ -551,6 +562,13 @@
         <Icon value="Assets\Textures\btn-ability-zerg-uproot-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zerg-uproot-color.dds"/>
         <EditorCategories value="Race:Zerg"/>
+    </CButton>
+    <CButton id="InfestedMendingAura@Learn">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="InfestedMendingAura"/>
+        <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
     <CButton id="SniperBetterEquipment@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>

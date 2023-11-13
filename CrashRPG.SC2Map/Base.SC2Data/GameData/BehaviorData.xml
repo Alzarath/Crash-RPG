@@ -41,6 +41,31 @@
             <AdditiveMoveSpeedFactor value="0.1"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedMendingAura">
+        <InfoFlags index="Hidden" value="1"/>
+        <BehaviorCategories index="Permanent" value="1"/>
+        <BehaviorCategories index="Aura" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <Period value="1"/>
+        <PeriodicEffect value="InfestedMendingAura@SetLaunch"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedMendingAura@Regeneration">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-zerg-transfusion.dds"/>
+        <BehaviorCategories index="User13" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="NotFullLife"/>
+        <Duration value="1.125"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="InfestedMendingAura@SetPeriod"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="InfestedMendingAura@SpeedBoost">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-stetmann-topbar-speedconfiguration.dds"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Duration value="1.125"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InfestedPlague@Debuff">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-zerg-plague.dds"/>
@@ -501,8 +526,8 @@
         <Duration value="2.43"/>
         <Period value="0.5"/>
         <PeriodCount value="4"/>
-        <InitialEffect value="AlienRapidTransfusionHeal"/>
-        <PeriodicEffect value="AlienRapidTransfusionHeal"/>
+        <InitialEffect value="AlienRapidTransfusionSet"/>
+        <PeriodicEffect value="AlienRapidTransfusionSet"/>
         <RemoveValidatorArray value="TargetLifeFull"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGInvulnerable">

@@ -507,6 +507,14 @@
         <Field value="PlaneArray[1]"/>
         <Value value="1"/>
     </CValidatorUnitCompareField>
+    <CValidatorUnitCompareVeterancyLevel id="CasterNotMaxLevel">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <ResultMaxLevel value="Error"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitFilters id="TargetNotSelf">
+        <Filters value="-;Self"/>
+    </CValidatorUnitFilters>
     <CValidatorUnitCompareVital id="SourceMaxLifeGT400">
         <WhichUnit Value="Source"/>
         <Compare value="GT"/>

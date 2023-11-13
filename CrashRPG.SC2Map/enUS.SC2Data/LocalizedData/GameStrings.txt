@@ -90,6 +90,7 @@ Abil/Name/InfestedEggMorphToInfestedCivilian=Morph To Infested Civilian
 Abil/Name/InfestedEggMorphToInfestedMarine=Morph To Infested Marine
 Abil/Name/InfestedInfestationSpore=Infestation Spore
 Abil/Name/InfestedInfestedEggs=Infested Eggs
+Abil/Name/InfestedMendingAura@Dummy=Mending Aura
 Abil/Name/InfestedPlague=Plague
 Abil/Name/MechBarrage=Barrage
 Abil/Name/MechExplosiveImmortality=Explosive Immortality
@@ -275,6 +276,8 @@ Behavior/Name/InfestedHardenedEquipment@Offensive=Hardened Equipment
 Behavior/Name/InfestedInfestationSpore@Buff=Infested
 Behavior/Name/InfestedInfestationSpore@LifeDecrease=Life Decrease
 Behavior/Name/InfestedInfestationSpore@LifeIncrease=Life Increase
+Behavior/Name/InfestedMendingAura@Regeneration=Mending
+Behavior/Name/InfestedMendingAura@SpeedBoost=Speed Boost
 Behavior/Name/InfestedPlague@Debuff=Plagued
 Behavior/Name/MechBarrage@Stunned=Barrage
 Behavior/Name/MechExplosiveImmortality@Rebuilding=Rebuilding
@@ -358,6 +361,8 @@ Behavior/Tooltip/InfestedHardenedEquipment@Offensive=This unit deals increased d
 Behavior/Tooltip/InfestedInfestationSpore@Buff=This unit is being controlled by an Infested.
 Behavior/Tooltip/InfestedInfestationSpore@LifeDecrease=
 Behavior/Tooltip/InfestedInfestationSpore@LifeIncrease=
+Behavior/Tooltip/InfestedMendingAura@Regeneration=This unit is regenerating life.
+Behavior/Tooltip/InfestedMendingAura@SpeedBoost=This unit has increased movement speed.
 Behavior/Tooltip/InfestedPlague@Debuff=This unit or structure is revealed and its life is being depleted.
 Behavior/Tooltip/MechBarrage@Stunned=Target is currently stunned and unable to use any abilities.
 Behavior/Tooltip/MechExplosiveImmortality@Rebuilding=This unit is disabled and invulnerable while it rebuilds.
@@ -537,6 +542,9 @@ Button/Name/InfestedInfestedEggs=Infested Eggs
 Button/Name/InfestedInfestedEggs@Learn=Learn Infested Eggs
 Button/Name/InfestedInfestedEggs@Upgraded=Upgraded Infested Eggs
 Button/Name/InfestedInfestedSupplies=Infested Supplies
+Button/Name/InfestedMendingAura=Mending Aura
+Button/Name/InfestedMendingAura@Learn=Learn Mending Aura
+Button/Name/InfestedMendingAura@Upgraded=Upgraded Mending Aura
 Button/Name/InfestedPlague=Plague
 Button/Name/InfestedPlague@Learn=Learn Plague
 Button/Name/InfestedPlague@Upgraded=Upgraded Plague
@@ -837,6 +845,9 @@ Button/Tooltip/InfestedInfestedEggs@Learn=<s val="@@StandardTooltipHeaderSub">Ac
 Button/Tooltip/InfestedInfestedEggs@Upgraded=Infested Eggs can spawn Infested Terran beyond the food limit, each lasting <d time="[d ref='Behavior,InfestedInfestedEggs@TimedLifeExcessSummons,Duration'/]"/>.
 Button/Tooltip/InfestedInfestedMarine=Ranged attacker.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfestedInfestedSupplies=This unit is infested, allowing control of up to two additional supply worth of Infested Terran.
+Button/Tooltip/InfestedMendingAura=The caster and nearby allied biological units regenerate <d ref="Effect,InfestedMendingAura@MUTarget,VitalArray[Life].Change/Behavior,InfestedMendingAura@Regeneration,Period" precision="2"/> life per second.
+Button/Tooltip/InfestedMendingAura@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,InfestedMendingAura@Dummy,Cost[0].Cooldown.TimeUse"/><n/><n/>Nearby allied biological units regenerate <d ref="Effect,InfestedMendingAura@MUTarget,VitalArray[Life].Change/Behavior,InfestedMendingAura@Regeneration,Period" precision="2"/> life per second.
+Button/Tooltip/InfestedMendingAura@Upgraded=Units affected by Mending Aura have <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Behavior,InfestedMendingAura@SpeedBoost,Modification.MoveSpeedMultiplier$" precision="2"/>% increased movement speed and the radius of Mending Aura and Empathic Repercussion is increased by <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Validator,InfestedEmpathicRepercussion@InRange,Range$"/>.
 Button/Tooltip/InfestedParasiteAir=Fast suicide unit. Lasts a short duration.<n/><n/><c val="ffff8a">Can attack air units.</c>
 Button/Tooltip/InfestedParasiteGround=Fast suicide unit. Lasts a short duration.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/InfestedPlague=Infects enemy units and structures, dealing <c val="#ColorAttackInfo"><d ref="$RunAccumulators:InfestedPlague@ScaledDamage$*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/></c> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields. Reveals afflicted units.
@@ -865,8 +876,8 @@ Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and de
 Button/Tooltip/MechShockBlast@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Cooldown.TimeUse"/><n/><n/>Stun and deal <d ref="Behavior,MechShockBlast@Damaging,PeriodCount * Effect,MechShockBlast@Damage,Amount"/> damage to nearby enemies.
 Button/Tooltip/MechShockBlast@Upgraded=NYI
 Button/Tooltip/MechShockBlast@Upgraded@Upgraded=NYI
-Button/Tooltip/MedicHealingBeam=Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCaster,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.</c>
-Button/Tooltip/MedicHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><n/>Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them for <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCaster,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.
+Button/Tooltip/MedicHealingBeam=Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCasterEnergy,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.</c>
+Button/Tooltip/MedicHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><n/>Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them for <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCasterEnergy,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.
 Button/Tooltip/MedicHealingBeam@Upgraded=Healing Beam's healing rate is increased by <d ref="-100 * ([d stringref='Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>%.
 Button/Tooltip/MedicIrradiate=Irradiates a target unit, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@Damage,Amount$" precision="3"/></c> damage per second for <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to enemy units near the target.
 Button/Tooltip/MedicIrradiate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MedicIrradiate,Cost[0].Vital[Energy]"/><n/><n/>Irradiates a target unit, dealing <d ref="Behavior,MedicIrradiate,Duration * Effect,MedicIrradiate@Damage,Amount"/> damage over <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to surrounding enemy units.
@@ -1040,6 +1051,7 @@ DataCollection/Name/InfestedInfestedEgg=Infested Egg
 DataCollection/Name/InfestedInfestedEggs=Infested Eggs
 DataCollection/Name/InfestedInfestedMarine=Infested Marine
 DataCollection/Name/InfestedMarineInfestedGaussRifle=Infested Gauss Rifle
+DataCollection/Name/InfestedMendingAura=Mending Aura
 DataCollection/Name/InfestedParasiteAir=Parasite
 DataCollection/Name/InfestedParasiteGround=Parasite
 DataCollection/Name/InfestedPlague=Plague
@@ -1873,6 +1885,14 @@ Effect/Name/InfestedInfestedEggs@Switch=Switch
 Effect/Name/InfestedInfestedEggs@SwitchTransferAttributesCivilian=Switch
 Effect/Name/InfestedInfestedEggs@SwitchTransferAttributesMarine=Switch
 Effect/Name/InfestedMarineInfestedGaussRifle@Damage=Damage
+Effect/Name/InfestedMendingAura@ABRegeneration=Apply Behavior
+Effect/Name/InfestedMendingAura@ABSpeedBoost=Apply Behavior
+Effect/Name/InfestedMendingAura@MUCaster=Modify Unit
+Effect/Name/InfestedMendingAura@MUTarget=Modify Unit
+Effect/Name/InfestedMendingAura@SA=Search Area
+Effect/Name/InfestedMendingAura@SetImpact=Set
+Effect/Name/InfestedMendingAura@SetLaunch=Set
+Effect/Name/InfestedMendingAura@SetPeriod=Set
 Effect/Name/InfestedPlague@AB=Apply Behavior
 Effect/Name/InfestedPlague@CUAir=Create Unit
 Effect/Name/InfestedPlague@CUGround=Create Unit
@@ -1915,7 +1935,8 @@ Effect/Name/MedicHealingBeam@ABCaster=Apply Behavior
 Effect/Name/MedicHealingBeam@CP=Create Persistent
 Effect/Name/MedicHealingBeam@Dummy=Dummy
 Effect/Name/MedicHealingBeam@DummyDoneHealing=Dummy
-Effect/Name/MedicHealingBeam@MUCaster=Modify Unit
+Effect/Name/MedicHealingBeam@MUCasterEnergy=Modify Unit
+Effect/Name/MedicHealingBeam@MUCasterXP=Modify Unit
 Effect/Name/MedicHealingBeam@MUTarget=Modify Unit
 Effect/Name/MedicHealingBeam@RB=Remove Behavior
 Effect/Name/MedicHealingBeam@RBCaster=Remove Behavior

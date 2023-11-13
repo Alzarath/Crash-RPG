@@ -43,6 +43,9 @@
         <EffectArray Operation="Set" Reference="Button,FighterResurgence,Tooltip" Value="Button/Tooltip/FighterResurgence@PostUpgrade"/>
         <EffectArray Operation="Subtract" Reference="Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction" Value="0.2"/>
         <EffectArray Reference="Abil,AeroLaserArmaments@Dummy,Range[0]" Value="2"/>
+        <EffectArray Reference="Validator,InfestedEmpathicRepercussion@InRange,Range" Value="3"/>
+        <EffectArray Reference="Effect,InfestedMendingAura@SA,AreaArray[0].Radius" Value="3"/>
+        <EffectArray Reference="Behavior,InfestedMendingAura@SpeedBoost,Modification.MoveSpeedMultiplier" Value="0.25"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
         <AffectedUnitArray value="CRPGHunter"/>

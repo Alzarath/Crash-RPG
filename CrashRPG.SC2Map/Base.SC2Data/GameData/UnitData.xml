@@ -222,7 +222,7 @@
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Campaign"/>
         <GlossaryCategory value="Unit/Category/AlienUnits"/>
     </CUnit>
-    <CUnitHero id="CRPGInfested" parent="CRPGHero" abil1="InfestedInfestedEggs" abil2="InfestedPlague" abil3="InfestedInfestationSpore" psv1="InfestedAberrate" psv2="InfestedHardenedEquipment">
+    <CUnitHero id="CRPGInfested" parent="CRPGHero" abil1="InfestedInfestedEggs" abil2="InfestedPlague" abil3="InfestedInfestationSpore" psv1="InfestedAberrate" psv2="InfestedMendingAura">
         <Race value="Zerg"/>
         <PlaneArray index="Ground" value="1"/>
         <Collide index="Land2" value="1"/>
@@ -238,10 +238,6 @@
         <Acceleration value="1000"/>
         <TurningRate value="360"/>
         <Food value="6"/>
-        <BehaviorArray Link="InfestedEmpathicRepercussion@Aura"/>
-        <BehaviorArray Link="InfestedCausticWeapons"/>
-        <BehaviorArray Link="InfestedHardenedEquipment@Caster"/>
-        <BehaviorArray Link="InfestedAberrateOld@UT"/>
         <WeaponArray Link="InfestedAcidulousSaliva"/>
         <Radius value="0.8125"/>
         <SeparationRadius value="0.8125"/>
@@ -255,9 +251,22 @@
         <LearnInfoArray index="Learn4">
             <Button Requirements="InfestedInfestedEggs@Learned"/>
         </LearnInfoArray>
-        <LearnInfoArray index="Learn5">
-            <Button Requirements="InfestedInfestedEggs@Learned"/>
-        </LearnInfoArray>
+        <AbilArray Link="InfestedMendingAura@Dummy"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="6">
+                <Face value="CRPGLevelUp"/>
+                <Type value="Submenu"/>
+                <Behavior value=""/>
+                <Requirements value=""/>
+                <SubmenuAbilState value="CRPGLearnAbility"/>
+                <SubmenuCardId value="Lrn1"/>
+                <SubmenuIsSticky value="1"/>
+                <ShowInGlossary value="0"/>
+                <Row value="1"/>
+                <Column value="4"/>
+            </LayoutButtons>
+            <LayoutButtons index="7" removed="1"/>
+        </CardLayouts>
     </CUnitHero>
     <CUnit id="Egg">
         <LifeArmorFormula>
@@ -718,8 +727,8 @@
         </CardLayouts>
         <Radius value="1.25"/>
         <SeparationRadius value="1.25"/>
-        <Footprint value="Footprint3x3Contour"/>
-        <PlacementFootprint value="Footprint3x3Contour"/>
+        <Footprint value="Footprint3x3IgnoreCreepContour"/>
+        <PlacementFootprint value="Footprint3x3IgnoreCreepContour"/>
         <SubgroupPriority value="24"/>
         <MinimapRadius value="1.75"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:FactionInfested"/>
@@ -2237,6 +2246,7 @@
             <Cooldown Link="InfestedInfestedEgg/Revive"/>
         </ReviveInfoBase>
         <Name value="Unit/Name/InfestedTerransEgg"/>
+        <Attributes index="Biological" value="1"/>
     </CUnit>
     <CUnit id="InfestedInfestedEgg@Civilian" parent="InfestedInfestedEgg@Marine">
         <Description value="Button/Tooltip/InfestedInfestedEgg@Civilian"/>

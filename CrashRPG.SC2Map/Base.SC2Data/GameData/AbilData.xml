@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilEffectInstant id="InfestedMendingAura@Dummy">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Cost>
+            <Cooldown TimeUse="1"/>
+        </Cost>
+        <Range value="12"/>
+        <AINotifyEffect value="InfestedMendingAura@SetLaunch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="InfestedMendingAura" Requirements="CRPGPassive2LearnedShowUse">
+            <Flags index="IgnoreUser" value="1"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
     <CAbilEffectTarget id="InfestedPlague">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Effect index="0" value="InfestedPlague@SA"/>

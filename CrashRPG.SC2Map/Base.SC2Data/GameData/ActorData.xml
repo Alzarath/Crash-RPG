@@ -53,6 +53,26 @@
         <DeathActorModel value="UnitDeathModelFade"/>
         <DeathActorModelLow value="UnitDeathModelFade"/>
     </CActorUnit>
+    <CActorModel id="InfestedMendingAura@ModelImpact" parent="ModelAnimationStyleOneShot">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="$Birth PlayForever"/>
+        <On Terms="Behavior.InfestedMendingAura@Regeneration.On" Send="Create"/>
+        <On Terms="Behavior.InfestedMendingAura.On" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter SOpForwardNorth" HoldRotation="1"/>
+        <Model value="MendBuff"/>
+    </CActorModel>
+    <CActorModel id="InfestedMendingAura@ModelAttachment" parent="ModelAnimationStyleContinuous">
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="ActorCreation" Send="$Birth PlayForever"/>
+        <On Terms="Behavior.InfestedMendingAura@Regeneration.On" Send="Create"/>
+        <On Terms="Behavior.InfestedMendingAura@Regeneration.Off" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter SOpForwardNorth" HoldRotation="1"/>
+        <Model value="MendBuff"/>
+    </CActorModel>
     <CActorUnit id="InfestedInfestedBunker@Birth" parent="GenericUnitBaseMorphTransition" unitName="SiegeModeMorphModel">
         <On Terms="AbilMorph.*.Start; MorphTo InfestedInfestedBunker@Uprooted; MorphFrom InfestedInfestedCivilian" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom InfestedInfestedBunker" Send="Destroy"/>
@@ -143,6 +163,11 @@
             <Image value="Assets\Textures\Wireframe-Zerg-NydusWorm.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorSound id="InfestedMendingAura@SoundLaunch" parent="SoundOneShot">
+        <On Terms="Behavior.InfestedMendingAura@Regeneration.On; ValidateUnit NotFullLife" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <Sound value="Queen_Transfusion"/>
+    </CActorSound>
     <CActorModel id="InfestedPlague@ModelImpact" parent="ModelAnimationStyleOneShot">
         <On Terms="Effect.InfestedPlague@SA.Start" Send="Create"/>
         <Model value="DefilerMPPlagueAttackImpact"/>

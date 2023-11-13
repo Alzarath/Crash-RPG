@@ -472,6 +472,24 @@
         <DataRecord Entry="Button,InfestedBunkerRoot@Root"/>
         <DataRecord Entry="Button,InfestedBunkerRoot@Uproot"/>
     </CDataCollectionAbil>
+    <CDataCollectionAbil id="InfestedMendingAura">
+        <EditorCategories value="DataGroup:Buff,Race:Zerg"/>
+        <DataRecord Entry="Abil,InfestedMendingAura@Dummy"/>
+        <DataRecord Entry="Actor,InfestedMendingAura@SoundLaunch"/>
+        <DataRecord Entry="Actor,InfestedMendingAura@ModelImpact"/>
+        <DataRecord Entry="Actor,InfestedMendingAura@ModelAttachment"/>
+        <DataRecord Entry="Behavior,InfestedMendingAura@Regeneration"/>
+        <DataRecord Entry="Behavior,InfestedMendingAura"/>
+        <DataRecord Entry="Button,InfestedMendingAura"/>
+        <DataRecord Entry="Button,InfestedMendingAura@Upgraded"/>
+        <DataRecord Entry="Button,InfestedMendingAura@Learn"/>
+        <DataRecord Entry="Effect,InfestedMendingAura@SetLaunch"/>
+        <DataRecord Entry="Effect,InfestedMendingAura@SetImpact"/>
+        <DataRecord Entry="Effect,InfestedMendingAura@ABRegeneration"/>
+        <DataRecord Entry="Effect,InfestedMendingAura@SA"/>
+        <DataRecord Entry="Effect,InfestedMendingAura@MUTarget"/>
+        <DataRecord Entry="Effect,InfestedMendingAura@SetPeriodAura"/>
+    </CDataCollectionAbil>
     <CDataCollectionUnit id="InfestedParasiteAir">
         <EditorCategories value="DataGroup:Unit,Race:Zerg,ObjectType:Unit"/>
         <DataRecord Entry="Actor,InfestedParasiteAir"/>

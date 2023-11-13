@@ -213,6 +213,44 @@
         <CaseArray Validator="IsHeroic" Effect="CrashedBCMedicalFacilities@SetEndHero"/>
         <CaseDefault value="CrashedBCMedicalFacilities@SetEnd"/>
     </CEffectSwitch>
+    <CEffectApplyBehavior id="InfestedMendingAura@ABSpeedBoost">
+        <ValidatorArray index="0" value="CRPGAbilityUpgradePassiveSecondary@Upgraded"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="InfestedMendingAura@SpeedBoost"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="InfestedMendingAura@SetPeriod">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="InfestedMendingAura@MUTarget"/>
+        <EffectArray value="InfestedMendingAura@MUCaster"/>
+    </CEffectSet>
+    <CEffectSet id="InfestedMendingAura@SetLaunch">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="InfestedMendingAura@SetImpact"/>
+        <EffectArray value="InfestedMendingAura@SA"/>
+    </CEffectSet>
+    <CEffectEnumArea id="InfestedMendingAura@SA">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ExcludeArray/>
+        <SearchFilters value="Biological;Neutral,Enemy,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="12" Effect="InfestedMendingAura@SetImpact"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+    </CEffectEnumArea>
+    <CEffectModifyUnit id="InfestedMendingAura@MUTarget">
+        <EditorCategories value="Race:Zerg"/>
+        <VitalArray index="Life">
+            <Change value="0.3125"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectApplyBehavior id="InfestedMendingAura@ABRegeneration">
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="InfestedMendingAura@Regeneration"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="InfestedMendingAura@SetImpact">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="InfestedMendingAura@ABRegeneration"/>
+        <EffectArray value="InfestedMendingAura@ABSpeedBoost"/>
+    </CEffectSet>
     <CEffectSet id="InfestedAcidulousSaliva@Set">
         <EditorCategories value="Race:Zerg"/>
         <EffectArray value="InfestedAcidulousSaliva@Damage"/>
@@ -400,6 +438,19 @@
         <EffectArray value="InfestedEmpathicRepercussion@ATU"/>
         <EffectArray value="MakePrecursor"/>
     </CEffectSet>
+    <CEffectModifyUnit id="InfestedMendingAura@MUCaster">
+        <ValidatorArray value="TargetNotSelf"/>
+        <ValidatorArray value="CasterNotMaxLevel"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <XP value="0.3125"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="MedicHealingBeam@MUCasterXP">
+        <ValidatorArray value="CasterNotMaxLevel"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <XP value="1.25"/>
+    </CEffectModifyUnit>
     <CEffectEnumTrackedUnits id="PsionicProjectionProjectionBeam@ETU" parent="CRPGCasterTracker@ETUBase">
         <EditorCategories value="Race:Protoss"/>
         <DebugTrace value="1"/>
@@ -644,7 +695,8 @@
     </CEffectSet>
     <CEffectSet id="MedicHealingBeam@SetHeal">
         <EffectArray value="MedicHealingBeam@MUTarget"/>
-        <EffectArray value="MedicHealingBeam@MUCaster"/>
+        <EffectArray value="MedicHealingBeam@MUCasterEnergy"/>
+        <EffectArray value="MedicHealingBeam@MUCasterXP"/>
         <EffectArray value="MedicHealingBeam@DummyDoneHealing"/>
     </CEffectSet>
     <CEffectSwitch id="MedicHealingBeam@SwitchHeal">
@@ -1141,7 +1193,8 @@
     <CEffectModifyUnit id="AlienRapidTransfusionExperience">
         <EditorCategories value="Race:Zerg"/>
         <ImpactUnit Value="Caster"/>
-        <XP value="0.2"/>
+        <XP value="8"/>
+        <ValidatorArray value="CasterNotMaxLevel"/>
     </CEffectModifyUnit>
     <CEffectSet id="AlienRapidTransfusionSet">
         <EditorCategories value="Race:Zerg"/>
@@ -2109,13 +2162,12 @@
         <WhichUnit Value="Caster"/>
         <Behavior value="MedicHealingBeam@Channeling"/>
     </CEffectApplyBehavior>
-    <CEffectModifyUnit id="MedicHealingBeam@MUCaster">
+    <CEffectModifyUnit id="MedicHealingBeam@MUCasterEnergy">
         <EditorCategories value="Race:Terran"/>
         <ImpactUnit Value="Caster"/>
         <VitalArray index="Energy">
             <Change value="-0.625"/>
         </VitalArray>
-        <XP value="1.25"/>
     </CEffectModifyUnit>
     <CEffectApplyBehavior id="MedicSpawnMedivac@ABPrecursor">
         <EditorCategories value="Race:Terran"/>
