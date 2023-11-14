@@ -2716,6 +2716,8 @@
         <On Terms="Abil.MechBarrage.SourceChannelStart" Send="AnimPlay CoverA Cover,A PlayForever"/>
         <On Terms="Abil.MechBarrage.SourceChannelStop" Send="AnimClear CoverA"/>
         <On Terms="Abil.MechBarrage.SourceChannelStop" Send="AnimPlay CoverA Cover,End,A"/>
+        <On Terms="Abil.MechBarrage@Upgraded.SourceCastStart" Send="AnimPlay CoverA Cover,Start,A PlayForever,NonLooping"/>
+        <On Terms="Abil.MechBarrage@Upgraded.SourceCastStop" Send="AnimClear CoverA"/>
         <On Terms="UnitMovementUpdate.*.Walk" Send="TimerSet 0.250000 KillBeam"/>
         <On Terms="Abil.attack.ReadyStop" Send="TimerSet 0.250000 KillBeam"/>
         <On Terms="TimerExpired; TimerName KillBeam" Target="HellionAttackBeam" Send="Destroy"/>
@@ -3041,6 +3043,8 @@
         <On Terms="Abil.MechBarrage.SourceChannelStop" Send="AnimClear Spell"/>
         <On Terms="Abil.MechBarrage.SourceFinishStart" Send="AnimPlay MorphEnd Morph,End NonLooping"/>
         <On Terms="Abil.MechBarrage.SourceFinishStop" Target="330mmBarrageCannonsMorph" Send="AnimClear MorphEnd"/>
+        <On Terms="Abil.MechBarrage@Upgraded.SourceCastStart" Send="AnimPlay Morph Morph NonLooping"/>
+        <On Terms="Abil.MechBarrage@Upgraded.SourceCastStop" Send="AnimClear CoverA"/>
         <Model value="CRPGMech@ModelLevel5"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <EventDataFootprint index="0" Actor="" Model=""/>
@@ -7525,7 +7529,9 @@
         <StageArray AnimProps="Stand,Start"/>
         <StageArray AnimProps="Stand,Work"/>
     </CActorProgress>
-    <CActorSplat id="MechBarrage@CursorSplat" parent="TerranCursorSplat" abil="MechBarrage"/>
+    <CActorSplat id="MechBarrage@CursorSplat" parent="TerranCursorSplat" abil="MechBarrage">
+        <On Terms="Abil.MechBarrage@Upgraded.Cursor" Send="Create"/>
+    </CActorSplat>
     <CActorModel id="MechBarrage@ModelImpact" parent="ModelAnimationStyleOneShot">
         <On Terms="Effect.MechBarrage@SA.Impact" Send="Create"/>
         <HostSiteOps Ops="SOpTargetPoint 330mmBarrageCannonsVariance"/>
@@ -7533,9 +7539,15 @@
     </CActorModel>
     <CActorSound id="MechBarrage@SoundCast" parent="SoundOneShot">
         <On Terms="Abil.MechBarrage.SourceCastStart" Send="Create"/>
+        <On Terms="Abil.MechBarrage@Upgraded.SourceCastStart" Send="Create"/>
         <Sound value="330mmBarrageCannonsMorph"/>
     </CActorSound>
-    <CActorRange id="MechBarrage@Range" parent="RangeAbil" abil="MechBarrage"/>
+    <CActorRange id="MechBarrage@Range" parent="RangeAbil" abil="MechBarrage">
+        <On Terms="Abil.MechBarrage@Upgraded.TargetOn" Send="Create"/>
+        <On Terms="Abil.MechBarrage@Upgraded.TargetOff" Send="Destroy"/>
+        <On Terms="Abil.MechBarrage@Upgraded.ButtonHoverOn" Send="Create"/>
+        <On Terms="Abil.MechBarrage@Upgraded.ButtonHoverOff" Send="Destroy"/>
+    </CActorRange>
     <CActorSound id="MechBarrage@SoundImpact" parent="SoundOneShot">
         <On Terms="Effect.MechBarrage@SA.Impact" Send="Create"/>
         <Sound value="330mmBarrageCannonsSound"/>

@@ -553,7 +553,7 @@
         <DataRecord Entry="Button,MechBarrage"/>
         <DataRecord Entry="Button,MechBarrage@Learn"/>
         <DataRecord Entry="Effect,MechBarrage@Damage"/>
-        <DataRecord Entry="Effect,MechBarrage@CP"/>
+        <DataRecord Entry="Effect,MechBarrage@Switch"/>
         <DataRecord Entry="Effect,MechBarrage@AB"/>
         <DataRecord Entry="Effect,MechBarrage@SA"/>
         <DataRecord Entry="Effect,MechBarrage@SetImpact"/>

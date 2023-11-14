@@ -93,6 +93,7 @@ Abil/Name/InfestedInfestedEggs=Infested Eggs
 Abil/Name/InfestedMendingAura@Dummy=Mending Aura
 Abil/Name/InfestedPlague=Plague
 Abil/Name/MechBarrage=Barrage
+Abil/Name/MechBarrage@Upgraded=Barrage
 Abil/Name/MechExplosiveImmortality=Explosive Immortality
 Abil/Name/MechPointDefenseDrones=Point Defense Drones
 Abil/Name/MechShockBlast=Shock Blast
@@ -854,11 +855,11 @@ Button/Tooltip/InfestedPlague=Infects enemy units and structures, dealing <c val
 Button/Tooltip/InfestedPlague@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedPlague,Cost[0].Vital[Energy]"/><n/><n/>Infects enemies, dealing <d ref="Accumulator,InfestedPlague@BaseDamage,Amount*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields.
 Button/Tooltip/InfestedPlague@Upgraded=Units killed with Plague spawn a suicidal Parasite.
 Button/Tooltip/LockedNydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<n/><n/><c val="ffff8a">Enables:</c><n/>- Greater Nydus Worm
-Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrage@CP,PeriodCount * $AccumulatedValue:Effect,MechBarrage@Damage,Amount$" precision="3"/></c> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
+Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrage@CPChanneled,PeriodCount * $AccumulatedValue:Effect,MechBarrage@Damage,Amount$" precision="3"/></c> damage over <d ref="Effect,MechBarrage@CPChanneled,PeriodCount * Effect,MechBarrage@CPChanneled,PeriodicPeriodArray[0]"/> seconds in a large area.
 Button/Tooltip/MechBarrage@Cancel=Drops the current order without performing it, and allows you to select a different order.
 Button/Tooltip/MechBarrage@Cancel@Upgraded=NYI
-Button/Tooltip/MechBarrage@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechBarrage,Cost[0].Vital[Energy]"/><n/><n/>Deals <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@Damage,Amount"/> damage over <d ref="Effect,MechBarrage@CP,PeriodCount * Effect,MechBarrage@CP,PeriodicPeriodArray[0]"/> seconds in a large area.
-Button/Tooltip/MechBarrage@Upgraded=NYI
+Button/Tooltip/MechBarrage@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechBarrage,Cost[0].Vital[Energy]"/><n/><n/>Deals <d ref="Effect,MechBarrage@CPChanneled,PeriodCount * Effect,MechBarrage@Damage,Amount"/> damage over <d ref="Effect,MechBarrage@CPChanneled,PeriodCount * Effect,MechBarrage@CPChanneled,PeriodicPeriodArray[0]"/> seconds in a large area.
+Button/Tooltip/MechBarrage@Upgraded=Barrage no longer needs to be channeled after it's cast.
 Button/Tooltip/MechBarrage@Upgraded@Upgraded=NYI
 Button/Tooltip/MechExplosiveImmortality=The caster self-destructs, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechExplosiveImmortality@Damage,Amount$"/></c> damage in a massive area around it while disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/>.
 Button/Tooltip/MechExplosiveImmortality@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MechExplosiveImmortality,Cost[0].Cooldown.TimeUse"/><n/><n/>Self-destruct, disabling itself for <d time="[d ref='Behavior,MechExplosiveImmortality@Rebuilding,Duration'/]"/> and dealing <d ref="Effect,MechExplosiveImmortality@Damage,Amount"/> damage to nearby enemies.
@@ -1904,10 +1905,12 @@ Effect/Name/MarauderPunisherGrenades@Damage=Damage
 Effect/Name/MarauderPunisherGrenades@LM=Launch Missile
 Effect/Name/MarineC14GaussRifle@Damage=Damage
 Effect/Name/MechBarrage@AB=Apply Behavior
-Effect/Name/MechBarrage@CP=Create Persistent
+Effect/Name/MechBarrage@CPChanneled=Create Persistent
+Effect/Name/MechBarrage@CPUpgraded=Create Persistent
 Effect/Name/MechBarrage@Damage=Damage
 Effect/Name/MechBarrage@SA=Search Area
 Effect/Name/MechBarrage@SetImpact=Set
+Effect/Name/MechBarrage@Switch=Switch
 Effect/Name/MechCalldownMech=Calldown Mech
 Effect/Name/MechCalldownMechCreateUnitLevel1=Calldown Mech
 Effect/Name/MechCalldownMechCreateUnitLevel3=Calldown Mech

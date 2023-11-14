@@ -4277,6 +4277,7 @@
         <AbilArray Link="MechPointDefenseDrones"/>
         <AbilArray Link="HangarQueue5"/>
         <AbilArray Link="TestInventory"/>
+        <AbilArray Link="MechBarrage@Upgraded"/>
         <WeaponArray Link="MechCannonBoth"/>
         <WeaponArray Link="MechCannonGround"/>
         <WeaponArray Link="MechHellfireMissiles"/>

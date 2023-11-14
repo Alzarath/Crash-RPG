@@ -331,6 +331,35 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
+    <CAbilEffectTarget id="MechBarrage@Upgraded">
+        <Alignment value="Negative"/>
+        <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <InfoTooltipPriority value="1"/>
+        <Effect index="0" value="MechBarrage@CPUpgraded"/>
+        <Cost>
+            <Vital index="Energy" value="75"/>
+            <Charge Link="Abil/330mmBarrageCannons"/>
+            <Cooldown Link="Abil/330mmBarrageCannons"/>
+        </Cost>
+        <TargetFilters value="Ground,Visible;Self,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="7"/>
+        <CastIntroTime value="2"/>
+        <UninterruptibleArray index="Prep" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Finish" value="1"/>
+        <CursorEffect value="MechBarrage@Damage"/>
+        <AINotifyEffect value="MechBarrage@AB"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="MechBarrage" Requirements="CRPGAbilityUpgradePrimary@UpgradedShowUse">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="Cancel" DefaultButtonFace="MechBarrage@Cancel">
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="PlasmaCanisterChargeLarge">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="PlasmaCanisterChargeLarge@Set"/>
@@ -1850,7 +1879,7 @@
         <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <InfoTooltipPriority value="1"/>
-        <Effect index="0" value="MechBarrage@CP"/>
+        <Effect index="0" value="MechBarrage@CPChanneled"/>
         <Cost>
             <Vital index="Energy" value="75"/>
             <Charge Link="Abil/330mmBarrageCannons"/>
