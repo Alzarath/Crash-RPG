@@ -4260,7 +4260,7 @@
         <RankDisplay value="Never"/>
         <MinimapRadius value="0.375"/>
     </CUnit>
-    <CUnitHero id="CRPGMech" parent="CRPGHero" abil1="MechBarrage" abil2="MechShockBlast" abil3="MechExplosiveImmortality" psv1="MechPointDefenseDrones" psv2="MechMultiLockTargetingSystem">
+    <CUnitHero id="CRPGMech" parent="CRPGHero" abil1="MechBarrage" abil2="MechShockBlast" abil3="MechExplosiveImmortality" psv1="MechPointDefenseDrones" psv2="MechAdaptivePayload">
         <Race value="Terr"/>
         <PlaneArray index="Ground" value="1"/>
         <Collide index="Land2" value="1"/>
@@ -4292,7 +4292,6 @@
         <GlossaryWeakArray value="Ultralisk"/>
         <GlossaryAlias value="CRPGMech"/>
         <EquipmentArray Weapon="MechCannonBoth"/>
-        <BehaviorArray Link="MechMultiLockTargetingSystem@Upgraded"/>
     </CUnitHero>
     <CUnitHero id="CRPGShipLevel1" parent="CRPGHero">
         <Name value="Unit/Name/CRPGShip"/>

@@ -549,6 +549,9 @@ Button/Name/InfestedMendingAura@Upgraded=Upgraded Mending Aura
 Button/Name/InfestedPlague=Plague
 Button/Name/InfestedPlague@Learn=Learn Plague
 Button/Name/InfestedPlague@Upgraded=Upgraded Plague
+Button/Name/MechAdaptivePayload=Adaptive Payload
+Button/Name/MechAdaptivePayload@Learn=Learn Adaptive Payload
+Button/Name/MechAdaptivePayload@Upgraded=Upgraded Adaptive Payload
 Button/Name/MechBarrage=Barrage
 Button/Name/MechBarrage@Cancel=Cancel
 Button/Name/MechBarrage@Learn=Learn Barrage
@@ -855,6 +858,9 @@ Button/Tooltip/InfestedPlague=Infects enemy units and structures, dealing <c val
 Button/Tooltip/InfestedPlague@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedPlague,Cost[0].Vital[Energy]"/><n/><n/>Infects enemies, dealing <d ref="Accumulator,InfestedPlague@BaseDamage,Amount*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields.
 Button/Tooltip/InfestedPlague@Upgraded=Units killed with Plague spawn a suicidal Parasite.
 Button/Tooltip/LockedNydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<n/><n/><c val="ffff8a">Enables:</c><n/>- Greater Nydus Worm
+Button/Tooltip/MechAdaptivePayload=Attacks against air units have modified properties.<n/><n/><s val="@@StandardTooltipHeaderSub">Explosive Payload</s><n/><n/>Light units cause <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechCannonBoth@DamageExplosiveSplash,Amount$"/></c> damage to units around the target.<n/><n/><s val="@@StandardTooltipHeaderSub">High Impact Payload</s><n/><n/>Massive units take <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechCannonBoth@DamageHighImpact,Amount$"/></c> damage.
+Button/Tooltip/MechAdaptivePayload@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Anti-air attacks deal <d ref="Effect,MechCannonBoth@DamageHighImpact,Amount"/> damage against massive units and <d ref="Effect,MechCannonBoth@DamageExplosiveSplash,Amount"/> splash damage against light units.
+Button/Tooltip/MechAdaptivePayload@Upgraded=Attacks apply the effects of both Explosive Payload and High Impact Payload against all air units.
 Button/Tooltip/MechBarrage=Deals <c val="#ColorAttackInfo"><d ref="Effect,MechBarrage@CPChanneled,PeriodCount * $AccumulatedValue:Effect,MechBarrage@Damage,Amount$" precision="3"/></c> damage over <d ref="Effect,MechBarrage@CPChanneled,PeriodCount * Effect,MechBarrage@CPChanneled,PeriodicPeriodArray[0]"/> seconds in a large area.
 Button/Tooltip/MechBarrage@Cancel=Drops the current order without performing it, and allows you to select a different order.
 Button/Tooltip/MechBarrage@Cancel@Upgraded=NYI
@@ -1058,6 +1064,7 @@ DataCollection/Name/InfestedParasiteGround=Parasite
 DataCollection/Name/InfestedPlague=Plague
 DataCollection/Name/MarauderPunisherGrenades=Punisher Grenades
 DataCollection/Name/MarineC14GaussRifle=C-14 Gauss Rifle
+DataCollection/Name/MechAdaptivePayload=Adaptive Payload
 DataCollection/Name/MechBarrage=Barrage
 DataCollection/Name/MechCannonBoth=Cannon
 DataCollection/Name/MechCannonGround=Cannon
@@ -1918,6 +1925,13 @@ Effect/Name/MechCalldownMechCreateUnitLevel4=Calldown Mech
 Effect/Name/MechCalldownMechCreateUnitLevel5=Calldown Mech
 Effect/Name/MechCalldownMechSuicideSet=Calldown Mech
 Effect/Name/MechCannonBoth@Damage=Damage
+Effect/Name/MechCannonBoth@DamageExplosiveSplash=Damage
+Effect/Name/MechCannonBoth@DamageHighImpact=Damage
+Effect/Name/MechCannonBoth@SAExplosive=Search Area
+Effect/Name/MechCannonBoth@SetExplosive=Set
+Effect/Name/MechCannonBoth@SetHighImpactExplosive=Set
+Effect/Name/MechCannonBoth@SwitchAir=Switch
+Effect/Name/MechCannonBoth@SwitchInitial=Switch
 Effect/Name/MechCannonGround@Damage=Damage
 Effect/Name/MechExplosiveImmortality@AB=Apply Behavior
 Effect/Name/MechExplosiveImmortality@Damage=Damage
@@ -1945,6 +1959,7 @@ Effect/Name/MedicHealingBeam@RB=Remove Behavior
 Effect/Name/MedicHealingBeam@RBCaster=Remove Behavior
 Effect/Name/MedicHealingBeam@SetAB=Set
 Effect/Name/MedicHealingBeam@SetHeal=Set
+Effect/Name/MedicHealingBeam@SetPeriod=Set
 Effect/Name/MedicHealingBeam@SetRB=Set
 Effect/Name/MedicHealingBeam@SwitchHeal=Switch
 Effect/Name/MedicIrradiate@AB=Apply Behavior

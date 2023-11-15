@@ -462,12 +462,60 @@
         <RevealRadius value="4"/>
         <RevealFlags index="Unfog" value="1"/>
     </CEffectCreatePersistent>
+    <CEffectEnumArea id="MechCannonBoth@SAExplosive">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Air;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.75" Effect="MechCannonBoth@DamageExplosiveSplash"/>
+    </CEffectEnumArea>
+    <CEffectSet id="MechCannonBoth@SetExplosive">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="MechCannonBoth@Damage"/>
+        <EffectArray value="MechCannonBoth@SAExplosive"/>
+    </CEffectSet>
+    <CEffectSet id="MechCannonBoth@SetHighImpactExplosive">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="MechCannonBoth@DamageHighImpact"/>
+        <EffectArray value="MechCannonBoth@SAExplosive"/>
+    </CEffectSet>
+    <CEffectSwitch id="MechCannonBoth@SwitchAir">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Effect="MechCannonBoth@SetHighImpactExplosive"/>
+        <CaseArray Validator="IsMassive" Effect="MechCannonBoth@DamageHighImpact"/>
+        <CaseArray Validator="IsLight" Effect="MechCannonBoth@SetExplosive"/>
+        <CaseDefault value="MechCannonBoth@Damage"/>
+    </CEffectSwitch>
+    <CEffectDamage id="MechCannonBoth@DamageExplosiveSplash" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="4">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectDamage id="MechCannonBoth@DamageHighImpact" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <Amount value="12">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectSwitch id="MechCannonBoth@SwitchInitial">
+        <EditorCategories value="Race:Terran"/>
+        <CaseArray Validator="MechCannonBoth@IsAntiAirPayloadAttack" Effect="MechCannonBoth@SwitchAir"/>
+        <CaseDefault value="MechCannonBoth@Damage"/>
+    </CEffectSwitch>
     <CEffectModifyUnit id="MedicHealingBeam@MUCasterXP">
         <ValidatorArray value="CasterNotMaxLevel"/>
         <EditorCategories value="Race:Terran"/>
         <ImpactUnit Value="Caster"/>
         <XP value="1.25"/>
     </CEffectModifyUnit>
+    <CEffectSet id="MedicHealingBeam@SetPeriod">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="MedicHealingBeam@SwitchHeal"/>
+        <EffectArray value="MedicHealingBeam@DummyDoneHealing"/>
+    </CEffectSet>
     <CEffectEnumTrackedUnits id="PsionicProjectionProjectionBeam@ETU" parent="CRPGCasterTracker@ETUBase">
         <EditorCategories value="Race:Protoss"/>
         <DebugTrace value="1"/>
@@ -714,7 +762,6 @@
         <EffectArray value="MedicHealingBeam@MUTarget"/>
         <EffectArray value="MedicHealingBeam@MUCasterEnergy"/>
         <EffectArray value="MedicHealingBeam@MUCasterXP"/>
-        <EffectArray value="MedicHealingBeam@DummyDoneHealing"/>
     </CEffectSet>
     <CEffectSwitch id="MedicHealingBeam@SwitchHeal">
         <ValidatorArray value="NotFullLife"/>
@@ -2163,10 +2210,9 @@
         <EffectArray value="PostMorphHeal"/>
     </CEffectSet>
     <CEffectDamage id="MechCannonBoth@Damage" parent="DU_WEAP">
-        <ValidatorArray value="CasterIsNotHidden"/>
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="15">
+        <Amount value="8">
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
@@ -2236,13 +2282,16 @@
     <CEffectCreatePersistent id="MedicHealingBeam@CP">
         <ValidatorArray value="MedicHealingBeam@CasterNotChannelingAtTarget"/>
         <EditorCategories value="Race:Terran"/>
+        <Marker>
+            <MatchFlags index="Link" value="1"/>
+        </Marker>
         <WhichLocation Value="TargetUnit"/>
         <Flags index="PersistUntilDestroyed" value="1"/>
         <InitialEffect value="MedicHealingBeam@SetAB"/>
         <FinalEffect value="MedicHealingBeam@SetRB"/>
         <PeriodicValidator value="MedicHealingBeam@CanChannel"/>
+        <PeriodicEffectArray value="MedicHealingBeam@SetPeriod"/>
         <PeriodicPeriodArray value="0.125"/>
-        <PeriodicEffectArray value="MedicHealingBeam@SwitchHeal"/>
     </CEffectCreatePersistent>
     <CEffectModifyUnit id="MedicSelfixArmor@MUHeal">
         <ValidatorArray value="noMarkers"/>

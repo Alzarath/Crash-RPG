@@ -53,6 +53,15 @@
         <DeathActorModel value="UnitDeathModelFade"/>
         <DeathActorModelLow value="UnitDeathModelFade"/>
     </CActorUnit>
+    <CActorAction id="MechCannonBoth@AttackHighImpact" parent="GenericAttack" effectAttack="MechCannonBoth@DamageHighImpact">
+        <LaunchAttachQuery Methods="AMFilterWeaponSetA0 AMPatternRollingStripe"/>
+        <LaunchAssets Model="ThorAAAttackLaunch" Sound="Thor_AntiAirAttackLaunch"/>
+        <ImpactMap index="None" Model="ThorAAAttackImpact" Sound="Thor_AntiAirAttackImpact"/>
+    </CActorAction>
+    <CActorSound id="MechCannonBoth@SoundAntiMassive" parent="SoundOneShot">
+        <On Terms="UnitDeath.CRPGMech; ValidateUnit CasterIsLevel3" Send="Create"/>
+        <Sound value="Thor_AntiAirAttackImpact"/>
+    </CActorSound>
     <CActorModel id="InfestedMendingAura@ModelImpact" parent="ModelAnimationStyleOneShot">
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Visibility" value="1"/>
@@ -329,6 +338,11 @@
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
     </CActorUnit>
+    <CActorSound id="MedicHealingBeam@SoundLoop" parent="SoundContinuous">
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Sound value="Medic_Heal"/>
+    </CActorSound>
     <CActorSound id="PlasmaCanisterChargeHuge@SoundPickup" parent="SoundOneShot">
         <On Terms="Effect.PlasmaCanisterChargeHuge@Set.Start" Send="Create"/>
         <Sound value="UI_Pickup_PulseGrenade"/>
@@ -587,24 +601,24 @@
             <Image value="Assets\Textures\wireframe-protoss-adept-shield03.dds"/>
         </WireframeShield>
     </CActorUnit>
-    <CActorAction id="MedicHealingBeam@Attack" parent="GenericAttackBase">
-        <On Terms="Effect.MedicHealingBeam@CP.Start; At Effect" Send="Create"/>
-        <On Terms="Effect.MedicHealingBeam@Dummy.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
-        <On Terms="Effect.MedicHealingBeam@CP.Stop; At Effect" Send="Destroy"/>
-        <Beam value="MedicHealingBeam@Beam"/>
-        <Lifetime value="-1.000000"/>
-        <ImpactSiteOps Ops="SOpAttachCenter"/>
-        <ShieldFlashType value="None"/>
-    </CActorAction>
     <CActorBeamSimple id="MedicHealingBeam@Beam" parent="BeamSimpleAnimationStyleContinuous">
-        <On Terms="Effect.MedicHealingBeam@CP.Stop; At Effect" Send="Destroy"/>
+        <On Terms="Effect.MedicHealingBeam@CP.Stop; FromEffectTreeDescendant" Send="Destroy"/>
         <On Terms="ActorCreation" Target="::Creator" Send="Signal BeamCreated"/>
         <On Terms="ActorCreation" Send="SetTintColor 64,64,64"/>
-        <On Terms="Effect.MedicHealingBeam@DummyDoneHealing.Start" Send="SetTintColor 64,64,64"/>
-        <On Terms="Effect.MedicHealingBeam@MUTarget.Start" Send="SetTintColor 255,255,255"/>
+        <On Terms="Effect.MedicHealingBeam@CP.Start; At Target" Send="Create"/>
+        <On Terms="Effect.MedicHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="SetTintColor 255,255,255"/>
+        <On Terms="Effect.MedicHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="Create MedicHealingBeam@SoundLoop"/>
+        <On Terms="Effect.MedicHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="StatusSet IsHealing 1"/>
+        <On Terms="Effect.MedicHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Send="SetTintColor 64,64,64"/>
+        <On Terms="Effect.MedicHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Target="MedicHealingBeam@SoundLoop" Send="Destroy"/>
+        <On Terms="Effect.MedicHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Send="StatusSet IsHealing 0"/>
+        <Host Subject="_Unit" Scope="Caster" Actor="Find"/>
         <Model value="MedicHealBeam"/>
         <ModelFlags index="AutomateGlobalLoops" value="1"/>
+        <HostLaunch Subject="_Unit" Scope="Caster" Actor="Find"/>
         <HostLaunchSiteOps Ops="SOpAttachWeapon"/>
+        <HostImpact Subject="_Unit" Actor="Find"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
     </CActorBeamSimple>
     <CActorModel id="MedicIrradiate@ModelLinger">
         <Inherits index="CloakEffect" value="1"/>

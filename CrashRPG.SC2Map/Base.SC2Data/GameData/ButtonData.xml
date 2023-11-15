@@ -414,6 +414,23 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="MechExplosiveImmortality"/>
     </CButton>
+    <CButton id="MechAdaptivePayload" parent="PassiveSecondaryButton">
+        <Icon value="Assets\Textures\btn-upgrade-artanis-scarabsplashradius-orange-radial.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-artanis-scarabsplashradius-orange-radial.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="MechAdaptivePayload@Learn">
+        <Icon value="Assets\Textures\btn-upgrade-artanis-scarabsplashradius-orange-radial.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-artanis-scarabsplashradius-orange-radial.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MechAdaptivePayload"/>
+    </CButton>
+    <CButton id="MechAdaptivePayload@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-artanis-scarabsplashradius-orange-radial.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-artanis-scarabsplashradius-orange-radial.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="MechAdaptivePayload"/>
+    </CButton>
     <CButton id="MechMultiLockTargetingSystem@Upgraded">
         <Icon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
         <AlertIcon value="Assets\Textures\btn-techupgrade-terran-multilocktargetingsystem.dds"/>
@@ -428,17 +445,16 @@
         <HotkeyAlias value="MechMultiLockTargetingSystem"/>
     </CButton>
     <CButton id="MechPointDefenseDrones@Learn">
-        <Icon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-defensivedrone.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <TintRacially value="1"/>
         <HotkeyAlias value="MechPointDefenseDrones"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-defensivedrone.dds"/>
     </CButton>
     <CButton id="MechPointDefenseDrones@Upgraded">
-        <Icon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-defensivedrone.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <TintRacially value="1"/>
         <HotkeyAlias value="MechPointDefenseDrones"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-defensivedrone.dds"/>
         <Hotkey value="Button/Hotkey/MechShockBlast@Upgraded"/>
     </CButton>
     <CButton id="MechShockBlast@Upgraded">
@@ -1286,10 +1302,9 @@
         <EditorCategories value="Race:Terran"/>
     </CButton>
     <CButton id="MechPointDefenseDrones" parent="PassivePrimaryButton">
-        <Icon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-pointdefenselaser.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-nova-defensivedrone.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-terran-nova-defensivedrone.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <TintRacially value="1"/>
     </CButton>
     <CButton id="HunterScarabMine" parent="CButtonUpgradeable" upgradeValidator="CRPGAbilityUpgradePrimary@Upgraded">
         <Icon value="Assets\Textures\btn-ability-protoss-scarabshot.dds"/>

@@ -198,9 +198,9 @@
         <DisplayEffect value="MechCannonBoth@Damage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Arc value="29.9926"/>
-        <Period value="1"/>
+        <Period value="0.5"/>
         <Backswing value="0"/>
-        <Effect value="MechCannonBoth@Damage"/>
+        <Effect value="MechCannonBoth@SwitchInitial"/>
         <DamagePoint value="0.0625"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShooterGaussRifle">

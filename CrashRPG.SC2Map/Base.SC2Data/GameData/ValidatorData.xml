@@ -512,6 +512,19 @@
         <Compare value="GT"/>
         <ResultMaxLevel value="Error"/>
     </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitFilters id="IsLight">
+        <Filters value="Light;-"/>
+    </CValidatorUnitFilters>
+    <CValidatorCombine id="MechCannonBoth@IsAntiAirPayloadAttack">
+        <Type value="And"/>
+        <CombineArray value="IsAirUnit"/>
+        <CombineArray value="CRPGPassive2Learned"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareMarkerCount id="MedicHealingBeam@HasMarker">
+        <ResultFailed value="AlreadyTargeted"/>
+        <WhichUnit Effect="MedicHealingBeam@CP"/>
+        <Compare value="GT"/>
+    </CValidatorUnitCompareMarkerCount>
     <CValidatorUnitFilters id="TargetNotSelf">
         <Filters value="-;Self"/>
     </CValidatorUnitFilters>
@@ -548,7 +561,6 @@
     </CValidatorCombine>
     <CValidatorCombine id="MedicHealingBeam@DoneHealing">
         <CombineArray value="TargetLifeFull"/>
-        <CombineArray value="MedicHealingBeam@EnergyNeedsNotMet"/>
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="PointDefenseDroneLaser@NotOnCooldownRepair">
         <WhichUnit Value="Caster"/>
