@@ -3083,17 +3083,6 @@
     <CUnit id="CRPGFortress" parent="PlanetaryFortress">
         <Name value="Unit/Name/CRPGFortress"/>
         <Description value="Button/Tooltip/CRPGFortress"/>
-        <AbilArray index="4" Link="OutpostTrain"/>
-        <AbilArray index="6" removed="1"/>
-        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
-        <BehaviorArray Link="CRPGDamageAttribute"/>
-        <BehaviorArray Link="CRPGEnergyAttribute"/>
-        <BehaviorArray Link="CRPGBaseAttributes"/>
-        <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
-        <WeaponArray index="0" Link="TwinIbiksCannon2"/>
-        <CardLayouts index="0">
-            <LayoutButtons index="6" AbilCmd="OutpostTrain,Train1"/>
-        </CardLayouts>
         <LifeArmorFormula>
             <NegativeArmorMultiplier value="0"/>
             <NegativeDamageBase value="0.94"/>
@@ -3106,6 +3095,17 @@
             <PositiveArmorMultiplier value="0"/>
             <PositiveDamageRatio value="0.06"/>
         </ShieldArmorFormula>
+        <AbilArray index="4" Link="OutpostTrain"/>
+        <AbilArray index="6" removed="1"/>
+        <BehaviorArray Link="CRPGArmorAttributeUnit"/>
+        <BehaviorArray Link="CRPGDamageAttribute"/>
+        <BehaviorArray Link="CRPGEnergyAttribute"/>
+        <BehaviorArray Link="CRPGBaseAttributes"/>
+        <BehaviorArray Link="CRPGUnderlingLevel@Level1"/>
+        <WeaponArray index="0" Link="TwinIbiksCannon2"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="6" AbilCmd="OutpostTrain,Train1"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="CRPGMarine">
         <DeathRevealRadius value="3"/>
@@ -4250,7 +4250,6 @@
         <TurningRate value="999.8437"/>
         <AbilArray Link="MechPointDefenseDrones"/>
         <AbilArray Link="HangarQueue5"/>
-        <AbilArray Link="TestInventory"/>
         <AbilArray Link="MechBarrage@Upgraded"/>
         <WeaponArray Link="MechCannonBoth"/>
         <WeaponArray Link="MechCannonGround"/>

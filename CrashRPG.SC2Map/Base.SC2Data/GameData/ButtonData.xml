@@ -404,7 +404,6 @@
     <CButton id="MechExplosiveImmortality@Upgraded">
         <Icon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-unstablepayload.dds"/>
-        <Hotkey value="Button/Hotkey/MechShockBlast@Upgraded"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="MechExplosiveImmortality"/>
     </CButton>

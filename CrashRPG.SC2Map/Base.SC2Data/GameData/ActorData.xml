@@ -16,6 +16,10 @@
         <Remove Terms="UnitConstruction.##unitName##.Start" Send="Create"/>
         <Remove Terms="UnitConstruction.##unitName##.Finish" Send="AnimPlay ConstructionDeath Stand,Birth,Death FullMatch"/>
     </CActorUnit>
+    <CActorRange id="MechExplosiveImmortality@Range" parent="RangeAbilHover" abil="MechExplosiveImmortality">
+        <Abil Link=""/>
+        <Range value="8.000000"/>
+    </CActorRange>
     <CActorDoodad id="AcidSplash">
         <DoodadFlags index="DefaultToModelAABBBounds" value="0"/>
     </CActorDoodad>
@@ -4974,7 +4978,7 @@
         <ImpactMap index="None" Model="PlanetaryFortressAttackImpact" Sound="PlanetaryFortress_AttackImpact"/>
         <ImpactPhysics Name="IbiksCannonImpact" MatchKeys="Basic" Physics="PlanetaryFortressAttackForce"/>
     </CActorAction>
-    <CActorSplat id="PlanetaryFortressSplat2" parent="TerranBuildingMorphSplat" unitName="CRPGFortress">
+    <CActorSplat id="CRPGFortress@Splat" parent="TerranBuildingMorphSplat" unitName="CRPGFortress">
         <Model value="PlanetaryFortressSplat"/>
     </CActorSplat>
     <CActorMissile id="MedicCorrosiveSpray@Missile" parent="GenericAttackMissile" unitName="MedicCorrosiveSpray@Weapon">
@@ -5698,14 +5702,12 @@
     <CActorUnit id="CRPGDefensiveWall" parent="TerranBuilding" unitName="CRPGDefensiveWall">
         <Aliases value="_UnitLarge"/>
         <On index="69" Terms="UnitConstruction.CRPGDefensiveWall.Start" Send="Create SupplyDepotBuild"/>
-        <On Terms="AbilMorph.*.Start; MorphTo CRPGDefensiveWallLowered" Send="AnimGroupRemove Unburrow"/>
-        <On Terms="AbilMorph.*.Start; MorphTo CRPGDefensiveWallLowered" Send="AnimGroupApply Burrow Burrow Stand,Burrow ClosingFull"/>
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGDefensiveWall@Lowered" Send="AnimGroupRemove Unburrow"/>
+        <On Terms="AbilMorph.*.Start; MorphTo CRPGDefensiveWall@Lowered" Send="AnimGroupApply Burrow Burrow Stand,Burrow ClosingFull"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWall" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWallLowered" Send="Create"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWallLowered" Send="AnimGroupRemove Burrow"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWallLowered" Send="AnimGroupApply Unburrow Stand,Unburrow Stand,Unburrow Instant"/>
-        <On Terms="Signal.*.Incoming" Send="RefSetFromMsg ::actor.SupplyDropModel ::Sender"/>
-        <On Terms="Signal.*.Incoming" Target="::actor.SupplyDropModel" Send="Signal Raised"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWall@Lowered" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWall@Lowered" Send="AnimGroupRemove Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWall@Lowered" Send="AnimGroupApply Unburrow Stand,Unburrow Stand,Unburrow Instant"/>
         <Model value="SupplyDepot"/>
         <CreepHeightClass value="Small"/>
         <BuildModel value="SupplyDepot"/>
@@ -5736,14 +5738,10 @@
         <On Terms="UnitBirth.CRPGDefensiveWall@Lowered" Send="AnimGroupApply Burrow Burrow Stand,Burrow ClosingFull"/>
         <On Terms="AbilMorph.*.Start; MorphTo CRPGDefensiveWall" Send="AnimGroupRemove Burrow"/>
         <On Terms="AbilMorph.*.Start; MorphTo CRPGDefensiveWall" Send="AnimGroupApply Unburrow Unburrow Stand ClosingFull"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWallLowered" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWall@Lowered" Send="Destroy"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWall" Send="Create"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWall" Send="AnimGroupRemove Unburrow"/>
         <On Terms="AbilMorph.*.Finish; MorphFrom CRPGDefensiveWall" Send="AnimGroupApply Burrow Stand,Burrow Stand,Burrow Instant"/>
-        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationSupplyDepot"/>
-        <On Terms="Abil.SupplyDrop.TargetApproachStart" Send="$Spell"/>
-        <On Terms="Signal.*.Incoming" Send="RefSetFromMsg ::actor.SupplyDropModel ::Sender"/>
-        <On Terms="Signal.*.Incoming" Target="::actor.SupplyDropModel" Send="Signal Lowered"/>
         <Model value="SupplyDepotLowered"/>
         <CreepHeightClass value="Tiny"/>
         <BuildModel value="SupplyDepotLowered"/>
@@ -8005,6 +8003,8 @@
     <CActorModel id="MechShockBlast@Model" parent="ModelAnimationStyleOneShot">
         <AcceptedHostedPropTransfers index="Scale" value="0"/>
         <On Terms="Abil.MechShockBlast.SourceFinishStart" Send="Create"/>
+        <On Terms="ActorCreation; ValidateUnit CRPGAbilityUpgradeSecondary@Upgraded" Send="SetScale 1.600000"/>
+        <On Terms="ActorCreation; ValidateUnit CRPGAbilityUpgradeSecondary@Upgraded" Send="AnimSetTimeScale BSD 0.666700"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachCenter SJHyperionLightningStormOffset" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
@@ -8177,7 +8177,7 @@
     </CActorRange>
     <CActorRange id="MechShockBlast@Range" parent="RangeAbilHover" abil="MechShockBlast">
         <Abil Link=""/>
-        <Range value="5.200000"/>
+        <Range value="5.000000"/>
     </CActorRange>
     <CActorBeamSimple id="VehicleLockOnTrackingBeam" parent="BeamSimpleAnimationStyleContinuous">
         <On Terms="Effect.VehicleLockOnTurretClear.Start; At Caster" Send="AnimBracketStop BSD"/>

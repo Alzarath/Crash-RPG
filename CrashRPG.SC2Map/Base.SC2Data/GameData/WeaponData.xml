@@ -99,7 +99,7 @@
         <DisplayEffect value="MechCannonGround@Damage"/>
         <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Arc value="29.9926"/>
-        <Period value="1"/>
+        <Period value="0.8125"/>
         <DamagePoint value="0.0625"/>
         <Backswing value="0"/>
         <Effect value="MechCannonGround@Damage"/>
@@ -200,7 +200,7 @@
         <DisplayEffect value="MechCannonBoth@Damage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Arc value="29.9926"/>
-        <Period value="0.5"/>
+        <Period value="0.8125"/>
         <Backswing value="0"/>
         <Effect value="MechCannonBoth@SwitchInitial"/>
         <DamagePoint value="0.0625"/>

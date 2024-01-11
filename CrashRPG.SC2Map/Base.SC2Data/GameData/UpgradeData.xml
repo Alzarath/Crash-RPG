@@ -77,6 +77,7 @@
         <EffectArray Operation="Set" Reference="Behavior,SandbagCover,DamageResponse.Chance" Value="1"/>
         <EffectArray Reference="Effect,HunterDisruptorVolley@CP,PeriodCount" Value="1"/>
         <EffectArray Reference="Effect,PsionicProjectionDisruptorVolley@CP,PeriodCount" Value="1"/>
+        <EffectArray Operation="Set" Reference="Behavior,MechExplosiveImmortality@Rebuilding,DamageResponse.Fatal" Value="0"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
         <AffectedUnitArray value="CRPGFighter"/>
@@ -106,8 +107,11 @@
         <Icon value="Assets\Textures\decal_spray_0017_01.dds"/>
         <EffectArray Operation="AddBaseMultiply" Reference="Effect,ShooterGravityGrenade@SA,AreaArray[0].Radius" Value="0.5"/>
         <EffectArray Reference="Behavior,ShooterGravityGrenade@KnockIn,Duration" Value="0.250000"/>
+        <EffectArray Reference="Effect,MechShockBlast@CP,PeriodCount" Value="10"/>
+        <EffectArray Reference="Actor,MechShockBlast@Range,Range" Value="3.000000"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
+        <AffectedUnitArray value="CRPGMech"/>
         <AffectedUnitArray value="CRPGShooter"/>
     </CUpgrade>
     <CUpgrade id="CRPGU238Shells">

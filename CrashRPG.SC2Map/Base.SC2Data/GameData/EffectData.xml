@@ -513,7 +513,7 @@
     <CEffectDamage id="MechCannonBoth@DamageExplosiveSplash" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
-        <Amount value="4">
+        <Amount value="8">
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
@@ -529,6 +529,13 @@
         <CaseArray Validator="MechCannonBoth@IsAntiAirPayloadAttack" Effect="MechCannonBoth@SwitchAir"/>
         <CaseDefault value="MechCannonBoth@Damage"/>
     </CEffectSwitch>
+    <CEffectModifyUnit id="MechExplosiveImmortality@MUHeal">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Source"/>
+        <VitalArray index="Life">
+            <ChangeFraction value="0.0375"/>
+        </VitalArray>
+    </CEffectModifyUnit>
     <CEffectModifyUnit id="MedicHealingBeam@MUCasterXP">
         <ValidatorArray value="CasterNotMaxLevel"/>
         <EditorCategories value="Race:Terran"/>
@@ -614,6 +621,7 @@
     <CEffectApplyBehavior id="MechExplosiveImmortality@AB">
         <EditorCategories value="Race:Terran"/>
         <Behavior value="MechExplosiveImmortality@Rebuilding"/>
+        <WhichUnit Value="Source"/>
     </CEffectApplyBehavior>
     <CEffectApplyBehavior id="MedicIrradiate@ABLinger">
         <ValidatorArray index="0" value="CRPGAbilityUpgradeSecondary@Upgraded"/>
@@ -2218,7 +2226,7 @@
     </CEffectDamage>
     <CEffectDamage id="MechExplosiveImmortality@Damage">
         <EditorCategories value="Race:Terran"/>
-        <ImpactLocation Value="TargetPoint"/>
+        <ImpactLocation Value="SourcePoint"/>
         <Amount value="200">
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
@@ -2231,7 +2239,6 @@
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="MechExplosiveImmortality@Damage"/>
         <EffectArray value="MechExplosiveImmortality@AB"/>
-        <EffectArray value="PostMorphHeal"/>
     </CEffectSet>
     <CEffectDamage id="MechCannonBoth@Damage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
@@ -5148,9 +5155,7 @@
         <CaseArray Validator="CasterGELevel5InfestedEgg" Effect="CRPGUnderlingLevel@ABLevel1"/>
     </CEffectSwitch>
     <CEffectApplyBehavior id="MechShockBlast@ABDamage">
-        <ValidatorArray index="0" value="MechShockBlastApplyBehaviorTargetFilters"/>
         <EditorCategories value="Race:Terran"/>
-        <Marker Link="Effect/MechShockBlastApplyBehavior"/>
         <Behavior value="MechShockBlast@Damaging"/>
     </CEffectApplyBehavior>
     <CEffectCreatePersistent id="MechShockBlast@CP">
@@ -5160,6 +5165,9 @@
         <PeriodCount value="14"/>
         <PeriodicEffectArray value="MechShockBlast@SA"/>
         <PeriodicPeriodArray value="0.125"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
     </CEffectCreatePersistent>
     <CEffectApplyBehavior id="MechShockBlast@ABStun">
         <ValidatorArray index="0" value="NotFrenzied"/>
@@ -5177,10 +5185,10 @@
         <EditorCategories value="Race:Terran"/>
         <ImpactLocation Value="TargetPoint"/>
         <SearchFilters value="-;Player,Ally,Neutral,Heroic,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="1" RadiusBonus="0.3" Effect="MechShockBlast@SetSearch"/>
+        <AreaArray Radius="1.425" RadiusBonus="0.3" Effect="MechShockBlast@SetSearch"/>
     </CEffectEnumArea>
     <CEffectSet id="MechShockBlast@SetSearch">
-        <ValidatorArray value="MechShockBlast@NotTakingDamage"/>
+        <ValidatorArray value="noMarkers"/>
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="MechShockBlast@ABStun"/>
         <EffectArray value="MechShockBlast@ABDamage"/>

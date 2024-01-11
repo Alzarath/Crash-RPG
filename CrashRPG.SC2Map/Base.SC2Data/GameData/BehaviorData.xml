@@ -217,15 +217,20 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisplayDuration index="Self" value="1"/>
         <DisplayDuration index="Ally" value="1"/>
-        <Modification>
+        <Modification AttackTargetPriority="-1">
             <ModifyFlags index="SuppressMoving" value="1"/>
             <ModifyFlags index="SuppressTurning" value="1"/>
-            <StateFlags index="Invulnerable" value="1"/>
             <StateFlags index="Stun" value="1"/>
         </Modification>
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-immortalityprotocol.dds"/>
         <Duration value="10"/>
+        <RemoveValidatorArray value="MechExplosiveImmortality@UpgradedAndNotMaxLife"/>
+        <Period value="0.25"/>
+        <PeriodicEffect value="MechExplosiveImmortality@MUHeal"/>
+        <DamageResponse Fatal="1" ModifyFraction="0" ModifyMinimumDamage="1">
+            <Chance value="1"/>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="MechMultiLockTargetingSystem">
         <InfoFlags index="Hidden" value="1"/>
@@ -1966,6 +1971,7 @@
         <Period value="0.125"/>
         <PeriodCount value="12"/>
         <PeriodicEffect value="MechShockBlast@Damage"/>
+        <MaxStackCount value="65535"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGBaseAttributes">
         <InfoFlags index="Hidden" value="1"/>
@@ -2020,7 +2026,6 @@
             <ModifyFlags index="SuppressTurning" value="1"/>
             <StateFlags index="Stun" value="1"/>
             <StateFlags index="SuppressAttack" value="1"/>
-            <StateFlags index="SuppressCloak" value="1"/>
             <StateFlags index="SuppressDetection" value="1"/>
             <StateFlags index="SuppressRadar" value="1"/>
         </Modification>

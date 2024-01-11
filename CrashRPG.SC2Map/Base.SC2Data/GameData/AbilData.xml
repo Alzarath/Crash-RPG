@@ -1985,9 +1985,9 @@
         <Effect index="0" value="MechShockBlast@CP"/>
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
+        <Flags index="Transient" value="1"/>
         <Cost>
             <Vital index="Energy" value="50"/>
-            <Cooldown TimeUse="20"/>
         </Cost>
         <CursorEffect value="MechShockBlast@SA"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="MechShockBlast">
