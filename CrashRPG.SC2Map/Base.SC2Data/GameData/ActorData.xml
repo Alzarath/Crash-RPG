@@ -7348,7 +7348,6 @@
         <Sound value="Infestor_InfestedTerranAttackImpact"/>
     </CActorSound>
     <CActorAction id="InfestedInfestedEggs@Attack" parent="GenericAttack" effectImpact="RemovePrecursor" effectLaunch="InfestedInfestedEggs@LM">
-        <On Terms="Effect.InfestedInfestedEggs@LMMarine.Start; At Caster" Send="Create"/>
         <LaunchAttachQuery Methods="AMFilterWeapon01"/>
         <LaunchAssets Sound="Infestor_InfestedTerranAttackLaunch"/>
         <Missile value="InfestedInfestedEggs@Missile"/>
