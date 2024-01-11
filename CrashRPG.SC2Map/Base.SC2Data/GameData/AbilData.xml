@@ -2070,6 +2070,7 @@
         <Flags index="DisableAbils" value="1"/>
         <Flags index="IgnoreFacing" value="1"/>
         <Flags index="IgnoreFood" value="1"/>
+        <Flags index="Rally" value="1"/>
         <Flags index="ShowProgress" value="1"/>
         <Flags index="SuppressMovement" value="1"/>
         <CostUnmorph>
@@ -2088,7 +2089,6 @@
                 <DurationArray index="Delay" value="4.875"/>
             </SectionArray>
         </InfoArray>
-        <AbilClassEnableArray index="CAbilMove" value="1"/>
         <AbilClassEnableArray index="CAbilStop" value="1"/>
     </CAbilMorph>
     <CAbilAugment id="FighterViolentCharge">

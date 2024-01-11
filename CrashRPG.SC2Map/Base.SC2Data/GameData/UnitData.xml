@@ -2218,6 +2218,7 @@
         <AbilArray Link="InfestedEggMorphToInfestedCivilian"/>
         <AbilArray Link="InfestedAberrate@MorphToInfestedMarine"/>
         <AbilArray Link="InfestedAberrate"/>
+        <AbilArray Link="Rally"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -2234,6 +2235,7 @@
             </LayoutButtons>
             <LayoutButtons Face="InfestedAberrate@Merge" Type="AbilCmd" AbilCmd="InfestedAberrate,SelectedUnits" Row="2" Column="3"/>
             <LayoutButtons Face="InfestedAberrate@Morph" Type="AbilCmd" AbilCmd="InfestedAberrate@MorphToInfestedMarine,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
         <LeaderAlias value=""/>

@@ -7278,9 +7278,9 @@
         <Macros value="ZergSmallBurrowEffects"/>
         <Macros value="PhysicsDeathsSwarmGround"/>
         <Macros value="PhysicsDeathsVoidGround"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedCivilian; MorphFrom InfestedInfestedEgg@Civilian" Send="Create"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedCivilian; MorphFrom InfestedInfestedEgg@Civilian" Send="Create InfestedTerranEggDeath"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedCivilian; MorphFrom InfestedInfestedEgg@Civilian" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedCivilian; MorphFrom InfestedInfestedEgg" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedCivilian; MorphFrom InfestedInfestedEgg" Send="Create InfestedTerranEggDeath"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedCivilian; MorphFrom InfestedInfestedEgg" Send="AnimBracketStart BSD Birth,01 Stand Death"/>
         <On Terms="UnitMovementUpdate.*.Walk; AnimPlaying Birth" Send="AnimClear Birth"/>
         <On Terms="UnitBirth.InfestedInfestedCivilian" Send="TerrainSquibActivateGroup RippleStandard"/>
         <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedCivilian; MorphFrom InfestedInfestedEgg" Send="TerrainSquibActivateGroup RippleStandard"/>
@@ -7362,13 +7362,7 @@
         <On Terms="Behavior.Precursor.Off" Send="AnimPlay WorkStart Stand,Work,Start"/>
         <On Terms="AnimDone; AnimName Death" Send="Destroy"/>
         <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedCivilian" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Finish; MorphTo InfestedInfestedMarine" Send="Destroy"/>
-        <On Terms="UnitBirth.InfestedInfestedEgg@Marine" Send="Create SoundEmitter InfestedInfestedEggInfestedCivilian_Ambience"/>
-        <On Terms="UnitBirth.InfestedInfestedEgg@Marine" Send="Create"/>
-        <On Terms="UnitRevive.InfestedInfestedEgg@Marine" Send="Create"/>
-        <On Terms="UnitRevive.InfestedInfestedEgg@Marine" Send="RefSet ::HostTurretBody _Selectable"/>
-        <On Terms="UnitConstruction.InfestedInfestedEgg@Marine" Send="Create"/>
-        <On Terms="UnitConstruction.InfestedInfestedEgg@Marine" Send="AnimPlay ConstructionDeath Stand,Birth,Death FullMatch"/>
+        <On Terms="AbilMorph.*.Finish" Send="Destroy"/>
         <Model value="InfestedTerransEgg"/>
         <BuildModel value="InfestedTerransEgg"/>
         <DeathArray index="Normal" ModelLink="ZergSmallUnitDeath" SoundLink="Zerg_ExplosionSmall"/>
