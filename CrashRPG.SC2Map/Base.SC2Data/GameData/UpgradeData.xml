@@ -30,8 +30,13 @@
         <EffectArray Operation="Set" Reference="Effect,PointDefenseDroneLaser@SetAntiMissile,EffectArray[1]" Value="PointDefenseDroneLaser@ABCooldownAntiMissile"/>
         <EffectArray Operation="Set" Reference="Effect,PointDefenseDroneLaser@SetRepair,EffectArray[1]" Value="PointDefenseDroneLaser@ABCooldownRepair"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="CRPGFighter"/>
         <AffectedUnitArray value="CRPGHunter"/>
+        <AffectedUnitArray value="CRPGMech"/>
+        <AffectedUnitArray value="CRPGMedic"/>
         <AffectedUnitArray value="CRPGShooter"/>
+        <AffectedUnitArray value="CRPGSniper"/>
+        <AffectedUnitArray value="MechPointDefenseDrone"/>
     </CUpgrade>
     <CUpgrade id="CRPGAbilityUpgradePassiveSecondary@Upgrade">
         <Icon value="Assets\Textures\btn-number-2.dds"/>
@@ -46,9 +51,11 @@
         <EffectArray Reference="Validator,InfestedEmpathicRepercussion@InRange,Range" Value="3"/>
         <EffectArray Reference="Effect,InfestedMendingAura@SA,AreaArray[0].Radius" Value="3"/>
         <EffectArray Reference="Behavior,InfestedMendingAura@SpeedBoost,Modification.MoveSpeedMultiplier" Value="0.25"/>
+        <EffectArray Reference="Actor,InfestedEmpathicRepercussion@Range,Range" Value="3.000000"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
         <AffectedUnitArray value="CRPGHunter"/>
+        <AffectedUnitArray value="CRPGInfested"/>
         <AffectedUnitArray value="CRPGShooter"/>
         <AffectedUnitArray value="CRPGSniper"/>
     </CUpgrade>

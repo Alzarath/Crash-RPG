@@ -7347,14 +7347,14 @@
         <On Terms="UnitDeath.InfestedInfestedEggs@Weapon" Send="Create"/>
         <Sound value="Infestor_InfestedTerranAttackImpact"/>
     </CActorSound>
-    <CActorAction id="InfestedInfestedEggs@Attack" parent="GenericAttack" effectImpact="RemovePrecursor" effectLaunch="InfestedInfestedEggs@LMCivilian">
+    <CActorAction id="InfestedInfestedEggs@Attack" parent="GenericAttack" effectImpact="RemovePrecursor" effectLaunch="InfestedInfestedEggs@LM">
         <On Terms="Effect.InfestedInfestedEggs@LMMarine.Start; At Caster" Send="Create"/>
         <LaunchAttachQuery Methods="AMFilterWeapon01"/>
         <LaunchAssets Sound="Infestor_InfestedTerranAttackLaunch"/>
         <Missile value="InfestedInfestedEggs@Missile"/>
         <ImpactAttachQuery Methods="Origin"/>
     </CActorAction>
-    <CActorUnit id="InfestedInfestedEgg" parent="GenericUnitBase" unitName="InfestedInfestedEgg@Civilian">
+    <CActorUnit id="InfestedInfestedEgg" parent="GenericUnitBase" unitName="InfestedInfestedEgg">
         <Aliases value="_UnitSmall"/>
         <Macros value="TerrainSquibAnimations"/>
         <On Terms="ActorCreation" Send="SetRotationFrom ::scope.InfestedMissile"/>
@@ -9241,13 +9241,9 @@
         <On Terms="Effect.SniperNuclearStrike@CPChannel.Stop" Send="AnimBracketStop BSD"/>
         <Model value="GhostNukeTarget"/>
     </CActorModel>
-    <CActorAction id="SniperC10CanisterRifleAttack" parent="GhostAttack" effectAttack="SniperC10CanisterRifleDamage">
-        <On index="0" Terms="Effect.SniperC10CanisterRifleDamage.Stop; FromEffectTreeDescendant"/>
-        <On index="5" Terms="Effect.SniperC10CanisterRifleDamage.Start; At Caster"/>
-    </CActorAction>
-    <CActorAction id="SniperC20ACanisterRifleAttack" parent="GhostAttack" effectAttack="SniperC10CanisterRifleDamageLevel3">
-        <On index="0" Terms="Effect.SniperC20ACanisterRifleDamage.Stop; FromEffectTreeDescendant"/>
-        <On index="5" Terms="Effect.SniperC20ACanisterRifleDamage.Start; At Caster"/>
+    <CActorAction id="SniperCanisterRifle@Attack" parent="GhostAttack" effectAttack="SniperCanisterRifle@Damage">
+        <On index="0" Terms="Effect.SniperCanisterRifle@Damage.Stop; FromEffectTreeDescendant"/>
+        <On index="5" Terms="Effect.SniperCanisterRifle@Damage.Start; At Caster"/>
     </CActorAction>
     <CActorAction id="SniperSniperRound@Attack" parent="GenericAttack" effectAttack="SniperSniperRound@Damage">
         <LaunchSiteOps Ops="SOpAttachHarnessStationary"/>

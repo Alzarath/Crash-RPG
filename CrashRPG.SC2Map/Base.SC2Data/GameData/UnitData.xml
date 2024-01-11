@@ -719,11 +719,9 @@
             <LayoutButtons Face="InfestedEmpathicRepercussion@Double" Type="Passive" Behavior="SIInfestedBunkerAutoSpawner" Row="1" Column="0"/>
             <LayoutButtons Face="SIInfestedBunkerSpawnInfestedMarine" Type="AbilCmd" AbilCmd="SIInfestedBunkerTrainMarine,255" Row="0" Column="0"/>
             <LayoutButtons Face="AttackRedirect" Type="AbilCmd" AbilCmd="AttackRedirect,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="InfestedHardenedEquipment@Armor" Type="Passive" Behavior="InfestedHardenedEquipment@Defensive" Row="1" Column="1"/>
-            <LayoutButtons Face="InfestedHardenedEquipment@Weapons" Type="Passive" Behavior="InfestedHardenedEquipment@Offensive" Row="1" Column="2"/>
+            <LayoutButtons Face="InfestedBunkerBraced" Type="Passive" Row="1" Column="1"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="StopRedirect,Execute" Row="0" Column="1"/>
             <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
-            <LayoutButtons Face="InfestedBunkerBraced" Type="Passive" Row="1" Column="3"/>
         </CardLayouts>
         <Radius value="1.25"/>
         <SeparationRadius value="1.25"/>
@@ -2167,8 +2165,6 @@
             <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
             <LayoutButtons Face="BunkerUnloadAll" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,UnloadAt" Row="2" Column="1"/>
             <LayoutButtons Face="InfestedEmpathicRepercussion@Double" Type="Passive" Requirements="InfestedEmpathicRepercussion" Row="1" Column="0"/>
-            <LayoutButtons Face="InfestedHardenedEquipment@Armor" Type="Passive" Behavior="InfestedHardenedEquipment@Defensive" Row="1" Column="1"/>
-            <LayoutButtons Face="InfestedHardenedEquipment@Weapons" Type="Passive" Behavior="InfestedHardenedEquipment@Offensive" Row="1" Column="2"/>
             <LayoutButtons Face="BunkerLoad" Type="AbilCmd" AbilCmd="InfestedBunkerTransport,Load" Row="2" Column="0"/>
             <LayoutButtons Face="InfestedBunkerRoot@Root" Type="AbilCmd" AbilCmd="InfestedBunkerRoot@Root,Execute" Row="2" Column="3"/>
         </CardLayouts>
@@ -2200,7 +2196,8 @@
         <InnerRadius value="0.25"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Melee"/>
     </CUnit>
-    <CUnit id="InfestedInfestedEgg@Marine">
+    <CUnit id="InfestedInfestedEgg">
+        <Name value="Unit/Name/InfestedTerransEgg"/>
         <Race value="Zerg"/>
         <FlagArray index="UseLineOfSight" value="1"/>
         <FlagArray index="NoScore" value="1"/>
@@ -2210,6 +2207,7 @@
         <Collide index="Structure" value="1"/>
         <Collide index="RoachBurrow" value="1"/>
         <Collide index="ForceField" value="1"/>
+        <Attributes index="Biological" value="1"/>
         <LifeStart value="100"/>
         <LifeMax value="100"/>
         <LifeArmor value="2"/>
@@ -2217,7 +2215,9 @@
         <LifeArmorName value="Unit/LifeArmorName/ZergGroundArmor"/>
         <Food value="-1"/>
         <AbilArray Link="move"/>
-        <AbilArray Link="InfestedEggMorphToInfestedMarine"/>
+        <AbilArray Link="InfestedEggMorphToInfestedCivilian"/>
+        <AbilArray Link="InfestedAberrate@MorphToInfestedMarine"/>
+        <AbilArray Link="InfestedAberrate"/>
         <CardLayouts>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
@@ -2232,38 +2232,12 @@
                 <Row value="1"/>
                 <Column value="0"/>
             </LayoutButtons>
-            <LayoutButtons Face="InfestedHardenedEquipment@Weapons" Type="Passive" Behavior="InfestedHardenedEquipment@Offensive" Row="1" Column="1"/>
+            <LayoutButtons Face="InfestedAberrate@Merge" Type="AbilCmd" AbilCmd="InfestedAberrate,SelectedUnits" Row="2" Column="3"/>
+            <LayoutButtons Face="InfestedAberrate@Morph" Type="AbilCmd" AbilCmd="InfestedAberrate@MorphToInfestedMarine,Execute" Row="2" Column="2"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Melee"/>
-        <TacticalAI value="InfestedInfestedEgg"/>
         <LeaderAlias value=""/>
         <HotkeyAlias value=""/>
-        <SelectAlias value="InfestedInfestedEgg@Civilian"/>
-        <SubgroupAlias value="InfestedInfestedEgg@Civilian"/>
-        <AIEvaluateAlias value="InfestedInfestedEgg@Civilian"/>
-        <ReviveInfoBase>
-            <Charge Link="InfestedInfestedEgg/Revive"/>
-            <Cooldown Link="InfestedInfestedEgg/Revive"/>
-        </ReviveInfoBase>
-        <Name value="Unit/Name/InfestedTerransEgg"/>
-        <Attributes index="Biological" value="1"/>
-    </CUnit>
-    <CUnit id="InfestedInfestedEgg@Civilian" parent="InfestedInfestedEgg@Marine">
-        <Description value="Button/Tooltip/InfestedInfestedEgg@Civilian"/>
-        <ReviveType value="InfestedInfestedEgg@Civilian"/>
-        <AbilArray index="1" Link="InfestedEggMorphToInfestedCivilian"/>
-        <AbilArray Link="InfestedAberrate@MorphToInfestedMarine"/>
-        <AbilArray Link="InfestedAberrate"/>
-        <TacticalAI value="InfestedInfestedEggInfestedCivilian"/>
-        <ReviveInfoBase>
-            <Charge Link="InfestedInfestedEggInfestedCivilian/Revive"/>
-            <Cooldown Link="InfestedInfestedEggInfestedCivilian/Revive"/>
-        </ReviveInfoBase>
-        <CardLayouts index="0">
-            <LayoutButtons index="6" Face="InfestedHardenedEquipment@Armor" Type="Passive" Behavior="InfestedHardenedEquipment@Defensive" Row="1" Column="1"/>
-            <LayoutButtons Face="InfestedAberrate@Merge" Type="AbilCmd" AbilCmd="InfestedAberrate,SelectedUnits" Row="2" Column="3"/>
-            <LayoutButtons Face="InfestedCausticWeapons@Morph" Type="AbilCmd" AbilCmd="InfestedAberrate@MorphToInfestedMarine,255" Row="2" Column="2"/>
-        </CardLayouts>
     </CUnit>
     <CUnit id="InfestedInfestedMarine">
         <DeathRevealRadius value="3"/>
@@ -2320,7 +2294,6 @@
                 <Row value="1"/>
                 <Column value="0"/>
             </LayoutButtons>
-            <LayoutButtons Face="InfestedHardenedEquipment@Weapons" Type="Passive" Behavior="InfestedHardenedEquipment@Offensive" Row="1" Column="1"/>
         </CardLayouts>
         <Radius value="0.375"/>
         <InnerRadius value="0.375"/>
@@ -2391,7 +2364,6 @@
                 <Row value="1"/>
                 <Column value="0"/>
             </LayoutButtons>
-            <LayoutButtons Face="InfestedHardenedEquipment@Armor" Type="Passive" Behavior="InfestedHardenedEquipment@Defensive" Row="1" Column="1"/>
             <LayoutButtons Face="InfestedAberrate@Merge" Type="AbilCmd" AbilCmd="InfestedAberrate,SelectedUnits" Row="2" Column="3"/>
             <LayoutButtons Face="InfestedAberrate@Morph" Type="AbilCmd" AbilCmd="InfestedAberrate@MorphToInfestedMarine,Execute" Row="2" Column="2"/>
         </CardLayouts>
@@ -4535,7 +4507,8 @@
         <TurningRate value="999.8437"/>
         <AbilArray Link="SniperBetterEquipment"/>
         <AbilArray Link="SniperToxicMunitions"/>
-        <WeaponArray Link="SniperC10CanisterRifle"/>
+        <WeaponArray Link="SniperCanisterRifle@C20ATargeted"/>
+        <WeaponArray Link="SniperCanisterRifle@C10"/>
         <CardLayouts index="0">
             <LayoutButtons index="6">
                 <Face value="CRPGLevelUp"/>
@@ -4580,6 +4553,7 @@
         <Collide index="Land9" value="1"/>
         <Collide index="Land11" value="1"/>
         <Collide index="Land16" value="1"/>
+        <BehaviorArray Link="SniperBetterEquipment@Upgraded"/>
     </CUnitHero>
     <CUnitHero id="CRPGSwarmerLevel1" parent="CRPGHero">
         <Description value="Button/Tooltip/CRPGSwarmer"/>

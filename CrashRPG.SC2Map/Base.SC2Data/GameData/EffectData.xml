@@ -60,6 +60,40 @@
         <EffectArray value="AeroTacticalJump@ABSpeed"/>
         <EffectArray value="AeroTacticalJump@CPSpeedDecay"/>
     </CEffectSet>
+    <CEffectSet id="BroodLordPassAttributes">
+        <ValidatorArray value="CasterHasDamageAttribute"/>
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="CRPGGiveAttributes"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+    </CEffectSet>
+    <CEffectSet id="BroodLordSetRelease">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="KillsToCaster"/>
+        <EffectArray value="BroodLordPassAttributes"/>
+    </CEffectSet>
+    <CEffectDamage id="BroodlingEscortDamageUnit">
+        <Amount value="20">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectSet id="BroodlingEscortLaunchB">
+        <EffectArray index="3" value="BroodlingEscortLaunchBSetTransfer"/>
+    </CEffectSet>
+    <CEffectSet id="BroodlingEscortLaunchBSetTransfer">
+        <EffectArray value="BroodlingEscortLaunchBTransfer"/>
+        <EffectArray value="BroodlingEscortLaunchBTransferArmorAttribute"/>
+        <EffectArray value="BroodlingEscortLaunchBTransferDamageAttribute"/>
+    </CEffectSet>
+    <CEffectTransferBehavior id="BroodlingEscortLaunchBTransferArmorAttribute">
+        <LaunchUnit Effect="BroodlingEscortLaunchA" Value="Source"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="CRPGArmorAttributeUnit"/>
+    </CEffectTransferBehavior>
+    <CEffectTransferBehavior id="BroodlingEscortLaunchBTransferDamageAttribute">
+        <LaunchUnit Effect="BroodlingEscortLaunchA" Value="Source"/>
+        <ImpactUnit Value="Target"/>
+        <Behavior value="CRPGDamageAttributeUnit"/>
+    </CEffectTransferBehavior>
     <CEffectModifyPlayer id="CRPGAbilityUpgradePassivePrimary@MP">
         <EditorCategories value=""/>
         <WhichPlayer Value="Caster"/>
@@ -100,6 +134,10 @@
         <TrackedUnit Effect="CRPGCasterTracker@ETUATCTCT" Value="Target"/>
     </CEffectAddTrackedUnit>
     <CEffectEnumTrackedUnits id="CRPGCasterTracker@ETUATCTCT" parent="CRPGCasterTracker@ETUBase"/>
+    <CEffectApplyBehavior id="CRPGGiveAttributeBaseAttributes">
+        <ValidatorArray index="0" removed="1"/>
+        <Behavior value="CRPGBaseAttributes"/>
+    </CEffectApplyBehavior>
     <CEffectTransferBehavior id="CRPGUnderlingLevel@TBLevel1">
         <Name value="Effect/Name/CRPGUnderlingLevel@TB"/>
         <LaunchUnit Value="Caster"/>
@@ -424,20 +462,6 @@
         <EditorCategories value="Race:Zerg"/>
         <Behavior value="InfestedAberrate@Available"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="InfestedInfestedEggs@ABCausticWeapons">
-        <EditorCategories value="Race:Zerg"/>
-        <Behavior value="InfestedCausticWeapons@Available2"/>
-    </CEffectApplyBehavior>
-    <CEffectSet id="InfestedInfestedEggs@SetInitialShared">
-        <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="KillsToCaster"/>
-        <EffectArray value="InfestedInfestedEggs@ABAberrate"/>
-        <EffectArray value="InfestedInfestedEggs@ABCausticWeapons"/>
-        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
-        <EffectArray value="InfestedEmpathicRepercussion@Set"/>
-        <EffectArray value="InfestedEmpathicRepercussion@ATU"/>
-        <EffectArray value="MakePrecursor"/>
-    </CEffectSet>
     <CEffectModifyUnit id="InfestedMendingAura@MUCaster">
         <ValidatorArray value="TargetNotSelf"/>
         <ValidatorArray value="CasterNotMaxLevel"/>
@@ -2449,6 +2473,19 @@
         <CaseArray Validator="CRPGAbilityUpgradePassiveSecondary@Upgraded" Effect="ShooterStimpack@SetUpgraded"/>
         <CaseDefault value="ShooterStimpack@Set"/>
     </CEffectSwitch>
+    <CEffectSet id="SniperCanisterRifle@SetTargeted">
+        <ValidatorArray value="SniperCanisterRifle@EnoughEnergy"/>
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="SniperCanisterRifle@Damage"/>
+        <EffectArray value="SniperCanisterRifle@MUEnergy"/>
+    </CEffectSet>
+    <CEffectModifyUnit id="SniperCanisterRifle@MUEnergy">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Energy">
+            <Change value="-10"/>
+        </VitalArray>
+    </CEffectModifyUnit>
     <CEffectCreatePersistent id="SniperNuclearStrike@CPLinger">
         <ValidatorArray value="CRPGAbilityUpgradeTernary@Upgraded"/>
         <EditorCategories value="Race:Terran"/>
@@ -4776,10 +4813,6 @@
         <ValidatorArray index="0" removed="1"/>
         <Behavior value="CRPGDamageAttributeUnit"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="CRPGGiveAttributeBaseAttributes">
-        <ValidatorArray index="0" removed="1"/>
-        <Behavior value="CRPGBaseAttributes"/>
-    </CEffectApplyBehavior>
     <CEffectSet id="CRPGGiveAttributes">
         <EffectArray value="CRPGGiveAttributeDamageUnit"/>
         <EffectArray value="CRPGGiveAttributeArmorUnit"/>
@@ -4849,57 +4882,10 @@
         <EditorCategories value="Race:Zerg"/>
         <Behavior value="InfestedInfestedEggs@TimedLifeExcessSummons"/>
     </CEffectApplyBehavior>
-    <CEffectCreateUnit id="InfestedInfestedEggs@CUEggMarine">
-        <EditorCategories value="Race:Zerg"/>
-        <WhichLocation Value="CasterUnitOrPoint"/>
-        <CreateFlags index="SetFacing" value="1"/>
-        <SpawnEffect value="InfestedInfestedEggs@SetInitialMarine"/>
-        <SpawnUnit value="InfestedInfestedEgg@Marine"/>
-        <SpawnRange value="3"/>
-        <SpawnOffset value="0,2"/>
-    </CEffectCreateUnit>
-    <CEffectCreateUnit id="InfestedInfestedEggs@CUEggMarineOverflow" parent="InfestedInfestedEggs@CUEggMarine">
-        <Name value="Effect/Name/InfestedInfestedEggs@CUEggMarineOverflow"/>
-        <CreateFlags index="ProvideFood" value="0"/>
-        <CreateFlags index="UseFood" value="0"/>
-        <SpawnEffect value="InfestedInfestedEggs@SetInitialMarineOverflow"/>
-    </CEffectCreateUnit>
     <CEffectSwitch id="InfestedInfestedEggs@Switch">
         <EditorCategories value="Race:Zerg"/>
-        <CaseArray Validator="InfestedInfestedEggs@ShouldProduceInfestedMarineOverflow" Effect="InfestedInfestedEggs@CUEggMarineOverflow"/>
-        <CaseArray Validator="InfestedInfestedEggs@ShouldProduceInfestedOverflow" Effect="InfestedInfestedEggs@CUEggCivilianOverflow"/>
-        <CaseDefault value="InfestedInfestedEggs@CUEggCivilian"/>
-    </CEffectSwitch>
-    <CEffectSet id="InfestedInfestedEggs@SetImpactMarine">
-        <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="RemovePrecursor"/>
-        <EffectArray value="InfestedEggMorphToInfestedMarine@IO"/>
-    </CEffectSet>
-    <CEffectSet id="InfestedInfestedEggs@SetInitialMarine">
-        <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="InfestedInfestedEggs@LMMarine"/>
-        <EffectArray value="InfestedHardenedEquipment@ABOffensive"/>
-        <EffectArray value="InfestedInfestedEggs@SetInitialShared"/>
-    </CEffectSet>
-    <CEffectLaunchMissile id="InfestedInfestedEggs@LMMarine">
-        <EditorCategories value="Race:Zerg"/>
-        <LaunchLocation Value="CasterUnit"/>
-        <ImpactLocation Value="TargetUnitOrPoint"/>
-        <FinishEffect value="InfestedInfestedEggs@SetImpactMarine"/>
-        <AmmoOwner Value="Origin"/>
-        <AmmoUnit value="InfestedInfestedEggs@Weapon"/>
-        <Movers Link="InfestedTerransWeapon"/>
-    </CEffectLaunchMissile>
-    <CEffectSet id="InfestedInfestedEggs@SetInitialMarineOverflow" parent="InfestedInfestedEggs@SetInitialMarine">
-        <Name value="Effect/Name/InfestedInfestedEggs@SetInitialMarineOverflow"/>
-        <EffectArray value="InfestedInfestedEggs@ABExcess"/>
-    </CEffectSet>
-    <CEffectSwitch id="InfestedInfestedEggs@SwitchTransferAttributesMarine">
-        <EditorCategories value="Race:Zerg"/>
-        <CaseArray Validator="CasterGELevel2InfestedEggMarine" Effect="CRPGUnderlingLevel@ABLevel1" FallThrough="1"/>
-        <CaseArray Validator="CasterGELevel3InfestedEggMarine" Effect="CRPGUnderlingLevel@ABLevel1" FallThrough="1"/>
-        <CaseArray Validator="CasterGELevel4InfestedEggMarine" Effect="CRPGUnderlingLevel@ABLevel1" FallThrough="1"/>
-        <CaseArray Validator="CasterGELevel5InfestedEggMarine" Effect="CRPGUnderlingLevel@ABLevel1"/>
+        <CaseArray Validator="InfestedInfestedEggs@ShouldProduceInfestedOverflow" Effect="InfestedInfestedEggs@CUEggOverflow"/>
+        <CaseDefault value="InfestedInfestedEggs@CUEgg"/>
     </CEffectSwitch>
     <CEffectRemoveBehavior id="InfestedInfestationSpore@RBOverlord">
         <ValidatorArray index="0" value="IsOverlord"/>
@@ -4932,48 +4918,49 @@
         <ResponseFlags index="Flee" value="1"/>
         <Kind value="Ranged"/>
     </CEffectDamage>
-    <CEffectCreateUnit id="InfestedInfestedEggs@CUEggCivilian">
+    <CEffectCreateUnit id="InfestedInfestedEggs@CUEgg">
         <ValidatorArray value="FoodAvailableOne"/>
         <EditorCategories value="Race:Zerg"/>
         <WhichLocation Value="CasterUnitOrPoint"/>
         <CreateFlags index="SetFacing" value="1"/>
-        <SpawnEffect value="InfestedInfestedEggs@SetInitialCivilian"/>
-        <SpawnUnit value="InfestedInfestedEgg@Civilian"/>
+        <SpawnEffect value="InfestedInfestedEggs@SetInitial"/>
+        <SpawnUnit value="InfestedInfestedEgg"/>
         <SpawnRange value="3"/>
         <SpawnOffset value="0,2"/>
     </CEffectCreateUnit>
-    <CEffectCreateUnit id="InfestedInfestedEggs@CUEggCivilianOverflow" parent="InfestedInfestedEggs@CUEggCivilian">
-        <Name value="Effect/Name/InfestedInfestedEggs@CUEggCivilianOverflow"/>
+    <CEffectCreateUnit id="InfestedInfestedEggs@CUEggOverflow" parent="InfestedInfestedEggs@CUEgg">
+        <Name value="Effect/Name/InfestedInfestedEggs@CUEggOverflow"/>
         <ValidatorArray index="0" value="CRPGAbilityUpgradePrimary@Upgraded"/>
         <ValidatorArray value="CRPGFoodUnavailable"/>
+        <Marker Link="Effect/InfestedInfestedEggs@CUEggCivilian"/>
         <CreateFlags index="ProvideFood" value="0"/>
         <CreateFlags index="UseFood" value="0"/>
-        <SpawnEffect value="InfestedInfestedEggs@SetInitialCivilianOverflow"/>
+        <SpawnEffect value="InfestedInfestedEggs@SetInitialOverflow"/>
     </CEffectCreateUnit>
-    <CEffectSet id="InfestedInfestedEggs@SetImpactCivilian">
+    <CEffectSet id="InfestedInfestedEggs@SetImpact">
         <EditorCategories value="Race:Zerg"/>
         <EffectArray value="RemovePrecursor"/>
         <EffectArray value="InfestedEggMorphToInfestedCivilian@IO"/>
     </CEffectSet>
-    <CEffectSet id="InfestedInfestedEggs@SetInitialCivilian">
+    <CEffectSet id="InfestedInfestedEggs@SetInitial">
         <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="InfestedInfestedEggs@LMCivilian"/>
-        <EffectArray value="InfestedHardenedEquipment@ABDefensive"/>
-        <EffectArray value="InfestedInfestedEggs@SetInitialShared"/>
+        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="KillsToCaster"/>
+        <EffectArray value="InfestedInfestedEggs@LM"/>
+        <EffectArray value="InfestedInfestedEggs@ABAberrate"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+        <EffectArray value="InfestedEmpathicRepercussion@Set"/>
+        <EffectArray value="InfestedEmpathicRepercussion@ATU"/>
     </CEffectSet>
-    <CEffectLaunchMissile id="InfestedInfestedEggs@LMCivilian">
+    <CEffectLaunchMissile id="InfestedInfestedEggs@LM">
         <EditorCategories value="Race:Zerg"/>
         <LaunchLocation Value="CasterUnit"/>
         <ImpactLocation Value="TargetUnitOrPoint"/>
-        <FinishEffect value="InfestedInfestedEggs@SetImpactCivilian"/>
+        <FinishEffect value="InfestedInfestedEggs@SetImpact"/>
         <AmmoOwner Value="Origin"/>
         <AmmoUnit value="InfestedInfestedEggs@Weapon"/>
         <Movers Link="InfestedTerransWeapon"/>
     </CEffectLaunchMissile>
-    <CEffectIssueOrder id="InfestedEggMorphToInfestedMarine@IO">
-        <EditorCategories value="Race:Zerg"/>
-        <Abil value="InfestedEggMorphToInfestedMarine"/>
-    </CEffectIssueOrder>
     <CEffectIssueOrder id="InfestedEggMorphToInfestedCivilian@IO">
         <EditorCategories value="Race:Zerg"/>
         <Abil value="InfestedEggMorphToInfestedCivilian"/>
@@ -4981,8 +4968,9 @@
     <CEffectDamage id="InfestedBunkerInfestedGaussRifle@Damage" parent="InfestedMarineInfestedGaussRifle@Damage">
         <Name value="Effect/Name/InfestedBunkerInfestedGaussRifle@Damage"/>
     </CEffectDamage>
-    <CEffectSet id="InfestedInfestedEggs@SetInitialCivilianOverflow" parent="InfestedInfestedEggs@SetInitialCivilian">
-        <Name value="Effect/Name/InfestedInfestedEggs@SetInitialCivilianOverflow"/>
+    <CEffectSet id="InfestedInfestedEggs@SetInitialOverflow">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="InfestedInfestedEggs@SetInitial"/>
         <EffectArray value="InfestedInfestedEggs@ABExcess"/>
     </CEffectSet>
     <CEffectApplyBehavior id="MechBarrage@AB">
@@ -5152,7 +5140,7 @@
         <EffectArray value="AeroTacticalJump@Teleport"/>
         <EffectArray value="AeroTacticalJump@ABTeleport"/>
     </CEffectSet>
-    <CEffectSwitch id="InfestedInfestedEggs@SwitchTransferAttributesCivilian">
+    <CEffectSwitch id="InfestedInfestedEggs@SwitchTransferAttributes">
         <EditorCategories value="Race:Zerg"/>
         <CaseArray Validator="CasterGELevel2InfestedEgg" Effect="CRPGUnderlingLevel@ABLevel1" FallThrough="1"/>
         <CaseArray Validator="CasterGELevel3InfestedEgg" Effect="CRPGUnderlingLevel@ABLevel1" FallThrough="1"/>
@@ -5560,13 +5548,6 @@
         <ExpireDelay value="3"/>
         <ExpireEffect value="SniperNuclearStrike@SetImpact"/>
     </CEffectCreatePersistent>
-    <CEffectDamage id="SniperC20ACanisterRifleDamage" parent="DU_WEAP">
-        <EditorCategories value="Race:Terran"/>
-        <Kind value="Ranged"/>
-        <Amount value="20">
-            <AccumulatorArray value="DamageAccumulatedValue"/>
-        </Amount>
-    </CEffectDamage>
     <CEffectApplyBehavior id="CRPGHoldFire">
         <WhichUnit Value="Caster"/>
     </CEffectApplyBehavior>
@@ -5578,7 +5559,7 @@
         <EditorCategories value="Race:Terran"/>
         <BehaviorLink value="CRPGHoldFire"/>
     </CEffectRemoveBehavior>
-    <CEffectDamage id="SniperC10CanisterRifleDamage" parent="DU_WEAP">
+    <CEffectDamage id="SniperCanisterRifle@Damage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
         <Amount value="20">

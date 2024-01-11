@@ -291,7 +291,7 @@
     </CRequirement>
     <CRequirement id="InfestedInfestedEggs@ShouldProduceInfestedMarine">
         <EditorCategories value="Race:Zerg"/>
-        <NodeArray index="Use" Link="AndCountAbilCRPGPassive1DummyCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEgg@CivilianQueuedOrBetterMulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter22"/>
+        <NodeArray index="Use" Link="AndCountAbilCRPGPassive1DummyCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggQueuedOrBetterMulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter22"/>
     </CRequirement>
     <CRequirement id="InfestedNotUninfested">
         <EditorCategories value="Race:Zerg"/>

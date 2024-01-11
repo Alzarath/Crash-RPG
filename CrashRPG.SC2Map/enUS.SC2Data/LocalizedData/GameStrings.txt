@@ -87,7 +87,6 @@ Abil/Name/InfestedBunkerRoot@Root=Root
 Abil/Name/InfestedBunkerRoot@Uproot=Uproot
 Abil/Name/InfestedBunkerTransport=Load-Unload
 Abil/Name/InfestedEggMorphToInfestedCivilian=Morph To Infested Civilian
-Abil/Name/InfestedEggMorphToInfestedMarine=Morph To Infested Marine
 Abil/Name/InfestedInfestationSpore=Infestation Spore
 Abil/Name/InfestedInfestedEggs=Infested Eggs
 Abil/Name/InfestedMendingAura@Dummy=Mending Aura
@@ -344,8 +343,8 @@ Behavior/Tooltip/CRPGArmorAttribute=Increases the unit's life and shield armor b
 Behavior/Tooltip/CRPGArmorAttributeUnit=Increases the unit's life and shield armor by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGArmorAttributeUnit,Modification.LifeArmorBonus" precision="1"/></c> per point.
 Behavior/Tooltip/CRPGDamageAttribute=Increase the unit's attack and spell damage by <c val="#ColorAttackInfo"><d ref="100 * Accumulator,HeroDamagePoints,Scale" precision="2"/>%</c> per point.<n/><n/>Current: <c val="#ColorAttackInfo"><d ref="100 * $RunAccumulators:HeroDamagePoints$" precision="2"/>%</c>
 Behavior/Tooltip/CRPGDamageAttributeUnit=Increase the unit's attack and spell damage by <c val="#ColorAttackInfo"><d ref="100 * Accumulator,UnitDamagePoints,Scale" precision="2"/>%</c> per point.<n/><n/>Current: <c val="#ColorAttackInfo"><d ref="100 * $RunAccumulators:UnitDamagePoints$" precision="2"/>%</c>
-Behavior/Tooltip/CRPGEnergyAttribute=Increase the unit's base energy regeneration by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttribute,Modification.VitalRegenMultiplier[Energy] * 100"/>%</c> per point.<n/><n/>Current: <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttribute,Modification.VitalRegenMultiplier[Energy] * 100 * $BehaviorStackCount:CRPGEnergyAttribute$"/>%</c>
-Behavior/Tooltip/CRPGEnergyAttributeUnit=Increase the unit's base energy regeneration by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttributeUnit,Modification.VitalRegenMultiplier[Energy] * 100" precision="1"/>%</c> per point.<n/><n/>Current: <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttributeUnit,Modification.VitalRegenMultiplier[Energy] * 100 * $BehaviorStackCount:CRPGEnergyAttributeUnit$" precision="1"/>%</c>
+Behavior/Tooltip/CRPGEnergyAttribute=Increase the unit's natural energy regeneration by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttribute,Modification.VitalRegenMultiplier[Energy] * 100"/>%</c> per point.<n/><n/>Current: <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttribute,Modification.VitalRegenMultiplier[Energy] * 100 * $BehaviorStackCount:CRPGEnergyAttribute$"/>%</c>
+Behavior/Tooltip/CRPGEnergyAttributeUnit=Increase the unit's natural energy regeneration by <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttributeUnit,Modification.VitalRegenMultiplier[Energy] * 100" precision="1"/>%</c> per point.<n/><n/>Current: <c val="#ColorAttackInfo"><d ref="Behavior,CRPGEnergyAttributeUnit,Modification.VitalRegenMultiplier[Energy] * 100 * $BehaviorStackCount:CRPGEnergyAttributeUnit$" precision="1"/>%</c>
 Behavior/Tooltip/CRPGSlow=This unit has reduced movement and attack speed.
 Behavior/Tooltip/DevourerMPAcidSpores=This unit is taking more damage and has reduced attack speed.
 Behavior/Tooltip/FighterLightningDash@Storm=Target is under the effects of Psionic Storm and will take massive damage while in this area of effect.
@@ -756,7 +755,7 @@ Button/Tooltip/CRPGShooterLevel1=Infiltration unit. Can use Ultrasonic Pulse and
 Button/Tooltip/CRPGShooterLevel2=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShooterLevel3=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShooterLevel5=Try to keep up with Tychus in this mission as he maniacally charges the enemy. <n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c><n/>
-Button/Tooltip/CRPGSniper=Tactical assassin. Adept at destroying high-value targets from a distance.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Sniper Round</c><n/><c val="#ColorActiveAbilityInfo">Personal Cloaking</c><n/><c val="#ColorActiveAbilityInfo">Nuclear Strike</c><n/><c val="#ColorPassiveAbilityInfo">Enhanced Optics</c><n/><c val="#ColorPassiveAbilityInfo">Toxic Munitions</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGSniper=Tactical assassin. Adept at destroying high-value targets from a distance.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Sniper Round</c><n/><c val="#ColorActiveAbilityInfo">Personal Cloaking</c><n/><c val="#ColorActiveAbilityInfo">Nuclear Strike</c><n/><c val="#ColorPassiveAbilityInfo">Better Equipment</c><n/><c val="#ColorPassiveAbilityInfo">Toxic Munitions</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGSwarmer=Horde creature. Weak alone, powerful in numbers. <c val="B0B0FF">Unique leveling system</c>.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Uses:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Split & Merge</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Spawn & Merge</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Spawn & Merge</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Evolve</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Incubate & Swarm</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGSwarmerLevel1=Fast melee unit. Leaps over obstacles and onto targets from range. Deals increased damage. Can morph into a Baneling.<n/><n/><c val="FFFF8A">Can attack ground units.</c>
 Button/Tooltip/CRPGSwarmerLevel32=Ranged unit. Shoots large globs of acid at long range.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
@@ -825,7 +824,7 @@ Button/Tooltip/InfestedAberrate@Learn=<s val="@@StandardTooltipHeaderSub">Passiv
 Button/Tooltip/InfestedAberrate@Merge=Merges two Infested Civilians into a powerful Infested Bunker, granting it the ability to transport Infested Marines.
 Button/Tooltip/InfestedAberrate@Merge@Upgraded=NYI
 Button/Tooltip/InfestedAberrate@Morph=Morphs into an Infested Marine, gaining a ranged weapon at the cost of reduced maximum life.
-Button/Tooltip/InfestedAberrate@Upgraded=Infested Bunkers can root. While rooted, Infested Bunkers have significantly increased life regeneration and their occupants are granted +<d ref="Behavior,InfestedBunkerBraced@CargoBuff,Modification.RangedWeaponRange"/> range and are unaffected by Empathetic Repercussion.
+Button/Tooltip/InfestedAberrate@Upgraded=Infested Bunkers can root, granting significantly increased life regeneration. While rooted, its occupants have immunity to Empathic Repercussion and +<d ref="Behavior,InfestedBunkerBraced@CargoBuff,Modification.RangedWeaponRange"/> range.
 Button/Tooltip/InfestedBunkerBraced=This unit has increased life regeneration. Cargo gains increased range and is unaffected by Empathic Repercussion.
 Button/Tooltip/InfestedBunkerRoot@Root=Roots the Infested Bunker, granting it increased life regeneration.
 Button/Tooltip/InfestedBunkerRoot@Uproot=Uproots the Infested Bunker, allowing it to move, attack, and transport units. Units inside can attack while uprooted.
@@ -837,26 +836,25 @@ Button/Tooltip/InfestedHardenedEquipment@Armor=Takes <d ref="(1 - Behavior,Infes
 Button/Tooltip/InfestedHardenedEquipment@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Infested units deal +<d ref="Behavior,InfestedHardenedEquipment@Offensive,Modification.DamageDealtUnscaled[Ranged]"/> ranged damage. Infested Civilians and Bunkers take <d ref="(1 - Behavior,InfestedHardenedEquipment@Defensive,DamageResponse.ModifyFraction) * 100"/>% reduced damage.
 Button/Tooltip/InfestedHardenedEquipment@Upgraded=NYI
 Button/Tooltip/InfestedHardenedEquipment@Weapons=Deals +<d ref="Behavior,InfestedHardenedEquipment@Offensive,Modification.DamageDealtUnscaled[Ranged]"/> ranged damage.
-Button/Tooltip/InfestedInfestationSpore=Permanently take control of a unit.
-Button/Tooltip/InfestedInfestationSpore@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedInfestationSpore,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,InfestedInfestationSpore,Cost[0].Cooldown.TimeUse"/><n/><n/>Permanently take control of a unit.
+Button/Tooltip/InfestedInfestationSpore=Permanently take control of an enemy unit.
+Button/Tooltip/InfestedInfestationSpore@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedInfestationSpore,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,InfestedInfestationSpore,Cost[0].Cooldown.TimeUse"/><n/><n/>Permanently take control of an enemy unit.
 Button/Tooltip/InfestedInfestationSpore@Upgraded=Infestation Spore can infest an additional unit.
 Button/Tooltip/InfestedInfestedBunker=Infested Bunkers deal moderate damage and house Infested Marines.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/InfestedInfestedCivilian=Melee attacker.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
-Button/Tooltip/InfestedInfestedEgg@Civilian=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
-Button/Tooltip/InfestedInfestedEgg@Marine=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
+Button/Tooltip/InfestedInfestedEgg=Spawn an Infested Terran. Infested Terran last forever and damage the hero when killed.
 Button/Tooltip/InfestedInfestedEggs=Spawn an Infested Civilian. Infested Terran last forever and hurt the caster when killed.
-Button/Tooltip/InfestedInfestedEggs@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedInfestedEggs,Cost[0].Vital[Energy]"/><n/><n/>Spawn Infested Civilian.
+Button/Tooltip/InfestedInfestedEggs@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedInfestedEggs,Cost[0].Vital[Energy]"/><n/><n/>Spawn an Infested Civilian.
 Button/Tooltip/InfestedInfestedEggs@Upgraded=Infested Eggs can spawn Infested Terran beyond the food limit, each lasting <d time="[d ref='Behavior,InfestedInfestedEggs@TimedLifeExcessSummons,Duration'/]"/>.
 Button/Tooltip/InfestedInfestedMarine=Ranged attacker.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/InfestedInfestedSupplies=This unit is infested, allowing control of up to two additional supply worth of Infested Terran.
-Button/Tooltip/InfestedMendingAura=The caster and nearby allied biological units regenerate <d ref="Effect,InfestedMendingAura@MUTarget,VitalArray[Life].Change/Behavior,InfestedMendingAura@Regeneration,Period" precision="2"/> life per second.
+Button/Tooltip/InfestedMendingAura=Friendly biological units and structures within range of Empathic Repercussion regenerate <d ref="Effect,InfestedMendingAura@MUTarget,VitalArray[Life].Change/Behavior,InfestedMendingAura@Regeneration,Period" precision="2"/> life per second.
 Button/Tooltip/InfestedMendingAura@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,InfestedMendingAura@Dummy,Cost[0].Cooldown.TimeUse"/><n/><n/>Nearby allied biological units regenerate <d ref="Effect,InfestedMendingAura@MUTarget,VitalArray[Life].Change/Behavior,InfestedMendingAura@Regeneration,Period" precision="2"/> life per second.
-Button/Tooltip/InfestedMendingAura@Upgraded=Units affected by Mending Aura have <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Behavior,InfestedMendingAura@SpeedBoost,Modification.MoveSpeedMultiplier$" precision="2"/>% increased movement speed and the radius of Mending Aura and Empathic Repercussion is increased by <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Validator,InfestedEmpathicRepercussion@InRange,Range$"/>.
+Button/Tooltip/InfestedMendingAura@Upgraded=The radius of Empathic Repercussion is increased by <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Validator,InfestedEmpathicRepercussion@InRange,Range$"/>. Affects units gain <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Behavior,InfestedMendingAura@SpeedBoost,Modification.MoveSpeedMultiplier$" precision="2"/>% increased movement speed.
 Button/Tooltip/InfestedParasiteAir=Fast suicide unit. Lasts a short duration.<n/><n/><c val="ffff8a">Can attack air units.</c>
 Button/Tooltip/InfestedParasiteGround=Fast suicide unit. Lasts a short duration.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/InfestedPlague=Infects enemy units and structures, dealing <c val="#ColorAttackInfo"><d ref="$RunAccumulators:InfestedPlague@ScaledDamage$*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/></c> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields. Reveals afflicted units.
 Button/Tooltip/InfestedPlague@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedPlague,Cost[0].Vital[Energy]"/><n/><n/>Infects enemies, dealing <d ref="Accumulator,InfestedPlague@BaseDamage,Amount*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields.
-Button/Tooltip/InfestedPlague@Upgraded=Units killed with Plague spawn a suicidal Parasite.
+Button/Tooltip/InfestedPlague@Upgraded=Units killed with Plague spawn a suicidal Parasite that deals <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ParasiteSuicide@Damage,Amount$"/></c> damage.
 Button/Tooltip/LockedNydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<n/><n/><c val="ffff8a">Enables:</c><n/>- Greater Nydus Worm
 Button/Tooltip/MechAdaptivePayload=Attacks against air units have modified properties.<n/><n/><s val="@@StandardTooltipHeaderSub">Explosive Payload</s><n/><n/>Light units cause <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechCannonBoth@DamageExplosiveSplash,Amount$"/></c> damage to units around the target.<n/><n/><s val="@@StandardTooltipHeaderSub">High Impact Payload</s><n/><n/>Massive units take <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechCannonBoth@DamageHighImpact,Amount$"/></c> damage.
 Button/Tooltip/MechAdaptivePayload@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Anti-air attacks deal <d ref="Effect,MechCannonBoth@DamageHighImpact,Amount"/> damage against massive units and <d ref="Effect,MechCannonBoth@DamageExplosiveSplash,Amount"/> splash damage against light units.
@@ -912,7 +910,7 @@ Button/Tooltip/ShipSolariteExposure=Causes enemy units and structures within the
 Button/Tooltip/ShipVortex=Creates a gravity Vortex that stuns ground and air units in the target area. Units within the Vortex are invulnerable to all damage and effects. Lasts for <d time="20"/>.
 Button/Tooltip/ShooterChaingun=Increase the hero's attack speed by <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$" precision="1"/>% every time they attack, stacking up to <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$ * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
 Button/Tooltip/ShooterChaingun@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Attacking increases the hero's attack speed by <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$" precision="1"/>% up to <d ref="100 * $AccumulatedValue:Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor$ * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%.
-Button/Tooltip/ShooterChaingun@Upgraded=Chaingun lasts an additional <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
+Button/Tooltip/ShooterChaingun@Upgraded=Chaingun's duration is increased by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,ShooterChaingun@Buff,Duration$'/]"/>.
 Button/Tooltip/ShooterDisableScatterShot=Returns the caster's projectiles to normal.
 Button/Tooltip/ShooterGravityGrenade=Tosses a grenade that explodes, hitting ground units for <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ShooterGravityGrenade@Damage,Amount$"/></c> damage in a small radius. Stuns units hit and pulls them toward the center over <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds.
 Button/Tooltip/ShooterGravityGrenade@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterGravityGrenade,Cost[0].Cooldown.TimeUse"/><n/><n/>Tosses a grenade that deals <d ref="Effect,ShooterGravityGrenade@Damage,Amount"/> damage and stuns ground units for <d ref="Behavior,ShooterGravityGrenade@KnockIn,Duration" precision="2"/> seconds in a small area.
@@ -929,9 +927,9 @@ Button/Tooltip/ShooterStimpack=Upon entering combat, the unit is injected with p
 Button/Tooltip/ShooterStimpack@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterStimpack@Dummy,Cost[0].Cooldown.TimeUse"/><n/><n/>Entering combat increases attack and movement speeds by <d ref="$AccumulatedValue:Behavior,ShooterStimpack,Modification.AdditiveAttackSpeedFactor$ * 100"/>% for <d ref="Behavior,ShooterStimpack,Duration"/> seconds.
 Button/Tooltip/ShooterStimpack@Unupgraded= Lasts <d ref="Behavior,ShooterStimpack,Duration"/> seconds.
 Button/Tooltip/ShooterStimpack@Upgraded=Stimpack lasts forever and grants <d ref="Behavior,ShooterStimpack@Permanent,Modification.VitalRegenArray[Life]"/> life regeneration.
-Button/Tooltip/SniperBetterEquipment=Weapon range is increased by <d ref="Weapon,SniperC20ACanisterRifle,Range - Weapon,SniperC10CanisterRifle,Range"/> and sight range is increased by <d ref="Behavior,SniperBetterEquipment,Modification.SightBonus"/>.
+Button/Tooltip/SniperBetterEquipment=Weapon range is increased by <d ref="Weapon,SniperCanisterRifle@C20A,Range - Weapon,SniperCanisterRifle@C10,Range"/> and sight range is increased by <d ref="Behavior,SniperBetterEquipment,Modification.SightBonus"/>.
 Button/Tooltip/SniperBetterEquipment@Learn=Increases weapon range by <d ref="Weapon,SniperC20ACanisterRifle,Range - Weapon,SniperC10CanisterRifle,Range"/> and sight range by <d ref="Behavior,SniperBetterEquipment,Modification.SightBonus"/>.
-Button/Tooltip/SniperBetterEquipment@Upgraded=NYI
+Button/Tooltip/SniperBetterEquipment@Upgraded=The Sniper can manually attack enemies outside its attack range at <c val="#ColorEnergyInfo"><d ref="-Effect,SniperCanisterRifle@MUEnergy,VitalArray[Energy].Change"/> energy per attack</c>.
 Button/Tooltip/SniperBetterEquipment@Upgraded@Upgraded=NYI
 Button/Tooltip/SniperLevel5=Can use Snipe, Personal Cloaking, and Nuclear Strike.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/SniperNuclearStrike=Calls down a Nuclear Strike at a target location. The nuke takes <d time="[d ref='Effect,SniperNuclearStrike@CPChannel,InitialDelay + Effect,SniperNuclearStrike@CPChannel,ExpireDelay + Effect,SniperNuclearStrike@CPImpact,InitialDelay'/]"/> seconds to land and deals up to <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperNuclearStrike@Damage,Amount$"/></c> (<c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperNuclearStrike@Damage,Amount$ * (1 + Effect,SniperNuclearStrike@Damage,AttributeFactor[Structure])"/></c> vs. Structure) damage to enemies in a large radius.
@@ -940,16 +938,16 @@ Button/Tooltip/SniperNuclearStrike@Learn=<s val="@@StandardTooltipHeaderSub">Act
 Button/Tooltip/SniperNuclearStrike@Upgraded=Nuclear Strike leaves a radioactive cloud that deals <d ref="Effect,SniperNuclearStrike@DamageLinger,Amount * Effect,SniperNuclearStrike@CPLinger,PeriodCount"/> damage over <d time="[d ref='Effect,SniperNuclearStrike@CPLinger,PeriodCount * Effect,SniperNuclearStrike@CPLinger,PeriodicPeriodArray[0]'/]"/>.
 Button/Tooltip/SniperNuclearStrike@Upgraded@Upgraded=NYI
 Button/Tooltip/SniperNuclearStrike@UpgradedAccumulated=Nuclear Strike leaves a radioactive cloud that deals <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperNuclearStrike@DamageLinger,Amount$ * Effect,SniperNuclearStrike@CPLinger,PeriodCount"/></c> damage over <d time="[d ref='Effect,SniperNuclearStrike@CPLinger,PeriodCount * Effect,SniperNuclearStrike@CPLinger,PeriodicPeriodArray[0]'/]"/>.
-Button/Tooltip/SniperPersonalCloaking@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,SniperPersonalCloaking,Cost[0].Vital[Energy]"/> +<d ref="-1 * (Unit,CRPGSniper,EnergyRegenRate + Behavior,SniperPersonalCloaking,Modification.VitalRegenArray[Energy])" precision="1"/> per second<n/><n/>Cloaks the hero, preventing enemy units from seeing or attacking it.
+Button/Tooltip/SniperPersonalCloaking@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,SniperPersonalCloaking,Cost[0].Vital[Energy]"/> +<d ref="-1 * (Unit,CRPGSniper,EnergyRegenRate + Behavior,SniperPersonalCloaking,Modification.VitalRegenArray[Energy])" precision="1"/> per second<n/><n/>Cloaks the hero, preventing enemy units from seeing or attacking it without detection.
 Button/Tooltip/SniperPersonalCloaking@Off=Decloaks the selected unit, making it visible to enemies.
-Button/Tooltip/SniperPersonalCloaking@On=Cloaks the hero, preventing enemy units from seeing or attacking it. A cloaked unit will only be revealed by detectors or effects.<n/><n/><c val="f078ff">Reduces energy regeneration by <d ref="-1 * Behavior,GhostCloak,Modification.VitalRegenArray[2]" precision="1"/> per second.</c>
+Button/Tooltip/SniperPersonalCloaking@On=Cloaks the hero, preventing enemy units from seeing or attacking it. A cloaked unit will only be revealed by detectors or effects. Natural energy regeneration is disabled while cloaked.<n/><n/><c val="#ColorEnergyInfo">Drains <d ref="-1 * (Unit,CRPGSniper,EnergyRegenRate + Behavior,SniperPersonalCloaking,Modification.VitalRegenArray[Energy])" precision="1"/> energy per second.</c>
 Button/Tooltip/SniperPersonalCloaking@Upgraded=NYI
 Button/Tooltip/SniperSniperRound=A careful shot, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperSniperRound@Damage,Amount$"/></c> (<c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,SniperSniperRound@DamageBiological,Amount$"/></c> vs. Biological) damage. Damage is doubled against Psionic units.
-Button/Tooltip/SniperSniperRound@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,SniperSniperRound,Cost[0].Vital[Energy]"/><n/><n/>Deal <d ref="Effect,SniperSniperRound@Damage,Amount"/> (<d ref="Effect,SniperSniperRound@DamageBiological,Amount"/> vs. Biological) damage. Double vs Psionic.
-Button/Tooltip/SniperSniperRound@Upgraded=Sniper Round fires an additional round at the target after a brief delay. If the unit already died, it fires at a nearby enemy unit.
+Button/Tooltip/SniperSniperRound@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,SniperSniperRound,Cost[0].Vital[Energy]"/><n/><n/>Deal <d ref="Effect,SniperSniperRound@Damage,Amount"/> (<d ref="Effect,SniperSniperRound@DamageBiological,Amount"/> vs. Biological) damage. Doubled vs Psionic.
+Button/Tooltip/SniperSniperRound@Upgraded=Sniper Round fires an additional round at the target. If the target dies, it instead fires at a nearby enemy unit.
 Button/Tooltip/SniperSniperRound@Upgraded@Upgraded=NYI
 Button/Tooltip/SniperToxicMunitions=This unit's projectiles are coated in a deadly toxin that deals <c val="#ColorAttackInfo"><d ref="Behavior,SniperToxicMunitions@Buff,Duration / Behavior,SniperToxicMunitions@Buff,Period * $AccumulatedValue:Effect,SniperToxicMunitions@Damage,Amount$"/></c> damage over <d time="[d ref='Behavior,SniperToxicMunitions@Buff,Duration'/]"/> to any enemy damaged by it for the first time. Can not be re-applied to the same unit for <d time="[d ref='Behavior,SniperToxicMunitions@Cooldown,Duration'/]"/>.
-Button/Tooltip/SniperToxicMunitions@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Damage deals an additional <d ref="Behavior,SniperToxicMunitions@Buff,Duration / Behavior,SniperToxicMunitions@Buff,Period * Effect,SniperToxicMunitions@Damage,Amount"/> damage over <d time="[d ref='Behavior,SniperToxicMunitions@Buff,Duration'/]"/> once per target.
+Button/Tooltip/SniperToxicMunitions@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Deals an additional <d ref="Behavior,SniperToxicMunitions@Buff,Duration / Behavior,SniperToxicMunitions@Buff,Period * Effect,SniperToxicMunitions@Damage,Amount"/> damage over <d time="[d ref='Behavior,SniperToxicMunitions@Buff,Duration'/]"/> for any damage dealt. Once per target
 Button/Tooltip/SniperToxicMunitions@Upgraded=Toxic Munitions spreads to nearby units if a unit dies with it.
 Button/Tooltip/SwarmerEvolve=Evolves into Swarmer's ultimate form.
 Button/Tooltip/SwarmerIncubate=Spawns a Swarmer inside the caster, waiting to be released.
@@ -1105,6 +1103,7 @@ DataCollection/Name/ShooterOverkill=Overkill
 DataCollection/Name/ShooterSandbags=Sandbags
 DataCollection/Name/ShooterStimpack=Stimpack
 DataCollection/Name/SniperBetterEquipment=Better Equipment
+DataCollection/Name/SniperCanisterRifle=Canister Rifle
 DataCollection/Name/SniperNuclearStrike=Nuclear Strike
 DataCollection/Name/SniperPersonalCloaking=Personal Cloaking
 DataCollection/Name/SniperSniperRound=Sniper Round
@@ -1575,6 +1574,11 @@ Effect/Name/BeaconRandomizeHeroDummy=Randomize Hero
 Effect/Name/BossLockApplyBehavior=Boss Lock
 Effect/Name/BossLockCreatePersistent=Boss Lock
 Effect/Name/BossLockRemoveBehavior=Boss Lock
+Effect/Name/BroodLordPassAttributes=Pass Attributes
+Effect/Name/BroodLordSetRelease=Set
+Effect/Name/BroodlingEscortLaunchBSetTransfer=Broodling Escort Launch B Set Transfer
+Effect/Name/BroodlingEscortLaunchBTransferArmorAttribute=Broodling Escort Launch B Transfer Armor Attribute
+Effect/Name/BroodlingEscortLaunchBTransferDamageAttribute=Broodling Escort Launch B Transfer Damage Attribute
 Effect/Name/BurrowChargeCasterApplyBehavior2=Burrow Charge Copy
 Effect/Name/BurrowChargeCreatePHLM2=Burrow Charge Create  Copy
 Effect/Name/BurrowChargeCreatePHSet2=Burrow Charge Create PHSet Copy
@@ -1855,7 +1859,6 @@ Effect/Name/InfestedBunkerInfestedGaussRifle@Dummy=Dummy
 Effect/Name/InfestedBunkerNeosteelClaw@Damage=Damage
 Effect/Name/InfestedCivilianInfestedClaws@Damage=Damage
 Effect/Name/InfestedEggMorphToInfestedCivilian@IO=Issue Order
-Effect/Name/InfestedEggMorphToInfestedMarine@IO=Issue Order
 Effect/Name/InfestedEmpathicRepercussion@AB=Apply Behavior
 Effect/Name/InfestedEmpathicRepercussion@ABUT=Apply Behavior
 Effect/Name/InfestedEmpathicRepercussion@ABUnstable=Apply Behavior
@@ -1874,24 +1877,15 @@ Effect/Name/InfestedInfestationSpore@MU=Modify Unit
 Effect/Name/InfestedInfestationSpore@RBOverlord=Remove Behavior
 Effect/Name/InfestedInfestationSpore@SetInitialize=Set
 Effect/Name/InfestedInfestedEggs@ABAberrate=Apply Behavior
-Effect/Name/InfestedInfestedEggs@ABCausticWeapons=Apply Behavior
 Effect/Name/InfestedInfestedEggs@ABExcess=Apply Behavior
-Effect/Name/InfestedInfestedEggs@CUEggCivilian=Create Unit
-Effect/Name/InfestedInfestedEggs@CUEggCivilianOverflow=Create Unit
-Effect/Name/InfestedInfestedEggs@CUEggMarine=Create Unit
-Effect/Name/InfestedInfestedEggs@CUEggMarineOverflow=Create Unit
-Effect/Name/InfestedInfestedEggs@LMCivilian=Launch Missile
-Effect/Name/InfestedInfestedEggs@LMMarine=Launch Missile
-Effect/Name/InfestedInfestedEggs@SetImpactCivilian=Set
-Effect/Name/InfestedInfestedEggs@SetImpactMarine=Set
-Effect/Name/InfestedInfestedEggs@SetInitialCivilian=Set
-Effect/Name/InfestedInfestedEggs@SetInitialCivilianOverflow=Set
-Effect/Name/InfestedInfestedEggs@SetInitialMarine=Set
-Effect/Name/InfestedInfestedEggs@SetInitialMarineOverflow=Set
-Effect/Name/InfestedInfestedEggs@SetInitialShared=Set
+Effect/Name/InfestedInfestedEggs@CUEgg=Create Unit
+Effect/Name/InfestedInfestedEggs@CUEggOverflow=Create Unit
+Effect/Name/InfestedInfestedEggs@LM=Launch Missile
+Effect/Name/InfestedInfestedEggs@SetImpact=Set
+Effect/Name/InfestedInfestedEggs@SetInitial=Set
+Effect/Name/InfestedInfestedEggs@SetInitialOverflow=Set
 Effect/Name/InfestedInfestedEggs@Switch=Switch
-Effect/Name/InfestedInfestedEggs@SwitchTransferAttributesCivilian=Switch
-Effect/Name/InfestedInfestedEggs@SwitchTransferAttributesMarine=Switch
+Effect/Name/InfestedInfestedEggs@SwitchTransferAttributes=Switch
 Effect/Name/InfestedMarineInfestedGaussRifle@Damage=Damage
 Effect/Name/InfestedMendingAura@ABRegeneration=Apply Behavior
 Effect/Name/InfestedMendingAura@ABSpeedBoost=Apply Behavior
@@ -2139,8 +2133,9 @@ Effect/Name/ShooterStimpack@RBOffensive=Remove Behavior
 Effect/Name/ShooterStimpack@Set=Set
 Effect/Name/ShooterStimpack@SetUpgraded=Set
 Effect/Name/ShooterStimpack@Switch=Switch
-Effect/Name/SniperC10CanisterRifleDamage=C-10 Canister Rifle
-Effect/Name/SniperC20ACanisterRifleDamage=C-20A Canister Rifle
+Effect/Name/SniperCanisterRifle@Damage=Damage
+Effect/Name/SniperCanisterRifle@MUEnergy=Modify Unit
+Effect/Name/SniperCanisterRifle@SetTargeted=Set
 Effect/Name/SniperNuclearStrike@CPChannel=Create Persistent
 Effect/Name/SniperNuclearStrike@CPImpact=Create Persistent
 Effect/Name/SniperNuclearStrike@CPLinger=Create Persistent
@@ -2747,7 +2742,6 @@ Unit/Name/InfestedInfestedEggs@Weapon=Weapon
 Unit/Name/InfestedParasiteAir=Parasite
 Unit/Name/InfestedParasiteGround=Parasite
 Unit/Name/InfestedTerranCampaign=Infested Marine
-Unit/Name/InfestedTerransEgg=Infested Swarm Egg
 Unit/Name/KerriganInfestBroodling=Alien
 Unit/Name/Leviathan=Alien
 Unit/Name/LockedNydusNetwork=Nydus Network
@@ -2817,7 +2811,6 @@ Weapon/Name/DefensiveTurretLongboltMissile=Longbolt Missile
 Weapon/Name/DevourerMPWeapon=Corrosive Acid
 Weapon/Name/FighterPsiBlades=Psi Blades
 Weapon/Name/FighterSolariteReaper=Solarite Reaper
-Weapon/Name/GhostC10CanisterRifleCRPG=C-10 Canister Rifle
 Weapon/Name/HunterDisruptorVolley=Disruptor Volley
 Weapon/Name/HunterPurifierGlaiveCannon=Purifier Glaive Cannon
 Weapon/Name/InfestedAcidulousSaliva=Acidulous Saliva
@@ -2845,8 +2838,6 @@ Weapon/Name/ShipPurifierBeam=Purifier Beam
 Weapon/Name/ShipPurifierCannon=Purifier Cannon
 Weapon/Name/ShipWarpspaceCannon=Warpspace Cannon
 Weapon/Name/ShooterGaussRifle=Gauss Rifle
-Weapon/Name/SniperC10CanisterRifle=C-10 Canister Rifle
-Weapon/Name/SniperC20ACanisterRifle=C-20A Canister Rifle
 Weapon/Name/SwarmSpawnLevel5=Spawn
 Weapon/Name/SwarmeBiteLevel4=Bite
 Weapon/Name/SwarmerClawsLevel1=Claws

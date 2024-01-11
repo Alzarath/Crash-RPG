@@ -219,6 +219,10 @@
         <DataRecord Entry="Behavior,CRPGCasterTracker"/>
         <DataRecord Entry="Effect,CRPGCasterTracker@AB"/>
         <DataRecord Entry="Effect,CRPGCasterTracker@ATUTargetToCaster"/>
+        <DataRecord Entry="Effect,CRPGCasterTracker@ATCTCT2"/>
+        <DataRecord Entry="Effect,CRPGCasterTracker@AddCasterToCasterTracker"/>
+        <DataRecord Entry="Effect,CRPGCasterTracker@ATCTCT"/>
+        <DataRecord Entry="Effect,CRPGCasterTracker@ETUATCTCT"/>
     </CDataCollectionAbil>
     <CDataCollectionUnit id="CRPGDefensiveFortification">
         <EditorCategories value="DataGroup:Unit,Race:Terran,ObjectType:Structure"/>
@@ -1366,7 +1370,7 @@
     <CDataCollectionUnit id="InfestedInfestedEgg">
         <EditorCategories value="DataGroup:Unit,Race:Zerg,ObjectType:Unit"/>
         <DataRecord Entry="Actor,InfestedInfestedEgg"/>
-        <DataRecord Entry="Unit,InfestedInfestedEgg@Civilian"/>
+        <DataRecord Entry="Unit,InfestedInfestedEgg"/>
         <DataRecord Entry="Unit,InfestedInfestedEgg@Marine"/>
     </CDataCollectionUnit>
     <CDataCollectionAbil id="InfestedInfestedEggs">
@@ -1380,7 +1384,7 @@
         <DataRecord Entry="Button,InfestedInfestedEggs@Learn"/>
         <DataRecord Entry="Button,InfestedInfestedEggs@Upgraded"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@Switch"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SwitchTransferAttributesCivilian"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SwitchTransferAttributes"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@ABAberrate"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@ABCausticWeapons"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialShared"/>
@@ -1389,15 +1393,15 @@
         <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialMarine"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggMarineOverflow"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialMarineOverflow"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggCivilianOverflow"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggCivilian"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@CUEggOverflow"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@CUEgg"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@SetImpactMarine"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@LMMarine"/>
         <DataRecord Entry="Effect,InfestedInfestedEggs@SwitchTransferAttributesMarine"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialCivilian"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialCivilianOverflow"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@SetImpactCivilian"/>
-        <DataRecord Entry="Effect,InfestedInfestedEggs@LMCivilian"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitial"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SetInitialOverflow"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@SetImpact"/>
+        <DataRecord Entry="Effect,InfestedInfestedEggs@LM"/>
         <DataRecord Entry="Requirement,InfestedInfestedEggs@Learned"/>
         <DataRecord Entry="Requirement,InfestedInfestedEggs@ShouldProduceInfestedMarine"/>
         <DataRecord Entry="Unit,InfestedInfestedEggs@Weapon"/>
@@ -1564,6 +1568,20 @@
         <DataRecord Entry="Abil,SniperBetterEquipment"/>
         <DataRecord Entry="Behavior,SniperBetterEquipment"/>
         <DataRecord Entry="Button,SniperBetterEquipment"/>
+        <DataRecord Entry="Behavior,SniperBetterEquipment@Upgraded"/>
+        <DataRecord Entry="Button,SniperBetterEquipment@Upgraded"/>
+        <DataRecord Entry="Button,SniperBetterEquipment@Learn"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="SniperCanisterRifle">
+        <EditorCategories value="DataGroup:Weapon,Race:Terran"/>
+        <DataRecord Entry="Actor,SniperCanisterRifle@Attack"/>
+        <DataRecord Entry="Effect,SniperCanisterRifle@Damage"/>
+        <DataRecord Entry="Effect,SniperCanisterRifle@SetTargeted"/>
+        <DataRecord Entry="Effect,SniperCanisterRifle@MUEnergy"/>
+        <DataRecord Entry="Validator,SniperCanisterRifle@EnoughEnergy"/>
+        <DataRecord Entry="Weapon,SniperCanisterRifle@C10"/>
+        <DataRecord Entry="Weapon,SniperCanisterRifle@C20A"/>
+        <DataRecord Entry="Weapon,SniperCanisterRifle@C20ATargeted"/>
     </CDataCollectionAbil>
     <CDataCollectionAbil id="SniperNuclearStrike">
         <EditorCategories value="DataGroup:Ability,Race:Terran,ObjectType:Spell"/>

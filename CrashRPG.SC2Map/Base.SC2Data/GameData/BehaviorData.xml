@@ -743,6 +743,16 @@
         <RemoveValidatorArray value="CRPGAbilityUpgradePassiveSecondary@NotUpgraded"/>
         <Duration value="30"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="SniperBetterEquipment@Upgraded">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive1Learned"/>
+        <DisableValidatorArray value="CRPGAbilityUpgradePassivePrimary@Upgraded"/>
+        <DisableValidatorArray value="SniperCanisterRifle@EnoughEnergy"/>
+        <Modification>
+            <WeaponEnableArray value="SniperCanisterRifle@C20ATargeted"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="SniperToxicMunitions@Cooldown">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="30"/>
@@ -2079,7 +2089,7 @@
     <CBehaviorBuff id="CRPGUnderlingLevel@Level1">
         <Name value="Behavior/Name/CRPGUnderlingLevel"/>
         <InfoFlags index="Hidden" value="1"/>
-        <DisableValidatorArray value="CasterGELevel1"/>
+        <DisableValidatorArray value="CRPGUnderlingLevel@AttributeEnabled1"/>
         <Modification>
             <AttributeChangeArray Attribute="CRPGArmorAttribute" Points="1"/>
             <AttributeChangeArray Attribute="CRPGArmorAttributeUnit" Points="1"/>
@@ -2090,16 +2100,16 @@
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGUnderlingLevel@Level2" parent="CRPGUnderlingLevel@Level1">
-        <DisableValidatorArray index="0" value="CasterGELevel2"/>
+        <DisableValidatorArray index="0" value="CRPGUnderlingLevel@AttributeEnabled2"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGUnderlingLevel@Level3" parent="CRPGUnderlingLevel@Level1">
-        <DisableValidatorArray index="0" value="CasterGELevel3"/>
+        <DisableValidatorArray index="0" value="CRPGUnderlingLevel@AttributeEnabled3"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGUnderlingLevel@Level4" parent="CRPGUnderlingLevel@Level1">
-        <DisableValidatorArray index="0" value="CasterGELevel4"/>
+        <DisableValidatorArray index="0" value="CRPGUnderlingLevel@AttributeEnabled4"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGUnderlingLevel@Level5" parent="CRPGUnderlingLevel@Level1">
-        <DisableValidatorArray index="0" value="CasterGELevel5"/>
+        <DisableValidatorArray index="0" value="CRPGUnderlingLevel@AttributeEnabled5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SniperToxicMunitions@Buff">
         <Alignment value="Negative"/>
@@ -2126,8 +2136,8 @@
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisableValidatorArray value="CRPGPassive1Learned"/>
         <Modification SightBonus="2">
-            <WeaponArray Link="SniperC20ACanisterRifle"/>
-            <WeaponDisableArray value="SniperC10CanisterRifle"/>
+            <WeaponArray Link="SniperCanisterRifle@C20A"/>
+            <WeaponDisableArray value="SniperCanisterRifle@C10"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGHoldFire">

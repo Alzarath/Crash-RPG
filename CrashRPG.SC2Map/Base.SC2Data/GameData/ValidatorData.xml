@@ -80,6 +80,56 @@
     <CValidatorPlayerRequirement id="CRPGAbilityUpgradeTernary@NotUpgraded" parent="CRPGAbilityUpgradeTernary@Upgraded">
         <Find value="0"/>
     </CValidatorPlayerRequirement>
+    <CValidatorCombine id="CRPGUnderlingLevel@AttributeEnabled1">
+        <CombineArray value="CRPGUnderlingLevel@CasterHasLevel1"/>
+        <CombineArray value="CasterGELevel1"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CasterHasDamageAttributeBase">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="CRPGDamageAttribute"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="CRPGUnderlingLevel@AttributeEnabled2">
+        <CombineArray value="CRPGUnderlingLevel@CasterHasLevel2"/>
+        <CombineArray value="CasterGELevel2"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="CRPGUnderlingLevel@AttributeEnabled3">
+        <CombineArray value="CRPGUnderlingLevel@CasterHasLevel3"/>
+        <CombineArray value="CasterGELevel3"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="CRPGUnderlingLevel@AttributeEnabled4">
+        <CombineArray value="CRPGUnderlingLevel@CasterHasLevel4"/>
+        <CombineArray value="CasterGELevel4"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="CRPGUnderlingLevel@AttributeEnabled5">
+        <CombineArray value="CRPGUnderlingLevel@CasterHasLevel5"/>
+        <CombineArray value="CasterGELevel5"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="CRPGUnderlingLevel@CasterHasLevel1">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="CRPGUnderlingLevel@Level1"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CRPGUnderlingLevel@CasterHasLevel2">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="CRPGUnderlingLevel@Level2"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CRPGUnderlingLevel@CasterHasLevel3">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="CRPGUnderlingLevel@Level3"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CRPGUnderlingLevel@CasterHasLevel4">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="CRPGUnderlingLevel@Level4"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CRPGUnderlingLevel@CasterHasLevel5">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="CRPGUnderlingLevel@Level5"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareCargo id="CargoGE5">
         <Compare value="GE"/>
         <Type value="Used"/>
@@ -162,6 +212,10 @@
         <Value value="0.3125"/>
         <Vital value="Energy"/>
     </CValidatorUnitCompareVital>
+    <CValidatorCombine id="CasterHasDamageAttribute">
+        <CombineArray value="CasterHasDamageAttributeBase"/>
+        <CombineArray value="CasterHasDamageAttributeUnderling"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="CasterIsHero">
         <WhichUnit Value="Caster"/>
         <Behavior value="CRPGHeroVeterancy"/>
@@ -311,6 +365,11 @@
         <Compare value="GT"/>
         <Behavior value="CRPGUnderlingLevel@Level5"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="CasterHasDamageAttributeUnderling">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GT"/>
+        <Behavior value="CRPGDamageAttributeUnit"/>
+    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareChargeUsed id="HunterPlasmaDiffusion@CasterCharged">
         <ResultNoUnit value="MustTargetUnit"/>
         <Compare value="LE"/>
@@ -416,7 +475,7 @@
         <CombineArray value="InfestedInfestedEggs@IsEggMarine"/>
     </CValidatorCombine>
     <CValidatorUnitType id="InfestedInfestedEggs@NotEggCivilian">
-        <Value value="InfestedInfestedEgg@Civilian"/>
+        <Value value="InfestedInfestedEgg"/>
         <Find value="0"/>
     </CValidatorUnitType>
     <CValidatorUnitType id="InfestedInfestedEggs@NotEggMarine">
@@ -430,7 +489,7 @@
         <Negate value="1"/>
     </CValidatorCombine>
     <CValidatorUnitType id="InfestedInfestedEggs@IsEggCivilian">
-        <Value value="InfestedInfestedEgg@Civilian"/>
+        <Value value="InfestedInfestedEgg"/>
     </CValidatorUnitType>
     <CValidatorUnitType id="InfestedInfestedEggs@IsEggMarine">
         <Value value="InfestedInfestedEgg@Marine"/>
@@ -525,6 +584,12 @@
         <WhichUnit Effect="MedicHealingBeam@CP"/>
         <Compare value="GT"/>
     </CValidatorUnitCompareMarkerCount>
+    <CValidatorUnitCompareVital id="SniperCanisterRifle@EnoughEnergy">
+        <WhichUnit Value="Caster"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
     <CValidatorUnitFilters id="TargetNotSelf">
         <Filters value="-;Self"/>
     </CValidatorUnitFilters>

@@ -59,6 +59,8 @@
         <DamagePoint value="0.083"/>
         <Backswing value="1.167"/>
         <Effect value="C10CanisterRifleCRPG"/>
+        <Name value="Weapon/Name/C10CanisterRifle"/>
+        <DisplayName value="Weapon/Name/C10CanisterRifle"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="CRPGDummyWeapon">
         <Options index="Disabled" value="1"/>
@@ -694,22 +696,31 @@
         <Period value="1"/>
         <Effect value="MechHellfireMissiles@CP"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="SniperC10CanisterRifle">
+    <CWeaponLegacy id="SniperCanisterRifle@C10">
+        <Name value="Weapon/Name/C10CanisterRifle"/>
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
-        <DisplayEffect value="SniperC10CanisterRifleDamage"/>
+        <DisplayEffect value="SniperCanisterRifle@Damage"/>
+        <DisplayName value="Weapon/Name/C10CanisterRifle"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Range value="6"/>
         <Period value="1.5"/>
         <DamagePoint value="0.083"/>
         <Backswing value="1.167"/>
-        <Effect value="SniperC10CanisterRifleDamage"/>
+        <Effect value="SniperCanisterRifle@Damage"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="SniperC20ACanisterRifle" parent="SniperC10CanisterRifle">
-        <Name value="Weapon/Name/SniperC20ACanisterRifle"/>
-        <DisplayEffect value="SniperC20ACanisterRifleDamage"/>
-        <Effect value="SniperC20ACanisterRifleDamage"/>
+    <CWeaponLegacy id="SniperCanisterRifle@C20A" parent="SniperCanisterRifle@C10">
+        <Name value="Weapon/Name/Nova"/>
+        <DisplayName value="Weapon/Name/Nova"/>
         <Range value="8"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SniperCanisterRifle@C20ATargeted" parent="SniperCanisterRifle@C20A">
+        <Options index="Disabled" value="1"/>
+        <Options index="Hidden" value="1"/>
+        <AcquireScanFilters value="-;Player,Ally,Neutral,Enemy"/>
+        <Range value="500"/>
+        <MinimumRange value="7.9"/>
+        <Effect value="SniperCanisterRifle@SetTargeted"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="VehicleTyphoonMissilePod">
         <EditorCategories value="Race:Terran"/>

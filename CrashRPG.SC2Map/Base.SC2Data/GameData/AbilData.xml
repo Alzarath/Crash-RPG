@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilArmMagazine id="BroodLordHangar">
+        <EffectArray index="Release" value="BroodLordSetRelease"/>
+    </CAbilArmMagazine>
     <CAbilEffectInstant id="InfestedMendingAura@Dummy">
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
         <Cost>
@@ -2076,7 +2079,7 @@
         <InfoArray Unit="InfestedInfestedCivilian">
             <SectionArray index="Abils">
                 <DurationArray index="Delay" value="4.875"/>
-                <EffectArray index="Finish" value="InfestedInfestedEggs@SwitchTransferAttributesCivilian"/>
+                <EffectArray index="Finish" value="InfestedInfestedEggs@SwitchTransferAttributes"/>
             </SectionArray>
             <SectionArray index="Actor">
                 <DurationArray index="Delay" value="4.875"/>
@@ -2101,11 +2104,6 @@
         <Effect value="FighterViolentCharge@AB"/>
         <AutoCastValidatorArray value="CasterNotHoldingPosition"/>
     </CAbilAugment>
-    <CAbilMorph id="InfestedEggMorphToInfestedMarine" parent="InfestedEggMorphToInfestedCivilian">
-        <Name value="Abil/Name/InfestedEggMorphToInfestedMarine"/>
-        <Flags index="IgnoreFood" value="0"/>
-        <InfoArray index="0" Unit="InfestedInfestedMarine"/>
-    </CAbilMorph>
     <CAbilEffectTarget id="ShipDisruptionWebNoAim">
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Effect index="0" value="ShipDisruptionWebCreatePersistent"/>
