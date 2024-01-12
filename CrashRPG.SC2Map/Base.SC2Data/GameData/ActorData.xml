@@ -16,6 +16,138 @@
         <Remove Terms="UnitConstruction.##unitName##.Start" Send="Create"/>
         <Remove Terms="UnitConstruction.##unitName##.Finish" Send="AnimPlay ConstructionDeath Stand,Birth,Death FullMatch"/>
     </CActorUnit>
+    <CActorModel id="ApparitionParticleDisruptors@ModelFakeDeath" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.ApparitionParticleDisruptors@ABHide.Start; At Caster" Send="Create"/>
+        <HostSiteOps Ops="SOpAttachCenterStationary"/>
+        <Model value="Generic_Purifier_Hologram_Death"/>
+    </CActorModel>
+    <CActorSound id="ApparitionParticleDisruptors@SoundFakeDeath" parent="SoundOneShot">
+        <On Terms="Effect.ApparitionParticleDisruptors@ABHide.Start; At Caster" Send="Create"/>
+        <Sound value="Nova_Holographic_Decoy_Death2"/>
+    </CActorSound>
+    <CActorAction id="JumperParticleDisruptors@AttackEnhanced" parent="GenericAttack" effectImpact="JumperParticleDisruptors@DamageEnhanced" effectLaunch="JumperParticleDisruptors@LMEnhanced">
+        <LaunchAssets Sound="Stalker_AttackLaunch_Low"/>
+        <Missile value="JumperParticleDisruptors@MissileEnhanced"/>
+        <ImpactMap index="None" Model="StalkerTaldarimAttackImpact" Sound="Stalker_AttackImpact_Low"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="ParticleDisruptorImpact" MatchKeys="Basic" Physics="StalkerAttackDeathForce"/>
+        <AcquisitionYawHalfArc value="7.500000"/>
+        <AcquisitionPitchHalfArc value="15.000000"/>
+        <AccuracyHalfArc value="10.000000"/>
+    </CActorAction>
+    <CActorModel id="ApparitionParticleDisruptors@ImpactModel" parent="GenericAttackModel">
+        <On Terms="ActorCreation" Send="SetTintColor 255,128,0"/>
+    </CActorModel>
+    <CActorMissile id="JumperParticleDisruptors@MissileEnhanced" parent="GenericAttackMissile" unitName="JumperParticleDisruptors@WeaponEnhanced">
+        <Model value="StalkerTaldarimWeapon"/>
+    </CActorMissile>
+    <CActorModelMaterial id="JumperSlayerBlink@Glaze" parent="BehaviorGlaze" buff="JumperSlayerBlink@ShieldRestore">
+        <Model value="Glaze_Alarak_COOP_PrestigeMechBuff"/>
+    </CActorModelMaterial>
+    <CActorModel id="JumperLocalizedGravity@ModelPush" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.JumperLocalizedGravity@SAPush.Start" Send="Create"/>
+        <On Terms="ActorCreation" Send="SetTintColor 125,128,92"/>
+        <Model value="VoidZealotWhirlwindSearchModel"/>
+        <Scale value="2.000000"/>
+    </CActorModel>
+    <CActorSound id="JumperPhaseBlink@SoundCloakOff" parent="SoundOneShot">
+        <Terms value="ValidateUnit NotCloakedAndNotDead"/>
+        <On Terms="Behavior.JumperPhaseBlink@Cloak.Off" Send="Create"/>
+        <Sound value="Ghost_CloakOff"/>
+    </CActorSound>
+    <CActorAction id="JumperParticleDisruptors@Attack" parent="GenericAttack" effectImpact="JumperParticleDisruptors@Damage" effectLaunch="JumperParticleDisruptors@LM">
+        <On Terms="Signal.*.DarkProtossTest" Send="RefSetFromMsg ::actor.sender ::Sender"/>
+        <On Terms="Signal.*.DarkProtossTest; ValidateUnit NoDarkProtoss" Target="::actor.sender" Send="Signal DarkProtossSwap"/>
+        <LaunchAssets Sound="Stalker_AttackLaunch"/>
+        <Missile value="JumperParticleDisruptors@Missile"/>
+        <ImpactMap index="None" Model="StalkerAttackImpact" Sound="Stalker_AttackImpact"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="ParticleDisruptorImpact" MatchKeys="Basic" Physics="StalkerAttackDeathForce"/>
+        <AcquisitionYawHalfArc value="7.500000"/>
+        <AcquisitionPitchHalfArc value="15.000000"/>
+        <AccuracyHalfArc value="10.000000"/>
+    </CActorAction>
+    <CActorMissile id="JumperParticleDisruptors@Missile" parent="GenericAttackMissile" unitName="JumperParticleDisruptors@Weapon">
+        <Model value="StalkerWeapon"/>
+    </CActorMissile>
+    <CActorModel id="JumperSlayerBlink@ModelDestination" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.JumperSlayerBlink@TP.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Model value="BlinkStopModel"/>
+    </CActorModel>
+    <CActorModel id="JumperSlayerBlink@ModelOrigin" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.JumperSlayerBlink@TP.Start; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary"/>
+        <Model value="BlinkOriginModel"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorSound id="JumperSlayerBlink@SoundDestination" parent="SoundOneShot">
+        <On Terms="Effect.JumperSlayerBlink@TP.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Sound value="Stalker_Blink"/>
+    </CActorSound>
+    <CActorModel id="JumperPredictiveBlink@ModelDestination" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.JumperPredictiveBlink@TP.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Model value="BlinkStopModel"/>
+    </CActorModel>
+    <CActorModel id="JumperPhaseBlink@ModelOrigin" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.JumperPhaseBlink@TP.Start; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary"/>
+        <Model value="BlinkOriginModel"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorModel id="JumperPhaseBlink@ModelDestination" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.JumperPhaseBlink@TP.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Model value="BlinkStopModel"/>
+    </CActorModel>
+    <CActorModel id="JumperPredictiveBlink@ModelOrigin" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.JumperPredictiveBlink@TP.Start; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary"/>
+        <Model value="BlinkOriginModel"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorSound id="JumperPhaseBlink@SoundDestination" parent="SoundOneShot">
+        <On Terms="Effect.JumperPhaseBlink@TP.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Sound value="Stalker_Blink_Low"/>
+    </CActorSound>
+    <CActorModelMaterial id="FenixAIChampionGlaze" parent="BehaviorGlaze" buff="FenixAIChampionGlaze">
+        <Model value="Glaze_Fenix_AI_Champion"/>
+    </CActorModelMaterial>
+    <CActorSound id="JumperPredictiveBlink@SoundDestination" parent="SoundOneShot">
+        <On Terms="Effect.JumperPredictiveBlink@TP.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Sound value="Stalker_Blink_High"/>
+    </CActorSound>
     <CActorRange id="MechExplosiveImmortality@Range" parent="RangeAbilHover" abil="MechExplosiveImmortality">
         <Abil Link=""/>
         <Range value="8.000000"/>
@@ -346,6 +478,88 @@
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOverhead"/>
         <Sound value="Medic_Heal"/>
+    </CActorSound>
+    <CActorModel id="JumperLocalizedVortex@ModelStun" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.JumperLocalizedGravity@Stunned.On" Send="Create"/>
+        <On Terms="Behavior.JumperLocalizedGravity@Stunned.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="MindBlastStun"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorSiteOpForward id="SOpForwardUnit">
+        <HostForward Subject="CRPGShooter"/>
+    </CActorSiteOpForward>
+    <CActorModel id="JumperLocalizedGravity@ModelPull" parent="ModelAnimationStyleOneShot">
+        <On index="0" Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death ContentPlayOnce 0.500000 AsDuration"/>
+        <On Terms="Effect.JumperLocalizedGravity@SAPull.Start" Send="Create"/>
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpSourcePointSationary"/>
+        <Model value="PulloftheVoid_Coop"/>
+        <Scale value="0.500000"/>
+    </CActorModel>
+    <CActorModel id="ShooterOverkill@ModelLaunch" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.ShooterOverkill@SetPeriodic.Start; At Caster" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+        <Model value="NovaWeaponHellfireShotgunBlastLaunchModel"/>
+        <Scale value="0.800000"/>
+    </CActorModel>
+    <CActorModel id="ShooterOverkill@ModelImpactShotgun" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.ShooterOverkill@DamageShotgun.Start; At Target" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="NovaWeaponHellfireShotgunBlastImpact"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorModel id="ShooterOverkill@ModelLaunchShotgun">
+        <Flags index="SuppressSaveLoad" value="1"/>
+        <On Terms="Effect.ShooterOverkill@SAShotgun.Start; At Caster" Send="Create"/>
+        <On Terms="ActorCreation" Send="$Birth"/>
+        <On Terms="AnimDone; AnimName Birth" Send="Destroy"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachWeapon"/>
+        <Model value="HERCAttackLaunch"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+        <Scale value="8.000000,8.000000,1.000000"/>
+    </CActorModel>
+    <CActorSound id="ShooterOverkill@SoundShotgun" parent="SoundOneShot">
+        <On Terms="Effect.ShooterOverkill@SAShotgun.Start; At Caster" Send="Create"/>
+        <Sound value="Nova_HellfireShotgun_Blast"/>
+        <Layers>
+            <Sound value="Nova_HellfireShotgun_HandPump"/>
+            <PitchSource value="Actor"/>
+            <PlayDelaySource value="Actor"/>
+            <VolumeSource value="Sound"/>
+            <Chance value="100"/>
+            <Pitch value="-1.000000,-1.000000"/>
+            <PlayDelay value="300,500"/>
+            <Volume value="-6.000000,-6.000000"/>
+        </Layers>
+        <Layers>
+            <Sound value="Nova_HellfireShotgun_Blast_Tails_L"/>
+            <PitchSource value="Actor"/>
+            <PlayDelaySource value="Actor"/>
+            <VolumeSource value="Sound"/>
+            <Chance value="100"/>
+            <Pitch value="-1.000000,-1.000000"/>
+            <PlayDelay value="100,200"/>
+            <Volume value="-2.000000,-2.000000"/>
+        </Layers>
+        <Layers>
+            <Sound value="Nova_HellfireShotgun_Blast_Tails_R"/>
+            <PitchSource value="Actor"/>
+            <PlayDelaySource value="Actor"/>
+            <VolumeSource value="Sound"/>
+            <Chance value="100"/>
+            <Pitch value="-1.000000,-1.000000"/>
+            <PlayDelay value="100,200"/>
+            <Volume value="-2.000000,-2.000000"/>
+        </Layers>
     </CActorSound>
     <CActorSound id="PlasmaCanisterChargeHuge@SoundPickup" parent="SoundOneShot">
         <On Terms="Effect.PlasmaCanisterChargeHuge@Set.Start" Send="Create"/>
@@ -868,7 +1082,6 @@
     </CActorUnit>
     <CActorModel id="ShooterGaussRifle@ModelLaunch" parent="ModelAnimationStyleOneShot">
         <On Terms="Effect.ShooterGaussRifle@Set.Start; At Caster" Send="Create"/>
-        <On Terms="Effect.ShooterOverkill@SetPeriodic.Start; At Caster" Send="Create"/>
         <HostSiteOps Ops="SOpAttachWeapon"/>
         <Model value="MarineAttackLaunch"/>
         <Host Subject="_Unit"/>
@@ -877,19 +1090,16 @@
         <On Terms="Effect.ShooterGaussRifle@Set.Start; At Caster" Send="Create"/>
         <Sound value="Marine_AttackLaunch"/>
     </CActorSound>
-    <CActorModel id="ShooterOverkill@Guide">
-        <On Terms="Abil.ShooterOverkill.TargetOn" Send="Create"/>
-        <On Terms="Abil.ShooterOverkill.TargetOff" Send="AnimBracketStop BSD"/>
-        <On Terms="ActorCreation" Send="AnimBracketStart BSD Birth Stand Death"/>
-        <On Terms="AnimDone; AnimName BSD" Send="Destroy"/>
-        <On Terms="Abil.ShooterOverkill.ButtonHoverOn" Send="Create"/>
-        <On Terms="Abil.ShooterOverkill.ButtonHoverOff" Send="AnimBracketStop BSD"/>
-        <Host Subject="_Unit"/>
-        <HostSiteOps Ops="SOpAttachCenter SOpShadow SOpLookAtCursor SOp2DRotation"/>
+    <CActorSplat id="ShooterOverkill@Guide" parent="GuideVisualCircle" abil="ShooterOverkill">
+        <On index="0" Terms="Abil.ShooterOverkill.TargetOn" Send="Create"/>
+        <On index="1" Terms="Abil.ShooterOverkill.TargetOff" Send="Destroy"/>
+        <On index="2" Terms="Abil.ShooterOverkill.ButtonHoverOn" Target="" Send="Create"/>
+        <On index="3" Terms="Abil.ShooterOverkill.ButtonHoverOff" Send="Destroy"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin SOpLookAtCursor"/>
         <Model value="Nova_ShotGunCone"/>
-        <Scale value="0.900000"/>
-        <ModelFlags index="AllowHitTest" value="0"/>
-    </CActorModel>
+        <Scale value="0.875000"/>
+    </CActorSplat>
     <CActorSound id="ShooterGravityGrenade@SoundLaunch" parent="SoundOneShot">
         <On Terms="Effect.ShooterGravityGrenade@LM.Start" Send="Create"/>
         <Sound value="Raynor_TossGrenadeLaunch"/>
@@ -3692,6 +3902,7 @@
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="Abil.ShooterOverkill.SourceCastStart" Send="AnimPlay Attack Attack 0 0.000000"/>
         <Model value="Marine_Remastered"/>
         <AnimBlendTime value="-0.800000"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
@@ -3766,6 +3977,7 @@
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="Abil.ShooterOverkill.SourceCastStart" Send="AnimPlay Attack Attack 0 0.000000"/>
         <Model value="Marine"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="Marine"/>
@@ -3848,6 +4060,7 @@
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="Abil.ShooterOverkill.SourceCastStart" Send="AnimPlay Attack Attack 0 0.000000"/>
         <Model value="Marine_Merc_Collection"/>
         <ModelFlags index="OutlineEmitter" value="1"/>
         <BuildModel value="Marine_Merc_Collection"/>
@@ -3912,6 +4125,7 @@
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="Abil.ShooterOverkill.SourceCastStart" Send="AnimPlay Attack Attack 0 0.000000"/>
         <Model value="Marine_Umojan"/>
         <ModelFlags index="SuppressPlayerDecals" value="1"/>
         <BuildModel value="Marine_Umojan"/>
@@ -3952,6 +4166,7 @@
         <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStop Attack"/>
         <On Terms="Effect.ShooterOverkill@SA.Start" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="Abil.ShooterOverkill.SourceCastStart" Send="AnimPlay Attack Attack 0 0.000000"/>
         <On Terms="ActorCreation" Send="TextureSelectById Decal_Campaign_Tychus_01"/>
         <Model value="Tychus_Heavens_COOP"/>
         <ModelFlags index="SuppressPlayerDecals" value="1"/>
@@ -5092,6 +5307,424 @@
         <Model value="StormSphereAttachment"/>
         <Scale value="0.375000"/>
     </CActorModel>
+    <CActorUnit id="CRPGJumper" parent="GenericUnitHeroBase" unitName="CRPGJumper" level="1">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Stalker_Land"/>
+        <Model value="Stalker"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="StalkerWarpIn"/>
+        <DeathArray index="Normal" ModelLink="StalkerDeath"/>
+        <DeathCustoms ModelLink="StalkerDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="ProtossRobotSquibDeathRagdoll"/>
+            <BodySquibs Name="BloodReduced" Model="ProtossRobotBloodSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="StalkerPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="StalkerPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <BarOffset value="70"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-stalker.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Stalker_Ready"/>
+        <SoundArray index="Help" value="Stalker_Help"/>
+        <SoundArray index="What" value="Stalker_What"/>
+        <SoundArray index="Yes" value="Stalker_Yes"/>
+        <SoundArray index="Attack" value="Stalker_Attack"/>
+        <SoundArray index="Pissed" value="Stalker_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-stalker.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGJumper@Level2" parent="GenericUnitHeroLeveled" unitName="CRPGJumper" level="2">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Stalker_Land"/>
+        <Model value="Stalker_Purifier_Collection"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Stalker_Purifier_Collection_WarpIn"/>
+        <DeathArray index="Normal" ModelLink="Stalker_Purifier_Collection_Death"/>
+        <DeathCustoms ModelLink="Stalker_Purifier_Collection_DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="ProtossRobotSquibDeathRagdoll"/>
+            <BodySquibs Name="BloodReduced" Model="ProtossRobotBloodSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="Stalker_Purifier_Collection_Placement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="Stalker_Purifier_Collection_Portrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <BarOffset value="70"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-collection-purifier-stalker.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-collection-purifier-stalker.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Stalker_Ready"/>
+        <SoundArray index="Help" value="Stalker_Help"/>
+        <SoundArray index="What" value="Stalker_What"/>
+        <SoundArray index="Yes" value="Stalker_Yes"/>
+        <SoundArray index="Attack" value="Stalker_Attack"/>
+        <SoundArray index="Pissed" value="Stalker_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-collection-purifier-stalker.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-collection-purifier-stalker.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-collection-purifier-stalker-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-collection-purifier-stalker-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-collection-purifier-stalker-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGJumper@Level3" parent="GenericUnitHeroLeveled" unitName="CRPGJumper" level="3">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Stalker_Land"/>
+        <Model value="Stalker_Deluxe_Collection"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Stalker_Deluxe_Collection_WarpIn"/>
+        <DeathArray index="Normal" ModelLink="Stalker_Deluxe_Collection_Death"/>
+        <DeathCustoms ModelLink="Stalker_Deluxe_Collection_DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="ProtossRobotSquibDeathRagdoll"/>
+            <BodySquibs Name="BloodReduced" Model="ProtossRobotBloodSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="Stalker_Deluxe_Collection_Placement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="Stalker_Deluxe_Collection_Portrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <BarOffset value="70"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-stalker-collectionskin-deluxe.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Stalker_Ready"/>
+        <SoundArray index="Help" value="Stalker_Help"/>
+        <SoundArray index="What" value="Stalker_What"/>
+        <SoundArray index="Yes" value="Stalker_Yes"/>
+        <SoundArray index="Attack" value="Stalker_Attack"/>
+        <SoundArray index="Pissed" value="Stalker_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-stalker-collectionskin-deluxe.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGJumper@Level4" parent="GenericUnitHeroLeveled" unitName="CRPGJumper" level="4">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Stalker_Land"/>
+        <Model value="Stalker_Ihanrii"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Stalker_Ihanrii_WarpIn"/>
+        <DeathArray index="Normal" ModelLink="Stalker_Ihanrii_Death"/>
+        <DeathCustoms ModelLink="Stalker_Ihanrii_DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="ProtossRobotSquibDeathRagdoll"/>
+            <BodySquibs Name="BloodReduced" Model="ProtossRobotBloodSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="StalkerPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="Stalker_Ihanrii_Portrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <BarOffset value="70"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-stalker.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-stalker-ihanrii.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Stalker_Ready"/>
+        <SoundArray index="Help" value="Stalker_Help"/>
+        <SoundArray index="What" value="Stalker_What"/>
+        <SoundArray index="Yes" value="Stalker_Yes"/>
+        <SoundArray index="Attack" value="Stalker_Attack"/>
+        <SoundArray index="Pissed" value="Stalker_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-stalker-ihanrii.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-stalker.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorUnit id="CRPGJumper@Level5" parent="GenericUnitHeroLeveled" unitName="CRPGJumper" level="5">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Stalker_Land"/>
+        <Model value="Stalker_Golden"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="Stalker_Golden_WarpIn"/>
+        <DeathArray index="Normal" ModelLink="Stalker_Golden_Death"/>
+        <DeathCustoms ModelLink="Stalker_Golden_DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="ProtossRobotSquibDeathRagdoll"/>
+            <BodySquibs Name="BloodReduced" Model="ProtossRobotBloodSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PlacementModel value="StalkerPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="Stalker_Golden_Portrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <BarOffset value="70"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-stalker-golden.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="StalkerTaldarim_Ready"/>
+        <SoundArray index="Help" value="StalkerTaldarim_Help"/>
+        <SoundArray index="What" value="StalkerTaldarim_What"/>
+        <SoundArray index="Yes" value="StalkerTaldarim_Yes"/>
+        <SoundArray index="Attack" value="StalkerTaldarim_Attack"/>
+        <SoundArray index="Pissed" value="StalkerTaldarim_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-stalker-golden.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-stalker-collectionskins-deluxe-shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorSound id="JumperPhaseBlink@SoundShieldRestoreStart" parent="SoundOneShot">
+        <On Terms="Behavior.JumperPhaseBlink@ShieldRestore.On" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Sound value="StalkerShakuras_BlinkShieldRestore_Launch"/>
+    </CActorSound>
+    <CActorSound id="JumperPhaseBlink@SoundShieldRestoreStop" parent="SoundOneShot">
+        <On Terms="Behavior.JumperPhaseBlink@ShieldRestore.Off" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+        <Sound value="StalkerShakuras_BlinkShieldRestore_EndRelease"/>
+    </CActorSound>
+    <CActorUnit id="CRPGApparition" parent="GenericUnitBase" unitName="CRPGApparition">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <On Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Stalker_Land"/>
+        <Model value="StalkerPurifier"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <BuildModel value="StalkerPurifierWarpIn"/>
+        <DeathArray index="Normal" ModelLink="Generic_Purifier_Hologram_Death" SoundLink="Nova_Holographic_Decoy_Death2"/>
+        <PlacementModel value="StalkerPurifierPlacement"/>
+        <PlacementSound value="Protoss_BuildingPlacementSmall"/>
+        <PortraitModel value="StalkerPurifierPortrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.600000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <AbilSoundArray AbilCmd="BlinkMultiple,Execute" Sound="Instigator_BlinkMultipleVO"/>
+        <BarOffset value="70"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Purifier.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\BTN-Unit-Protoss-Stalker-Purifier.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="Instigator_Ready"/>
+        <SoundArray index="Help" value="Instigator_Help"/>
+        <SoundArray index="What" value="Instigator_What"/>
+        <SoundArray index="Yes" value="Instigator_Yes"/>
+        <SoundArray index="Attack" value="Instigator_Attack"/>
+        <SoundArray index="Pissed" value="Instigator_Pissed"/>
+        <UnitIcon value="Assets\Textures\BTN-Unit-Protoss-Stalker-Purifier.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Purifier.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Purifier-Shield01.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Purifier-Shield02.dds"/>
+            <Image value="Assets\Textures\Wireframe-Protoss-Stalker-Purifier-Shield03.dds"/>
+        </WireframeShield>
+    </CActorUnit>
+    <CActorAction id="ApparitionParticleDisruptors@Attack" parent="GenericAttack" effectImpact="ApparitionParticleDisruptors@Damage" effectLaunch="ApparitionParticleDisruptors@LM">
+        <On Terms="Signal.*.DarkProtossTest" Send="RefSetFromMsg ::actor.sender ::Sender"/>
+        <On Terms="Signal.*.DarkProtossTest; ValidateUnit NoDarkProtoss" Target="::actor.sender" Send="Signal DarkProtossSwap"/>
+        <LaunchAssets Sound="Stalker_AttackLaunch"/>
+        <Missile value="ApparitionParticleDisruptors@Missile"/>
+        <ImpactMap index="None" Model="StalkerAttackImpact" Sound="Stalker_AttackImpact"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="ParticleDisruptorImpact" MatchKeys="Basic" Physics="StalkerAttackDeathForce"/>
+        <AcquisitionYawHalfArc value="7.500000"/>
+        <AcquisitionPitchHalfArc value="15.000000"/>
+        <AccuracyHalfArc value="10.000000"/>
+        <ImpactModel value="ApparitionParticleDisruptors@ImpactModel"/>
+    </CActorAction>
+    <CActorMissile id="ApparitionParticleDisruptors@Missile" parent="GenericAttackMissile" unitName="ApparitionParticleDisruptors@Weapon">
+        <On Terms="ActorCreation" Send="SetTintColor 255,128,0"/>
+        <Model value="StalkerWeapon"/>
+    </CActorMissile>
     <CActorUnit id="SwarmerSwarmBeacon" parent="GenericUnitMinimal" unitName="SwarmerSwarmBeacon">
         <On Terms="ActorCreation" Send="$Stand 0 -1.000000 -1.000000 60.000000 AsDuration"/>
         <Model value="Invisible"/>
@@ -5930,6 +6563,19 @@
         <Model value="UnloadFX"/>
         <AutoScaleFactor value="1.000000"/>
     </CActorModel>
+    <CActorModel id="JumperPhaseBlink@ModelShieldRestore" parent="ModelAnimationStyleContinuous">
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Behavior.JumperPhaseBlink@ShieldRestore.On" Send="Create"/>
+        <On Terms="Behavior.JumperPhaseBlink@ShieldRestore.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachCenter SOpForwardNorth"/>
+        <Model value="VoidStalkerBlinkShieldRestore"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorSound id="JumperPhaseBlink@SoundCloak" parent="SoundOneShot">
+        <On Terms="Abil.JumperPhaseBlink.TargetCastStart; ValidateUnit CRPGAbilityUpgradeSecondary@Upgraded" Send="Create"/>
+        <Sound value="DarkTemplar_BlinkCloud"/>
+    </CActorSound>
     <CActorModelMaterial id="WizardReanimateGlaze" parent="GlazeParent">
         <On Terms="Behavior.WizardReanimating.On" Send="Create"/>
         <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>

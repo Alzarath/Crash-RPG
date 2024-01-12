@@ -864,6 +864,7 @@ Variable/Name/FD69AFBF=Third Word
 Variable/Name/FE992E20=PickedLevel
 Variable/Name/FEDCD896=SIDEM_NYDUS
 Variable/Name/FFB7830E=Alien Weight
+Variable/Name/FFDACC2C=AvailableHeroSlots
 Variable/Name/lib_ALZL_0D5B6C40=StringLength
 Variable/Name/lib_ALZL_2679003F=PortraitModel
 Variable/Name/lib_ALZL_2C679B01=PortraitImage

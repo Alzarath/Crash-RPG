@@ -8,6 +8,9 @@
         <Occlusion value="Show"/>
         <SquibTypeDefault value="Metal"/>
     </CModel>
+    <CModel id="Glaze_Alarak_COOP_PrestigeMechBuff">
+        <Model value="Assets\Effects\Glaze\Glaze_Alarak_COOP_PrestigeMechBuff\Glaze_Alarak_COOP_PrestigeMechBuff.m3"/>
+    </CModel>
     <CModel id="Artillery_Mengsk_COOP_DirtyBomb_Impact" parent="PersistentSpellFX">
         <Model value="Assets\COOP\Mengsk\Effects\Artillery_Mengsk_COOP_DirtyBomb_Impact\Artillery_Mengsk_COOP_DirtyBomb_Impact.m3"/>
         <EditorCategories value="Race:Zerg"/>
@@ -180,6 +183,9 @@
         <Variations Probability="1">
             <TextureExpressionsForEditor Slot="main" Expression="RequireAll diffuse"/>
         </Variations>
+    </CModel>
+    <CModel id="Glaze_Fenix_AI_Champion">
+        <Model value="Assets\Effects\Glaze\Glaze_Fenix_AI_Champion\Glaze_Fenix_AI_Champion.m3"/>
     </CModel>
     <CModel id="InfestedInfestedBunker@RootPlacement" parent="Unit" Race="Zerg">
         <Model value="Assets\Units\Zerg\InfestedBunker_COOP_Placement\InfestedBunker_COOP_Placement.m3"/>
@@ -453,6 +459,18 @@
         <Model value="Assets\Effects\Zerg\CorruptedMissile\CorruptedMissile.m3"/>
         <ScaleMax value="2.000000,2.000000,2.000000"/>
         <ScaleMin value="2.000000,2.000000,2.000000"/>
+    </CModel>
+    <CModel id="StalkerTaldarimAttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\Stalker_TalDarim_Missile_Impact\Stalker_TalDarim_Missile_Impact.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CModel>
+    <CModel id="StalkerTaldarimWeapon" parent="MissileFX">
+        <Model value="Assets\Effects\Protoss\Stalker_TalDarim_Missile\Stalker_TalDarim_Missile.m3"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ScaleMax value="0.700000,0.700000,0.700000"/>
+        <ScaleMin value="0.700000,0.700000,0.700000"/>
+        <SelectionRadius value="0.714000"/>
+        <ShadowRadius value="0.714000"/>
     </CModel>
     <CModel id="SwannVespeneDrone_Beam" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Terran\SwannVespeneDrone_Beam\SwannVespeneDrone_Beam.m3"/>
@@ -1234,6 +1252,10 @@
         <Model value="Assets\Units\Zerg\L2D_Hunterling\L2D_Hunterling.m3"/>
         <ScaleMax value="0.840000,0.840000,0.840000"/>
         <ScaleMin value="0.700000,0.700000,0.700000"/>
+    </CModel>
+    <CModel id="Generic_Purifier_Hologram_Death" parent="UnitDeath" Race="Zerg">
+        <Flags index="TeenSafe" value="1"/>
+        <Lighting value=""/>
     </CModel>
     <CModel id="ZerglingDeath2" parent="ZerglingDeathBase">
         <Model value="Assets\Units\Zerg\L2D_HunterlingDeath\L2D_HunterlingDeath.m3"/>

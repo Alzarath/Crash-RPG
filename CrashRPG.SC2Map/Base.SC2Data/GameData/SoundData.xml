@@ -234,6 +234,45 @@
         <Pitch value="-2.000000,2.000000"/>
         <Volume value="-6.000000,-6.000000"/>
     </CSound>
+    <CSound id="Stalker_AttackImpact_Low" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact3.wav"/>
+        <DupeDestroyCount value="3"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="3"/>
+        <DupePrioritization value="Oldest"/>
+        <Pitch value="-4.000000,-4.000000"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
+    <CSound id="Stalker_AttackLaunch_Low" parent="Combat">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch4.wav"/>
+        <DupeDestroyCount value="3"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="3"/>
+        <DupePrioritization value="Oldest"/>
+        <Pitch value="-5.000000,-3.000000"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="Stalker_Blink_High" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_Blink0.wav"/>
+        <Pitch value="2.000000,2.000000"/>
+        <Volume value="-6.120000,-6.120000"/>
+    </CSound>
+    <CSound id="Stalker_Blink_Low" parent="Spell">
+        <EditorCategories value="Race:Protoss"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_Blink0.wav"/>
+        <Pitch value="-2.000000,-2.000000"/>
+        <Volume value="-6.120000,-6.120000"/>
+    </CSound>
     <CSound id="Tychus_Medic_HealMatrix_AOE" parent="Spell">
         <EditorCategories value="Race:Terran"/>
         <AssetArray File="Assets\Sounds\Tychus_Medic_HealingMatrix_AOE_01.wav" FacialGroup=""/>

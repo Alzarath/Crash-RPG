@@ -574,6 +574,15 @@
     <CValidatorUnitFilters id="IsLight">
         <Filters value="Light;-"/>
     </CValidatorUnitFilters>
+    <CValidatorUnitCompareBehaviorCount id="JumperLocalizedGravity@IsPulled">
+        <Compare value="GT"/>
+        <Behavior value="JumperLocalizedGravity@KnockIn"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="JumperLocalizedGravity@WillStun">
+        <Type value="And"/>
+        <CombineArray value="CRPGAbilityUpgradePassivePrimary@Upgraded"/>
+        <CombineArray value="JumperLocalizedGravity@IsPulled"/>
+    </CValidatorCombine>
     <CValidatorCombine id="MechCannonBoth@IsAntiAirPayloadAttack">
         <Type value="And"/>
         <CombineArray value="IsAirUnit"/>

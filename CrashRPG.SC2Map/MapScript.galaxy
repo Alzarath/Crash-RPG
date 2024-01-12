@@ -221,26 +221,26 @@ const int gv_nUMBER_OF_WETLAND_POINTS = 4;
 const int gv_nUMBER_OF_WOODLANDS_POINTS = 9;
 const int gv_tOTAL_NUMBER_OF_NYDUS_WORM_POINTS = 116;
 const int gv_pLAYER_ALIEN = 14;
-const int gv_hERO_COUNT = 14;
+const int gv_hERO_COUNT = 19;
 const int gv_hERO_AERO = 1;
 const int gv_hERO_ALIEN = 2;
 const int gv_hERO_FIGHTER = 3;
-const int gv_hERO_HUNTER = 4;
-const int gv_hERO_INFESTED = 5;
-const int gv_hERO_MECH = 6;
-const int gv_hERO_MEDIC = 7;
-const int gv_hERO_SHIP = 8;
-const int gv_hERO_SHOOTER = 9;
-const int gv_hERO_SNIPER = 10;
-const int gv_hERO_SORCERER = 11;
-const int gv_hERO_SWARMER = 12;
-const int gv_hERO_VEHICLE = 13;
-const int gv_hERO_WIZARD = 14;
-const int gv_hERO_DEMON = 0;
-const int gv_hERO_DRAGON = 0;
-const int gv_hERO_ENGINEER = 0;
-const int gv_hERO_JUMPER = 0;
-const int gv_hERO_PHASE_SMITH = 0;
+const int gv_hERO_DEMON = 4;
+const int gv_hERO_DRAGON = 5;
+const int gv_hERO_ENGINEER = 6;
+const int gv_hERO_HUNTER = 7;
+const int gv_hERO_INFESTED = 8;
+const int gv_hERO_JUMPER = 9;
+const int gv_hERO_MECH = 10;
+const int gv_hERO_MEDIC = 11;
+const int gv_hERO_PHASE_SMITH = 12;
+const int gv_hERO_SHIP = 13;
+const int gv_hERO_SHOOTER = 14;
+const int gv_hERO_SNIPER = 15;
+const int gv_hERO_SORCERER = 16;
+const int gv_hERO_SWARMER = 17;
+const int gv_hERO_VEHICLE = 18;
+const int gv_hERO_WIZARD = 19;
 const int gv_pLAYER_SURVIVOR_BASE = 13;
 const int gv_pLAYER_COUNT = 16;
 const int gv_sIDE_MISSION_COUNT = 1;
@@ -337,6 +337,7 @@ const int ge_OBJECTIVES_CRASHED_BATTLECRUISER_SURVIVE = 1;
 bool gv_tutorialOn;
 int[gv_pLAYER_COUNT + 1] gv_revives;
 int gv_sharedMinerals;
+int gv_availableHeroSlots;
 bool gv_gameEnding;
 point[gv_nUMBER_OF_BARRENS_POINTS + 1] gv_barrensPoints;
 point[gv_nUMBER_OF_FOREST_POINTS + 1] gv_beachPoints;
@@ -1348,14 +1349,25 @@ bool gt_VariableInitializaiton_Func (bool testConds, bool runActions) {
         gv_nydusWormPoints[(lv_variableOffset + lv_pickedInteger)] = PointFromName(("Woodlands-" + libALZL_gf_StringWithLeadingCharacters(IntToString(lv_pickedInteger), "0", 3)));
     }
 
+    gv_availableHeroSlots += 1;
     gv_hero[gv_hERO_AERO].lv_unitType = "CRPGAero";
+    gv_availableHeroSlots += 1;
     gv_hero[gv_hERO_FIGHTER].lv_unitType = "CRPGFighter";
+    gv_availableHeroSlots += 1;
     gv_hero[gv_hERO_HUNTER].lv_unitType = "CRPGHunter";
+    gv_availableHeroSlots += 1;
     gv_hero[gv_hERO_INFESTED].lv_unitType = "CRPGInfested";
+    gv_availableHeroSlots += 1;
+    gv_hero[gv_hERO_JUMPER].lv_unitType = "CRPGJumper";
+    gv_availableHeroSlots += 1;
     gv_hero[gv_hERO_MECH].lv_unitType = "CRPGMech";
+    gv_availableHeroSlots += 1;
     gv_hero[gv_hERO_MEDIC].lv_unitType = "CRPGMedic";
+    gv_availableHeroSlots += 1;
     gv_hero[gv_hERO_SHOOTER].lv_unitType = "CRPGShooter";
+    gv_availableHeroSlots += 1;
     gv_hero[gv_hERO_SNIPER].lv_unitType = "CRPGSniper";
+    gv_availableHeroSlots += 1;
     return true;
 }
 
@@ -1815,8 +1827,8 @@ bool gt_CreateHeroSelection_Func (bool testConds, bool runActions) {
     lv_buttonTextHeight = 30;
     lv_heroSelectionButtonWidth = 120;
     lv_heroSelectionButtonHeight = 180;
-    lv_heroSelectionPaneWidth = (((lv_heroSelectionButtonWidth * lv_entriesPerRow) + (lv_entrySeparator * (lv_entriesPerRow - 1))) + (lv_borderPadding * 2));
-    lv_heroSelectionPaneHeight = (((CeilingI((gv_hERO_COUNT / lv_entriesPerRow)) * ((lv_heroSelectionButtonHeight + lv_buttonTextHeight) + lv_entrySeparator)) + (lv_borderPadding * 2)) - lv_entrySeparator);
+    lv_heroSelectionPaneWidth = (lv_borderPadding + ((lv_heroSelectionButtonWidth * lv_entriesPerRow) + (lv_entrySeparator * (lv_entriesPerRow - 1))) + lv_borderPadding);
+    lv_heroSelectionPaneHeight = (lv_borderPadding + (CeilingI((gv_availableHeroSlots / lv_entriesPerRow)) * ((lv_heroSelectionButtonHeight + lv_buttonTextHeight) + lv_entrySeparator)) + lv_borderPadding);
 
     // Actions
     if (!runActions) {

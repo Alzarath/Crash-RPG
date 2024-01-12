@@ -73,6 +73,21 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InfestedInfestedEggs" State="CompleteOnlyAtUnit"/>
     </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilJumperPhaseBlinkCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="JumperPhaseBlink" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilJumperPredictiveBlinkCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="JumperPredictiveBlink" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilJumperSlayerBlinkCompleteOnlyAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="JumperSlayerBlink" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
     <CRequirementCountBehavior id="CountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="AlienAssaultGenetics" State="CompleteOnlyAtUnit"/>
@@ -575,6 +590,11 @@
         <OperandArray value="CountAbilHunterScarabMineCompleteOnlyAtUnit"/>
         <OperandArray value="CountAbilHunterShadowTransferCompleteOnlyAtUnit"/>
         <OperandArray value="CountAbilHunterDisruptorVolleyCompleteOnlyAtUnit"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or2841047433CountAbilJumperPredictiveBlinkCompleteOnlyAtUnitCountAbilJumperPhaseBlinkCompleteOnlyAtUnitCountAbilJumperSlayerBlinkCompleteOnlyAtUnit">
+        <OperandArray value="CountAbilJumperPredictiveBlinkCompleteOnlyAtUnit"/>
+        <OperandArray value="CountAbilJumperPhaseBlinkCompleteOnlyAtUnit"/>
+        <OperandArray value="CountAbilJumperSlayerBlinkCompleteOnlyAtUnit"/>
     </CRequirementOr>
     <CRequirementOr id="Or774336177GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2">
         <OperandArray value="GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2"/>

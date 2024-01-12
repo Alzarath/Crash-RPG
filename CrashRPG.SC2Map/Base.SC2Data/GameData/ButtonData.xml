@@ -382,6 +382,88 @@
         <EditorCategories value="Race:Zerg"/>
         <HotkeyAlias value="InfestedPlague"/>
     </CButton>
+    <CButton id="JumperLocalizedGravity" parent="PassivePrimaryButton">
+        <Icon value="Assets\Textures\btn-ability-protoss-blackhole-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blackhole-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="JumperDragoonCore" parent="PassiveSecondaryButton" upgradeValidator="CRPGAbilityUpgradePassivePrimary@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-artanis-singularitycharge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-artanis-singularitycharge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="JumperDragoonCore@Learn" upgradeValidator="CRPGAbilityUpgradePassivePrimary@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-artanis-singularitycharge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-artanis-singularitycharge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="JumperDragoonCore"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="JumperDragoonCore@Upgraded" upgradeValidator="CRPGAbilityUpgradePassivePrimary@Upgraded">
+        <Icon value="Assets\Textures\btn-upgrade-artanis-singularitycharge.dds"/>
+        <AlertIcon value="Assets\Textures\btn-upgrade-artanis-singularitycharge.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="JumperDragoonCore"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="JumperLocalizedGravity@Learn" upgradeValidator="CRPGAbilityUpgradePassivePrimary@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-blackhole-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blackhole-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="JumperLocalizedGravity"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="JumperLocalizedGravity@Upgraded" upgradeValidator="CRPGAbilityUpgradePassivePrimary@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-blackhole-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blackhole-color.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="JumperLocalizedGravity"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="JumperPhaseBlink@Learn" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-blinkshieldrestore.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blinkshieldrestore.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="JumperPhaseBlink"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="JumperPhaseBlink@Upgraded" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-blinkshieldrestore.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blinkshieldrestore.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="JumperPhaseBlink"/>
+        <DefaultButtonLayout Column="1"/>
+    </CButton>
+    <CButton id="JumperPredictiveBlink@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-blinkcharges.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blinkcharges.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="JumperPredictiveBlink"/>
+    </CButton>
+    <CButton id="JumperSlayerBlink" parent="ActiveTernaryButton" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-slayerblink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-slayerblink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="JumperPredictiveBlink" parent="ActivePrimaryButton">
+        <Icon value="Assets\Textures\btn-ability-protoss-blinkcharges.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blinkcharges.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CButton>
+    <CButton id="JumperSlayerBlink@Learn" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-slayerblink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-slayerblink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="JumperSlayerBlink"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
+    <CButton id="JumperSlayerBlink@Upgraded" upgradeValidator="CRPGAbilityUpgradeSecondary@Upgraded">
+        <Icon value="Assets\Textures\btn-ability-protoss-slayerblink.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-slayerblink.dds"/>
+        <EditorCategories value="Race:Protoss"/>
+        <HotkeyAlias value="JumperSlayerBlink"/>
+        <DefaultButtonLayout Column="2"/>
+    </CButton>
     <CButton id="MechBarrage@Cancel" parent="Cancel" upgradeValidator="CRPGAbilityUpgradePrimary@Upgraded">
         <DefaultButtonLayout Row="2" Column="4"/>
     </CButton>
@@ -583,6 +665,12 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="InfestedMendingAura"/>
         <DefaultButtonLayout Row="1" Column="1"/>
+    </CButton>
+    <CButton id="JumperPredictiveBlink@Learn">
+        <Icon value="Assets\Textures\btn-ability-protoss-blinkcharges.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blinkcharges.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="JumperPredictiveBlink"/>
     </CButton>
     <CButton id="SniperBetterEquipment@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
@@ -960,6 +1048,11 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-plasmashot.dds"/>
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="SniperToxicMunitions"/>
+    </CButton>
+    <CButton id="JumperPhaseBlink" parent="ActiveSecondaryButton">
+        <Icon value="Assets\Textures\btn-ability-protoss-blinkshieldrestore.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-protoss-blinkshieldrestore.dds"/>
+        <EditorCategories value="Race:Protoss"/>
     </CButton>
     <CButton id="SwarmerIncubate">
         <Icon value="Assets\Textures\btn-unit-zerg-egg.dds"/>

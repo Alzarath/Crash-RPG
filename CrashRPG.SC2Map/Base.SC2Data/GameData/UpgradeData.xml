@@ -96,11 +96,15 @@
         <EffectArray Operation="Set" Reference="Button,FighterLightningDash,Tooltip" Value="Button/Tooltip/FighterLightningDash@PostUpgrade"/>
         <EffectArray Operation="Set" Reference="Effect,HunterScarabMine@CP,PeriodicOffsetArray[0]" Value="0.500000,0.000000,0.000000"/>
         <EffectArray Reference="Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]" Value="-0.062500"/>
+        <EffectArray Reference="Abil,JumperPredictiveBlink,Cost[0].Charge.CountMax" Value="2"/>
+        <EffectArray Reference="Abil,JumperPredictiveBlink,Cost[0].Charge.CountStart" Value="2"/>
+        <EffectArray Operation="Set" Reference="Abil,JumperPredictiveBlink,Cost[0].Charge.HideCount" Value="0"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
         <AffectedUnitArray value="CRPGFighter"/>
         <AffectedUnitArray value="CRPGHunter"/>
         <AffectedUnitArray value="CRPGInfested"/>
+        <AffectedUnitArray value="CRPGJumper"/>
         <AffectedUnitArray value="CRPGShooter"/>
     </CUpgrade>
     <CUpgrade id="CRPGAbilityUpgradeSecondary@Upgrade">
@@ -111,6 +115,7 @@
         <EffectArray Reference="Actor,MechShockBlast@Range,Range" Value="3.000000"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
+        <AffectedUnitArray value="CRPGJumper"/>
         <AffectedUnitArray value="CRPGMech"/>
         <AffectedUnitArray value="CRPGShooter"/>
     </CUpgrade>

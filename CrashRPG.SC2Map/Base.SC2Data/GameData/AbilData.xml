@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilEffectTarget id="JumperPhaseBlink">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="JumperPhaseBlink@TP"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Cooldown Link="Blink" TimeUse="8"/>
+        </Cost>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="JumperPhaseBlink">
+            <Flags index="ToSelection" value="1"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
     <CAbilArmMagazine id="BroodLordHangar">
         <EffectArray index="Release" value="BroodLordSetRelease"/>
     </CAbilArmMagazine>
@@ -334,6 +351,48 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
+    <CAbilEffectTarget id="JumperSlayerBlink">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Effect index="0" value="JumperSlayerBlink@TP"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Vital index="Energy" value="50"/>
+            <Cooldown Link="Blink" TimeUse="8"/>
+        </Cost>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="JumperSlayerBlink">
+            <Flags index="ToSelection" value="1"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="JumperPredictiveBlink">
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <DataCollection value="JumperPhaseBlink"/>
+        <Effect index="0" value="JumperPredictiveBlink@TP"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Cost>
+            <Vital index="Energy" value="25"/>
+            <Charge>
+                <CountMax value="1"/>
+                <CountStart value="1"/>
+                <CountUse value="1"/>
+                <HideCount value="1"/>
+                <TimeUse value="8"/>
+            </Charge>
+            <Cooldown Link="Blink"/>
+        </Cost>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="JumperPredictiveBlink">
+            <Flags index="ToSelection" value="1"/>
+            <Flags index="UseDefaultButton" value="1"/>
+            <Flags index="CreateDefaultButton" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="MechBarrage@Upgraded">
         <Alignment value="Negative"/>
         <OrderArray index="0" Model="Assets\UI\Cursors\WayPointConfirmSwarm\WayPointConfirmSwarm.m3"/>
@@ -982,7 +1041,6 @@
         <Effect index="0" value="ShooterOverkill@SetInitial"/>
         <Cost>
             <Vital index="Energy" value="60"/>
-            <Cooldown TimeUse="8"/>
         </Cost>
         <Range value="500"/>
         <CursorEffect value="ShooterOverkill@SA"/>
@@ -990,6 +1048,8 @@
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
+        <CastIntroTime value="0.0625"/>
+        <UninterruptibleArray index="Prep" value="1"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="ShooterSandbags">
         <TechPlayer value="Owner"/>

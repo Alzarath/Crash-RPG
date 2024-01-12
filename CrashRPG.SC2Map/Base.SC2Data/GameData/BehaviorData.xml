@@ -41,6 +41,28 @@
             <AdditiveMoveSpeedFactor value="0.1"/>
         </Modification>
     </CBehaviorBuff>
+    <CBehaviorBuff id="ApparitionParticleDisruptors@Hidden">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Modification>
+            <ModifyFlags index="DisableAbils" value="1"/>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+            <StateFlags index="NoDraw" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+            <StateFlags index="Unselectable" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorVeterancy id="CRPGJumper@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGJumper@Veterancy"/>
+    </CBehaviorVeterancy>
+    <CBehaviorBuff id="FenixAIChampionGlaze">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="InfestedMendingAura">
         <InfoFlags index="Hidden" value="1"/>
         <BehaviorCategories index="Permanent" value="1"/>
@@ -213,6 +235,50 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
     </CBehaviorUnitTracker>
+    <CBehaviorBuff id="JumperDragoonCore">
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <BehaviorCategories index="Permanent" value="1"/>
+        <BehaviorCategories index="Fast" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <Modification RangedWeaponRange="2">
+            <AdditiveAttackSpeedFactor value="0.25"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="JumperDragoonCore@Stack">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-phasedisruptor.dds"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <BuffFlags index="RefreshStack" value="1"/>
+        <MaxStackCount value="4"/>
+        <Duration value="6"/>
+        <Modification>
+            <AdditiveAttackSpeedFactor value="0.125"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="JumperLocalizedGravity@Stunned">
+        <Name value="Behavior/Name/DragStun"/>
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-ultrasonicpulse.dds"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="1"/>
+        <Modification>
+            <StateFlags index="Stun" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="JumperSlayerBlink@ShieldRestore">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-slayerblink.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Modification>
+            <WeaponArray Link="JumperParticleDisruptors@Enhanced"/>
+            <WeaponDisableArray value="JumperParticleDisruptors"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="MechExplosiveImmortality@Rebuilding">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <DisplayDuration index="Self" value="1"/>
@@ -446,7 +512,9 @@
     <CBehaviorBuff id="CRPGActiveFollower">
         <InfoFlags index="Hidden" value="1"/>
     </CBehaviorBuff>
-    <CBehaviorAttribute id="CRPGDamageAttributeUnit"/>
+    <CBehaviorAttribute id="CRPGDamageAttributeUnit">
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
+    </CBehaviorAttribute>
     <CBehaviorAttribute id="CRPGEnergyAttributeUnit">
         <Modification>
             <VitalRegenMultiplier index="Energy" value="0.125"/>
@@ -645,7 +713,6 @@
         <ExpireEffect value="AlienAshWormDelayedUnburrowIssueOrder"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShooterGravityGrenade@KnockIn">
-        <Name value="Behavior/Name/VortexBehavior"/>
         <Alignment value="Negative"/>
         <InfoFlags index="Hidden" value="1"/>
         <BehaviorCategories index="Stun" value="1"/>
@@ -683,6 +750,40 @@
                 <AccumulatorArray value="ShooterChaingun@Value"/>
             </AdditiveAttackSpeedFactor>
         </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="JumperLocalizedGravity@KnockIn">
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="0.25"/>
+        <Period value="0.0625"/>
+        <InitialEffect value="JumperLocalizedGravity@AFPull"/>
+        <RefreshEffect value="JumperLocalizedGravity@AFPull"/>
+        <PeriodicEffect value="JumperLocalizedGravity@AFPull"/>
+        <Modification MoveSpeedMinimum="20">
+            <StateFlags index="Stun" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+        </Modification>
+        <Replace value="FarthestDistance"/>
+        <ReplaceLocation Effect="ShooterGravityGrenade@LM" Value="TargetPoint"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="JumperLocalizedGravity@Knockback">
+        <Alignment value="Negative"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <BehaviorCategories index="Stun" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Duration value="0.25"/>
+        <Period value="0.0625"/>
+        <InitialEffect value="JumperLocalizedGravity@AFPush"/>
+        <RefreshEffect value="JumperLocalizedGravity@AFPush"/>
+        <PeriodicEffect value="JumperLocalizedGravity@AFPush"/>
+        <Modification MoveSpeedMinimum="20">
+            <StateFlags index="Stun" value="1"/>
+            <StateFlags index="SuppressCollision" value="1"/>
+        </Modification>
+        <Replace value="FarthestDistance"/>
+        <ReplaceLocation Effect="ShooterGravityGrenade@LM" Value="TargetPoint"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShooterOverkill@RemainingDuration">
         <InfoFlags index="Hidden" value="1"/>
@@ -722,6 +823,7 @@
         <Period value="0.0625"/>
         <PeriodicEffect value="ShooterOverkill@SetPeriodic"/>
         <FinalEffect value="ShooterOverkill@SetRefund"/>
+        <ExpireEffect value="ShooterOverkill@SAShotgun"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShooterOverkill@CancelDelay">
         <InfoFlags index="Hidden" value="1"/>
@@ -888,6 +990,36 @@
         <Duration value="0.1875"/>
         <InitialEffect value="VehicleOverdriveRunOverDamage"/>
     </CBehaviorBuff>
+    <CBehaviorBuff id="JumperPhaseBlink@Cloak">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
+        <Duration value="3"/>
+        <Modification>
+            <StateFlags index="Cloak" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="JumperPhaseBlink@ShieldRestore">
+        <Name value="Behavior/Name/VoidStalkerBlinkShieldRestore"/>
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-stealth-blink.dds"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <Period value="0.125"/>
+        <PeriodicEffect value="JumperPhaseBlink@MU"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="JumperPredictiveBlink@TimedLife" parent="TimedLife">
+        <BehaviorFlags index="EnabledWhileDead" value="0"/>
+        <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="NotDead"/>
+        <Duration value="5"/>
+        <Modification>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="SuppressPassenger" value="1"/>
+            <StateFlags index="Uncommandable" value="1"/>
+            <StateFlags index="Unselectable" value="1"/>
+            <StateFlags index="Untargetable" value="1"/>
+        </Modification>
+    </CBehaviorBuff>
     <CBehaviorBuff id="WizardKillsToCaster">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -995,6 +1127,7 @@
         <Modification>
             <StateFlags index="Stun" value="1"/>
         </Modification>
+        <Name value="Behavior/Name/DragStun"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ShipSlowPurifierTurrets">
         <Tooltip value="Behavior/Tooltip/CRPGSlow"/>
@@ -1209,6 +1342,7 @@
         <Modification ShieldArmorBonus="0.5">
             <LifeArmorBonus value="0.5"/>
         </Modification>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorAttribute>
     <CBehaviorAttribute id="CRPGEnergyAttribute">
         <Modification>
@@ -1668,6 +1802,7 @@
         <Modification>
             <StateFlags index="Stun" value="1"/>
         </Modification>
+        <Name value="Behavior/Name/DragStun"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGControlCrashedBattlecruiser">
         <InfoFlags index="Hidden" value="1"/>
@@ -1982,6 +2117,7 @@
             <AttributeChangeArray Attribute="CRPGDamageAttributeUnit"/>
             <AttributeChangeArray Attribute="CRPGEnergyAttribute"/>
         </Modification>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PointDefenseDroneLaser@Active">
         <InfoFlags index="Hidden" value="1"/>
@@ -2106,15 +2242,19 @@
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGUnderlingLevel@Level2" parent="CRPGUnderlingLevel@Level1">
         <DisableValidatorArray index="0" value="CRPGUnderlingLevel@AttributeEnabled2"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGUnderlingLevel@Level3" parent="CRPGUnderlingLevel@Level1">
         <DisableValidatorArray index="0" value="CRPGUnderlingLevel@AttributeEnabled3"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGUnderlingLevel@Level4" parent="CRPGUnderlingLevel@Level1">
         <DisableValidatorArray index="0" value="CRPGUnderlingLevel@AttributeEnabled4"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="CRPGUnderlingLevel@Level5" parent="CRPGUnderlingLevel@Level1">
         <DisableValidatorArray index="0" value="CRPGUnderlingLevel@AttributeEnabled5"/>
+        <BehaviorFlags index="EnabledWhileDead" value="1"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="SniperToxicMunitions@Buff">
         <Alignment value="Negative"/>
@@ -2185,6 +2325,7 @@
             <StateFlags index="Stun" value="1"/>
         </Modification>
         <FinalEffect value="FighterViolentCharge@ABImmunity"/>
+        <Name value="Behavior/Name/DragStun"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="FighterShadowFuryTarget">
         <InfoFlags index="Hidden" value="1"/>

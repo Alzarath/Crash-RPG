@@ -206,6 +206,10 @@
         <NodeArray index="Use" Link="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit"/>
         <NodeArray index="Show" Link="AndCountBehaviorHunterPlasmaDiffusion@PlasmaChargedCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit"/>
     </CRequirement>
+    <CRequirement id="JumperHasBlinkAbility">
+        <EditorCategories value="Race:Neutral"/>
+        <NodeArray index="Use" Link="Or2841047433CountAbilJumperPredictiveBlinkCompleteOnlyAtUnitCountAbilJumperPhaseBlinkCompleteOnlyAtUnitCountAbilJumperSlayerBlinkCompleteOnlyAtUnit"/>
+    </CRequirement>
     <CRequirement id="HunterPlasmaDiffusion@NoFreeUse">
         <EditorCategories value="Race:Protoss"/>
         <CanBeSuppressed index="Use" value="0"/>

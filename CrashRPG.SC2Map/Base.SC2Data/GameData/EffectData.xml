@@ -3,6 +3,125 @@
     <CEffectEnumTrackedUnits default="1" id="CRPGCasterTracker@ETUBase">
         <BehaviorLink value="CRPGCasterTracker"/>
     </CEffectEnumTrackedUnits>
+    <CEffectApplyBehavior id="ApparitionParticleDisruptors@ABHide">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ApparitionParticleDisruptors@Hidden"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="ApparitionParticleDisruptors@SetImpact">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ApparitionParticleDisruptors@Damage"/>
+        <EffectArray value="SuicideRemoveCaster"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="CRPGGiveAttributeArmorHero">
+        <ValidatorArray index="0" removed="1"/>
+        <Behavior value="CRPGArmorAttribute"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="CRPGGiveAttributeDamageHero">
+        <ValidatorArray index="0" removed="1"/>
+        <Behavior value="CRPGDamageAttribute"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="CRPGGiveAttributesUnit">
+        <EffectArray value="CRPGGiveAttributeDamageUnit"/>
+        <EffectArray value="CRPGGiveAttributeArmorUnit"/>
+        <EffectArray value="CRPGGiveAttributeBaseAttributes"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+    </CEffectSet>
+    <CEffectSet id="CRPGGiveAttributesHero">
+        <EffectArray value="CRPGGiveAttributeDamageHero"/>
+        <EffectArray value="CRPGGiveAttributeArmorHero"/>
+        <EffectArray value="CRPGGiveAttributeBaseAttributes"/>
+        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="JumperDragoonCore@ABStack">
+        <ValidatorArray index="0" value="CRPGPassive2Learned"/>
+        <ValidatorArray value="CRPGAbilityUpgradePassiveSecondary@Upgraded"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="JumperDragoonCore@Stack"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="JumperLocalizedGravity@MU">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Energy">
+            <Change value="5"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectRemoveBehavior id="JumperLocalizedGravity@RBPull">
+        <EditorCategories value="Race:Protoss"/>
+        <BehaviorLink value="JumperLocalizedGravity@KnockIn"/>
+    </CEffectRemoveBehavior>
+    <CEffectApplyBehavior id="JumperLocalizedGravity@ABStun">
+        <ValidatorArray index="0" value="IsNotWarpingIn"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="JumperLocalizedGravity@Stunned"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="JumperLocalizedGravity@ABPush">
+        <ValidatorArray index="0" value="IsNotWarpingIn"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="JumperLocalizedGravity@Knockback"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyForce id="JumperLocalizedGravity@AFPush">
+        <ValidatorArray value="IsNotWarpBubble"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Effect="JumperLocalizedGravity@SAPush" Value="TargetPoint"/>
+        <Amount value="5"/>
+    </CEffectApplyForce>
+    <CEffectRemoveBehavior id="JumperLocalizedGravity@RBPush">
+        <EditorCategories value="Race:Protoss"/>
+        <BehaviorLink value="JumperLocalizedGravity@Knockback"/>
+    </CEffectRemoveBehavior>
+    <CEffectEnumArea id="JumperLocalizedGravity@SAPush">
+        <ValidatorArray value="CRPGPassive1Learned"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <SearchFilters value="-;Self,Player,Ally,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <AreaArray Radius="2.5" Effect="JumperLocalizedGravity@SwitchPush"/>
+    </CEffectEnumArea>
+    <CEffectSet id="JumperLocalizedGravity@SetPull">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="JumperLocalizedGravity@ABPull"/>
+    </CEffectSet>
+    <CEffectSet id="JumperLocalizedGravity@SetStun">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="JumperLocalizedGravity@RBPull"/>
+        <EffectArray value="JumperLocalizedGravity@RBPush"/>
+        <EffectArray value="JumperLocalizedGravity@ABStun"/>
+        <EffectArray value="JumperLocalizedGravity@Damage"/>
+        <EffectArray value="JumperLocalizedGravity@MU"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="JumperSlayerBlink@CPDisableEnhancedDelay">
+        <EditorCategories value="Race:Protoss"/>
+        <ExpireDelay value="0.0625"/>
+        <ExpireEffect value="JumperSlayerBlink@RB"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="JumperParticleDisruptors@Damage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="16">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectDamage id="JumperParticleDisruptors@DamageEnhanced" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="32">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectSet id="JumperParticleDisruptors@SetImpactEnhanced">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="JumperParticleDisruptors@DamageEnhanced"/>
+        <EffectArray value="JumperLocalizedGravity@MU"/>
+    </CEffectSet>
+    <CEffectLaunchMissile id="JumperParticleDisruptors@LM">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="JumperParticleDisruptors@Damage"/>
+        <AmmoUnit value="JumperParticleDisruptors@Weapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="ApparitionParticleDisruptors@SetLaunch">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="ApparitionParticleDisruptors@LM"/>
+        <EffectArray value="ApparitionParticleDisruptors@ABHide"/>
+    </CEffectSet>
     <CEffectDamage id="AcidSalivaU">
         <Amount value="16">
             <AccumulatorArray value="DamageAccumulatedValue"/>
@@ -63,8 +182,7 @@
     <CEffectSet id="BroodLordPassAttributes">
         <ValidatorArray value="CasterHasDamageAttribute"/>
         <EditorCategories value="Race:Zerg"/>
-        <EffectArray value="CRPGGiveAttributes"/>
-        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+        <EffectArray value="CRPGGiveAttributesUnit"/>
     </CEffectSet>
     <CEffectSet id="BroodLordSetRelease">
         <EditorCategories value="Race:Zerg"/>
@@ -469,6 +587,85 @@
         <ImpactUnit Value="Caster"/>
         <XP value="0.3125"/>
     </CEffectModifyUnit>
+    <CEffectLaunchMissile id="JumperParticleDisruptors@LMEnhanced">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="JumperParticleDisruptors@SetImpactEnhanced"/>
+        <AmmoUnit value="JumperParticleDisruptors@WeaponEnhanced"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="JumperParticleDisruptors@SetLaunchEnhanced">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="JumperSlayerBlink@CPDisableEnhancedDelay"/>
+        <EffectArray value="JumperParticleDisruptors@LMEnhanced"/>
+    </CEffectSet>
+    <CEffectSwitch id="JumperParticleDisruptors@Switch">
+        <ValidatorArray value="JumperParticleDisruptors@LMTargetFilters"/>
+        <EditorCategories value="Race:Protoss"/>
+    </CEffectSwitch>
+    <CEffectSet id="JumperPredictiveBlink@SetTP">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="JumperPredictiveBlink@CU"/>
+        <EffectArray value="JumperLocalizedGravity@SAPull"/>
+        <EffectArray value="JumperLocalizedGravity@SAPush"/>
+        <EffectArray value="JumperDragoonCore@ABStack"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="JumperSlayerBlink@AB">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="JumperSlayerBlink@ShieldRestore"/>
+    </CEffectApplyBehavior>
+    <CEffectRemoveBehavior id="JumperSlayerBlink@RB">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Source"/>
+        <BehaviorLink value="JumperSlayerBlink@ShieldRestore"/>
+    </CEffectRemoveBehavior>
+    <CEffectModifyUnit id="JumperSlayerBlink@MUCooldown">
+        <ValidatorArray value="CRPGAbilityUpgradeTernary@Upgraded"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Source"/>
+        <Cost Abil="JumperSlayerBlink,Execute" CooldownOperation="Add" CooldownTimeUse="-4"/>
+        <Cost Abil="JumperPhaseBlink,Execute" CooldownOperation="Add" CooldownTimeUse="-4"/>
+        <Cost Abil="JumperPredictiveBlink,Execute" ChargeTimeUse="-4" CooldownOperation="Add"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="JumperSlayerBlink@SetTP">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="JumperSlayerBlink@AB"/>
+        <EffectArray value="JumperLocalizedGravity@SAPull"/>
+        <EffectArray value="JumperLocalizedGravity@SAPush"/>
+        <EffectArray value="JumperDragoonCore@ABStack"/>
+    </CEffectSet>
+    <CEffectSet id="JumperSlayerBlink@SetAttack">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="JumperSlayerBlink@RB"/>
+        <EffectArray value="JumperSlayerBlink@MUCooldown"/>
+    </CEffectSet>
+    <CEffectTeleport id="JumperSlayerBlink@TP">
+        <Name value="Effect/Name/Blink"/>
+        <ValidatorArray value="CasterNotFungalGrowthed"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/Blink"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <PlacementAround Value="CasterUnit"/>
+        <PlacementRange value="8"/>
+        <Range value="8"/>
+        <TargetLocation Value="TargetPoint"/>
+        <TeleportFlags index="TestCliff" value="1"/>
+        <TeleportEffect value="JumperSlayerBlink@SetTP"/>
+    </CEffectTeleport>
+    <CEffectTeleport id="JumperPredictiveBlink@TP">
+        <Name value="Effect/Name/Blink"/>
+        <ValidatorArray value="CasterNotFungalGrowthed"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/Blink"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <PlacementAround Value="CasterUnit"/>
+        <PlacementRange value="8"/>
+        <Range value="8"/>
+        <TargetLocation Value="TargetPoint"/>
+        <TeleportFlags index="TestCliff" value="1"/>
+        <TeleportEffect value="JumperPredictiveBlink@SetTP"/>
+    </CEffectTeleport>
     <CEffectCreatePersistent id="MechBarrage@CPChanneled">
         <EditorCategories value="Race:Terran"/>
         <Flags index="Channeled" value="1"/>
@@ -547,6 +744,65 @@
         <EffectArray value="MedicHealingBeam@SwitchHeal"/>
         <EffectArray value="MedicHealingBeam@DummyDoneHealing"/>
     </CEffectSet>
+    <CEffectLaunchMissile id="ApparitionParticleDisruptors@LM">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactEffect value="ApparitionParticleDisruptors@SetImpact"/>
+        <AmmoUnit value="ApparitionParticleDisruptors@Weapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ApparitionParticleDisruptors@Damage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="8">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="JumperLocalizedGravity@ABPull">
+        <ValidatorArray index="0" value="IsNotWarpingIn"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="JumperLocalizedGravity@KnockIn"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyForce id="JumperLocalizedGravity@AFPull">
+        <ValidatorArray value="IsNotWarpBubble"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Effect="JumperLocalizedGravity@SAPull" Value="SourcePoint"/>
+        <Amount value="-5"/>
+    </CEffectApplyForce>
+    <CEffectDamage id="JumperLocalizedGravity@Damage">
+        <EditorCategories value="Race:Protoss"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Amount value="10">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectEnumArea id="JumperLocalizedGravity@SAPull">
+        <ValidatorArray value="CRPGPassive1Learned"/>
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactLocation Value="CasterPoint"/>
+        <SearchFilters value="-;Self,Player,Ally,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <AreaArray Radius="2.5" Effect="JumperLocalizedGravity@SetPull"/>
+    </CEffectEnumArea>
+    <CEffectSwitch id="JumperLocalizedGravity@SwitchPush">
+        <EditorCategories value="Race:Protoss"/>
+        <CaseArray Validator="JumperLocalizedGravity@WillStun" Effect="JumperLocalizedGravity@SetStun"/>
+        <CaseDefault value="JumperLocalizedGravity@ABPush"/>
+    </CEffectSwitch>
+    <CEffectDamage id="ShooterOverkill@DamageShotgun" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="30">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="ShooterOverkill@SAShotgun">
+        <ValidatorArray value="CRPGAbilityUpgradePrimary@Upgraded"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Arc="59.9963" Radius="5" Effect="ShooterOverkill@DamageShotgun"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+    </CEffectEnumArea>
     <CEffectEnumTrackedUnits id="PsionicProjectionProjectionBeam@ETU" parent="CRPGCasterTracker@ETUBase">
         <EditorCategories value="Race:Protoss"/>
         <DebugTrace value="1"/>
@@ -2432,7 +2688,7 @@
     <CEffectEnumArea id="ShooterOverkill@SA">
         <EditorCategories value="Race:Terran"/>
         <ImpactLocation Value="SourceUnit"/>
-        <SearchFilters value="Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray Arc="59.9963" Radius="5" Effect="ShooterGaussRifle@Damage"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
@@ -2642,6 +2898,11 @@
         <EffectArray value="ParasiteSuicide@Damage"/>
         <EffectArray value="Suicide"/>
     </CEffectSet>
+    <CEffectDamage id="SuicideRemoveCaster">
+        <ImpactLocation Value="CasterUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Death value="Remove"/>
+    </CEffectDamage>
     <CEffectEnumMagazine id="SwarmerReleaseIterateMagazine">
         <EditorCategories value="Race:PrimalZerg"/>
         <WhichUnit Value="Caster"/>
@@ -3119,6 +3380,66 @@
         <AreaArray Effect="VehicleOverdriveRunOverdApplyBehavior"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CEffectEnumArea>
+    <CEffectApplyBehavior id="JumperPhaseBlink@ABShieldRestore">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="JumperPhaseBlink@ShieldRestore"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="JumperPhaseBlink@ABCloak">
+        <ValidatorArray index="0" value="CRPGAbilityUpgradeSecondary@Upgraded"/>
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="JumperPhaseBlink@Cloak"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="JumperPhaseBlink@MU">
+        <EditorCategories value="Race:Protoss"/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Shields">
+            <Change value="1"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectSet id="JumperPhaseBlink@SetTP">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="JumperPhaseBlink@ABShieldRestore"/>
+        <EffectArray value="JumperPhaseBlink@ABCloak"/>
+        <EffectArray value="JumperLocalizedGravity@SAPull"/>
+        <EffectArray value="JumperLocalizedGravity@SAPush"/>
+        <EffectArray value="JumperDragoonCore@ABStack"/>
+    </CEffectSet>
+    <CEffectTeleport id="JumperPhaseBlink@TP">
+        <Name value="Effect/Name/Blink"/>
+        <ValidatorArray value="CasterNotFungalGrowthed"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Marker Link="Effect/Blink"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <PlacementAround Value="CasterUnit"/>
+        <PlacementRange value="8"/>
+        <Range value="8"/>
+        <TargetLocation Value="TargetPoint"/>
+        <TeleportFlags index="TestCliff" value="1"/>
+        <TeleportEffect value="JumperPhaseBlink@SetTP"/>
+    </CEffectTeleport>
+    <CEffectCreateUnit id="JumperPredictiveBlink@CU">
+        <EditorCategories value=""/>
+        <WhichLocation Value="CasterPoint"/>
+        <Origin Value="TargetPoint"/>
+        <CreateFlags index="Placement" value="0"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="JumperPredictiveBlink@SetCreate"/>
+        <SpawnUnit value="CRPGApparition"/>
+        <SpawnRange value="0"/>
+    </CEffectCreateUnit>
+    <CEffectApplyBehavior id="JumperPredictiveBlink@ABTimedLife">
+        <EditorCategories value="Race:Protoss"/>
+        <Behavior value="JumperPredictiveBlink@TimedLife"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="JumperPredictiveBlink@SetCreate">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="CRPGGiveAttributesHero"/>
+        <EffectArray value="JumperPredictiveBlink@ABTimedLife"/>
+    </CEffectSet>
     <CEffectApplyBehavior id="WizardConfusionKillsToCaster">
         <EditorCategories value="Race:Protoss"/>
         <Behavior value="WizardKillsToCaster"/>
@@ -3319,7 +3640,7 @@
     <CEffectSet id="HunterScarabMine@SetCreate">
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="HunterPlasmaDiffusion@ABSubUnit"/>
-        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+        <EffectArray value="CRPGGiveAttributesHero"/>
         <EffectArray value="HunterScarabMine@IOMove"/>
         <EffectArray value="HunterScarabMine@IOBurrow"/>
         <TargetLocationType value="Point"/>
@@ -4820,11 +5141,6 @@
         <ValidatorArray index="0" removed="1"/>
         <Behavior value="CRPGDamageAttributeUnit"/>
     </CEffectApplyBehavior>
-    <CEffectSet id="CRPGGiveAttributes">
-        <EffectArray value="CRPGGiveAttributeDamageUnit"/>
-        <EffectArray value="CRPGGiveAttributeArmorUnit"/>
-        <EffectArray value="CRPGGiveAttributeBaseAttributes"/>
-    </CEffectSet>
     <CEffectApplyBehavior id="CRPGGiveAttributeArmorUnit">
         <ValidatorArray index="0" removed="1"/>
         <Behavior value="CRPGArmorAttributeUnit"/>
@@ -4880,8 +5196,7 @@
         <EditorCategories value="Race:Zerg"/>
         <EffectArray value="InfestedInfestationSpore@AB"/>
         <EffectArray value="InfestedInfestationSpore@RBOverlord"/>
-        <EffectArray value="CRPGGiveAttributes"/>
-        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
+        <EffectArray value="CRPGGiveAttributesUnit"/>
         <EffectArray value="InfestedInfestationSpore@MU"/>
         <EffectArray value="KillsToCaster"/>
     </CEffectSet>
@@ -5743,8 +6058,7 @@
         <EditorCategories value="Race:Protoss"/>
         <EffectArray value="ReanimateModifyUnit"/>
         <EffectArray value="WizardReanimateApplyBehaviorReanimated"/>
-        <EffectArray value="CRPGUnderlingLevel@SetApply"/>
-        <EffectArray value="CRPGGiveAttributes"/>
+        <EffectArray value="CRPGGiveAttributesUnit"/>
     </CEffectSet>
     <CEffectSet id="WizardReanimateSet">
         <EditorCategories value="Race:Protoss"/>

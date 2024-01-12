@@ -49,6 +49,17 @@
         <Effect value="AlienYagdraSpitFireCreatePersistent"/>
         <LegacyOptions index="FaceTargetWhileInCooldown" value="0"/>
     </CWeaponLegacy>
+    <CWeaponLegacy id="JumperParticleDisruptors">
+        <Name value="Weapon/Name/ParticleDisruptors"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="JumperParticleDisruptors@Damage"/>
+        <DisplayName value="Weapon/Name/ParticleDisruptors"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="4"/>
+        <Period value="1.44"/>
+        <Effect value="JumperParticleDisruptors@LM"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="GhostC10CanisterRifleCRPG">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
@@ -90,6 +101,17 @@
         <DamagePoint value="0.25"/>
         <Backswing value="0"/>
         <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="JumperParticleDisruptors@Enhanced">
+        <Name value="Weapon/Name/ParticleDisruptors"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="JumperParticleDisruptors@DamageEnhanced"/>
+        <DisplayName value="Weapon/Name/ParticleDisruptors"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="4"/>
+        <Period value="1.44"/>
+        <Effect value="JumperParticleDisruptors@SetLaunchEnhanced"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="MechCannonGround">
         <EditorCategories value="Race:Terran"/>
@@ -204,6 +226,17 @@
         <Backswing value="0"/>
         <Effect value="MechCannonBoth@SwitchInitial"/>
         <DamagePoint value="0.0625"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ApparitionParticleDisruptors">
+        <Name value="Weapon/Name/ParticleDisruptors"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="ApparitionParticleDisruptors@Damage"/>
+        <DisplayName value="Weapon/Name/ParticleDisruptors"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <Period value="1.44"/>
+        <Effect value="ApparitionParticleDisruptors@SetLaunch"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShooterGaussRifle">
         <EditorCategories value="Race:Terran"/>

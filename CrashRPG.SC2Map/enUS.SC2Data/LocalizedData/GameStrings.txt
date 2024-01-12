@@ -91,6 +91,9 @@ Abil/Name/InfestedInfestationSpore=Infestation Spore
 Abil/Name/InfestedInfestedEggs=Infested Eggs
 Abil/Name/InfestedMendingAura@Dummy=Mending Aura
 Abil/Name/InfestedPlague=Plague
+Abil/Name/JumperPhaseBlink=Phase Blink
+Abil/Name/JumperPredictiveBlink=Predictive Blink
+Abil/Name/JumperSlayerBlink=Slayer Blink
 Abil/Name/MechBarrage=Barrage
 Abil/Name/MechBarrage@Upgraded=Barrage
 Abil/Name/MechExplosiveImmortality=Explosive Immortality
@@ -246,6 +249,7 @@ Behavior/Name/CRPGFollowerTarget=Follower Target
 Behavior/Name/CRPGHoldFire=Hold Fire
 Behavior/Name/CRPGHunter@Veterancy=Veterancy
 Behavior/Name/CRPGInfested@Veterancy=Veterancy
+Behavior/Name/CRPGJumper@Veterancy=Veterancy
 Behavior/Name/CRPGMech@Veterancy=Veterancy
 Behavior/Name/CRPGMedic@Veterancy=Veterancy
 Behavior/Name/CRPGMedivacTransport@HealingBeam=Healing Beam
@@ -258,13 +262,11 @@ Behavior/Name/DevourerMPAcidSpores=Acid Spores
 Behavior/Name/FighterAstralWind=Astral Wind
 Behavior/Name/FighterAstralWind@Self=Astral Wind
 Behavior/Name/FighterLightningDash@Storm=Storm
-Behavior/Name/FighterLightningDash@Stunned=Stunned
 Behavior/Name/FighterRapidStrikes=Rapid Strikes
 Behavior/Name/FighterResurgence@Invulnerable=Invulnerable
 Behavior/Name/FighterViolentCharge@Charging=Charging
 Behavior/Name/FighterViolentCharge@Immunity=Violent Charge Immunity
 Behavior/Name/FighterViolentCharge@Slow=Slow
-Behavior/Name/FighterViolentCharge@Stunned=Stunned
 Behavior/Name/HunterPlasmaDiffusion@PlasmaSeared=Plasma Seared
 Behavior/Name/HunterShadowTransfer@Caster=Shadow Transfer
 Behavior/Name/ImpalerTarget=Primal Lurker Target
@@ -279,6 +281,7 @@ Behavior/Name/InfestedInfestationSpore@LifeIncrease=Life Increase
 Behavior/Name/InfestedMendingAura@Regeneration=Mending
 Behavior/Name/InfestedMendingAura@SpeedBoost=Speed Boost
 Behavior/Name/InfestedPlague@Debuff=Plagued
+Behavior/Name/JumperSlayerBlink@ShieldRestore=Slayer Blink
 Behavior/Name/MechBarrage@Stunned=Barrage
 Behavior/Name/MechExplosiveImmortality@Rebuilding=Rebuilding
 Behavior/Name/MechShockBlast@Stunned=Shocked
@@ -364,6 +367,9 @@ Behavior/Tooltip/InfestedInfestationSpore@LifeIncrease=
 Behavior/Tooltip/InfestedMendingAura@Regeneration=This unit is regenerating life.
 Behavior/Tooltip/InfestedMendingAura@SpeedBoost=This unit has increased movement speed.
 Behavior/Tooltip/InfestedPlague@Debuff=This unit or structure is revealed and its life is being depleted.
+Behavior/Tooltip/JumperLocalizedGravity@Stunned=This unit can not move or attack.
+Behavior/Tooltip/JumperPhaseBlink@ShieldRestore=This unit is regenerating shields.
+Behavior/Tooltip/JumperSlayerBlink@ShieldRestore=This unit will deal bonus damage.
 Behavior/Tooltip/MechBarrage@Stunned=Target is currently stunned and unable to use any abilities.
 Behavior/Tooltip/MechExplosiveImmortality@Rebuilding=This unit is disabled and invulnerable while it rebuilds.
 Behavior/Tooltip/MedicHealingBeam=This unit is taking reduced damage and healed over time.
@@ -454,6 +460,7 @@ Button/Name/ArmoryUpgradeArmor=Upgrade Armor
 Button/Name/ArmoryUpgradeDamage=Upgrade Damage
 Button/Name/ArmoryUpgradeEnergy=Upgrade Energy
 Button/Name/AssassinShadowFury=Shadow Fury
+Button/Name/Blink=Blink
 Button/Name/BossLock=Boss Lock
 Button/Name/BunkerUnloadAll=Unload All
 Button/Name/CButtonUpgradeable=CButtonUpgradeable
@@ -548,6 +555,21 @@ Button/Name/InfestedMendingAura@Upgraded=Upgraded Mending Aura
 Button/Name/InfestedPlague=Plague
 Button/Name/InfestedPlague@Learn=Learn Plague
 Button/Name/InfestedPlague@Upgraded=Upgraded Plague
+Button/Name/JumperDragoonCore=Dragoon Core
+Button/Name/JumperDragoonCore@Learn=Learn Dragoon Core
+Button/Name/JumperDragoonCore@Upgraded=Upgraded Dragoon Core
+Button/Name/JumperLocalizedGravity=Localized Vortex
+Button/Name/JumperLocalizedGravity@Learn=Learn Localized Vortex
+Button/Name/JumperLocalizedGravity@Upgraded=Upgraded Localized Vortex
+Button/Name/JumperPhaseBlink=Phase Blink
+Button/Name/JumperPhaseBlink@Learn=Learn Phase Blink
+Button/Name/JumperPhaseBlink@Upgraded=Upgraded Phase Blink
+Button/Name/JumperPredictiveBlink=Predictive Blink
+Button/Name/JumperPredictiveBlink@Learn=Learn Predictive Blink
+Button/Name/JumperPredictiveBlink@Upgraded=Upgraded Predictive Blink
+Button/Name/JumperSlayerBlink=Slayer Blink
+Button/Name/JumperSlayerBlink@Learn=Learn Slayer Blink
+Button/Name/JumperSlayerBlink@Upgraded=Upgraded Slayer Blink
 Button/Name/MechAdaptivePayload=Adaptive Payload
 Button/Name/MechAdaptivePayload@Learn=Learn Adaptive Payload
 Button/Name/MechAdaptivePayload@Upgraded=Upgraded Adaptive Payload
@@ -694,6 +716,7 @@ Button/Tooltip/AlienYagdraFireWave=Yagdra spits acid in a cone toward the target
 Button/Tooltip/AlienYagdraFirebreath=Channels a cone of acid. Will turn to chase the target while breathing acid.
 Button/Tooltip/AlienYagdraSpitFire=Yagdra spits acid at the target location after 2 seconds.
 Button/Tooltip/AssassinShadowFury=Become invisible and unrevealable, jumping between <d ref="Behavior,FighterShadowFuryController,PeriodCount+1"/> targets, slashing at each <d ref="Effect,FighterShadowFuryAttackCreatePersistent,PeriodCount"/> (<d ref="Effect,FighterShadowFuryAttackRapidCreatePersistent2,PeriodCount"/> while Rapid Strikes is active) times.
+Button/Tooltip/Blink2=Teleports the Stalker to a nearby target location. Ability can only be used once every <d ref="Abil,Blink,Cost[0].Cooldown.TimeUse"/> seconds.
 Button/Tooltip/BossLock=Locks onto a heroic unit, preventing this unit from being damaged while it exists.
 Button/Tooltip/BunkerUnloadAll=Unloads all units.
 Button/Tooltip/CButtonUpgradeable=Increase the hero's attack speed by <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor" precision="1"/>% every time they attack, stacking up to <d ref="100 * Behavior,ShooterChaingun@Buff,Modification.AdditiveAttackSpeedFactor * Behavior,ShooterChaingun@Buff,MaxStackCount" precision="1"/>%. Bonuses are lost after not firing their weapon for <d time="[d ref='Behavior,ShooterChaingun@Buff,Duration'/]"/>.
@@ -712,10 +735,11 @@ Button/Tooltip/CRPGAlienHeroHydralisk=High-damage ranged unit.<n/><n/><c val="ff
 Button/Tooltip/CRPGAlienHeroRavager=Ranged artillery. Can use Corrosive Bile.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGAlienHeroRoach=Assault unit. Regenerates life quickly when burrowed. Can morph into a Ravager.<n/><n/><c val="ffff8a">Can attack ground units.</c>
 Button/Tooltip/CRPGAlienHeroUltralisk=Heavy assault unit. Has an area-damage cleave attack.<n/><n/><c val="ffff8a">Can attack ground units.</c>
+Button/Tooltip/CRPGApparition=Holographic construct. Projects all of its energy into the first projectile it fires.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/CRPGArmorAttribute=Increases units' life and shield armor.
 Button/Tooltip/CRPGArmory=Contains damage and armor upgrades.
 Button/Tooltip/CRPGCivilian=Nobody. Only used to select a hero. What a pitiful life.
-Button/Tooltip/CRPGContractActions=<n/><n/>The mercenary will perform a different action based on the target.<n/><n/><c val="#ColorAttackInfo">Defensive Fortification:</c> Enters the Defensive Fortification.<n/><c val="#ColorAttackInfo">Hero</c>: Follows the hero.
+Button/Tooltip/CRPGContractActions=<n/><n/>The mercenary will perform a different action based on the target.<n/><n/><c val="#ColorAttackInfo">Defensive Fortification:</c> Enters the structure.<n/><c val="#ColorAttackInfo">Hero</c>: Follows the hero.
 Button/Tooltip/CRPGCrashedBattlecruiser=The remains of a downed Battlecruiser. Medical facilities miraculously continue to function.
 Button/Tooltip/CRPGCrashedBattlecruiserPlayer=The remains of a downed Battlecruiser. Medical facilities miraculously continue to function.
 Button/Tooltip/CRPGDamageAttribute=Increases units' attack and spell damage by <c val="#ColorAttackInfo"><d ref="100 * Accumulator,HeroDamagePoints,Scale" Precision="2"/>%</c>.
@@ -732,6 +756,7 @@ Button/Tooltip/CRPGHunterLevel1=Basic worker unit. Can gather resources and warp
 Button/Tooltip/CRPGHunterLevel3=Ranged attack strider. Can use Blink.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/CRPGHunterLevel4=Aiur Faction<n/>Ranged assault strider. Has enhanced life and attack damage.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
 Button/Tooltip/CRPGInfested=Summoner. Hatches Infested units and commits war crimes.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Infested Eggs</c><n/><c val="#ColorActiveAbilityInfo">Plague</c><n/><c val="#ColorActiveAbilityInfo">Infestation Spore</c><n/><c val="#ColorPassiveAbilityInfo">Aberrate</c><n/><c val="#ColorPassiveAbilityInfo">Laser Armaments</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
+Button/Tooltip/CRPGJumper=High mobility attack strider. <n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Predictive Blink</c><n/><c val="#ColorActiveAbilityInfo">Phase Blink</c><n/><c val="#ColorActiveAbilityInfo">Slayer Blink</c><n/><c val="#ColorPassiveAbilityInfo">Localized Vortex</c><n/><c val="#ColorPassiveAbilityInfo">Dragoon Core</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGLevelUp=Levels up the hero to the next available level, granting it additional abilties.
 Button/Tooltip/CRPGMarauder=Anti-armor infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGMarine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
@@ -855,6 +880,23 @@ Button/Tooltip/InfestedParasiteGround=Fast suicide unit. Lasts a short duration.
 Button/Tooltip/InfestedPlague=Infects enemy units and structures, dealing <c val="#ColorAttackInfo"><d ref="$RunAccumulators:InfestedPlague@ScaledDamage$*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/></c> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields. Reveals afflicted units.
 Button/Tooltip/InfestedPlague@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,InfestedPlague,Cost[0].Vital[Energy]"/><n/><n/>Infects enemies, dealing <d ref="Accumulator,InfestedPlague@BaseDamage,Amount*Behavior,InfestedPlague@Debuff,Duration/Behavior,InfestedPlague@Debuff,Period"/> damage over <d ref="Behavior,InfestedPlague@Debuff,Duration"/> seconds. Cannot reduce life below 1. Ignores shields.
 Button/Tooltip/InfestedPlague@Upgraded=Units killed with Plague spawn a suicidal Parasite that deals <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ParasiteSuicide@Damage,Amount$"/></c> damage.
+Button/Tooltip/JumperDragoonCore=Increases the hero's range by <d ref="Behavior,JumperDragoonCore,Modification.RangedWeaponRange"/> and attack speed by <d ref="100 * Behavior,JumperDragoonCore,Modification.AdditiveAttackSpeedFactor"/>%.
+Button/Tooltip/JumperDragoonCore@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Increases range by <d ref="Behavior,JumperDragoonCore,Modification.RangedWeaponRange"/> and attack speed by <d ref="100 * Behavior,JumperDragoonCore,Modification.AdditiveAttackSpeedFactor"/>%.
+Button/Tooltip/JumperDragoonCore@Upgraded=Casting any Blink ability increases attack speed by <d ref="100 * Behavior,JumperDragoonCore@Stack,Modification.AdditiveAttackSpeedFactor" precision="1"/>% for <d time="[d ref='Behavior,JumperDragoonCore@Stack,Duration'/]"/>, stacking up to <d ref="100 * Behavior,JumperDragoonCore@Stack,MaxStackCount * Behavior,JumperDragoonCore@Stack,Modification.AdditiveAttackSpeedFactor"/>%.
+Button/Tooltip/JumperLocalizedGravity=Blink abilities pull in units at the origin and push units away from the destination.
+Button/Tooltip/JumperLocalizedGravity@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Blink abilities pull units at the origin and push away from the destination.
+Button/Tooltip/JumperLocalizedGravity@Learn2=Blink abilities pull units at the origin and push away from the destination.
+Button/Tooltip/JumperLocalizedGravity@Upgraded=Units affected by both effects are stunned for <d time="[d ref='Behavior,JumperLocalizedGravity@Stunned,Duration'/]"/>, take <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,JumperLocalizedGravity@Damage,Amount$"/></c> damage, and restore <d ref="Effect,JumperLocalizedGravity@MU,VitalArray[Energy].Change"/> energy to the caster.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/JumperLocalizedGravity@Upgraded2=Units affected by both effects are stunned for <d time="[d ref='Behavior,JumperLocalizedGravity@Stunned,Duration'/]"/>, take <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,JumperLocalizedGravity@Damage,Amount$"/></c> damage, and restore <d ref="Effect,JumperLocalizedGravity@MU,VitalArray[Energy].Change"/> energy to the caster.<n/><n/><c val="#ColorGlueValue">Ignores armor.</c>
+Button/Tooltip/JumperPhaseBlink=Teleports the hero to a nearby target location and restores <d ref="Effect,JumperPhaseBlink@MU,VitalArray[Shields].Change/Behavior,JumperPhaseBlink@ShieldRestore,Period*Behavior,JumperPhaseBlink@ShieldRestore,Duration"/> shields over <d time="[d ref='Behavior,JumperPhaseBlink@ShieldRestore,Duration'/]"/>.
+Button/Tooltip/JumperPhaseBlink@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,JumperPhaseBlink,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,JumperPhaseBlink,Cost[0].Cooldown.TimeUse"/><n/><n/>Blinks toward the target location, restoring <d ref="Effect,JumperPhaseBlink@MU,VitalArray[Shields].Change/Behavior,JumperPhaseBlink@ShieldRestore,Period*Behavior,JumperPhaseBlink@ShieldRestore,Duration"/> shields over <d time="[d ref='Behavior,JumperPhaseBlink@ShieldRestore,Duration'/]"/>.
+Button/Tooltip/JumperPhaseBlink@Upgraded=Cloaks the caster for <d time="[d ref='Behavior,JumperPhaseBlink@Cloak,Duration'/]"/>.
+Button/Tooltip/JumperPredictiveBlink=Teleports the hero to a nearby target location. Spawns an Apparition in its place that fires a single projectile dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ApparitionParticleDisruptors@Damage,Amount$"/></c> damage.
+Button/Tooltip/JumperPredictiveBlink@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,JumperPredictiveBlink,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,JumperPredictiveBlink,Cost[0].Charge.TimeUse"/><n/><n/>Blinks toward the target location, creating an Apparition that can fire a shot dealing <d ref="Effect,ApparitionParticleDisruptors@Damage,Amount"/> damage.
+Button/Tooltip/JumperPredictiveBlink@Upgraded=Gains <d ref="$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Abil,JumperPredictiveBlink,Cost[0].Charge.CountMax$"/> additional max charges.
+Button/Tooltip/JumperSlayerBlink=Teleports the hero to a nearby target location. Enhances its next attack to deal <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,JumperParticleDisruptors@DamageEnhanced,Amount$"/></c> damage.
+Button/Tooltip/JumperSlayerBlink@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,JumperSlayerBlink,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,JumperSlayerBlink,Cost[0].Cooldown.TimeUse"/><n/><n/>Blinks toward the target location, causing the next attack to deal <d ref="Effect,JumperParticleDisruptors@DamageEnhanced,Amount"/> damage.
+Button/Tooltip/JumperSlayerBlink@Upgraded=The enhanced attack reduces the cooldown of all blink abilities by <d ref="-Effect,JumperSlayerBlink@MUCooldown,Cost[0].CooldownTimeUse"/>.
 Button/Tooltip/LockedNydusNetwork=Friendly ground units can use the Nydus Network to instantly travel to any other Nydus Network or Nydus Worm owned by the player.<n/><n/><c val="ffff8a">Enables:</c><n/>- Greater Nydus Worm
 Button/Tooltip/MechAdaptivePayload=Attacks against air units have modified properties.<n/><n/><s val="@@StandardTooltipHeaderSub">Explosive Payload</s><n/><n/>Light units cause <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechCannonBoth@DamageExplosiveSplash,Amount$"/></c> damage to units around the target.<n/><n/><s val="@@StandardTooltipHeaderSub">High Impact Payload</s><n/><n/>Massive units take <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MechCannonBoth@DamageHighImpact,Amount$"/></c> damage.
 Button/Tooltip/MechAdaptivePayload@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Anti-air attacks deal <d ref="100 * (Effect,MechCannonBoth@DamageHighImpact,Amount/Effect,MechCannonBoth@Damage,Amount - 1)"/>% bonus damage against massive units and <d ref="100 * (Effect,MechCannonBoth@DamageExplosiveSplash,Amount/Effect,MechCannonBoth@Damage,Amount)"/>% splash damage against light units.
@@ -918,7 +960,7 @@ Button/Tooltip/ShooterGravityGrenade@Upgraded=Gravity Grenade has a <d ref="100 
 Button/Tooltip/ShooterLuckyShot=Every fourth attack, increase the caster's base damage by <d ref="Behavior,ShooterLuckyShotProc,Modification.DamageDealtScaled[Ranged] / Effect,ShooterGaussRifleDamage,Amount * 100"/>%.
 Button/Tooltip/ShooterOverkill=Attacks all enemy units in a cone in front of the caster over <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>. Moving cancels the effect.
 Button/Tooltip/ShooterOverkill@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterOverkill,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse"/><n/><n/>Fires the caster's weapon in a cone over <d time="[d ref='Behavior,ShooterOverkill@Channeling,Duration'/]"/>.
-Button/Tooltip/ShooterOverkill@Upgraded=Overkill's cooldown is reduced by <d time="[d ref='$UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Abil,ShooterOverkill,Cost[0].Cooldown.TimeUse$'/]"/>. A percentage of its energy cost is refunded when interrupted based on channel time.
+Button/Tooltip/ShooterOverkill@Upgraded=When Overkill finishes channeling, fire a powerful shotgun that deals triple damage. If interrupted, a percentage of Overkill's energy cost is refunded dependent on channel time.
 Button/Tooltip/ShooterSandbags=Places a sandbag that has the same attack priority as a combat hero. Allied ground units near a Sandbag take <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage from ranged attacks. Sandbags are structures that last <d time="[d ref='Behavior,SandbagCover,Duration'/]"/>.
 Button/Tooltip/ShooterSandbags@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ShooterSandbags,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ShooterSandbags,Cost[0].Charge.TimeUse"/><n/><n/>Places a sandbag that distracts enemies and grants <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage reduction from ranged attacks for <d time="[d ref='Behavior,SandbagCover,Duration'/]"/>.
 Button/Tooltip/ShooterSandbags@Upgraded=Sandbags are affected by their own ranged damage reduction and additionally grant +1 range to nearby allies.
@@ -987,6 +1029,7 @@ DataCollection/Name/AeroLaserArmaments=Laser Armaments
 DataCollection/Name/AeroLaserBattery=Laser Battery
 DataCollection/Name/AeroTacticalJump=Tactical Jump
 DataCollection/Name/AeroYamatoCannon=Yamato Cannon
+DataCollection/Name/ApparitionParticleDisruptors=Particle Disruptors
 DataCollection/Name/ArmoryUpgradeArmor=Upgrade Armor
 DataCollection/Name/ArmoryUpgradeDamage=Upgrade Damage
 DataCollection/Name/ArmoryUpgradeEnergy=Upgrade Energy
@@ -996,6 +1039,7 @@ DataCollection/Name/CRPGAbilityUpgradePrimary=Ability Upgrade
 DataCollection/Name/CRPGAbilityUpgradeSecondary=Ability Upgrade
 DataCollection/Name/CRPGAbilityUpgradeTernary=Ability Upgrade
 DataCollection/Name/CRPGAero=Aero
+DataCollection/Name/CRPGApparition=Apparition
 DataCollection/Name/CRPGCasterTracker=Caster Tracker
 DataCollection/Name/CRPGDefensiveFortification=Defensive Fortification
 DataCollection/Name/CRPGDefensiveTurret=Defensive Turret
@@ -1004,6 +1048,7 @@ DataCollection/Name/CRPGFighter=Fighter
 DataCollection/Name/CRPGGhost=Ghost
 DataCollection/Name/CRPGHunter=Hunter
 DataCollection/Name/CRPGInfested=Infested
+DataCollection/Name/CRPGJumper=Jumper
 DataCollection/Name/CRPGMarauder=Marauder
 DataCollection/Name/CRPGMarine=Marine
 DataCollection/Name/CRPGMech=Mech
@@ -1060,6 +1105,12 @@ DataCollection/Name/InfestedMendingAura=Mending Aura
 DataCollection/Name/InfestedParasiteAir=Parasite
 DataCollection/Name/InfestedParasiteGround=Parasite
 DataCollection/Name/InfestedPlague=Plague
+DataCollection/Name/JumperDragoonCore=Dragoon Core
+DataCollection/Name/JumperLocalizedGravity=Localized Gravity
+DataCollection/Name/JumperParticleDisruptors=Particle Disruptors
+DataCollection/Name/JumperPhaseBlink=Phase Blink
+DataCollection/Name/JumperPredictiveBlink=Predictive Blink
+DataCollection/Name/JumperSlayerBlink=Slayer Blink
 DataCollection/Name/MarauderPunisherGrenades=Punisher Grenades
 DataCollection/Name/MarineC14GaussRifle=C-14 Gauss Rifle
 DataCollection/Name/MechAdaptivePayload=Adaptive Payload
@@ -1541,6 +1592,11 @@ Effect/Name/AlienYagdraFireWaveCreatePersistent=Fire Wave
 Effect/Name/AlienYagdraFireballDamage=Fireball
 Effect/Name/AlienYagdraFireballLaunchMissile=Fireball
 Effect/Name/AlienYagdraSpitFireCreatePersistent=Spit Fire
+Effect/Name/ApparitionParticleDisruptors@ABHide=Apply Behavior
+Effect/Name/ApparitionParticleDisruptors@Damage=Damage
+Effect/Name/ApparitionParticleDisruptors@LM=Launch Missile
+Effect/Name/ApparitionParticleDisruptors@SetImpact=Set
+Effect/Name/ApparitionParticleDisruptors@SetLaunch=Set
 Effect/Name/ArmoryUpgradeArmor@MP=Modify Player
 Effect/Name/ArmoryUpgradeDamage@MP=Modify Player
 Effect/Name/ArmoryUpgradeEnergy@MP=Modify Player
@@ -1571,6 +1627,7 @@ Effect/Name/BeaconGiveHeroRemoveBehavior=Give Hero
 Effect/Name/BeaconGiveHeroSearchArea=Give Hero
 Effect/Name/BeaconGiveHeroSet=Give Hero
 Effect/Name/BeaconRandomizeHeroDummy=Randomize Hero
+Effect/Name/Blink=Teleport
 Effect/Name/BossLockApplyBehavior=Boss Lock
 Effect/Name/BossLockCreatePersistent=Boss Lock
 Effect/Name/BossLockRemoveBehavior=Boss Lock
@@ -1633,11 +1690,14 @@ Effect/Name/CRPGFollowerRemoveBehaviorFollower=Follower
 Effect/Name/CRPGFollowerRemoveBehaviorFollowerTarget=Follower
 Effect/Name/CRPGFollowerSetApply=Follower
 Effect/Name/CRPGFollowerSetRemove=Follower
+Effect/Name/CRPGGiveAttributeArmorHero=Give Attribute
 Effect/Name/CRPGGiveAttributeArmorUnit=Give Attribute
 Effect/Name/CRPGGiveAttributeBaseAttributes=Give Attribute
+Effect/Name/CRPGGiveAttributeDamageHero=Give Attribute
 Effect/Name/CRPGGiveAttributeDamageUnit=Give Attribute
 Effect/Name/CRPGGiveAttributeLevelCounter=Give Attribute
-Effect/Name/CRPGGiveAttributes=Give Attributes
+Effect/Name/CRPGGiveAttributesHero=Give Attributes
+Effect/Name/CRPGGiveAttributesUnit=Give Attributes
 Effect/Name/CRPGHoldFire=Hold Fire
 Effect/Name/CRPGHoldFireB=Hold Fire B
 Effect/Name/CRPGLevelUpDummyVisuals=Level Up
@@ -1902,6 +1962,42 @@ Effect/Name/InfestedPlague@Damage=Damage
 Effect/Name/InfestedPlague@SA=Search Area
 Effect/Name/InfestedPlague@SetParasiteCreate=Set
 Effect/Name/InfestedPlague@SwitchParasite=Switch
+Effect/Name/JumperDragoonCore@ABStack=Apply Behavior
+Effect/Name/JumperLocalizedGravity@ABPull=Apply Behavior
+Effect/Name/JumperLocalizedGravity@ABPush=Apply Behavior
+Effect/Name/JumperLocalizedGravity@ABStun=Apply Behavior
+Effect/Name/JumperLocalizedGravity@AFPull=Apply Force
+Effect/Name/JumperLocalizedGravity@AFPush=Apply Force
+Effect/Name/JumperLocalizedGravity@Damage=Damage
+Effect/Name/JumperLocalizedGravity@MU=Modify Unit
+Effect/Name/JumperLocalizedGravity@RBPull=Remove Behavior
+Effect/Name/JumperLocalizedGravity@RBPush=Remove Behavior
+Effect/Name/JumperLocalizedGravity@SAPull=Search Area
+Effect/Name/JumperLocalizedGravity@SAPush=Search Area
+Effect/Name/JumperLocalizedGravity@SetPull=Set
+Effect/Name/JumperLocalizedGravity@SetStun=Set
+Effect/Name/JumperLocalizedGravity@SwitchPush=Switch
+Effect/Name/JumperParticleDisruptors@Damage=Damage
+Effect/Name/JumperParticleDisruptors@DamageEnhanced=Damage
+Effect/Name/JumperParticleDisruptors@LM=Launch Missile
+Effect/Name/JumperParticleDisruptors@LMEnhanced=Launch Missile
+Effect/Name/JumperParticleDisruptors@SetImpactEnhanced=Set
+Effect/Name/JumperParticleDisruptors@SetLaunchEnhanced=Set
+Effect/Name/JumperParticleDisruptors@Switch=Switch
+Effect/Name/JumperPhaseBlink@ABCloak=Apply Behavior
+Effect/Name/JumperPhaseBlink@ABShieldRestore=Apply Behavior
+Effect/Name/JumperPhaseBlink@MU=Modify Unit
+Effect/Name/JumperPhaseBlink@SetTP=Set
+Effect/Name/JumperPredictiveBlink@ABTimedLife=Apply Behavior
+Effect/Name/JumperPredictiveBlink@CU=Create Unit
+Effect/Name/JumperPredictiveBlink@SetCreate=Set
+Effect/Name/JumperPredictiveBlink@SetTP=Set
+Effect/Name/JumperSlayerBlink@AB=Apply Behavior
+Effect/Name/JumperSlayerBlink@CPDisableEnhancedDelay=Create Persistent
+Effect/Name/JumperSlayerBlink@MUCooldown=Modify Unit
+Effect/Name/JumperSlayerBlink@RB=Remove Behavior
+Effect/Name/JumperSlayerBlink@SetAttack=Set
+Effect/Name/JumperSlayerBlink@SetTP=Set
 Effect/Name/MarauderPunisherGrenades@Damage=Damage
 Effect/Name/MarauderPunisherGrenades@LM=Launch Missile
 Effect/Name/MarineC14GaussRifle@Damage=Damage
@@ -2114,8 +2210,10 @@ Effect/Name/ShooterLuckyShotSwitch=Lucky Shot
 Effect/Name/ShooterOverkill@AB=Apply Behavior
 Effect/Name/ShooterOverkill@ABCancelDelay=Apply Behavior
 Effect/Name/ShooterOverkill@ABDurationRemaining=Apply Behavior
+Effect/Name/ShooterOverkill@DamageShotgun=Damage
 Effect/Name/ShooterOverkill@MURefund=Modify Unit
 Effect/Name/ShooterOverkill@SA=Search Area
+Effect/Name/ShooterOverkill@SAShotgun=Search Area
 Effect/Name/ShooterOverkill@SetInitial=Set
 Effect/Name/ShooterOverkill@SetPeriodic=Set
 Effect/Name/ShooterOverkill@SetRefund=Set
@@ -2170,6 +2268,7 @@ Effect/Name/StasisWardStasisTrapSearchArea=Stasis Trap
 Effect/Name/StasisWardStasisTrapSearchSet=Stasis Trap
 Effect/Name/StasisWardStasisTrapSet=Stasis Trap
 Effect/Name/StasisWardStasisTrapStopIssueStopOrder=Stasis Trap
+Effect/Name/SuicideRemoveCaster=Suicide Remove Caster
 Effect/Name/SwarmerBiteLevel4Damage=Bite
 Effect/Name/SwarmerClawsLevel1Damage=Claws
 Effect/Name/SwarmerClawsLevel2Damage=Claws
@@ -2623,6 +2722,7 @@ RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOn
 RequirementNode/Tooltip/Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit=Already Linked
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
 RequirementNode/Tooltip/Or2694335422CountAbilHunterScarabMineCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit=Any Active Ability
+RequirementNode/Tooltip/Or2841047433CountAbilJumperPredictiveBlinkCompleteOnlyAtUnitCountAbilJumperPhaseBlinkCompleteOnlyAtUnitCountAbilJumperSlayerBlinkCompleteOnlyAtUnit=Any Blink Ability
 RequirementNode/Tooltip/Or774336177GTECountBehaviorSwarmerHeroVeterancyCompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel2CompleteOnlyAtUnit2GTECountBehaviorSwarmerHeroVeterancyLevel3CompleteOnlyAtUnit2=Level 2
 SimpleDisplay/Follow=<IMG path="Assets\Textures\tutorialmouserightbuttondown.dds" alignment="absolutemiddle"/> <s val="@@@SimpleCommandRow">to Move</s>
 Terrain/Name/CrashRPG2TerrainSheet1=Crash RPG 2 Terrain Sheet 1
@@ -2647,6 +2747,7 @@ Unit/Name/Alien=Alien
 Unit/Name/AlienAshWorm=Alien
 Unit/Name/AlienHarvestMinerals=Harvest Minerals
 Unit/Name/AlienYagdra=Alien
+Unit/Name/ApparitionParticleDisruptors@Weapon=Weapon
 Unit/Name/Baneling=Alien
 Unit/Name/BattlecruiserHelios=Battlecruiser
 Unit/Name/BeaconRandomHero=Random Hero
@@ -2663,6 +2764,7 @@ Unit/Name/CRPGAlienSiege=Alien
 Unit/Name/CRPGAlienStalker=Zergling
 Unit/Name/CRPGAlienSupport=Queen
 Unit/Name/CRPGAlienTank=Ultralisk
+Unit/Name/CRPGApparition=Apparition
 Unit/Name/CRPGArmory=Armory
 Unit/Name/CRPGBuildableLocation2x2=Defensive Wall
 Unit/Name/CRPGBuildableLocationDefensiveFortification=Buildable Location
@@ -2686,6 +2788,7 @@ Unit/Name/CRPGHunterLevel3=Hunter
 Unit/Name/CRPGHunterLevel4=Hunter
 Unit/Name/CRPGHunterLevel5=Hunter
 Unit/Name/CRPGInfested=Infested
+Unit/Name/CRPGJumper=Jumper
 Unit/Name/CRPGMarauder=Marauder
 Unit/Name/CRPGMarine=Marine
 Unit/Name/CRPGMech=Mech
@@ -2743,6 +2846,8 @@ Unit/Name/InfestedInfestedEggs@Weapon=Weapon
 Unit/Name/InfestedParasiteAir=Parasite
 Unit/Name/InfestedParasiteGround=Parasite
 Unit/Name/InfestedTerranCampaign=Infested Marine
+Unit/Name/JumperParticleDisruptors@Weapon=Weapon
+Unit/Name/JumperParticleDisruptors@WeaponEnhanced=Weapon
 Unit/Name/KerriganInfestBroodling=Alien
 Unit/Name/Leviathan=Alien
 Unit/Name/LockedNydusNetwork=Nydus Network
@@ -2753,6 +2858,7 @@ Unit/Name/MedicCorrosiveSpray@Weapon=Weapon
 Unit/Name/MedicMedivac=Medivac
 Unit/Name/Mutalisk=Alien
 Unit/Name/NydusNetwork=Nydus Network
+Unit/Name/SCBRJumper=Stalker
 Unit/Name/ScatterCannonMissile=Scatter Cannon
 Unit/Name/Scourge=Alien
 Unit/Name/ShooterGravityGrenade@Weapon=Weapon
