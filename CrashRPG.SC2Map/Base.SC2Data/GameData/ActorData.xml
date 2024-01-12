@@ -10067,13 +10067,14 @@
     </CActorSound>
     <CActorUnit id="AlienYagdra" parent="GenericUnitBase" unitName="AlienYagdra">
         <Aliases value="_UnitHuge"/>
-        <On Terms="Effect.AlienYagdraSpitFireCreatePersistent.Start; At Caster" Send="TimerSet 2.000000 FireballDelay"/>
-        <On Terms="TimerExpired; TimerName FireballDelay; !AnimPlaying Spell" Send="AnimPlay Spell Attack,01"/>
-        <On Terms="WeaponStart.YagdraFirebreath2.AttackStart" Send="AnimBracketStart Channel Spell,Start Spell Spell,End"/>
+        <On Terms="Effect.AlienYagdraFireWaveCreatePersistent.Start" Send="TimerSet 1.000000 FireWaveDelay"/>
+        <On Terms="TimerExpired; TimerName FireWaveDelay" Send="AnimBracketStart SpellChannel Spell,Start Spell Spell,End"/>
+        <On Terms="WeaponStart.YagdraFirebreath2.AttackStart" Send="AnimBracketStart SpellChannel Spell,Start Spell Spell,End"/>
         <On Terms="WeaponStart.YagdraFirebreath2.AttackStart" Send="Create YagdraFirebreathModelLaunch"/>
         <On Terms="Effect.YagdraFirebreathCreateGoverningPersistent2.Stop; At Caster" Target="YagdraFirebreathModelLaunch" Send="AnimBracketStop BSD"/>
         <On Terms="Effect.YagdraFirebreathCreateGoverningPersistent2.Stop; At Caster" Send="AnimBracketStop Channel"/>
         <On Terms="ActorCreation" Send="Create YagdraBase"/>
+        <On Terms="Effect.AlienYagdraFireWaveCreatePersistent.Stop" Target="YagdraFirebreathModelLaunch" Send="AnimBracketStop SpellChannel"/>
         <Model value="Yagdra"/>
         <BuildModel value="NydusRumble"/>
         <DeathArray index="Normal" ModelLink="YagdraDeath" SoundLink="Yagdra_DeathMove" VoiceLink="Yagdra_VoxSnarl"/>
