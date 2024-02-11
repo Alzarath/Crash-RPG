@@ -99,11 +99,7 @@ Abil/Name/MechBarrage@Upgraded=Barrage
 Abil/Name/MechExplosiveImmortality=Explosive Immortality
 Abil/Name/MechPointDefenseDrones=Point Defense Drones
 Abil/Name/MechShockBlast=Shock Blast
-Abil/Name/MedicHealingBeam=Healing Beam
-Abil/Name/MedicHealingBeam@Cancel=Cancel
-Abil/Name/MedicIrradiate=Irradiate
 Abil/Name/MedicRestorativeBurst=Restorative Burst
-Abil/Name/MedicSpawnMedivac=Medivac
 Abil/Name/MedivacAfterburners=Afterburners
 Abil/Name/MedivacHealingBeam=Healing Beam
 Abil/Name/MoveStupid=Move
@@ -123,6 +119,12 @@ Abil/Name/RandomizeHero=Randomize Hero
 Abil/Name/ScarabMineBurrow=Burrow
 Abil/Name/ScarabMineUnburrow=Unburrow
 Abil/Name/ScarabMineUnburrow@RangeDummy=Range Dummy
+Abil/Name/ScientistHealingBeam=Healing Beam
+Abil/Name/ScientistHealingBeam@Cancel=Cancel
+Abil/Name/ScientistIrradiate=Irradiate
+Abil/Name/ScientistPredatorDrone=Predator Drone
+Abil/Name/ScientistPredatorDrone@Queue=Queue
+Abil/Name/ScientistSpawnMedivac=Medivac
 Abil/Name/ShadowBlink=Shadow Blink
 Abil/Name/ShipCloakingField=Cloaking Field
 Abil/Name/ShipDisruptionWeb=Disruption Web
@@ -251,9 +253,9 @@ Behavior/Name/CRPGHunter@Veterancy=Veterancy
 Behavior/Name/CRPGInfested@Veterancy=Veterancy
 Behavior/Name/CRPGJumper@Veterancy=Veterancy
 Behavior/Name/CRPGMech@Veterancy=Veterancy
-Behavior/Name/CRPGMedic@Veterancy=Veterancy
 Behavior/Name/CRPGMedivacTransport@HealingBeam=Healing Beam
 Behavior/Name/CRPGMineralReward=Mineral Reward
+Behavior/Name/CRPGScientist@Veterancy=Veterancy
 Behavior/Name/CRPGShooter@Veterancy=Veterancy
 Behavior/Name/CRPGSlowImmunity=Slow Immunity
 Behavior/Name/CRPGSniper@Veterancy=Veterancy
@@ -285,16 +287,16 @@ Behavior/Name/JumperSlayerBlink@ShieldRestore=Slayer Blink
 Behavior/Name/MechBarrage@Stunned=Barrage
 Behavior/Name/MechExplosiveImmortality@Rebuilding=Rebuilding
 Behavior/Name/MechShockBlast@Stunned=Shocked
-Behavior/Name/MedicHealingBeam=Healing Beam
-Behavior/Name/MedicIrradiate=Irradiated
-Behavior/Name/MedicIrradiate@Linger=Lingering Radiation
-Behavior/Name/MedicOpticalFlare@Blind=Blind
 Behavior/Name/MedicRestorativeBurst=Restorative Burst
-Behavior/Name/MedicSelfixArmor@Restoring=Selfix Armor
-Behavior/Name/MedicSpawnMedivac@Precursor=Precursor
 Behavior/Name/MedivacAfterburners=Afterburners Active
 Behavior/Name/SandbagCover@InCover=In Cover
 Behavior/Name/ScarabMineExplode@Slowed=Slowed
+Behavior/Name/ScientistHealingBeam=Healing Beam
+Behavior/Name/ScientistIrradiate=Irradiated
+Behavior/Name/ScientistIrradiate@Linger=Lingering Radiation
+Behavior/Name/ScientistOpticalFlare@Blind=Blind
+Behavior/Name/ScientistSelfixArmor@Restoring=Selfix Armor
+Behavior/Name/ScientistSpawnMedivac@Precursor=Precursor
 Behavior/Name/ShadePsionicInterference@Aura=Psionic Interference
 Behavior/Name/ShadePsionicInterference@Debuff=Psionic Interference
 Behavior/Name/ShadowBlink@Cloaked=Cloaked
@@ -372,11 +374,11 @@ Behavior/Tooltip/JumperPhaseBlink@ShieldRestore=This unit is regenerating shield
 Behavior/Tooltip/JumperSlayerBlink@ShieldRestore=This unit will deal bonus damage.
 Behavior/Tooltip/MechBarrage@Stunned=Target is currently stunned and unable to use any abilities.
 Behavior/Tooltip/MechExplosiveImmortality@Rebuilding=This unit is disabled and invulnerable while it rebuilds.
-Behavior/Tooltip/MedicHealingBeam=This unit is taking reduced damage and healed over time.
-Behavior/Tooltip/MedicIrradiate=Irradiated unit. All Biological units in or near the radiation field will take damage.
-Behavior/Tooltip/MedicIrradiate@Linger=This unit is taking damage over time.
 Behavior/Tooltip/MedivacAfterburners=This unit's movement speed is increased by 70%.
 Behavior/Tooltip/SandbagCover@InCover=This unit takes reduced ranged attack damage.
+Behavior/Tooltip/ScientistHealingBeam=This unit is taking reduced damage and healing over time.
+Behavior/Tooltip/ScientistIrradiate=Irradiated unit. All Biological units in or near the radiation field will take damage.
+Behavior/Tooltip/ScientistIrradiate@Linger=This unit is taking damage over time.
 Behavior/Tooltip/ShadePsionicInterference@Aura=Enemies that touch this unit take increased damage.
 Behavior/Tooltip/ShadePsionicInterference@Debuff=This unit is taking increased damage.
 Behavior/Tooltip/ShadowBlink@Cloaked=This unit is cloaked and will only be revealed by detectors or effects.
@@ -589,26 +591,30 @@ Button/Name/MechPointDefenseDrones@Upgraded=Upgraded Point Defense Drones
 Button/Name/MechShockBlast=Shock Blast
 Button/Name/MechShockBlast@Learn=Learn Shock Blast
 Button/Name/MechShockBlast@Upgraded=Upgraded Shock Blast
-Button/Name/MedicHealingBeam=Healing Beam
-Button/Name/MedicHealingBeam@Learn=Learn Healing Beam
-Button/Name/MedicHealingBeam@Upgraded=Upgraded Healing Beam
-Button/Name/MedicIrradiate=Irradiate
-Button/Name/MedicIrradiate@Learn=Learn Irradiate
-Button/Name/MedicIrradiate@Upgraded=Upgraded Irradiate
-Button/Name/MedicOpticalFlare=Optical Flare
-Button/Name/MedicOpticalFlare@Learn=Learn Optical Flare
-Button/Name/MedicOpticalFlare@Upgraded=Upgraded Optical Flare
 Button/Name/MedicRestoration=Restoration
 Button/Name/MedicRestorativeBurst=Restorative Burst
-Button/Name/MedicSelfixArmor=Selfix Armor
-Button/Name/MedicSelfixArmor@Learn=Learn Selfix Armor
-Button/Name/MedicSelfixArmor@Upgraded=Upgraded Selfix Armor
-Button/Name/MedicSpawnMedivac=Medivac
-Button/Name/MedicSpawnMedivac@Learn=Learn Medivac
-Button/Name/MedicSpawnMedivac@Upgraded=Upgraded Medivac
 Button/Name/MedivacAfterburners=Ignite Afterburners
 Button/Name/MedivacHealingBeam=Healing Beam
+Button/Name/RetributionField=Lightning Field
 Button/Name/SandbagCover=Cover
+Button/Name/ScientistHealingBeam=Healing Beam
+Button/Name/ScientistHealingBeam@Learn=Learn Healing Beam
+Button/Name/ScientistHealingBeam@Upgraded=Upgraded Healing Beam
+Button/Name/ScientistIrradiate=Irradiate
+Button/Name/ScientistIrradiate@Learn=Learn Irradiate
+Button/Name/ScientistIrradiate@Upgraded=Upgraded Irradiate
+Button/Name/ScientistOpticalFlare=Optical Flare
+Button/Name/ScientistOpticalFlare@Learn=Learn Optical Flare
+Button/Name/ScientistOpticalFlare@Upgraded=Upgraded Optical Flare
+Button/Name/ScientistPredatorDrone=Predator Drone
+Button/Name/ScientistPredatorDrone@Learn=Learn Predator Drone
+Button/Name/ScientistPredatorDrone@Upgraded=Upgraded Predator Drone
+Button/Name/ScientistSelfixArmor=Selfix Armor
+Button/Name/ScientistSelfixArmor@Learn=Learn Selfix Armor
+Button/Name/ScientistSelfixArmor@Upgraded=Upgraded Selfix Armor
+Button/Name/ScientistSpawnMedivac=Medivac
+Button/Name/ScientistSpawnMedivac@Learn=Learn Medivac
+Button/Name/ScientistSpawnMedivac@Upgraded=Upgraded Medivac
 Button/Name/ShadowBlink=Shadow Blink
 Button/Name/ShipCloakingField=Cloaking Field
 Button/Name/ShipDisruptionWeb=Disruption Web
@@ -761,7 +767,6 @@ Button/Tooltip/CRPGLevelUp=Levels up the hero to the next available level, grant
 Button/Tooltip/CRPGMarauder=Anti-armor infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGMarine=General-purpose infantry.<n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGMech=Durable machine. Uses destructive area and defensive abilities.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Barrage</c><n/><c val="#ColorActiveAbilityInfo">Shock Blast</c><n/><c val="#ColorActiveAbilityInfo">Explosive Immortality</c><n/><c val="#ColorPassiveAbilityInfo">Point Defense Drones</c><n/><c val="#ColorPassiveAbilityInfo">Multi-Lock Targeting System</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
-Button/Tooltip/CRPGMedic=Support trooper. Heals nearby units.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Healing Beam</c><n/><c val="#ColorActiveAbilityInfo">Irradiate</c><n/><c val="#ColorActiveAbilityInfo">Medivac</c><n/><c val="#ColorPassiveAbilityInfo">Optical Flare</c><n/><c val="#ColorPassiveAbilityInfo">Selfix Armor</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGMedicLevel2=Support trooper. Heals nearby biological units.
 Button/Tooltip/CRPGMedicLevel22=Support trooper. Heals nearby biological units.
 Button/Tooltip/CRPGMedicLevel32=Support trooper. Heals nearby biological units.
@@ -772,6 +777,8 @@ Button/Tooltip/CRPGMedivacTransport@UnloadAll=Unloads all units.
 Button/Tooltip/CRPGNomad=Backbone of any mobile operations. Can build and repair structures.
 Button/Tooltip/CRPGOutpost=Primary structure. Used to receive gathered resources. Can upgrade into a Fortress.
 Button/Tooltip/CRPGOutpostFlying=Primary structure. Must land to receive resources, produce units, or use abilities.
+Button/Tooltip/CRPGPredatorDrone=A Predator repurposed into a supportive role. Can see up cliffs.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c><n/><c val="#ColorDetectorInfo">Detector</c>
+Button/Tooltip/CRPGScientist=Support trooper. Heals nearby units.<n/><n/><s val="@@StandardTooltipHeaderSub">Learns:</s><n/><c val="#ColorActiveAbilityInfo">Healing Beam</c><n/><c val="#ColorActiveAbilityInfo">Irradiate</c><n/><c val="#ColorActiveAbilityInfo">Medivac</c><n/><c val="#ColorPassiveAbilityInfo">Optical Flare</c><n/><c val="#ColorPassiveAbilityInfo">Selfix Armor</c><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShip=Agile flyer. Uses supportive abillities to improve himself and allies in combat.<n/><n/><s val="ModLeftSize16"><c val="FFFF80">Learns:</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_1.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Disruption Web</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_2.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Cloaking Field</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_3.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Stasis Ward</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_4.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="3333AA">Purifier Turrets</c><n/><img path="Assets\Textures\ui_battlenet_glue_coop_countdown_5.dds" width="20" height="20" alignment="AbsoluteMiddle"/> <c val="33AA33">Vortex</c></s><n/><n/><c val="#ColorAttackInfo">Can attack ground and air units.</c>
 Button/Tooltip/CRPGShipLevel4=Mobile flying caster. Can use Photon Overcharge, Mass Recall, and Time Warp abilities. Can upgrade into the Mothership.<n/><n/><c val="#ColorAttackInfo">Can attack ground units.</c>
 Button/Tooltip/CRPGShipLevel5=Ultimate Protoss vessel. Can use Photon Overcharge, Mass Recall, and Time Warp abilities. Cloaks nearby friendly units and structures.<n/><n/><c val="ffff8a">Can attack ground and air units.</c>
@@ -923,28 +930,32 @@ Button/Tooltip/MechShockBlast=Unleash a violent burst of energy, stunning and de
 Button/Tooltip/MechShockBlast@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MechShockBlast,Cost[0].Vital[Energy]"/><n/><n/>Stun and deal <d ref="Behavior,MechShockBlast@Damaging,PeriodCount * Effect,MechShockBlast@Damage,Amount"/> damage to nearby enemies.
 Button/Tooltip/MechShockBlast@Upgraded=Radius increased by 60%.
 Button/Tooltip/MechShockBlast@Upgraded@Upgraded=NYI
-Button/Tooltip/MedicHealingBeam=Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCasterEnergy,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.</c>
-Button/Tooltip/MedicHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><n/>Grants an allied unit <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them for <d ref="Effect,MedicHealingBeam@MUTarget,VitalArray[Life].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,MedicHealingBeam@MUCasterEnergy,VitalArray[Energy].Change / Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.
-Button/Tooltip/MedicHealingBeam@Upgraded=Healing Beam's healing rate is increased by <d ref="-100 * ([d stringref='Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>%.
-Button/Tooltip/MedicIrradiate=Irradiates a target unit, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@Damage,Amount$" precision="3"/></c> damage per second for <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to enemy units near the target.
-Button/Tooltip/MedicIrradiate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MedicIrradiate,Cost[0].Vital[Energy]"/><n/><n/>Irradiates a target unit, dealing <d ref="Behavior,MedicIrradiate,Duration * Effect,MedicIrradiate@Damage,Amount"/> damage over <d time="[d ref='Behavior,MedicIrradiate,Duration'/]"/> to surrounding enemy units.
-Button/Tooltip/MedicIrradiate@Upgraded=Irradiate deals an additional <d ref="Effect,MedicIrradiate@DamageLinger,Amount * (1 + Behavior,MedicIrradiate@Linger,Duration)"/> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/> to any unit damaged by the primary effect. The primary effect lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
-Button/Tooltip/MedicIrradiate@UpgradedAccumulated=Irradiate deals an additional <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,MedicIrradiate@DamageLinger,Amount$ * (1 + Behavior,MedicIrradiate@Linger,Duration)"/></c> damage over <d time="[d ref='Behavior,MedicIrradiate@Linger,Duration'/]"/> to enemy units damaged by the primary effect. The primary effect lingers on the ground for <d time="[d ref='Effect,MedicIrradiate@CP,PeriodCount * Effect,MedicIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
-Button/Tooltip/MedicOpticalFlare=This unit has +<d ref="Behavior,MedicOpticalFlare,Modification.SightBonus"/> sight range, detection, and can see up a cliff level.<n/><n/>Enemy units that enter its vision are blinded. Blinded units can't detect, have <d ref="-Behavior,MedicOpticalFlare@Blind,Modification.SightBonus"/> reduced sight range, and ranged units have <d ref="-Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange"/> reduced attack range.
-Button/Tooltip/MedicOpticalFlare@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Gain sight range, detection, and cliff sight. Nearby enemies have reduced sight and weapon range.
-Button/Tooltip/MedicOpticalFlare@Upgraded=Optical Flare further reduces enemy sight range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,MedicOpticalFlare@Blind,Modification.SightBonus$"/>, attack range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange$"/>, and grants the caster detection.
 Button/Tooltip/MedicRestorativeBurst=Instantly heals friendly units in an area around the caster for <d ref="Effect,MedicRestorativeBurstHealInitial,VitalArray[Life].Change"/> life. Regenerates an additional <d ref="Effect,MedicRestorativeBurstHealTick,VitalArray[Life].Change"/> life per second over <d ref="Behavior,MedicRestorativeBurst,Duration"/> seconds.
-Button/Tooltip/MedicSelfixArmor=When the caster takes damage, grant it <d ref="100 * (1 - Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heal it for <d ref="Behavior,MedicSelfixArmor@Restoring,Duration / Behavior,MedicSelfixArmor@Restoring,Period * Effect,MedicSelfixArmor@MUHeal,VitalArray[0].Change" Precision="3"/> life over <d time="[d ref='Behavior,MedicSelfixArmor@Restoring,Duration'/]"/>.
-Button/Tooltip/MedicSelfixArmor@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>When damaged, gain <d ref="100 * (1 - Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heal for <d ref="Behavior,MedicSelfixArmor@Restoring,Duration / Behavior,MedicSelfixArmor@Restoring,Period * Effect,MedicSelfixArmor@MUHeal,VitalArray[0].Change" Precision="3"/> life over <d time="[d ref='Behavior,MedicSelfixArmor@Restoring,Duration'/]"/>.
-Button/Tooltip/MedicSelfixArmor@Upgraded=Damage reduction of Selfix Armor increased by <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction$"/>%.
-Button/Tooltip/MedicSpawnMedivac=Call down a Medivac that casts Healing Beam on all nearby allies. Lasts <d time="[d ref='Behavior,MedicSpawnMedivac@TimedLife,Duration'/]"/>.
-Button/Tooltip/MedicSpawnMedivac@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,MedicSpawnMedivac,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,MedicSpawnMedivac,Cost[0].Cooldown.TimeUse"/><n/><n/>Calls down a Medivac that casts Healing Beam on nearby allies for <d time="[d ref='Behavior,MedicSpawnMedivac@TimedLife,Duration'/]"/>.
-Button/Tooltip/MedicSpawnMedivac@Upgraded=Medivac gains the Afterburners ability and the ability to transport units.
 Button/Tooltip/MedivacAfterburners=Increases the Medivac's movement speed by <d ref="100 * (Behavior,MedivacAfterburners,Modification.MoveSpeedMultiplier - 1)"/>% for <d time="[d ref='Behavior,MedivacAfterburners,Duration'/]"/>.
-Button/Tooltip/MedivacHealingBeam=Applies Healing Beam to nearby allies, granting <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and healing them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,MedicHealingBeam@CH,RechargeVitalRate"/> life per second.</c>
+Button/Tooltip/MedivacHealingBeam=Applies Healing Beam to nearby allies, granting <d ref="100 * (1 - Behavior,MedicHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and healing them if they're damaged while they remain in range.<n/><n/><c val="#ColorEnergyInfo">Heals <d ref="Effect,ScientistHealingBeam@MUTarget,VitalArray[Life].Change / Effect,ScientistHealingBeam@CP,PeriodicPeriodArray[0]"/> life per second.</c>
 Button/Tooltip/NoVisionRequired=<n/><n/><c val="#ColorAttackInfo">Does not require vision.</c>
+Button/Tooltip/PredatorDroneRoboticClaws@AOE=The Predator unleashes a deadly field of electricity each time it attacks, dealing its damage to nearby enemy ground units.
 Button/Tooltip/PsiStorm=Creates a storm of psionic energy that lasts <d time="4"/>, causing up to 80 damage to all units in the target area.
 Button/Tooltip/SandbagCover=Nearby allied ground units take <d ref="100 * (1 - Behavior,SandbagCover@InCover,DamageResponse.ModifyFraction)"/>% damage from ranged attacks.
+Button/Tooltip/ScientistHealingBeam=Grants an allied unit <d ref="100 * (1 - Behavior,ScientistHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them if they're damaged while they remain in range.<n/><n/><c val="f078ff">Heals <d ref="Effect,ScientistHealingBeam@MUTarget,VitalArray[Life].Change / Effect,ScientistHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,ScientistHealingBeam@MUCasterEnergy,VitalArray[Energy].Change / Effect,ScientistHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.</c>
+Button/Tooltip/ScientistHealingBeam@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><n/>Grants an allied unit <d ref="100 * (1 - Behavior,ScientistHealingBeam,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heals them for <d ref="Effect,ScientistHealingBeam@MUTarget,VitalArray[Life].Change / Effect,ScientistHealingBeam@CP,PeriodicPeriodArray[0]"/> life per <d ref="-1 * (Effect,ScientistHealingBeam@MUCasterEnergy,VitalArray[Energy].Change / Effect,ScientistHealingBeam@CP,PeriodicPeriodArray[0])"/> energy.
+Button/Tooltip/ScientistHealingBeam@Upgraded=Healing Beam can affect an additional target and has a <d ref="-100 * ([d stringref='Effect,ScientistHealingBeam@CP,PeriodicPeriodArray[0]'/] / $UpgradeEffectArrayValue:CRPGAbilityUpgradePrimary@Upgrade:Effect,ScientistHealingBeam@CP,PeriodicPeriodArray[0]$ + 1)" precision="5"/>% increased healing rate.
+Button/Tooltip/ScientistIrradiate=Irradiates a target unit, dealing <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ScientistIrradiate@Damage,Amount$" precision="3"/></c> damage per second for <d time="[d ref='Behavior,ScientistIrradiate,Duration'/]"/> to enemy biological units near the target.
+Button/Tooltip/ScientistIrradiate@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ScientistIrradiate,Cost[0].Vital[Energy]"/><n/><n/>Irradiates a target unit, dealing <d ref="Behavior,ScientistIrradiate,Duration * Effect,ScientistIrradiate@Damage,Amount"/> damage over <d time="[d ref='Behavior,ScientistIrradiate,Duration'/]"/> to surrounding enemy biological units.
+Button/Tooltip/ScientistIrradiate@Upgraded=Irradiate deals an additional <d ref="Effect,ScientistIrradiate@DamageLinger,Amount * (1 + Behavior,ScientistIrradiate@Linger,Duration)"/> damage over <d time="[d ref='Behavior,ScientistIrradiate@Linger,Duration'/]"/> to any unit damaged by the primary effect. The primary effect lingers on the ground for <d time="[d ref='Effect,ScientistIrradiate@CP,PeriodCount * Effect,ScientistIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
+Button/Tooltip/ScientistIrradiate@UpgradedAccumulated=Irradiate deals an additional <c val="#ColorAttackInfo"><d ref="$AccumulatedValue:Effect,ScientistIrradiate@DamageLinger,Amount$ * (1 + Behavior,ScientistIrradiate@Linger,Duration)"/></c> damage over <d time="[d ref='Behavior,ScientistIrradiate@Linger,Duration'/]"/> to enemy units damaged by the primary effect. The primary effect lingers on the ground for <d time="[d ref='Effect,ScientistIrradiate@CP,PeriodCount * Effect,ScientistIrradiate@CP,PeriodicPeriodArray[0]'/]"/> if the target unit is killed.
+Button/Tooltip/ScientistOpticalFlare=This unit has +<d ref="Behavior,ScientistOpticalFlare,Modification.SightBonus"/> sight range, detection, and can see up a cliff level.<n/><n/>Enemy units that enter its vision are blinded. Blinded units can't detect, have <d ref="-Behavior,ScientistOpticalFlare@Blind,Modification.SightBonus"/> reduced sight range, and ranged units have <d ref="-Behavior,ScientistOpticalFlare@Blind,Modification.RangedWeaponRange"/> reduced attack range.
+Button/Tooltip/ScientistOpticalFlare@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>Gain sight range, detection, and cliff sight. Nearby enemies have reduced sight and weapon range.
+Button/Tooltip/ScientistOpticalFlare@Upgraded=Optical Flare further reduces enemy sight range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,ScientistOpticalFlare@Blind,Modification.SightBonus$"/>, attack range by <d ref="-$UpgradeEffectArrayValue:CRPGAbilityUpgradePassivePrimary@Upgrade:Behavior,ScientistOpticalFlare@Blind,Modification.RangedWeaponRange$"/>, and grants the caster detection.
+Button/Tooltip/ScientistPredatorDrone=Automatically assemble a durable drone. Predator Drones can detect enemies, see up cliffs, and attack ground units.
+Button/Tooltip/ScientistPredatorDrone@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ScientistPredatorDrone,InfoArray[Train1].Time"/><n/><n/>Assemble a drone that can detect enemies, see up cliffs, and attack ground units.
+Button/Tooltip/ScientistPredatorDrone@Upgraded=Predator Drones deal damage in an area and gain full benefits from armor upgrades.
+Button/Tooltip/ScientistSelfixArmor=When the caster takes damage, grant it <d ref="100 * (1 - Behavior,ScientistSelfixArmor@Restoring,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heal it for <d ref="Behavior,ScientistSelfixArmor@Restoring,Duration / Behavior,ScientistSelfixArmor@Restoring,Period * Effect,ScientistSelfixArmor@MUHeal,VitalArray[0].Change" Precision="3"/> life over <d time="[d ref='Behavior,ScientistSelfixArmor@Restoring,Duration'/]"/>.
+Button/Tooltip/ScientistSelfixArmor@Learn=<s val="@@StandardTooltipHeaderSub">Passive Ability</s><n/><n/>When damaged, gain <d ref="100 * (1 - Behavior,ScientistSelfixArmor@Restoring,DamageResponse.ModifyFraction)" Precision="3"/>% damage reduction and heal for <d ref="Behavior,ScientistSelfixArmor@Restoring,Duration / Behavior,ScientistSelfixArmor@Restoring,Period * Effect,ScientistSelfixArmor@MUHeal,VitalArray[0].Change" Precision="3"/> life over <d time="[d ref='Behavior,ScientistSelfixArmor@Restoring,Duration'/]"/>.
+Button/Tooltip/ScientistSelfixArmor@Upgraded=Damage reduction of Selfix Armor increased by <d ref="100 * $UpgradeEffectArrayValue:CRPGAbilityUpgradePassiveSecondary@Upgrade:Behavior,ScientistSelfixArmor@Restoring,DamageResponse.ModifyFraction$"/>%.
+Button/Tooltip/ScientistSpawnMedivac=Call down a Medivac that casts Healing Beam on all nearby allies. Lasts <d time="[d ref='Behavior,ScientistSpawnMedivac@TimedLife,Duration'/]"/>.
+Button/Tooltip/ScientistSpawnMedivac@Learn=<s val="@@StandardTooltipHeaderSub">Active Ability</s><n/><img path="@@UI/ResourceIcon2" width="24" height="24"/><d ref="Abil,ScientistSpawnMedivac,Cost[0].Vital[Energy]"/> <img path="@@UI/ResourceIcon4" width="24" height="24"/><d ref="Abil,ScientistSpawnMedivac,Cost[0].Cooldown.TimeUse"/><n/><n/>Calls down a Medivac that casts Healing Beam on nearby allies for <d time="[d ref='Behavior,ScientistSpawnMedivac@TimedLife,Duration'/]"/>.
+Button/Tooltip/ScientistSpawnMedivac@Upgraded=Medivac gains the Afterburners ability and the ability to transport units.
 Button/Tooltip/ShipCloakingField=Cloaks self and friendly nearby units. Dealing damage will un-cloak the attacker.
 Button/Tooltip/ShipDisruptionWeb=Creates a web of energy on the ground that prevents enemy structures and ground units from attacking for <d ref="Effect,ShipDisruptionWebCreatePersistent,PeriodicPeriodArray[0] * Effect,ShipDisruptionWebCreatePersistent,PeriodCount"/> seconds and slows them by <d ref="1 - Behavior,ShipDisruptionWeb,Modification.MoveSpeedMultiplier * 100"/>%.
 Button/Tooltip/ShipPurifierTurrets=The unit may move while firing its weapon. Its attacks slow enemies.
@@ -1052,8 +1063,10 @@ DataCollection/Name/CRPGJumper=Jumper
 DataCollection/Name/CRPGMarauder=Marauder
 DataCollection/Name/CRPGMarine=Marine
 DataCollection/Name/CRPGMech=Mech
-DataCollection/Name/CRPGMedic=Medic
+DataCollection/Name/CRPGMedivac=Medivac
 DataCollection/Name/CRPGMedivacTransport=Transport
+DataCollection/Name/CRPGPredatorDrone=Predator Drone
+DataCollection/Name/CRPGScientist=Scientist
 DataCollection/Name/CRPGShooter=Shooter
 DataCollection/Name/CRPGSniper=Sniper
 DataCollection/Name/CRPGUnderlingLevel=Underling Level
@@ -1123,13 +1136,6 @@ DataCollection/Name/MechMultiLockTargetingSystem=Multi-Lock Targeting System
 DataCollection/Name/MechPointDefenseDrone=Point Defense Drone
 DataCollection/Name/MechPointDefenseDrones=Point Defense Drones
 DataCollection/Name/MechShockBlast=Shock Blast
-DataCollection/Name/MedicCorrosiveSpray=Corrosive Spray
-DataCollection/Name/MedicHealingBeam=Healing Beam
-DataCollection/Name/MedicIrradiate=Irradiate
-DataCollection/Name/MedicMedivac=Medivac
-DataCollection/Name/MedicOpticalFlare=Optical Flare
-DataCollection/Name/MedicSelfixArmor=Selfix Armor
-DataCollection/Name/MedicSpawnMedivac=Spawn Medivac
 DataCollection/Name/MedivacAfterburners=Afterburners
 DataCollection/Name/MedivacHealingBeam=Healing Beam
 DataCollection/Name/ParasiteSuicide=Suicide
@@ -1138,6 +1144,7 @@ DataCollection/Name/PlasmaCanisterChargeHuge=Charge
 DataCollection/Name/PlasmaCanisterChargeLarge=Charge
 DataCollection/Name/PlasmaCanisterChargeSmall=Charge
 DataCollection/Name/PointDefenseDroneLaser=Laser
+DataCollection/Name/PredatorDroneRoboticClaws=Robotic Claws
 DataCollection/Name/PsionicProjectionDisruptorVolley=Disruptor Volley
 DataCollection/Name/PsionicProjectionProjectionBeam=Projection Beam
 DataCollection/Name/RevenantTimedLife=Timed Life
@@ -1145,6 +1152,13 @@ DataCollection/Name/SandbagCover=Cover
 DataCollection/Name/ScarabMineBurrow=Burrow
 DataCollection/Name/ScarabMineExplode=Explode
 DataCollection/Name/ScarabMineUnburrow=Unburrow
+DataCollection/Name/ScientistCorrosiveSpray=Corrosive Spray
+DataCollection/Name/ScientistHealingBeam=Healing Beam
+DataCollection/Name/ScientistIrradiate=Irradiate
+DataCollection/Name/ScientistOpticalFlare=Optical Flare
+DataCollection/Name/ScientistPredatorDrone=Predator Drone
+DataCollection/Name/ScientistSelfixArmor=Selfix Armor
+DataCollection/Name/ScientistSpawnMedivac=Spawn Medivac
 DataCollection/Name/ShadePsionicInterference=Psionic Interference
 DataCollection/Name/ShadowBlink=Shadow Blink
 DataCollection/Name/ShooterChaingun=Chaingun
@@ -2036,47 +2050,11 @@ Effect/Name/MechShockBlast@CP=Create Persistent
 Effect/Name/MechShockBlast@Damage=Damage
 Effect/Name/MechShockBlast@SA=Search Area
 Effect/Name/MechShockBlast@SetSearch=Set
-Effect/Name/MedicCorrosiveSpray@Damage=Damage
-Effect/Name/MedicCorrosiveSpray@LM=Launch Missile
-Effect/Name/MedicHealingBeam@AB=Apply Behavior
-Effect/Name/MedicHealingBeam@ABCaster=Apply Behavior
-Effect/Name/MedicHealingBeam@CP=Create Persistent
-Effect/Name/MedicHealingBeam@Dummy=Dummy
-Effect/Name/MedicHealingBeam@DummyDoneHealing=Dummy
-Effect/Name/MedicHealingBeam@MUCasterEnergy=Modify Unit
-Effect/Name/MedicHealingBeam@MUCasterXP=Modify Unit
-Effect/Name/MedicHealingBeam@MUTarget=Modify Unit
-Effect/Name/MedicHealingBeam@RB=Remove Behavior
-Effect/Name/MedicHealingBeam@RBCaster=Remove Behavior
-Effect/Name/MedicHealingBeam@SetAB=Set
-Effect/Name/MedicHealingBeam@SetHeal=Set
-Effect/Name/MedicHealingBeam@SetPeriod=Set
-Effect/Name/MedicHealingBeam@SetRB=Set
-Effect/Name/MedicHealingBeam@SwitchHeal=Switch
-Effect/Name/MedicIrradiate@AB=Apply Behavior
-Effect/Name/MedicIrradiate@ABLinger=Apply Behavior
-Effect/Name/MedicIrradiate@CP=Create Persistent
-Effect/Name/MedicIrradiate@Damage=Damage
-Effect/Name/MedicIrradiate@DamageLinger=Damage
-Effect/Name/MedicIrradiate@SA=Search Area
-Effect/Name/MedicIrradiate@Set=Set
-Effect/Name/MedicIrradiate@SetSearch=Set
-Effect/Name/MedicOpticalFlare@AB=Apply Behavior
-Effect/Name/MedicOpticalFlare@SA=Search Area
 Effect/Name/MedicRestorativeBurstApplyBehavior=Restorative Burst
 Effect/Name/MedicRestorativeBurstHealInitial=Restorative Burst
 Effect/Name/MedicRestorativeBurstHealTick=Restorative Burst
 Effect/Name/MedicRestorativeBurstSearchArea=Restorative Burst
 Effect/Name/MedicRestorativeBurstSet=Restorative Burst
-Effect/Name/MedicSelfixArmor@AB=Apply Behavior
-Effect/Name/MedicSelfixArmor@MUHeal=Modify Unit
-Effect/Name/MedicSpawnMedivac@ABPrecursor=Apply Behavior
-Effect/Name/MedicSpawnMedivac@ABTimedLife=Apply Behavior
-Effect/Name/MedicSpawnMedivac@CU=Create Unit
-Effect/Name/MedicSpawnMedivac@IO=Issue Order
-Effect/Name/MedicSpawnMedivac@MULower=Modify Unit
-Effect/Name/MedicSpawnMedivac@MURaise=Modify Unit
-Effect/Name/MedicSpawnMedivac@Set=Set
 Effect/Name/MedivacAfterburners@AB=Apply Behavior
 Effect/Name/MedivacHealingBeam@SA=Search Area
 Effect/Name/NeedleSpinesDamage=Melee
@@ -2107,6 +2085,10 @@ Effect/Name/PointDefenseDroneLaser@SARepair=Search Area
 Effect/Name/PointDefenseDroneLaser@SetAntiMissile=Set
 Effect/Name/PointDefenseDroneLaser@SetCooldowns=Set
 Effect/Name/PointDefenseDroneLaser@SetRepair=Set
+Effect/Name/PredatorDroneRoboticClaws@Damage=Damage
+Effect/Name/PredatorDroneRoboticClaws@DamageArea=Damage
+Effect/Name/PredatorDroneRoboticClaws@SA=Search Area
+Effect/Name/PredatorDroneRoboticClaws@Set=Set
 Effect/Name/PsionicProjectionDisruptorVolley@CP=Create Persistent
 Effect/Name/PsionicProjectionDisruptorVolley@ETU=Enum Caster
 Effect/Name/PsionicProjectionDisruptorVolley@LM=Launch Missile
@@ -2126,6 +2108,45 @@ Effect/Name/ScarabMineExplode@AB=Apply Behavior
 Effect/Name/ScarabMineExplode@Damage=Damage
 Effect/Name/ScarabMineExplode@SA=Search Area
 Effect/Name/ScarabMineExplode@Set=Set
+Effect/Name/ScientistCorrosiveSpray@Damage=Damage
+Effect/Name/ScientistCorrosiveSpray@LM=Launch Missile
+Effect/Name/ScientistHealingBeam@AB=Apply Behavior
+Effect/Name/ScientistHealingBeam@ABCaster=Apply Behavior
+Effect/Name/ScientistHealingBeam@CP=Create Persistent
+Effect/Name/ScientistHealingBeam@Dummy=Dummy
+Effect/Name/ScientistHealingBeam@DummyDoneHealing=Dummy
+Effect/Name/ScientistHealingBeam@MUCasterEnergy=Modify Unit
+Effect/Name/ScientistHealingBeam@MUCasterXP=Modify Unit
+Effect/Name/ScientistHealingBeam@MUTarget=Modify Unit
+Effect/Name/ScientistHealingBeam@RB=Remove Behavior
+Effect/Name/ScientistHealingBeam@RBCaster=Remove Behavior
+Effect/Name/ScientistHealingBeam@SetAB=Set
+Effect/Name/ScientistHealingBeam@SetHeal=Set
+Effect/Name/ScientistHealingBeam@SetPeriod=Set
+Effect/Name/ScientistHealingBeam@SetRB=Set
+Effect/Name/ScientistHealingBeam@SwitchHeal=Switch
+Effect/Name/ScientistIrradiate@AB=Apply Behavior
+Effect/Name/ScientistIrradiate@ABLinger=Apply Behavior
+Effect/Name/ScientistIrradiate@CP=Create Persistent
+Effect/Name/ScientistIrradiate@Damage=Damage
+Effect/Name/ScientistIrradiate@DamageLinger=Damage
+Effect/Name/ScientistIrradiate@SA=Search Area
+Effect/Name/ScientistIrradiate@Set=Set
+Effect/Name/ScientistIrradiate@SetSearch=Set
+Effect/Name/ScientistOpticalFlare@AB=Apply Behavior
+Effect/Name/ScientistOpticalFlare@SA=Search Area
+Effect/Name/ScientistPredatorDrone@ABRefundCharge=Apply Behavior
+Effect/Name/ScientistPredatorDrone@MURefundCharge=Modify Unit
+Effect/Name/ScientistPredatorDrone@SetCreate=Set
+Effect/Name/ScientistSelfixArmor@AB=Apply Behavior
+Effect/Name/ScientistSelfixArmor@MUHeal=Modify Unit
+Effect/Name/ScientistSpawnMedivac@ABPrecursor=Apply Behavior
+Effect/Name/ScientistSpawnMedivac@ABTimedLife=Apply Behavior
+Effect/Name/ScientistSpawnMedivac@CU=Create Unit
+Effect/Name/ScientistSpawnMedivac@IO=Issue Order
+Effect/Name/ScientistSpawnMedivac@MULower=Modify Unit
+Effect/Name/ScientistSpawnMedivac@MURaise=Modify Unit
+Effect/Name/ScientistSpawnMedivac@Set=Set
 Effect/Name/ShadePsionicInterference@AB=Apply Behavior
 Effect/Name/ShadePsionicInterference@Damage=Damage
 Effect/Name/ShadePsionicInterference@SA=Search Area
@@ -2710,7 +2731,7 @@ RequirementNode/Tooltip/LT1819015750SumCountUnitCRPGSwarmerLevel1QueuedOrBetterC
 RequirementNode/Tooltip/LT187835481CountUpgradeArmoryUpgradeArmor@UpgradeQueuedOrBetter100=Not Max Armor Upgrade
 RequirementNode/Tooltip/LT2100730577CountBehaviorCRPGHeroVeterancyCompleteOnlyAtUnit5=Not Max Level
 RequirementNode/Tooltip/LT2210218377CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit8=Carrier must have fewer than 8 Interceptors
-RequirementNode/Tooltip/LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1=Healing Beam Target Limit
+RequirementNode/Tooltip/LT3245403099CountBehaviorScientistHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1=Healing Beam Target Limit
 RequirementNode/Tooltip/LT3328700988CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100=Not Max Energy Upgrade
 RequirementNode/Tooltip/LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2=<2 Point Defense Drones
 RequirementNode/Tooltip/LT3608225112CountUnitSwarmerSwarmerSpawnQueuedOrBetter8=Less than 8 Swarmers
@@ -2720,6 +2741,7 @@ RequirementNode/Tooltip/LT387787049CountBehaviorInfestedInfestationSpore@BuffCom
 RequirementNode/Tooltip/LT596643247CountUpgradeArmoryUpgradeDamage@UpgradeQueuedOrBetter100=Not Max Damage Upgrade
 RequirementNode/Tooltip/Not1698435803OrCountBehaviorUninfestedOverlordCompleteOnlyAtUnit=Not Infested
 RequirementNode/Tooltip/Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit=Already Linked
+RequirementNode/Tooltip/Not3346689797CountUnitCRPGPredatorDroneQueuedOrBetterAtUnit=<2 Point Defense Drones
 RequirementNode/Tooltip/Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit=Not Locked On
 RequirementNode/Tooltip/Or2694335422CountAbilHunterScarabMineCompleteOnlyAtUnitCountAbilHunterShadowTransferCompleteOnlyAtUnitCountAbilHunterDisruptorVolleyCompleteOnlyAtUnit=Any Active Ability
 RequirementNode/Tooltip/Or2841047433CountAbilJumperPredictiveBlinkCompleteOnlyAtUnitCountAbilJumperPhaseBlinkCompleteOnlyAtUnitCountAbilJumperSlayerBlinkCompleteOnlyAtUnit=Any Blink Ability
@@ -2792,14 +2814,15 @@ Unit/Name/CRPGJumper=Jumper
 Unit/Name/CRPGMarauder=Marauder
 Unit/Name/CRPGMarine=Marine
 Unit/Name/CRPGMech=Mech
-Unit/Name/CRPGMedic=Medic
 Unit/Name/CRPGMedicLevel1=Medic
 Unit/Name/CRPGMedicLevel2=Medic
 Unit/Name/CRPGMedicLevel22=Medic Copy
 Unit/Name/CRPGMedicLevel3=Field Response Theta Copy
+Unit/Name/CRPGMedivac=Medivac
 Unit/Name/CRPGNomad=Nomad
 Unit/Name/CRPGNydusWorm=Nydus Worm
 Unit/Name/CRPGOutpost=Outpost
+Unit/Name/CRPGPredatorDrone=Predator Drone
 Unit/Name/CRPGShip=Ship
 Unit/Name/CRPGShipLevel3=Ship
 Unit/Name/CRPGShipLevel4=Ship
@@ -2854,12 +2877,12 @@ Unit/Name/LockedNydusNetwork=Nydus Network
 Unit/Name/LurkerMP=Alien
 Unit/Name/MechHellfireMissiles@Weapon=Weapon
 Unit/Name/MechPointDefenseDrone=Point Defense Drone
-Unit/Name/MedicCorrosiveSpray@Weapon=Weapon
-Unit/Name/MedicMedivac=Medivac
 Unit/Name/Mutalisk=Alien
 Unit/Name/NydusNetwork=Nydus Network
 Unit/Name/SCBRJumper=Stalker
 Unit/Name/ScatterCannonMissile=Scatter Cannon
+Unit/Name/Scientist=Scientist
+Unit/Name/ScientistCorrosiveSpray@Weapon=Weapon
 Unit/Name/Scourge=Alien
 Unit/Name/ShooterGravityGrenade@Weapon=Weapon
 Unit/Name/ShooterSandbags=Sandbags
@@ -2934,10 +2957,11 @@ Weapon/Name/MechCannonBoth=Cannon
 Weapon/Name/MechCannonGround=Cannon
 Weapon/Name/MechHellfireMissiles=Hellfire Missiles
 Weapon/Name/MechHellfireMissiles@MultiLock=Hellfire Missiles
-Weapon/Name/MedicCorrosiveSpray=Corrosive Spray
 Weapon/Name/ParasiteSuicide=Suicide
 Weapon/Name/PointDefenseLaserMech=Point Defense Laser
+Weapon/Name/PredatorDroneRoboticClaws=Robotic Claws
 Weapon/Name/ScarabMineExplode=Explode
+Weapon/Name/ScientistCorrosiveSpray=Corrosive Spray
 Weapon/Name/ShipNeutronFlare=Neutron Flare
 Weapon/Name/ShipPhotonBlaster=Photon Blaster
 Weapon/Name/ShipPulsarBeam=Pulsar Beam

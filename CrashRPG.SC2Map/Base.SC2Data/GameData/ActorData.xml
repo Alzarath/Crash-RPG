@@ -25,6 +25,29 @@
         <On Terms="Effect.ApparitionParticleDisruptors@ABHide.Start; At Caster" Send="Create"/>
         <Sound value="Nova_Holographic_Decoy_Death2"/>
     </CActorSound>
+    <CActorModel id="HeroDetectorRadarModel_Detector6" parent="ModelAnimationStyleContinuous">
+        <Terms value="Cap 1"/>
+        <On Terms="Effect.HeroDetectorRadarDetected.Start; At Target; ValidateUnit HasDetector6" Send="Create"/>
+        <On Terms="Effect.HeroDetectorRadarDetected.Start" Send="RefSetFromRequest ::actor.TargetList HeroDetectorList Implicit Find"/>
+        <On Terms="Behavior.HeroDetectorRadarDetected.Off" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetVisibility"/>
+        <On Terms="Behavior.HeroDetectorRadarDetected.On" Target="::actor.TargetList" Send="Signal AddMe"/>
+        <On Terms="ActorDestruction" Target="::actor.TargetList" Send="Signal RemoveMe"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="HeroDetectorRadarModel"/>
+    </CActorModel>
+    <CActorRange id="HeroDetectorRadarRange_Detector6">
+        <Terms value="Cap 1"/>
+        <On Terms="Effect.HeroDetectorRadarDetected.Start; At Target; ValidateUnit HasDetector6" Send="Create"/>
+        <On Terms="Effect.HeroDetectorRadarDetected.Start" Send="RefSetFromRequest ::actor.TargetList HeroDetectorList Implicit Find"/>
+        <On Terms="Behavior.HeroDetectorRadarDetected.Off" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="SetVisibility"/>
+        <On Terms="Behavior.HeroDetectorRadarDetected.On" Target="::actor.TargetList" Send="Signal AddMe"/>
+        <On Terms="ActorDestruction" Target="::actor.TargetList" Send="Signal RemoveMe"/>
+        <Behavior value="Detector6"/>
+        <IconArcLength value="3.000000"/>
+    </CActorRange>
     <CActorAction id="JumperParticleDisruptors@AttackEnhanced" parent="GenericAttack" effectImpact="JumperParticleDisruptors@DamageEnhanced" effectLaunch="JumperParticleDisruptors@LMEnhanced">
         <LaunchAssets Sound="Stalker_AttackLaunch_Low"/>
         <Missile value="JumperParticleDisruptors@MissileEnhanced"/>
@@ -474,7 +497,13 @@
         </Wireframe>
         <WireframeShieldColor value="255,0,128,0"/>
     </CActorUnit>
-    <CActorSound id="MedicHealingBeam@SoundLoop" parent="SoundContinuous">
+    <CActorRange id="ScientistHealingBeam@Range2" abil="ScientistHealingBeam">
+        <On Terms="Behavior.ScientistHealingBeam@Channeling.On; ValidateUnit ScientistHealingBeam@CasterHasOneChannelingStack" Send="Create"/>
+        <On Terms="Behavior.ScientistHealingBeam@Channeling.Off; ValidateUnit ScientistHealingBeam@NotChanneling" Send="Destroy"/>
+        <Abil Link="ScientistHealingBeam"/>
+        <IconTint value="255,0,255,0"/>
+    </CActorRange>
+    <CActorSound id="ScientistHealingBeam@SoundLoop" parent="SoundContinuous">
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOverhead"/>
         <Sound value="Medic_Heal"/>
@@ -486,6 +515,50 @@
         <HostSiteOps Ops="SOpAttachOverhead"/>
         <Model value="MindBlastStun"/>
         <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
+    <CActorUnit id="CRPGPredatorDrone" parent="GenericUnitStandard" unitName="CRPGPredatorDrone">
+        <Aliases value="_UnitMedium"/>
+        <Macros value="UnloadDropAnim"/>
+        <Model value="Predator"/>
+        <Baselines index="Walk" AnimProps="Walk,Fast"/>
+        <BuildModel value="Predator"/>
+        <DeathArray index="Normal" ModelLink="PredatorDeath" SoundLink="Predator_Explode"/>
+        <PlacementModel value="Predator"/>
+        <PortraitModel value="CyberCatPortrait"/>
+        <BarOffset value="50"/>
+        <BarWidth value="102"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-predator.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\BTN-Unit-Terran-Predator.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="Predator_Ready"/>
+        <SoundArray index="What" value="Predator_What"/>
+        <SoundArray index="Yes" value="Predator_Yes"/>
+        <SoundArray index="Attack" value="Predator_Attack"/>
+        <UnitIcon value="Assets\Textures\BTN-Unit-Terran-Predator.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-predator.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorAction id="PredatorDroneRoboticClaws@Attack" parent="GenericAttack" effectAttack="PredatorDroneRoboticClaws@Damage">
+        <LaunchAttachQuery Methods="Weapon"/>
+        <LaunchAssets Sound="Predator_AttackLaunch"/>
+        <ImpactMap index="None" Sound="Predator_AttackImpact"/>
+        <ImpactMap index="Flesh" Model="BloodTargetImpact"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorSound id="RetributionFieldImpactSound2" parent="SoundOneShot">
+        <On Terms="Effect.PredatorDroneRoboticClaws@DamageArea.Start" Send="Create"/>
+        <Sound value="RetributionFieldImpactSound"/>
+    </CActorSound>
+    <CActorModel id="RetributionFieldLaunch2" parent="ModelAnimationStyleOneShot">
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.PredatorDroneRoboticClaws@SA.Start; At Caster" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <Model value="RetributionFieldLaunch"/>
     </CActorModel>
     <CActorSiteOpForward id="SOpForwardUnit">
         <HostForward Subject="CRPGShooter"/>
@@ -819,17 +892,17 @@
             <Image value="Assets\Textures\wireframe-protoss-adept-shield03.dds"/>
         </WireframeShield>
     </CActorUnit>
-    <CActorBeamSimple id="MedicHealingBeam@Beam" parent="BeamSimpleAnimationStyleContinuous">
-        <On Terms="Effect.MedicHealingBeam@CP.Stop; FromEffectTreeDescendant" Send="Destroy"/>
+    <CActorBeamSimple id="ScientistHealingBeam@Beam" parent="BeamSimpleAnimationStyleContinuous">
+        <On Terms="Effect.ScientistHealingBeam@CP.Stop; FromEffectTreeDescendant" Send="Destroy"/>
         <On Terms="ActorCreation" Target="::Creator" Send="Signal BeamCreated"/>
         <On Terms="ActorCreation" Send="SetTintColor 64,64,64"/>
-        <On Terms="Effect.MedicHealingBeam@CP.Start; At Target" Send="Create"/>
-        <On Terms="Effect.MedicHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="SetTintColor 255,255,255"/>
-        <On Terms="Effect.MedicHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="Create MedicHealingBeam@SoundLoop"/>
-        <On Terms="Effect.MedicHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="StatusSet IsHealing 1"/>
-        <On Terms="Effect.MedicHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Send="SetTintColor 64,64,64"/>
-        <On Terms="Effect.MedicHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Target="MedicHealingBeam@SoundLoop" Send="Destroy"/>
-        <On Terms="Effect.MedicHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Send="StatusSet IsHealing 0"/>
+        <On Terms="Effect.ScientistHealingBeam@CP.Start; At Target" Send="Create"/>
+        <On Terms="Effect.ScientistHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="SetTintColor 255,255,255"/>
+        <On Terms="Effect.ScientistHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="Create MedicHealingBeam@SoundLoop"/>
+        <On Terms="Effect.ScientistHealingBeam@MUTarget.Start; IsStatus IsHealing 0" Send="StatusSet IsHealing 1"/>
+        <On Terms="Effect.ScientistHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Send="SetTintColor 64,64,64"/>
+        <On Terms="Effect.ScientistHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Target="ScientistHealingBeam@SoundLoop" Send="Destroy"/>
+        <On Terms="Effect.ScientistHealingBeam@DummyDoneHealing.Start; IsStatus IsHealing 1" Send="StatusSet IsHealing 0"/>
         <Host Subject="_Unit" Scope="Caster" Actor="Find"/>
         <Model value="MedicHealBeam"/>
         <ModelFlags index="AutomateGlobalLoops" value="1"/>
@@ -838,11 +911,11 @@
         <HostImpact Subject="_Unit" Actor="Find"/>
         <HostImpactSiteOps Ops="SOpAttachCenter"/>
     </CActorBeamSimple>
-    <CActorModel id="MedicIrradiate@ModelLinger">
+    <CActorModel id="ScientistIrradiate@ModelLinger">
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Visibility" value="1"/>
-        <On Terms="Behavior.MedicIrradiate@Linger.On" Send="Create"/>
-        <On Terms="Behavior.MedicIrradiate@Linger.Off" Send="Destroy"/>
+        <On Terms="Behavior.ScientistIrradiate@Linger.On" Send="Create"/>
+        <On Terms="Behavior.ScientistIrradiate@Linger.Off" Send="Destroy"/>
         <On Terms="ActorCreation" Send="$Stand PlayForever"/>
         <On Terms="ActorCreation" Send="SetTintColor 0,255,0"/>
         <On Terms="ActorCreation" Send="SetOpacity 0.750000"/>
@@ -851,9 +924,9 @@
         <HostSiteOps Ops="SOpAttachCenter"/>
         <Model value="BlindingCloudModelAttachment"/>
     </CActorModel>
-    <CActorModel id="MedicIrradiate@ModelPoint">
-        <On Terms="Effect.MedicIrradiate@CP.Start" Send="Create"/>
-        <On Terms="Effect.MedicIrradiate@CP.Stop" Send="Destroy"/>
+    <CActorModel id="ScientistIrradiate@ModelPoint">
+        <On Terms="Effect.ScientistIrradiate@CP.Start" Send="Create"/>
+        <On Terms="Effect.ScientistIrradiate@CP.Stop" Send="Destroy"/>
         <On Terms="ActorCreation" Send="$Stand PlayForever"/>
         <On Terms="ActorCreation" Send="SetTintColor 0,255,0"/>
         <On Terms="ActorCreation" Send="SetOpacity 0.750000"/>
@@ -3349,7 +3422,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-Thor.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGMedic" parent="GenericUnitHeroBase" unitName="CRPGMedic" level="1">
+    <CActorUnit id="CRPGScientist" parent="GenericUnitHeroBase" unitName="CRPGScientist" level="1">
         <Aliases value="_UnitSmall"/>
         <Macros value="UnloadDropAnim"/>
         <Macros value="TerrainSquibAnimations"/>
@@ -3389,6 +3462,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-medic.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\BTN-Unit-Terran-Medic.dds"/>
+        <HighlightTooltip value="Unit/Name/Scientist"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <SoundArray index="Ready" value="Medic_Ready"/>
         <SoundArray index="Help" value="Medic_Help"/>
@@ -3401,7 +3475,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-medic.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGMedic@Level2" parent="GenericUnitHeroLeveled" unitName="CRPGMedic" level="2">
+    <CActorUnit id="CRPGScientist@Level2" parent="GenericUnitHeroLeveled" unitName="CRPGScientist" level="2">
         <Aliases value="_UnitSmall"/>
         <Macros value="UnloadDropAnim"/>
         <Macros value="TerrainSquibAnimations"/>
@@ -3441,6 +3515,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-medic.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\BTN-Unit-Terran-Medic.dds"/>
+        <HighlightTooltip value="Unit/Name/Scientist"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <SoundArray index="Ready" value="Medic_Ready"/>
         <SoundArray index="Help" value="Medic_Help"/>
@@ -3453,7 +3528,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-medic.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGMedic@Level3" parent="GenericUnitHeroLeveled" unitName="CRPGMedic" level="3">
+    <CActorUnit id="CRPGScientist@Level3" parent="GenericUnitHeroLeveled" unitName="CRPGScientist" level="3">
         <Aliases value="_UnitSmall"/>
         <Macros value="UnloadDropAnim"/>
         <On index="65" Send="AnimBracketStart Attack Spell"/>
@@ -3464,6 +3539,9 @@
         <BuildModel value="LaynaNikaraMedic"/>
         <DeathArray index="Normal" ModelLink="LaynaNikaraDeathMedic" SoundLink="Medic_Explode"/>
         <DeathArray index="Blast" ModelLink="LaynaNikaraDeathMedic"/>
+        <DeathCustoms ModelLink="LaynaNikaraDeathRagdollMedic" Name="RagdollBasic"/>
+        <DeathCustoms ModelLink="LaynaNikaraDeathRagdollMedic" Name="RagdollSiegeTank"/>
+        <DeathCustoms ModelLink="LaynaNikaraDeathRagdollMedic" Name="RagdollUltraUnburrow"/>
         <PlacementModel value="LaynaNikaraMedic"/>
         <PortraitModel value="PortraitLaynaNikaraMedic"/>
         <WalkAnimMoveSpeed value="2.25"/>
@@ -3477,6 +3555,7 @@
         <GroupSoundArray index="Attack" value="Medic_GroupAttack"/>
         <GroupSoundArray index="Board" value="Medic_GroupBoard"/>
         <HeroIcon value="Assets\Textures\Wireframe-Terran-Medic-Mercenary.dds"/>
+        <HighlightTooltip value="Unit/Name/Scientist"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <SoundArray index="Ready" value="Medic_Ready"/>
         <SoundArray index="Help" value="Medic_Help"/>
@@ -3488,11 +3567,8 @@
         <Wireframe>
             <Image value="Assets\Textures\Wireframe-Terran-Medic-Mercenary.dds"/>
         </Wireframe>
-        <DeathCustoms ModelLink="LaynaNikaraDeathRagdollMedic" Name="RagdollBasic"/>
-        <DeathCustoms ModelLink="LaynaNikaraDeathRagdollMedic" Name="RagdollSiegeTank"/>
-        <DeathCustoms ModelLink="LaynaNikaraDeathRagdollMedic" Name="RagdollUltraUnburrow"/>
     </CActorUnit>
-    <CActorUnit id="CRPGMedic@Level4" parent="GenericUnitHeroLeveled" unitName="CRPGMedic" level="4">
+    <CActorUnit id="CRPGScientist@Level4" parent="GenericUnitHeroLeveled" unitName="CRPGScientist" level="4">
         <Aliases value="_UnitSmall"/>
         <Macros value="UnloadDropAnim"/>
         <On Terms="Behavior.OutOfCombatEnergyRegen.On" Send="AnimBracketStart Regen Cover,Start Cover Cover,End"/>
@@ -3511,6 +3587,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-Medic-Mercenary.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\Wireframe-Terran-Medic-Mercenary.dds"/>
+        <HighlightTooltip value="Unit/Name/Scientist"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <SoundArray index="Ready" value="Medic_Ready"/>
         <SoundArray index="Help" value="Medic_Help"/>
@@ -3523,7 +3600,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-Medic-Mercenary.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="CRPGMedic@Level5" parent="GenericUnitHeroLeveled" unitName="CRPGMedic" level="5">
+    <CActorUnit id="CRPGScientist@Level5" parent="GenericUnitHeroLeveled" unitName="CRPGScientist" level="5">
         <On index="65" Send="AnimBracketStart Attack Spell"/>
         <On Terms="Behavior.OutOfCombatEnergyRegen.On" Send="AnimBracketStart Regen Cover,Start Cover Cover,End"/>
         <On Terms="Behavior.OutOfCombatEnergyRegen.Off" Send="AnimBracketStop Regen"/>
@@ -3541,6 +3618,7 @@
             <Image value="Assets\Textures\Wireframe-Terran-stetmann.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\ui-heroicon-stetmann.dds"/>
+        <HighlightTooltip value="Unit/Name/Scientist"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
         <SoundArray index="Ready" value="Stetmann_Ready"/>
         <SoundArray index="Help" value="Stetmann_Help"/>
@@ -4884,10 +4962,10 @@
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Visibility" value="1"/>
     </CActorModel>
-    <CActorModel id="MedicOpticalFlare@ModelBlind" parent="ModelAnimationStyleContinuous">
+    <CActorModel id="ScientistOpticalFlare@ModelBlind" parent="ModelAnimationStyleContinuous">
         <EditorCategories value=""/>
-        <On Terms="Behavior.MedicOpticalFlare@Blind.On" Send="Create"/>
-        <On Terms="Behavior.MedicOpticalFlare@Blind.Off" Send="Destroy"/>
+        <On Terms="Behavior.ScientistOpticalFlare@Blind.On" Send="Create"/>
+        <On Terms="Behavior.ScientistOpticalFlare@Blind.Off" Send="Destroy"/>
         <On Terms="ActorCreation" Send="SetTintColor 64,64,64"/>
         <Host Subject="_Unit"/>
         <HostSiteOps Ops="SOpAttachHead"/>
@@ -4918,11 +4996,11 @@
         <Missile value="DefensiveTurretHellstormMissilePods@Missile"/>
         <ImpactMap index="None" Sound="DefensiveTurretHellstormMissilePods@Impact"/>
     </CActorAction>
-    <CActorModel id="MedicIrradiate@Model">
+    <CActorModel id="ScientistIrradiate@Model">
         <Inherits index="CloakEffect" value="1"/>
         <Inherits index="Visibility" value="1"/>
-        <On Terms="Behavior.MedicIrradiate.On" Send="Create"/>
-        <On Terms="Behavior.MedicIrradiate.Off" Send="Destroy"/>
+        <On Terms="Behavior.ScientistIrradiate.On" Send="Create"/>
+        <On Terms="Behavior.ScientistIrradiate.Off" Send="Destroy"/>
         <On Terms="ActorCreation" Send="$Stand PlayForever"/>
         <On Terms="ActorCreation" Send="SetTintColor 0,255,0"/>
         <On Terms="ActorCreation" Send="SetOpacity 0.750000"/>
@@ -4931,10 +5009,10 @@
         <HostSiteOps Ops="SOpAttachCenter"/>
         <Model value="IrradiateEffect"/>
     </CActorModel>
-    <CActorRange id="MedicIrradiate@Range" parent="RangeAbil" abil="MedicIrradiate"/>
-    <CActorAction id="MedicCorrosiveSpray@Attack" parent="GenericAttack" effectImpact="MedicCorrosiveSpray@Damage" effectLaunch="MedicCorrosiveSpray@LM">
-        <LaunchAssets Model="MedicCorrosiveSpray@Launch" Sound="Reaper_D8ChargeAttackLaunch"/>
-        <Missile value="MedicCorrosiveSpray@Missile"/>
+    <CActorRange id="ScientistIrradiate@Range" parent="RangeAbil" abil="ScientistIrradiate"/>
+    <CActorAction id="ScientistCorrosiveSpray@Attack" parent="GenericAttack" effectImpact="ScientistCorrosiveSpray@Damage" effectLaunch="ScientistCorrosiveSpray@LM">
+        <LaunchAssets Model="ScientistCorrosiveSpray@Launch" Sound="Reaper_D8ChargeAttackLaunch"/>
+        <Missile value="ScientistCorrosiveSpray@Missile"/>
         <ImpactMap index="None" Sound="Probe_AttackImpact"/>
         <ImpactPhysics Name="InfestedStukovAttackImpact" MatchKeys="Basic" Physics="InfestedStukovAttackDeathForce"/>
     </CActorAction>
@@ -4944,36 +5022,32 @@
         <On Terms="Behavior.MedicRestorativeBurst.Off" Target="_Unit" Send="ClearTintColor 0.000000 MedicRestorativeBurst"/>
         <On Terms="Behavior.MedicRestorativeBurst.Off" Send="Destroy"/>
     </CActorSimple>
-    <CActorRange id="MedicHealingBeam@Range" parent="RangeAbil" abil="MedicHealingBeam">
-        <On Terms="Behavior.MedicHealingBeam@Channeling.On" Send="Create"/>
-        <On Terms="Behavior.MedicHealingBeam@Channeling.Off" Send="Destroy"/>
-        <On Terms="ActorCreation" Send="SetTintColor 0,255,0"/>
-    </CActorRange>
-    <CActorModel id="MedicHealingBeam@ModelImpact" parent="ModelAnimationStyleContinuous">
+    <CActorRange id="ScientistHealingBeam@Range" parent="RangeAbil" abil="ScientistHealingBeam"/>
+    <CActorModel id="ScientistHealingBeam@ModelImpact" parent="ModelAnimationStyleContinuous">
         <On Terms="ActorCreation" Send="$Birth PlayForever"/>
-        <On Terms="Effect.MedicHealingBeam@MUTarget.TargetStart; At Target" Send="Create"/>
-        <On Terms="Effect.MedicHealingBeam@MUTarget.TargetStop; At Target" Send="Destroy"/>
+        <On Terms="Effect.ScientistHealingBeam@MUTarget.TargetStart; At Target" Send="Create"/>
+        <On Terms="Effect.ScientistHealingBeam@MUTarget.TargetStop; At Target" Send="Destroy"/>
         <On Terms="ActorOrphan" Send="Destroy"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOverhead"/>
         <Model value="MedicHealModel"/>
     </CActorModel>
-    <CActorSound id="CRPGMedic@SoundDeath1234" parent="SoundOneShot">
-        <On Terms="UnitDeath.CRPGMedic; ValidateUnit CasterIsLevel1" Send="Create"/>
-        <On Terms="UnitDeath.CRPGMedic; ValidateUnit CasterIsLevel2" Send="Create"/>
-        <On Terms="UnitDeath.CRPGMedic; ValidateUnit CasterIsLevel3" Send="Create"/>
-        <On Terms="UnitDeath.CRPGMedic; ValidateUnit CasterIsLevel4" Send="Create"/>
+    <CActorSound id="CRPGScientist@SoundDeath1234" parent="SoundOneShot">
+        <On Terms="UnitDeath.CRPGScientist; ValidateUnit CasterIsLevel1" Send="Create"/>
+        <On Terms="UnitDeath.CRPGScientist; ValidateUnit CasterIsLevel2" Send="Create"/>
+        <On Terms="UnitDeath.CRPGScientist; ValidateUnit CasterIsLevel3" Send="Create"/>
+        <On Terms="UnitDeath.CRPGScientist; ValidateUnit CasterIsLevel4" Send="Create"/>
         <Sound value="Medic_Death"/>
     </CActorSound>
-    <CActorUnit id="MedicMedivac" parent="Medivac" unitName="MedicMedivac">
-        <On index="0" Terms="UnitBirth.MedicMedivac"/>
-        <On index="1" Terms="UnitBirth.MedicMedivac"/>
-        <On index="2" Terms="UnitRevive.MedicMedivac"/>
-        <On index="3" Terms="UnitRevive.MedicMedivac"/>
-        <On index="4" Terms="UnitConstruction.MedicMedivac.Start"/>
-        <On index="5" Terms="UnitConstruction.MedicMedivac.Finish"/>
+    <CActorUnit id="CRPGMedivac" parent="Medivac" unitName="CRPGMedivac">
+        <On index="0" Terms="UnitBirth.CRPGMedivac"/>
+        <On index="1" Terms="UnitBirth.CRPGMedivac"/>
+        <On index="2" Terms="UnitRevive.CRPGMedivac"/>
+        <On index="3" Terms="UnitRevive.CRPGMedivac"/>
+        <On index="4" Terms="UnitConstruction.CRPGMedivac.Start"/>
+        <On index="5" Terms="UnitConstruction.CRPGMedivac.Finish"/>
         <On index="71" Terms="AbilTransport.MedicMedivacTransport.TransportLoad; AbilTransport Thor"/>
-        <HighlightTooltip value="Unit/Name/MedicMedivac"/>
+        <HighlightTooltip value="Unit/Name/CRPGMedivac"/>
     </CActorUnit>
     <CActorMissile id="DefensiveTurretLongboltMissile@Missile" parent="GenericAttackMissile" unitName="DefensiveTurretLongboltMissile@Weapon">
         <On Terms="ActorCreation" Send="AnimPlay Phase1 Stand PlayForever"/>
@@ -5196,11 +5270,11 @@
     <CActorSplat id="CRPGFortress@Splat" parent="TerranBuildingMorphSplat" unitName="CRPGFortress">
         <Model value="PlanetaryFortressSplat"/>
     </CActorSplat>
-    <CActorMissile id="MedicCorrosiveSpray@Missile" parent="GenericAttackMissile" unitName="MedicCorrosiveSpray@Weapon">
-        <Model value="MedicCorrosiveSpray@Missile"/>
+    <CActorMissile id="ScientistCorrosiveSpray@Missile" parent="GenericAttackMissile" unitName="ScientistCorrosiveSpray@Weapon">
+        <Model value="ScientistCorrosiveSpray@Missile"/>
     </CActorMissile>
-    <CActorSound id="MedicIrradiate@SoundImpact" parent="SoundOneShot">
-        <On Terms="Behavior.MedicIrradiate.On" Send="Create"/>
+    <CActorSound id="ScientistIrradiate@SoundImpact" parent="SoundOneShot">
+        <On Terms="Behavior.ScientistIrradiate.On" Send="Create"/>
         <Sound value="ScienceVessel_IrradiateImpact"/>
     </CActorSound>
     <CActorSound id="BossLockShieldSound" parent="SoundOneShot">
@@ -6576,6 +6650,24 @@
         <On Terms="Abil.JumperPhaseBlink.TargetCastStart; ValidateUnit CRPGAbilityUpgradeSecondary@Upgraded" Send="Create"/>
         <Sound value="DarkTemplar_BlinkCloud"/>
     </CActorSound>
+    <CActorModel id="VoidDetectorRadarModel_Detector6" parent="ModelAnimationStyleContinuous">
+        <Terms value="Cap 1"/>
+        <Inherits index="CloakEffect" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <On Terms="Behavior.VoidDetectorRadarDetected.On; ValidateUnit HasDetector6" Send="Create"/>
+        <On Terms="Behavior.VoidDetectorRadarDetected.Off" Send="Destroy"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+        <Model value="HeroDetectorRadarModel"/>
+    </CActorModel>
+    <CActorRange id="VoidDetectorRadarRange_Detector6">
+        <Terms value="Cap 1"/>
+        <Inherits index="CloakEffect" value="1"/>
+        <On Terms="Behavior.VoidDetectorRadarDetected.On; ValidateUnit HasDetector6" Send="Create"/>
+        <On Terms="Behavior.VoidDetectorRadarDetected.Off" Send="Destroy"/>
+        <Behavior value="Detector6"/>
+        <IconArcLength value="2.500000"/>
+    </CActorRange>
     <CActorModelMaterial id="WizardReanimateGlaze" parent="GlazeParent">
         <On Terms="Behavior.WizardReanimating.On" Send="Create"/>
         <On Terms="ActorCreation" Send="ModelMaterialApplyTo ::Main"/>
@@ -10067,14 +10159,15 @@
     </CActorSound>
     <CActorUnit id="AlienYagdra" parent="GenericUnitBase" unitName="AlienYagdra">
         <Aliases value="_UnitHuge"/>
-        <On Terms="Effect.AlienYagdraFireWaveCreatePersistent.Start" Send="TimerSet 1.000000 FireWaveDelay"/>
-        <On Terms="TimerExpired; TimerName FireWaveDelay" Send="AnimBracketStart SpellChannel Spell,Start Spell Spell,End"/>
-        <On Terms="WeaponStart.YagdraFirebreath2.AttackStart" Send="AnimBracketStart SpellChannel Spell,Start Spell Spell,End"/>
+        <On Terms="Abil.AlienYagdraFireWave.SourceChannelStart" Send="TimerSet 1.000000 FireWaveDelay"/>
+        <On Terms="TimerExpired; TimerName FireWaveDelay" Send="AnimBracketStart Channel Spell,Start Spell Spell,End"/>
+        <On Terms="Effect.AlienYagdraFireWaveCreatePersistent.Stop; At Caster" Target="YagdraFirebreathModelLaunch" Send="AnimBracketStop Channel"/>
+        <On Terms="Effect.AlienYagdraFireWaveCreatePersistent.Stop; At Caster" Send="TimerKill FireWaveDelay"/>
+        <On Terms="WeaponStart.YagdraFirebreath2.AttackStart" Send="AnimBracketStart Channel Spell,Start Spell Spell,End"/>
         <On Terms="WeaponStart.YagdraFirebreath2.AttackStart" Send="Create YagdraFirebreathModelLaunch"/>
-        <On Terms="Effect.YagdraFirebreathCreateGoverningPersistent2.Stop; At Caster" Target="YagdraFirebreathModelLaunch" Send="AnimBracketStop BSD"/>
-        <On Terms="Effect.YagdraFirebreathCreateGoverningPersistent2.Stop; At Caster" Send="AnimBracketStop Channel"/>
         <On Terms="ActorCreation" Send="Create YagdraBase"/>
-        <On Terms="Effect.AlienYagdraFireWaveCreatePersistent.Stop" Target="YagdraFirebreathModelLaunch" Send="AnimBracketStop SpellChannel"/>
+        <On Terms="WeaponStop.YagdraFirebreath2.AttackStop" Send="AnimBracketStop Channel"/>
+        <On Terms="WeaponStop.YagdraFirebreath2.AttackStop" Target="YagdraFirebreathModelLaunch" Send="Destroy"/>
         <Model value="Yagdra"/>
         <BuildModel value="NydusRumble"/>
         <DeathArray index="Normal" ModelLink="YagdraDeath" SoundLink="Yagdra_DeathMove" VoiceLink="Yagdra_VoxSnarl"/>

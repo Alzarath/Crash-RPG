@@ -142,13 +142,13 @@
         <Period value="1"/>
         <Effect value="MechHellfireMissiles@CP"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="MedicCorrosiveSpray">
+    <CWeaponLegacy id="ScientistCorrosiveSpray">
         <EditorCategories value="Race:Terran"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
-        <DisplayEffect value="MedicCorrosiveSpray@Damage"/>
+        <DisplayEffect value="ScientistCorrosiveSpray@Damage"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <Period value="1.2"/>
-        <Effect value="MedicCorrosiveSpray@LM"/>
+        <Effect value="ScientistCorrosiveSpray@LM"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="MarineC14GaussRifle">
         <EditorCategories value="Race:Terran"/>
@@ -237,6 +237,17 @@
         <Range value="6"/>
         <Period value="1.44"/>
         <Effect value="ApparitionParticleDisruptors@SetLaunch"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PredatorDroneRoboticClaws">
+        <EditorCategories value="Race:Terran"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\BTN-Upgrade-Terran-VehicleWeaponsLevel0.dds"/>
+        <DisplayEffect value="PredatorDroneRoboticClaws@Damage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DamagePoint value="0.15"/>
+        <Effect value="PredatorDroneRoboticClaws@Set"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ShooterGaussRifle">
         <EditorCategories value="Race:Terran"/>

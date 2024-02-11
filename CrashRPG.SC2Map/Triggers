@@ -4714,7 +4714,7 @@
     </Element>
     <Element Type="Param" Id="A946154D">
         <ParameterDef Type="ParamDef" Library="Ntve" Id="00000220"/>
-        <Value>CRPGMedic</Value>
+        <Value>CRPGScientist</Value>
         <ValueType Type="gamelink"/>
         <ValueGameType Type="Unit"/>
     </Element>
@@ -10950,8 +10950,8 @@
         <Item Type="Variable" Id="0B6862FC"/>
         <Item Type="Variable" Id="B16D2746"/>
         <Item Type="Variable" Id="1DC6BCFD"/>
-        <Item Type="Variable" Id="AC3B0860"/>
         <Item Type="Variable" Id="09C97058"/>
+        <Item Type="Variable" Id="AC3B0860"/>
         <Item Type="Variable" Id="130C16E9"/>
         <Item Type="Variable" Id="6A68C7EA"/>
         <Item Type="Variable" Id="B4385605"/>
@@ -11081,17 +11081,6 @@
         <Value>10</Value>
         <ValueType Type="int"/>
     </Element>
-    <Element Type="Variable" Id="AC3B0860">
-        <VariableType>
-            <Type Value="int"/>
-            <Constant/>
-        </VariableType>
-        <Value Type="Param" Id="D0F260D3"/>
-    </Element>
-    <Element Type="Param" Id="D0F260D3">
-        <Value>11</Value>
-        <ValueType Type="int"/>
-    </Element>
     <Element Type="Variable" Id="09C97058">
         <VariableType>
             <Type Value="int"/>
@@ -11101,6 +11090,17 @@
     </Element>
     <Element Type="Param" Id="C94B44A8">
         <Value>12</Value>
+        <ValueType Type="int"/>
+    </Element>
+    <Element Type="Variable" Id="AC3B0860">
+        <VariableType>
+            <Type Value="int"/>
+            <Constant/>
+        </VariableType>
+        <Value Type="Param" Id="D0F260D3"/>
+    </Element>
+    <Element Type="Param" Id="D0F260D3">
+        <Value>11</Value>
         <ValueType Type="int"/>
     </Element>
     <Element Type="Variable" Id="130C16E9">

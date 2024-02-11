@@ -733,16 +733,16 @@
             <ChangeFraction value="0.0375"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectModifyUnit id="MedicHealingBeam@MUCasterXP">
+    <CEffectModifyUnit id="ScientistHealingBeam@MUCasterXP">
         <ValidatorArray value="CasterNotMaxLevel"/>
         <EditorCategories value="Race:Terran"/>
         <ImpactUnit Value="Caster"/>
         <XP value="1.25"/>
     </CEffectModifyUnit>
-    <CEffectSet id="MedicHealingBeam@SetPeriod">
+    <CEffectSet id="ScientistHealingBeam@SetPeriod">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray value="MedicHealingBeam@SwitchHeal"/>
-        <EffectArray value="MedicHealingBeam@DummyDoneHealing"/>
+        <EffectArray value="ScientistHealingBeam@SwitchHeal"/>
+        <EffectArray value="ScientistHealingBeam@DummyDoneHealing"/>
     </CEffectSet>
     <CEffectLaunchMissile id="ApparitionParticleDisruptors@LM">
         <EditorCategories value="Race:Protoss"/>
@@ -786,6 +786,52 @@
         <CaseArray Validator="JumperLocalizedGravity@WillStun" Effect="JumperLocalizedGravity@SetStun"/>
         <CaseDefault value="JumperLocalizedGravity@ABPush"/>
     </CEffectSwitch>
+    <CEffectApplyBehavior id="ScientistPredatorDrone@ABRefundCharge">
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="ScientistPredatorDrone@RefundCharge"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="ScientistPredatorDrone@MURefundCharge">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactUnit Value="Caster"/>
+        <Cost Abil="ScientistPredatorDrone,0" ChargeCountUse="-1"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="ScientistPredatorDrone@SetCreate">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="ScientistPredatorDrone@ABRefundCharge"/>
+        <EffectArray value="CRPGGiveAttributesUnit"/>
+        <EffectArray value="KillsToCaster"/>
+    </CEffectSet>
+    <CEffectDamage id="PredatorDroneRoboticClaws@Damage">
+        <EditorCategories value="Race:Terran"/>
+        <ArmorReduction value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Melee"/>
+        <Amount value="5">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectDamage id="PredatorDroneRoboticClaws@DamageArea">
+        <EditorCategories value="Race:Terran"/>
+        <Kind value="Splash"/>
+        <Amount value="5">
+            <AccumulatorArray value="DamageAccumulatedValue"/>
+        </Amount>
+    </CEffectDamage>
+    <CEffectEnumArea id="PredatorDroneRoboticClaws@SA">
+        <ValidatorArray value="CRPGAbilityUpgradePassivePrimary@Upgraded"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.5" Effect="PredatorDroneRoboticClaws@DamageArea"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+    </CEffectEnumArea>
+    <CEffectSet id="PredatorDroneRoboticClaws@Set">
+        <EditorCategories value="Race:Terran"/>
+        <EffectArray value="PredatorDroneRoboticClaws@Damage"/>
+        <EffectArray value="PredatorDroneRoboticClaws@SA"/>
+    </CEffectSet>
     <CEffectDamage id="ShooterOverkill@DamageShotgun" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Kind value="Ranged"/>
@@ -879,29 +925,29 @@
         <Behavior value="MechExplosiveImmortality@Rebuilding"/>
         <WhichUnit Value="Source"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="MedicIrradiate@ABLinger">
+    <CEffectApplyBehavior id="ScientistIrradiate@ABLinger">
         <ValidatorArray index="0" value="CRPGAbilityUpgradeSecondary@Upgraded"/>
         <EditorCategories value="Race:Terran"/>
-        <Behavior value="MedicIrradiate@Linger"/>
+        <Behavior value="ScientistIrradiate@Linger"/>
     </CEffectApplyBehavior>
-    <CEffectCreatePersistent id="MedicIrradiate@CP">
+    <CEffectCreatePersistent id="ScientistIrradiate@CP">
         <EditorCategories value="Race:Terran"/>
         <PeriodCount value="10"/>
-        <PeriodicEffectArray value="MedicIrradiate@SA"/>
+        <PeriodicEffectArray value="ScientistIrradiate@SA"/>
         <PeriodicPeriodArray value="1"/>
         <ValidatorArray value="CRPGAbilityUpgradeSecondary@Upgraded"/>
     </CEffectCreatePersistent>
-    <CEffectDamage id="MedicIrradiate@DamageLinger">
+    <CEffectDamage id="ScientistIrradiate@DamageLinger">
         <EditorCategories value="Race:Terran"/>
         <ResponseFlags index="Flee" value="1"/>
         <Amount value="2.5">
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
-    <CEffectSet id="MedicIrradiate@SetSearch">
+    <CEffectSet id="ScientistIrradiate@SetSearch">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray value="MedicIrradiate@Damage"/>
-        <EffectArray value="MedicIrradiate@ABLinger"/>
+        <EffectArray value="ScientistIrradiate@Damage"/>
+        <EffectArray value="ScientistIrradiate@ABLinger"/>
     </CEffectSet>
     <CEffectModifyUnit id="PlasmaCanisterChargeHuge@MUAddCharge">
         <EditorCategories value="Race:Protoss"/>
@@ -1039,30 +1085,30 @@
             <AccumulatorArray value="InfestedInfestationSpore@OverLifeApplicator"/>
         </Count>
     </CEffectApplyBehavior>
-    <CEffectDamage id="MedicHealingBeam@Dummy">
+    <CEffectDamage id="ScientistHealingBeam@Dummy">
         <EditorCategories value="Race:Terran"/>
     </CEffectDamage>
-    <CEffectSet id="MedicHealingBeam@DummyDoneHealing">
-        <ValidatorArray value="MedicHealingBeam@DoneHealing"/>
+    <CEffectSet id="ScientistHealingBeam@DummyDoneHealing">
+        <ValidatorArray value="ScientistHealingBeam@DoneHealing"/>
         <EditorCategories value="Race:Terran"/>
     </CEffectSet>
-    <CEffectSet id="MedicHealingBeam@SetHeal">
-        <EffectArray value="MedicHealingBeam@MUTarget"/>
-        <EffectArray value="MedicHealingBeam@MUCasterEnergy"/>
-        <EffectArray value="MedicHealingBeam@MUCasterXP"/>
+    <CEffectSet id="ScientistHealingBeam@SetHeal">
+        <EffectArray value="ScientistHealingBeam@MUTarget"/>
+        <EffectArray value="ScientistHealingBeam@MUCasterEnergy"/>
+        <EffectArray value="ScientistHealingBeam@MUCasterXP"/>
     </CEffectSet>
-    <CEffectSwitch id="MedicHealingBeam@SwitchHeal">
+    <CEffectSwitch id="ScientistHealingBeam@SwitchHeal">
         <ValidatorArray value="NotFullLife"/>
-        <ValidatorArray value="MedicHealingBeam@EnergyNeeds"/>
+        <ValidatorArray value="ScientistHealingBeam@EnergyNeeds"/>
         <EditorCategories value="Race:Terran"/>
-        <CaseArray Validator="IsHeroic" Effect="MedicHealingBeam@SetHeal" FallThrough="1"/>
-        <CaseDefault value="MedicHealingBeam@SetHeal"/>
+        <CaseArray Validator="IsHeroic" Effect="ScientistHealingBeam@SetHeal" FallThrough="1"/>
+        <CaseDefault value="ScientistHealingBeam@SetHeal"/>
     </CEffectSwitch>
     <CEffectEnumArea id="MedivacHealingBeam@SA">
         <EditorCategories value="Race:Terran"/>
         <ImpactLocation Value="SourceUnit"/>
         <SearchFilters value="Visible;Self,Enemy,Air,Structure,Missile,UnderConstruction,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="6" Effect="MedicHealingBeam@CP"/>
+        <AreaArray Radius="6" Effect="ScientistHealingBeam@CP"/>
     </CEffectEnumArea>
     <CEffectSet id="PsionicProjectionDisruptorVolley@SetDestroy">
         <EditorCategories value="Race:Protoss"/>
@@ -2447,34 +2493,34 @@
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
-    <CEffectApplyBehavior id="MedicIrradiate@AB">
+    <CEffectApplyBehavior id="ScientistIrradiate@AB">
         <EditorCategories value="Race:Terran"/>
-        <Behavior value="MedicIrradiate"/>
+        <Behavior value="ScientistIrradiate"/>
     </CEffectApplyBehavior>
-    <CEffectDamage id="MedicIrradiate@Damage">
+    <CEffectDamage id="ScientistIrradiate@Damage">
         <EditorCategories value="Race:Terran"/>
         <ResponseFlags index="Flee" value="1"/>
         <Amount value="5">
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
-    <CEffectEnumArea id="MedicIrradiate@SA">
+    <CEffectEnumArea id="ScientistIrradiate@SA">
         <EditorCategories value="Race:Terran"/>
         <ResponseFlags index="Flee" value="1"/>
         <SearchFilters value="Biological;Player,Ally,Structure,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="1.5" Effect="MedicIrradiate@SetSearch"/>
+        <AreaArray Radius="1.5" Effect="ScientistIrradiate@SetSearch"/>
     </CEffectEnumArea>
-    <CEffectSet id="MedicIrradiate@Set">
+    <CEffectSet id="ScientistIrradiate@Set">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray value="MedicIrradiate@AB"/>
+        <EffectArray value="ScientistIrradiate@AB"/>
     </CEffectSet>
-    <CEffectLaunchMissile id="MedicCorrosiveSpray@LM">
+    <CEffectLaunchMissile id="ScientistCorrosiveSpray@LM">
         <EditorCategories value="Race:Terran"/>
-        <ImpactEffect value="MedicCorrosiveSpray@Damage"/>
-        <AmmoUnit value="MedicCorrosiveSpray@Weapon"/>
+        <ImpactEffect value="ScientistCorrosiveSpray@Damage"/>
+        <AmmoUnit value="ScientistCorrosiveSpray@Weapon"/>
         <Movers Link="MissileDefault"/>
     </CEffectLaunchMissile>
-    <CEffectDamage id="MedicCorrosiveSpray@Damage" parent="DU_WEAP">
+    <CEffectDamage id="ScientistCorrosiveSpray@Damage" parent="DU_WEAP">
         <EditorCategories value="Race:Terran"/>
         <Amount value="6">
             <AccumulatorArray value="DamageAccumulatedValue"/>
@@ -2503,84 +2549,84 @@
             <AccumulatorArray value="DamageAccumulatedValue"/>
         </Amount>
     </CEffectDamage>
-    <CEffectApplyBehavior id="MedicHealingBeam@AB">
+    <CEffectApplyBehavior id="ScientistHealingBeam@AB">
         <EditorCategories value="Race:Terran"/>
-        <Behavior value="MedicHealingBeam"/>
+        <Behavior value="ScientistHealingBeam"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="MedicHealingBeam@ABCaster">
+    <CEffectApplyBehavior id="ScientistHealingBeam@ABCaster">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Caster"/>
-        <Behavior value="MedicHealingBeam@Channeling"/>
+        <Behavior value="ScientistHealingBeam@Channeling"/>
     </CEffectApplyBehavior>
-    <CEffectModifyUnit id="MedicHealingBeam@MUCasterEnergy">
+    <CEffectModifyUnit id="ScientistHealingBeam@MUCasterEnergy">
         <EditorCategories value="Race:Terran"/>
         <ImpactUnit Value="Caster"/>
         <VitalArray index="Energy">
             <Change value="-0.625"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectApplyBehavior id="MedicSpawnMedivac@ABPrecursor">
+    <CEffectApplyBehavior id="ScientistSpawnMedivac@ABPrecursor">
         <EditorCategories value="Race:Terran"/>
-        <Behavior value="MedicSpawnMedivac@Precursor"/>
+        <Behavior value="ScientistSpawnMedivac@Precursor"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="MedicSpawnMedivac@ABTimedLife">
+    <CEffectApplyBehavior id="ScientistSpawnMedivac@ABTimedLife">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Source"/>
-        <Behavior value="MedicSpawnMedivac@TimedLife"/>
+        <Behavior value="ScientistSpawnMedivac@TimedLife"/>
     </CEffectApplyBehavior>
-    <CEffectCreateUnit id="MedicSpawnMedivac@CU">
+    <CEffectCreateUnit id="ScientistSpawnMedivac@CU">
         <EditorCategories value="Race:Terran"/>
         <CreateFlags index="NormalizeSpawnOffset" value="0"/>
-        <SpawnEffect value="MedicSpawnMedivac@Set"/>
-        <SpawnUnit value="MedicMedivac"/>
+        <SpawnEffect value="ScientistSpawnMedivac@Set"/>
+        <SpawnUnit value="CRPGMedivac"/>
         <SpawnOffset value="0,8"/>
     </CEffectCreateUnit>
-    <CEffectIssueOrder id="MedicSpawnMedivac@IO">
+    <CEffectIssueOrder id="ScientistSpawnMedivac@IO">
         <EditorCategories value="Race:Terran"/>
         <Abil value="move"/>
         <Target Value="CasterUnit"/>
     </CEffectIssueOrder>
-    <CEffectModifyUnit id="MedicSpawnMedivac@MURaise">
+    <CEffectModifyUnit id="ScientistSpawnMedivac@MURaise">
         <EditorCategories value="Race:Terran"/>
         <Height value="20"/>
     </CEffectModifyUnit>
-    <CEffectModifyUnit id="MedicSpawnMedivac@MULower">
+    <CEffectModifyUnit id="ScientistSpawnMedivac@MULower">
         <EditorCategories value="Race:Terran"/>
         <Height value="-20"/>
         <HeightTime value="3"/>
     </CEffectModifyUnit>
-    <CEffectSet id="MedicSpawnMedivac@Set">
+    <CEffectSet id="ScientistSpawnMedivac@Set">
         <EditorCategories value="Race:Terran"/>
         <EffectArray value="CRPGUnderlingLevel@SetApply"/>
-        <EffectArray value="MedicSpawnMedivac@MURaise"/>
-        <EffectArray value="MedicSpawnMedivac@IO"/>
-        <EffectArray value="MedicSpawnMedivac@MULower"/>
-        <EffectArray value="MedicSpawnMedivac@ABPrecursor"/>
+        <EffectArray value="ScientistSpawnMedivac@MURaise"/>
+        <EffectArray value="ScientistSpawnMedivac@IO"/>
+        <EffectArray value="ScientistSpawnMedivac@MULower"/>
+        <EffectArray value="ScientistSpawnMedivac@ABPrecursor"/>
     </CEffectSet>
-    <CEffectApplyBehavior id="MedicOpticalFlare@AB">
+    <CEffectApplyBehavior id="ScientistOpticalFlare@AB">
         <EditorCategories value="Race:Terran"/>
-        <Behavior value="MedicOpticalFlare@Blind"/>
+        <Behavior value="ScientistOpticalFlare@Blind"/>
     </CEffectApplyBehavior>
-    <CEffectApplyBehavior id="MedicSelfixArmor@AB">
+    <CEffectApplyBehavior id="ScientistSelfixArmor@AB">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Source"/>
-        <Behavior value="MedicSelfixArmor@Restoring"/>
+        <Behavior value="ScientistSelfixArmor@Restoring"/>
     </CEffectApplyBehavior>
-    <CEffectCreatePersistent id="MedicHealingBeam@CP">
-        <ValidatorArray value="MedicHealingBeam@CasterNotChannelingAtTarget"/>
+    <CEffectCreatePersistent id="ScientistHealingBeam@CP">
+        <ValidatorArray value="ScientistHealingBeam@CasterNotChannelingAtTarget"/>
         <EditorCategories value="Race:Terran"/>
         <Marker>
             <MatchFlags index="Link" value="1"/>
         </Marker>
         <WhichLocation Value="TargetUnit"/>
         <Flags index="PersistUntilDestroyed" value="1"/>
-        <InitialEffect value="MedicHealingBeam@SetAB"/>
-        <FinalEffect value="MedicHealingBeam@SetRB"/>
-        <PeriodicValidator value="MedicHealingBeam@CanChannel"/>
-        <PeriodicEffectArray value="MedicHealingBeam@SetPeriod"/>
+        <InitialEffect value="ScientistHealingBeam@SetAB"/>
+        <FinalEffect value="ScientistHealingBeam@SetRB"/>
+        <PeriodicValidator value="ScientistHealingBeam@CanChannel"/>
+        <PeriodicEffectArray value="ScientistHealingBeam@SetPeriod"/>
         <PeriodicPeriodArray value="0.125"/>
     </CEffectCreatePersistent>
-    <CEffectModifyUnit id="MedicSelfixArmor@MUHeal">
+    <CEffectModifyUnit id="ScientistSelfixArmor@MUHeal">
         <ValidatorArray value="noMarkers"/>
         <ValidatorArray value="NotWarpingIn"/>
         <ValidatorArray value="HiddenCompareAB"/>
@@ -2591,27 +2637,27 @@
             <Change value="1"/>
         </VitalArray>
     </CEffectModifyUnit>
-    <CEffectRemoveBehavior id="MedicHealingBeam@RB">
+    <CEffectRemoveBehavior id="ScientistHealingBeam@RB">
         <EditorCategories value="Race:Terran"/>
-        <BehaviorLink value="MedicHealingBeam"/>
+        <BehaviorLink value="ScientistHealingBeam"/>
         <RequireCasterUnit Value="Caster"/>
     </CEffectRemoveBehavior>
-    <CEffectRemoveBehavior id="MedicHealingBeam@RBCaster">
+    <CEffectRemoveBehavior id="ScientistHealingBeam@RBCaster">
         <EditorCategories value="Race:Terran"/>
         <WhichUnit Value="Caster"/>
-        <BehaviorLink value="MedicHealingBeam@Channeling"/>
+        <BehaviorLink value="ScientistHealingBeam@Channeling"/>
         <Count value="1"/>
     </CEffectRemoveBehavior>
-    <CEffectSet id="MedicHealingBeam@SetRB">
+    <CEffectSet id="ScientistHealingBeam@SetRB">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray value="MedicHealingBeam@RBCaster"/>
-        <EffectArray value="MedicHealingBeam@RB"/>
+        <EffectArray value="ScientistHealingBeam@RBCaster"/>
+        <EffectArray value="ScientistHealingBeam@RB"/>
     </CEffectSet>
-    <CEffectSet id="MedicHealingBeam@SetAB">
+    <CEffectSet id="ScientistHealingBeam@SetAB">
         <EditorCategories value="Race:Terran"/>
-        <EffectArray value="MedicHealingBeam@Dummy"/>
-        <EffectArray value="MedicHealingBeam@ABCaster"/>
-        <EffectArray value="MedicHealingBeam@AB"/>
+        <EffectArray value="ScientistHealingBeam@Dummy"/>
+        <EffectArray value="ScientistHealingBeam@ABCaster"/>
+        <EffectArray value="ScientistHealingBeam@AB"/>
     </CEffectSet>
     <CEffectApplyBehavior id="MedivacAfterburners@AB">
         <EditorCategories value="Race:Terran"/>
@@ -2637,11 +2683,11 @@
         <EditorCategories value="Race:Terran"/>
         <WhichPlayer Value="Origin"/>
     </CEffectModifyPlayer>
-    <CEffectEnumArea id="MedicOpticalFlare@SA">
+    <CEffectEnumArea id="ScientistOpticalFlare@SA">
         <EditorCategories value="Race:Terran"/>
         <ImpactLocation Value="CasterUnit"/>
         <SearchFilters value="Visible;Self,Player,Ally,Neutral,Structure,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="10" Effect="MedicOpticalFlare@AB"/>
+        <AreaArray Radius="10" Effect="ScientistOpticalFlare@AB"/>
     </CEffectEnumArea>
     <CEffectDamage id="ParasiteSporeDamage">
         <AttributeBonus index="Massive" value="0"/>
@@ -6224,7 +6270,7 @@
         <ExpireDelay value="0.75"/>
         <ExpireEffect value="YagdraFirebreathDamage2"/>
     </CEffectCreatePersistent>
-    <CEffectModifyUnit id="MedicHealingBeam@MUTarget">
+    <CEffectModifyUnit id="ScientistHealingBeam@MUTarget">
         <VitalArray index="Life">
             <Change value="1.25"/>
         </VitalArray>

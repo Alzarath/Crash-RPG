@@ -271,6 +271,9 @@
     <CValidatorUnitCompareBehaviorCount id="CrashedBCMedicalFacilities@NotRegeneratingShieldsUnaccumulated">
         <Behavior value="CrashedBCMedicalFacilities@ShieldRegenUnaccumulated"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorCombine id="DarkTemplarVoidStasis">
+        <CombineArray value="HasDetector6"/>
+    </CValidatorCombine>
     <CValidatorLocationCompareRange id="FighterViolentCharge@MaxDistance">
         <ResultFailed value="TargetIsOutOfRange"/>
         <WhichLocation Value="SourceUnit"/>
@@ -369,6 +372,16 @@
         <WhichUnit Value="Caster"/>
         <Compare value="GT"/>
         <Behavior value="CRPGDamageAttributeUnit"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <!--CValidatorUnitFilters id="HarvestableResources">-->
+    <!--        <ResultFailed value="MustTargetResources"/>-->
+    <!--    </CValidatorUnitFilters-->
+    <CValidatorCombine id="HasDetector">
+        <CombineArray value="HasDetector6"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareBehaviorCount id="HasDetector6">
+        <Compare value="GT"/>
+        <Behavior value="Detector6"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareChargeUsed id="HunterPlasmaDiffusion@CasterCharged">
         <ResultNoUnit value="MustTargetUnit"/>
@@ -592,9 +605,18 @@
         <CombineArray value="CRPGAbilityUpgradeTernary@NotUpgraded"/>
         <CombineArray value="NotFullLife"/>
     </CValidatorCombine>
-    <CValidatorUnitCompareMarkerCount id="MedicHealingBeam@HasMarker">
+    <CValidatorUnitCompareBehaviorCount id="ScientistHealingBeam@CasterHasOneChannelingStack">
+        <WhichUnit Value="Caster"/>
+        <Value value="1"/>
+        <Behavior value="ScientistHealingBeam@Channeling"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="ScientistHealingBeam@NotChanneling">
+        <WhichUnit Value="Caster"/>
+        <Behavior value="ScientistHealingBeam@Channeling"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareMarkerCount id="ScientistHealingBeam@HasMarker">
         <ResultFailed value="AlreadyTargeted"/>
-        <WhichUnit Effect="MedicHealingBeam@CP"/>
+        <WhichUnit Effect="ScientistHealingBeam@CP"/>
         <Compare value="GT"/>
     </CValidatorUnitCompareMarkerCount>
     <CValidatorUnitCompareVital id="SniperCanisterRifle@EnoughEnergy">
@@ -624,20 +646,20 @@
         <Type value="Maximum"/>
         <Value value="200"/>
     </CValidatorUnitCompareVital>
-    <CValidatorUnitType id="MedicHealingBeam@CasterIsMedivac">
+    <CValidatorUnitType id="ScientistHealingBeam@CasterIsMedivac">
         <WhichUnit Value="Caster"/>
-        <Value value="MedicMedivac"/>
+        <Value value="CRPGMedivac"/>
     </CValidatorUnitType>
-    <CValidatorCombine id="MedicHealingBeam@EnergyNeeds">
-        <CombineArray value="MedicHealingBeam@CasterIsMedivac"/>
+    <CValidatorCombine id="ScientistHealingBeam@EnergyNeeds">
+        <CombineArray value="ScientistHealingBeam@CasterIsMedivac"/>
         <CombineArray value="CasterHas0Dot3125Energy"/>
     </CValidatorCombine>
-    <CValidatorCombine id="MedicHealingBeam@EnergyNeedsNotMet">
+    <CValidatorCombine id="ScientistHealingBeam@EnergyNeedsNotMet">
         <Type value="And"/>
-        <CombineArray value="MedicHealingBeam@EnergyNeeds"/>
+        <CombineArray value="ScientistHealingBeam@EnergyNeeds"/>
         <Negate value="1"/>
     </CValidatorCombine>
-    <CValidatorCombine id="MedicHealingBeam@DoneHealing">
+    <CValidatorCombine id="ScientistHealingBeam@DoneHealing">
         <CombineArray value="TargetLifeFull"/>
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="PointDefenseDroneLaser@NotOnCooldownRepair">
@@ -663,10 +685,10 @@
         <CombineArray value="MedicNotChannelingHealingBeam"/>
         <CombineArray value="MedicNotExceedingHealingBeamTargets"/>
     </CValidatorCombine>
-    <CValidatorUnitCompareBehaviorCount id="MedicHealingBeam@Channeling">
+    <CValidatorUnitCompareBehaviorCount id="ScientistHealingBeam@Channeling">
         <WhichUnit Value="Caster"/>
         <Compare value="GT"/>
-        <Behavior value="MedicHealingBeam@Channeling"/>
+        <Behavior value="ScientistHealingBeam@Channeling"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorCombine id="MedicNotExceedingHealingBeamTargets">
         <Type value="And"/>
@@ -676,22 +698,22 @@
     <CValidatorCombine id="MedicCastHealingBeam">
         <Type value="And"/>
         <CombineArray value="MedicCastHealingBeamTargets"/>
-        <CombineArray value="MedicHealingBeam@CasterNotChannelingAtTarget"/>
+        <CombineArray value="ScientistHealingBeam@CasterNotChannelingAtTarget"/>
     </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="MedicNotChannelingHealingBeam">
         <WhichUnit Value="Caster"/>
         <Compare value="LT"/>
         <Value value="1"/>
-        <Behavior value="MedicHealingBeam@Channeling"/>
+        <Behavior value="ScientistHealingBeam@Channeling"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="MedicNotChannelingHealingBeam2">
         <WhichUnit Value="Caster"/>
         <Compare value="LT"/>
         <Value value="2"/>
-        <Behavior value="MedicHealingBeam@Channeling"/>
+        <Behavior value="ScientistHealingBeam@Channeling"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorUnitCompareBehaviorCount id="MedicHealingBeam@CasterNotChannelingAtTarget">
-        <Behavior value="MedicHealingBeam"/>
+    <CValidatorUnitCompareBehaviorCount id="ScientistHealingBeam@CasterNotChannelingAtTarget">
+        <Behavior value="ScientistHealingBeam"/>
         <RequireCasterUnit Value="Caster"/>
     </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitCompareBehaviorCount id="MedicHasProcyonTwinHealBeamGauntlet">
@@ -699,11 +721,11 @@
         <Compare value="GE"/>
         <Value value="1"/>
     </CValidatorUnitCompareBehaviorCount>
-    <CValidatorCombine id="MedicHealingBeam@CanChannel">
+    <CValidatorCombine id="ScientistHealingBeam@CanChannel">
         <Type value="And"/>
         <CombineArray value="CasterInRange6"/>
         <CombineArray value="TargetNotDeadAndCasterNotDead"/>
-        <CombineArray value="MedicHealingBeam@Channeling"/>
+        <CombineArray value="ScientistHealingBeam@Channeling"/>
     </CValidatorCombine>
     <CValidatorUnitCompareVital id="NomadTargetLTFullLife">
         <ResultFailed value="YouCantIssueCommandsToThatUnit"/>
@@ -1122,6 +1144,21 @@
         <Compare value="LE"/>
         <Behavior value="SniperToxicMunitions@Cooldown"/>
     </CValidatorUnitCompareBehaviorCount>
+    <CValidatorLocationCompareRange id="VorazunDetector6Range">
+        <ResultFailed value="TargetIsOutOfRange"/>
+        <WhichLocation Value="CasterUnit"/>
+        <Compare value="LE"/>
+        <Range value="6"/>
+        <Value Value="TargetPoint"/>
+    </CValidatorLocationCompareRange>
+    <CValidatorCombine id="VorazunDetector6RangeCombine">
+        <Type value="And"/>
+        <CombineArray value="VorazunDetector6Range"/>
+        <CombineArray value="HasDetector6"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="VorazunIsDetected">
+        <CombineArray value="VorazunDetector6RangeCombine"/>
+    </CValidatorCombine>
     <CValidatorUnitCompareBehaviorCount id="WizardCasterHasConfusionEnabler">
         <WhichUnit Value="Caster"/>
         <Value value="1"/>

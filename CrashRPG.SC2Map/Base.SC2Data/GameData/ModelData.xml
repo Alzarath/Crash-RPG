@@ -443,19 +443,19 @@
         <ScaleMax value="0.500000,0.500000,0.500000"/>
         <ScaleMin value="0.500000,0.500000,0.500000"/>
     </CModel>
-    <CModel id="MedicCorrosiveSpray@AttackImpact" parent="ImpactFX">
+    <CModel id="ScientistCorrosiveSpray@AttackImpact" parent="ImpactFX">
         <Model value="Assets\Effects\Zerg\Infested_Stukov_Missile_Impact\Infested_Stukov_Missile_Impact.m3"/>
         <Lighting value="StukovBossBlastAttackImpact"/>
         <ScaleMax value="0.200000,0.200000,0.200000"/>
         <ScaleMin value="0.200000,0.200000,0.200000"/>
     </CModel>
-    <CModel id="MedicCorrosiveSpray@Launch" parent="LaunchFX">
+    <CModel id="ScientistCorrosiveSpray@Launch" parent="LaunchFX">
         <Model value="Assets\Effects\Zerg\Infested_stukov_Missile_Launch\Infested_stukov_Missile_Launch.m3"/>
         <Lighting value="StukovBossBlastAttackLaunch"/>
         <ScaleMax value="0.200000,0.200000,0.200000"/>
         <ScaleMin value="0.200000,0.200000,0.200000"/>
     </CModel>
-    <CModel id="MedicCorrosiveSpray@Missile" parent="MissileFX">
+    <CModel id="ScientistCorrosiveSpray@Missile" parent="MissileFX">
         <Model value="Assets\Effects\Zerg\CorruptedMissile\CorruptedMissile.m3"/>
         <ScaleMax value="2.000000,2.000000,2.000000"/>
         <ScaleMin value="2.000000,2.000000,2.000000"/>

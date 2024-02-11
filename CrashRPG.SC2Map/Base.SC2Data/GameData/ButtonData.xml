@@ -550,78 +550,91 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="MechShockBlast"/>
     </CButton>
-    <CButton id="MedicHealingBeam@Learn">
+    <CButton id="ScientistHealingBeam@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicHealingBeam"/>
+        <HotkeyAlias value="ScientistHealingBeam"/>
     </CButton>
-    <CButton id="MedicHealingBeam@Upgraded">
+    <CButton id="ScientistHealingBeam@Upgraded">
         <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicHealingBeam"/>
+        <HotkeyAlias value="ScientistHealingBeam"/>
     </CButton>
-    <CButton id="MedicIrradiate@Upgraded">
+    <CButton id="ScientistPredatorDrone@Upgraded">
+        <Icon value="Assets\Textures\btn-research-zerg-predator.dds"/>
+        <AlertIcon value="Assets\Textures\btn-research-zerg-predator.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ScientistPredatorDrone"/>
+    </CButton>
+    <CButton id="ScientistIrradiate@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicIrradiate"/>
+        <HotkeyAlias value="ScientistIrradiate"/>
         <DefaultButtonLayout Row="2" Column="1"/>
     </CButton>
-    <CButton id="MedicIrradiate@Learn">
+    <CButton id="ScientistIrradiate@Learn">
         <Icon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicIrradiate"/>
+        <HotkeyAlias value="ScientistIrradiate"/>
     </CButton>
-    <CButton id="MedicOpticalFlare@Upgraded">
+    <CButton id="ScientistOpticalFlare@Upgraded">
         <Icon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicOpticalFlare"/>
+        <HotkeyAlias value="ScientistOpticalFlare"/>
         <DefaultButtonLayout Row="1"/>
     </CButton>
-    <CButton id="MedicOpticalFlare@Learn">
+    <CButton id="ScientistOpticalFlare@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicOpticalFlare"/>
+        <HotkeyAlias value="ScientistOpticalFlare"/>
     </CButton>
-    <CButton id="MedicSelfixArmor@Learn">
+    <CButton id="ScientistSelfixArmor@Learn">
         <Icon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
-        <HotkeyAlias value="MedicSelfixArmor"/>
+        <HotkeyAlias value="ScientistSelfixArmor"/>
         <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
-    <CButton id="MedicSelfixArmor@Upgraded">
+    <CButton id="ScientistSelfixArmor@Upgraded">
         <Icon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
         <EditorCategories value="Race:Terran"/>
         <TintRacially value="1"/>
-        <HotkeyAlias value="MedicSelfixArmor"/>
+        <HotkeyAlias value="ScientistSelfixArmor"/>
         <DefaultButtonLayout Row="1" Column="1"/>
     </CButton>
-    <CButton id="MedicSpawnMedivac@Learn">
+    <CButton id="ScientistSpawnMedivac@Learn">
         <Icon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicSpawnMedivac"/>
+        <HotkeyAlias value="ScientistSpawnMedivac"/>
         <DefaultButtonLayout Row="2" Column="2"/>
     </CButton>
-    <CButton id="MedicSpawnMedivac@Upgraded">
+    <CButton id="ScientistPredatorDrone@Learn">
+        <Icon value="Assets\Textures\btn-research-zerg-predator.dds"/>
+        <AlertIcon value="Assets\Textures\btn-research-zerg-predator.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="ScientistPredatorDrone"/>
+        <DefaultButtonLayout Row="1"/>
+    </CButton>
+    <CButton id="ScientistSpawnMedivac@Upgraded">
         <Icon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicSpawnMedivac"/>
+        <HotkeyAlias value="ScientistSpawnMedivac"/>
     </CButton>
     <CButton id="MedivacHealingBeam">
         <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <HotkeyAlias value="MedicHealingBeam"/>
+        <HotkeyAlias value="ScientistHealingBeam"/>
         <DefaultButtonLayout Row="2"/>
     </CButton>
     <CButton id="MedivacAfterburners">
@@ -672,6 +685,19 @@
         <EditorCategories value="Race:Terran"/>
         <HotkeyAlias value="JumperPredictiveBlink"/>
     </CButton>
+    <CButton id="ScientistPredatorDrone" parent="PassivePrimaryButton">
+        <Icon value="Assets\Textures\btn-research-zerg-predator.dds"/>
+        <AlertIcon value="Assets\Textures\btn-research-zerg-predator.dds"/>
+        <EditorCategories value="Race:Terran"/>
+    </CButton>
+    <CButton id="PredatorDroneRoboticClaws@AOE">
+        <Name value="Button/Name/RetributionField"/>
+        <Icon value="Assets\Textures\btn-ability-terran-emp-color.dds"/>
+        <AlertName value="Button/Name/RetributionField"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-emp-color.dds"/>
+        <EditorCategories value="Race:Terran"/>
+        <HotkeyAlias value="RetributionField"/>
+    </CButton>
     <CButton id="SniperBetterEquipment@Upgraded">
         <Icon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-nova-equipment-ghostvisor.dds"/>
@@ -685,7 +711,7 @@
         <HotkeyAlias value="SniperBetterEquipment"/>
         <DefaultButtonLayout Row="1"/>
     </CButton>
-    <CButton id="MedicHealingBeam@Cancel" parent="Cancel">
+    <CButton id="ScientistHealingBeam@Cancel" parent="Cancel">
         <DefaultButtonLayout Row="2" Column="4"/>
     </CButton>
     <CButton id="SniperNuclearStrike@Upgraded">
@@ -846,23 +872,23 @@
         <TintRacially value="1"/>
         <HotkeyAlias value="InfestedHardenedEquipment"/>
     </CButton>
-    <CButton id="MedicIrradiate" parent="ActiveSecondaryButton">
+    <CButton id="ScientistIrradiate" parent="ActiveSecondaryButton">
         <Icon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-swann-irradiate.dds"/>
         <EditorCategories value="Race:Terran"/>
-        <TooltipAppender index="1" Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/MedicIrradiate@UpgradedAccumulated"/>
+        <TooltipAppender index="1" Validator="CRPGAbilityUpgradeSecondary@Upgraded" Text="Button/Tooltip/ScientistIrradiate@UpgradedAccumulated"/>
     </CButton>
-    <CButton id="MedicHealingBeam" parent="ActivePrimaryButton">
+    <CButton id="ScientistHealingBeam" parent="ActivePrimaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="MedicSpawnMedivac" parent="ActiveTernaryButton">
+    <CButton id="ScientistSpawnMedivac" parent="ActiveTernaryButton">
         <Icon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-medivac.dds"/>
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="MedicOpticalFlare" parent="PassivePrimaryButton">
+    <CButton id="ScientistOpticalFlare" parent="PassivePrimaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-optical-flare.dds"/>
         <EditorCategories value="Race:Terran"/>
@@ -870,7 +896,7 @@
     <CButton id="MedicRestoration">
         <EditorCategories value="Race:Terran"/>
     </CButton>
-    <CButton id="MedicSelfixArmor" parent="PassiveSecondaryButton">
+    <CButton id="ScientistSelfixArmor" parent="PassiveSecondaryButton">
         <Icon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-selfixarmor.dds"/>
         <EditorCategories value="Race:Terran"/>

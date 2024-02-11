@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CRequirementAnd id="AndCountAbilCRPGPassive1DummyCompleteOnlyAtUnitGTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggQueuedOrBetterMulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter22">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
         <OperandArray value="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggQueuedOrBetterMulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter22"/>
     </CRequirementAnd>
@@ -31,6 +30,11 @@
     </CRequirementAnd>
     <CRequirementAnd id="AndLT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2CountAbilCRPGPassive1DummyCompleteOnlyAtUnit">
         <OperandArray value="LT3346689797CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit2"/>
+        <OperandArray value="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndNot3346689797CountUnitCRPGPredatorDroneQueuedOrBetterAtUnitCountAbilCRPGPassive1DummyCompleteOnlyAtUnit">
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <OperandArray value="Not3346689797CountUnitCRPGPredatorDroneQueuedOrBetterAtUnit"/>
         <OperandArray value="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
     </CRequirementAnd>
     <CRequirementCountAbil id="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit">
@@ -75,17 +79,14 @@
     </CRequirementCountAbil>
     <CRequirementCountAbil id="CountAbilJumperPhaseBlinkCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="JumperPhaseBlink" State="CompleteOnlyAtUnit"/>
     </CRequirementCountAbil>
     <CRequirementCountAbil id="CountAbilJumperPredictiveBlinkCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="JumperPredictiveBlink" State="CompleteOnlyAtUnit"/>
     </CRequirementCountAbil>
     <CRequirementCountAbil id="CountAbilJumperSlayerBlinkCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="JumperSlayerBlink" State="CompleteOnlyAtUnit"/>
     </CRequirementCountAbil>
     <CRequirementCountBehavior id="CountBehaviorAlienAssaultGeneticsCompleteOnlyAtUnit">
@@ -176,9 +177,10 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="InfestedInfestationSpore@Buff" State="CompleteOnly"/>
     </CRequirementCountBehavior>
-    <CRequirementCountBehavior id="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit">
+    <CRequirementCountBehavior id="CountBehaviorScientistHealingBeam@ChannelingCompleteOnlyAtUnit">
         <Flags index="TechTreeCheat" value="0"/>
-        <Count Link="MedicHealingBeam@Channeling" State="CompleteOnlyAtUnit"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ScientistHealingBeam@Channeling" State="CompleteOnlyAtUnit"/>
     </CRequirementCountBehavior>
     <CRequirementCountBehavior id="CountBehaviorShooterLuckyShotProcCompleteOnlyAtUnit2621074661">
         <Flags index="TechTreeCheat" value="0"/>
@@ -220,6 +222,11 @@
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGNomad" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
+    <CRequirementCountUnit id="CountUnitCRPGPredatorDroneQueuedOrBetterAtUnit">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="CRPGPredatorDrone" State="QueuedOrBetterAtUnit"/>
+    </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitCRPGSwarmerLevel1QueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
         <Count Link="CRPGSwarmerLevel1" State="QueuedOrBetter"/>
@@ -258,7 +265,6 @@
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitInfestedInfestedEggQueuedOrBetter">
         <Flags index="TechTreeCheat" value="0"/>
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <Count Link="InfestedInfestedEgg" State="QueuedOrBetter"/>
     </CRequirementCountUnit>
     <CRequirementCountUnit id="CountUnitMechPointDefenseDroneQueuedOrBetterAtUnit">
@@ -462,7 +468,6 @@
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
     <CRequirementGTE id="GTESumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggQueuedOrBetterMulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter22">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray index="0" value="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggQueuedOrBetterMulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter2"/>
         <OperandArray index="1" value="2"/>
     </CRequirementGTE>
@@ -486,8 +491,8 @@
         <OperandArray index="0" value="CountUnitCRPGSwarmerLevel1QueuedOrBetterAtUnit"/>
         <OperandArray index="1" value="8"/>
     </CRequirementLT>
-    <CRequirementLT id="LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1">
-        <OperandArray index="0" value="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit"/>
+    <CRequirementLT id="LT3245403099CountBehaviorScientistHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1">
+        <OperandArray index="0" value="CountBehaviorScientistHealingBeam@ChannelingCompleteOnlyAtUnit"/>
         <OperandArray index="1" value="SumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1"/>
     </CRequirementLT>
     <CRequirementLT id="LT3328700988CountUpgradeArmoryUpgradeEnergy@UpgradeQueuedOrBetter100">
@@ -555,6 +560,9 @@
     </CRequirementNot>
     <CRequirementNot id="Not2817543238CountBehaviorBossLockQueuedOrBetterAtUnit">
         <OperandArray index="0" value="CountBehaviorBossLockQueuedOrBetterAtUnit"/>
+    </CRequirementNot>
+    <CRequirementNot id="Not3346689797CountUnitCRPGPredatorDroneQueuedOrBetterAtUnit">
+        <OperandArray index="0" value="CountUnitCRPGPredatorDroneQueuedOrBetterAtUnit"/>
     </CRequirementNot>
     <CRequirementNot id="Not361380870CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit">
         <OperandArray index="0" value="CountBehaviorVehicleLockOnDisableAttackCompleteOnlyAtUnit"/>
@@ -630,7 +638,6 @@
         <OperandArray value="MulCountUnitCRPGSwarmerLevel5QueuedOrBetter8"/>
     </CRequirementSum>
     <CRequirementSum id="SumCountUnitInfestedInfestedCivilianQueuedOrBetterCountUnitInfestedInfestedEggQueuedOrBetterMulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter2">
-        <Tooltip value="RequirementNode/Tooltip/##id##"/>
         <OperandArray value="CountUnitInfestedInfestedCivilianQueuedOrBetter"/>
         <OperandArray value="CountUnitInfestedInfestedEggQueuedOrBetter"/>
         <OperandArray value="MulCountUnitInfestedInfestedBunker@UprootedQueuedOrBetter2"/>

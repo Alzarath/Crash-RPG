@@ -334,14 +334,20 @@
         <CanBeSuppressed index="Use" value="0"/>
         <NodeArray index="Use" Link="LTCountUnitHunterPsionicProjectionQueuedOrBetterAtUnit2"/>
     </CRequirement>
-    <CRequirement id="MedicHealingBeam@Channeling">
+    <CRequirement id="ScientistPredatorDrone@TrainRequirements">
         <EditorCategories value="Race:Terran"/>
-        <NodeArray index="Use" Link="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit"/>
-        <NodeArray index="Show" Link="CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="AndNot3346689797CountUnitCRPGPredatorDroneQueuedOrBetterAtUnitCountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountAbilCRPGPassive1DummyCompleteOnlyAtUnit"/>
     </CRequirement>
-    <CRequirement id="MedicHealingBeam@NotExceedingHealingBeamTargets">
+    <CRequirement id="ScientistHealingBeam@Channeling">
         <EditorCategories value="Race:Terran"/>
-        <NodeArray index="Use" Link="LT3245403099CountBehaviorMedicHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1"/>
+        <NodeArray index="Use" Link="CountBehaviorScientistHealingBeam@ChannelingCompleteOnlyAtUnit"/>
+        <NodeArray index="Show" Link="CountBehaviorScientistHealingBeam@ChannelingCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="ScientistHealingBeam@NotExceedingHealingBeamTargets">
+        <EditorCategories value="Race:Terran"/>
+        <NodeArray index="Use" Link="LT3245403099CountBehaviorScientistHealingBeam@ChannelingCompleteOnlyAtUnitSumCountUpgradeCRPGAbilityUpgradePrimary@UpgradeCompleteOnly1"/>
     </CRequirement>
     <CRequirement id="SwarmerSwarm">
         <EditorCategories value="Race:Zerg,TechType:Ability"/>

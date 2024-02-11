@@ -24,16 +24,16 @@
         <EffectArray Reference="Validator,FighterViolentCharge@MaxDistance,Range" Value="1"/>
         <EffectArray Operation="Subtract" Reference="Behavior,FighterViolentCharge@Immunity,Duration" Value="2.000000"/>
         <EffectArray Reference="Actor,FighterViolentCharge@Range,Range" Value="1.000000"/>
-        <EffectArray Operation="Set" Reference="Behavior,MedicOpticalFlare,Modification.Detect" Value="10"/>
-        <EffectArray Reference="Behavior,MedicOpticalFlare@Blind,Modification.RangedWeaponRange" Value="-1"/>
-        <EffectArray Reference="Behavior,MedicOpticalFlare@Blind,Modification.SightBonus" Value="-2"/>
+        <EffectArray Operation="Set" Reference="Behavior,ScientistOpticalFlare,Modification.Detect" Value="10"/>
+        <EffectArray Reference="Behavior,ScientistOpticalFlare@Blind,Modification.RangedWeaponRange" Value="-1"/>
+        <EffectArray Reference="Behavior,ScientistOpticalFlare@Blind,Modification.SightBonus" Value="-2"/>
         <EffectArray Operation="Set" Reference="Effect,PointDefenseDroneLaser@SetAntiMissile,EffectArray[1]" Value="PointDefenseDroneLaser@ABCooldownAntiMissile"/>
         <EffectArray Operation="Set" Reference="Effect,PointDefenseDroneLaser@SetRepair,EffectArray[1]" Value="PointDefenseDroneLaser@ABCooldownRepair"/>
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGFighter"/>
         <AffectedUnitArray value="CRPGHunter"/>
         <AffectedUnitArray value="CRPGMech"/>
-        <AffectedUnitArray value="CRPGMedic"/>
+        <AffectedUnitArray value="CRPGScientist"/>
         <AffectedUnitArray value="CRPGShooter"/>
         <AffectedUnitArray value="CRPGSniper"/>
         <AffectedUnitArray value="MechPointDefenseDrone"/>
@@ -46,7 +46,7 @@
         <EffectArray Reference="Effect,AeroLaserArmaments@SA,AreaArray[0].Radius" Value="2"/>
         <EffectArray Operation="Set" Reference="Button,FighterResurgence,AlertTooltip" Value="Button/Tooltip/FighterResurgence@PostUpgrade"/>
         <EffectArray Operation="Set" Reference="Button,FighterResurgence,Tooltip" Value="Button/Tooltip/FighterResurgence@PostUpgrade"/>
-        <EffectArray Operation="Subtract" Reference="Behavior,MedicSelfixArmor@Restoring,DamageResponse.ModifyFraction" Value="0.2"/>
+        <EffectArray Operation="Subtract" Reference="Behavior,ScientistSelfixArmor@Restoring,DamageResponse.ModifyFraction" Value="0.2"/>
         <EffectArray Reference="Abil,AeroLaserArmaments@Dummy,Range[0]" Value="2"/>
         <EffectArray Reference="Validator,InfestedEmpathicRepercussion@InRange,Range" Value="3"/>
         <EffectArray Reference="Effect,InfestedMendingAura@SA,AreaArray[0].Radius" Value="3"/>
@@ -81,7 +81,7 @@
         <EditorCategories value="Race:Neutral,UpgradeType:SpellResearch"/>
         <AffectedUnitArray value="CRPGAero"/>
         <AffectedUnitArray value="CRPGFighter"/>
-        <AffectedUnitArray value="CRPGMedic"/>
+        <AffectedUnitArray value="CRPGScientist"/>
         <AffectedUnitArray value="CRPGShooter"/>
     </CUpgrade>
     <CUpgrade id="CRPGAbilityUpgradePrimary@Upgrade">
@@ -95,7 +95,7 @@
         <EffectArray Operation="Set" Reference="Button,FighterLightningDash,AlertTooltip" Value="Button/Tooltip/FighterLightningDash@PostUpgrade"/>
         <EffectArray Operation="Set" Reference="Button,FighterLightningDash,Tooltip" Value="Button/Tooltip/FighterLightningDash@PostUpgrade"/>
         <EffectArray Operation="Set" Reference="Effect,HunterScarabMine@CP,PeriodicOffsetArray[0]" Value="0.500000,0.000000,0.000000"/>
-        <EffectArray Reference="Effect,MedicHealingBeam@CP,PeriodicPeriodArray[0]" Value="-0.062500"/>
+        <EffectArray Reference="Effect,ScientistHealingBeam@CP,PeriodicPeriodArray[0]" Value="-0.062500"/>
         <EffectArray Reference="Abil,JumperPredictiveBlink,Cost[0].Charge.CountMax" Value="2"/>
         <EffectArray Reference="Abil,JumperPredictiveBlink,Cost[0].Charge.CountStart" Value="2"/>
         <EffectArray Operation="Set" Reference="Abil,JumperPredictiveBlink,Cost[0].Charge.HideCount" Value="0"/>

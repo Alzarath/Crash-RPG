@@ -422,6 +422,19 @@
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
     </CAbilEffectTarget>
+    <CAbilTrain id="ScientistPredatorDrone">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Activity value="UI/SpiderMineBuilding"/>
+        <Flags index="IgnoreUnitCost" value="1"/>
+        <Offset value="0,0"/>
+        <InfoArray index="Train1" Time="60" Effect="ScientistPredatorDrone@SetCreate">
+            <Charge CountMax="1" CountStart="1" CountUse="1"/>
+            <Button DefaultButtonFace="ScientistPredatorDrone" Requirements="ScientistPredatorDrone@TrainRequirements"/>
+            <Unit value="CRPGPredatorDrone"/>
+            <Flags index="AutoCast" value="1"/>
+            <Flags index="AutoCastOn" value="1"/>
+        </InfoArray>
+    </CAbilTrain>
     <CAbilEffectTarget id="PlasmaCanisterChargeLarge">
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
         <Effect index="0" value="PlasmaCanisterChargeLarge@Set"/>
@@ -703,10 +716,10 @@
         </CmdButtonArray>
         <Levels value="1"/>
     </CAbilEffectInstant>
-    <CAbilEffectTarget id="MedicIrradiate">
+    <CAbilEffectTarget id="ScientistIrradiate">
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Levels value="1"/>
-        <Effect index="0" value="MedicIrradiate@Set"/>
+        <Effect index="0" value="ScientistIrradiate@Set"/>
         <Flags index="AllowMovement" value="1"/>
         <Cost>
             <Vital index="Energy" value="50"/>
@@ -716,7 +729,7 @@
         <TargetFilters value="-;Structure,RawResource,HarvestableResource,Item,Dead,Hidden,Invulnerable"/>
         <Range value="9"/>
         <Arc value="360"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MedicIrradiate">
+        <CmdButtonArray index="Execute" DefaultButtonFace="ScientistIrradiate">
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
@@ -754,27 +767,27 @@
         </Cost>
         <CmdButtonArray index="Execute" DefaultButtonFace="AlienRapidRegeneration"/>
     </CAbilEffectInstant>
-    <CAbilEffectInstant id="MedicHealingBeam@Cancel">
+    <CAbilEffectInstant id="ScientistHealingBeam@Cancel">
         <Alignment value="Positive"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <Effect index="0" value="MedicHealingBeam@RBCaster"/>
+        <Effect index="0" value="ScientistHealingBeam@RBCaster"/>
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="Transient" value="1"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MedicHealingBeam@Cancel" Requirements="MedicHealingBeam@Channeling">
+        <CmdButtonArray index="Execute" DefaultButtonFace="ScientistHealingBeam@Cancel" Requirements="ScientistHealingBeam@Channeling">
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
     </CAbilEffectInstant>
-    <CAbilEffectInstant id="MedicSpawnMedivac">
+    <CAbilEffectInstant id="ScientistSpawnMedivac">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Levels value="1"/>
-        <Effect index="0" value="MedicSpawnMedivac@CU"/>
+        <Effect index="0" value="ScientistSpawnMedivac@CU"/>
         <Cost>
             <Vital index="Energy" value="125"/>
             <Cooldown TimeUse="180"/>
         </Cost>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MedicSpawnMedivac">
+        <CmdButtonArray index="Execute" DefaultButtonFace="ScientistSpawnMedivac">
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>
@@ -1771,6 +1784,17 @@
     <CAbilMorph id="OutpostDefensiveOutpostMorph" parent="UpgradeToPlanetaryFortress">
         <Name value="Abil/Name/OutpostDefensiveOutpostMorph"/>
     </CAbilMorph>
+    <CAbilQueue id="ScientistPredatorDrone@Queue">
+        <EditorCategories value="Race:Neutral,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="CancelLast">
+            <Flags index="IgnoreUser" value="1"/>
+        </CmdButtonArray>
+        <CmdButtonArray index="CancelSlot">
+            <Flags index="IgnoreUser" value="1"/>
+        </CmdButtonArray>
+        <QueueSize value="1"/>
+        <Flags index="Passive" value="1"/>
+    </CAbilQueue>
     <CAbilEffectTarget id="WizardPsionicOrb">
         <EditorCategories value="AbilityorEffectType:Units,Race:Protoss"/>
         <Effect index="0" value="WizardPsionicOrbInitialCreatePersistent"/>
@@ -2531,11 +2555,11 @@
         <CursorEffect value="WizardReanimateSearchArea"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="WizardReanimate"/>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="MedicHealingBeam">
+    <CAbilEffectTarget id="ScientistHealingBeam">
         <Alignment value="Positive"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Levels value="1"/>
-        <Effect index="0" value="MedicHealingBeam@CP"/>
+        <Effect index="0" value="ScientistHealingBeam@CP"/>
         <Flags index="AllowMovement" value="1"/>
         <Flags index="NoDeceleration" value="1"/>
         <Flags index="ReExecutable" value="1"/>
@@ -2560,7 +2584,7 @@
         <UseMarkerArray index="Approach" value="0"/>
         <UseMarkerArray index="Prep" value="0"/>
         <DefaultError value="RequiresHealTarget"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="MedicHealingBeam" Requirements="MedicHealingBeam@NotExceedingHealingBeamTargets">
+        <CmdButtonArray index="Execute" DefaultButtonFace="ScientistHealingBeam" Requirements="ScientistHealingBeam@NotExceedingHealingBeamTargets">
             <Flags index="UseDefaultButton" value="1"/>
             <Flags index="CreateDefaultButton" value="1"/>
         </CmdButtonArray>

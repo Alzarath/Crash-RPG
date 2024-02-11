@@ -59,6 +59,12 @@
     <CBehaviorVeterancy id="CRPGJumper@Veterancy" parent="CRPGHeroVeterancy">
         <Name value="Behavior/Name/CRPGJumper@Veterancy"/>
     </CBehaviorVeterancy>
+    <CBehaviorBuff id="Detector6" parent="Detector">
+        <Alignment value="Positive"/>
+        <InfoFlags index="Hidden" value="1"/>
+        <InfoIcon value="Assets\Textures\btn-status-detector.dds"/>
+        <Modification Detect="7"/>
+    </CBehaviorBuff>
     <CBehaviorBuff id="FenixAIChampionGlaze">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Protoss,AbilityorEffectType:Units"/>
@@ -155,8 +161,8 @@
     <CBehaviorVeterancy id="CRPGAero@Veterancy" parent="CRPGHeroVeterancy">
         <Name value="Behavior/Name/CRPGAero@Veterancy"/>
     </CBehaviorVeterancy>
-    <CBehaviorVeterancy id="CRPGMedic@Veterancy" parent="CRPGHeroVeterancy">
-        <Name value="Behavior/Name/CRPGMedic@Veterancy"/>
+    <CBehaviorVeterancy id="CRPGScientist@Veterancy" parent="CRPGHeroVeterancy">
+        <Name value="Behavior/Name/CRPGScientist@Veterancy"/>
     </CBehaviorVeterancy>
     <CBehaviorVeterancy id="CRPGShooter@Veterancy" parent="CRPGHeroVeterancy">
         <Name value="Behavior/Name/CRPGShooter@Veterancy"/>
@@ -320,15 +326,20 @@
             <WeaponDisableArray value="MechCannonBoth"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicIrradiate@Linger">
+    <CBehaviorBuff id="ScientistIrradiate@Linger">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\dissolveradial.dds"/>
         <BehaviorCategories index="User15" value="1"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="3"/>
         <Period value="1"/>
-        <PeriodicEffect value="MedicIrradiate@DamageLinger"/>
-        <FinalEffect value="MedicIrradiate@DamageLinger"/>
+        <PeriodicEffect value="ScientistIrradiate@DamageLinger"/>
+        <FinalEffect value="ScientistIrradiate@DamageLinger"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="ScientistPredatorDrone@RefundCharge">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <FinalEffect value="ScientistPredatorDrone@MURefundCharge"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="PointDefenseDroneLaser@CooldownRepair">
         <InfoFlags index="Hidden" value="1"/>
@@ -612,23 +623,23 @@
             <StateFlags index="Untargetable" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicIrradiate">
+    <CBehaviorBuff id="ScientistIrradiate">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-irradiate.dds"/>
         <EditorCategories value="AbilityorEffectType:Units,Race:Terran"/>
         <Duration value="30"/>
         <Period value="1"/>
-        <PeriodicEffect value="MedicIrradiate@SA"/>
+        <PeriodicEffect value="ScientistIrradiate@SA"/>
         <Modification>
-            <DeathResponse Chance="1" Effect="MedicIrradiate@CP"/>
+            <DeathResponse Chance="1" Effect="ScientistIrradiate@CP"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicHealingBeam@Channeling">
+    <CBehaviorBuff id="ScientistHealingBeam@Channeling">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <MaxStackCount value="65535"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicHealingBeam">
+    <CBehaviorBuff id="ScientistHealingBeam">
         <InfoIcon value="Assets\Textures\btn-techupgrade-terran-combatshield.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <MaxStackCount value="65535"/>
@@ -646,30 +657,30 @@
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicSpawnMedivac@Precursor">
+    <CBehaviorBuff id="ScientistSpawnMedivac@Precursor">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="3"/>
-        <FinalEffect value="MedicSpawnMedivac@ABTimedLife"/>
+        <FinalEffect value="ScientistSpawnMedivac@ABTimedLife"/>
         <Modification>
             <StateFlags index="Invulnerable" value="1"/>
             <StateFlags index="Uncommandable" value="1"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicSpawnMedivac@TimedLife" parent="TimedLife">
+    <CBehaviorBuff id="ScientistSpawnMedivac@TimedLife" parent="TimedLife">
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Duration value="60"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicOpticalFlare">
+    <CBehaviorBuff id="ScientistOpticalFlare">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
         <Period value="0.125"/>
-        <PeriodicEffect value="MedicOpticalFlare@SA"/>
+        <PeriodicEffect value="ScientistOpticalFlare@SA"/>
         <Modification SightBonus="1">
             <StateFlags index="SuppressUnitUseLineOfSight" value="1"/>
         </Modification>
         <DisableValidatorArray value="CRPGPassive1Learned"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicOpticalFlare@Blind">
+    <CBehaviorBuff id="ScientistOpticalFlare@Blind">
         <Alignment value="Negative"/>
         <InfoIcon value="Assets\Textures\btn-ability-zerg-blindingcloud.dds"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
@@ -682,21 +693,32 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicSelfixArmor">
+    <CBehaviorBuff id="ScientistSelfixArmor">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
-        <DisableValidatorArray value="CRPGPassive1Learned"/>
-        <DamageResponse Handled="MedicSelfixArmor@AB">
+        <DisableValidatorArray value="CRPGPassive2Learned"/>
+        <DamageResponse Handled="ScientistSelfixArmor@AB">
             <Chance value="1"/>
         </DamageResponse>
     </CBehaviorBuff>
-    <CBehaviorBuff id="MedicSelfixArmor@Restoring" parent="MedicHealingBeam">
-        <Name value="Behavior/Name/MedicSelfixArmor@Restoring"/>
+    <CBehaviorBuff id="ScientistSelfixArmor@Restoring" parent="ScientistHealingBeam">
+        <Name value="Behavior/Name/ScientistSelfixArmor@Restoring"/>
         <MaxStackCount value="1"/>
         <MaxStackCountPerCaster value="0"/>
         <Duration value="2"/>
         <Period value="0.25"/>
-        <PeriodicEffect value="MedicSelfixArmor@MUHeal"/>
+        <PeriodicEffect value="ScientistSelfixArmor@MUHeal"/>
+        <Tooltip value="Behavior/Tooltip/MedicHealingBeam"/>
+        <Cost>
+            <Charge Link="Behavior/MedicHealingBeam"/>
+            <Cooldown Link="Behavior/MedicHealingBeam"/>
+        </Cost>
+        <DamageResponse>
+            <Cost>
+                <Charge Link="Behavior/MedicHealingBeam"/>
+                <Cooldown Link="Behavior/MedicHealingBeam"/>
+            </Cost>
+        </DamageResponse>
     </CBehaviorBuff>
     <CBehaviorBuff id="MedivacAfterburners">
         <Alignment value="Positive"/>

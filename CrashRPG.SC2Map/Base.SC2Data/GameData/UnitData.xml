@@ -662,6 +662,74 @@
             <PositiveDamageRatio value="0.06"/>
         </ShieldArmorFormula>
     </CUnit>
+    <CUnit id="CRPGPredatorDrone">
+        <DeathRevealRadius value="3"/>
+        <ReviveType value=""/>
+        <Race value="Terr"/>
+        <Mob value="Campaign"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Locust" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
+        <Speed value="2.25"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="46"/>
+        <StationaryTurningRate value="1499.9414"/>
+        <TurningRate value="1499.9414"/>
+        <Sight value="6"/>
+        <CostCategory value="Army"/>
+        <RepairTime value="33.3332"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="30"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="Detector6"/>
+        <WeaponArray Link="PredatorDroneRoboticClaws"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
+            <LayoutButtons Face="PredatorDroneRoboticClaws@AOE" Type="Passive" Requirements="CRPGAbilityUpgradePassivePrimary@UpgradedUse" Row="2" Column="0"/>
+            <LayoutButtons Face="Detector" Type="Passive" Row="1" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0.625"/>
+        <InnerRadius value="0.5"/>
+        <CargoSize value="2"/>
+        <ScoreMake value="300"/>
+        <ScoreKill value="600"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="8"/>
+        <MinimapRadius value="0.625"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Campaign"/>
+        <TacticalAI value=""/>
+        <LeaderAlias value=""/>
+        <GlossaryCategory value="Unit/Category/TerranUnits"/>
+        <GlossaryPriority value="110"/>
+        <GlossaryStrongArray value="Zergling"/>
+        <GlossaryStrongArray value="Zealot"/>
+        <GlossaryStrongArray value="Marine"/>
+        <GlossaryWeakArray value="Roach"/>
+        <GlossaryWeakArray value="Immortal"/>
+        <GlossaryWeakArray value="Thor"/>
+        <HotkeyCategory value="Unit/Category/TerranStory"/>
+        <BuildTime value="60"/>
+    </CUnit>
     <CUnit id="RoachBurrowed">
         <Name value="Unit/Name/Alien"/>
         <KillResource index="Minerals" value="15"/>
@@ -1286,7 +1354,7 @@
         </ShieldArmorFormula>
         <KillResource index="Minerals" value="30"/>
     </CUnit>
-    <CUnit id="MedicMedivac">
+    <CUnit id="CRPGMedivac">
         <DeathRevealRadius value="3"/>
         <Race value="Terr"/>
         <Mob value="Multiplayer"/>
@@ -1362,7 +1430,7 @@
         </ShieldArmorFormula>
         <KillResource index="Minerals" value="30"/>
     </CUnit>
-    <CUnit id="MedicCorrosiveSpray@Weapon" parent="MISSILE_INVULNERABLE">
+    <CUnit id="ScientistCorrosiveSpray@Weapon" parent="MISSILE_INVULNERABLE">
         <Race value="Zerg"/>
         <Mover value="MissileDefault"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Campaign"/>
@@ -4190,7 +4258,7 @@
         <TauntDuration index="Cheer" value="5"/>
         <TauntDuration index="Dance" value="5"/>
     </CUnitHero>
-    <CUnitHero id="CRPGMedic" parent="CRPGHero" abil1="MedicHealingBeam" abil2="MedicIrradiate" abil3="MedicSpawnMedivac" psv1="MedicOpticalFlare" psv2="MedicSelfixArmor">
+    <CUnitHero id="CRPGScientist" parent="CRPGHero" abil1="ScientistHealingBeam" abil2="ScientistIrradiate" abil3="ScientistSpawnMedivac" psv1="ScientistPredatorDrone" psv2="ScientistSelfixArmor">
         <Race value="Terr"/>
         <PlaneArray index="Ground" value="1"/>
         <Attributes index="Light" value="1"/>
@@ -4200,7 +4268,7 @@
         <LifeArmorName value="Unit/LifeArmorName/TerranInfantryArmor"/>
         <Acceleration value="1000"/>
         <LateralAcceleration value="46.0625"/>
-        <WeaponArray Link="MedicCorrosiveSpray"/>
+        <WeaponArray Link="ScientistCorrosiveSpray"/>
         <Radius value="0.375"/>
         <InnerRadius value="0.375"/>
         <CargoSize value="2"/>
@@ -4213,6 +4281,13 @@
         <Collide index="Land9" value="1"/>
         <Collide index="Land11" value="1"/>
         <Collide index="Land16" value="1"/>
+        <BehaviorArray index="6" Link=""/>
+        <Name value="Unit/Name/Scientist"/>
+        <AbilArray Link="ScientistPredatorDrone"/>
+        <AbilArray Link="ScientistPredatorDrone@Queue"/>
+        <CardLayouts CardId="0003">
+            <LayoutButtons Face="ScientistPredatorDrone" Type="AbilCmd" AbilCmd="ScientistPredatorDrone,Train1" Row="0" Column="0"/>
+        </CardLayouts>
     </CUnitHero>
     <CUnitHero id="CRPGFighter" parent="CRPGHero" abil1="FighterLightningDash" abil2="FighterRapidStrikes" abil3="FighterAstralWind" psv1="FighterViolentCharge" psv2="FighterResurgence">
         <Race value="Prot"/>
